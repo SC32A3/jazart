@@ -7,7 +7,7 @@
 
 	<!-- 타입 별칭 설정 -->
 	<typeAliases>
-		<typeAlias type="global.sesoc.jazart.vo.Sample" alias="Sample" />
+		<typeAlias type="global.sesoc.jazart.vo.User" alias="User" />
 	</typeAliases>
 
 	<mappers>

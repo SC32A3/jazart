@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import global.sesoc.jazart.vo.Sample;
+import global.sesoc.jazart.vo.User;
 
 
 @Repository
@@ -19,21 +19,21 @@ public class SampleRepository {
 	
 	private static final Logger logger = LoggerFactory.getLogger(SampleRepository.class);
 	
-	public int regist(Sample comment){
+	public int regist(User user){
 		SampleMapper mapper = sqlSession.getMapper(SampleMapper.class);
 		int result = 0;
 		try {
-			result = mapper.insert(comment);
+			result = mapper.insert(user);
+			logger.info("등록 count=> "+result);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;
 	}
 	
-	public List<Sample> list(){
+	public List<User> list(){
 		SampleMapper mapper = sqlSession.getMapper(SampleMapper.class);
-		List<Sample> result = null;
+		List<User> result = null;
 		try {
 			result = mapper.list();
 		} catch (Exception e) {
@@ -55,7 +55,7 @@ public class SampleRepository {
 		return result;
 	}
 	
-	public int update(Sample comment){
+	public int update(User comment){
 		SampleMapper mapper = sqlSession.getMapper(SampleMapper.class);
 		int result = 0;
 		try {
