@@ -1,39 +1,25 @@
+
 /* Drop Tables */
 
+DROP TABLE boardreply CASCADE CONSTRAINTS;
+DROP TABLE board CASCADE CONSTRAINTS;
 DROP TABLE InstEdit CASCADE CONSTRAINTS;
+DROP TABLE Instrument_detail CASCADE CONSTRAINTS;
 DROP TABLE Instrument CASCADE CONSTRAINTS;
-DROP TABLE p_board CASCADE CONSTRAINTS;
-DROP TABLE p_like CASCADE CONSTRAINTS;
-DROP TABLE p_list CASCADE CONSTRAINTS;
-DROP TABLE p_reply CASCADE CONSTRAINTS;
-DROP TABLE Song_Edit CASCADE CONSTRAINTS;
-DROP TABLE user_Song CASCADE CONSTRAINTS;
-DROP TABLE p_songinfo CASCADE CONSTRAINTS;
-DROP TABLE p_user CASCADE CONSTRAINTS;
+DROP TABLE playlist CASCADE CONSTRAINTS;
+DROP TABLE SongEdit CASCADE CONSTRAINTS;
+DROP TABLE songlike CASCADE CONSTRAINTS;
+DROP TABLE songreply CASCADE CONSTRAINTS;
+DROP TABLE userlist CASCADE CONSTRAINTS;
+DROP TABLE songinfo CASCADE CONSTRAINTS;
+DROP TABLE userinfo CASCADE CONSTRAINTS;
+
+
+
 
 /* Create Tables */
 
-CREATE TABLE InstEdit
-(
-	Instrument varchar2(0) NOT NULL,
-	Inst_Key varchar2(0) NOT NULL,
-	Inst_Seq number NOT NULL,
-	Inst_Bpm number NOT NULL,
-	Inst_Beat varchar2(0) NOT NULL,
-	-- 곡일련번호
-	songnum number NOT NULL
-);
-
-
-CREATE TABLE Instrument
-(
-	Instrument varchar2(0) NOT NULL,
-	Inst_Type varchar2(0) NOT NULL,
-	Inst_Key varchar2(0) NOT NULL
-);
-
-
-CREATE TABLE p_board
+CREATE TABLE board
 (
 	-- 글번호
 	boardnum number NOT NULL,
@@ -50,29 +36,7 @@ CREATE TABLE p_board
 );
 
 
-CREATE TABLE p_like
-(
-	-- 아이디
-	like_nickname varchar2(30),
-	-- 좋아요시간
-	like_time date,
-	-- 곡일련번호
-	like_songnum number NOT NULL
-);
-
-
-CREATE TABLE p_list
-(
-	listnum number NOT NULL,
-	-- 유저아이디
-	list_user_id varchar2(30) NOT NULL,
-	-- 곡일련번호
-	list_songnum number NOT NULL,
-	PRIMARY KEY (listnum)
-);
-
-
-CREATE TABLE p_reply
+CREATE TABLE boardreply
 (
 	replynum number NOT NULL,
 	reply_nickname varchar2(30),
@@ -81,13 +45,69 @@ CREATE TABLE p_reply
 	-- 댓글작성일
 	reply_inputdate date DEFAULT sysdate,
 	reply_like number DEFAULT 0,
-	-- 곡일련번호
-	reply_songnum number NOT NULL,
+	-- 글번호
+	boardnum number NOT NULL,
 	PRIMARY KEY (replynum)
 );
 
 
-CREATE TABLE p_songinfo
+CREATE TABLE InstEdit
+(
+	inst_seq number NOT NULL,
+	-- 길이수정예정
+	Instrument varchar2(30) NOT NULL,
+	-- 길이수정예정
+	Inst_Key varchar2(30) NOT NULL,
+	Inst_Seq number NOT NULL,
+	-- 곡일련번호
+	songnum number NOT NULL,
+	listnum number NOT NULL,
+	PRIMARY KEY (inst_seq)
+);
+
+
+CREATE TABLE Instrument
+(
+	-- 길이수정예정
+	Instrument varchar2(30) NOT NULL,
+	-- 길이수정예정
+	Inst_Type varchar2(30) NOT NULL,
+	PRIMARY KEY (Instrument)
+);
+
+
+CREATE TABLE Instrument_detail
+(
+	-- 길이수정예정
+	Instrument varchar2(30) NOT NULL,
+	Inst_Key varchar2(20)
+);
+
+
+CREATE TABLE playlist
+(
+	-- 유저아이디
+	user_id varchar2(30) NOT NULL,
+	-- 곡일련번호
+	songnum number NOT NULL,
+	play_inputdate date DEFAULT SYSDATE
+);
+
+
+CREATE TABLE SongEdit
+(
+	mel_seq number NOT NULL,
+	-- 길이수정예정
+	Melody_Key varchar2(30) NOT NULL,
+	Song_Seq number NOT NULL,
+	-- 곡일련번호
+	songnum number NOT NULL,
+	listnum number NOT NULL,
+	PRIMARY KEY (mel_seq)
+);
+
+
+CREATE TABLE songinfo
 (
 	-- 곡일련번호
 	songnum number NOT NULL,
@@ -104,20 +124,51 @@ CREATE TABLE p_songinfo
 	song_inputdate date DEFAULT SYSDATE,
 	-- 곡추천수
 	song_like number DEFAULT 0,
+	-- 음악의 빠르기
+	-- 
+	bpm number(4),
+	-- 음악의 박자  ex) 3/4 , 6/8
+	Beat varchar2(10),
 	PRIMARY KEY (songnum)
 );
 
 
-CREATE TABLE p_user
+CREATE TABLE songlike
+(
+	like_seq number NOT NULL,
+	-- 아이디
+	like_nickname varchar2(30),
+	-- 좋아요시간
+	like_time date,
+	-- 곡일련번호
+	songnum number NOT NULL,
+	PRIMARY KEY (like_seq)
+);
+
+
+CREATE TABLE songreply
+(
+	replynum number NOT NULL,
+	reply_nickname varchar2(30),
+	-- 댓글내용
+	reply_text varchar2(300) NOT NULL,
+	-- 댓글작성일
+	reply_inputdate date DEFAULT sysdate,
+	reply_like number DEFAULT 0,
+	-- 곡일련번호
+	songnum number NOT NULL,
+	PRIMARY KEY (replynum)
+);
+
+
+CREATE TABLE userinfo
 (
 	-- 유저아이디
 	user_id varchar2(30) NOT NULL,
 	-- 비밀번호
-	user_pw number NOT NULL,
+	user_pw varchar2(30) NOT NULL,
 	-- 프로필사진
 	user_picture varchar2(30) NOT NULL,
-	-- 실제이름
-	user_name varchar2(20) NOT NULL,
 	-- 아티스트명
 	user_nickname varchar2(30) NOT NULL UNIQUE,
 	-- 전화번호
@@ -126,78 +177,99 @@ CREATE TABLE p_user
 	user_email varchar2(100) NOT NULL UNIQUE,
 	-- 자기소개
 	user_desc varchar2(2000),
-	-- 선호장르
-	user_genre varchar2(30),
 	PRIMARY KEY (user_id)
 );
 
 
-CREATE TABLE Song_Edit
+CREATE TABLE userlist
 (
-	Melody_Key varchar2(0) NOT NULL,
-	Song_Seq number NOT NULL,
-	Song_Bpm number NOT NULL,
-	Song_Beat number NOT NULL,
+	listnum number NOT NULL,
+	-- 유저아이디
+	user_id varchar2(30) NOT NULL,
 	-- 곡일련번호
-	songnum number NOT NULL
-);
-
-
-CREATE TABLE user_Song
-(
-	Inst_ID varchar2(0) NOT NULL,
-	Inst_File varchar2(0) NOT NULL,
-	Melody_ID varchar2(0) NOT NULL,
-	Melody_File varchar2(0) NOT NULL,
-	-- 곡일련번호
-	songnum number NOT NULL
+	songnum number NOT NULL,
+	-- 길이수정예정
+	Inst_file varchar2(30),
+	-- 길이수정예정
+	Melody_file varchar2(30),
+	PRIMARY KEY (listnum),
+	UNIQUE (user_id, songnum)
 );
 
 
 
 /* Create Foreign Keys */
 
+ALTER TABLE boardreply
+	ADD FOREIGN KEY (boardnum)
+	REFERENCES board (boardnum)
+;
+
+
+ALTER TABLE Instrument_detail
+	ADD FOREIGN KEY (Instrument)
+	REFERENCES Instrument (Instrument)
+;
+
+
 ALTER TABLE InstEdit
 	ADD FOREIGN KEY (songnum)
-	REFERENCES p_songinfo (songnum)
+	REFERENCES songinfo (songnum)
 ;
 
 
-ALTER TABLE p_like
-	ADD FOREIGN KEY (like_songnum)
-	REFERENCES p_songinfo (songnum)
-;
-
-
-ALTER TABLE p_list
-	ADD FOREIGN KEY (list_songnum)
-	REFERENCES p_songinfo (songnum)
-;
-
-
-ALTER TABLE p_reply
-	ADD FOREIGN KEY (reply_songnum)
-	REFERENCES p_songinfo (songnum)
-;
-
-
-ALTER TABLE Song_Edit
+ALTER TABLE playlist
 	ADD FOREIGN KEY (songnum)
-	REFERENCES p_songinfo (songnum)
+	REFERENCES songinfo (songnum)
 ;
 
 
-ALTER TABLE user_Song
+ALTER TABLE SongEdit
 	ADD FOREIGN KEY (songnum)
-	REFERENCES p_songinfo (songnum)
+	REFERENCES songinfo (songnum)
 ;
 
 
-ALTER TABLE p_list
-	ADD FOREIGN KEY (list_user_id)
-	REFERENCES p_user (user_id)
+ALTER TABLE songlike
+	ADD FOREIGN KEY (songnum)
+	REFERENCES songinfo (songnum)
 ;
 
+
+ALTER TABLE songreply
+	ADD FOREIGN KEY (songnum)
+	REFERENCES songinfo (songnum)
+;
+
+
+ALTER TABLE userlist
+	ADD FOREIGN KEY (songnum)
+	REFERENCES songinfo (songnum)
+;
+
+
+ALTER TABLE playlist
+	ADD FOREIGN KEY (user_id)
+	REFERENCES userinfo (user_id)
+;
+
+
+ALTER TABLE userlist
+	ADD FOREIGN KEY (user_id)
+	REFERENCES userinfo (user_id)
+;
+
+
+ALTER TABLE InstEdit
+	ADD FOREIGN KEY (listnum)
+	REFERENCES userlist (listnum)
+;
+
+
+ALTER TABLE SongEdit
+	ADD FOREIGN KEY (listnum)
+	REFERENCES userlist (listnum)
+;
 
 create sequence songinfo_seq;
 create sequence reply_seq;
@@ -247,3 +319,5 @@ select * from p_songinfo;
 select * from p_reply;
 select * from p_board;
 select * from p_like;
+
+
