@@ -2,11 +2,10 @@
     pageEncoding="UTF-8"%>
 <!doctype html>
 <html class="no-js" lang="en">
-    <head> 
-    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!-- <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-        <title>ONAIR2</title>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Jazart</title>
         <meta name="description" content="Radio station HTML template">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         
@@ -27,6 +26,7 @@
         <link rel="stylesheet" type="text/css" href="resources/components/soundmanager/templates/qtradio-player/css/flashblock.css" />
         <link rel="stylesheet" type="text/css" href="resources/components/soundmanager/templates/qtradio-player/css/qt-360player-volume.css" />
 
+        
         <!-- Main css file -->
         <link rel="stylesheet" href="resources/css/qt-main.css"><!-- INCLUDES THE CHOSEN FRAMEWORK VIA #IMPORT AND SASS -->
         
@@ -39,11 +39,11 @@
         <div class="qt-parentcontainer">
             <!-- QT MENUBAR TOP ================================ -->
             <div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
-               <ul>
+                <ul>
                     <li><a href="#"><i class="dripicons-chevron-right"></i>About US</a></li>
-                    <li><a href="#"><i class="dripicons-chevron-right"></i>Advertisement</a></li>
-                    <li><a href="page-contacts.html"><i class="dripicons-chevron-right"></i>Contacts</a></li>
-                    <li><a href="#"><i class="dripicons-chevron-right"></i>Privacy</a></li>
+                    <li><a href="#"><i class="dripicons-chevron-right"></i>Login</a></li>
+                    <li><a href="page-contacts.html"><i class="dripicons-chevron-right"></i>Join Us</a></li>
+                    <li><a href="#"><i class="dripicons-chevron-right"></i>Logout</a></li>
                     <li class="right"><a href="#"><i class="qticon-beatport qt-socialicon"></i></a></li>
                     <li class="right"><a href="#"><i class="qticon-facebook qt-socialicon"></i></a></li>
                     <li class="right"><a href="#"><i class="qticon-twitter qt-socialicon"></i></a></li>
@@ -55,18 +55,18 @@
             <nav class="qt-menubar nav-wrapper qt-content-primary ">
                 <!-- desktop menu  HIDDEN IN MOBILE AND TABLETS -->
                 <ul class="qt-desktopmenu hide-on-xl-and-down">
-                    <li class="qt-logo-link"><a href="./" class="brand-logo qt-logo-text">ONAIR<span>2</span></a></li>
-                    <li><a href="page-schedule.html">Schedule</a>
+                    <li class="qt-logo-link"><a href="./" class="brand-logo qt-logo-text">Jazar<span>t</span></a></li>
+                    <li><a href="page-schedule.html">Compose</a>
                         <ul>
                             <li><a href="page-schedule.html">Archive</a></li>
                             <li><a href="single-show.html">Single show page</a></li>
                         </ul>
                     </li>
-                    <li><a href="archive-podcast.html">Podcast</a>
+                    <li><a href="archive-podcast.html">Board</a>
                         <ul>
-                            <li><a href="archive-podcast.html">Archive</a></li>
-                            <li><a href="single-podcast.html">Single show page</a></li>
-                        </ul>
+						<li><a href="archive-podcast.html">Music Community</a></li>
+						<li><a href="single-podcast.html">Free Community</a></li>
+					</ul>
                     </li>
                     <li><a href="archive-members.html">Team</a>
                         <ul>
@@ -100,7 +100,7 @@
                 <!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
                 <ul class="qt-desktopmenu hide-on-xl-only ">
                     <li><a href="#" data-activates="qt-mobile-menu" class="button-collapse qt-menu-switch qt-btn qt-btn-primary qt-btn-m"><i class="dripicons-menu"></i></a></li>
-                    <li><a href="#!" class="brand-logo qt-logo-text">ONAIR2</a></li>
+                    <li><a href="#!" class="brand-logo qt-logo-text">Jazart</a></li>
                 </ul>
             </nav>
             <!-- mobile menu -->
@@ -177,7 +177,7 @@
                 <div class="qt-pageheader qt-negative">
                     <div class="qt-container">
                         <h1 class="qt-caption qt-spacer-s">
-                                Contact Us
+                                Login
                             </h1>
                         <ul class="qt-menu-social qt-spacer-s">
                             <li><a href="#"><i class="qticon-beatport"></i></a></li>
@@ -188,7 +188,7 @@
                         </ul>
                     </div>
                     <div class="qt-header-bg" data-bgimage="imagestemplate/full-1600-700.jpg">
-                        <img src="resources/imagestemplate/full-1600-700.jpg" alt="Featured image" width="690" height="302">
+                        <img src="imagestemplate/full-1600-700.jpg" alt="Featured image" width="690" height="302">
                     </div>
                 </div>
                 <!-- HEADER CONTACTS END ========================= -->
@@ -202,76 +202,37 @@
                                         <div class="qt-booking-form" data-100p-top="opacity:0;" data-80p-top="opacity:0;" data-30p-top="opacity:1;">
                                             <ul class="tabs">
                                                 <li class="tab col s4">
-                                                    <h5><a href="#form" class="active">Send a message</a></h5></li>
-                                                <li class="tab col s4">
-                                                    <h5><a href="#contacts">Contacts</a></h5></li>
-                                                <li class="tab col s4">
-                                                    <h5><a href="#map">Map</a></h5></li>
+                                                    <h5><a href="#form" class="active">Login</a></h5></li>
+                                           
                                             </ul>
                                             <div id="form" class="row">
-                                                <form class="col s12" method="post" action="join"> <!-- email_sender.php -->
+                                                <form class="col s12" method="post" action="email_sender.php">
                                                     <input type="hidden" name="antispam" value="x123">
-                                                    <h3 class="left-align qt-vertical-padding-m">Send a message using the form below</h3>
+                                                    <h3 class="left-align qt-vertical-padding-m">Welcome to jazart!</h3>
                                                     <div class="row">
                                                         <div class="input-field col s6">
-                                                            <input name="user_id" id="user_id" type="text" class="validate">
+                                                            <input name="userid" id="userid" type="text" class="validate">
                                                             <label>ID</label>
                                                         </div>
-                                                        <div class="input-field col s6">
-                                                            <input name="user_pw" id="user_pw" type="text" class="validate">
-                                                            <label>Password</label>
-                                                        </div>
+                                                       
                                                     </div>
                                                     <div class="row">
                                                         <div class="input-field col s6">
-                                                            <input name="user_name" id="user_name" type="text" class="validate">
-                                                            <label>Name</label>
+                                                            <input name="password" id="password" type="text" class="validate">
+                                                            <label>PASSOWORD</label>
                                                         </div>
-                                                        <div class="input-field col s6">
-                                                            <input name="user_nickname" id="user_nickname" type="text" class="validate">
-                                                            <label>Nickname</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="input-field col s12">
-                                                            <input name="user_phone" id="user_phone" type="text" class="validate">
-                                                            <label>Phone</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="input-field col s12">
-                                                            <input name="user_email" id="user_email" type="email" class="validate">
-                                                            <label>Email</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="input-field col s12">
-                                                           <p class="comment-form-comment">
-														    <textarea id="user_desc" placeholder="Comment *" name="user_desc" cols="45" aria-required="true"></textarea>
-														   </p>
-                                                        </div>
-                                                    </div>
+                                                    </div>    
                                                     <hr class="qt-spacer-s hide-on-med-and-up">
                                                     <div class="row">
                                                         <div class="input-field col s12">
                                                             <button class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light" type="submit" name="action">
-                                                                <span class="lnr lnr-rocket"></span> Submit
+                                                                <span class="lnr lnr-rocket"></span> Login
                                                             </button>
                                                         </div>
                                                     </div>
                                                 </form>
                                             </div>
-                                            <div id="contacts" class="row qt-contacts">
-                                                <div class="col s12">
-                                                    <h3 class="left-align qt-vertical-padding-m">Our contacts</h3>
-                                                    <p><i class="qt-bigicon dripicons-phone"></i><span>+44 443 53 2324</span></p>
-                                                    <p><i class="qt-bigicon dripicons-phone"></i><span>info@bookmenow.com</span></p>
-                                                    <p><i class="qt-bigicon dripicons-phone"></i><span>Road Avenue, California</span></p>
-                                                </div>
-                                            </div>
-                                            <div id="map" class="qt-map">
-                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2823.9899192531298!2d-123.04142404893491!3d44.94387287592946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54bfff0c89be210f%3A0x79aa007f04406672!2s295+Center+St+NE%2C+Salem%2C+OR+97301%2C+USA!5e0!3m2!1sen!2ses!4v1478257655617" width="600" height="450" style="border:0" allowfullscreen></iframe>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -284,7 +245,7 @@
             <div class="qt-footer qt-footerwidgets">
                 <div class="qt-section qt-footer-widgets qt-content-primary-light">
                     <div class="qt-container">
-                        <h2 class="qt-footer-logo"><a href="./" class="brand-logo qt-logo-text">ONAIR<span>2</span></a></h2>
+                        <h2 class="qt-footer-logo"><a href="./" class="brand-logo qt-logo-text">Jazar<span>T</span></a></h2>
                         <div class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
                             <div class="col s12 m3 l3">
                                 <div class="qt-widget">
@@ -352,7 +313,7 @@
                         </div>
                     </div>
                     <div class="qt-header-bg" data-bgimage="imagestemplate/full-1600-700.jpg">
-                        <img src="resources/imagestemplate/full-1600-700.jpg" alt="Featured image" width="690" height="302">
+                        <img src="imagestemplate/full-1600-700.jpg" alt="Featured image" width="690" height="302">
                     </div>
                 </div>
                 <div class="qt-footer-bottom qt-content-primary-dark">
@@ -409,8 +370,8 @@
                         <hr class="qt-inline-textdeco">
                     </div>
                 </div>
-                <div id="playerimage" class="qt-header-bg" data-bgimage="resources/imagestemplate/full-1600-700.jpg">
-                    <img src="resources/imagestemplate/full-1600-700.jpg" alt="Featured image" width="690" height="302">
+                <div id="playerimage" class="qt-header-bg" data-bgimage="imagestemplate/full-1600-700.jpg">
+                    <img src="imagestemplate/full-1600-700.jpg" alt="Featured image" width="690" height="302">
                 </div>
             </div>
             <!-- this is for xml radio feed -->
@@ -420,14 +381,14 @@
             <div class="qt-part-channels-list">
                 <ul class="qt-content-aside qt-channelslist qt-negative">
                     <li class="qt-channel">
-                        <a href="#!" class="qt-ellipsis" data-title="06AM Ibiza" data-subtitle="Underground Radio" data-background="resources/imagestemplate/photo-squared-500-500.jpg" data-logo="imagestemplate/radio-logo.png" data-playtrack="http://173.192.105.231:3540/stream.mp3" data-host="173.192.105.231" data-port="3540" data-stats_path="" data-played_path="" data-channel="">
-                            <img src="resources/imagestemplate/radio-logo.png" alt="logo" class="qt-radiologo dripicons-media-play" width="80" height="80">
+                        <a href="#!" class="qt-ellipsis" data-title="06AM Ibiza" data-subtitle="Underground Radio" data-background="imagestemplate/photo-squared-500-500.jpg" data-logo="imagestemplate/radio-logo.png" data-playtrack="http://173.192.105.231:3540/stream.mp3" data-host="173.192.105.231" data-port="3540" data-stats_path="" data-played_path="" data-channel="">
+                            <img src="imagestemplate/radio-logo.png" alt="logo" class="qt-radiologo dripicons-media-play" width="80" height="80">
                             <i class="dripicons-media-play"></i> Station 1
                         </a>
                     </li>
                     <li class="qt-channel">
-                        <a href="#!" class="qt-ellipsis" data-title="altradio" data-subtitle="The subtitle of radio 2" data-background="resources/imagestemplate/large-1170-512.jpg" data-logo="imagestemplate/radio-logo.png" data-playtrack="http://82.77.137.30:8557/;listen.mp3" data-host="82.77.137.30" data-port="8557" data-stats_path="" data-played_path="" data-channel="">
-                            <img src="resources/imagestemplate/radio-logo.png" alt="logo" class="qt-radiologo" width="80" height="80">
+                        <a href="#!" class="qt-ellipsis" data-title="altradio" data-subtitle="The subtitle of radio 2" data-background="imagestemplate/large-1170-512.jpg" data-logo="imagestemplate/radio-logo.png" data-playtrack="http://82.77.137.30:8557/;listen.mp3" data-host="82.77.137.30" data-port="8557" data-stats_path="" data-played_path="" data-channel="">
+                            <img src="imagestemplate/radio-logo.png" alt="logo" class="qt-radiologo" width="80" height="80">
                             <i class="dripicons-media-play"></i> altradio
                         </a>
                     </li>

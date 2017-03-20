@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>ONAIR2</title>
+		<title>Jazart</title>
 		<meta name="description" content="Radio station HTML template">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		
@@ -41,9 +41,9 @@
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
 			<ul>
 				<li><a href="#"><i class="dripicons-chevron-right"></i>About US</a></li>
-				<li><a href="#"><i class="dripicons-chevron-right"></i>Join</a></li>
-				<li><a href="page-contacts.html"><i class="dripicons-chevron-right"></i>Join Us</a></li>
-				<li><a href="#"><i class="dripicons-chevron-right"></i>Logout</a></li>
+				<li><a href="login"><i class="dripicons-chevron-right"></i>Login</a></li>
+				<li><a href="join"><i class="dripicons-chevron-right"></i>Join Us</a></li>
+				<li><a href="#"><i class="dripicons-chevron-right"></i>logout</a></li>
 				<li class="right"><a href="#"><i class="qticon-beatport qt-socialicon"></i></a></li>
 				<li class="right"><a href="#"><i class="qticon-facebook qt-socialicon"></i></a></li>
 				<li class="right"><a href="#"><i class="qticon-twitter qt-socialicon"></i></a></li>
@@ -55,17 +55,17 @@
 		<nav class="qt-menubar nav-wrapper qt-content-primary ">
 			<!-- desktop menu  HIDDEN IN MOBILE AND TABLETS -->
 			<ul class="qt-desktopmenu hide-on-xl-and-down">
-				<li class="qt-logo-link"><a href="./" class="brand-logo qt-logo-text">ZAZAR<span>T</span></a></li>
-				<li><a href="page-schedule.html">compose chart</a>
+				<li class="qt-logo-link"><a href="./" class="brand-logo qt-logo-text">jazar<span>t</span></a></li>
+				<li><a href="page-schedule.html">Compose</a>
 					<ul>
-						<li><a href="page-schedule.html">Archive</a></li>
-						<li><a href="single-show.html">Single show page</a></li>
+						<li><a href="page-schedule.html">Time Chart</a></li>
+						<li><a href="single-show.html">Week Chart</a></li>
 					</ul>
 				</li>
 				<li><a href="archive-podcast.html">Board</a>
 					<ul>
-						<li><a href="archive-podcast.html">Archive</a></li>
-						<li><a href="single-podcast.html">Single show page</a></li>
+						<li><a href="archive-podcast.html">Music Library</a></li>
+						<li><a href="single-podcast.html">Free Community</a></li>
 					</ul>
 				</li>
 				<li><a href="archive-members.html">Team</a>
@@ -100,7 +100,7 @@
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
 			<ul class="qt-desktopmenu hide-on-xl-only ">
 				<li><a href="#" data-activates="qt-mobile-menu" class="button-collapse qt-menu-switch qt-btn qt-btn-primary qt-btn-m"><i class="dripicons-menu"></i></a></li>
-				<li><a href="#!" class="brand-logo qt-logo-text">ZAZART</a></li>
+				<li><a href="#!" class="brand-logo qt-logo-text">jazart</a></li>
 			</ul>
 		</nav>
 		<!-- mobile menu -->
@@ -1137,7 +1137,7 @@
 		<div class="qt-footer qt-footerwidgets">
 			<div class="qt-section qt-footer-widgets qt-content-primary-light">
 				<div class="qt-container">
-					<h2 class="qt-footer-logo"><a href="./" class="brand-logo qt-logo-text">ZAZAR<span>T</span></a></h2>
+					<h2 class="qt-footer-logo"><a href="./" class="brand-logo qt-logo-text">JAZAR<span>T</span></a></h2>
 					<div class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
 						<div class="col s12 m3 l3">
 							<div class="qt-widget">

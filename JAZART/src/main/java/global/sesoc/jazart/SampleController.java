@@ -1,5 +1,7 @@
 package global.sesoc.jazart;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,21 @@ public class SampleController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
+		return "home";
+	}
+	
+	@RequestMapping(value = "login", method = RequestMethod.GET)
+	public String login() {
+		return "login";
+	}
+	
+	@RequestMapping(value = "login", method = RequestMethod.POST)
+	public String login(HttpSession session) {
+		return "login";
+	}
+	
+	@RequestMapping(value = "join", method = RequestMethod.GET)
+	public String join() {
 		return "join";
 	}
 	
@@ -34,7 +51,6 @@ public class SampleController {
 		logger.info(user.toString());
 		
 		user.setUser_picture("x");
-		user.setUser_genre("x");
 		sr.regist(user);
 		
 		return "join";

@@ -41,8 +41,8 @@
             <div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
                <ul>
                     <li><a href="#"><i class="dripicons-chevron-right"></i>About US</a></li>
-                    <li><a href="#"><i class="dripicons-chevron-right"></i>Advertisement</a></li>
-                    <li><a href="page-contacts.html"><i class="dripicons-chevron-right"></i>Contacts</a></li>
+                    <li><a href="login"><i class="dripicons-chevron-right"></i>Login</a></li>
+                    <li><a href="join"><i class="dripicons-chevron-right"></i>join us</a></li>
                     <li><a href="#"><i class="dripicons-chevron-right"></i>Privacy</a></li>
                     <li class="right"><a href="#"><i class="qticon-beatport qt-socialicon"></i></a></li>
                     <li class="right"><a href="#"><i class="qticon-facebook qt-socialicon"></i></a></li>
@@ -177,7 +177,7 @@
                 <div class="qt-pageheader qt-negative">
                     <div class="qt-container">
                         <h1 class="qt-caption qt-spacer-s">
-                                Contact Us
+                                Join Us
                             </h1>
                         <ul class="qt-menu-social qt-spacer-s">
                             <li><a href="#"><i class="qticon-beatport"></i></a></li>
@@ -211,22 +211,18 @@
                                             <div id="form" class="row">
                                                 <form class="col s12" method="post" action="join"> <!-- email_sender.php -->
                                                     <input type="hidden" name="antispam" value="x123">
-                                                    <h3 class="left-align qt-vertical-padding-m">Send a message using the form below</h3>
+                                                    <h3 class="left-align qt-vertical-padding-m">write down below</h3>
                                                     <div class="row">
                                                         <div class="input-field col s6">
                                                             <input name="user_id" id="user_id" type="text" class="validate">
                                                             <label>ID</label>
                                                         </div>
                                                         <div class="input-field col s6">
-                                                            <input name="user_pw" id="user_pw" type="text" class="validate">
+                                                            <input name="user_pw" id="user_pw" type="password" class="validate">
                                                             <label>Password</label>
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="input-field col s6">
-                                                            <input name="user_name" id="user_name" type="text" class="validate">
-                                                            <label>Name</label>
-                                                        </div>
                                                         <div class="input-field col s6">
                                                             <input name="user_nickname" id="user_nickname" type="text" class="validate">
                                                             <label>Nickname</label>
@@ -255,7 +251,7 @@
                                                     <div class="row">
                                                         <div class="input-field col s12">
                                                             <button class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light" type="submit" name="action">
-                                                                <span class="lnr lnr-rocket"></span> Submit
+                                                                <span class="lnr lnr-rocket"></span> join
                                                             </button>
                                                         </div>
                                                     </div>

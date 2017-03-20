@@ -3,12 +3,10 @@ package global.sesoc.jazart.vo;
 public class User {
 	private String user_id;
 	private int user_pw;
-	private String user_name;
 	private String user_nickname;
 	private String user_phone;
 	private String user_email;
 	private String user_desc;
-	private String user_genre;
 	private String user_picture;
 	
 	public User() {}
@@ -27,14 +25,6 @@ public class User {
 
 	public void setUser_pw(int user_pw) {
 		this.user_pw = user_pw;
-	}
-
-	public String getUser_name() {
-		return user_name;
-	}
-
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
 	}
 
 	public String getUser_nickname() {
@@ -69,14 +59,6 @@ public class User {
 		this.user_desc = user_desc;
 	}
 
-	public String getUser_genre() {
-		return user_genre;
-	}
-
-	public void setUser_genre(String user_genre) {
-		this.user_genre = user_genre;
-	}
-
 	public String getUser_picture() {
 		return user_picture;
 	}
@@ -87,8 +69,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [user_id=" + user_id + ", user_pw=" + user_pw + ", user_name=" + user_name + ", user_nickname="
-				+ user_nickname + ", user_phone=" + user_phone + ", user_email=" + user_email + ", user_desc="
-				+ user_desc + ", user_genre=" + user_genre + ", user_picture=" + user_picture + "]";
+		return "User [user_id=" + user_id + ", user_pw=" + user_pw + ", user_nickname=" + user_nickname
+				+ ", user_phone=" + user_phone + ", user_email=" + user_email + ", user_desc=" + user_desc
+				+ ", user_picture=" + user_picture + "]";
 	}
 }
