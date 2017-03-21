@@ -2,7 +2,7 @@ package global.sesoc.jazart.vo;
 
 public class User {
 	private String user_id;
-	private int user_pw;
+	private String user_pw;
 	private String user_nickname;
 	private String user_phone;
 	private String user_email;
@@ -19,11 +19,11 @@ public class User {
 		this.user_id = user_id;
 	}
 
-	public int getUser_pw() {
+	public String getUser_pw() {
 		return user_pw;
 	}
 
-	public void setUser_pw(int user_pw) {
+	public void setUser_pw(String user_pw) {
 		this.user_pw = user_pw;
 	}
 

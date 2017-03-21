@@ -12,4 +12,6 @@ public interface SampleMapper {
 	public int delete(int num) throws Exception;
 
 	public int update(User sample) throws Exception;
+
+	public User selectUser(String userid) throws Exception;
 }

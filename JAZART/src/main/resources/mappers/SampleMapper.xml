@@ -9,8 +9,13 @@
 		insert into userinfo values(#{user_id}, #{user_pw}, #{user_picture}, #{user_nickname}, #{user_phone},
 						#{user_email}, #{user_desc})
 	</insert>
+	<select id="selectUser" resultType="User" parameterType="String">
+		select * from userinfo where user_id = #{userid} 
+	</select>
 	<select id="list" resultType="User">
 		select *
 		from p_user 
 	</select>
+	
+	
 </mapper>

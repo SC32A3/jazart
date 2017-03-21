@@ -43,7 +43,7 @@
                     <li><a href="#"><i class="dripicons-chevron-right"></i>About US</a></li>
                     <li><a href="login"><i class="dripicons-chevron-right"></i>Login</a></li>
                     <li><a href="join"><i class="dripicons-chevron-right"></i>join us</a></li>
-                    <li><a href="#"><i class="dripicons-chevron-right"></i>Privacy</a></li>
+                    
                     <li class="right"><a href="#"><i class="qticon-beatport qt-socialicon"></i></a></li>
                     <li class="right"><a href="#"><i class="qticon-facebook qt-socialicon"></i></a></li>
                     <li class="right"><a href="#"><i class="qticon-twitter qt-socialicon"></i></a></li>
@@ -107,16 +107,16 @@
             <div id="qt-mobile-menu" class="side-nav qt-content-primary">
                 <ul class=" qt-side-nav">
                     <li><a href="index.html">Home</a></li>
-                    <li class="menu-item-has-children"><a href="page-schedule.html">Schedule</a>
+                    <li class="menu-item-has-children"><a href="page-schedule.html">COMPOSE</a>
                         <ul>
                             <li><a href="page-schedule.html">Archive</a></li>
                             <li><a href="single-show.html">Single show page</a></li>
                         </ul>
                     </li>
-                    <li class="menu-item-has-children"><a href="archive-podcast.html">Podcast</a>
+                    <li class="menu-item-has-children"><a href="archive-podcast.html">Board</a>
                         <ul>
-                            <li><a href="archive-podcast.html">Archive</a></li>
-                            <li><a href="single-podcast.html">Single show page</a></li>
+                            <li><a href="music_community">music community</a></li>
+                            <li><a href="single-podcast.html">free community</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children"><a href="archive-members.html">Team</a>

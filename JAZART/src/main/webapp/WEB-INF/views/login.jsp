@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
@@ -32,6 +33,9 @@
         
         <!-- Custom typography settings and google fonts -->
         <link rel="stylesheet" href="resources/css/qt-typography.css">
+        
+        <!-- 현우 코드 -->
+        <c:if test="${message == 'fail'}"><script> alert('login failed'); </script></c:if>
     </head>
     <body>
     <!-- QT HEADER END ================================ -->
@@ -41,9 +45,9 @@
             <div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
                 <ul>
                     <li><a href="#"><i class="dripicons-chevron-right"></i>About US</a></li>
-                    <li><a href="#"><i class="dripicons-chevron-right"></i>Login</a></li>
-                    <li><a href="page-contacts.html"><i class="dripicons-chevron-right"></i>Join Us</a></li>
-                    <li><a href="#"><i class="dripicons-chevron-right"></i>Logout</a></li>
+                    <li><a href="login"><i class="dripicons-chevron-right"></i>Login</a></li>
+                    <li><a href="join"><i class="dripicons-chevron-right"></i>Join Us</a></li>
+                    
                     <li class="right"><a href="#"><i class="qticon-beatport qt-socialicon"></i></a></li>
                     <li class="right"><a href="#"><i class="qticon-facebook qt-socialicon"></i></a></li>
                     <li class="right"><a href="#"><i class="qticon-twitter qt-socialicon"></i></a></li>
@@ -64,7 +68,7 @@
                     </li>
                     <li><a href="archive-podcast.html">Board</a>
                         <ul>
-						<li><a href="archive-podcast.html">Music Community</a></li>
+						<li><a href="music_community">Music Community</a></li>
 						<li><a href="single-podcast.html">Free Community</a></li>
 					</ul>
                     </li>
@@ -206,7 +210,7 @@
                                            
                                             </ul>
                                             <div id="form" class="row">
-                                                <form class="col s12" method="post" action="email_sender.php">
+                                                <form class="col s12" method="post" action="login">
                                                     <input type="hidden" name="antispam" value="x123">
                                                     <h3 class="left-align qt-vertical-padding-m">Welcome to jazart!</h3>
                                                     <div class="row">
@@ -219,7 +223,7 @@
                                                     <div class="row">
                                                         <div class="input-field col s6">
                                                             <input name="password" id="password" type="text" class="validate">
-                                                            <label>PASSOWORD</label>
+                                                            <label>PASSWORD</label>
                                                         </div>
                                                     </div>    
                                                     <hr class="qt-spacer-s hide-on-med-and-up">

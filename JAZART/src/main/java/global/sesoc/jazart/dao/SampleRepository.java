@@ -31,6 +31,18 @@ public class SampleRepository {
 		return result;
 	}
 	
+	public User selectUser(String userid) {
+		SampleMapper mapper = sqlSession.getMapper(SampleMapper.class);
+		User user = null;
+		try {
+			user = mapper.selectUser(userid);
+			logger.info("로그인 user => "+ user.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+		return user;
+	}
+	
 	public List<User> list(){
 		SampleMapper mapper = sqlSession.getMapper(SampleMapper.class);
 		List<User> result = null;
@@ -66,4 +78,6 @@ public class SampleRepository {
 		}
 		return result;
 	}
+
+	
 }
