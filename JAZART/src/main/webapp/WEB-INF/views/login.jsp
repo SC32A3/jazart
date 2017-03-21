@@ -59,7 +59,7 @@
             <nav class="qt-menubar nav-wrapper qt-content-primary ">
                 <!-- desktop menu  HIDDEN IN MOBILE AND TABLETS -->
                 <ul class="qt-desktopmenu hide-on-xl-and-down">
-                    <li class="qt-logo-link"><a href="./" class="brand-logo qt-logo-text">Jazar<span>t</span></a></li>
+                    <li class="qt-logo-link"><a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
                     <li><a href="page-schedule.html">Compose</a>
                         <ul>
                             <li><a href="page-schedule.html">Archive</a></li>
@@ -70,7 +70,7 @@
                         <ul>
 						<li><a href="music_community">Music Community</a></li>
 						<li><a href="single-podcast.html">Free Community</a></li>
-					</ul>
+						</ul>
                     </li>
                     <li><a href="archive-members.html">Team</a>
                         <ul>
