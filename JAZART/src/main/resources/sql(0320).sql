@@ -182,12 +182,12 @@ CREATE TABLE userinfo
 	user_desc varchar2(2000),
 	PRIMARY KEY (user_id)
 );
-CREATE TABLE Instrument_Loop
+CREATE TABLE Loop
 (
 	--루프장르
 	Loop_Genre varchar2(20) NOT NULL,
 	--루프의넘버 
-	Loop_Number number(3) NOT NULL,
+	Loop_num number(3) NOT NULL,
 	--루프의 종류(Beat,Bass,Pad)
 	Loop_Type varchar2(20) NOT NULL
 );
