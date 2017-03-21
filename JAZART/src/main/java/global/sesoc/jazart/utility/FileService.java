@@ -18,7 +18,7 @@ public class FileService {
 	 * @param path 저장할 경로
 	 * @return 저장된 파일명
 	 */
-	public static String saveFile(MultipartFile mfile, String uploadPath) {
+	public static String saveFile(MultipartFile mfile, String uploadPath, String userName) {
 		//업로드된 파일이 없거나 크기가 0이면 저장하지 않고 null을 리턴
 		if (mfile == null || mfile.isEmpty() || mfile.getSize() == 0) {
 			return null;

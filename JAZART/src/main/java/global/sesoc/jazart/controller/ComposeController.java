@@ -1,4 +1,4 @@
-package global.sesoc.jazart;
+package global.sesoc.jazart.controller;
 
 import javax.servlet.http.HttpSession;
 

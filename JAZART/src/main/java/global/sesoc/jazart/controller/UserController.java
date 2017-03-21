@@ -72,11 +72,13 @@ public class UserController {
 	@RequestMapping(value = "join", method = RequestMethod.POST)
 	public String join(User user, MultipartFile upload) {
 		logger.info(user.toString());
-
+		String userName = user.getUser_nickname();
+		
 		// 첨부된 파일을 처리
 		if (!upload.isEmpty()) {
-			String savedfile = FileService.saveFile(upload, uploadPath);
-//			board.setOriginalfile(upload.getOriginalFilename());
+			String savedfile = FileService.saveFile(upload, uploadPath, userName);
+			
+			//			board.setOriginalfile(upload.getOriginalFilename());
 //			board.setSavedfile(savedfile);
 		} else {
 			user.setUser_picture("x");
