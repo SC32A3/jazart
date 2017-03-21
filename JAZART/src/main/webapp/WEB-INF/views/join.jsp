@@ -216,7 +216,7 @@
                                                     <h5><a href="#map">Map</a></h5></li>
                                             </ul>
                                             <div id="form" class="row">
-                                                <form class="col s12" method="post" action="join"> <!-- email_sender.php -->
+                                                <form class="col s12" method="post" action="join" enctype="multipart/form-data"> <!-- email_sender.php -->
                                                     <input type="hidden" name="antispam" value="x123">
                                                     <h3 class="left-align qt-vertical-padding-m">write down below</h3>
                                                     <div class="row">
@@ -234,11 +234,13 @@
                                                             <input name="user_nickname" id="user_nickname" type="text" class="validate">
                                                             <label>Nickname</label>
                                                         </div>
-                                                        <div class="input-field col s6">
+                                                    </div>
+                                                    <div class="row">
+														<div class="input-field col s6">
                                                             <label>Profile</label>
                                                             <input type="file" name="upload" class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light">
                                                         </div>
-                                                    </div>
+													</div>
                                                     <div class="row">
                                                         <div class="input-field col s12">
                                                             <input name="user_phone" id="user_phone" type="text" class="validate">
