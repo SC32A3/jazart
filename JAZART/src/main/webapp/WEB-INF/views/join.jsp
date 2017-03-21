@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html class="no-js" lang="en">
     <head> 
@@ -41,9 +42,15 @@
             <div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
                <ul>
                     <li><a href="#"><i class="dripicons-chevron-right"></i>About US</a></li>
-                    <li><a href="login"><i class="dripicons-chevron-right"></i>Login</a></li>
-                    <li><a href="join"><i class="dripicons-chevron-right"></i>join us</a></li>
-                    
+                    <c:if test="${empty loginNickname}">
+					<li><a href="login"><i class="dripicons-chevron-right"></i>Login</a></li>
+					<li><a href="join"><i class="dripicons-chevron-right"></i>Join Us</a></li>
+					</c:if>
+					<c:if test="${not empty loginNickname}">
+					<li><a href="logout"><i class="dripicons-chevron-right"></i>logout</a></li>
+    	            <li><i class="dripicons-chevron-right"></i>Welcome ${loginNickname}</li>
+              		</c:if>
+              		                      
                     <li class="right"><a href="#"><i class="qticon-beatport qt-socialicon"></i></a></li>
                     <li class="right"><a href="#"><i class="qticon-facebook qt-socialicon"></i></a></li>
                     <li class="right"><a href="#"><i class="qticon-twitter qt-socialicon"></i></a></li>
@@ -55,18 +62,18 @@
             <nav class="qt-menubar nav-wrapper qt-content-primary ">
                 <!-- desktop menu  HIDDEN IN MOBILE AND TABLETS -->
                 <ul class="qt-desktopmenu hide-on-xl-and-down">
-                    <li class="qt-logo-link"><a href="./" class="brand-logo qt-logo-text">ONAIR<span>2</span></a></li>
-                    <li><a href="page-schedule.html">Schedule</a>
+                    <li class="qt-logo-link"><a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
+                    <li><a href="page-schedule.html">Compose</a>
                         <ul>
                             <li><a href="page-schedule.html">Archive</a></li>
                             <li><a href="single-show.html">Single show page</a></li>
                         </ul>
                     </li>
-                    <li><a href="archive-podcast.html">Podcast</a>
+                    <li><a href="archive-podcast.html">Board</a>
                         <ul>
-                            <li><a href="archive-podcast.html">Archive</a></li>
-                            <li><a href="single-podcast.html">Single show page</a></li>
-                        </ul>
+						<li><a href="music_community">Music Community</a></li>
+						<li><a href="single-podcast.html">Free Community</a></li>
+						</ul>
                     </li>
                     <li><a href="archive-members.html">Team</a>
                         <ul>
@@ -100,7 +107,7 @@
                 <!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
                 <ul class="qt-desktopmenu hide-on-xl-only ">
                     <li><a href="#" data-activates="qt-mobile-menu" class="button-collapse qt-menu-switch qt-btn qt-btn-primary qt-btn-m"><i class="dripicons-menu"></i></a></li>
-                    <li><a href="#!" class="brand-logo qt-logo-text">ONAIR2</a></li>
+                    <li><a href="#!" class="brand-logo qt-logo-text">Jazart</a></li>
                 </ul>
             </nav>
             <!-- mobile menu -->
@@ -187,7 +194,7 @@
                             <li><a href="#"><i class="qticon-soundcloud"></i></a></li>
                         </ul>
                     </div>
-                    <div class="qt-header-bg" data-bgimage="imagestemplate/full-1600-700.jpg">
+                    <div class="qt-header-bg" data-bgimage="resources/imagestemplate/full-1600-700.jpg">
                         <img src="resources/imagestemplate/full-1600-700.jpg" alt="Featured image" width="690" height="302">
                     </div>
                 </div>
@@ -226,6 +233,10 @@
                                                         <div class="input-field col s6">
                                                             <input name="user_nickname" id="user_nickname" type="text" class="validate">
                                                             <label>Nickname</label>
+                                                        </div>
+                                                        <div class="input-field col s6">
+                                                            <label>Profile</label>
+                                                            <input type="file" name="upload" class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light">
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -347,7 +358,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="qt-header-bg" data-bgimage="imagestemplate/full-1600-700.jpg">
+                    <div class="qt-header-bg" data-bgimage="resources/imagestemplate/full-1600-700.jpg">
                         <img src="resources/imagestemplate/full-1600-700.jpg" alt="Featured image" width="690" height="302">
                     </div>
                 </div>
@@ -380,7 +391,7 @@
         <div id="channelslist" class="side-nav qt-content-primary qt-right-sidebar">
             <a href="#" class="qt-btn qt-btn-secondary button-playlistswitch-close qt-close-sidebar-right" data-activates="channelslist"><i class="icon dripicons-cross"></i></a>
             <!-- PLAYER ========================= -->
-            <div id="qtplayercontainer" data-playervolume="true" data-accentcolor="#dd0e34" data-accentcolordark="#ff0442" data-textcolor="#ffffff" data-soundmanagerurl="./components/soundmanager/swf/" class="qt-playercontainer qt-playervolume qt-clearfix qt-content-primary">
+            <div id="qtplayercontainer" data-playervolume="true" data-accentcolor="#dd0e34" data-accentcolordark="#ff0442" data-textcolor="#ffffff" data-soundmanagerurl="resources/components/soundmanager/swf/" class="qt-playercontainer qt-playervolume qt-clearfix qt-content-primary">
                 <div class="qt-playercontainer-content qt-vertical-padding-m">
                     <div class="qt-playercontainer-header">
                         <h5 class="qt-text-shadow small">Now on</h5>

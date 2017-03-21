@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html class="no-js" lang="en">
 	<head>
@@ -50,9 +51,16 @@
             <div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
                 <ul>
                     <li><a href="#"><i class="dripicons-chevron-right"></i>About US</a></li>
-                    <li><a href="#"><i class="dripicons-chevron-right"></i>Login</a></li>
-                    <li><a href="page-contacts.html"><i class="dripicons-chevron-right"></i>Join Us</a></li>
-                    <li><a href="#"><i class="dripicons-chevron-right"></i>Logout</a></li>
+                    
+                    <c:if test="${empty loginNickname}">
+					<li><a href="login"><i class="dripicons-chevron-right"></i>Login</a></li>
+					<li><a href="join"><i class="dripicons-chevron-right"></i>Join Us</a></li>
+					</c:if>
+					<c:if test="${not empty loginNickname}">
+					<li><a href="logout"><i class="dripicons-chevron-right"></i>logout</a></li>
+    	            <li><i class="dripicons-chevron-right"></i>Welcome ${loginNickname}</li>
+    	            </c:if>
+                    
                     <li class="right"><a href="#"><i class="qticon-beatport qt-socialicon"></i></a></li>
                     <li class="right"><a href="#"><i class="qticon-facebook qt-socialicon"></i></a></li>
                     <li class="right"><a href="#"><i class="qticon-twitter qt-socialicon"></i></a></li>
@@ -64,7 +72,7 @@
             <nav class="qt-menubar nav-wrapper qt-content-primary ">
                 <!-- desktop menu  HIDDEN IN MOBILE AND TABLETS -->
                 <ul class="qt-desktopmenu hide-on-xl-and-down">
-                    <li class="qt-logo-link"><a href="./" class="brand-logo qt-logo-text">Jazar<span>t</span></a></li>
+                    <li class="qt-logo-link"><a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
                     <li><a href="page-schedule.html">Compose</a>
                         <ul>
                             <li><a href="page-schedule.html">Archive</a></li>
@@ -73,7 +81,7 @@
                     </li>
                     <li><a href="archive-podcast.html">Board</a>
                         <ul>
-						<li><a href="archive-podcast.html">Music Community</a></li>
+						<li><a href="music_community">Music Community</a></li>
 						<li><a href="single-podcast.html">Free Community</a></li>
 					</ul>
                     </li>
