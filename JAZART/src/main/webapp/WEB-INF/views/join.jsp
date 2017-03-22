@@ -237,8 +237,8 @@
                                                     </div>
                                                     <div class="row">
 														<div class="input-field col s6">
-                                                            <label>Profile</label>
-                                                            <input type="file" name="upload" class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light">
+                                                            <!-- <label>Profile</label> -->
+                                                            <input type="file" name="upload">
                                                         </div>
 													</div>
                                                     <div class="row">

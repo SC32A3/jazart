@@ -48,6 +48,7 @@
 				</c:if>
 				<c:if test="${not empty loginNickname}">
 					<li><a href="logout"><i class="dripicons-chevron-right"></i>logout</a></li>
+					<li><a href="test2"><i class="dripicons-chevron-right"></i>test</a></li>
     	            <li><i class="dripicons-chevron-right"></i>Welcome ${loginNickname}</li>
                 </c:if>
 				
@@ -211,8 +212,8 @@
 										</div>
 									</div>
 								</div>
-								<div class="qt-header-bg" data-bgimage="imagestemplate/large-1170-512.jpg">
-									<img src="imagestemplate/large-1170-512.jpg" alt="Featured image" width="1170" height="512">
+								<div class="qt-header-bg" data-bgimage="resources/imagestemplate/large-1170-512.jpg">
+									<img src="resources/imagestemplate/large-1170-512.jpg" alt="Featured image" width="1170" height="512">
 								</div>
 							</div>
 						</div>

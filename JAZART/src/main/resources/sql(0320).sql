@@ -1,5 +1,5 @@
 --먼저 system/1234로 접속해서 해야할 일 
-create tablespace temp2 datafile 'c:\temp2.dbf' size 100;
+create tablespace temp2 datafile 'c:\temp2.dbf' size 100m;
 create user temp2 identified by temp2 default tablespace temp2;
 grant create session, create table, create sequence, resource to temp2;
 commit;

@@ -1,5 +1,12 @@
 package global.sesoc.jazart.controller;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -7,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus;
@@ -72,14 +80,13 @@ public class UserController {
 	@RequestMapping(value = "join", method = RequestMethod.POST)
 	public String join(User user, MultipartFile upload) {
 		logger.info(user.toString());
+		logger.info(upload.toString());
 		String userName = user.getUser_nickname();
 		
 		// 첨부된 파일을 처리
 		if (!upload.isEmpty()) {
 			String savedfile = FileService.saveFile(upload, uploadPath, userName);
-			
-			//			board.setOriginalfile(upload.getOriginalFilename());
-//			board.setSavedfile(savedfile);
+			user.setUser_picture(savedfile);
 		} else {
 			user.setUser_picture("x");
 		}
@@ -88,11 +95,70 @@ public class UserController {
 
 		return "join";
 	}
+	
+//	@RequestMapping(value = "join", method = RequestMethod.POST)
+//	public String jointest(User user) {
+//		logger.info(user.toString());
+//	
+//		return null;
+//	}
 
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	public String logout(SessionStatus sessionStatus) {
 		sessionStatus.setComplete();
 		session.invalidate();
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "test2", method = RequestMethod.GET)
+	public String test2(Model model) {
+		User user = sr.selectUser((String) session.getAttribute("loginId"));
+		
+		model.addAttribute("user", user);
+		
+		return "test2";
+	}
+	
+	@RequestMapping(value="download", method=RequestMethod.GET)
+	public String download(HttpServletResponse response){ //수동으로 데이터를 내보내야 하는 경우 HttpServletResponse를 사용한다
+		//다른 방법
+		//매개변수로 boardnum이 아닌 savedfile을 받으면 DB에 갈 필요가 없다. String fullpath부분부터 바로 하면 된다.
+		
+		//한개의 글을 가져옴
+		User user = sr.selectUser((String) session.getAttribute("loginId"));
+		
+		String originalfile = user.getUser_picture();
+		
+		//사용자 측에서 다운로드 받도록 하기 위해서
+		//response 객체의 헤더를 조작함, 웹페이지 개발자모드(F12)의 Head에서 확인할수 있다
+		//text/html에서 파일 다운로드 가능한 형태로 변경
+		try {
+			response.setHeader("Content-Disposition", 
+					"attachment;filename="+URLEncoder.encode(originalfile, "UTF-8")); //첫번째 매개변수 : 실제로 받아야하는 아이
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		String fullpath = uploadPath+"/"+user.getUser_picture();
+		ServletOutputStream fileout = null;
+		FileInputStream filein = null;
+		//(웹유저)  <---servletOutputStream(출력)---- (서버(웹프로젝트 주체)) <--FileInputStream(입력)-- (하드 rose.jpg) 
+		
+		try {
+			filein = new FileInputStream(fullpath);
+			fileout = response.getOutputStream();
+			//Spring에서 제공하는 유틸리티
+			FileCopyUtils.copy(filein, fileout);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (filein != null) filein.close();
+				if (fileout != null) fileout.close();	
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
 	}
 }

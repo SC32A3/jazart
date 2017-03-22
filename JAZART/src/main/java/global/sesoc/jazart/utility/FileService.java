@@ -33,10 +33,6 @@ public class FileService {
 		//원본 파일명
 		String originalFilename = mfile.getOriginalFilename();
 		
-		//저장할 파일명을 오늘 날짜의 년월일로 생성
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-		String savedFilename = sdf.format(new Date());
-		
 		//원본 파일의 확장자
 		//lastIndexOf(뒤에서부터 ''값을 찾음) '123456.789의 경우' lastIndexOf('.') 결과값 7 
 		String ext; //extension name
@@ -55,23 +51,22 @@ public class FileService {
 		
 		//같은 이름의 파일이 있는 경우의 처리
 		while (true) {
-			serverFile = new File(uploadPath + "/" + savedFilename + ext);
+			serverFile = new File(uploadPath + "/" + userName + ext);
 			//같은 이름의 파일이 없으면 나감.
 			if ( !serverFile.isFile()) break;	
 			//같은 이름의 파일이 있으면 이름 뒤에 long 타입의 시간정보를 덧붙임.
 			//두번째 파일부터 시간이 붙는 형식(67번줄 참조), 다른방법 유효ID발급
-			savedFilename = savedFilename + new Date().getTime(); 
 		}		
 		
 		//파일 저장
 		try {
 			mfile.transferTo(serverFile);
 		} catch (Exception e) {
-			savedFilename = null;
+			userName = null;
 			e.printStackTrace();
 		}
 		
-		return savedFilename + ext;
+		return userName + ext;
 	}
 	
 	/**
