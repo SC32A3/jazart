@@ -20,7 +20,7 @@ import global.sesoc.jazart.vo.User;
 @Controller
 public class BoardController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
 	@Autowired
 	SampleRepository sr;
@@ -31,9 +31,9 @@ public class BoardController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
+
 	@RequestMapping(value = "music_community", method = RequestMethod.GET)
 	public String musicBoard() {
 		return "musicBoard";
 	}
-	
 }

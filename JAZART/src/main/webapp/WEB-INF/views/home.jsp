@@ -48,7 +48,6 @@
 				</c:if>
 				<c:if test="${not empty loginNickname}">
 					<li><a href="logout"><i class="dripicons-chevron-right"></i>logout</a></li>
-					<li><a href="test2"><i class="dripicons-chevron-right"></i>test</a></li>
     	            <li><i class="dripicons-chevron-right"></i>Welcome ${loginNickname}</li>
                 </c:if>
 				
@@ -76,10 +75,10 @@
 						<li><a href="single-podcast.html">Free Community</a></li>
 					</ul>
 				</li>
-				<li><a href="archive-members.html">Team</a>
+				<li><a href="archive-members.html">Song</a>
 					<ul>
-						<li><a href="archive-members.html">Archive</a></li>
-						<li><a href="single-member.html">Single show page</a></li>
+						<li><a href="songpage">Song Page</a></li>
+						<li><a href="artistpage">Artist Page</a></li>
 					</ul>
 				</li>
 				<li><a href="archive.html">Blog</a>
@@ -212,8 +211,8 @@
 										</div>
 									</div>
 								</div>
-								<div class="qt-header-bg" data-bgimage="resources/imagestemplate/large-1170-512.jpg">
-									<img src="resources/imagestemplate/large-1170-512.jpg" alt="Featured image" width="1170" height="512">
+								<div class="qt-header-bg" data-bgimage="resources/음표.jpg">
+									<img src="resources/음표.jpg" alt="Featured image" width="1170" height="512">
 								</div>
 							</div>
 						</div>
@@ -247,8 +246,8 @@
 										</div>
 									</div>
 								</div>
-								<div class="qt-header-bg" data-bgimage="imagestemplate/large-1170-512.jpg">
-									<img src="imagestemplate/large-1170-512.jpg" alt="Featured image" width="1170" height="512">
+								<div class="qt-header-bg" data-bgimage="resources/가수.jpg">
+									<img src="resources/가수.jpg" alt="Featured image" width="1170" height="512">
 								</div>
 							</div>
 						</div>
@@ -282,8 +281,8 @@
 										</div>
 									</div>
 								</div>
-								<div class="qt-header-bg" data-bgimage="imagestemplate/large-1170-512.jpg">
-									<img src="imagestemplate/large-1170-512.jpg" alt="Featured image" width="1170" height="512">
+								<div class="qt-header-bg" data-bgimage="resources/헤드셋3.jpg">
+									<img src="resources/헤드셋3.jpg" alt="Featured image" width="1170" height="512">
 								</div>
 							</div>
 						</div>
@@ -317,8 +316,8 @@
 										</div>
 									</div>
 								</div>
-								<div class="qt-header-bg" data-bgimage="imagestemplate/large-1170-512.jpg">
-									<img src="imagestemplate/large-1170-512.jpg" alt="Featured image" width="1170" height="512">
+								<div class="qt-header-bg" data-bgimage="resources/music.jpg">
+									<img src="resources/music.jpg" alt="Featured image" width="1170" height="512">
 								</div>
 							</div>
 						</div>

@@ -214,8 +214,8 @@
 				   welcome
 				</h4>
 			</div>
-			<div class="qt-header-bg" data-bgimage="imagestemplate/full-1600-700.jpg">
-				<img src="imagestemplate/full-1600-700.jpg" alt="Featured image" width="690" height="302">
+			<div class="qt-header-bg" data-bgimage="resources/음악가.jpg">
+				<img src="resources/음악가.jpg" alt="Featured image" width="690" height="302">
 			</div>
 		</div>
 		<!-- HEADER CAPTION END ========================= -->
