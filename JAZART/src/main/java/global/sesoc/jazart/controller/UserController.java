@@ -96,7 +96,7 @@ public class UserController {
 			String savedfile = FileService.saveFile(upload, uploadPath, userName);
 			user.setUser_picture(savedfile);
 		} else {
-			user.setUser_picture("x");
+			user.setUser_picture("default.jpg");
 		}
 
 		sr.regist(user);
