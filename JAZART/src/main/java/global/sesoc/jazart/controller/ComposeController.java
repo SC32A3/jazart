@@ -40,4 +40,14 @@ public class ComposeController {
 	public String mixing() {
 		return "mixing";
 	}
+	
+	@RequestMapping(value = "/songpage", method = RequestMethod.GET)
+	public String songpage() {
+		return "songpg";
+	}
+	
+	@RequestMapping(value = "/artistpage", method = RequestMethod.GET)
+	public String artistpage() {
+		return "artistpg";
+	}
 }
