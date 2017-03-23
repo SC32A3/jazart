@@ -248,8 +248,8 @@
                             <li><a href="#"><i class="qticon-soundcloud"></i></a></li>
                         </ul>
                     </div>
-                    <div class="qt-header-bg" data-bgimage="resources/imagestemplate/full-1600-700.jpg">
-                        <img src="resources/imagestemplate/full-1600-700.jpg" alt="Featured image" width="690" height="302">
+                    <div class="qt-header-bg" data-bgimage="resources/연주.jpg">
+                        <img src="resources/연주.jpg" alt="Featured image" width="690" height="302">
                     </div>
                 </div>
                 <!-- HEADER CONTACTS END ========================= -->
