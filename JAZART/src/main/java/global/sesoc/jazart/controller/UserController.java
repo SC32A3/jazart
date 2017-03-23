@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -76,11 +77,18 @@ public class UserController {
 	public String join() {
 		return "join";
 	}
+	
+	@RequestMapping(value = "joinCheck", method = RequestMethod.GET)
+	public @ResponseBody String joinCheck(User user) {
+		logger.info("가입체크 vo=> "+user.toString());
+		String result = sr.joinCheck(user);
+		logger.info("가입체크 메세지=> "+result);
+		return result;
+	}
 
 	@RequestMapping(value = "join", method = RequestMethod.POST)
 	public String join(User user, MultipartFile upload) {
-		logger.info(user.toString());
-		logger.info(upload.toString());
+		logger.info("가입 => "+user.toString());
 		String userName = user.getUser_nickname();
 		
 		// 첨부된 파일을 처리

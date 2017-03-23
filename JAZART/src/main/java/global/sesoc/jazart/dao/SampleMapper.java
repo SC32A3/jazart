@@ -14,4 +14,10 @@ public interface SampleMapper {
 	public int update(User sample) throws Exception;
 
 	public User selectUser(String userid) throws Exception;
+
+	public int countId(String user_id) throws Exception;
+
+	public int countNickname(String user_nickname) throws Exception;
+
+	public int countEmail(String user_email) throws Exception;
 }

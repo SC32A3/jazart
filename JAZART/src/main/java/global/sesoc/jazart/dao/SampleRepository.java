@@ -61,7 +61,6 @@ public class SampleRepository {
 		try {
 			result = mapper.delete(num);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;
@@ -73,7 +72,32 @@ public class SampleRepository {
 		try {
 			result = mapper.update(comment);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public String joinCheck(User user) {
+		SampleMapper mapper = sqlSession.getMapper(SampleMapper.class);
+		String result = "";
+		try {
+			int countId = mapper.countId(user.getUser_id());
+			int countNickname = mapper.countNickname(user.getUser_nickname());
+			int countEmail = mapper.countEmail(user.getUser_email());
+			
+			logger.info("countId=> "+countId+", countNickname=> "+countNickname+"countEmail=> "+countEmail);
+			if (countId != 0) {
+				result = "DupId";
+			}
+			
+			if (countId != 0) {
+				result = "DupNickname";
+			}
+			
+			if (countId != 0) {
+				result = "DupEmail";
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return result;

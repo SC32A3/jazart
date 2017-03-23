@@ -332,10 +332,10 @@ insert into p_like values('sunghan', sysdate, 24);
 
 -------------------------------------------------------------------------------------------------------------------------------
 commit;
-select * from p_user;
-select * from p_songinfo;
-select * from p_reply;
-select * from p_board;
-select * from p_like;
+select * from userinfo;
+
+select count(user_id) from userinfo where user_id = 'x';
+select count(user_nickname) from userinfo where user_nickname = 'x';
+select count(user_email) from userinfo where user_email = 'bj@nae.com';
 
 

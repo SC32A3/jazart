@@ -33,6 +33,60 @@
         
         <!-- Custom typography settings and google fonts -->
         <link rel="stylesheet" href="resources/css/qt-typography.css">
+        
+        <!-- 내가 쓴 코드 -->
+        <script src="resources/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript">
+        var userData;
+			function check() {
+				var id = $("#user_id").val();
+				var pw = $("#user_pw").val();
+				var email = $("#user_email").val();
+				var nickname = $("#user_nickname").val();
+				
+				
+				if (id.length < 4) {
+					alert("글자수는 4글자이상으로");
+					return false;
+				}
+				
+				if (pw.length < 4) {
+					alert("비번은 4글자이상으로");
+					return false;
+				}
+				
+				userData = {user_id : id, user_nickname : nickname, user_email : email};
+				
+				$.ajax({
+					method : "get",
+					url : "joinCheck",
+					data : userData,
+					success : function(resp) {
+						if (resp == "") {
+							send();
+							return true;
+						} else if (resp = "DupId") {
+							alert("Account is already exist");
+							return false;
+						} else if (resp = "DupNickname") {
+							alert("Nickname is already exist");
+							return false;
+						} else if (resp = "DupEmail") {
+							alert("Email is already exist");
+							return false;
+						}
+					}
+				});
+				
+				return false;
+			}   
+		
+			function send(){
+				var formdata = $("#joinForm");
+				formdata.submit();
+			}
+        
+        </script>
     </head>
     <body>
     <!-- QT HEADER END ================================ -->
@@ -216,22 +270,22 @@
                                                     <h5><a href="#map">Map</a></h5></li>
                                             </ul>
                                             <div id="form" class="row">
-                                                <form class="col s12" method="post" action="join" enctype="multipart/form-data"> <!-- email_sender.php -->
+                                                <form class="col s12" method="post" action="join" id="joinForm" enctype="multipart/form-data"> <!-- email_sender.php -->
                                                     <input type="hidden" name="antispam" value="x123">
                                                     <h3 class="left-align qt-vertical-padding-m">write down below</h3>
                                                     <div class="row">
                                                         <div class="input-field col s6">
-                                                            <input name="user_id" id="user_id" type="text" class="validate">
+                                                            <input name="user_id" id="user_id" type="text" class="validate" required>
                                                             <label>ID</label>
                                                         </div>
                                                         <div class="input-field col s6">
-                                                            <input name="user_pw" id="user_pw" type="password" class="validate">
+                                                            <input name="user_pw" id="user_pw" type="password" class="validate" required>
                                                             <label>Password</label>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="input-field col s6">
-                                                            <input name="user_nickname" id="user_nickname" type="text" class="validate">
+                                                            <input name="user_nickname" id="user_nickname" type="text" class="validate" required>
                                                             <label>Nickname</label>
                                                         </div>
                                                     </div>
@@ -249,7 +303,7 @@
                                                     </div>
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <input name="user_email" id="user_email" type="email" class="validate">
+                                                            <input name="user_email" id="user_email" type="email" class="validate" required>
                                                             <label>Email</label>
                                                         </div>
                                                     </div>
@@ -263,9 +317,8 @@
                                                     <hr class="qt-spacer-s hide-on-med-and-up">
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <button class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light" type="submit" name="action">
-                                                                <span class="lnr lnr-rocket"></span> join
-                                                            </button>
+                                                            <input type="button" class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light lnr lnr-rocket"  value="Join" name="action" onclick="return check();"/>
+                                                               <!--  <span class=""></span> join -->
                                                         </div>
                                                     </div>
                                                 </form>
