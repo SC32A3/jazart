@@ -21,7 +21,7 @@ public class ComposeController {
 	private static final Logger logger = LoggerFactory.getLogger(ComposeController.class);
 	
 	@Autowired
-	UserRepository sr;
+	UserRepository ur;
 	@Autowired
 	HttpSession session;
 	

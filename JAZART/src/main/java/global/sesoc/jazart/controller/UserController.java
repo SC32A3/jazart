@@ -34,7 +34,7 @@ public class UserController {
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
 	@Autowired
-	UserRepository sr;
+	UserRepository ur;
 	@Autowired
 	HttpSession session;
 
@@ -54,7 +54,7 @@ public class UserController {
 
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String login(String userid, String password, Model model) {
-		User loginUser = sr.selectUser(userid);
+		User loginUser = ur.selectUser(userid);
 		if (loginUser == null) {
 			model.addAttribute("message", "fail");
 			return "login";
@@ -81,7 +81,7 @@ public class UserController {
 	@RequestMapping(value = "joinCheck", method = RequestMethod.GET)
 	public @ResponseBody String joinCheck(User user) {
 		logger.info("가입체크 vo=> "+user.toString());
-		String result = sr.joinCheck(user);
+		String result = ur.joinCheck(user);
 		logger.info("가입체크 메세지=> "+result);
 		return result;
 	}
@@ -99,7 +99,7 @@ public class UserController {
 			user.setUser_picture("default.jpg");
 		}
 
-		sr.regist(user);
+		ur.regist(user);
 
 		return "join";
 	}
@@ -120,7 +120,7 @@ public class UserController {
 	
 	@RequestMapping(value = "test2", method = RequestMethod.GET)
 	public String test2(Model model) {
-		User user = sr.selectUser((String) session.getAttribute("loginId"));
+		User user = ur.selectUser((String) session.getAttribute("loginId"));
 		
 		model.addAttribute("user", user);
 		
@@ -133,7 +133,7 @@ public class UserController {
 		//매개변수로 boardnum이 아닌 savedfile을 받으면 DB에 갈 필요가 없다. String fullpath부분부터 바로 하면 된다.
 		
 		//한개의 글을 가져옴
-		User user = sr.selectUser((String) session.getAttribute("loginId"));
+		User user = ur.selectUser((String) session.getAttribute("loginId"));
 		
 		String originalfile = user.getUser_picture();
 		

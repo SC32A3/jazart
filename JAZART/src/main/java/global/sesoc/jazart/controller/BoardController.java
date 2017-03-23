@@ -23,7 +23,7 @@ public class BoardController {
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
 	@Autowired
-	UserRepository sr;
+	UserRepository ur;
 	@Autowired
 	HttpSession session;
 	
