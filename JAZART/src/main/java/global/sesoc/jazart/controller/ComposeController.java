@@ -32,6 +32,6 @@ public class ComposeController {
 	 */
 	@RequestMapping(value = "/compose", method = RequestMethod.GET)
 	public String compose() {
-		return "test";
+		return "compose";
 	}
 }
