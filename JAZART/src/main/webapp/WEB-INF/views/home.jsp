@@ -211,8 +211,8 @@
 										</div>
 									</div>
 								</div>
-								<div class="qt-header-bg" data-bgimage="resources/음표.jpg">
-									<img src="resources/음표.jpg" alt="Featured image" width="1170" height="512">
+								<div class="qt-header-bg" data-bgimage="images/back1.jsp">
+									<img src="images/back1.jsp" alt="Featured image" width="1170" height="512">
 								</div>
 							</div>
 						</div>
@@ -246,8 +246,8 @@
 										</div>
 									</div>
 								</div>
-								<div class="qt-header-bg" data-bgimage="resources/가수.jpg">
-									<img src="resources/가수.jpg" alt="Featured image" width="1170" height="512">
+								<div class="qt-header-bg" data-bgimage="images/back2.jpg">
+									<img src="images/back2.jpg" alt="Featured image" width="1170" height="512">
 								</div>
 							</div>
 						</div>
@@ -281,8 +281,8 @@
 										</div>
 									</div>
 								</div>
-								<div class="qt-header-bg" data-bgimage="resources/헤드셋3.jpg">
-									<img src="resources/헤드셋3.jpg" alt="Featured image" width="1170" height="512">
+								<div class="qt-header-bg" data-bgimage="images/back3.jpg">
+									<img src="images/back3.jpg" alt="Featured image" width="1170" height="512">
 								</div>
 							</div>
 						</div>
@@ -316,8 +316,8 @@
 										</div>
 									</div>
 								</div>
-								<div class="qt-header-bg" data-bgimage="resources/music.jpg">
-									<img src="resources/music.jpg" alt="Featured image" width="1170" height="512">
+								<div class="qt-header-bg" data-bgimage="images/back4.jpg">
+									<img src="images/back4.jpg" alt="Featured image" width="1170" height="512">
 								</div>
 							</div>
 						</div>

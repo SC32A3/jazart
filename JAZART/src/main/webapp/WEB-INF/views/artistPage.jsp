@@ -189,7 +189,7 @@
 						</ul>
 					</div>
 					<div class="qt-header-bg" data-bgimage="imagestemplate/full-1600-700.jpg">
-						<img src="resources/배경용3.jpg" alt="Featured image" width="690" height="302">
+						<img src="images/artist.jpg" alt="Featured image" width="690" height="302">
 					</div>
 				</div>
 				<!-- HEADER MEMBERS END ========================= -->

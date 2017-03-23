@@ -20,7 +20,7 @@ import global.sesoc.jazart.vo.User;
 @Controller
 public class ComposeController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+	private static final Logger logger = LoggerFactory.getLogger(ComposeController.class);
 	
 	@Autowired
 	SampleRepository sr;
@@ -33,5 +33,11 @@ public class ComposeController {
 	@RequestMapping(value = "/compose", method = RequestMethod.GET)
 	public String compose() {
 		return "compose";
+	}
+	
+	
+	@RequestMapping(value = "/mixing", method = RequestMethod.GET)
+	public String mixing() {
+		return "mixing";
 	}
 }
