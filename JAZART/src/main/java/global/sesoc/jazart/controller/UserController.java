@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
-import global.sesoc.jazart.dao.SampleRepository;
+import global.sesoc.jazart.dao.UserRepository;
 import global.sesoc.jazart.utility.FileService;
 import global.sesoc.jazart.vo.User;
 
@@ -34,7 +34,7 @@ public class UserController {
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
 	@Autowired
-	SampleRepository sr;
+	UserRepository sr;
 	@Autowired
 	HttpSession session;
 

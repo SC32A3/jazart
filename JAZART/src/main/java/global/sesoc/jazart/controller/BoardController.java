@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus;
 
-import global.sesoc.jazart.dao.SampleRepository;
+import global.sesoc.jazart.dao.UserRepository;
 import global.sesoc.jazart.vo.User;
 
 /**
@@ -23,7 +23,7 @@ public class BoardController {
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
 	@Autowired
-	SampleRepository sr;
+	UserRepository sr;
 	@Autowired
 	HttpSession session;
 	

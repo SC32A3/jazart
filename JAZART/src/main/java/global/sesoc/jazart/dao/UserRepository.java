@@ -12,15 +12,15 @@ import global.sesoc.jazart.vo.User;
 
 
 @Repository
-public class SampleRepository {
+public class UserRepository {
 
 	@Autowired
 	SqlSession sqlSession;
 	
-	private static final Logger logger = LoggerFactory.getLogger(SampleRepository.class);
+	private static final Logger logger = LoggerFactory.getLogger(UserRepository.class);
 	
 	public int regist(User user){
-		SampleMapper mapper = sqlSession.getMapper(SampleMapper.class);
+		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 		int result = 0;
 		try {
 			result = mapper.insert(user);
@@ -32,7 +32,7 @@ public class SampleRepository {
 	}
 	
 	public User selectUser(String userid) {
-		SampleMapper mapper = sqlSession.getMapper(SampleMapper.class);
+		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 		User user = null;
 		try {
 			user = mapper.selectUser(userid);
@@ -44,7 +44,7 @@ public class SampleRepository {
 	}
 	
 	public List<User> list(){
-		SampleMapper mapper = sqlSession.getMapper(SampleMapper.class);
+		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 		List<User> result = null;
 		try {
 			result = mapper.list();
@@ -56,7 +56,7 @@ public class SampleRepository {
 	}
 	
 	public int delete(int num){
-		SampleMapper mapper = sqlSession.getMapper(SampleMapper.class);
+		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 		int result = 0;
 		try {
 			result = mapper.delete(num);
@@ -67,7 +67,7 @@ public class SampleRepository {
 	}
 	
 	public int update(User comment){
-		SampleMapper mapper = sqlSession.getMapper(SampleMapper.class);
+		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 		int result = 0;
 		try {
 			result = mapper.update(comment);
@@ -78,7 +78,7 @@ public class SampleRepository {
 	}
 
 	public String joinCheck(User user) {
-		SampleMapper mapper = sqlSession.getMapper(SampleMapper.class);
+		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 		String result = "";
 		try {
 			int countId = mapper.countId(user.getUser_id());

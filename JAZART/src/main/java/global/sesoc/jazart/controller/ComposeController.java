@@ -9,10 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.support.SessionStatus;
 
-import global.sesoc.jazart.dao.SampleRepository;
-import global.sesoc.jazart.vo.User;
+import global.sesoc.jazart.dao.UserRepository;
 
 /**
  * Handles requests for the application home page.
@@ -23,7 +21,7 @@ public class ComposeController {
 	private static final Logger logger = LoggerFactory.getLogger(ComposeController.class);
 	
 	@Autowired
-	SampleRepository sr;
+	UserRepository sr;
 	@Autowired
 	HttpSession session;
 	
@@ -47,7 +45,10 @@ public class ComposeController {
 	}
 	
 	@RequestMapping(value = "/artistpage", method = RequestMethod.GET)
-	public String artistpage() {
+	public String artistpage(Model model) {
+		String nickname = (String) session.getAttribute("loginNickname");
+		
+		
 		return "artistpg";
 	}
 }

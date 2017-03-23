@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import global.sesoc.jazart.vo.User;
 
-public interface SampleMapper {
+public interface UserMapper {
 	public int insert(User sample) throws Exception;
 
 	public ArrayList<User> list() throws Exception;
