@@ -44,9 +44,8 @@
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 
 <!-- Mixing API -->
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+<link href='resources/css/mixing.css' rel='stylesheet' type='text/css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
 <script src="resources/js/jquery.knob.js"></script>
 </head>
 <body>
@@ -254,12 +253,9 @@
 											<form class="col s12" method="post" action="join">
 												<!-- email_sender.php -->
 												<input type="hidden" name="antispam" value="x123">
-												<h3 class="left-align qt-vertical-padding-m">Mixing!</h3>
-<div id="page-wrap">
+												<h3 class="left-align qt-vertical-padding-m">Web Audio Loop Mixer</h3>
+												<div id="page-wrap">
 													<div id="controls" class="panel">
-														<div class="strip dark">
-															<h1>Web Audio Loop Mixer</h1>
-														</div>
 														<div class="stripTransport">
 															<input id="inputSource1" type="file" accept="audio/*">
 															<input id="inputSource2" type="file" accept="audio/*">
@@ -287,56 +283,9 @@
 															</div>
 															<div class="stripSection">
 																<p class="label">
-																	<span class="checkbox-label">EQ</span><input
-																		type="checkbox" id="eq-1" /><label for="eq-1"><span></span></label>
-																</p>
-
-																<p class="knobContainer label">
-																	<span class="yellow">High</span> <input id="high-1"
-																		data-step="1" data-min="-15" data-max="15"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#E3DC52" data-bgColor="#777" value="0">
-																</p>
-
-																<p class="knobContainer label">
-																	<span class="orangeLight">Mid</span> <input id="mid-1"
-																		data-step="1" data-min="-15" data-max="15"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#E3AA54" data-bgColor="#777" value="0">
-																</p>
-
-																<p class="knobContainer label">
-																	<span class="orangeDark">Low</span> <input id="low-1"
-																		data-step="1" data-min="-15" data-max="15"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#E38356" data-bgColor="#777" value="0">
-																</p>
-
-															</div>
-															<div class="stripSection">
-																<p class="knobContainer label">
-																	<span class="blue">Pan</span> <input id="pan-1"
-																		data-step="1" data-min="-45" data-max="45"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#56A1E3" data-bgColor="#777" value="0"
-																		onchange="pan(this);">
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
 																	<span>Vol</span> <span class="sliderContainer"><input
 																		id="volume-1" class="slider" type="range" min="0"
 																		max="1" step="0.1" value="1" /></span>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
-																	<span class="checkbox-label">Mute</span><input
-																		type="checkbox" id="mute-1" /><label for="mute-1"><span></span></label>
 																</p>
 															</div>
 															<div class="stripSection">
@@ -374,56 +323,9 @@
 															</div>
 															<div class="stripSection">
 																<p class="label">
-																	<span class="checkbox-label">EQ</span><input
-																		type="checkbox" id="eq-2" /><label for="eq-2"><span></span></label>
-																</p>
-
-																<p class="knobContainer label">
-																	<span class="yellow">High</span> <input id="high-2"
-																		data-step="1" data-min="-15" data-max="15"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#E3DC52" data-bgColor="#777" value="0">
-																</p>
-
-																<p class="knobContainer label">
-																	<span class="orangeLight">Mid</span> <input id="mid-2"
-																		data-step="1" data-min="-15" data-max="15"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#E3AA54" data-bgColor="#777" value="0">
-																</p>
-
-																<p class="knobContainer label">
-																	<span class="orangeDark">Low</span> <input id="low-2"
-																		data-step="1" data-min="-15" data-max="15"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#E38356" data-bgColor="#777" value="0">
-																</p>
-
-															</div>
-															<div class="stripSection">
-																<p class="knobContainer label">
-																	<span class="blue">Pan</span> <input id="pan-2"
-																		data-step="1" data-min="-45" data-max="45"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#56A1E3" data-bgColor="#777" value="0"
-																		onchange="pan(this);">
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
 																	<span>Vol</span> <span class="sliderContainer"><input
 																		id="volume-2" class="slider" type="range" min="0"
 																		max="1" step="0.1" value="1" /></span>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
-																	<span class="checkbox-label">Mute</span><input
-																		type="checkbox" id="mute-2" /><label for="mute-2"><span></span></label>
 																</p>
 															</div>
 															<div class="stripSection">
@@ -461,56 +363,9 @@
 															</div>
 															<div class="stripSection">
 																<p class="label">
-																	<span class="checkbox-label">EQ</span><input
-																		type="checkbox" id="eq-3" /><label for="eq-3"><span></span></label>
-																</p>
-
-																<p class="knobContainer label">
-																	<span class="yellow">High</span> <input id="high-3"
-																		data-step="1" data-min="-15" data-max="15"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#E3DC52" data-bgColor="#777" value="0">
-																</p>
-
-																<p class="knobContainer label">
-																	<span class="orangeLight">Mid</span> <input id="mid-3"
-																		data-step="1" data-min="-15" data-max="15"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#E3AA54" data-bgColor="#777" value="0">
-																</p>
-
-																<p class="knobContainer label">
-																	<span class="orangeDark">Low</span> <input id="low-3"
-																		data-step="1" data-min="-15" data-max="15"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#E38356" data-bgColor="#777" value="0">
-																</p>
-
-															</div>
-															<div class="stripSection">
-																<p class="knobContainer label">
-																	<span class="blue">Pan</span> <input id="pan-3"
-																		data-step="1" data-min="-45" data-max="45"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#56A1E3" data-bgColor="#777" value="0"
-																		onchange="pan(this);">
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
 																	<span>Vol</span> <span class="sliderContainer"><input
 																		id="volume-3" class="slider" type="range" min="0"
 																		max="1" step="0.1" value="1" /></span>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
-																	<span class="checkbox-label">Mute</span><input
-																		type="checkbox" id="mute-3" /><label for="mute-3"><span></span></label>
 																</p>
 															</div>
 															<div class="stripSection">
@@ -548,56 +403,9 @@
 															</div>
 															<div class="stripSection">
 																<p class="label">
-																	<span class="checkbox-label">EQ</span><input
-																		type="checkbox" id="eq-4" /><label for="eq-4"><span></span></label>
-																</p>
-
-																<p class="knobContainer label">
-																	<span class="yellow">High</span> <input id="high-4"
-																		data-step="1" data-min="-15" data-max="15"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#E3DC52" data-bgColor="#777" value="0">
-																</p>
-
-																<p class="knobContainer label">
-																	<span class="orangeLight">Mid</span> <input id="mid-4"
-																		data-step="1" data-min="-15" data-max="15"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#E3AA54" data-bgColor="#777" value="0">
-																</p>
-
-																<p class="knobContainer label">
-																	<span class="orangeDark">Low</span> <input id="low-4"
-																		data-step="1" data-min="-15" data-max="15"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#E38356" data-bgColor="#777" value="0">
-																</p>
-
-															</div>
-															<div class="stripSection">
-																<p class="knobContainer label">
-																	<span class="blue">Pan</span> <input id="pan-4"
-																		data-step="1" data-min="-45" data-max="45"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#56A1E3" data-bgColor="#777" value="0"
-																		onchange="pan(this);">
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
 																	<span>Vol</span> <span class="sliderContainer"><input
 																		id="volume-4" class="slider" type="range" min="0"
 																		max="1" step="0.1" value="1" /></span>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
-																	<span class="checkbox-label">Mute</span><input
-																		type="checkbox" id="mute-4" /><label for="mute-4"><span></span></label>
 																</p>
 															</div>
 															<div class="stripSection">
@@ -696,7 +504,7 @@
 			<div class="qt-section qt-footer-widgets qt-content-primary-light">
 				<div class="qt-container">
 					<h2 class="qt-footer-logo">
-						<a href="./" class="brand-logo qt-logo-text">ONAIR<span>2</span></a>
+						<a href="./" class="brand-logo qt-logo-text">Jazart<span>♬</span></a>
 					</h2>
 					<div
 						class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
