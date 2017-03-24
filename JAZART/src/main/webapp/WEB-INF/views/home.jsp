@@ -63,12 +63,7 @@
 			<!-- desktop menu  HIDDEN IN MOBILE AND TABLETS -->
 			<ul class="qt-desktopmenu hide-on-xl-and-down">
 				<li class="qt-logo-link"><a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
-				<li><a href="compose">Compose</a>
-					<ul>
-						<li><a href="page-schedule.html">Time Chart</a></li>
-						<li><a href="single-show.html">Week Chart</a></li>
-					</ul>
-				</li>
+				<li><a href="compose">Compose</a></li>
 				<li><a href="archive-podcast.html">Board</a>
 					<ul>
 						<li><a href="music_community">Music Community</a></li>
