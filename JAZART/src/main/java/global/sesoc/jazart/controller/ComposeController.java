@@ -85,9 +85,11 @@ public class ComposeController {
 			Songinfo song =  sr.selectSong(songnum);
 			logger.info("songpicture=> "+song.getSong_picture());
 			originalfile = song.getSong_picture();
-			fullpath = uploadPath+"/"+song.getSong_picture();
+			
+		} else if (type.equals("user")) {
+			originalfile = data;
 		}
-		
+			fullpath = uploadPath+"/"+originalfile;
 		//사용자 측에서 다운로드 받도록 하기 위해서
 		//response 객체의 헤더를 조작함, 웹페이지 개발자모드(F12)의 Head에서 확인할수 있다
 		//text/html에서 파일 다운로드 가능한 형태로 변경
