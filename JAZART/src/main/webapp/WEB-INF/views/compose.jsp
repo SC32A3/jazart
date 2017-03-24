@@ -217,8 +217,7 @@
 				</div>
 				<div class="qt-header-bg"
 					data-bgimage="imagestemplate/full-1600-700.jpg">
-					<img src="resources/imagestemplate/full-1600-700.jpg"
-						alt="Featured image" width="690" height="302">
+					<img src="images/compose.jpg" alt="Featured image" width="690" height="302">
 				</div>
 			</div>
 			<!-- HEADER CONTACTS END ========================= -->
@@ -311,7 +310,7 @@
 			<div class="qt-section qt-footer-widgets qt-content-primary-light">
 				<div class="qt-container">
 					<h2 class="qt-footer-logo">
-						<a href="./" class="brand-logo qt-logo-text">ONAIR<span>2</span></a>
+						<a href="./" class="brand-logo qt-logo-text">Jazart<span>♬</span></a>
 					</h2>
 					<div
 						class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">

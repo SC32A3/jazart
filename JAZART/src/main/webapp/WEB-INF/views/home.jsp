@@ -207,7 +207,7 @@
 									</div>
 								</div>
 								<div class="qt-header-bg" data-bgimage="images/back1.jpg">
-									<img src="images/back1.jsp" alt="Featured image" width="1170" height="512">
+									<img src="images/back1.jpg" alt="Featured image" width="1170" height="512">
 								</div>
 							</div>
 						</div>
