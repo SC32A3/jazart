@@ -296,40 +296,6 @@ create sequence list_seq;
 
 ----------------------------------------------------------------------------------------------------------------------
 
-insert into p_user values('daehan','1111', 'x', '최대한', 'banzzogari', '010-3637', 'daehan@naver.com', '안녕하세요','발라드');
-
-insert into p_songinfo values(songinfo_seq.nextval, 'banzzogari', 'x', '우리조의로고송', '설명입니다1', 'x', sysdate, 0);
-
-insert into p_reply values(reply_seq.nextval, 'banzzogari', '와우', sysdate, 1, 22);
-
-insert into p_board values(board_seq.nextval, '발라드', 'x', 'banzzogari', '피처링 구해요', '피쳐링해주실분을 찾고 있습니다', sysdate, 1);
-
-insert into p_like values('banzzogari', sysdate, 22);
-
--------------------------------------------------------------------------------------------------------------------------------
-
-insert into p_user values('sunghan','1111', 'x', '홍성한', 'sunghan', '010-3217', 'sunghan@naver.com', '안녕','힙합');
-
-insert into p_songinfo values(songinfo_seq.nextval, 'sunghan', 'x', '캡송', '아캡아캡아캡송시작', 'x', sysdate, 0);
-
-insert into p_reply values(reply_seq.nextval, 'banzzogari', '개굿', sysdate, 1, 23);
-
-insert into p_board values(board_seq.nextval, '힙합', 'x', 'banzzogari', '피처링 구했습니다', '냉무', sysdate, 1);
-
-insert into p_like values('banzzogari', sysdate, 22);
-
--------------------------------------------------------------------------------------------------------------------------------
-
-insert into p_user values('hyunwoo','1111', 'x', '정현우', '다람쥐장군', '010-9870', 'hyunwoo@naver.com', '안니용', '알앤비');
-
-insert into p_songinfo values(songinfo_seq.nextval, 'hyunwoo', 'x', '프로젝트테마곡', '자차르트교향곡', 'x', sysdate, 0);
-
-insert into p_reply values(reply_seq.nextval, 'hyunwoo', '와우', sysdate, 1, 24);
-
-insert into p_board values(board_seq.nextval, '알앤비', 'x', 'sunghan', '손가락은5개인데', '왜 유비는 넷?!', sysdate, 1);
-
-insert into p_like values('sunghan', sysdate, 24);
-
 -------------------------------------------------------------------------------------------------------------------------------
 commit;
 select * from userinfo;
@@ -349,3 +315,7 @@ insert into songinfo values(songinfo_seq.nextval, 'apple', 'cat2.jpg', '사과�
 insert into songinfo values(songinfo_seq.nextval, 'apple', 'seo.jpg', '사과좋아', '국민가수 사과맨의 컴백곡', 'x', sysdate, 0, 60, '3/4', 'ballad');
 insert into songinfo values(songinfo_seq.nextval, 'apple', 'seo.jpg', '사과만세', '그가 돌아왔다 사과맨', 'x', sysdate, 0, 70, '3/4', 'jazz');
 commit;
+
+
+insert into board values(board_seq.nextval, 'x', 'x', 'banzzogari', '피처링 구해요', '피쳐링해주실분을 찾고 있습니다', sysdate, 1);
+insert into board values(board_seq.nextval, 'x', 'x', 'banzzogari', '안녕하세요', '피쳐링해주실분을 찾고 있습니다', sysdate, 1);

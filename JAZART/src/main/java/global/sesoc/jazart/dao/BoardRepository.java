@@ -35,7 +35,12 @@ public class BoardRepository {
 	
 	public int write(Board board){
 		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
-		int result = mapper.write(board);
+		int result = 0;
+		try {
+			result = mapper.write(board);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return result;
 	}
 	

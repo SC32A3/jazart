@@ -67,7 +67,7 @@
 				<li><a href="archive-podcast.html">Board</a>
 					<ul>
 						<li><a href="music_community">Music Community</a></li>
-						<li><a href="single-podcast.html">Free Community</a></li>
+						<li><a href="free_community">Free Community</a></li>
 					</ul>
 				</li>
 				<li><a href="archive-members.html">Song</a>
@@ -93,7 +93,7 @@
 						<li><a href="single-event.html">Single event</a></li>
 					</ul>
 				</li>
-				<li><a href="page-contacts.html">1Contacts</a></li>
+				<li><a href="page-contacts.html">Contacts</a></li>
 				<li class="right"><a href="#!" data-expandable="#qtsearchbar" class="qt-btn qt-btn-l qt-scrolltop"><i class="icon dripicons-search"></i></a></li>
 				<li class="right"><a href="page-popup.html" class="qt-popupwindow" data-name="Music Player" data-width="320" data-height="500"><i class="icon dripicons-duplicate"></i> Popup</a></li>
 				<li class="right"><a href="#!" class="button-playlistswitch" data-activates="channelslist"><i class="icon dripicons-media-play"></i> Listen</a></li>

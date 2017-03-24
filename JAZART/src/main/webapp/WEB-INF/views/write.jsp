@@ -228,7 +228,7 @@
                                                     <h3 class="left-align qt-vertical-padding-m">Please write down below.</h3>
                                                     <div class="row">
                                                            <div class="input-field col s6 l2">
-														<select class="qt-btn qt-btn-s write_combo">
+														<select class="qt-btn qt-btn-s write_combo" name="board_tag">
 															<option value="ballad">Ballad</option>
 															<option value="hiphop">HipHop</option>
 															<option value="rnb">RnB</option>

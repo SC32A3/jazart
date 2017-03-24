@@ -10,7 +10,7 @@
 		into 
 			board
 			(
-			boardnum		
+			 boardnum		
 			,board_tag				
 			,board_picture
 			,board_nickname
@@ -32,7 +32,7 @@
 			)
 	</insert>
 
-	<select id="list" resultType="Board">
+	<select id="boardList" resultType="Board">
 		select
 			boardnum		
 			,board_tag				
@@ -40,7 +40,7 @@
 			,board_nickname
 			,board_title
 			,board_content			
-			,to_char(inputdate, 'yyyy-mm-dd') board_inputdat		
+			,to_char(board_inputdate, 'yyyy-mm-dd') board_inputdate		
 			,board_hits			
 		from
 			board	

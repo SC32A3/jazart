@@ -2,7 +2,7 @@ package global.sesoc.jazart.vo;
 
 public class Board {
 
-	private int number;
+	private int boardnum;
 	private String board_tag;
 	private String board_picture;
 	private String board_nickname;
@@ -11,10 +11,10 @@ public class Board {
 	private String board_inputdate;
 	private int board_hits;
 	
-	public Board(int number, String board_tag, String board_picture, String board_nickname, String board_title,
+	public Board(int boardnum, String board_tag, String board_picture, String board_nickname, String board_title,
 			String board_content, String board_inputdate, int board_hits) {
 		super();
-		this.number = number;
+		this.boardnum = boardnum;
 		this.board_tag = board_tag;
 		this.board_picture = board_picture;
 		this.board_nickname = board_nickname;
@@ -28,12 +28,12 @@ public class Board {
 		super();
 	}
 
-	public int getNumber() {
-		return number;
+	public int getboardnum() {
+		return boardnum;
 	}
 
-	public void setNumber(int number) {
-		this.number = number;
+	public void setboardnum(int boardnum) {
+		this.boardnum = boardnum;
 	}
 
 	public String getBoard_tag() {
@@ -94,7 +94,7 @@ public class Board {
 
 	@Override
 	public String toString() {
-		return "Board [number=" + number + ", board_tag=" + board_tag + ", board_picture=" + board_picture
+		return "Board [boardnum=" + boardnum + ", board_tag=" + board_tag + ", board_picture=" + board_picture
 				+ ", board_nickname=" + board_nickname + ", board_title=" + board_title + ", board_content="
 				+ board_content + ", board_inputdate=" + board_inputdate + ", board_hits=" + board_hits + "]";
 	}
