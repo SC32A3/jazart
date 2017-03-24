@@ -84,8 +84,9 @@
 				</li>
 				<li><a href="archive-chart.html">Charts</a>
 					<ul>
-						<li><a href="archive-chart.html">Charts archive</a></li>
-						<li><a href="single-chart.html">Single chart</a></li>
+						<li><a href="archive-chart.html">realtime chart</a></li>
+						<li><a href="single-chart.html">daily chart</a></li>
+						<li><a href="chart.html">weekly chart</a></li>
 					</ul>
 				</li>
 				<li><a href="archive-events.html">Events</a>

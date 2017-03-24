@@ -36,4 +36,16 @@ public class BoardController {
 	public String musicBoard() {
 		return "musicBoard";
 	}
+	@RequestMapping(value = "archive-chart.html", method = RequestMethod.GET)
+	public String realtimect() {
+		return "realtimect";
+	}
+	@RequestMapping(value = "single-chart.html", method = RequestMethod.GET)
+	public String dayilyct() {
+		return "dailyct";
+	}
+	@RequestMapping(value = "chart.html", method = RequestMethod.GET)
+	public String weekilyct() {
+		return "weeklyct";
+	}
 }
