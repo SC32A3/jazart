@@ -222,7 +222,7 @@
                                                     </div>
                                                     <div class="row">
                                                         <div class="input-field col s6">
-                                                            <input name="password" id="password" type="text" class="validate">
+                                                            <input name="password" id="password" type="password" class="validate">
                                                             <label>PASSWORD</label>
                                                         </div>
                                                     </div>    

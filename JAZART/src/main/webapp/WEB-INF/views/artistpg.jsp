@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!doctype html>
 <html class="no-js" lang="en">
 	<head>
@@ -237,10 +238,12 @@
 								<img src="resources/imagestemplate/large-1170-512.jpg" alt="Header image" width="1200" height="525" class="qt-img-responsive">
 								<!-- POST CONTENT ========================= -->
 								<p></p>
-								<h3>아티스트명</h3>
-								<h3>전화번호</h3>
-								<h3>이메일</h3>
-								<h3>자기소개</h3>
+								<table>
+								<tr><td>Artist</td><td>${user.user_nickname}</td></tr>
+								<tr><td>Phone</td><td>${user.user_phone}</td></tr>
+								<tr><td>Email</td><td>${user.user_email}</td></tr>
+								<tr><td>Description</td><td>${user.user_desc}</td></tr>
+								</table>
 			
 								<blockquote>
 									<p>People think focus means saying yes to the thing you’ve got to focus on. But that’s not what it means at all. It means saying no to the hundred other good ideas that there are. You have to pick carefully. I’m actually as proud of the things we haven’t done as the things I have done. Innovation is saying no to 1,000 things.
@@ -253,8 +256,41 @@
 			
 						<h5 class="qt-caption-small"><span>Related people</span></h5>
 						<div class="qt-related-list row">
+							<c:forEach var="song" items="${songs}">
 							<div class="col s12 m4 l4">
 								<!-- MEMBER ========================= -->
+								<div class="qt-part-archive-item qt-item-member">
+									<div class="qt-item-header">
+										<div class="qt-header-top">
+											<ul class="qt-tags">
+												<li><a href="#tag-link">Tag</a></li>
+											</ul>
+										</div>
+										<div class="qt-header-mid qt-vc">
+											<div class="qt-vi">
+												<!-- <h4 class="qt-ellipsis qt-title">
+													<a href="resources/single-member.php" class="qt-text-shadow">Tom Rogers</a>
+												</h4> -->
+											</div>
+										</div>
+										<div class="qt-header-bottom">
+											<a href="resources/single-member.php" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-user"></i></a>
+										</div>
+										<div class="qt-header-bg" data-bgimage="images/default.jpg"> <!-- imagestemplate/medium-690-302.jpg -->
+											<img src="download?type=song&data=${song.songnum}" alt="Featured image" width="690" height="690">
+										</div>
+									</div>
+									<div class="qt-item-content-xs qt-card">
+										<p class="qt-ellipsis-3">
+											${song.song_title}
+										</p>
+									</div>
+								</div>
+								<!-- MEMBER END ========================= -->
+							</div>
+							</c:forEach>
+							<!-- <div class="col s12 m4 l4">
+								MEMBER =========================
 								<div class="qt-part-archive-item qt-item-member">
 									<div class="qt-item-header">
 										<div class="qt-header-top">
@@ -282,10 +318,10 @@
 										</p>
 									</div>
 								</div>
-								<!-- MEMBER END ========================= -->
+								MEMBER END =========================
 							</div>
 							<div class="col s12 m4 l4">
-								<!-- MEMBER ========================= -->
+								MEMBER =========================
 								<div class="qt-part-archive-item qt-item-member">
 									<div class="qt-item-header">
 										<div class="qt-header-top">
@@ -313,39 +349,8 @@
 										</p>
 									</div>
 								</div>
-								<!-- MEMBER END ========================= -->
-							</div>
-							<div class="col s12 m4 l4">
-								<!-- MEMBER ========================= -->
-								<div class="qt-part-archive-item qt-item-member">
-									<div class="qt-item-header">
-										<div class="qt-header-top">
-											<ul class="qt-tags">
-												<li><a href="#tag-link">Tag</a></li>
-											</ul>
-										</div>
-										<div class="qt-header-mid qt-vc">
-											<div class="qt-vi">
-												<h4 class="qt-ellipsis qt-title">
-													<a href="resources/single-member.php" class="qt-text-shadow">Tom Rogers</a>
-												</h4>
-											</div>
-										</div>
-										<div class="qt-header-bottom">
-											<a href="resources/single-member.php" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-user"></i></a>
-										</div>
-										<div class="qt-header-bg" data-bgimage="imagestemplate/medium-690-302.jpg">
-											<img src="resources/imagestemplate/medium-690-302.jpg" alt="Featured image" width="690" height="690">
-										</div>
-									</div>
-									<div class="qt-item-content-xs qt-card">
-										<p class="qt-ellipsis-3">
-											Donec gravida nunc non elit lacinia, a tempus est finibus. Aliquam a fringilla arcu, sit amet iaculis mauris. Phasellus varius enim vel urna viverra fringilla. Interdum et malesuada fames ac.
-										</p>
-									</div>
-								</div>
-								<!-- MEMBER END ========================= -->
-							</div>
+								MEMBER END =========================
+							</div> -->
 						</div>
 					</div>
 	

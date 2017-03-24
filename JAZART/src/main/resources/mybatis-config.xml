@@ -8,10 +8,12 @@
 	<!-- 타입 별칭 설정 -->
 	<typeAliases>
 		<typeAlias type="global.sesoc.jazart.vo.User" alias="User" />
+		<typeAlias type="global.sesoc.jazart.vo.Songinfo" alias="Songinfo" />
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="mappers/userMapper.xml" />
+		<mapper resource="mappers/songMapper.xml" />
 	</mappers>
 	
 </configuration>

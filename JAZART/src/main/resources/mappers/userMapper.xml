@@ -4,7 +4,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="global.sesoc.jazart.dao.SampleMapper">
+<mapper namespace="global.sesoc.jazart.dao.UserMapper">
 	<insert id="insert" parameterType="User">
 		insert into userinfo values(#{user_id}, #{user_pw}, #{user_picture}, #{user_nickname}, #{user_phone}, #{user_email}, #{user_desc})
 	</insert>
@@ -23,5 +23,8 @@
 	</select>
 	<select id="countEmail" resultType="int" parameterType="String">
 		select count(user_email) from userinfo where user_email = #{user_email}
+	</select>
+	<select id="songsByArtist" resultType="Songinfo" parameterType="String">
+		select * from songinfo where song_nickname = #{loginNickname}
 	</select>
 </mapper>

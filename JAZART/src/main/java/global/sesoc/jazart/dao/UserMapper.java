@@ -2,6 +2,7 @@ package global.sesoc.jazart.dao;
 
 import java.util.ArrayList;
 
+import global.sesoc.jazart.vo.Songinfo;
 import global.sesoc.jazart.vo.User;
 
 public interface UserMapper {
@@ -20,4 +21,6 @@ public interface UserMapper {
 	public int countNickname(String user_nickname) throws Exception;
 
 	public int countEmail(String user_email) throws Exception;
+
+	public ArrayList<Songinfo> songsByArtist(String loginNickname) throws Exception;
 }

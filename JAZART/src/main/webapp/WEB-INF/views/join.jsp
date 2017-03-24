@@ -73,13 +73,13 @@ volume.css" />
 						if (resp == "") {
 							send();
 							return true;
-						} else if (resp = "DupId") {
+						} else if (resp == "DupId") {
 							alert("Account is already exist");
 							return false;
-						} else if (resp = "DupNickname") {
+						} else if (resp == "DupNickname") {
 							alert("Nickname is already exist");
 							return false;
-						} else if (resp = "DupEmail") {
+						} else if (resp == "DupEmail") {
 							alert("Email is already exist");
 							return false;
 						}

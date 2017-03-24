@@ -1,5 +1,6 @@
 package global.sesoc.jazart.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -8,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import global.sesoc.jazart.vo.Songinfo;
 import global.sesoc.jazart.vo.User;
 
 
@@ -90,17 +92,29 @@ public class UserRepository {
 				result = "DupId";
 			}
 			
-			if (countId != 0) {
+			if (countNickname != 0) {
 				result = "DupNickname";
 			}
 			
-			if (countId != 0) {
+			if (countEmail != 0) {
 				result = "DupEmail";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+	public ArrayList<Songinfo> songsByArtist(String loginNickname) {
+		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+		ArrayList<Songinfo> songs = null;
+		try {
+			songs = mapper.songsByArtist(loginNickname);
+			logger.info("아티스트 제작곡=> "+songs);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return songs;
 	}
 
 	
