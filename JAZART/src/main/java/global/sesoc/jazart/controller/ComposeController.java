@@ -53,7 +53,9 @@ public class ComposeController {
 	}
 	
 	@RequestMapping(value = "/songpage", method = RequestMethod.GET)
-	public String songpage() {
+	public String songpage(int songnum, Model model) {
+		Songinfo song = sr.selectSong(songnum);
+		model.addAttribute("song", song);
 		return "songpg";
 	}
 	

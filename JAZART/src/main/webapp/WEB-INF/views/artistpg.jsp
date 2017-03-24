@@ -189,7 +189,7 @@
 							<li><a href="#" target="_blank"><i class="qticon-soundcloud"></i></a></li>
 						</ul>
 					</div>
-					<div class="qt-header-bg" data-bgimage="imagestemplate/full-1600-700.jpg">
+					<div class="qt-header-bg" data-bgimage="resources/imagestemplate/full-1600-700.jpg">
 						<img src="images/artist.jpg" alt="Featured image" width="690" height="302">
 					</div>
 				</div>
@@ -261,24 +261,22 @@
 								<!-- MEMBER ========================= -->
 								<div class="qt-part-archive-item qt-item-member">
 									<div class="qt-item-header">
-										<div class="qt-header-top">
+										<div class="qt-header-top"> <!-- 뒤 검은배경 -->
 											<ul class="qt-tags">
 												<li><a href="#tag-link">Tag</a></li>
 											</ul>
 										</div>
-										<div class="qt-header-mid qt-vc">
+										<div class="qt-header-mid qt-vc"> <!-- 중앙프레임 -->
 											<div class="qt-vi">
-												<!-- <h4 class="qt-ellipsis qt-title">
-													<a href="resources/single-member.php" class="qt-text-shadow">Tom Rogers</a>
-												</h4> -->
+												<a href="songpage?songnum=${song.songnum}"><img src="download?type=song&data=${song.songnum}" alt="Featured image" width="690" height="690"></a>
 											</div>
 										</div>
-										<div class="qt-header-bottom">
+										<div class="qt-header-bottom"> <!-- 아이콘 -->
 											<a href="resources/single-member.php" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-user"></i></a>
 										</div>
-										<div class="qt-header-bg" data-bgimage="images/default.jpg"> <!-- imagestemplate/medium-690-302.jpg -->
-											<img src="download?type=song&data=${song.songnum}" alt="Featured image" width="690" height="690">
-										</div>
+										<!-- qt-header-bg 뒷배경 -->
+										<!-- <div class="qt-header-bg" data-bgimage="images/default.jpg"> imagestemplate/medium-690-302.jpg 
+										</div> -->
 									</div>
 									<div class="qt-item-content-xs qt-card">
 										<p class="qt-ellipsis-3">
@@ -442,8 +440,8 @@
 							</div>
 						</div>
 					</div>
-					<div class="qt-header-bg" data-bgimage="imagestemplate/full-1600-700.jpg">
-						<img src="imagestemplate/full-1600-700.jpg" alt="Featured image" width="690" height="302">
+					<div class="qt-header-bg" data-bgimage="resources/imagestemplate/full-1600-700.jpg">
+						<img src="resources/imagestemplate/full-1600-700.jpg" alt="Featured image" width="690" height="302">
 					</div>
 				</div>
 				<div class="qt-footer-bottom qt-content-primary-dark">
@@ -475,7 +473,7 @@
 		<div id="channelslist" class="side-nav qt-content-primary qt-right-sidebar">
 			<a href="#" class="qt-btn qt-btn-secondary button-playlistswitch-close qt-close-sidebar-right" data-activates="channelslist"><i class="icon dripicons-cross"></i></a>
 			<!-- PLAYER ========================= -->
-			<div id="qtplayercontainer" data-playervolume="true" data-accentcolor="#dd0e34" data-accentcolordark="#ff0442" data-textcolor="#ffffff" data-soundmanagerurl="./components/soundmanager/swf/" class="qt-playercontainer qt-playervolume qt-clearfix qt-content-primary">
+			<div id="qtplayercontainer" data-playervolume="true" data-accentcolor="#dd0e34" data-accentcolordark="#ff0442" data-textcolor="#ffffff" data-soundmanagerurl="./resources/components/soundmanager/swf/" class="qt-playercontainer qt-playervolume qt-clearfix qt-content-primary">
 				<div class="qt-playercontainer-content qt-vertical-padding-m">
 					<div class="qt-playercontainer-header">
 						<h5 class="qt-text-shadow small">Now on</h5>
@@ -500,8 +498,8 @@
 						<hr class="qt-inline-textdeco">
 					</div>
 				</div>
-				<div id="playerimage" class="qt-header-bg" data-bgimage="imagestemplate/full-1600-700.jpg">
-					<img src="imagestemplate/full-1600-700.jpg" alt="Featured image" width="690" height="302">
+				<div id="playerimage" class="qt-header-bg" data-bgimage="resources/imagestemplate/full-1600-700.jpg">
+					<img src="resources/imagestemplate/full-1600-700.jpg" alt="Featured image" width="690" height="302">
 				</div>
 			</div>
 			<!-- this is for xml radio feed -->
@@ -511,14 +509,14 @@
 			<div class="qt-part-channels-list">
 				<ul class="qt-content-aside qt-channelslist qt-negative">
 					<li class="qt-channel">
-						<a href="#!" class="qt-ellipsis" data-title="06AM Ibiza" data-subtitle="Underground Radio" data-background="imagestemplate/photo-squared-500-500.jpg" data-logo="imagestemplate/radio-logo.png" data-playtrack="http://173.192.105.231:3540/stream.mp3" data-host="173.192.105.231" data-port="3540" data-stats_path="" data-played_path="" data-channel="">
-							<img src="imagestemplate/radio-logo.png" alt="logo" class="qt-radiologo dripicons-media-play" width="80" height="80">
+						<a href="#!" class="qt-ellipsis" data-title="06AM Ibiza" data-subtitle="Underground Radio" data-background="resources/imagestemplate/photo-squared-500-500.jpg" data-logo="resources/imagestemplate/radio-logo.png" data-playtrack="http://173.192.105.231:3540/stream.mp3" data-host="173.192.105.231" data-port="3540" data-stats_path="" data-played_path="" data-channel="">
+							<img src="resources/imagestemplate/radio-logo.png" alt="logo" class="qt-radiologo dripicons-media-play" width="80" height="80">
 							<i class="dripicons-media-play"></i> Station 1
 						</a>
 					</li>
 					<li class="qt-channel">
-						<a href="#!" class="qt-ellipsis" data-title="altradio" data-subtitle="The subtitle of radio 2" data-background="imagestemplate/large-1170-512.jpg" data-logo="imagestemplate/radio-logo.png" data-playtrack="http://82.77.137.30:8557/;listen.mp3" data-host="82.77.137.30" data-port="8557" data-stats_path="" data-played_path="" data-channel="">
-							<img src="imagestemplate/radio-logo.png" alt="logo" class="qt-radiologo" width="80" height="80">
+						<a href="#!" class="qt-ellipsis" data-title="altradio" data-subtitle="The subtitle of radio 2" data-background="resources/imagestemplate/large-1170-512.jpg" data-logo="resources/imagestemplate/radio-logo.png" data-playtrack="http://82.77.137.30:8557/;listen.mp3" data-host="82.77.137.30" data-port="8557" data-stats_path="" data-played_path="" data-channel="">
+							<img src="resources/imagestemplate/radio-logo.png" alt="logo" class="qt-radiologo" width="80" height="80">
 							<i class="dripicons-media-play"></i> altradio
 						</a>
 					</li>
@@ -538,7 +536,7 @@
 		<script src="resources/js/materializecss/bin/materialize.min.js"></script>
 
 		<!-- Cookies for player -->
-		<script src="js/jquerycookie.js"></script>
+		<script src="resources/js/jquerycookie.js"></script>
 
 		 <!-- Slick carousel and skrollr -->
 		<script src="resources/components/slick/slick.min.js"></script>
