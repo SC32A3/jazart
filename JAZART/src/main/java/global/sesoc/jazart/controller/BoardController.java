@@ -20,15 +20,14 @@ import global.sesoc.jazart.vo.Board;
  */
 @Controller
 public class BoardController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
-	
+
 	@Autowired
 	BoardRepository br;
 	@Autowired
 	HttpSession session;
-	
-	
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -36,45 +35,34 @@ public class BoardController {
 	public String musicBoard() {
 		return "musicBoard";
 	}
-	
-	
-	@RequestMapping(value="free_community",method=RequestMethod.GET)
-	public String boardList(Model model){
-		
+
+	@RequestMapping(value = "free_community", method = RequestMethod.GET)
+	public String boardList(Model model) {
+
 		ArrayList<Board> bList = new ArrayList<>();
-				
-			bList = br.boardList();
-		model.addAttribute("bList",bList);
+
+		bList = br.boardList();
+		model.addAttribute("bList", bList);
 		return "freeCommunity";
 	}
-	
-	//글 쓰기 폼
-		@RequestMapping(value = "write", method = RequestMethod.GET)
-		public String write(){
-			return "write";
+
+	// 글 쓰기 폼
+	@RequestMapping(value = "write", method = RequestMethod.GET)
+	public String write() {
+		return "write";
+	}
+
+	@RequestMapping(value = "write", method = RequestMethod.POST)
+	public String write(Board board, Model model) {
+		String loginNickname = (String) session.getAttribute("loginNickname");
+		logger.info(loginNickname);
+		if (loginNickname == null) {
+			return "redirect:/login";
 		}
-		
-		@RequestMapping(value = "write", method = RequestMethod.POST)
-		public String write(Board board, Model model){
-<<<<<<< HEAD
-			String loginNickname= (String) session.getAttribute("loginNickname");
-			logger.info(loginNickname);
-			if(loginNickname==null){
-				
-=======
-			logger.info(board.toString());
-			String id= (String) session.getAttribute("loginNickname");
-			
-			
-			if(id==null){
-				//session에 아이디 없으면 
-				//customer/loginform으로 보내버린다.
->>>>>>> branch 'master' of https://github.com/SC32A3/jazart.git
-				return "redirect:/login";
-			}
-			
-			board.setBoard_nickname(loginNickname);
-			br.write(board);
-			return "redirect:/free_community";
-		}
+
+		board.setBoard_nickname(loginNickname);
+		br.write(board);
+		return "redirect:/free_community";
+	}
+
 }
