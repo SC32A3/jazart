@@ -67,7 +67,7 @@
 				<li><a href="archive-podcast.html">Board</a>
 					<ul>
 						<li><a href="music_community">Music Community</a></li>
-						<li><a href="single-podcast.html">Free Community</a></li>
+						<li><a href="free_community">Free Community</a></li>
 					</ul>
 				</li>
 				<li><a href="archive-members.html">Song</a>

@@ -39,12 +39,12 @@ public class BoardController {
 	
 	
 	@RequestMapping(value="free_community",method=RequestMethod.GET)
-	//@RequestParam(value="page", defaultValue="1") int page
-	//request값으로 넘어오는 int page가 없으면 1로 지정
 	public String boardList(Model model){
-		ArrayList<Board> bList =br.boardList();
+		
+		ArrayList<Board> bList = new ArrayList<>();
+				
+			bList = br.boardList();
 		model.addAttribute("bList",bList);
-		logger.info(bList.toString());
 		return "freeCommunity";
 	}
 	
@@ -56,16 +56,15 @@ public class BoardController {
 		
 		@RequestMapping(value = "write", method = RequestMethod.POST)
 		public String write(Board board, Model model){
-			String id= (String) session.getAttribute("loginNickname");
-			if(id==null){
-				//session에 아이디 없으면 
-				//customer/loginform으로 보내버린다.
+			String loginNickname= (String) session.getAttribute("loginNickname");
+			logger.info(loginNickname);
+			if(loginNickname==null){
+				
 				return "redirect:/login";
 			}
 			
-			board.setBoard_nickname(id);
+			board.setBoard_nickname(loginNickname);
 			br.write(board);
-			return "redirect:freeCommunity";
-
+			return "redirect:/free_community";
 		}
 }

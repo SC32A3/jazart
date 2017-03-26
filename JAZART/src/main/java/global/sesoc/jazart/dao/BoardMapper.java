@@ -7,5 +7,6 @@ import global.sesoc.jazart.vo.Board;
 public interface BoardMapper {
 
 	public ArrayList<Board> boardList() throws Exception;
-	public int write(Board board);
+	public int write(Board board) throws Exception;
+	public Board selectList(int boardnum) throws Exception;
 }

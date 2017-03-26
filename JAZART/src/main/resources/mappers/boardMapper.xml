@@ -12,27 +12,25 @@
 			(
 			boardnum		
 			,board_tag				
-			,board_picture
 			,board_nickname
 			,board_title
 			,board_content			
-			,to_char(board_inputdate, 'yyyy-mm-dd') board_inputdate		
+			,board_inputdate	
 			,board_hits			
 			)
 		values 
 			(
 				board_seq.nextval
 				,#{board_tag}
-				,#{board_picture}
 				,#{board_nickname}
 				,#{board_title}
 				,#{board_content}
-				,#{board_inputdate}
-				,#{board_hits}		
+				,sysdate
+				,0	
 			)
 	</insert>
 
-	<select id="list" resultType="Board">
+	<select id="boardList" resultType="Board">
 		select
 			boardnum		
 			,board_tag				
@@ -40,11 +38,28 @@
 			,board_nickname
 			,board_title
 			,board_content			
-			,to_char(inputdate, 'yyyy-mm-dd') board_inputdat		
+			,to_char(board_inputdate, 'yyyy-mm-dd') board_inputdate		
 			,board_hits			
 		from
 			board	
 		order by
 			boardnum desc
+	</select>
+	
+	<select id="selectList" parameterType="int" resultType="Board" >
+		select
+			boardnum		
+			,board_tag				
+			,title			
+			,content			
+			,to_char(inputdate, 'yyyy-mm-dd hh:mi') inputdate		
+			,hits
+			,originalfile
+			,savedfile
+		from
+			board3
+		where
+			boardnum=#{boardnum}
+	
 	</select>
 </mapper>	

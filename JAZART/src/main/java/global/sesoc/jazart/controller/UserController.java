@@ -99,7 +99,7 @@ public class UserController {
 
 		ur.regist(user);
 
-		return "join";
+		return "redirect:/";
 	}
 	
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
