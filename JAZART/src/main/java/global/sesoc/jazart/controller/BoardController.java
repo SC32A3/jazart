@@ -56,10 +56,20 @@ public class BoardController {
 		
 		@RequestMapping(value = "write", method = RequestMethod.POST)
 		public String write(Board board, Model model){
+<<<<<<< HEAD
 			String loginNickname= (String) session.getAttribute("loginNickname");
 			logger.info(loginNickname);
 			if(loginNickname==null){
 				
+=======
+			logger.info(board.toString());
+			String id= (String) session.getAttribute("loginNickname");
+			
+			
+			if(id==null){
+				//session에 아이디 없으면 
+				//customer/loginform으로 보내버린다.
+>>>>>>> branch 'master' of https://github.com/SC32A3/jazart.git
 				return "redirect:/login";
 			}
 			

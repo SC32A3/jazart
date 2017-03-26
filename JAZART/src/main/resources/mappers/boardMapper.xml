@@ -10,7 +10,7 @@
 		into 
 			board
 			(
-			boardnum		
+			 boardnum		
 			,board_tag				
 			,board_nickname
 			,board_title

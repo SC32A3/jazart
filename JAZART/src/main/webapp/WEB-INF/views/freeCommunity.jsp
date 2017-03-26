@@ -273,7 +273,7 @@
 											</tr>
 											<c:forEach var="list" items="${bList}" >
 											<tr class="odd">
-												<td>${list.boardNum}</td>
+												<td>${list.boardnum}</td>
 												<td><a href="http://example.com/">${list.board_nickname}</a></td>
 												<td><a href="board_Read">${list.board_title}</td>
 												<td>${list.board_inputdate}</td>

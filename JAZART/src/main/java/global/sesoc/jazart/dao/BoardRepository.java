@@ -35,11 +35,18 @@ public class BoardRepository {
 	
 	public int write(Board board){
 		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
+<<<<<<< HEAD
 		int result=0;
 		try {
 			result = mapper.write(board);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+=======
+		int result = 0;
+		try {
+			result = mapper.write(board);
+		} catch (Exception e) {
+>>>>>>> branch 'master' of https://github.com/SC32A3/jazart.git
 			e.printStackTrace();
 		}
 		return result;
