@@ -56,6 +56,8 @@ public class ComposeController {
    @RequestMapping(value = "songpage", method = RequestMethod.GET)
    public String songpage(int songnum, Model model) {
       Songinfo song = sr.selectSong(songnum);
+
+      
       model.addAttribute("song", song);
       return "songpg";
    }
@@ -118,11 +120,9 @@ public class ComposeController {
    }
    
    @RequestMapping(value = "recommend", method = RequestMethod.GET)
-   public @ResponseBody String recommend(int songnum) {
-	   sr.recommend(songnum);
-	   
-	   
-	   return "success";
+   public @ResponseBody int recommend(int songnum) {
+	   int result = sr.recommend(songnum);
+	   return result;
    }
 }
 

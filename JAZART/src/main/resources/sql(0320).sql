@@ -312,4 +312,4 @@ select count(user_id) from userinfo where user_id = 'x';
 select count(user_nickname) from userinfo where user_nickname = 'x';
 select count(user_email) from userinfo where user_email = 'bj@nae.com';
 
-
+update songinfo set song_like = song_like+1 where songnum = #{songnum}

@@ -243,11 +243,12 @@
 								<tr><td>아티스트명</td><td>${song.song_nickname}</td></tr>
 								<tr><td>제작날짜</td><td>${song.song_inputdate}</td></tr>
 								<tr><td>추천수</td><td>${song.song_like}</td></tr>
+								<tr><td>곡소개</td><td>${song.song_desc}</td></tr>
 								</table>
 			
 								<blockquote>
 									<p>
-										${song.song_desc}
+										
 									</p>
 								</blockquote>
 								

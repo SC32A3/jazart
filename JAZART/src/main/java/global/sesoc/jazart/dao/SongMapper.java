@@ -6,4 +6,6 @@ public interface SongMapper {
 
    Songinfo selectSong(int songnum) throws Exception;
 
+   int recommend(int songnum) throws Exception;
+
 }

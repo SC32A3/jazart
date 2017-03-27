@@ -8,4 +8,7 @@
    <select id="selectSong" resultType="Songinfo" parameterType="int">
       select * from songinfo where songnum = #{songnum}
    </select>
+   <update id="recommend" parameterType="int">
+	  update songinfo set song_like = song_like+1 where songnum = #{songnum}   
+   </update>
 </mapper>

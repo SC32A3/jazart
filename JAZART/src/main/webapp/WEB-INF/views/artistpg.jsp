@@ -40,9 +40,14 @@
 				$.ajax({
 					method : "get",
 					url : "recommend",
-					data : {songnum : snum},
+					data : {"songnum" : snum},
 					success : function(resp) {
-						alert('');
+						if (resp == 1) {
+							alert('추천되었습니다');	
+						}
+					}, 
+					error : function(resp) {
+						alert(resp);
 					}
 				});
 			}
