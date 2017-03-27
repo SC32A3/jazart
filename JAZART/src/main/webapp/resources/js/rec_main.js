@@ -59,6 +59,9 @@ function toggleRecording( e ) {
         e.classList.remove("recording");
         audioRecorder.getBuffers( gotBuffers );
     } else {
+    	
+    	
+    	
         // start recording
         if (!audioRecorder)
             return;
