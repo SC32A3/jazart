@@ -44,84 +44,163 @@
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 
 <!-- Recording API -->
-<script src="resources/record/recorder.js"></script>
-<script src="resources/record/Fr.voice.js"></script>
-<script src="resources/record/jquery.js"></script>
-<script src="resources/record/app.js"></script>
+<script src="resources/js/audiodisplay.js"></script>
+<script src="resources/js/recorderjs/recorder.js"></script>
+<script src="resources/js/rec_main.js"></script>
+<style>
+canvas {
+	display: inline-block;
+	background: #202020;
+	width: 95%;
+	height: 45%;
+	box-shadow: 0px 0px 10px blue;
+}
+
+#controls {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	height: 20%;
+	width: 100%;
+}
+
+#record {
+	height: 15vh;
+}
+
+#record.recording {
+	background: red;
+	background: -webkit-radial-gradient(center, ellipse cover, #ff0000 0%, lightgrey 75%
+		, lightgrey 100%, #7db9e8 100%);
+	background: -moz-radial-gradient(center, ellipse cover, #ff0000 0%, lightgrey 75%,
+		lightgrey 100%, #7db9e8 100%);
+	background: radial-gradient(center, ellipse cover, #ff0000 0%, lightgrey 75%,
+		lightgrey 100%, #7db9e8 100%);
+}
+
+#save, #save img {
+	height: 10vh;
+}
+
+#save {
+	opacity: 0.25;
+}
+
+#save[download] {
+	opacity: 1;
+}
+
+#viz {
+	height: 80%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+@media ( orientation : landscape) {
+	body {
+		flex-direction: row;
+	}
+	#controls {
+		flex-direction: column;
+		height: 100%;
+		width: 10%;
+	}
+	#viz {
+		height: 100%;
+		width: 90%;
+	}
+}
+</style>
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->
-<div class="qt-parentcontainer">
-				
-		 <!-- QT MENUBAR TOP ================================ -->
+	<div class="qt-parentcontainer">
+
+		<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
 			<ul>
-				<li><a href="#"><i class="dripicons-chevron-right"></i>About US</a></li>
+				<li><a href="#"><i class="dripicons-chevron-right"></i>About
+						US</a></li>
 				<c:if test="${empty loginNickname}">
 					<li><a href="login"><i class="dripicons-chevron-right"></i>Login</a></li>
-					<li><a href="join"><i class="dripicons-chevron-right"></i>Join Us</a></li>
+					<li><a href="join"><i class="dripicons-chevron-right"></i>Join
+							Us</a></li>
 				</c:if>
 				<c:if test="${not empty loginNickname}">
 					<li><a href="logout"><i class="dripicons-chevron-right"></i>logout</a></li>
-    	            <li><i class="dripicons-chevron-right"></i>Welcome ${loginNickname}</li>
-                </c:if>
-				
-				<li class="right"><a href="#"><i class="qticon-beatport qt-socialicon"></i></a></li>
-				<li class="right"><a href="#"><i class="qticon-facebook qt-socialicon"></i></a></li>
-				<li class="right"><a href="#"><i class="qticon-twitter qt-socialicon"></i></a></li>
-				<li class="right"><a href="#"><i class="qticon-youtube qt-socialicon"></i></a></li>
-				<li class="right"><a href="#"><i class="qticon-soundcloud qt-socialicon"></i></a></li>
+					<li><i class="dripicons-chevron-right"></i>Welcome
+						${loginNickname}</li>
+				</c:if>
+
+				<li class="right"><a href="#"><i
+						class="qticon-beatport qt-socialicon"></i></a></li>
+				<li class="right"><a href="#"><i
+						class="qticon-facebook qt-socialicon"></i></a></li>
+				<li class="right"><a href="#"><i
+						class="qticon-twitter qt-socialicon"></i></a></li>
+				<li class="right"><a href="#"><i
+						class="qticon-youtube qt-socialicon"></i></a></li>
+				<li class="right"><a href="#"><i
+						class="qticon-soundcloud qt-socialicon"></i></a></li>
 			</ul>
 		</div>
 		<!-- QT MENUBAR  ================================ -->
 		<nav class="qt-menubar nav-wrapper qt-content-primary ">
 			<!-- desktop menu  HIDDEN IN MOBILE AND TABLETS -->
 			<ul class="qt-desktopmenu hide-on-xl-and-down">
-				<li class="qt-logo-link"><a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
+				<li class="qt-logo-link"><a href="./"
+					class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
 				<li><a href="compose">Compose</a>
 					<ul>
 						<li><a href="page-schedule.html">Time Chart</a></li>
 						<li><a href="single-show.html">Week Chart</a></li>
-					</ul>
-				</li>
+					</ul></li>
 				<li><a href="archive-podcast.html">Board</a>
 					<ul>
 						<li><a href="music_community">Music Community</a></li>
 						<li><a href="single-podcast.html">Free Community</a></li>
-					</ul>
-				</li>
+					</ul></li>
 				<li><a href="archive-members.html">Song</a>
 					<ul>
 						<li><a href="songpage">Song Page</a></li>
 						<li><a href="artistpage">Artist Page</a></li>
-					</ul>
-				</li>
+					</ul></li>
 				<li><a href="archive.html">Blog</a>
 					<ul>
 						<li><a href="archive.html">Blog archive</a></li>
 						<li><a href="single-post.html">Single post</a></li>
-					</ul>
-				</li>
+					</ul></li>
 				<li><a href="archive-chart.html">Charts</a>
 					<ul>
 						<li><a href="archive-chart.html">Charts archive</a></li>
 						<li><a href="single-chart.html">Single chart</a></li>
-					</ul>
-				</li>
+					</ul></li>
 				<li><a href="archive-events.html">Events</a>
 					<ul>
 						<li><a href="archive-events.html">Events archive</a></li>
 						<li><a href="single-event.html">Single event</a></li>
-					</ul>
-				</li>
+					</ul></li>
 				<li><a href="page-contacts.html">1Contacts</a></li>
-				<li class="right"><a href="#!" data-expandable="#qtsearchbar" class="qt-btn qt-btn-l qt-scrolltop"><i class="icon dripicons-search"></i></a></li>
-				<li class="right"><a href="page-popup.html" class="qt-popupwindow" data-name="Music Player" data-width="320" data-height="500"><i class="icon dripicons-duplicate"></i> Popup</a></li>
-				<li class="right"><a href="#!" class="button-playlistswitch" data-activates="channelslist"><i class="icon dripicons-media-play"></i> Listen</a></li>
+				<li class="right"><a href="#!" data-expandable="#qtsearchbar"
+					class="qt-btn qt-btn-l qt-scrolltop"><i
+						class="icon dripicons-search"></i></a></li>
+				<li class="right"><a href="page-popup.html"
+					class="qt-popupwindow" data-name="Music Player" data-width="320"
+					data-height="500"><i class="icon dripicons-duplicate"></i>
+						Popup</a></li>
+				<li class="right"><a href="#!" class="button-playlistswitch"
+					data-activates="channelslist"><i
+						class="icon dripicons-media-play"></i> Listen</a></li>
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
 			<ul class="qt-desktopmenu hide-on-xl-only ">
-				<li><a href="#" data-activates="qt-mobile-menu" class="button-collapse qt-menu-switch qt-btn qt-btn-primary qt-btn-m"><i class="dripicons-menu"></i></a></li>
+				<li><a href="#" data-activates="qt-mobile-menu"
+					class="button-collapse qt-menu-switch qt-btn qt-btn-primary qt-btn-m"><i
+						class="dripicons-menu"></i></a></li>
 				<li><a href="#!" class="brand-logo qt-logo-text">jazart</a></li>
 			</ul>
 		</nav>
@@ -217,7 +296,8 @@
 				</div>
 				<div class="qt-header-bg"
 					data-bgimage="imagestemplate/full-1600-700.jpg">
-					<img src="images/compose.jpg" alt="Featured image" width="690" height="302">
+					<img src="images/compose.jpg" alt="Featured image" width="690"
+						height="302">
 				</div>
 			</div>
 			<!-- HEADER CONTACTS END ========================= -->
@@ -242,58 +322,52 @@
 												<!-- email_sender.php -->
 												<input type="hidden" name="antispam" value="x123">
 												<h3 class="left-align qt-vertical-padding-m">test!</h3>
-												<h2>Record</h2>
-												<audio controls id="audio"></audio>
-												<div>
-													<a class="button recordButton" id="record">Record</a> <a
-														class="button disabled one" id="pause">Pause</a> <a
-														class="button disabled one" id="stop">Reset</a>
+												<div id="viz">
+													<canvas id="wavedisplay" width="1024" height="500"></canvas>
 												</div>
-												<div data-type="mp3">
-													<p>MP3 Controls:</p>
-													<a class="button disabled one" id="play">Play</a> <a
-														class="button disabled one" id="download">Download</a> <a
-														class="button disabled one" id="save">Upload to Server</a>
+												<div id="controls">
+													<img id="record" src="img/mic128.png"
+														onclick="toggleRecording(this);"> <a id="save"
+														href="#"><img src="img/save.svg"></a>
 												</div>
-												<canvas id="level" height="200" width="500"></canvas>
 												<style>
-													.button {
-														display: inline-block;
-														vertical-align: middle;
-														margin: 0px 5px;
-														padding: 5px 12px;
-														cursor: pointer;
-														outline: none;
-														font-size: 13px;
-														text-decoration: none !important;
-														text-align: center;
-														color: #fff;
-														background-color: #4D90FE;
-														background-image: linear-gradient(top, #4D90FE, #4787ED);
-														background-image: -ms-linear-gradient(top, #4D90FE, #4787ED);
-														background-image: -o-linear-gradient(top, #4D90FE, #4787ED);
-														background-image: linear-gradient(top, #4D90FE, #4787ED);
-														border: 1px solid #4787ED;
-														box-shadow: 0 1px 3px #BFBFBF;
-													}
-													
-													a.button {
-														color: #fff;
-													}
-													
-													.button:hover {
-														box-shadow: inset 0px 1px 1px #8C8C8C;
-													}
-													
-													.button.disabled {
-														box-shadow: none;
-														opacity: 0.7;
-													}
-													
-													canvas {
-														display: block;
-													}
-													</style>
+.button {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0px 5px;
+	padding: 5px 12px;
+	cursor: pointer;
+	outline: none;
+	font-size: 13px;
+	text-decoration: none !important;
+	text-align: center;
+	color: #fff;
+	background-color: #4D90FE;
+	background-image: linear-gradient(top, #4D90FE, #4787ED);
+	background-image: -ms-linear-gradient(top, #4D90FE, #4787ED);
+	background-image: -o-linear-gradient(top, #4D90FE, #4787ED);
+	background-image: linear-gradient(top, #4D90FE, #4787ED);
+	border: 1px solid #4787ED;
+	box-shadow: 0 1px 3px #BFBFBF;
+}
+
+a.button {
+	color: #fff;
+}
+
+.button:hover {
+	box-shadow: inset 0px 1px 1px #8C8C8C;
+}
+
+.button.disabled {
+	box-shadow: none;
+	opacity: 0.7;
+}
+
+canvas {
+	display: block;
+}
+</style>
 												<br />
 											</form>
 										</div>
