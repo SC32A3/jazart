@@ -18,6 +18,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import global.sesoc.jazart.dao.SongRepository;
 import global.sesoc.jazart.dao.UserRepository;
@@ -77,13 +78,10 @@ public class ComposeController {
       String fullpath = "";
       ServletOutputStream fileout = null;
       FileInputStream filein = null;
-      //1
-      logger.info("type=> "+type+", data=> "+data);
       //한개의 글을 가져옴
       if (type.equals("song")) {
          int songnum = Integer.parseInt(data);
          Songinfo song =  sr.selectSong(songnum);
-         logger.info("songpicture=> "+song.getSong_picture());
          originalfile = song.getSong_picture();
          
       } else if (type.equals("user")) {
@@ -119,10 +117,12 @@ public class ComposeController {
       return null;
    }
    
-   /*@RequestMapping(value = "recommend", method = RequestMethod.GET)
-   public String recommend(int songnum) {
+   @RequestMapping(value = "recommend", method = RequestMethod.GET)
+   public @ResponseBody String recommend(int songnum) {
+	   sr.recommend(songnum);
 	   
-	   return "";
-   }*/
+	   
+	   return "success";
+   }
 }
 
