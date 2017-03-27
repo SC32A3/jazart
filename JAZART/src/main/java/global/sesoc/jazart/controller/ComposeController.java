@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import global.sesoc.jazart.dao.SongRepository;
 import global.sesoc.jazart.dao.UserRepository;
 import global.sesoc.jazart.vo.Songinfo;
+import global.sesoc.jazart.vo.Songreply;
 import global.sesoc.jazart.vo.User;
 
 /**
@@ -56,10 +57,17 @@ public class ComposeController {
    @RequestMapping(value = "songpage", method = RequestMethod.GET)
    public String songpage(int songnum, Model model) {
       Songinfo song = sr.selectSong(songnum);
-      
-      
+      ArrayList<Songreply> replyList = sr.songReply(songnum);
       model.addAttribute("song", song);
+      model.addAttribute("songReply", replyList);
       return "songpg";
+   }
+   
+   @RequestMapping(value = "replyList", method = RequestMethod.GET)
+   public @ResponseBody ArrayList<Songreply> replyList(int songnum) {
+	  logger.info("replyList songnum=> "+songnum);
+      ArrayList<Songreply> replyList = sr.songReply(songnum);
+      return replyList;
    }
    
    @RequestMapping(value = "artistpage", method = RequestMethod.GET)
@@ -123,6 +131,39 @@ public class ComposeController {
    public @ResponseBody int recommend(int songnum) {
 	   int result = sr.recommend(songnum);
 	   return result;
+   }
+   
+   @RequestMapping(value = "song_leaveReply", method = RequestMethod.GET)
+   public @ResponseBody int leaveReply(Songreply songreply) {
+	   songreply.setReply_nickname((String) session.getAttribute("loginNickname"));
+	   logger.info("songreply=> "+songreply);
+	   int result = sr.insertSongreply(songreply);
+	   return result;
+   }
+   
+   @RequestMapping(value = "song_deleteReply", method = RequestMethod.GET)
+   public @ResponseBody int deleteReply(int replynum) {
+	   int result = sr.deleteSongreply(replynum);
+	   return result;
+   }
+   
+   @RequestMapping(value = "song_updateReply", method = RequestMethod.GET)
+   public @ResponseBody int updateReply(Songreply reply) {
+	   int result = sr.updateSongreply(reply);
+	   return result;
+   }
+   
+   @RequestMapping(value = "song_recommendReply", method = RequestMethod.GET)
+   public @ResponseBody int recommendReply(int replynum) {
+	   int result = 0;
+	   String loginNickname = (String) session.getAttribute("loginNickname");
+	   int report = sr.selectRecommend(replynum, loginNickname);
+	   if (report == 1) {
+		   return result; 
+	   } else {
+		   result = sr.recommendSongreply(replynum, loginNickname);
+		   return result;   
+	   }
    }
 }
 
