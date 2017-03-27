@@ -59,15 +59,16 @@ function toggleRecording( e ) {
         e.classList.remove("recording");
         audioRecorder.getBuffers( gotBuffers );
     } else {
-    	
-    	
-    	
-        // start recording
+    	// start recording
         if (!audioRecorder)
             return;
-        e.classList.add("recording");
-        audioRecorder.clear();
-        audioRecorder.record();
+        
+        new Audio('resources/metro.mp3').play();
+    	setTimeout(function(){
+            e.classList.add("recording");
+            audioRecorder.clear();
+            audioRecorder.record();
+    	}, 5000);
     }
 }
 
