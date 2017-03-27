@@ -38,7 +38,6 @@ public class UserRepository {
       User user = null;
       try {
          user = mapper.selectUser(userid);
-         logger.info("로그인 user => "+ user.toString());
       } catch (Exception e) {
          e.printStackTrace();
       }      
@@ -51,7 +50,6 @@ public class UserRepository {
       try {
          result = mapper.list();
       } catch (Exception e) {
-         // TODO Auto-generated catch block
          e.printStackTrace();
       }
       return result;

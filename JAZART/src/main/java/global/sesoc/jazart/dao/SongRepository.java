@@ -26,4 +26,8 @@ public class SongRepository {
       }
       return song;
    }
+
+   public void recommend(int songnum) {
+	
+   }
 }

@@ -4,7 +4,7 @@
 <!doctype html>
 <html class="no-js" lang="en">
     <head> 
-    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
         <title>Jazart</title>
@@ -54,14 +54,14 @@
                <ul>
                     <li><a href="#"><i class="dripicons-chevron-right"></i>About US</a></li>
                     <c:if test="${empty loginNickname}">
-					<li><a href="login"><i class="dripicons-chevron-right"></i>Login</a></li>
-					<li><a href="join"><i class="dripicons-chevron-right"></i>Join Us</a></li>
-					</c:if>
-					<c:if test="${not empty loginNickname}">
-					<li><a href="logout"><i class="dripicons-chevron-right"></i>logout</a></li>
-    	            <li><i class="dripicons-chevron-right"></i>Welcome ${loginNickname}</li>
-              		</c:if>
-              		                      
+               <li><a href="login"><i class="dripicons-chevron-right"></i>Login</a></li>
+               <li><a href="join"><i class="dripicons-chevron-right"></i>Join Us</a></li>
+               </c:if>
+               <c:if test="${not empty loginNickname}">
+               <li><a href="logout"><i class="dripicons-chevron-right"></i>logout</a></li>
+                   <li><i class="dripicons-chevron-right"></i>Welcome ${loginNickname}</li>
+                    </c:if>
+                                          
                     <li class="right"><a href="#"><i class="qticon-beatport qt-socialicon"></i></a></li>
                     <li class="right"><a href="#"><i class="qticon-facebook qt-socialicon"></i></a></li>
                     <li class="right"><a href="#"><i class="qticon-twitter qt-socialicon"></i></a></li>
@@ -82,9 +82,9 @@
                     </li>
                     <li><a href="archive-podcast.html">Board</a>
                         <ul>
-						<li><a href="music_community">Music Community</a></li>
-						<li><a href="single-podcast.html">Free Community</a></li>
-						</ul>
+                  <li><a href="music_community">Music Community</a></li>
+                  <li><a href="single-podcast.html">Free Community</a></li>
+                  </ul>
                     </li>
                     <li><a href="archive-members.html">Team</a>
                         <ul>
@@ -223,14 +223,71 @@
                                                     <h5><a href="#form" class="active">Read</a></h5></li>
                                             </ul>
                                             <div id="form" class="row">
-                                                <form class="col s12" method="post" action="write" enctype="multipart/form-data"> <!-- email_sender.php -->
-                                                    <input type="hidden" name="antispam" value="x123">
-             									<div class="row">
+<<<<<<< HEAD
+                                            
+                                        <div class="row">
+                                                        <div class="input-field col s8">
+                                          <tr><td>Title</td><td>${board.board_title}</td></tr>
+                                                        </div>
+                                                 </div>  
+       
+                                                    <div class="row">
+                                                     <div class="input-field col s8">
+                                                            <tr>
+                                                <td>Tag</td>
+                                                <td>${board.board_tag}</td>
+                                             </tr>
+                                                     </div>
+                                                         
                                                         <div class="input-field col s8">
                                                             <tr>
-																<td>Title</td>
-																<td>${board_title}</td>
-															</tr>
+                                                <td>Name</td>
+                                                <td>${board.board_nickname}</td>
+                                             </tr>
+                                                        </div>
+                                                        <div class="input-field col s8">
+                                                            <tr>
+                                                <td>Date</td>
+                                                <td>${board.board_inputdate}</td>
+                                             </tr>
+                                                     </div>
+                                                     <div class="input-field col s8">
+                                                            <tr>
+                                                <td>Hits</td>
+                                                <td>${board.board_hits}</td>
+                                             </tr>
+                                                     </div>
+                                                        <div class="input-field col s12 ">
+                                                           <p class="comment-form-comment">
+                                              <tr>
+                                                <td>Comment</td>
+                                             </tr>
+                                              <textarea style="height: 25rem" aria-required="true">${board.board_content}</textarea>
+                                             </p>
+                                                        </div>
+                                                    </div>
+                                                    <hr class="qt-spacer-s hide-on-med-and-up">
+                                                    <div class="row">
+                                                        <div class="input-field col s12">
+                                                            <button class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light" type="submit">
+                                                                <span class="lnr lnr-rocket"></span> Write
+                                                            </button>
+                                                            <button class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light" type="reset" >
+                                                                <span class="lnr lnr-rocket"></span> cancel
+                                                            </button>
+                                                            
+                                                        </div>
+                                                    </div>
+                                             <!-- /form -->
+=======
+                                                <form class="col s12" method="post" action="write" enctype="multipart/form-data"> <!-- email_sender.php -->
+                                                    <input type="hidden" name="antispam" value="x123">
+                                        <div class="row">
+                                                        <div class="input-field col s8">
+                                                            <tr>
+                                                <td>Title</td>
+                                                <td>${board_title}</td>
+                                             </tr>
                                                         </div>
                                                  </div>  
                                                   <div>
@@ -242,33 +299,33 @@
                                                     <div class="row">
                                                      <div class="input-field col s8">
                                                             <tr>
-																<td>Tag</td>
-																<td>${board_tag}</td>
-															</tr>
+                                                <td>Tag</td>
+                                                <td>${board_tag}</td>
+                                             </tr>
                                                      </div>
                                                          
-                                                  		<div class="input-field col s8">
+                                                        <div class="input-field col s8">
                                                             <tr>
-																<td>Name</td>
-																<td>${board_nickname}</td>
-															</tr>
-                                                    	 </div>
-                                                    	 <div class="input-field col s8">
+                                                <td>Name</td>
+                                                <td>${board_nickname}</td>
+                                             </tr>
+                                                        </div>
+                                                        <div class="input-field col s8">
                                                             <tr>
-																<td>Date</td>
-																<td>${board_inputdate}</td>
-															</tr>
+                                                <td>Date</td>
+                                                <td>${board_inputdate}</td>
+                                             </tr>
                                                      </div>
                                                      <div class="input-field col s8">
                                                             <tr>
-																<td>Hits</td>
-																<td>${board_hits}</td>
-															</tr>
+                                                <td>Hits</td>
+                                                <td>${board_hits}</td>
+                                             </tr>
                                                      </div>
                                                         <div class="input-field col s12 ">
                                                            <p class="comment-form-comment">
-														    <textarea style="height: 25rem" aria-required="true">${board_content}</textarea>
-														   </p>
+                                              <textarea style="height: 25rem" aria-required="true">${board_content}</textarea>
+                                             </p>
                                                         </div>
                                                     </div>
                                                     <hr class="qt-spacer-s hide-on-med-and-up">
@@ -284,6 +341,7 @@
                                                         </div>
                                                     </div>
                                                 </form>
+>>>>>>> branch 'master' of https://github.com/SC32A3/jazart.git
                                             </div>
      
                                         </div>
@@ -462,35 +520,4 @@
         <!-- Framework -->
         <script src="resources/js/materializecss/bin/materialize.min.js"></script>
 
-        <!-- Cookies for player -->
-        <script src="resources/js/jquerycookie.js"></script>
-
-         <!-- Slick carousel and skrollr -->
-        <script src="resources/components/slick/slick.min.js"></script>
-        <script src="resources/components/skrollr/skrollr.min.js"></script>
-        
-        <!-- Swipebox -->
-        <script src="resources/components/swipebox/lib/ios-orientationchange-fix.js"></script>
-        <script src="resources/components/swipebox/src/js/jquery.swipebox.min.js"></script>
-
-        <!-- Countdown -->
-        <script src="resources/components/countdown/js/jquery.knob.js"></script>
-        <script src="resources/components/countdown/js/jquery.throttle.js"></script>
-        <script src="resources/components/countdown/js/jquery.classycountdown.min.js"></script>
-
-        <!-- Soundmanager2 -->
-        <!--[if IE]><script src="components/soundmanager/script/excanvas.js"></script><![endif]-->
-        <script src="resources/components/soundmanager/script/berniecode-animator.js"></script>
-        <script src="resources/components/soundmanager/script/soundmanager2-nodebug.js"></script>
-        <script src="resources/components/soundmanager/script/shoutcast.js"></script>
-        <script src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script>
-
-        <!-- Popup -->
-        <script src="resources/components/popup/popup.js"></script>
-
-
-        <!-- MAIN JAVASCRIPT FILE ================================ -->
-        <script src="resources/js/qt-main.js"></script>
-
-    </body>
-</html>
+     
