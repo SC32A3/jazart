@@ -10,7 +10,7 @@
 		into 
 			board
 			(
-			 boardnum		
+			 boardNum		
 			,board_tag				
 			,board_nickname
 			,board_title
@@ -32,7 +32,7 @@
 
 	<select id="boardList" resultType="Board">
 		select
-			boardnum		
+			boardNum		
 			,board_tag				
 			,board_picture
 			,board_nickname
@@ -48,7 +48,7 @@
 	
 	<select id="selectList" parameterType="int" resultType="Board" >
 		select
-			boardnum		
+			boardNum		
 			,board_tag				
 			,title			
 			,content			
