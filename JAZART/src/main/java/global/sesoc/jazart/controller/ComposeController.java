@@ -41,25 +41,25 @@ public class ComposeController {
    
    final String uploadPath = "/userProfile"; //파일이 업로드 되는 경로
    
-   @RequestMapping(value = "/compose", method = RequestMethod.GET)
+   @RequestMapping(value = "compose", method = RequestMethod.GET)
    public String compose() {
       return "compose";
    }
    
    
-   @RequestMapping(value = "/mixing", method = RequestMethod.GET)
+   @RequestMapping(value = "mixing", method = RequestMethod.GET)
    public String mixing() {
       return "mixing";
    }
    
-   @RequestMapping(value = "/songpage", method = RequestMethod.GET)
+   @RequestMapping(value = "songpage", method = RequestMethod.GET)
    public String songpage(int songnum, Model model) {
       Songinfo song = sr.selectSong(songnum);
       model.addAttribute("song", song);
       return "songpg";
    }
    
-   @RequestMapping(value = "/artistpage", method = RequestMethod.GET)
+   @RequestMapping(value = "artistpage", method = RequestMethod.GET)
    public String artistpage(Model model) {
       String loginNickname = (String) session.getAttribute("loginNickname");
       User user = ur.selectUser(loginNickname);
@@ -119,5 +119,10 @@ public class ComposeController {
       return null;
    }
    
+   /*@RequestMapping(value = "recommend", method = RequestMethod.GET)
+   public String recommend(int songnum) {
+	   
+	   return "";
+   }*/
 }
 

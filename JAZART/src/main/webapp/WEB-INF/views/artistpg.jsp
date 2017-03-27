@@ -33,6 +33,11 @@
 		
 		<!-- Custom typography settings and google fonts -->
 		<link rel="stylesheet" href="resources/css/qt-typography.css">
+		<script src="resources/jquery-3.1.1.min.js">
+			function recommend(){
+				alert('드루와');
+			}
+		</script>
 	</head>
 	<body>
 	<!-- QT HEADER END ================================ -->
@@ -269,7 +274,7 @@
 											</div>
 										</div>
 										<div class="qt-header-bottom"> <!-- 아이콘 -->
-											<a href="resources/single-member.php" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-user"></i></a>
+											<a onclick="recommend()" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-user"></i></a>
 										</div>
 										<!-- qt-header-bg 뒷배경 -->
 										<!-- <div class="qt-header-bg" data-bgimage="images/default.jpg"> imagestemplate/medium-690-302.jpg 

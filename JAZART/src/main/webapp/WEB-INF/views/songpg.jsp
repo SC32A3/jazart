@@ -246,12 +246,11 @@
 								</table>
 			
 								<blockquote>
-									<p>People think focus means saying yes to the thing you’ve got to focus on. But that’s not what it means at all. It means saying no to the hundred other good ideas that there are. You have to pick carefully. I’m actually as proud of the things we haven’t done as the things I have done. Innovation is saying no to 1,000 things.
-										<cite>Steve Jobs – Apple Worldwide Developers’ Conference, 1997</cite>
+									<p>
+										${song.song_desc}
 									</p>
 								</blockquote>
 								
-						
 							<div id="respond" class="qt-comment-respond qt-card">
 							<h4 id="reply-title" class="comment-reply-title">
 																	Leave a Reply
