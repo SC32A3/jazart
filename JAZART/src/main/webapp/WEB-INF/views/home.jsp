@@ -67,12 +67,11 @@
 				<li><a href="archive-podcast.html">Board</a>
 					<ul>
 						<li><a href="music_community">Music Community</a></li>
-						<li><a href="single-podcast.html">Free Community</a></li>
+						<li><a href="free_community">Free Community</a></li>
 					</ul>
 				</li>
 				<li><a href="archive-members.html">Song</a>
 					<ul>
-						<li><a href="songpage">Song Page</a></li>
 						<li><a href="artistpage">Artist Page</a></li>
 					</ul>
 				</li>
@@ -84,9 +83,8 @@
 				</li>
 				<li><a href="archive-chart.html">Charts</a>
 					<ul>
-						<li><a href="archive-chart.html">realtime chart</a></li>
-						<li><a href="single-chart.html">daily chart</a></li>
-						<li><a href="chart.html">weekly chart</a></li>
+						<li><a href="archive-chart.html">Charts archive</a></li>
+						<li><a href="single-chart.html">Single chart</a></li>
 					</ul>
 				</li>
 				<li><a href="archive-events.html">Events</a>
@@ -95,7 +93,7 @@
 						<li><a href="single-event.html">Single event</a></li>
 					</ul>
 				</li>
-				<li><a href="page-contacts.html">1Contacts</a></li>
+				<li><a href="page-contacts.html">Contacts</a></li>
 				<li class="right"><a href="#!" data-expandable="#qtsearchbar" class="qt-btn qt-btn-l qt-scrolltop"><i class="icon dripicons-search"></i></a></li>
 				<li class="right"><a href="page-popup.html" class="qt-popupwindow" data-name="Music Player" data-width="320" data-height="500"><i class="icon dripicons-duplicate"></i> Popup</a></li>
 				<li class="right"><a href="#!" class="button-playlistswitch" data-activates="channelslist"><i class="icon dripicons-media-play"></i> Listen</a></li>
@@ -208,7 +206,7 @@
 									</div>
 								</div>
 								<div class="qt-header-bg" data-bgimage="images/back1.jpg">
-									<img src="images/back1.jsp" alt="Featured image" width="1170" height="512">
+									<img src="images/back1.jpg" alt="Featured image" width="1170" height="512">
 								</div>
 							</div>
 						</div>

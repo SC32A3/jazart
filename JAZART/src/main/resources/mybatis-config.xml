@@ -5,15 +5,17 @@
   
 <configuration>
 
-	<!-- 타입 별칭 설정 -->
-	<typeAliases>
-		<typeAlias type="global.sesoc.jazart.vo.User" alias="User" />
-		<typeAlias type="global.sesoc.jazart.vo.Songinfo" alias="Songinfo" />
-	</typeAliases>
+   <!-- 타입 별칭 설정 -->
+   <typeAliases>
+      <typeAlias type="global.sesoc.jazart.vo.User" alias="User" />
+      <typeAlias type="global.sesoc.jazart.vo.Songinfo" alias="Songinfo" />
+      <typeAlias type="global.sesoc.jazart.vo.Board" alias="Board" />
+   </typeAliases>
 
-	<mappers>
-		<mapper resource="mappers/userMapper.xml" />
-		<mapper resource="mappers/songMapper.xml" />
-	</mappers>
-	
+   <mappers>
+      <mapper resource="mappers/userMapper.xml" />
+      <mapper resource="mappers/songMapper.xml" />
+      <mapper resource="mappers/boardMapper.xml" />
+   </mappers>
+   
 </configuration>

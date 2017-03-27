@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-<title>Jazart</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>jazart</title>
 <meta name="description" content="Radio station HTML template">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -36,6 +35,7 @@
 <link rel="stylesheet" type="text/css"
 	href="resources/components/soundmanager/templates/qtradio-player/css/qt-360player-volume.css" />
 
+
 <!-- Main css file -->
 <link rel="stylesheet" href="resources/css/qt-main.css">
 <!-- INCLUDES THE CHOSEN FRAMEWORK VIA #IMPORT AND SASS -->
@@ -43,31 +43,29 @@
 <!-- Custom typography settings and google fonts -->
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 
-<!-- Mixing API -->
-<link href='resources/css/mixing.css' rel='stylesheet' type='text/css'>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
-<script src="resources/js/jquery.knob.js"></script>
+<style type="text/css">
+.freeBoard {
+	margin: auto;
+	text-align: center;
+}
+.qt-combo {width: auto; height: 35px;}
+.qt-combo2 {width: auto; height: 35px; text-align: right;}
+.qt-combo3 {margin-left: auto; text-align: left; }
+.board2 {margin: auto; text-align: center;}
+.board3 {margin: auto; text-align: right;}
+</style>
 </head>
 <body>
-	<!-- QT HEADER END ================================ -->
 	<div class="qt-parentcontainer">
-
 		<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
 			<ul>
 				<li><a href="#"><i class="dripicons-chevron-right"></i>About
 						US</a></li>
-				<c:if test="${empty loginNickname}">
-					<li><a href="login"><i class="dripicons-chevron-right"></i>Login</a></li>
-					<li><a href="join"><i class="dripicons-chevron-right"></i>Join
-							Us</a></li>
-				</c:if>
-				<c:if test="${not empty loginNickname}">
-					<li><a href="logout"><i class="dripicons-chevron-right"></i>logout</a></li>
-					<li><i class="dripicons-chevron-right"></i>Welcome
-						${loginNickname}</li>
-				</c:if>
-
+				<li><a href="#"><i class="dripicons-chevron-right"></i>Login</a></li>
+				<li><a href="page-contacts.html"><i
+						class="dripicons-chevron-right"></i>Join Us</a></li>
+				<li><a href="#"><i class="dripicons-chevron-right"></i>Logout</a></li>
 				<li class="right"><a href="#"><i
 						class="qticon-beatport qt-socialicon"></i></a></li>
 				<li class="right"><a href="#"><i
@@ -85,21 +83,21 @@
 			<!-- desktop menu  HIDDEN IN MOBILE AND TABLETS -->
 			<ul class="qt-desktopmenu hide-on-xl-and-down">
 				<li class="qt-logo-link"><a href="./"
-					class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
-				<li><a href="compose">Compose</a>
+					class="brand-logo qt-logo-text">Jazar<span>t</span></a></li>
+				<li><a href="page-schedule.html">Compose</a>
 					<ul>
-						<li><a href="page-schedule.html">Time Chart</a></li>
-						<li><a href="single-show.html">Week Chart</a></li>
+						<li><a href="page-schedule.html">Archive</a></li>
+						<li><a href="single-show.html">Single show page</a></li>
 					</ul></li>
 				<li><a href="archive-podcast.html">Board</a>
 					<ul>
-						<li><a href="music_community">Music Community</a></li>
+						<li><a href="archive-podcast.html">Music Community</a></li>
 						<li><a href="single-podcast.html">Free Community</a></li>
 					</ul></li>
-				<li><a href="archive-members.html">Song</a>
+				<li><a href="archive-members.html">Team</a>
 					<ul>
-						<li><a href="songpage">Song Page</a></li>
-						<li><a href="artistpage">Artist Page</a></li>
+						<li><a href="archive-members.html">Archive</a></li>
+						<li><a href="single-member.html">Single show page</a></li>
 					</ul></li>
 				<li><a href="archive.html">Blog</a>
 					<ul>
@@ -116,7 +114,7 @@
 						<li><a href="archive-events.html">Events archive</a></li>
 						<li><a href="single-event.html">Single event</a></li>
 					</ul></li>
-				<li><a href="page-contacts.html">1Contacts</a></li>
+				<li><a href="page-contacts.html">Contacts</a></li>
 				<li class="right"><a href="#!" data-expandable="#qtsearchbar"
 					class="qt-btn qt-btn-l qt-scrolltop"><i
 						class="icon dripicons-search"></i></a></li>
@@ -128,28 +126,21 @@
 					data-activates="channelslist"><i
 						class="icon dripicons-media-play"></i> Listen</a></li>
 			</ul>
-			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
-			<ul class="qt-desktopmenu hide-on-xl-only ">
-				<li><a href="#" data-activates="qt-mobile-menu"
-					class="button-collapse qt-menu-switch qt-btn qt-btn-primary qt-btn-m"><i
-						class="dripicons-menu"></i></a></li>
-				<li><a href="#!" class="brand-logo qt-logo-text">jazart</a></li>
-			</ul>
 		</nav>
 		<!-- mobile menu -->
 		<div id="qt-mobile-menu" class="side-nav qt-content-primary">
 			<ul class=" qt-side-nav">
 				<li><a href="index.html">Home</a></li>
-				<li class="menu-item-has-children"><a href="page-schedule.html">COMPOSE</a>
+				<li class="menu-item-has-children"><a href="page-schedule.html">Schedule</a>
 					<ul>
 						<li><a href="page-schedule.html">Archive</a></li>
 						<li><a href="single-show.html">Single show page</a></li>
 					</ul></li>
 				<li class="menu-item-has-children"><a
-					href="archive-podcast.html">Board</a>
+					href="archive-podcast.html">Podcast</a>
 					<ul>
-						<li><a href="music_community">music community</a></li>
-						<li><a href="single-podcast.html">free community</a></li>
+						<li><a href="archive-podcast.html">Archive</a></li>
+						<li><a href="single-podcast.html">Single show page</a></li>
 					</ul></li>
 				<li class="menu-item-has-children"><a
 					href="archive-members.html">Team</a>
@@ -189,6 +180,7 @@
 					class="icon dripicons-media-play"></i></a></li>
 		</ul>
 		<!-- SEARCH FORM ========================= -->
+
 		<div id="qtsearchbar"
 			class="qt-searchbar qt-content-primary qt-expandable">
 			<div class="qt-expandable-inner">
@@ -212,12 +204,13 @@
 			</div>
 		</div>
 		<!-- SEARCH FORM END ========================= -->
+
 		<div id="maincontent" class="qt-main">
 			<!-- ======================= HEADER SECTION ======================= -->
 			<!-- HEADER CONTACTS ========================= -->
 			<div class="qt-pageheader qt-negative">
 				<div class="qt-container">
-					<h1 class="qt-caption qt-spacer-s">Compose</h1>
+					<h1 class="qt-caption qt-spacer-s">Free community</h1>
 					<ul class="qt-menu-social qt-spacer-s">
 						<li><a href="#"><i class="qticon-beatport"></i></a></li>
 						<li><a href="#"><i class="qticon-facebook"></i></a></li>
@@ -228,271 +221,77 @@
 				</div>
 				<div class="qt-header-bg"
 					data-bgimage="imagestemplate/full-1600-700.jpg">
-					<img src="resources/imagestemplate/full-1600-700.jpg"
-						alt="Featured image" width="690" height="302">
+					<img src="" alt="Featured image"
+						width="690" height="302">
 				</div>
 			</div>
 			<!-- HEADER CONTACTS END ========================= -->
-			<div class="qt-container qt-vertical-padding-l">
+			<div class="qt-container qt-vertical-padding-l ">
 				<div class="row">
-					<div class="col s12 m8 push-m2">
-						<!-- ====================== SECTION BOOKING AND CONTACTS ================================================ -->
-						<div id="booking" class="section qt-section-booking qt-card">
-							<div class="qt-valign-wrapper">
-								<div class="qt-valign flow-text">
-									<div class="qt-booking-form" data-100p-top="opacity:0;"
-										data-80p-top="opacity:0;" data-30p-top="opacity:1;">
-										<ul class="tabs">
-											<li class="tab col s4">
-												<h5>
-													<a href="#form" class="active">Mixing api test</a>
-												</h5>
-											</li>
-										</ul>
-										<div id="form" class="row">
-											<form class="col s12" method="post" action="join">
-												<!-- email_sender.php -->
-												<input type="hidden" name="antispam" value="x123">
-												<h3 class="left-align qt-vertical-padding-m">Web Audio Loop Mixer</h3>
-												<div id="page-wrap">
-													<div id="controls" class="panel">
-														<div class="stripTransport">
-															<input id="inputSource1" type="file" accept="audio/*">
-															<input id="inputSource2" type="file" accept="audio/*">
-															<input id="inputSource3" type="file" accept="audio/*">
-															<input id="inputSource4" type="file" accept="audio/*">
+					<div class="freeBoard">
+						<!-- ======================11 SECTION BOOKING AND CONTACTS ================================================ -->
+						<div>
+							<div class="board3" >
+								<div class="qt-the-content">
+									<!-- 검색 -->
+									<div class="col s12 m3 l12">
+										<div class="">
+											<hr class="qt-spacer-s ">
+											<form method="get" action="search" class="qt-inline-form">
+												<div class="row qt-nopadding">
+														<div class="col s12 m4 l1">
+														<select class="qt-btn qt-btn-s qt-combo">
+															<option value="writer">글쓴이</option>
+															<option value="title">제목</option>
+															<option value="content">내용</option>
+														</select> 
 														</div>
-														<div class="stripTransport">
-															<button onclick="playSound()" disabled>Play</button>
-															<button onclick="stopSound()" disabled>Stop</button>
-														</div>
-														<div class="strip">
-															<div class="stripSection">
-																<p class="label">
-																<h3>Ch 1</h3>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="knobContainer label">
-																	<span class="green">Gain</span> <input id="gain-1"
-																		data-step="1" data-min="0" data-max="20"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#8FE356" data-bgColor="#777" value="10" />
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
-																	<span>Vol</span> <span class="sliderContainer"><input
-																		id="volume-1" class="slider" type="range" min="0"
-																		max="1" step="0.1" value="1" /></span>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="knobContainer label">
-																	<span class="pink">Delay</span> <input id="delay-1"
-																		data-step="1" data-min="0" data-max="10"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#E455E4" data-bgColor="#777" value="0" />
-																</p>
-																<p class="knobContainer label">
-																	<span class="purple">Distortion</span> <input
-																		id="distortion-1" data-step="1" data-min="0"
-																		data-max="10" data-width="60" data-cursor=true
-																		data-thickness=.5 data-angleOffset=-125
-																		data-angleArc=250 data-fgColor="#944ddc"
-																		data-bgColor="#777" value="0" />
-																</p>
-															</div>
-														</div>
-														<div class="strip">
-															<div class="stripSection">
-																<p class="label">
-																<h3>Ch 2</h3>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="knobContainer label">
-																	<span class="green">Gain</span> <input id="gain-2"
-																		data-step="1" data-min="0" data-max="20"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#8FE356" data-bgColor="#777" value="10" />
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
-																	<span>Vol</span> <span class="sliderContainer"><input
-																		id="volume-2" class="slider" type="range" min="0"
-																		max="1" step="0.1" value="1" /></span>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="knobContainer label">
-																	<span class="pink">Delay</span> <input id="delay-2"
-																		data-step="1" data-min="0" data-max="10"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#E455E4" data-bgColor="#777" value="0" />
-																</p>
-																<p class="knobContainer label">
-																	<span class="purple">Distortion</span> <input
-																		id="distortion-2" data-step="1" data-min="0"
-																		data-max="10" data-width="60" data-cursor=true
-																		data-thickness=.5 data-angleOffset=-125
-																		data-angleArc=250 data-fgColor="#944ddc"
-																		data-bgColor="#777" value="0" />
-																</p>
-															</div>
-														</div>
-														<div class="strip">
-															<div class="stripSection">
-																<p class="label">
-																<h3>Ch 3</h3>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="knobContainer label">
-																	<span class="green">Gain</span> <input id="gain-3"
-																		data-step="1" data-min="0" data-max="20"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#8FE356" data-bgColor="#777" value="10" />
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
-																	<span>Vol</span> <span class="sliderContainer"><input
-																		id="volume-3" class="slider" type="range" min="0"
-																		max="1" step="0.1" value="1" /></span>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="knobContainer label">
-																	<span class="pink">Delay</span> <input id="delay-3"
-																		data-step="1" data-min="0" data-max="10"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#E455E4" data-bgColor="#777" value="0" />
-																</p>
-																<p class="knobContainer label">
-																	<span class="purple">Distortion</span> <input
-																		id="distortion-3" data-step="1" data-min="0"
-																		data-max="10" data-width="60" data-cursor=true
-																		data-thickness=.5 data-angleOffset=-125
-																		data-angleArc=250 data-fgColor="#944ddc"
-																		data-bgColor="#777" value="0" />
-																</p>
-															</div>
-														</div>
-														<div class="strip">
-															<div class="stripSection">
-																<p class="label">
-																<h3>Ch 4</h3>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="knobContainer label">
-																	<span class="green">Gain</span> <input id="gain-4"
-																		data-step="1" data-min="0" data-max="20"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#8FE356" data-bgColor="#777" value="10" />
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
-																	<span>Vol</span> <span class="sliderContainer"><input
-																		id="volume-4" class="slider" type="range" min="0"
-																		max="1" step="0.1" value="1" /></span>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="knobContainer label">
-																	<span class="pink">Delay</span> <input id="delay-4"
-																		data-step="1" data-min="0" data-max="10"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#E455E4" data-bgColor="#777" value="0" />
-																</p>
-																<p class="knobContainer label">
-																	<span class="purple">Distortion</span> <input
-																		id="distortion-4" data-step="1" data-min="0"
-																		data-max="10" data-width="60" data-cursor=true
-																		data-thickness=.5 data-angleOffset=-125
-																		data-angleArc=250 data-fgColor="#944ddc"
-																		data-bgColor="#777" value="0" />
-																</p>
-															</div>
-														</div>
-														<div class="strip" id="delay">
-															<div class="stripSection">
-																<p class="label">
-																<h3 class="pink">Delay</h3>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
-																	<span class="pink">Level</span> <span
-																		class="sliderContainer"><input id="delayLevel"
-																		class="slider" type="range" min="0" max="1" step="0.1"
-																		value="1" /></span>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
-																	<span class="pink">Delay Time</span> <span
-																		class="sliderContainer"><input id="delayTime"
-																		class="slider" type="range" min="0.05" max="1"
-																		step="0.05" value="0.5" /></span>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
-																	<span class="pink">Feedback</span> <span
-																		class="sliderContainer"><input
-																		id="delayFeedback" class="slider" type="range" min="0"
-																		max="0.95" step="0.05" value="0.8" /></span>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
-																	<span class="pink">Cutoff Freq</span> <span
-																		class="sliderContainer"><input id="delayFilter"
-																		class="slider" type="range" min="0" max="4000"
-																		step="100" value="1000" /></span>
-																</p>
-															</div>
-															<!--
-																<div class="stripSection">
-																	<p class="label"><h3 class="purple">Dist.</h3></p>
-																</div>
-																<div class="stripSection">			
-																	<p class="label"><span class="purple">Level</span>
-																	<input id="distortionLevel" class="slider" type="range" min="0" max="1" step="0.1" value="0.3"/></p>						
-																</div>					
-																-->
-														</div>
+													<div class="col s12 m4 l2 ">	
+														<input placeholder="Music Search" value="" type="text"
+															class="validate qt-input-s">
 													</div>
-													<script src="assets/js/webaudioloopmixer.js"></script>
-													<script>
-													  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-													  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-													  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-													  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-													
-													  ga('create', 'UA-59683033-1', 'auto');
-													  ga('send', 'pageview');
-													
-													</script>		
-													
+													<div class="col s12 m4 l1">
+														<input type="button" value="search"
+															class="qt-btn qt-btn-secondary qt-btn-s qt-fullwidth">
+													</div>
 												</div>
-
 											</form>
+														
+														
 										</div>
 									</div>
+									<!-- 검색 끝 -->
+									<form>
+									<table>
+										<tbody>
+											<tr>
+												<th>Num</th>
+												<th class="views">User</th>
+												<th>Title</th>
+												<th>Date</th>
+												<th>Hit</th>
+											</tr>
+											<c:forEach var="list" items="${bList}" >
+											<tr class="odd">
+												<td>${list.boardNum}</td>
+												<td><a href="http://example.com/">${list.board_nickname}</a></td>
+												<td><a href="board_read">${list.board_title}</td>
+												<td>${list.board_inputdate}</td>
+												<td>${list.board_hits}</td>
+											</tr>
+											</c:forEach>
+										</tbody>
+									</table>
+									</form>
+									
+									<div class="qt-combo2">
+									<p><a href="write"><input type="button" value="write"
+									class="qt-btn qt-btn-secondary qt-btn-s ">
+									</a></p></div>
+	
+									<!-- POST CONTENT END ========================= -->
 								</div>
+								<hr class="qt-spacer-l">
 							</div>
 						</div>
 						<!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
@@ -500,11 +299,54 @@
 				</div>
 			</div>
 		</div>
+		<div class="qt-pagination qt-content-primary">
+			<!-- PAGINATION ========================= -->
+			<ul class="pagination qt-container">
+				<li class="special"><span
+					class="qt-pagination-label qt-content-primary-dark">PAGES</span></li>
+
+				<li class="special disabled"><a href="#!"
+					class="qt-btn qt-btn-l qt-btn-primary"><i
+						class="dripicons-arrow-thin-left"></i></a></li>
+				<li class="special waves-effect"><a href="#!"
+					class="qt-btn qt-btn-l qt-btn-primary"><i
+						class="dripicons-arrow-thin-right"></i></a></li>
+
+				<li class="item active hide-on-large-and-down"><a href="#!">1</a></li>
+				<li class="item waves-effect hide-on-large-and-down"><a
+					href="#!">2</a></li>
+				<li class="item waves-effect hide-on-large-and-down"><a
+					href="#!">3</a></li>
+				<li class="item waves-effect hide-on-large-and-down"><a
+					href="#!">4</a></li>
+				<li class="item waves-effect hide-on-large-and-down"><a
+					href="#!">5</a></li>
+				<li class="item waves-effect hide-on-large-and-down"><a
+					href="#!">6</a></li>
+				<li class="item waves-effect hide-on-large-and-down"><a
+					href="#!">7</a></li>
+				<li class="item waves-effect hide-on-large-and-down"><a
+					href="#!">8</a></li>
+				<li class="item waves-effect hide-on-large-and-down"><a
+					href="#!">9</a></li>
+				<li class="item waves-effect hide-on-large-and-down"><a
+					href="#!">10</a></li>
+				<li class="item waves-effect hide-on-large-and-down"><a
+					href="#!">11</a></li>
+				<li class="item waves-effect hide-on-large-and-down"><a
+					href="#!">12</a></li>
+				<li class="item waves-effect hide-on-large-and-down"><a
+					href="#!">13</a></li>
+			</ul>
+			<!-- PAGINATION END ========================= -->
+
+		</div>
+
 		<div class="qt-footer qt-footerwidgets">
 			<div class="qt-section qt-footer-widgets qt-content-primary-light">
 				<div class="qt-container">
 					<h2 class="qt-footer-logo">
-						<a href="./" class="brand-logo qt-logo-text">Jazart<span>♬</span></a>
+						<a href="./" class="brand-logo qt-logo-text">jazar<span>t</span></a>
 					</h2>
 					<div
 						class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
@@ -583,8 +425,8 @@
 				</div>
 				<div class="qt-header-bg"
 					data-bgimage="imagestemplate/full-1600-700.jpg">
-					<img src="resources/imagestemplate/full-1600-700.jpg"
-						alt="Featured image" width="690" height="302">
+					<img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
+						width="690" height="302">
 				</div>
 			</div>
 			<div class="qt-footer-bottom qt-content-primary-dark">
@@ -656,9 +498,9 @@
 				</div>
 			</div>
 			<div id="playerimage" class="qt-header-bg"
-				data-bgimage="resources/imagestemplate/full-1600-700.jpg">
-				<img src="resources/imagestemplate/full-1600-700.jpg"
-					alt="Featured image" width="690" height="302">
+				data-bgimage="imagestemplate/full-1600-700.jpg">
+				<img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
+					width="690" height="302">
 			</div>
 		</div>
 		<!-- this is for xml radio feed -->
@@ -670,23 +512,21 @@
 			<ul class="qt-content-aside qt-channelslist qt-negative">
 				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
 					data-title="06AM Ibiza" data-subtitle="Underground Radio"
-					data-background="resources/imagestemplate/photo-squared-500-500.jpg"
+					data-background="imagestemplate/photo-squared-500-500.jpg"
 					data-logo="imagestemplate/radio-logo.png"
 					data-playtrack="http://173.192.105.231:3540/stream.mp3"
 					data-host="173.192.105.231" data-port="3540" data-stats_path=""
-					data-played_path="" data-channel=""> <img
-						src="resources/imagestemplate/radio-logo.png" alt="logo"
-						class="qt-radiologo dripicons-media-play" width="80" height="80">
+					data-played_path="" data-channel=""> 
 						<i class="dripicons-media-play"></i> Station 1
 				</a></li>
 				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
 					data-title="altradio" data-subtitle="The subtitle of radio 2"
-					data-background="resources/imagestemplate/large-1170-512.jpg"
+					data-background="imagestemplate/large-1170-512.jpg"
 					data-logo="imagestemplate/radio-logo.png"
 					data-playtrack="http://82.77.137.30:8557/;listen.mp3"
 					data-host="82.77.137.30" data-port="8557" data-stats_path=""
 					data-played_path="" data-channel=""> <img
-						src="resources/imagestemplate/radio-logo.png" alt="logo"
+						src="" alt="logo"
 						class="qt-radiologo" width="80" height="80"> <i
 						class="dripicons-media-play"></i> altradio
 				</a></li>
