@@ -34,7 +34,6 @@
       select
          boardNum      
          ,board_tag            
-         ,board_picture
          ,board_nickname
          ,board_title
          ,board_content         
@@ -50,7 +49,6 @@
       select
          boardNum      
          ,board_tag
-         ,board_picture            
          ,board_title         
          ,board_nickname   
          ,board_content      
