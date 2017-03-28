@@ -322,6 +322,7 @@
 																class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light"
 																onclick="location.href='boardUpdate?boardNum=${board.boardNum}'">
 																<span class="lnr lnr-rocket"></span> update
+															
 															</button>
 															<button
 																class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light"
