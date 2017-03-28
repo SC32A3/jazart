@@ -11,10 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import global.sesoc.jazart.dao.BoardRepository;
+import global.sesoc.jazart.utility.PageNavigator;
 import global.sesoc.jazart.vo.Board;
 
 
@@ -22,11 +22,12 @@ import global.sesoc.jazart.vo.Board;
  * Handles requests for the application home page.
  */
 @Controller
-@SessionAttributes("boardNum")
 public class BoardController {
-   //1
-   private static final Logger logger = LoggerFactory.getLogger(UserController.class);
-
+ 
+   private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
+   final int countPerPage = 10;
+   final int pagePerGroup = 5;
+   
    @Autowired
    BoardRepository br;
    @Autowired
@@ -41,12 +42,19 @@ public class BoardController {
    }
 
    @RequestMapping(value = "free_community", method = RequestMethod.GET)
-   public String boardList(Model model) {
-
-      ArrayList<Board> bList = new ArrayList<>();
-
-      bList = br.boardList();
+   public String boardList(Model model, @RequestParam(value = "searchTitle", defaultValue = "") String searchTitle,
+			@RequestParam(value = "searchText", defaultValue = "") String searchText,
+			@RequestParam(value = "page", defaultValue = "1") int page) {
+	  int total = br.getCount(searchTitle, searchText);
+	  PageNavigator navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
+	  
+      ArrayList<Board> bList = br.boardList(searchTitle, searchText, navi);
       model.addAttribute("bList", bList);
+      model.addAttribute("searchText", searchText);
+	  model.addAttribute("searchTitle", searchTitle);
+	  model.addAttribute("total", total);
+	  model.addAttribute("navi", navi);
+      
       return "freeCommunity";
    }
 
@@ -70,9 +78,11 @@ public class BoardController {
    @RequestMapping(value="board_read", method=RequestMethod.GET)
    public String read(int boardNum, Model model){
       Board board = br.selectList(boardNum);
+      br.addHits(boardNum);
       if(board == null){
          return "redirect:free_community";
       }
+      model.addAttribute("boardNum", boardNum);
       model.addAttribute("board",board);
       return "read";
    }

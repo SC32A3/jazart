@@ -1,6 +1,8 @@
 package global.sesoc.jazart.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -8,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import global.sesoc.jazart.utility.PageNavigator;
 import global.sesoc.jazart.vo.Board;
 
 
@@ -21,23 +24,38 @@ public class BoardRepository {
    public static final Logger logger = LoggerFactory.getLogger(BoardRepository.class);
    
    //1
-   public ArrayList<Board> boardList(){
+   public ArrayList<Board> boardList(String searchTitle, String searchText, PageNavigator navi){
       BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
-      //검색결과의 일부분만 읽기 
-      //RowBounds객체 추가 
-      
-      
-      //RowBounds 객체를 넘겨준다.(xml은 수정할 필요없음)
+      Map<String, String> search = new HashMap<>();
+      search.put("searchTitle", searchTitle);
+      search.put("searchText", searchText);
+      search.put("searchTitle", searchTitle);
+      search.put("searchTitle", searchTitle);
       ArrayList<Board> bList= null;
+      
+ 
       try {
-         bList = mapper.boardList();
+         bList = mapper.boardList(search);
       } catch (Exception e) {
          // TODO Auto-generated catch block
          e.printStackTrace();
       }
       return bList;
    }
-   
+   public int getCount(String searchTitle, String searchText){
+	   BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
+	   Map<String, String> search = new HashMap<>();
+		search.put("searchTitle", searchTitle);
+		search.put("searchText", searchText);
+		int result = 0;
+		try {
+			result = mapper.getCount(search);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	   
+   }
    public int write(Board board){
       BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
       int result=0;
@@ -84,11 +102,11 @@ public class BoardRepository {
 		return result;
 	}
 
-	public void addHits(int boardnum) {
+	public void addHits(int boardNum) {
 		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
 		int result = 0;
 		try {
-			result = mapper.addHits(boardnum);
+			result = mapper.addHits(boardNum);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

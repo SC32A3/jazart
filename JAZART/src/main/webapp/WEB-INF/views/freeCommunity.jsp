@@ -230,20 +230,20 @@
             <div class="row">
                <div class="freeBoard">
                   <!-- ======================11 SECTION BOOKING AND CONTACTS ================================================ -->
-                  
+                  <div>
                      <div class="board3" >
                         <div class="qt-the-content">
                            <!-- 검색 -->
                            <div class="col s12 m3 l12">
-                              <div class="qt-qt-widget">
+                              <div class="">
                                  <hr class="qt-spacer-s ">
                                  <form method="get" action="search" class="qt-inline-form">
                                     <div class="row qt-nopadding">
                                           <div class="col s12 m4 l1">
                                           <select class="qt-btn qt-btn-s qt-combo">
-                                             <option value="writer">글쓴이</option>
-                                             <option value="title">제목</option>
-                                             <option value="content">내용</option>
+                                             <option value="board_nickname">글쓴이</option>
+                                             <option value="board_title">제목</option>
+                                             <option value="board_content">내용</option>
                                           </select> 
                                           </div>
                                        <div class="col s12 m4 l2 ">   
@@ -263,7 +263,7 @@
                            
                            
                            <!-- 검색 끝 -->
-                           <form>
+                          
                            <table>
                               <tbody>
                                  <tr>
@@ -285,7 +285,7 @@
                                  </c:forEach>
                               </tbody>
                            </table>
-                           </form>
+                        
                            
                            <div class="qt-combo2">
                            <p><a href="write"><input type="button" value="write"

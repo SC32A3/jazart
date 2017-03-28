@@ -3,72 +3,120 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-<mapper namespace="global.sesoc.jazart.dao.BoardMapper">
-   <insert id="write" parameterType="Board">
-      insert 
-      into 
-         board
-         (
-          boardNum      
-         ,board_tag            
-         ,board_nickname
-         ,board_title
-         ,board_content         
-         ,board_inputdate   
-         ,board_hits         
-         )
-      values 
-         (
-            board_seq.nextval
-            ,#{board_tag}
-            ,#{board_nickname}
-            ,#{board_title}
-            ,#{board_content}
-            ,sysdate
-            ,0   
-         )
-   </insert>
 
-   <select id="boardList" resultType="Board">
-      select
-         boardNum      
-         ,board_tag            
-         ,board_nickname
-         ,board_title
-         ,board_content         
-         ,to_char(board_inputdate, 'yyyy-mm-dd') board_inputdate      
-         ,board_hits         
-      from
-         board   
-      order by
-         boardnum desc
-   </select>
-   <!-- 1 -->
-   <select id="selectList" parameterType="int" resultType="Board" >
-      select
-         boardNum      
-         ,board_tag
-         ,board_title         
-         ,board_nickname   
-         ,board_content      
-         ,to_char(board_inputdate, 'yyyy-mm-dd hh:mi') board_inputdate      
-         ,board_hits
-      from
-         board
-      where
-         boardnum=#{boardnum}
-   
-   </select>
-   <update id="updateBoard" parameterType="Board">
-	update board set 
-		 board_tag=#{board_tag}
+<mapper namespace="global.sesoc.jazart.dao.BoardMapper">
+	<insert id="write" parameterType="Board">
+		insert
+		into
+		board
+		(
+		boardNum
+		,board_tag
+		,board_nickname
+		,board_title
+		,board_content
+		,board_inputdate
+		,board_hits
+		)
+		values
+		(
+		board_seq.nextval
+		,#{board_tag}
+		,#{board_nickname}
+		,#{board_title}
+		,#{board_content}
+		,sysdate
+		,0
+		)
+	</insert>
+
+	<!-- 1 -->
+	<select id="selectList" parameterType="int" resultType="Board">
+		select
+		boardNum
+		,board_tag
+		,board_title
+		,board_nickname
+		,board_content
+		,to_char(board_inputdate, 'yyyy-mm-dd hh:mi') board_inputdate
+		,board_hits
+		from
+		board
+		where
+		boardnum=#{boardnum}
+
+	</select>
+	<update id="updateBoard" parameterType="Board">
+		update board set
+		board_tag=#{board_tag}
 		,board_title=#{board_title}
 		,board_content=#{board_content}
 		,board_inputdate=sysdate
-		 where boardnum=#{boardNum}
-</update>
-<delete id="deleteBoard" parameterType="Board">
-	delete board where boardnum=#{boardnum}
-</delete>
+		where boardnum=#{boardNum}
+	</update>
+	<delete id="deleteBoard" parameterType="Board">
+		delete board where boardnum=#{boardNum}
+	</delete>
+
+	<update id="addHits" parameterType="int">
+		update board
+		set board_hits=board_hits+1
+		where boardnum=#{boardNum}
+	</update>
+	
+	<!-- <select id="boardList" resultType="Board">
+		select
+		boardNum
+		,board_tag
+		,board_nickname
+		,board_title
+		,board_content
+		,to_char(board_inputdate, 'yyyy-mm-dd') board_inputdate
+		,board_hits
+		from
+		board
+		order by
+		boardnum desc
+	</select> -->
+	<select id="boardList" resultType="Board" parameterType="map">
+		select * from
+		( select rownum rnum, b.* from
+		( select * from board
+		<if test="searchText != null and searchTitle != null ">
+			<choose>
+				<when test="searchTitle == 'board_nickname'">
+					where board_nickname like '%' || #{searchText} || '%'
+				</when>
+				<when test="searchTitle == 'board_title'">
+					where board_title like '%' || #{searchText} || '%'
+				</when>
+				<when test="searchTitle == 'board_content'">
+					where board_content like '%' || #{searchText} || '%'
+				</when>
+			</choose>
+		</if>
+		order by board_inputdate desc
+		) b
+		) c
+		where rnum between #{start}
+		and #{end}
+	</select>
+	
+	<select id="getCount" parameterType="map" resultType="int">
+		select count(*)
+		from board
+		<if test="searchText != null and searchTitle != null ">
+			<choose>
+				<when test="searchTitle == 'board_nickname'">
+					where board_nickname like '%' || #{searchText} || '%'
+				</when>
+				<when test="searchTitle == 'board_title'">
+					where board_title like '%' || #{searchText} || '%'
+				</when>
+				<when test="searchTitle == 'board_content'">
+					where board_content like '%' || #{searchText} || '%'
+				</when>
+			</choose>
+		</if>
+	</select>
 </mapper>   

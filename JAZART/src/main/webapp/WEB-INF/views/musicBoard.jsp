@@ -219,7 +219,7 @@
 			</div>
 		</div>
 		<!-- HEADER CAPTION END ========================= -->
-		<div class="qt-sidebar col s12 m12 l3">
+		
                            
 				<!-- ======================= CONTENT SECTION ======================= -->
 				<div class="qt-container qt-vertical-padding-l qt-archive-team">
@@ -240,6 +240,7 @@
                                         </form>
                                     </div>
                                 </div>
+							</div>
 							</div>
 					<div class="row">
 						
