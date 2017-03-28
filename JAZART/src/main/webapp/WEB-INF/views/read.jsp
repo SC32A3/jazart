@@ -72,7 +72,133 @@
 	}
 	
 </script>
-
+<script src="resources/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			var boardnum = '';
+			var loginNickname = '${loginNickname}';
+			
+			$(function() {
+				$("#leaveReply").on("click", leaveReply);
+				init();
+			})
+			
+			function init() {
+				boardnum = $("#boardnum").val();
+				$.ajax({
+					method : "get",
+					url : "board_replyList",
+					data : {boardNum : boardnum},
+					dataType : "json",
+					success : output
+				})
+			};
+		
+			function leaveReply() {
+				boardnum = $("#boardnum").val();
+				var comment = $("#comment").val();
+				
+				if (comment.length > 300) {
+					alert("댓글은 300자 미만으로 작성해주세요");
+					return;
+				}
+				
+				$.ajax({
+					method : "get",
+					url : "board_leaveReply",
+					data : {reply_text : comment, boardNum : boardnum},
+					success : function(resp) {
+						if (resp == 1) {
+							init();
+							$("#comment").val('');
+						}
+					}
+				});				
+			}
+			
+			function output(resp) {
+				var replyArea = $("#replyArea").val(); 
+				$('#replyArea').empty(); //기존 화면상 데이터 삭제
+				
+				var msg = '<table>';
+				msg = '<tr><th>ID</th><th>Text</th><th>Date</th><th>Like</th><th></th></tr>';
+				$.each(resp, function(index, item) {
+					msg += "<tr>"; 
+					msg += "<td class='tdNum'>"+item.reply_nickname+"</td>";
+					msg += "<td class='tdName' id='"+item.replynum+"_name'><span id='"+item.replynum+"_span1'>"+item.reply_text+"</span></td>";
+					msg += "<td class='tdText' id='"+item.replynum+"_text'>"+item.reply_inputdate+"</td>";
+					msg += "<td>"+item.reply_like+"</td>";
+					if (item.reply_nickname == loginNickname) {
+						msg += "<td class='tdBtn'><span id='"+item.replynum+"_span2'><input type='button' value='삭제' class='del' data-num='"+item.replynum+"'>";
+						msg += "<input type='button' value='수정' class='upd' data-num='"+item.replynum+"'>";
+						msg += "<input type='button' value='추천' class='rec' data-num='"+item.replynum+"'></span></td>";
+					} else {
+						msg += "<td><input type='button' value='추천' class='rec' data-num='"+item.replynum+"'></td>";
+					}
+					msg += "</tr>";
+					//data-num : js, jquery에서 쓰는 사용자 정의 속성, 고유의 번호를 갖기 위해 존재
+					//class : 등록버튼과 다르게 공통된 삭제버튼들에게 이벤트를 부여하기 위해 존재, css 입힐 때도 사용
+				})
+				msg += '</table>'
+				$('#replyArea').html(msg);
+				
+				$("input:button.del").on("click", replyDel);
+				$("input:button.rec").on("click", replyRec);
+				$("input:button.upd").on("click", replyUpd);
+			}
+			
+			function replyUpd() {
+				var num = $(this).attr("data-num"); //this : 호출한 버튼 'input'객체
+				$("#"+num+"_span1").html("<input type='text' id='"+num+"_Newtext'>");
+				$("#"+num+"_span2").html("<input type='button' id='"+num+"_ok' value='확인'><input type='button' id='"+num+"_cancel' value='취소'>");
+				
+				$("#"+num+"_ok").on("click", function() {
+					$.ajax({
+						method : "get",
+						url : "board_updateReply",
+						data : {"replynum": num, "reply_text" : $("#"+num+"_Newtext").val()},
+						success : function(resp) {
+							if (resp == 1) {
+								init();
+							}
+						}
+					});
+				})
+				
+				$("#"+num+"_cancel").on("click", function() {
+					init();
+				})
+			};
+			
+			function replyDel() {
+				var num = $(this).attr("data-num"); //this : 호출한 버튼 'input'객체
+				$.ajax({
+					method : "get",
+					url : "board_deleteReply",
+					data : {"replynum": num},
+					success : function() {
+						init();	
+					}
+				});
+			};
+			
+			function replyRec() {
+				var num = $(this).attr("data-num"); //this : 호출한 버튼 'input'객체
+				//var num = $(this).parent().parent().attr("data-num"); //tr에 data-num을 붙였을 시
+				
+				$.ajax({
+					method : "get",
+					url : "board_recommendReply",
+					data : {"replynum": num},
+					success : function(resp) {
+						if (resp == 1) {
+							init();	
+						} else {
+							alert('추천은 한번만 가능합니다');							
+						}
+					}
+				});
+			};
+		</script>
 
 </head>
 <body>
@@ -280,6 +406,7 @@
 
 											<div class="row">
 												<div class="input-field col s8">
+													<input type="hidden" id="boardnum" value="${board.boardNum}">
 													<table class="table2" border="1">
 														<tr>
 															<td>Title</td>
@@ -329,7 +456,7 @@
 																class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light"
 																onclick="javascript:updateCheck(${board.boardNum })">
 																<span class="lnr lnr-rocket"></span> update
-															
+
 															</button>
 															<button
 																class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light"
@@ -338,10 +465,33 @@
 															</button>
 														</c:if>
 													</div>
-												</div>
 
-												
+
+												</div>
 												<!-- /form -->
+												
+												<br>
+												<div id="replyArea">
+												</div>
+												<br>
+												
+												<div id="respond">
+													<h4 id="reply-title" class="comment-reply-title">
+														Leave a Reply</h4>
+
+													<p class="comment-form-comment">
+														<textarea id="comment" placeholder="Comment *"
+															name="comment" cols="45" aria-required="true"
+															required="required"></textarea>
+													</p>
+
+													<p class="form-submit">
+														<input name="leaveReply" type="button" id="leaveReply"
+															class="qt-btn qt-btn-primary" value="Post Comment">
+														<!-- <input type="hidden" name="comment_post_ID" value="" id="comment_post_ID">
+									<input type="hidden" name="comment_parent" id="comment_parent" value="0"> -->
+													</p>
+												</div>
 
 											</div>
 

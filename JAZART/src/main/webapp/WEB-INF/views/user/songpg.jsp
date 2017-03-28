@@ -48,7 +48,7 @@
 				songnum = $("#songnum").val();
 				$.ajax({
 					method : "get",
-					url : "replyList",
+					url : "song_replyList",
 					data : {songnum : songnum},
 					dataType : "json",
 					success : output

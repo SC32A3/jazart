@@ -39,7 +39,7 @@
 				var snum = num;
 				$.ajax({
 					method : "get",
-					url : "recommend",
+					url : "song_recommend",
 					data : {"songnum" : snum},
 					success : function(resp) {
 						if (resp == 1) {
