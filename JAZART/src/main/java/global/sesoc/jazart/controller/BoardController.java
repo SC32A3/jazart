@@ -59,7 +59,6 @@ public class BoardController {
    @RequestMapping(value = "write", method = RequestMethod.POST)
    public String write(Board board, Model model) {
       String loginNickname = (String) session.getAttribute("loginNickname");
-      logger.info(loginNickname);
       if (loginNickname == null) {
          return "redirect:/login";
       }

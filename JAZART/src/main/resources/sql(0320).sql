@@ -16,6 +16,7 @@ DROP TABLE playlist CASCADE CONSTRAINTS;
 DROP TABLE SongEdit CASCADE CONSTRAINTS;
 DROP TABLE songlike CASCADE CONSTRAINTS;
 DROP TABLE songreply CASCADE CONSTRAINTS;
+DROP TABLE songreply_like CASCADE CONSTRAINTS;
 DROP TABLE userlist CASCADE CONSTRAINTS;
 DROP TABLE songinfo CASCADE CONSTRAINTS;
 DROP TABLE userinfo CASCADE CONSTRAINTS;
@@ -168,6 +169,13 @@ CREATE TABLE songreply
 	PRIMARY KEY (replynum)
 );
 
+CREATE TABLE songreply_like
+(
+	slike_seq number NOT NULL,
+	replynum number NOT NULL,
+	slike_nickname varchar2(30),
+	PRIMARY KEY (slike_seq)
+);
 
 CREATE TABLE userinfo
 (
@@ -212,8 +220,6 @@ CREATE TABLE userlist
 	PRIMARY KEY (listnum),
 	UNIQUE (user_id, songnum)
 );
-
-
 
 /* Create Foreign Keys */
 
@@ -288,12 +294,21 @@ ALTER TABLE SongEdit
 	REFERENCES userlist (listnum)
 ;
 
+ALTER TABLE songreply_like
+	ADD FOREIGN KEY (replynum)
+	REFERENCES songreply (replynum)
+;
+
 create sequence songinfo_seq;
-create sequence reply_seq;
+create sequence songreply_seq;
+create sequence boardreply_seq;
 create sequence board_seq;
 create sequence list_seq;
 create sequence instedit_seq;
 create sequence songedit_seq;
+create sequence slike_seq;
+create sequence like_seq;
+
 
 ----------------------------------------------------------------------------------------------------------------------
 insert into userinfo values('apple2', '1111', 'defalut.jpg', 'apple', '010-2020-1020', 'apple2@naver.com' '안녕하세요, 사과입니다. 충주에서 왔습니다');
@@ -304,6 +319,14 @@ insert into songinfo values(songinfo_seq.nextval, 'apple', 'seo.jpg', '사과만
 
 insert into board values(board_seq.nextval, 'x', 'banzzogari', '피처링 구해요', '피쳐링해주실분을 찾고 있습니다', sysdate, 1);
 insert into board values(board_seq.nextval, 'x', 'banzzogari', '안녕하세요', '피쳐링해주실분을 찾고 있습니다', sysdate, 1);
+
+insert into songreply values(songreply_seq.nextval, 'banana', '안녕', sysdate, 0, 21);
+insert into songreply values(songreply_seq.nextval, 'banana', '나는', sysdate, 0, 21);
+insert into songreply values(songreply_seq.nextval, 'banana', '바나나야', sysdate, 0, 21);
+select * from songreply;
+delete songreply where replynum = #{replynum}
+update songreply set reply_like = reply_like+1 where replynum = #{replynum};
+
 -------------------------------------------------------------------------------------------------------------------------------
 commit;
 select * from userinfo;
@@ -312,4 +335,4 @@ select count(user_id) from userinfo where user_id = 'x';
 select count(user_nickname) from userinfo where user_nickname = 'x';
 select count(user_email) from userinfo where user_email = 'bj@nae.com';
 
-
+update songinfo set song_like = song_like+1 where songnum = #{songnum}

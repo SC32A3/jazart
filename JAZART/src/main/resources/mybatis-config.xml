@@ -10,6 +10,7 @@
       <typeAlias type="global.sesoc.jazart.vo.User" alias="User" />
       <typeAlias type="global.sesoc.jazart.vo.Songinfo" alias="Songinfo" />
       <typeAlias type="global.sesoc.jazart.vo.Board" alias="Board" />
+      <typeAlias type="global.sesoc.jazart.vo.Songreply" alias="Songreply" />
    </typeAliases>
 
    <mappers>

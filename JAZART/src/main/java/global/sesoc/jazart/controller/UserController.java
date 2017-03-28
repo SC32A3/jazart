@@ -62,8 +62,6 @@ public class UserController {
          model.addAttribute("message", "success");
          session.setAttribute("loginId", loginUser.getUser_id());
          session.setAttribute("loginNickname", loginUser.getUser_nickname());
-         System.out.println(
-               "로그인 Http세션값=> " + session.getAttribute("loginId") + ", " + session.getAttribute("loginNickname"));
          return "redirect:/";
       } else {
          model.addAttribute("message", "fail");
@@ -78,15 +76,12 @@ public class UserController {
    
    @RequestMapping(value = "joinCheck", method = RequestMethod.GET)
    public @ResponseBody String joinCheck(User user) {
-      logger.info("가입체크 vo=> "+user.toString());
       String result = ur.joinCheck(user);
-      logger.info("가입체크 메세지=> "+result);
       return result;
    }
 
    @RequestMapping(value = "join", method = RequestMethod.POST)
    public String join(User user, MultipartFile upload) {
-      logger.info("가입 => "+user.toString());
       String userName = user.getUser_nickname();
       
       // 첨부된 파일을 처리
