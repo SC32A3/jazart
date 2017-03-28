@@ -7,7 +7,7 @@
 <mapper namespace="global.sesoc.jazart.dao.ChartMapper">
 
 
-   <select id="chartList" resultType="Chart">
+   <select id="chartList" resultType="Songinfo">
       select
          boardNum      
          ,board_tag            

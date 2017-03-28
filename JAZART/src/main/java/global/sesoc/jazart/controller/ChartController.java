@@ -23,7 +23,7 @@ public class ChartController {
 	@Autowired
 	HttpSession session;
 
-	/*@RequestMapping(value = "archive-chart.html", method = RequestMethod.GET)
+	@RequestMapping(value = "archive-chart.html", method = RequestMethod.GET)
 	public String realtimect() {
 		return "realtimect";
 	}
@@ -36,5 +36,5 @@ public class ChartController {
 	@RequestMapping(value = "chart.html", method = RequestMethod.GET)
 	public String weekilyct() {
 		return "weeklyct";
-	}*/
+	}
 }
