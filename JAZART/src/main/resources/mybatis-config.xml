@@ -19,6 +19,7 @@
       <mapper resource="mappers/songMapper.xml" />
       <mapper resource="mappers/boardMapper.xml" />
       <mapper resource="mappers/sampleMapper.xml" />
+      <mapper resource="mappers/chartMapper.xml" />
    </mappers>
    
 </configuration>
