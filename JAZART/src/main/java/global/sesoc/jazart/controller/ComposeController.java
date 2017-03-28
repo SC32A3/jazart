@@ -60,7 +60,7 @@ public class ComposeController {
       ArrayList<Songreply> replyList = sr.songReply(songnum);
       model.addAttribute("song", song);
       model.addAttribute("songReply", replyList);
-      return "songpg";
+      return "user/songpg";
    }
    
    @RequestMapping(value = "replyList", method = RequestMethod.GET)
@@ -77,7 +77,7 @@ public class ComposeController {
       model.addAttribute("user", user);
       ArrayList<Songinfo> songsByArtist = ur.songsByArtist(loginNickname);
       model.addAttribute("songs", songsByArtist);
-      return "artistpg";
+      return "user/artistpg";
    }
    
    @RequestMapping(value="download", method=RequestMethod.GET)
