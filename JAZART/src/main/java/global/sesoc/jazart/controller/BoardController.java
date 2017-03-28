@@ -78,16 +78,19 @@ public class BoardController {
    }
    
 	@RequestMapping(value="boardUpdate", method=RequestMethod.GET)
-	public String boardUpdate(Model model){
-	
-		
-		
+	public String boardUpdate(Model model, int boardNum){
+		Board board = br.selectList(boardNum);
+		model.addAttribute("board", board);
+		logger.info("보드컨트롤러업데이트"+board);
 		return "boardUpdate";
 	}
 	
 	@RequestMapping(value="boardUpdate", method=RequestMethod.POST)
 	public String boardUpdate(Board board){	
-		
+		String loginNickname = (String) session.getAttribute("loginNickname");
+		board.setBoard_nickname(loginNickname);
+		br.updateBoard(board);
+		logger.info("보드컨트롤러업데이트2"+board);
 		return "redirect:free_community";
 	}
 	

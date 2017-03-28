@@ -48,11 +48,11 @@ public class BoardRepository {
       }
       return result;
    }
-   public Board selectList(int boardnum){
+   public Board selectList(int boardNum){
       BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
       Board board=null;
       try {
-         board = mapper.selectList(boardnum);
+         board = mapper.selectList(boardNum);
       } catch (Exception e) {
          // TODO Auto-generated catch block
          e.printStackTrace();

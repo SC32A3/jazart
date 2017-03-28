@@ -66,7 +66,7 @@
 		,board_title=#{board_title}
 		,board_content=#{board_content}
 		,board_inputdate=sysdate
-		 where boardnum=#{boardnum}
+		 where boardnum=#{boardNum}
 </update>
 <delete id="deleteBoard" parameterType="Board">
 	delete board where boardnum=#{boardnum}

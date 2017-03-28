@@ -249,7 +249,7 @@
                                                   		</div>
                                                         <div class="input-field col s12 ">
                                                            <p class="comment-form-comment">
-														    <textarea style="height: 25rem" id="board_content" placeholder="Content *" name="board_content" cols="45" aria-required="true">${board.content}</textarea>
+														    <textarea style="height: 25rem" id="board_content" placeholder="Content *" name="board_content" cols="45" aria-required="true">${board.board_content}</textarea>
 														   </p>
                                                         </div>
                                                     </div>
