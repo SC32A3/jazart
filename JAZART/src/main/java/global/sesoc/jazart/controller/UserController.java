@@ -47,7 +47,7 @@ public class UserController {
 
    @RequestMapping(value = "login", method = RequestMethod.GET)
    public String login() {
-      return "login";
+      return "user/login";
    }
 
    @RequestMapping(value = "login", method = RequestMethod.POST)
@@ -55,7 +55,7 @@ public class UserController {
       User loginUser = ur.selectUser(userid);
       if (loginUser == null) {
          model.addAttribute("message", "fail");
-         return "login";
+         return "user/login";
       }
 
       if (loginUser.getUser_pw().equals(password)) {
@@ -65,13 +65,13 @@ public class UserController {
          return "redirect:/";
       } else {
          model.addAttribute("message", "fail");
-         return "login";
+         return "user/login";
       }
    }
 
    @RequestMapping(value = "join", method = RequestMethod.GET)
    public String join() {
-      return "join";
+      return "user/join";
    }
    
    @RequestMapping(value = "joinCheck", method = RequestMethod.GET)

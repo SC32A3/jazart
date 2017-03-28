@@ -75,16 +75,17 @@
 						<li><a href="artistpage">Artist Page</a></li>
 					</ul>
 				</li>
-				<li><a href="archive.html">Blog</a>
-					<ul>
-						<li><a href="archive.html">Blog archive</a></li>
-						<li><a href="single-post.html">Single post</a></li>
-					</ul>
-				</li>
 				<li><a href="archive-chart.html">Charts</a>
 					<ul>
 						<li><a href="archive-chart.html">Charts archive</a></li>
 						<li><a href="single-chart.html">Single chart</a></li>
+						<li><a href="chart.html">Single chart</a></li>
+					</ul>
+				</li>
+				<li><a href="archive.html">Blog</a>
+					<ul>
+						<li><a href="archive.html">Blog archive</a></li>
+						<li><a href="single-post.html">Single post</a></li>
 					</ul>
 				</li>
 				<li><a href="archive-events.html">Events</a>
