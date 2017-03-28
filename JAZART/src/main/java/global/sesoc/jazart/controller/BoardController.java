@@ -11,14 +11,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 import global.sesoc.jazart.dao.BoardRepository;
 import global.sesoc.jazart.vo.Board;
+
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
+@SessionAttributes("boardNum")
 public class BoardController {
    //1
    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -65,12 +69,34 @@ public class BoardController {
       return "redirect:/free_community";
    }
    @RequestMapping(value="board_read", method=RequestMethod.GET)
-   public String read(int boardnum, Model model){
-      Board board = br.selectList(boardnum);
+   public String read(int boardNum, Model model){
+      Board board = br.selectList(boardNum);
       if(board == null){
          return "redirect:free_community";
       }
       model.addAttribute("board",board);
       return "read";
    }
+   
+	@RequestMapping(value="boardUpdate", method=RequestMethod.GET)
+	public String boardUpdate(Model model){
+	
+		
+		
+		return "boardUpdate";
+	}
+	
+	@RequestMapping(value="boardUpdate", method=RequestMethod.POST)
+	public String boardUpdate(Board board){	
+		
+		return "redirect:free_community";
+	}
+	
+	@RequestMapping(value="boardDelete", method=RequestMethod.GET)
+	public String boardDelete(int boardNum){
+		int result = 0;
+		result = br.deleteBoard(boardNum);
+		logger.info("삭제 결과 : " + result);
+		return "redirect:/free_community";
+	}
 }

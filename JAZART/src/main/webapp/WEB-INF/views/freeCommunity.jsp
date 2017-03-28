@@ -275,13 +275,10 @@
                                  <tr class="odd">
                                     <td>${list.boardNum}</td>
                                     <td><a href="http://example.com/">${list.board_nickname}</a></td>
-<<<<<<< HEAD
                                     <td><a href="board_read?boardNum=${list.boardNum}">${list.board_title}</td>
-=======
-                                    <td><a href="board_read">${list.board_title}</td>
->>>>>>> branch 'master' of https://github.com/SC32A3/jazart.git
                                     <td>${list.board_inputdate}</td>
                                     <td>${list.board_hits}</td>
+                                    
                                  </tr>
                                  </c:forEach>
                               </tbody>

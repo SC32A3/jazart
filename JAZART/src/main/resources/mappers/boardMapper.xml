@@ -52,7 +52,7 @@
          ,board_title         
          ,board_nickname   
          ,board_content      
-         ,to_char(inputdate, 'yyyy-mm-dd hh:mi') inputdate      
+         ,to_char(board_inputdate, 'yyyy-mm-dd hh:mi') board_inputdate      
          ,board_hits
       from
          board
@@ -60,4 +60,15 @@
          boardnum=#{boardnum}
    
    </select>
+   <update id="updateBoard" parameterType="Board">
+	update board set 
+		 board_tag=#{board_tag}
+		,board_title=#{board_title}
+		,board_content=#{board_content}
+		,board_inputdate=sysdate
+		 where boardnum=#{boardnum}
+</update>
+<delete id="deleteBoard" parameterType="Board">
+	delete board where boardnum=#{boardnum}
+</delete>
 </mapper>   
