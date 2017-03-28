@@ -111,17 +111,4 @@ public class BoardController {
 		logger.info("삭제 결과 : " + result);
 		return "redirect:/free_community";
 	}
-	
-	@RequestMapping(value = "archive-chart.html", method = RequestMethod.GET)
-	public String realtimect() {
-		return "realtimect";
-	}
-	@RequestMapping(value = "single-chart.html", method = RequestMethod.GET)
-	public String dayilyct() {
-		return "dailyct";
-	}
-	@RequestMapping(value = "chart.html", method = RequestMethod.GET)
-	public String weekilyct() {
-		return "weeklyct";
-	}
 }
