@@ -64,6 +64,13 @@
 			location.href = "boardDelete?boardNum=" + boardNum;
 		}
 	}
+
+	function updateCheck(boardNum) {
+		if (confirm("글을 수정하시겠습니까?")) {
+			location.href = "boardUpdate?boardNum=" + boardNum;
+		}
+	}
+	
 </script>
 <script src="resources/jquery-3.1.1.min.js"></script>
 		<script type="text/javascript">
@@ -447,7 +454,7 @@
 														<c:if test="${loginNickname == board.board_nickname}">
 															<button
 																class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light"
-																onclick="location.href='boardUpdate?boardNum=${board.boardNum}'">
+																onclick="javascript:updateCheck(${board.boardNum })">
 																<span class="lnr lnr-rocket"></span> update
 
 															</button>

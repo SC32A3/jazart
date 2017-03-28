@@ -230,12 +230,12 @@
             <div class="row">
                <div class="freeBoard">
                   <!-- ======================11 SECTION BOOKING AND CONTACTS ================================================ -->
-                  <div>
+                  
                      <div class="board3" >
                         <div class="qt-the-content">
                            <!-- 검색 -->
                            <div class="col s12 m3 l12">
-                              <div class="">
+                              <div class="qt-qt-widget">
                                  <hr class="qt-spacer-s ">
                                  <form method="get" action="search" class="qt-inline-form">
                                     <div class="row qt-nopadding">
@@ -260,6 +260,8 @@
                                           
                               </div>
                            </div>
+                           
+                           
                            <!-- 검색 끝 -->
                            <form>
                            <table>
