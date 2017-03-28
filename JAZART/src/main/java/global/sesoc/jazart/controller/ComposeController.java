@@ -63,7 +63,7 @@ public class ComposeController {
       return "user/songpg";
    }
    
-   @RequestMapping(value = "replyList", method = RequestMethod.GET)
+   @RequestMapping(value = "song_replyList", method = RequestMethod.GET)
    public @ResponseBody ArrayList<Songreply> replyList(int songnum) {
 	  logger.info("replyList songnum=> "+songnum);
       ArrayList<Songreply> replyList = sr.songReply(songnum);
@@ -127,7 +127,7 @@ public class ComposeController {
       return null;
    }
    
-   @RequestMapping(value = "recommend", method = RequestMethod.GET)
+   @RequestMapping(value = "song_recommend", method = RequestMethod.GET)
    public @ResponseBody int recommend(int songnum) {
 	   int result = sr.recommend(songnum);
 	   return result;

@@ -8,6 +8,7 @@ commit;
 /* Drop Tables */
 
 DROP TABLE boardreply CASCADE CONSTRAINTS;
+DROP TABLE boardreply_like CASCADE CONSTRAINTS;
 DROP TABLE board CASCADE CONSTRAINTS;
 DROP TABLE InstEdit CASCADE CONSTRAINTS;
 DROP TABLE Instrument_detail CASCADE CONSTRAINTS;
@@ -56,6 +57,13 @@ CREATE TABLE boardreply
 	PRIMARY KEY (replynum)
 );
 
+CREATE TABLE boardreply_like
+(
+	blike_seq number NOT NULL,
+	replynum number NOT NULL,
+	blike_nickname varchar2(30),
+	PRIMARY KEY (blike_seq)
+);
 
 CREATE TABLE InstEdit
 (
@@ -228,6 +236,10 @@ ALTER TABLE boardreply
 	REFERENCES board (boardnum)
 ;
 
+ALTER TABLE boardreply_like
+	ADD FOREIGN KEY (replynum)
+	REFERENCES boardreply (replynum)
+;
 
 ALTER TABLE Instrument_detail
 	ADD FOREIGN KEY (Instrument)
@@ -307,6 +319,7 @@ create sequence list_seq;
 create sequence instedit_seq;
 create sequence songedit_seq;
 create sequence slike_seq;
+create sequence blike_seq;
 create sequence like_seq;
 
 
@@ -327,9 +340,13 @@ select * from songreply;
 delete songreply where replynum = #{replynum}
 update songreply set reply_like = reply_like+1 where replynum = #{replynum};
 
+insert into boardreply values(boardreply_seq.nextval, 'banana', '안녕', sysdate, 0, 41);
+insert into boardreply values(boardreply_seq.nextval, 'banana', '나는', sysdate, 0, 41);
+insert into boardreply values(boardreply_seq.nextval, 'banana', '바나나야', sysdate, 0, 41);
+select * from boardreply where boardnum = 41;
 -------------------------------------------------------------------------------------------------------------------------------
-commit;
 select * from userinfo;
+select * from board;
 
 select count(user_id) from userinfo where user_id = 'x';
 select count(user_nickname) from userinfo where user_nickname = 'x';
