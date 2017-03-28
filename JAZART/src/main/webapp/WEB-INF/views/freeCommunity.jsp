@@ -54,6 +54,16 @@
 .board2 {margin: auto; text-align: center;}
 .board3 {margin: auto; text-align: right;}
 </style>
+<script>
+	function pagingForSubmit(currentPage) {
+		var form = document.getElementById("pagingForm");
+		var page = document.getElementById("page");
+		page.value = currentPage;
+
+		form.submit();
+	}
+</script>
+
 </head>
 <body>
    <div class="qt-parentcontainer">
@@ -237,22 +247,22 @@
                            <div class="col s12 m3 l12">
                               <div class="">
                                  <hr class="qt-spacer-s ">
-                                 <form method="get" action="search" class="qt-inline-form">
+                                 <form method="get" action="free_community" class="qt-inline-form" id="pagingForm">
                                     <div class="row qt-nopadding">
                                           <div class="col s12 m4 l1">
-                                          <select class="qt-btn qt-btn-s qt-combo">
-                                             <option value="board_nickname">글쓴이</option>
-                                             <option value="board_title">제목</option>
-                                             <option value="board_content">내용</option>
+                                          <select class="qt-btn qt-btn-s qt-combo" name="searchTitle">
+                                             <option value="board_nickname" ${searchTitle=="board_nickname"? "selected" : ""} >글쓴이</option>
+                                             <option value="board_title" ${searchTitle=="board_title"? "selected" : ""}>제목</option>
+                                             <option value="board_content" ${searchTitle=="content"? "selected" : ""}>내용</option>
                                           </select> 
                                           </div>
                                        <div class="col s12 m4 l2 ">   
-                                          <input placeholder="Music Search" value="" type="text"
+                                          <input placeholder="Music Search" name="searchText" id="searchText" value="${searchText}" type="text"
                                              class="validate qt-input-s">
                                        </div>
                                        <div class="col s12 m4 l1">
-                                          <input type="button" value="search"
-                                             class="qt-btn qt-btn-secondary qt-btn-s qt-fullwidth">
+									<input class="qt-btn qt-btn-secondary qt-btn-s qt-fullwidth" type="button" onclick="pagingForSubmit(1)" value="Search">
+                                    <input type="hidden" name="page" id="page">
                                        </div>
                                     </div>
                                  </form>
@@ -289,7 +299,7 @@
                            
                            <div class="qt-combo2">
                            <p><a href="write"><input type="button" value="write"
-                           class="qt-btn qt-btn-secondary qt-btn-s ">
+                           class="qt-btn qt-btn-secondary qt-btn-s " name="page" id="page">
                            </a></p></div>
    
                            <!-- POST CONTENT END ========================= -->
@@ -308,38 +318,59 @@
             <li class="special"><span
                class="qt-pagination-label qt-content-primary-dark">PAGES</span></li>
 
-            <li class="special disabled"><a href="#!"
+            <li class="special disabled"><a href="javascript:pagingForSubmit(${navi.currentPage-navi.pagePerGroup})"
                class="qt-btn qt-btn-l qt-btn-primary"><i
                   class="dripicons-arrow-thin-left"></i></a></li>
-            <li class="special waves-effect"><a href="#!"
+            
+            <li class="special waves-effect"><a href="javascript:pagingForSubmit(${navi.currentPage + 1})"
                class="qt-btn qt-btn-l qt-btn-primary"><i
                   class="dripicons-arrow-thin-right"></i></a></li>
+           
+            <c:forEach begin="${navi.startPageGroup}" end="${navi.endPageGroup}"
+				var="counter">
+				<a
+					<c:if test="${navi.currentPage!=counter}">
+					href="javascript:pagingForSubmit(${counter})"
+				</c:if>
+					<c:if test="${navi.currentPage==counter}">
+					class="item waves-effect hide-on-large-and-down"
+				</c:if>
+				>
+					${counter}</a>&nbsp;
+			</c:forEach>
+            
+            
+            <%-- <c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
+				<li class="item active hide-on-large-and-down"><a href="javascript:pagingForSubmit(${counter})">${counter}</a></li>
+				<li class="item waves-effect hide-on-large-and-down"><a href="javascript:pagingForSubmit(${counter })">${counter}</a></li>
+			</c:forEach> --%>
+            
 
-            <li class="item active hide-on-large-and-down"><a href="#!">1</a></li>
+            <%-- <li class="item active hide-on-large-and-down"><a href="javascript:pagingForSubmit(${navi.currentPage+1})">1</a></li>
             <li class="item waves-effect hide-on-large-and-down"><a
-               href="#!">2</a></li>
+               href="javascript:pagingForSubmit(${navi.currentPage+1})">2</a></li>
             <li class="item waves-effect hide-on-large-and-down"><a
-               href="#!">3</a></li>
+               href="javascript:pagingForSubmit(${navi.currentPage+1})">3</a></li>
             <li class="item waves-effect hide-on-large-and-down"><a
-               href="#!">4</a></li>
+               href="javascript:pagingForSubmit(${navi.currentPage+1})">4</a></li>
             <li class="item waves-effect hide-on-large-and-down"><a
-               href="#!">5</a></li>
+               href="javascript:pagingForSubmit(${navi.currentPage+1})">5</a></li>
             <li class="item waves-effect hide-on-large-and-down"><a
-               href="#!">6</a></li>
+               href="javascript:pagingForSubmit(${navi.currentPage+1})">6</a></li>
             <li class="item waves-effect hide-on-large-and-down"><a
-               href="#!">7</a></li>
+               href="javascript:pagingForSubmit(${navi.currentPage+1})">7</a></li>
             <li class="item waves-effect hide-on-large-and-down"><a
-               href="#!">8</a></li>
+               href="javascript:pagingForSubmit(${navi.currentPage+1})">8</a></li>
             <li class="item waves-effect hide-on-large-and-down"><a
-               href="#!">9</a></li>
+               href="javascript:pagingForSubmit(${navi.currentPage+1})">9</a></li>
             <li class="item waves-effect hide-on-large-and-down"><a
-               href="#!">10</a></li>
+               href="javascript:pagingForSubmit(${navi.currentPage+1})">10</a></li>
             <li class="item waves-effect hide-on-large-and-down"><a
-               href="#!">11</a></li>
+               href="javascript:pagingForSubmit(${navi.currentPage+1})">11</a></li>
             <li class="item waves-effect hide-on-large-and-down"><a
-               href="#!">12</a></li>
+               href="javascript:pagingForSubmit(${navi.currentPage+1})">12</a></li>
             <li class="item waves-effect hide-on-large-and-down"><a
-               href="#!">13</a></li>
+               href="javascript:pagingForSubmit(${navi.currentPage+1})">13</a></li> --%>
          </ul>
          <!-- PAGINATION END ========================= -->
 

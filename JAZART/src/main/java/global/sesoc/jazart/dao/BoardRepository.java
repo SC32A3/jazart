@@ -29,13 +29,14 @@ public class BoardRepository {
       Map<String, String> search = new HashMap<>();
       search.put("searchTitle", searchTitle);
       search.put("searchText", searchText);
-      search.put("searchTitle", searchTitle);
-      search.put("searchTitle", searchTitle);
+      search.put("start", "" + navi.getStartRecord());
+      search.put("end", "" + navi.getEndRecord());
       ArrayList<Board> bList= null;
       
  
       try {
          bList = mapper.boardList(search);
+         logger.info("보드리스트"+bList);
       } catch (Exception e) {
          // TODO Auto-generated catch block
          e.printStackTrace();
