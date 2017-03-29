@@ -80,8 +80,8 @@ public class BoardController {
    
    @RequestMapping(value="boardRead", method=RequestMethod.GET)
    public String read(int boardNum, Model model){
-      Board board = br.selectList(boardNum);
-      br.addHits(boardNum);
+	   br.addHits(boardNum);
+	   Board board = br.selectList(boardNum);
       if(board == null){
          return "redirect:commBoard";
       }

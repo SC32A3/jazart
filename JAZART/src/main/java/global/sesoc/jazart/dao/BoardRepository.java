@@ -38,7 +38,6 @@ public class BoardRepository {
          bList = mapper.boardList(search);
          logger.info("보드리스트"+bList);
       } catch (Exception e) {
-         // TODO Auto-generated catch block
          e.printStackTrace();
       }
       return bList;
@@ -73,7 +72,6 @@ public class BoardRepository {
       try {
          board = mapper.selectList(boardNum);
       } catch (Exception e) {
-         // TODO Auto-generated catch block
          e.printStackTrace();
       }
       return board;

@@ -55,6 +55,10 @@
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
+
+.h_content {
+	margin: 0 30px;
+}
 </style>
 
 <script type="text/javascript">
@@ -73,7 +77,7 @@
 	
 </script>
 <script src="resources/jquery-3.1.1.min.js"></script>
-		<script type="text/javascript">
+<script type="text/javascript">
 			var boardnum = '';
 			var loginNickname = '${loginNickname}';
 			
@@ -120,24 +124,28 @@
 				$('#replyArea').empty(); //기존 화면상 데이터 삭제
 				
 				var msg = '<table>';
-				msg = '<tr><th>ID</th><th>Text</th><th>Date</th><th>Like</th><th></th></tr>';
-				$.each(resp, function(index, item) {
-					msg += "<tr>"; 
-					msg += "<td class='tdNum'>"+item.reply_nickname+"</td>";
-					msg += "<td class='tdName' id='"+item.replynum+"_name'><span id='"+item.replynum+"_span1'>"+item.reply_text+"</span></td>";
-					msg += "<td class='tdText' id='"+item.replynum+"_text'>"+item.reply_inputdate+"</td>";
-					msg += "<td>"+item.reply_like+"</td>";
-					if (item.reply_nickname == loginNickname) {
-						msg += "<td class='tdBtn'><span id='"+item.replynum+"_span2'><input type='button' value='삭제' class='del' data-num='"+item.replynum+"'>";
-						msg += "<input type='button' value='수정' class='upd' data-num='"+item.replynum+"'>";
-						msg += "<input type='button' value='추천' class='rec' data-num='"+item.replynum+"'></span></td>";
-					} else {
-						msg += "<td><input type='button' value='추천' class='rec' data-num='"+item.replynum+"'></td>";
-					}
-					msg += "</tr>";
-					//data-num : js, jquery에서 쓰는 사용자 정의 속성, 고유의 번호를 갖기 위해 존재
-					//class : 등록버튼과 다르게 공통된 삭제버튼들에게 이벤트를 부여하기 위해 존재, css 입힐 때도 사용
-				})
+				if (resp == "") {
+					msg += '<tr><td>저장된 댓글이 없습니다</td></tr>'
+				} else {
+					msg += '<tr><th>ID</th><th>Text</th><th>Date</th><th>Like</th><th></th></tr>';
+					$.each(resp, function(index, item) {
+						msg += "<tr>"; 
+						msg += "<td class='tdNum'>"+item.reply_nickname+"</td>";
+						msg += "<td class='tdName' id='"+item.replynum+"_name'><span id='"+item.replynum+"_span1'>"+item.reply_text+"</span></td>";
+						msg += "<td class='tdText' id='"+item.replynum+"_text'>"+item.reply_inputdate+"</td>";
+						msg += "<td>"+item.reply_like+"</td>";
+						if (item.reply_nickname == loginNickname) {
+							msg += "<td class='tdBtn'><span id='"+item.replynum+"_span2'><input type='button' value='삭제' class='del' data-num='"+item.replynum+"'>";
+							msg += "<input type='button' value='수정' class='upd' data-num='"+item.replynum+"'>";
+							msg += "<input type='button' value='추천' class='rec' data-num='"+item.replynum+"'></span></td>";
+						} else {
+							msg += "<td><input type='button' value='추천' class='rec' data-num='"+item.replynum+"'></td>";
+						}
+						msg += "</tr>";
+						//data-num : js, jquery에서 쓰는 사용자 정의 속성, 고유의 번호를 갖기 위해 존재
+						//class : 등록버튼과 다르게 공통된 삭제버튼들에게 이벤트를 부여하기 위해 존재, css 입힐 때도 사용
+					})
+				}
 				msg += '</table>'
 				$('#replyArea').html(msg);
 				
@@ -360,14 +368,14 @@
 					<div class="col s12 m8 push-m2">
 						<!-- ====================== SECTION BOOKING AND CONTACTS ================================================ -->
 						<div id="booking" class="section qt-section-booking qt-card">
-							<div class="qt-valign-wrapper">
+							<div class="qt-valign-wrapper h_content">
 								<div class="qt-valign flow-text">
 									<div class="qt-booking-form" data-100p-top="opacity:0;"
 										data-80p-top="opacity:0;" data-30p-top="opacity:1;">
 										<ul class="tabs">
 											<li class="tab col s4">
 												<h5>
-													<a href="#form" class="active">Read</a>
+													<a href="#form" class="active">${board.board_tag}</a>
 												</h5>
 											</li>
 										</ul>
@@ -375,31 +383,20 @@
 
 											<div class="row">
 												<div class="input-field col s8">
-													<input type="hidden" id="boardnum" value="${board.boardNum}">
+													<input type="hidden" id="boardnum"
+														value="${board.boardNum}">
 													<table class="table2" border="1">
 														<tr>
 															<td>Title</td>
 															<td>${board.board_title}</td>
 														</tr>
 														<tr>
-															<td>Tag</td>
-															<td>${board.board_tag}</td>
-														</tr>
-
-														<tr>
 															<td>Name</td>
 															<td>${board.board_nickname}</td>
-														</tr>
-
-														<tr>
 															<td>Date</td>
 															<td>${board.board_inputdate}</td>
-														</tr>
-
-														<tr>
 															<td>Hits</td>
 															<td>${board.board_hits}</td>
-														</tr>
 													</table>
 
 													<div class="input-field col s12 ">
@@ -438,29 +435,27 @@
 
 												</div>
 												<!-- /form -->
-												
 												<br>
-												<div id="replyArea">
-												</div>
 												<br>
-												
 												<div id="respond">
 													<h4 id="reply-title" class="comment-reply-title">
 														Leave a Reply</h4>
 
 													<p class="comment-form-comment">
-														<textarea id="comment" placeholder="Comment *"
+														<!-- <textarea style="width:600px; height:100px;" id="comment" placeholder="Comment *"
 															name="comment" cols="45" aria-required="true"
-															required="required"></textarea>
-													</p>
-
-													<p class="form-submit">
-														<input name="leaveReply" type="button" id="leaveReply"
-															class="qt-btn qt-btn-primary" value="Post Comment">
-														<!-- <input type="hidden" name="comment_post_ID" value="" id="comment_post_ID">
-									<input type="hidden" name="comment_parent" id="comment_parent" value="0"> -->
+															required="required"></textarea> -->
+														<input style="width:600px;" name="comment" id="comment" type="text" class="validate qt-input-s">
+														<input
+															name="leaveReply" type="button" id="leaveReply"
+															class="form-submit qt-btn qt-btn-primary"
+															value="Post Comment">
 													</p>
 												</div>
+
+												<br>
+												<div id="replyArea"></div>
+												<br>
 
 											</div>
 

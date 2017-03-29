@@ -214,7 +214,7 @@
                </ul>
             </div>
             <div class="qt-header-bg"
-               data-bgimage="imagestemplate/full-1600-700.jpg">
+               data-bgimage="resources/imagestemplate/full-1600-700.jpg">
                <img src="" alt="Featured image"
                   width="690" height="302">
             </div>
@@ -439,8 +439,8 @@
                </div>
             </div>
             <div class="qt-header-bg"
-               data-bgimage="imagestemplate/full-1600-700.jpg">
-               <img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
+               data-bgimage="resources/imagestemplate/full-1600-700.jpg">
+               <img src="resources/imagestemplate/full-1600-700.jpg" alt="Featured image"
                   width="690" height="302">
             </div>
          </div>
@@ -483,7 +483,7 @@
       <div id="qtplayercontainer" data-playervolume="true"
          data-accentcolor="#dd0e34" data-accentcolordark="#ff0442"
          data-textcolor="#ffffff"
-         data-soundmanagerurl="./components/soundmanager/swf/"
+         data-soundmanagerurl="./resources/components/soundmanager/swf/"
          class="qt-playercontainer qt-playervolume qt-clearfix qt-content-primary">
          <div class="qt-playercontainer-content qt-vertical-padding-m">
             <div class="qt-playercontainer-header">
@@ -513,8 +513,8 @@
             </div>
          </div>
          <div id="playerimage" class="qt-header-bg"
-            data-bgimage="imagestemplate/full-1600-700.jpg">
-            <img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
+            data-bgimage="resources/imagestemplate/full-1600-700.jpg">
+            <img src="resources/imagestemplate/full-1600-700.jpg" alt="Featured image"
                width="690" height="302">
          </div>
       </div>
