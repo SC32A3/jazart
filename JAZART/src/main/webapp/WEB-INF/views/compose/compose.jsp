@@ -166,8 +166,8 @@ canvas {
 					</ul></li>
 				<li><a href="archive-members.html">Song</a>
 					<ul>
-						<li><a href="songpage">Song Page</a></li>
-						<li><a href="artistpage">Artist Page</a></li>
+						<li><a href="songPage">Song Page</a></li>
+						<li><a href="artistPage">Artist Page</a></li>
 					</ul></li>
 				<li><a href="archive.html">Blog</a>
 					<ul>

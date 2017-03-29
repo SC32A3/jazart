@@ -67,116 +67,100 @@
 </head>
 <body>
    <div class="qt-parentcontainer">
-      <!-- QT MENUBAR TOP ================================ -->
-      <div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
-         <ul>
-            <li><a href="#"><i class="dripicons-chevron-right"></i>About
-                  US</a></li>
-            <li><a href="#"><i class="dripicons-chevron-right"></i>Login</a></li>
-            <li><a href="page-contacts.html"><i
-                  class="dripicons-chevron-right"></i>Join Us</a></li>
-            <li><a href="#"><i class="dripicons-chevron-right"></i>Logout</a></li>
-            <li class="right"><a href="#"><i
-                  class="qticon-beatport qt-socialicon"></i></a></li>
-            <li class="right"><a href="#"><i
-                  class="qticon-facebook qt-socialicon"></i></a></li>
-            <li class="right"><a href="#"><i
-                  class="qticon-twitter qt-socialicon"></i></a></li>
-            <li class="right"><a href="#"><i
-                  class="qticon-youtube qt-socialicon"></i></a></li>
-            <li class="right"><a href="#"><i
-                  class="qticon-soundcloud qt-socialicon"></i></a></li>
-         </ul>
-      </div>
-      <!-- QT MENUBAR  ================================ -->
-      <nav class="qt-menubar nav-wrapper qt-content-primary ">
-         <!-- desktop menu  HIDDEN IN MOBILE AND TABLETS -->
-         <ul class="qt-desktopmenu hide-on-xl-and-down">
-            <li class="qt-logo-link"><a href="./"
-               class="brand-logo qt-logo-text">Jazar<span>t</span></a></li>
-            <li><a href="page-schedule.html">Compose</a>
-               <ul>
-                  <li><a href="page-schedule.html">Archive</a></li>
-                  <li><a href="single-show.html">Single show page</a></li>
-               </ul></li>
-            <li><a href="archive-podcast.html">Board</a>
-               <ul>
-                  <li><a href="archive-podcast.html">Music Community</a></li>
-                  <li><a href="single-podcast.html">Free Community</a></li>
-               </ul></li>
-            <li><a href="archive-members.html">Team</a>
-               <ul>
-                  <li><a href="archive-members.html">Archive</a></li>
-                  <li><a href="single-member.html">Single show page</a></li>
-               </ul></li>
-            <li><a href="archive.html">Blog</a>
-               <ul>
-                  <li><a href="archive.html">Blog archive</a></li>
-                  <li><a href="single-post.html">Single post</a></li>
-               </ul></li>
-            <li><a href="archive-chart.html">Charts</a>
-               <ul>
-                  <li><a href="archive-chart.html">Charts archive</a></li>
-                  <li><a href="single-chart.html">Single chart</a></li>
-               </ul></li>
-            <li><a href="archive-events.html">Events</a>
-               <ul>
-                  <li><a href="archive-events.html">Events archive</a></li>
-                  <li><a href="single-event.html">Single event</a></li>
-               </ul></li>
-            <li><a href="page-contacts.html">Contacts</a></li>
-            <li class="right"><a href="#!" data-expandable="#qtsearchbar"
-               class="qt-btn qt-btn-l qt-scrolltop"><i
-                  class="icon dripicons-search"></i></a></li>
-            <li class="right"><a href="page-popup.html"
-               class="qt-popupwindow" data-name="Music Player" data-width="320"
-               data-height="500"><i class="icon dripicons-duplicate"></i>
-                  Popup</a></li>
-            <li class="right"><a href="#!" class="button-playlistswitch"
-               data-activates="channelslist"><i
-                  class="icon dripicons-media-play"></i> Listen</a></li>
-         </ul>
-      </nav>
-      <!-- mobile menu -->
-      <div id="qt-mobile-menu" class="side-nav qt-content-primary">
-         <ul class=" qt-side-nav">
-            <li><a href="index.html">Home</a></li>
-            <li class="menu-item-has-children"><a href="page-schedule.html">Schedule</a>
-               <ul>
-                  <li><a href="page-schedule.html">Archive</a></li>
-                  <li><a href="single-show.html">Single show page</a></li>
-               </ul></li>
-            <li class="menu-item-has-children"><a
-               href="archive-podcast.html">Podcast</a>
-               <ul>
-                  <li><a href="archive-podcast.html">Archive</a></li>
-                  <li><a href="single-podcast.html">Single show page</a></li>
-               </ul></li>
-            <li class="menu-item-has-children"><a
-               href="archive-members.html">Team</a>
-               <ul>
-                  <li><a href="archive-members.html">Archive</a></li>
-                  <li><a href="single-member.html">Single show page</a></li>
-               </ul></li>
-            <li class="menu-item-has-children"><a href="archive.html">Blog</a>
-               <ul>
-                  <li><a href="archive.html">Blog archive</a></li>
-                  <li><a href="single-post.html">Single post</a></li>
-               </ul></li>
-            <li class="menu-item-has-children"><a href="archive-chart.html">Charts</a>
-               <ul>
-                  <li><a href="archive-chart.html">Charts archive</a></li>
-                  <li><a href="single-chart.html">Single chart</a></li>
-               </ul></li>
-            <li class="menu-item-has-children"><a
-               href="archive-events.html">Events</a>
-               <ul>
-                  <li><a href="archive-events.html">Events archive</a></li>
-                  <li><a href="single-event.html">Single event</a></li>
-               </ul></li>
-            <li><a href="page-contacts.html">Contacts</a></li>
-         </ul>
-      </div>
+     <!-- QT MENUBAR TOP ================================ -->
+		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
+			<ul>
+				<li><a href="#"><i class="dripicons-chevron-right"></i>About
+						US</a></li>
+
+				<c:if test="${empty loginNickname}">
+					<li><a href="login"><i class="dripicons-chevron-right"></i>Login</a></li>
+					<li><a href="join"><i class="dripicons-chevron-right"></i>Join
+							Us</a></li>
+				</c:if>
+				<c:if test="${not empty loginNickname}">
+					<li><a href="logout"><i class="dripicons-chevron-right"></i>logout</a></li>
+					<li><i class="dripicons-chevron-right"></i>Welcome
+						${loginNickname}</li>
+				</c:if>
+
+				<li class="right"><a href="#"><i
+						class="qticon-beatport qt-socialicon"></i></a></li>
+				<li class="right"><a href="#"><i
+						class="qticon-facebook qt-socialicon"></i></a></li>
+				<li class="right"><a href="#"><i
+						class="qticon-twitter qt-socialicon"></i></a></li>
+				<li class="right"><a href="#"><i
+						class="qticon-youtube qt-socialicon"></i></a></li>
+				<li class="right"><a href="#"><i
+						class="qticon-soundcloud qt-socialicon"></i></a></li>
+			</ul>
+		</div>
+     <!-- QT MENUBAR  ================================ -->
+		<nav class="qt-menubar nav-wrapper qt-content-primary ">
+			<!-- desktop menu  HIDDEN IN MOBILE AND TABLETS -->
+			<ul class="qt-desktopmenu hide-on-xl-and-down">
+				<li class="qt-logo-link"><a href="./"
+					class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
+				<li><a href="compose">Compose</a>
+					<ul>
+						<li><a href="mixing">(test)Mixing Page</a></li>
+						<li><a href="artistPage">(test)Artist Page</a></li>
+					</ul></li>
+				<li><a href="musicBoard">Board</a>
+					<ul>
+						<li><a href="musicBoard">Music Community</a></li>
+						<li><a href="commBoard">Free Community</a></li>
+					</ul></li>
+				<li><a href="realtimeChart">Charts</a>
+					<ul>
+						<li><a href="realtimeChart">Realtime Chart</a></li>
+						<li><a href="dailyChart">Daily Chart</a></li>
+						<li><a href="weeklyChart">Weekly Chart</a></li>
+					</ul></li>
+				<li><a href="page-contacts.html">Contacts</a></li>
+				<li class="right"><a href="#!" data-expandable="#qtsearchbar"
+					class="qt-btn qt-btn-l qt-scrolltop"><i
+						class="icon dripicons-search"></i></a></li>
+				<li class="right"><a href="page-popup.html"
+					class="qt-popupwindow" data-name="Music Player" data-width="320"
+					data-height="500"><i class="icon dripicons-duplicate"></i>
+						Popup</a></li>
+				<li class="right"><a href="#!" class="button-playlistswitch"
+					data-activates="channelslist"><i
+						class="icon dripicons-media-play"></i> Listen</a></li>
+			</ul>
+			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
+			<ul class="qt-desktopmenu hide-on-xl-only ">
+				<li><a href="#" data-activates="qt-mobile-menu"
+					class="button-collapse qt-menu-switch qt-btn qt-btn-primary qt-btn-m"><i
+						class="dripicons-menu"></i></a></li>
+				<li><a href="#!" class="brand-logo qt-logo-text">jazart</a></li>
+			</ul>
+		</nav>
+		<!-- mobile menu -->
+		<div id="qt-mobile-menu" class="side-nav qt-content-primary">
+			<ul class=" qt-side-nav">
+				<li><a href="/">jazart<span>♬</span></a></li>
+				<li class="menu-item-has-children"><a href="compose">Compose</a>
+					<ul>
+						<li><a href="mixing">(test)Mixing Page</a></li>
+						<li><a href="artistpage">(test)Artist Page</a></li>
+					</ul></li>
+				<li class="menu-item-has-children"><a href="musicBoard">Board</a>
+					<ul>
+						<li><a href="musicBoard">Music Community</a></li>
+						<li><a href="commBoard">Free Community</a></li>
+					</ul></li>
+				<li class="menu-item-has-children"><a href="realtimeChart">Charts</a>
+					<ul>
+						<li><a href="realtimeChart">Realtime Chart</a></li>
+						<li><a href="dailyChart">Daily Chart</a></li>
+						<li><a href="weeklyChart">Weekly Chart</a></li>
+					</ul></li>
+				<li><a href="page-contacts.html">Contacts</a></li>
+			</ul>
+		</div>
       <!-- mobile toolbar -->
       <ul
          class="qt-mobile-toolbar qt-content-primary-dark qt-content-aside hide-on-large-only">
@@ -247,7 +231,7 @@
                            <div class="col s12 m3 l12">
                               <div class="">
                                  <hr class="qt-spacer-s ">
-                                 <form method="get" action="free_community" class="qt-inline-form" id="pagingForm">
+                                 <form method="get" action="commBoard" class="qt-inline-form" id="pagingForm">
                                     <div class="row qt-nopadding">
                                           <div class="col s12 m4 l1">
                                           <select class="qt-btn qt-btn-s qt-combo" name="searchTitle">
@@ -270,10 +254,7 @@
                                           
                               </div>
                            </div>
-                           
-                           
                            <!-- 검색 끝 -->
-                          
                            <table>
                               <tbody>
                                  <tr>
@@ -287,7 +268,7 @@
                                  <tr class="odd">
                                     <td>${list.boardNum}</td>
                                     <td><a href="http://example.com/">${list.board_nickname}</a></td>
-                                    <td><a href="board_read?boardNum=${list.boardNum}">${list.board_title}</td>
+                                    <td><a href="boardRead?boardNum=${list.boardNum}">${list.board_title}</td>
                                     <td>${list.board_inputdate}</td>
                                     <td>${list.board_hits}</td>
                                     
@@ -298,7 +279,7 @@
                         
                            
                            <div class="qt-combo2">
-                           <p><a href="write"><input type="button" value="write"
+                           <p><a href="boardWrite"><input type="button" value="write"
                            class="qt-btn qt-btn-secondary qt-btn-s " name="page" id="page">
                            </a></p></div>
    

@@ -86,7 +86,7 @@
 				boardnum = $("#boardnum").val();
 				$.ajax({
 					method : "get",
-					url : "board_replyList",
+					url : "boardReplyList",
 					data : {boardNum : boardnum},
 					dataType : "json",
 					success : output
@@ -104,7 +104,7 @@
 				
 				$.ajax({
 					method : "get",
-					url : "board_leaveReply",
+					url : "boardLeaveReply",
 					data : {reply_text : comment, boardNum : boardnum},
 					success : function(resp) {
 						if (resp == 1) {
@@ -154,7 +154,7 @@
 				$("#"+num+"_ok").on("click", function() {
 					$.ajax({
 						method : "get",
-						url : "board_updateReply",
+						url : "boardUpdateReply",
 						data : {"replynum": num, "reply_text" : $("#"+num+"_Newtext").val()},
 						success : function(resp) {
 							if (resp == 1) {
@@ -173,7 +173,7 @@
 				var num = $(this).attr("data-num"); //this : 호출한 버튼 'input'객체
 				$.ajax({
 					method : "get",
-					url : "board_deleteReply",
+					url : "boardDeleteReply",
 					data : {"replynum": num},
 					success : function() {
 						init();	
@@ -187,7 +187,7 @@
 				
 				$.ajax({
 					method : "get",
-					url : "board_recommendReply",
+					url : "boardRecommendReply",
 					data : {"replynum": num},
 					success : function(resp) {
 						if (resp == 1) {
@@ -239,35 +239,21 @@
 			<ul class="qt-desktopmenu hide-on-xl-and-down">
 				<li class="qt-logo-link"><a href="./"
 					class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
-				<li><a href="page-schedule.html">Compose</a>
+				<li><a href="compose">Compose</a>
 					<ul>
-						<li><a href="page-schedule.html">Archive</a></li>
-						<li><a href="single-show.html">Single show page</a></li>
+						<li><a href="mixing">(test)Mixing Page</a></li>
+						<li><a href="artistPage">(test)Artist Page</a></li>
 					</ul></li>
-				<li><a href="archive-podcast.html">Board</a>
+				<li><a href="musicBoard">Board</a>
 					<ul>
-						<li><a href="music_community">Music Community</a></li>
-						<li><a href="single-podcast.html">Free Community</a></li>
+						<li><a href="musicBoard">Music Community</a></li>
+						<li><a href="commBoard">Free Community</a></li>
 					</ul></li>
-				<li><a href="archive-members.html">Team</a>
+				<li><a href="realtimeChart">Charts</a>
 					<ul>
-						<li><a href="archive-members.html">Archive</a></li>
-						<li><a href="single-member.html">Single show page</a></li>
-					</ul></li>
-				<li><a href="archive.html">Blog</a>
-					<ul>
-						<li><a href="archive.html">Blog archive</a></li>
-						<li><a href="single-post.html">Single post</a></li>
-					</ul></li>
-				<li><a href="archive-chart.html">Charts</a>
-					<ul>
-						<li><a href="archive-chart.html">Charts archive</a></li>
-						<li><a href="single-chart.html">Single chart</a></li>
-					</ul></li>
-				<li><a href="archive-events.html">Events</a>
-					<ul>
-						<li><a href="archive-events.html">Events archive</a></li>
-						<li><a href="single-event.html">Single event</a></li>
+						<li><a href="realtimeChart">Realtime Chart</a></li>
+						<li><a href="dailyChart">Daily Chart</a></li>
+						<li><a href="weeklyChart">Weekly Chart</a></li>
 					</ul></li>
 				<li><a href="page-contacts.html">Contacts</a></li>
 				<li class="right"><a href="#!" data-expandable="#qtsearchbar"
@@ -286,45 +272,28 @@
 				<li><a href="#" data-activates="qt-mobile-menu"
 					class="button-collapse qt-menu-switch qt-btn qt-btn-primary qt-btn-m"><i
 						class="dripicons-menu"></i></a></li>
-				<li><a href="#!" class="brand-logo qt-logo-text">Jazart</a></li>
+				<li><a href="#!" class="brand-logo qt-logo-text">jazart</a></li>
 			</ul>
 		</nav>
 		<!-- mobile menu -->
 		<div id="qt-mobile-menu" class="side-nav qt-content-primary">
 			<ul class=" qt-side-nav">
-				<li><a href="index.html">Home</a></li>
-				<li class="menu-item-has-children"><a href="page-schedule.html">COMPOSE</a>
+				<li><a href="/">jazart<span>♬</span></a></li>
+				<li class="menu-item-has-children"><a href="compose">Compose</a>
 					<ul>
-						<li><a href="page-schedule.html">Archive</a></li>
-						<li><a href="single-show.html">Single show page</a></li>
+						<li><a href="mixing">(test)Mixing Page</a></li>
+						<li><a href="artistPage">(test)Artist Page</a></li>
 					</ul></li>
-				<li class="menu-item-has-children"><a
-					href="archive-podcast.html">Board</a>
+				<li class="menu-item-has-children"><a href="musicBoard">Board</a>
 					<ul>
-						<li><a href="music_community">music community</a></li>
-						<li><a href="single-podcast.html">free community</a></li>
+						<li><a href="musicBoard">Music Community</a></li>
+						<li><a href="commBoard">Free Community</a></li>
 					</ul></li>
-				<li class="menu-item-has-children"><a
-					href="archive-members.html">Team</a>
+				<li class="menu-item-has-children"><a href="realtimeChart">Charts</a>
 					<ul>
-						<li><a href="archive-members.html">Archive</a></li>
-						<li><a href="single-member.html">Single show page</a></li>
-					</ul></li>
-				<li class="menu-item-has-children"><a href="archive.html">Blog</a>
-					<ul>
-						<li><a href="archive.html">Blog archive</a></li>
-						<li><a href="single-post.html">Single post</a></li>
-					</ul></li>
-				<li class="menu-item-has-children"><a href="archive-chart.html">Charts</a>
-					<ul>
-						<li><a href="archive-chart.html">Charts archive</a></li>
-						<li><a href="single-chart.html">Single chart</a></li>
-					</ul></li>
-				<li class="menu-item-has-children"><a
-					href="archive-events.html">Events</a>
-					<ul>
-						<li><a href="archive-events.html">Events archive</a></li>
-						<li><a href="single-event.html">Single event</a></li>
+						<li><a href="realtimeChart">Realtime Chart</a></li>
+						<li><a href="dailyChart">Daily Chart</a></li>
+						<li><a href="weeklyChart">Weekly Chart</a></li>
 					</ul></li>
 				<li><a href="page-contacts.html">Contacts</a></li>
 			</ul>
@@ -448,7 +417,7 @@
 													<div class="input-field col s12">
 														<button
 															class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light"
-															onclick="location.href='free_community'">
+															onclick="location.href='commBoard'">
 															<span class="lnr lnr-rocket"></span> List
 														</button>
 														<c:if test="${loginNickname == board.board_nickname}">

@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import global.sesoc.jazart.vo.Songinfo;
+import global.sesoc.jazart.vo.SongInfo;
 
 @Repository
 public class ChartRepository {
@@ -17,10 +17,10 @@ public class ChartRepository {
 	   
 	   public static final Logger logger = LoggerFactory.getLogger(BoardRepository.class);
 
-	   public ArrayList<Songinfo> chartList(){
+	   public ArrayList<SongInfo> chartList(){
 		   ChartMapper mapper=sqlSession.getMapper(ChartMapper.class);
 		   
-		   ArrayList<Songinfo> cList=null;
+		   ArrayList<SongInfo> cList=null;
 		   try{
 			   cList=mapper.chartList();
 		   }catch (Exception e) {

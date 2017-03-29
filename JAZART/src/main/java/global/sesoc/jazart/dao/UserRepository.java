@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import global.sesoc.jazart.vo.Songinfo;
+import global.sesoc.jazart.vo.SongInfo;
 import global.sesoc.jazart.vo.User;
 
 
@@ -103,9 +103,9 @@ public class UserRepository {
       return result;
    }
 
-   public ArrayList<Songinfo> songsByArtist(String loginNickname) {
+   public ArrayList<SongInfo> songsByArtist(String loginNickname) {
       UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-      ArrayList<Songinfo> songs = null;
+      ArrayList<SongInfo> songs = null;
       try {
          songs = mapper.songsByArtist(loginNickname);
          logger.info("아티스트 제작곡=> "+songs);

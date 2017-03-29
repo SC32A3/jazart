@@ -8,10 +8,10 @@
    <!-- 타입 별칭 설정 -->
    <typeAliases>
       <typeAlias type="global.sesoc.jazart.vo.User" alias="User" />
-      <typeAlias type="global.sesoc.jazart.vo.Songinfo" alias="Songinfo" />
       <typeAlias type="global.sesoc.jazart.vo.Board" alias="Board" />
-      <typeAlias type="global.sesoc.jazart.vo.Songreply" alias="Songreply" />
-      <typeAlias type="global.sesoc.jazart.vo.Boardreply" alias="Boardreply" />
+      <typeAlias type="global.sesoc.jazart.vo.BoardReply" alias="BoardReply" />
+      <typeAlias type="global.sesoc.jazart.vo.SongInfo" alias="SongInfo" />
+      <typeAlias type="global.sesoc.jazart.vo.SongReply" alias="SongReply" />
    </typeAliases>
 
    <mappers>

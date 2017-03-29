@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import global.sesoc.jazart.vo.Board;
-import global.sesoc.jazart.vo.Boardreply;
+import global.sesoc.jazart.vo.BoardReply;
 
 public interface BoardMapper {
 	public ArrayList<Board> boardList(Map<String, String> search) throws Exception;
@@ -21,17 +21,17 @@ public interface BoardMapper {
 
 	public int deleteBoard(int boardNum) throws Exception;
 
-	ArrayList<Boardreply> boardReply(int boardNum) throws Exception;
+	ArrayList<BoardReply> boardReply(int boardNum) throws Exception;
 
-	int insertBoardreply(Boardreply boardreply) throws Exception;
+	int insertBoardReply(BoardReply boardreply) throws Exception;
 
-	int updateBoardreply(Boardreply reply) throws Exception;
+	int updateBoardReply(BoardReply reply) throws Exception;
 
-	int deleteBoardreply(int replynum) throws Exception;
+	int deleteBoardReply(int replynum) throws Exception;
 
 	int selectRecommend(int replynum, String loginNickname) throws Exception;
 
-	int recommendBoardreply(int replynum) throws Exception;
+	int recommendBoardReply(int replynum) throws Exception;
 
 	int addHistory(int replynum, String loginNickname) throws Exception;
 }

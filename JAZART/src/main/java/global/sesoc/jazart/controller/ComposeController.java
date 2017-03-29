@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import global.sesoc.jazart.dao.SongRepository;
 import global.sesoc.jazart.dao.UserRepository;
-import global.sesoc.jazart.vo.Songinfo;
-import global.sesoc.jazart.vo.Songreply;
+import global.sesoc.jazart.vo.SongInfo;
+import global.sesoc.jazart.vo.SongReply;
 import global.sesoc.jazart.vo.User;
 
 /**
@@ -31,140 +31,153 @@ import global.sesoc.jazart.vo.User;
  */
 @Controller
 public class ComposeController {
-   
-   private static final Logger logger = LoggerFactory.getLogger(ComposeController.class);
-   
-   @Autowired
-   UserRepository ur;
-   @Autowired
-   SongRepository sr;
-   @Autowired
-   HttpSession session;
-   
-   final String uploadPath = "/userProfile"; //파일이 업로드 되는 경로
-   
-   @RequestMapping(value = "compose", method = RequestMethod.GET)
-   public String compose() {
-      return "compose/compose";
-   }
-   
-   
-   @RequestMapping(value = "mixing", method = RequestMethod.GET)
-   public String mixing() {
-      return "compose/mixing";
-   }
-   
-   @RequestMapping(value = "songpage", method = RequestMethod.GET)
-   public String songpage(int songnum, Model model) {
-      Songinfo song = sr.selectSong(songnum);
-      ArrayList<Songreply> replyList = sr.songReply(songnum);
-      model.addAttribute("song", song);
-      model.addAttribute("songReply", replyList);
-      return "user/songpg";
-   }
-   
-   @RequestMapping(value = "song_replyList", method = RequestMethod.GET)
-   public @ResponseBody ArrayList<Songreply> replyList(int songnum) {
-	  logger.info("replyList songnum=> "+songnum);
-      ArrayList<Songreply> replyList = sr.songReply(songnum);
-      return replyList;
-   }
-   
-   @RequestMapping(value = "artistpage", method = RequestMethod.GET)
-   public String artistpage(Model model) {
-      String loginNickname = (String) session.getAttribute("loginNickname");
-      User user = ur.selectUser(loginNickname);
-      model.addAttribute("user", user);
-      ArrayList<Songinfo> songsByArtist = ur.songsByArtist(loginNickname);
-      model.addAttribute("songs", songsByArtist);
-      return "user/artistpg";
-   }
-   
-   @RequestMapping(value="download", method=RequestMethod.GET)
-   public String download(String type, String data, HttpServletResponse response){ //수동으로 데이터를 내보내야 하는 경우 HttpServletResponse를 사용한다
-      //다른 방법
-      //매개변수로 boardnum이 아닌 savedfile을 받으면 DB에 갈 필요가 없다. String fullpath부분부터 바로 하면 된다.
-      String originalfile = "";
-      String fullpath = "";
-      ServletOutputStream fileout = null;
-      FileInputStream filein = null;
-      //한개의 글을 가져옴
-      if (type.equals("song")) {
-         int songnum = Integer.parseInt(data);
-         Songinfo song =  sr.selectSong(songnum);
-         originalfile = song.getSong_picture();
-         
-      } else if (type.equals("user")) {
-         originalfile = data;
-      }
-         fullpath = uploadPath+"/"+originalfile;
-      //사용자 측에서 다운로드 받도록 하기 위해서
-      //response 객체의 헤더를 조작함, 웹페이지 개발자모드(F12)의 Head에서 확인할수 있다
-      //text/html에서 파일 다운로드 가능한 형태로 변경
-      try {
-         response.setHeader("Content-Disposition", 
-               "attachment;filename="+URLEncoder.encode(originalfile, "UTF-8")); //첫번째 매개변수 : 실제로 받아야하는 아이
-      } catch (UnsupportedEncodingException e) {
-         e.printStackTrace();
-      }
-      
-      //(웹유저)  <---servletOutputStream(출력)---- (서버(웹프로젝트 주체)) <--FileInputStream(입력)-- (하드 rose.jpg) 
-      try {
-         filein = new FileInputStream(fullpath);
-         fileout = response.getOutputStream();
-         //Spring에서 제공하는 유틸리티
-         FileCopyUtils.copy(filein, fileout);
-      } catch (IOException e) {
-         e.printStackTrace();
-      } finally {
-         try {
-            if (filein != null) filein.close();
-            if (fileout != null) fileout.close();   
-         } catch (Exception e) {
-            e.printStackTrace();
-         }
-      }
-      return null;
-   }
-   
-   @RequestMapping(value = "song_recommend", method = RequestMethod.GET)
-   public @ResponseBody int recommend(int songnum) {
-	   String loginNickname = (String) session.getAttribute("loginNickname");
-	   int result = sr.recommend(songnum, loginNickname);
-	   return result;
-   }
-   
-   @RequestMapping(value = "song_leaveReply", method = RequestMethod.GET)
-   public @ResponseBody int leaveReply(Songreply songreply) {
-	   songreply.setReply_nickname((String) session.getAttribute("loginNickname"));
-	   logger.info("songreply=> "+songreply);
-	   int result = sr.insertSongreply(songreply);
-	   return result;
-   }
-   
-   @RequestMapping(value = "song_deleteReply", method = RequestMethod.GET)
-   public @ResponseBody int deleteReply(int replynum) {
-	   int result = sr.deleteSongreply(replynum);
-	   return result;
-   }
-   
-   @RequestMapping(value = "song_updateReply", method = RequestMethod.GET)
-   public @ResponseBody int updateReply(Songreply reply) {
-	   int result = sr.updateSongreply(reply);
-	   return result;
-   }
-   
-   @RequestMapping(value = "song_recommendReply", method = RequestMethod.GET)
-   public @ResponseBody int recommendReply(int replynum) {
-	   int result = 0;
-	   String loginNickname = (String) session.getAttribute("loginNickname");
-	   int report = sr.selectRecommend(replynum, loginNickname);
-	   if (report == 1) {
-		   return result; 
-	   } else {
-		   result = sr.recommendSongreply(replynum, loginNickname);
-		   return result;   
-	   }
-   }
-}
 
+	private static final Logger logger = LoggerFactory.getLogger(ComposeController.class);
+
+	@Autowired
+	UserRepository ur;
+	@Autowired
+	SongRepository sr;
+	@Autowired
+	HttpSession session;
+
+	final String uploadPath = "/userProfile"; // 파일이 업로드 되는 경로
+
+	@RequestMapping(value = "compose", method = RequestMethod.GET)
+	public String compose() {
+		return "compose/compose";
+	}
+
+	@RequestMapping(value = "mixing", method = RequestMethod.GET)
+	public String mixing() {
+		return "compose/mixing";
+	}
+
+	@RequestMapping(value = "songPage", method = RequestMethod.GET)
+	public String songpage(int songnum, Model model) {
+		SongInfo song = sr.selectSong(songnum);
+		ArrayList<SongReply> replyList = sr.songReply(songnum);
+		model.addAttribute("song", song);
+		model.addAttribute("songReply", replyList);
+		return "user/songPage";
+	}
+
+	@RequestMapping(value = "songReplyList", method = RequestMethod.GET)
+	public @ResponseBody ArrayList<SongReply> replyList(int songnum) {
+		logger.info("replyList songnum=> " + songnum);
+		ArrayList<SongReply> replyList = sr.songReply(songnum);
+		return replyList;
+	}
+
+	@RequestMapping(value = "artistPage", method = RequestMethod.GET)
+	public String artistpage(Model model) {
+		String loginNickname = (String) session.getAttribute("loginNickname");
+		User user = ur.selectUser(loginNickname);
+		model.addAttribute("user", user);
+		ArrayList<SongInfo> songsByArtist = ur.songsByArtist(loginNickname);
+		model.addAttribute("songs", songsByArtist);
+		return "user/artistPage";
+	}
+
+	@RequestMapping(value = "download", method = RequestMethod.GET)
+	public String download(String type, String data, HttpServletResponse response) { // 수동으로
+																						// 데이터를
+																						// 내보내야
+																						// 하는
+																						// 경우
+																						// HttpServletResponse를
+																						// 사용한다
+		// 다른 방법
+		// 매개변수로 boardnum이 아닌 savedfile을 받으면 DB에 갈 필요가 없다. String fullpath부분부터
+		// 바로 하면 된다.
+		String originalfile = "";
+		String fullpath = "";
+		ServletOutputStream fileout = null;
+		FileInputStream filein = null;
+		// 한개의 글을 가져옴
+		if (type.equals("song")) {
+			int songnum = Integer.parseInt(data);
+			SongInfo song = sr.selectSong(songnum);
+			originalfile = song.getSong_picture();
+
+		} else if (type.equals("user")) {
+			originalfile = data;
+		}
+		fullpath = uploadPath + "/" + originalfile;
+		// 사용자 측에서 다운로드 받도록 하기 위해서
+		// response 객체의 헤더를 조작함, 웹페이지 개발자모드(F12)의 Head에서 확인할수 있다
+		// text/html에서 파일 다운로드 가능한 형태로 변경
+		try {
+			response.setHeader("Content-Disposition",
+					"attachment;filename=" + URLEncoder.encode(originalfile, "UTF-8")); // 첫번째
+																						// 매개변수
+																						// :
+																						// 실제로
+																						// 받아야하는
+																						// 아이
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
+		// (웹유저) <---servletOutputStream(출력)---- (서버(웹프로젝트 주체))
+		// <--FileInputStream(입력)-- (하드 rose.jpg)
+		try {
+			filein = new FileInputStream(fullpath);
+			fileout = response.getOutputStream();
+			// Spring에서 제공하는 유틸리티
+			FileCopyUtils.copy(filein, fileout);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (filein != null)
+					filein.close();
+				if (fileout != null)
+					fileout.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+
+	@RequestMapping(value = "songRecommend", method = RequestMethod.GET)
+	public @ResponseBody int recommend(int songnum) {
+		String loginNickname = (String) session.getAttribute("loginNickname");
+		int result = sr.recommend(songnum, loginNickname);
+		return result;
+	}
+
+	@RequestMapping(value = "songLeaveReply", method = RequestMethod.GET)
+	public @ResponseBody int leaveReply(SongReply songreply) {
+		songreply.setReply_nickname((String) session.getAttribute("loginNickname"));
+		logger.info("songreply=> " + songreply);
+		int result = sr.insertSongReply(songreply);
+		return result;
+	}
+
+	@RequestMapping(value = "songDeleteReply", method = RequestMethod.GET)
+	public @ResponseBody int deleteReply(int replynum) {
+		int result = sr.deleteSongReply(replynum);
+		return result;
+	}
+
+	@RequestMapping(value = "songUpdateReply", method = RequestMethod.GET)
+	public @ResponseBody int updateReply(SongReply reply) {
+		int result = sr.updateSongReply(reply);
+		return result;
+	}
+
+	@RequestMapping(value = "songRecommendReply", method = RequestMethod.GET)
+	public @ResponseBody int recommendReply(int replynum) {
+		int result = 0;
+		String loginNickname = (String) session.getAttribute("loginNickname");
+		int report = sr.selectRecommend(replynum, loginNickname);
+		if (report == 1) {
+			return result;
+		} else {
+			result = sr.recommendSongReply(replynum, loginNickname);
+			return result;
+		}
+	}
+}

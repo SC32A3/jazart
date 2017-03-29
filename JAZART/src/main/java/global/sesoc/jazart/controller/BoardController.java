@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import global.sesoc.jazart.dao.BoardRepository;
 import global.sesoc.jazart.utility.PageNavigator;
 import global.sesoc.jazart.vo.Board;
-import global.sesoc.jazart.vo.Boardreply;
+import global.sesoc.jazart.vo.BoardReply;
 
 
 /**
@@ -38,12 +38,12 @@ public class BoardController {
    /**
     * Simply selects the home view to render by returning its name.
     */
-   @RequestMapping(value = "music_community", method = RequestMethod.GET)
+   @RequestMapping(value = "musicBoard", method = RequestMethod.GET)
    public String musicBoard() {
       return "board/musicBoard";
    }
 
-   @RequestMapping(value = "free_community", method = RequestMethod.GET)
+   @RequestMapping(value = "commBoard", method = RequestMethod.GET)
    public String boardList(Model model, @RequestParam(value = "searchTitle", defaultValue = "") String searchTitle,
 			@RequestParam(value = "searchText", defaultValue = "") String searchText,
 			@RequestParam(value = "page", defaultValue = "1") int page) {
@@ -57,16 +57,16 @@ public class BoardController {
 	  model.addAttribute("total", total);
 	  model.addAttribute("navi", navi);
       
-      return "board/freeCommunity";
+      return "board/commBoard";
    }
 
    // 글 쓰기 폼
-   @RequestMapping(value = "write", method = RequestMethod.GET)
+   @RequestMapping(value = "boardWrite", method = RequestMethod.GET)
    public String write() {
-      return "board/write";
+      return "board/boardWrite";
    }
 
-   @RequestMapping(value = "write", method = RequestMethod.POST)
+   @RequestMapping(value = "boardWrite", method = RequestMethod.POST)
    public String write(Board board, Model model) {
       String loginNickname = (String) session.getAttribute("loginNickname");
       if (loginNickname == null) {
@@ -75,18 +75,19 @@ public class BoardController {
 
       board.setBoard_nickname(loginNickname);
       br.write(board);
-      return "redirect:/free_community";
+      return "redirect:/commBoard";
    }
-   @RequestMapping(value="board_read", method=RequestMethod.GET)
+   
+   @RequestMapping(value="boardRead", method=RequestMethod.GET)
    public String read(int boardNum, Model model){
       Board board = br.selectList(boardNum);
       br.addHits(boardNum);
       if(board == null){
-         return "redirect:free_community";
+         return "redirect:commBoard";
       }
       model.addAttribute("boardNum", boardNum);
       model.addAttribute("board",board);
-      return "board/read";
+      return "board/boardRead";
    }
    
 	@RequestMapping(value="boardUpdate", method=RequestMethod.GET)
@@ -103,7 +104,7 @@ public class BoardController {
 		board.setBoard_nickname(loginNickname);
 		br.updateBoard(board);
 		logger.info("보드컨트롤러업데이트2"+board);
-		return "redirect:free_community";
+		return "redirect:/commBoard";
 	}
 	
 	@RequestMapping(value="boardDelete", method=RequestMethod.GET)
@@ -111,37 +112,37 @@ public class BoardController {
 		int result = 0;
 		result = br.deleteBoard(boardNum);
 		logger.info("삭제 결과 : " + result);
-		return "redirect:/free_community";
+		return "redirect:/commBoard";
 	}
 	
-	@RequestMapping(value = "board_replyList", method = RequestMethod.GET)
-	   public @ResponseBody ArrayList<Boardreply> replyList(int boardNum) {
+	@RequestMapping(value = "boardReplyList", method = RequestMethod.GET)
+	   public @ResponseBody ArrayList<BoardReply> replyList(int boardNum) {
 		  logger.info("replyList boardNum=> "+boardNum);
-	      ArrayList<Boardreply> replyList = br.boardReply(boardNum);
+	      ArrayList<BoardReply> replyList = br.boardReply(boardNum);
 	      return replyList;
 	   }
 	   
-	   @RequestMapping(value = "board_leaveReply", method = RequestMethod.GET)
-	   public @ResponseBody int leaveReply(Boardreply boardreply) {
+	   @RequestMapping(value = "boardLeaveReply", method = RequestMethod.GET)
+	   public @ResponseBody int leaveReply(BoardReply boardreply) {
 		   boardreply.setReply_nickname((String) session.getAttribute("loginNickname"));
 		   logger.info("boardreply=> "+boardreply);
-		   int result = br.insertBoardreply(boardreply);
+		   int result = br.insertBoardReply(boardreply);
 		   return result;
 	   }
 	   
-	   @RequestMapping(value = "board_updateReply", method = RequestMethod.GET)
-	   public @ResponseBody int updateReply(Boardreply reply) {
-		   int result = br.updateBoardreply(reply);
+	   @RequestMapping(value = "boardUpdateReply", method = RequestMethod.GET)
+	   public @ResponseBody int updateReply(BoardReply reply) {
+		   int result = br.updateBoardReply(reply);
 		   return result;
 	   }
 	   
-	   @RequestMapping(value = "board_deleteReply", method = RequestMethod.GET)
+	   @RequestMapping(value = "boardDeleteReply", method = RequestMethod.GET)
 	   public @ResponseBody int deleteReply(int replynum) {
-		   int result = br.deleteBoardreply(replynum);
+		   int result = br.deleteBoardReply(replynum);
 		   return result;
 	   }
 	 
-	   @RequestMapping(value = "board_recommendReply", method = RequestMethod.GET)
+	   @RequestMapping(value = "boardRecommendReply", method = RequestMethod.GET)
 	   public @ResponseBody int recommendReply(int replynum) {
 		   int result = 0;
 		   String loginNickname = (String) session.getAttribute("loginNickname");
@@ -149,7 +150,7 @@ public class BoardController {
 		   if (report == 1) {
 			   return result; 
 		   } else {
-			   result = br.recommendBoardreply(replynum, loginNickname);
+			   result = br.recommendBoardReply(replynum, loginNickname);
 			   return result;   
 		   }
 	   }

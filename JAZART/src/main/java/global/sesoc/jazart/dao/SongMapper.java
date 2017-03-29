@@ -2,28 +2,28 @@ package global.sesoc.jazart.dao;
 
 import java.util.ArrayList;
 
-import global.sesoc.jazart.vo.Songinfo;
-import global.sesoc.jazart.vo.Songreply;
+import global.sesoc.jazart.vo.SongInfo;
+import global.sesoc.jazart.vo.SongReply;
 
 public interface SongMapper {
 
-   Songinfo selectSong(int songnum) throws Exception;
+   SongInfo selectSong(int songnum) throws Exception;
 
    int recommend(int songnum) throws Exception;
 
-   ArrayList<Songreply> songReply(int songnum) throws Exception;
+   ArrayList<SongReply> songReply(int songnum) throws Exception;
 
-   int insertSongreply(Songreply songreply) throws Exception;
+   int insertSongReply(SongReply songreply) throws Exception;
 
-   int deleteSongreply(int replynum) throws Exception;
+   int deleteSongReply(int replynum) throws Exception;
 
-   int recommendSongreply(int replynum) throws Exception;
+   int recommendSongReply(int replynum) throws Exception;
 
    int selectRecommend(int replynum, String loginNickname) throws Exception;
 
    int addHistory(int replynum, String loginNickname) throws Exception;
 
-   int updateSongreply(Songreply songreply) throws Exception;
+   int updateSongReply(SongReply songreply) throws Exception;
 
    int songlikeHistory(int songnum, String loginNickname) throws Exception;
 

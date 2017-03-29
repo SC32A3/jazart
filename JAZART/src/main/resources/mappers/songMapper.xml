@@ -5,35 +5,35 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="global.sesoc.jazart.dao.SongMapper">
-   <select id="selectSong" resultType="Songinfo" parameterType="int">
-      select * from songinfo where songnum = #{songnum}
+   <select id="selectSong" resultType="SongInfo" parameterType="int">
+      select * from SongInfo where songnum = #{songnum}
    </select>
    <update id="recommend" parameterType="int">
-	  update songinfo set song_like = song_like+1 where songnum = #{songnum}   
+	  update SongInfo set song_like = song_like+1 where songnum = #{songnum}   
    </update>
-   <select id="songReply" resultType="Songreply" parameterType="int">
-      select * from songreply where songnum = #{songnum} order by reply_inputdate desc
+   <select id="SongReply" resultType="SongReply" parameterType="int">
+      select * from SongReply where songnum = #{songnum} order by reply_inputdate desc
    </select>
-   <insert id="insertSongreply" parameterType="Songreply">
-   	  insert into songreply values(songreply_seq.nextval, #{reply_nickname}, #{reply_text}, sysdate, 0, #{songnum}) 
+   <insert id="insertSongReply" parameterType="SongReply">
+   	  insert into SongReply values(SongReply_seq.nextval, #{reply_nickname}, #{reply_text}, sysdate, 0, #{songnum}) 
    </insert>
-   <delete id="deleteSongreply" parameterType="int">
-   	  delete songreply where replynum = #{replynum}
+   <delete id="deleteSongReply" parameterType="int">
+   	  delete SongReply where replynum = #{replynum}
    </delete>
-   <update id="recommendSongreply" parameterType="int">
-   	  update songreply set reply_like = reply_like+1 where replynum = #{replynum}
+   <update id="recommendSongReply" parameterType="int">
+   	  update SongReply set reply_like = reply_like+1 where replynum = #{replynum}
    </update>
    <select id="selectRecommend" resultType="int">
-	  select count(*) from songreply_like where replynum = #{0} and slike_nickname = #{1}  
+	  select count(*) from SongReply_like where replynum = #{0} and slike_nickname = #{1}  
    </select>
    <insert id="addHistory">
-   	  insert into songreply_like values(slike_seq.nextval, #{0}, #{1})
+   	  insert into SongReply_like values(slike_seq.nextval, #{0}, #{1})
    </insert>
-   <update id="updateSongreply" parameterType="Songreply">   
-      update songreply set reply_text = #{reply_text}, reply_inputdate = sysdate where replynum = #{replynum}
+   <update id="updateSongReply" parameterType="SongReply">   
+      update SongReply set reply_text = #{reply_text}, reply_inputdate = sysdate where replynum = #{replynum}
    </update>
    <select id="songlikeHistory" resultType="int">
-	  select count(*) from songlike where songnum = #{0} and like_nickname = #{1}  
+	select count(*) from songlike where songnum = #{0} and like_nickname = #{1}  
    </select>
    <insert id="addSonglike">
       insert into songlike values(like_seq.nextval, #{1}, sysdate, #{0})

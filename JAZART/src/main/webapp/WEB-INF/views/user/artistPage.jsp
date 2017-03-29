@@ -39,7 +39,7 @@
 				var snum = num;
 				$.ajax({
 					method : "get",
-					url : "song_recommend",
+					url : "songRecommend",
 					data : {"songnum" : snum},
 					success : function(resp) {
 						if (resp == 1) {
@@ -74,100 +74,70 @@
 				</ul>
 			</div>
 			<!-- QT MENUBAR  ================================ -->
-			<nav class="qt-menubar nav-wrapper qt-content-primary ">
-				<!-- desktop menu  HIDDEN IN MOBILE AND TABLETS -->
-				<ul class="qt-desktopmenu hide-on-xl-and-down">
-					<li class="qt-logo-link"><a href="./" class="brand-logo qt-logo-text">Jazar<span>t</span></a></li>
-					<li><a href="page-schedule.html">Schedule</a>
-						<ul>
-							<li><a href="page-schedule.html">Archive</a></li>
-							<li><a href="single-show.html">Single show page</a></li>
-						</ul>
-					</li>
-					<li><a href="archive-podcast.html">Podcast</a>
-						<ul>
-							<li><a href="archive-podcast.html">Archive</a></li>
-							<li><a href="single-podcast.html">Single show page</a></li>
-						</ul>
-					</li>
-					<li><a href="archive-members.html">Team</a>
-						<ul>
-							<li><a href="archive-members.html">Archive</a></li>
-							<li><a href="single-member.html">Single show page</a></li>
-						</ul>
-					</li>
-					<li><a href="archive.html">Blog</a>
-						<ul>
-							<li><a href="archive.html">Blog archive</a></li>
-							<li><a href="single-post.html">Single post</a></li>
-						</ul>
-					</li>
-					<li><a href="archive-chart.html">Charts</a>
-						<ul>
-							<li><a href="archive-chart.html">Charts archive</a></li>
-							<li><a href="single-chart.html">Single chart</a></li>
-						</ul>
-					</li>
-					<li><a href="archive-events.html">Events</a>
-						<ul>
-							<li><a href="archive-events.html">Events archive</a></li>
-							<li><a href="single-event.html">Single event</a></li>
-						</ul>
-					</li>
-					<li><a href="page-contacts.html">Contacts</a></li>
-					<li class="right"><a href="#!" data-expandable="#qtsearchbar" class="qt-btn qt-btn-l qt-scrolltop"><i class="icon dripicons-search"></i></a></li>
-					<li class="right"><a href="page-popup.html" class="qt-popupwindow" data-name="Music Player" data-width="320" data-height="500"><i class="icon dripicons-duplicate"></i> Popup</a></li>
-					<li class="right"><a href="#!" class="button-playlistswitch" data-activates="channelslist"><i class="icon dripicons-media-play"></i> Listen</a></li>
-				</ul>
-				<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
-				<ul class="qt-desktopmenu hide-on-xl-only ">
-					<li><a href="#" data-activates="qt-mobile-menu" class="button-collapse qt-menu-switch qt-btn qt-btn-primary qt-btn-m"><i class="dripicons-menu"></i></a></li>
-					<li><a href="#!" class="brand-logo qt-logo-text">Jazart</a></li>
-				</ul>
-			</nav>
-			<!-- mobile menu -->
-			<div id="qt-mobile-menu" class="side-nav qt-content-primary">
-				<ul class=" qt-side-nav">
-					<li><a href="index.html">Home</a></li>
-					<li class="menu-item-has-children"><a href="page-schedule.html">Schedule</a>
-						<ul>
-							<li><a href="page-schedule.html">Archive</a></li>
-							<li><a href="single-show.html">Single show page</a></li>
-						</ul>
-					</li>
-					<li class="menu-item-has-children"><a href="archive-podcast.html">Podcast</a>
-						<ul>
-							<li><a href="archive-podcast.html">Archive</a></li>
-							<li><a href="single-podcast.html">Single show page</a></li>
-						</ul>
-					</li>
-					<li class="menu-item-has-children"><a href="archive-members.html">Team</a>
-						<ul>
-							<li><a href="archive-members.html">Archive</a></li>
-							<li><a href="single-member.html">Single show page</a></li>
-						</ul>
-					</li>
-					<li class="menu-item-has-children"><a href="archive.html">Blog</a>
-						<ul>
-							<li><a href="archive.html">Blog archive</a></li>
-							<li><a href="single-post.html">Single post</a></li>
-						</ul>
-					</li>
-					<li class="menu-item-has-children"><a href="archive-chart.html">Charts</a>
-						<ul>
-							<li><a href="archive-chart.html">Charts archive</a></li>
-							<li><a href="single-chart.html">Single chart</a></li>
-						</ul>
-					</li>
-					<li class="menu-item-has-children"><a href="archive-events.html">Events</a>
-						<ul>
-							<li><a href="archive-events.html">Events archive</a></li>
-							<li><a href="single-event.html">Single event</a></li>
-						</ul>
-					</li>
-					<li><a href="page-contacts.html">Contacts</a></li>
-				</ul>
-			</div>
+		<nav class="qt-menubar nav-wrapper qt-content-primary ">
+			<!-- desktop menu  HIDDEN IN MOBILE AND TABLETS -->
+			<ul class="qt-desktopmenu hide-on-xl-and-down">
+				<li class="qt-logo-link"><a href="./"
+					class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
+				<li><a href="compose">Compose</a>
+					<ul>
+						<li><a href="mixing">(test)Mixing Page</a></li>
+						<li><a href="artistPage">(test)Artist Page</a></li>
+					</ul></li>
+				<li><a href="musicBoard">Board</a>
+					<ul>
+						<li><a href="musicBoard">Music Community</a></li>
+						<li><a href="commBoard">Free Community</a></li>
+					</ul></li>
+				<li><a href="realtimeChart">Charts</a>
+					<ul>
+						<li><a href="realtimeChart">Realtime Chart</a></li>
+						<li><a href="dailyChart">Daily Chart</a></li>
+						<li><a href="weeklyChart">Weekly Chart</a></li>
+					</ul></li>
+				<li><a href="page-contacts.html">Contacts</a></li>
+				<li class="right"><a href="#!" data-expandable="#qtsearchbar"
+					class="qt-btn qt-btn-l qt-scrolltop"><i
+						class="icon dripicons-search"></i></a></li>
+				<li class="right"><a href="page-popup.html"
+					class="qt-popupwindow" data-name="Music Player" data-width="320"
+					data-height="500"><i class="icon dripicons-duplicate"></i>
+						Popup</a></li>
+				<li class="right"><a href="#!" class="button-playlistswitch"
+					data-activates="channelslist"><i
+						class="icon dripicons-media-play"></i> Listen</a></li>
+			</ul>
+			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
+			<ul class="qt-desktopmenu hide-on-xl-only ">
+				<li><a href="#" data-activates="qt-mobile-menu"
+					class="button-collapse qt-menu-switch qt-btn qt-btn-primary qt-btn-m"><i
+						class="dripicons-menu"></i></a></li>
+				<li><a href="#!" class="brand-logo qt-logo-text">jazart</a></li>
+			</ul>
+		</nav>
+		<!-- mobile menu -->
+		<div id="qt-mobile-menu" class="side-nav qt-content-primary">
+			<ul class=" qt-side-nav">
+				<li><a href="/">jazart<span>♬</span></a></li>
+				<li class="menu-item-has-children"><a href="compose">Compose</a>
+					<ul>
+						<li><a href="mixing">(test)Mixing Page</a></li>
+						<li><a href="artistPage">(test)Artist Page</a></li>
+					</ul></li>
+				<li class="menu-item-has-children"><a href="musicBoard">Board</a>
+					<ul>
+						<li><a href="musicBoard">Music Community</a></li>
+						<li><a href="commBoard">Free Community</a></li>
+					</ul></li>
+				<li class="menu-item-has-children"><a href="realtimeChart">Charts</a>
+					<ul>
+						<li><a href="realtimeChart">Realtime Chart</a></li>
+						<li><a href="dailyChart">Daily Chart</a></li>
+						<li><a href="weeklyChart">Weekly Chart</a></li>
+					</ul></li>
+				<li><a href="page-contacts.html">Contacts</a></li>
+			</ul>
+		</div>
 			<!-- mobile toolbar -->
 			<ul class="qt-mobile-toolbar qt-content-primary-dark qt-content-aside hide-on-large-only">
 				<li><a href="#!" data-expandable="#qtsearchbar" class="qt-scrolltop"><i class="icon dripicons-search"></i></a></li>
@@ -286,7 +256,7 @@
 										</div>
 										<div class="qt-header-mid qt-vc"> <!-- 중앙프레임 -->
 											<div class="qt-vi">
-												<a href="songpage?songnum=${song.songnum}"><img src="download?type=song&data=${song.songnum}" alt="Featured image" width="690" height="690"></a>
+												<a href="songPage?songnum=${song.songnum}"><img src="download?type=song&data=${song.songnum}" alt="Featured image" width="690" height="690"></a>
 											</div>
 										</div>
 										<div class="qt-header-bottom"> <!-- 아이콘 -->
@@ -305,68 +275,6 @@
 								<!-- MEMBER END ========================= -->
 							</div>
 							</c:forEach>
-							<!-- <div class="col s12 m4 l4">
-								MEMBER =========================
-								<div class="qt-part-archive-item qt-item-member">
-									<div class="qt-item-header">
-										<div class="qt-header-top">
-											<ul class="qt-tags">
-												<li><a href="#tag-link">Tag</a></li>
-											</ul>
-										</div>
-										<div class="qt-header-mid qt-vc">
-											<div class="qt-vi">
-												<h4 class="qt-ellipsis qt-title">
-													<a href="resources/single-member.php" class="qt-text-shadow">Tom Rogers</a>
-												</h4>
-											</div>
-										</div>
-										<div class="qt-header-bottom">
-											<a href="resources/single-member.php" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-user"></i></a>
-										</div>
-										<div class="qt-header-bg" data-bgimage="imagestemplate/medium-690-302.jpg">
-											<img src="resources/imagestemplate/medium-690-302.jpg" alt="Featured image" width="690" height="690">
-										</div>
-									</div>
-									<div class="qt-item-content-xs qt-card">
-										<p class="qt-ellipsis-3">
-											Donec gravida nunc non elit lacinia, a tempus est finibus. Aliquam a fringilla arcu, sit amet iaculis mauris. Phasellus varius enim vel urna viverra fringilla. Interdum et malesuada fames ac.
-										</p>
-									</div>
-								</div>
-								MEMBER END =========================
-							</div>
-							<div class="col s12 m4 l4">
-								MEMBER =========================
-								<div class="qt-part-archive-item qt-item-member">
-									<div class="qt-item-header">
-										<div class="qt-header-top">
-											<ul class="qt-tags">
-												<li><a href="#tag-link">Tag</a></li>
-											</ul>
-										</div>
-										<div class="qt-header-mid qt-vc">
-											<div class="qt-vi">
-												<h4 class="qt-ellipsis qt-title">
-													<a href="resources/single-member.php" class="qt-text-shadow">Tom Rogers</a>
-												</h4>
-											</div>
-										</div>
-										<div class="qt-header-bottom">
-											<a href="resources/single-member.php" class="qt-btn qt-btn-primary qt-readmore"><i class="dripicons-user"></i></a>
-										</div>
-										<div class="qt-header-bg" data-bgimage="imagestemplate/medium-690-302.jpg">
-											<img src="resources/imagestemplate/medium-690-302.jpg" alt="Featured image" width="690" height="690">
-										</div>
-									</div>
-									<div class="qt-item-content-xs qt-card">
-										<p class="qt-ellipsis-3">
-											Donec gravida nunc non elit lacinia, a tempus est finibus. Aliquam a fringilla arcu, sit amet iaculis mauris. Phasellus varius enim vel urna viverra fringilla. Interdum et malesuada fames ac.
-										</p>
-									</div>
-								</div>
-								MEMBER END =========================
-							</div> -->
 						</div>
 					</div>
 	

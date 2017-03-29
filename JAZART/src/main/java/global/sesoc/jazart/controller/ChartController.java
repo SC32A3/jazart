@@ -8,9 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
-import global.sesoc.jazart.dao.BoardRepository;
+import global.sesoc.jazart.dao.ChartRepository;
 
 @Controller
 public class ChartController {
@@ -18,22 +17,25 @@ public class ChartController {
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
 	@Autowired
-	BoardRepository br;
+	ChartRepository cr;
 	@Autowired
 	HttpSession session;
 
-	@RequestMapping(value = "archive-chart.html", method = RequestMethod.GET)
+	@RequestMapping(value = "realtimeChart", method = RequestMethod.GET)
 	public String realtimect() {
-		return "chart/realtimect";
+		logger.info("> realtime chart");
+		return "chart/realtimeChart";
 	}
 
-	@RequestMapping(value = "single-chart.html", method = RequestMethod.GET)
+	@RequestMapping(value = "dailyChart", method = RequestMethod.GET)
 	public String dayilyct() {
-		return "chart/dailyct";
+		logger.info("> daily chart");
+		return "chart/dailyChart";
 	}
 
-	@RequestMapping(value = "chart.html", method = RequestMethod.GET)
+	@RequestMapping(value = "weeklyChart", method = RequestMethod.GET)
 	public String weekilyct() {
-		return "chart/weeklyct";
+		logger.info("> weekly chart");
+		return "chart/weeklyChart";
 	}
 }

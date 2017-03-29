@@ -5,6 +5,7 @@ grant create session, create table, create sequence, resource to temp2;
 commit;
 
 
+
 /* Drop Tables */
 
 DROP TABLE boardreply CASCADE CONSTRAINTS;

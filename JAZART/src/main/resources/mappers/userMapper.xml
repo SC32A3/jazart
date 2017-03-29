@@ -24,7 +24,7 @@
    <select id="countEmail" resultType="int" parameterType="String">
       select count(user_email) from userinfo where user_email = #{user_email}
    </select>
-   <select id="songsByArtist" resultType="Songinfo" parameterType="String">
+   <select id="songsByArtist" resultType="SongInfo" parameterType="String">
       select * from songinfo where song_nickname = #{loginNickname}
    </select>
 </mapper>

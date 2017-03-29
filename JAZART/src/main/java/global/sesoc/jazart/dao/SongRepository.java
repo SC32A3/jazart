@@ -9,8 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import global.sesoc.jazart.vo.Songinfo;
-import global.sesoc.jazart.vo.Songreply;
+import global.sesoc.jazart.vo.SongInfo;
+import global.sesoc.jazart.vo.SongReply;
 
 @Repository
 public class SongRepository {
@@ -20,9 +20,9 @@ public class SongRepository {
 
 	private static final Logger logger = LoggerFactory.getLogger(SongRepository.class);
 
-	public Songinfo selectSong(int songnum) {
+	public SongInfo selectSong(int songnum) {
 		SongMapper mapper = sqlSession.getMapper(SongMapper.class);
-		Songinfo song = null;
+		SongInfo song = null;
 		try {
 			song = mapper.selectSong(songnum);
 		} catch (Exception e) {
@@ -48,9 +48,9 @@ public class SongRepository {
 		return result;
 	}
 
-	public ArrayList<Songreply> songReply(int songnum) {
+	public ArrayList<SongReply> songReply(int songnum) {
 		SongMapper mapper = sqlSession.getMapper(SongMapper.class);
-		ArrayList<Songreply> replyList = null;
+		ArrayList<SongReply> replyList = null;
 		try {
 			replyList = mapper.songReply(songnum);
 		} catch (Exception e) {
@@ -59,33 +59,33 @@ public class SongRepository {
 		return replyList;
 	}
 
-	public int insertSongreply(Songreply songreply) {
+	public int insertSongReply(SongReply songreply) {
 		SongMapper mapper = sqlSession.getMapper(SongMapper.class);
 		int result = 0;
 		try {
-			result = mapper.insertSongreply(songreply);
+			result = mapper.insertSongReply(songreply);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
 
-	public int deleteSongreply(int replynum) {
+	public int deleteSongReply(int replynum) {
 		SongMapper mapper = sqlSession.getMapper(SongMapper.class);
 		int result = 0;
 		try {
-			result = mapper.deleteSongreply(replynum);
+			result = mapper.deleteSongReply(replynum);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
 
-	public int recommendSongreply(int replynum, String loginNickname) {
+	public int recommendSongReply(int replynum, String loginNickname) {
 		SongMapper mapper = sqlSession.getMapper(SongMapper.class);
 		int result = 0;
 		try {
-			result = mapper.recommendSongreply(replynum);
+			result = mapper.recommendSongReply(replynum);
 			mapper.addHistory(replynum, loginNickname);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -104,11 +104,11 @@ public class SongRepository {
 		return result;
 	}
 
-	public int updateSongreply(Songreply reply) {
+	public int updateSongReply(SongReply reply) {
 		SongMapper mapper = sqlSession.getMapper(SongMapper.class);
 		int result = 0;
 		try {
-			result = mapper.updateSongreply(reply);
+			result = mapper.updateSongReply(reply);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

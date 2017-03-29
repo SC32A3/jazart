@@ -1,6 +1,6 @@
 package global.sesoc.jazart.vo;
 
-public class Songinfo {
+public class SongInfo {
 	private int songnum;
 	private String song_nickname;
 	private String song_picture;
@@ -13,7 +13,7 @@ public class Songinfo {
 	private String beat;
 	private String song_genre;
 	
-	public Songinfo() {	}
+	public SongInfo() {	}
 
 	public int getSongnum() {
 		return songnum;
