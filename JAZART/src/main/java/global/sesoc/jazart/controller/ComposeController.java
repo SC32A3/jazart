@@ -45,13 +45,13 @@ public class ComposeController {
    
    @RequestMapping(value = "compose", method = RequestMethod.GET)
    public String compose() {
-      return "compose";
+      return "compose/compose";
    }
    
    
    @RequestMapping(value = "mixing", method = RequestMethod.GET)
    public String mixing() {
-      return "mixing";
+      return "compose/mixing";
    }
    
    @RequestMapping(value = "songpage", method = RequestMethod.GET)
@@ -129,7 +129,8 @@ public class ComposeController {
    
    @RequestMapping(value = "song_recommend", method = RequestMethod.GET)
    public @ResponseBody int recommend(int songnum) {
-	   int result = sr.recommend(songnum);
+	   String loginNickname = (String) session.getAttribute("loginNickname");
+	   int result = sr.recommend(songnum, loginNickname);
 	   return result;
    }
    

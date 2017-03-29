@@ -31,12 +31,17 @@ public class SongRepository {
 		return song;
 	}
 
-	public int recommend(int songnum) {
+	public int recommend(int songnum, String loginNickname) {
 		SongMapper mapper = sqlSession.getMapper(SongMapper.class);
 		int result = 0;
 		try {
-			result = mapper.recommend(songnum);
-			logger.info("추천 레파짓토리=>"+result);
+			int report = mapper.songlikeHistory(songnum, loginNickname);
+			if (report == 1) {
+				return result;
+			} else {
+				result = mapper.recommend(songnum);
+				mapper.addSonglike(songnum, loginNickname);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

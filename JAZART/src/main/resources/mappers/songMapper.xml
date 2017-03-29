@@ -32,4 +32,10 @@
    <update id="updateSongreply" parameterType="Songreply">   
       update songreply set reply_text = #{reply_text}, reply_inputdate = sysdate where replynum = #{replynum}
    </update>
+   <select id="songlikeHistory" resultType="int">
+	  select count(*) from songlike where songnum = #{0} and like_nickname = #{1}  
+   </select>
+   <insert id="addSonglike">
+      insert into songlike values(like_seq.nextval, #{1}, sysdate, #{0})
+   </insert>
 </mapper>

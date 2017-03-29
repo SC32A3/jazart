@@ -44,6 +44,8 @@
 					success : function(resp) {
 						if (resp == 1) {
 							alert('추천되었습니다');	
+						} else {
+							alert('추천은 한번만 가능합니다');
 						}
 					}, 
 					error : function(resp) {

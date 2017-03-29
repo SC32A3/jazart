@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import global.sesoc.jazart.dao.BoardRepository;
 
 @Controller
-@SessionAttributes("boardNum")
 public class ChartController {
 
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -25,16 +24,16 @@ public class ChartController {
 
 	@RequestMapping(value = "archive-chart.html", method = RequestMethod.GET)
 	public String realtimect() {
-		return "realtimect";
+		return "chart/realtimect";
 	}
 
 	@RequestMapping(value = "single-chart.html", method = RequestMethod.GET)
 	public String dayilyct() {
-		return "dailyct";
+		return "chart/dailyct";
 	}
 
 	@RequestMapping(value = "chart.html", method = RequestMethod.GET)
 	public String weekilyct() {
-		return "weeklyct";
+		return "chart/weeklyct";
 	}
 }

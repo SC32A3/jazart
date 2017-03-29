@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import global.sesoc.jazart.utility.PageNavigator;
 import global.sesoc.jazart.vo.Board;
+import global.sesoc.jazart.vo.Boardreply;
 
 
 
@@ -23,7 +24,6 @@ public class BoardRepository {
    
    public static final Logger logger = LoggerFactory.getLogger(BoardRepository.class);
    
-   //1
    public ArrayList<Board> boardList(String searchTitle, String searchText, PageNavigator navi){
       BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
       Map<String, String> search = new HashMap<>();
@@ -111,5 +111,72 @@ public class BoardRepository {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	//
+	public ArrayList<Boardreply> boardReply(int boardNum) {
+		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
+		ArrayList<Boardreply> replyList = null;
+		try {
+			replyList = mapper.boardReply(boardNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return replyList;
+	}
+
+	public int insertBoardreply(Boardreply boardreply) {
+		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
+		int result = 0;
+		try {
+			result = mapper.insertBoardreply(boardreply);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public int updateBoardreply(Boardreply reply) {
+		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
+		int result = 0;
+		try {
+			result = mapper.updateBoardreply(reply);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public int deleteBoardreply(int replynum) {
+		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
+		int result = 0;
+		try {
+			result = mapper.deleteBoardreply(replynum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public int selectRecommend(int replynum, String loginNickname) {
+		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
+		int result = 0;
+		try {
+			result = mapper.selectRecommend(replynum, loginNickname);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public int recommendBoardreply(int replynum, String loginNickname) {
+		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
+		int result = 0;
+		try {
+			result = mapper.recommendBoardreply(replynum);
+			mapper.addHistory(replynum, loginNickname);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 }

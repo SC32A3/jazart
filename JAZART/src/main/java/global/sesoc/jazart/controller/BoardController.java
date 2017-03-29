@@ -12,10 +12,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import global.sesoc.jazart.dao.BoardRepository;
 import global.sesoc.jazart.utility.PageNavigator;
 import global.sesoc.jazart.vo.Board;
+import global.sesoc.jazart.vo.Boardreply;
 
 
 /**
@@ -38,7 +40,7 @@ public class BoardController {
     */
    @RequestMapping(value = "music_community", method = RequestMethod.GET)
    public String musicBoard() {
-      return "musicBoard";
+      return "board/musicBoard";
    }
 
    @RequestMapping(value = "free_community", method = RequestMethod.GET)
@@ -55,13 +57,13 @@ public class BoardController {
 	  model.addAttribute("total", total);
 	  model.addAttribute("navi", navi);
       
-      return "freeCommunity";
+      return "board/freeCommunity";
    }
 
    // 글 쓰기 폼
    @RequestMapping(value = "write", method = RequestMethod.GET)
    public String write() {
-      return "write";
+      return "board/write";
    }
 
    @RequestMapping(value = "write", method = RequestMethod.POST)
@@ -84,7 +86,7 @@ public class BoardController {
       }
       model.addAttribute("boardNum", boardNum);
       model.addAttribute("board",board);
-      return "read";
+      return "board/read";
    }
    
 	@RequestMapping(value="boardUpdate", method=RequestMethod.GET)
@@ -92,7 +94,7 @@ public class BoardController {
 		Board board = br.selectList(boardNum);
 		model.addAttribute("board", board);
 		logger.info("보드컨트롤러업데이트"+board);
-		return "boardUpdate";
+		return "board/boardUpdate";
 	}
 	
 	@RequestMapping(value="boardUpdate", method=RequestMethod.POST)
@@ -111,4 +113,44 @@ public class BoardController {
 		logger.info("삭제 결과 : " + result);
 		return "redirect:/free_community";
 	}
+	
+	@RequestMapping(value = "board_replyList", method = RequestMethod.GET)
+	   public @ResponseBody ArrayList<Boardreply> replyList(int boardNum) {
+		  logger.info("replyList boardNum=> "+boardNum);
+	      ArrayList<Boardreply> replyList = br.boardReply(boardNum);
+	      return replyList;
+	   }
+	   
+	   @RequestMapping(value = "board_leaveReply", method = RequestMethod.GET)
+	   public @ResponseBody int leaveReply(Boardreply boardreply) {
+		   boardreply.setReply_nickname((String) session.getAttribute("loginNickname"));
+		   logger.info("boardreply=> "+boardreply);
+		   int result = br.insertBoardreply(boardreply);
+		   return result;
+	   }
+	   
+	   @RequestMapping(value = "board_updateReply", method = RequestMethod.GET)
+	   public @ResponseBody int updateReply(Boardreply reply) {
+		   int result = br.updateBoardreply(reply);
+		   return result;
+	   }
+	   
+	   @RequestMapping(value = "board_deleteReply", method = RequestMethod.GET)
+	   public @ResponseBody int deleteReply(int replynum) {
+		   int result = br.deleteBoardreply(replynum);
+		   return result;
+	   }
+	 
+	   @RequestMapping(value = "board_recommendReply", method = RequestMethod.GET)
+	   public @ResponseBody int recommendReply(int replynum) {
+		   int result = 0;
+		   String loginNickname = (String) session.getAttribute("loginNickname");
+		   int report = br.selectRecommend(replynum, loginNickname);
+		   if (report == 1) {
+			   return result; 
+		   } else {
+			   result = br.recommendBoardreply(replynum, loginNickname);
+			   return result;   
+		   }
+	   }
 }
