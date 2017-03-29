@@ -3,24 +3,28 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
 <mapper namespace="global.sesoc.jazart.dao.ChartMapper">
 
 
-   <select id="chartList" resultType="SongInfo">
-      select
-         boardNum      
-         ,board_tag            
-         ,board_nickname
-         ,board_title
-         ,board_content         
-         ,to_char(board_inputdate, 'yyyy-mm-dd') board_inputdate      
-         ,board_hits         
-      from
-         board   
-      order by
-         boardnum desc
-   </select>
+	<select id="chartList" resultType="SongInfo">
+		select * from songinfo
+		<!-- <if test="type != null">
+			<choose>
+				<when test="type == 'rc'">
+					where board_nickname like '%' || #{searchText} ||
+					'%'
+				</when>
+				<when test="type == 'dc'">
+					where board_title like '%' || #{searchText} || '%'
+				</when>
+				<when test="type == 'wc'">
+					where board_content like '%' || #{searchText} || '%'
+				</when>
+			</choose>
+		</if> -->
+		order by song_inputdate desc
+	</select>
 
-  
+
 </mapper>   

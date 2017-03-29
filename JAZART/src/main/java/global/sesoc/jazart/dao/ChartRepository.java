@@ -17,7 +17,7 @@ public class ChartRepository {
 	   
 	   public static final Logger logger = LoggerFactory.getLogger(BoardRepository.class);
 
-	   public ArrayList<SongInfo> chartList(){
+	   public ArrayList<SongInfo> chartList(String type){
 		   ChartMapper mapper=sqlSession.getMapper(ChartMapper.class);
 		   
 		   ArrayList<SongInfo> cList=null;
