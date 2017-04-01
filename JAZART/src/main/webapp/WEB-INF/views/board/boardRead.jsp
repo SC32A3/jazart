@@ -59,6 +59,11 @@
 .h_content {
 	margin: 0 30px;
 }
+
+.replyArea {
+	background-color: #cccccc;
+	width: 700px;
+}
 </style>
 
 <script type="text/javascript">
@@ -445,7 +450,7 @@
 														<!-- <textarea style="width:600px; height:100px;" id="comment" placeholder="Comment *"
 															name="comment" cols="45" aria-required="true"
 															required="required"></textarea> -->
-														<input style="width:600px;" name="comment" id="comment" type="text" class="validate qt-input-s">
+														<input style="width:500px;" name="comment" id="comment" type="text" class="validate qt-input-s">
 														<input
 															name="leaveReply" type="button" id="leaveReply"
 															class="form-submit qt-btn qt-btn-primary"
@@ -454,7 +459,7 @@
 												</div>
 
 												<br>
-												<div id="replyArea"></div>
+												<div id="replyArea" class="replyArea"></div>
 												<br>
 
 											</div>
