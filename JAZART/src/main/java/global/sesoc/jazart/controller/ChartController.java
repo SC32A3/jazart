@@ -1,6 +1,7 @@
 package global.sesoc.jazart.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -8,10 +9,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import global.sesoc.jazart.dao.ChartRepository;
+import global.sesoc.jazart.utility.PageNavigator;
+import global.sesoc.jazart.vo.Board;
 import global.sesoc.jazart.vo.SongInfo;
 
 @Controller
@@ -24,27 +29,44 @@ public class ChartController {
 	@Autowired
 	HttpSession session;
 
+	final int countPerPage = 10; //페이지당 글 수
+	final int pagePerGroup = 5; //페이지 그룹에 표시되는 그룹 수
+	
 	@RequestMapping(value = "realtimeChart", method = RequestMethod.GET)
-	public String realtimect() {
+	public String realtimect(Model model) {
 		logger.info("> realtime chart");
-		ArrayList<SongInfo> cList = cr.chartList("rc");
-		session.setAttribute("chartList", cList);
+		ArrayList<SongInfo> cList = cr.chartList("rc", 0, 0);
+		ArrayList<SongInfo> cList2 = cr.chartList("dc", 0, 0);
+		model.addAttribute("rc", cList);
+		model.addAttribute("dc", cList2);
 		return "chart/realtimeChart";
 	}
 
 	@RequestMapping(value = "dailyChart", method = RequestMethod.GET)
-	public String dayilyct() {
+	public String dailyct(Model model, @RequestParam(value="page", defaultValue="1") int page) {
 		logger.info("> daily chart");
-		ArrayList<SongInfo> cList = cr.chartList("dc");
-		session.setAttribute("chartList", cList);
+		
+		int total = cr.dailyCount();
+		
+		PageNavigator navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
+		int start = navi.getStartRecord(); //1,11,21
+		int end = start + countPerPage - 1; //10,20,30
+		logger.info("페이징재료page,start,end=> "+page+", "+start+", "+end);
+		
+		ArrayList<SongInfo> cList = cr.chartList("dc", start, end);
+		model.addAttribute("dc", cList);
+		
+		model.addAttribute("total", total); //글 개수 출력
+		model.addAttribute("navi", navi); //페이징을 위해서
+		
 		return "chart/dailyChart";
 	}
 
 	@RequestMapping(value = "weeklyChart", method = RequestMethod.GET)
-	public String weekilyct() {
+	public String weekilyct(Model model) {
 		logger.info("> weekly chart");
-		ArrayList<SongInfo> cList = cr.chartList("wc");
-		session.setAttribute("chartList", cList);
+		ArrayList<SongInfo> cList = cr.chartList("wc", 0, 0);
+		model.addAttribute("wc", cList);
 		return "chart/weeklyChart";
 	}
 }

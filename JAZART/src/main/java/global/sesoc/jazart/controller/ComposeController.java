@@ -55,6 +55,7 @@ public class ComposeController {
 
 	@RequestMapping(value = "songPage", method = RequestMethod.GET)
 	public String songpage(int songnum, Model model) {
+		logger.info("songPage replynum=> "+songnum);
 		SongInfo song = sr.selectSong(songnum);
 		ArrayList<SongReply> replyList = sr.songReply(songnum);
 		model.addAttribute("song", song);
@@ -80,13 +81,7 @@ public class ComposeController {
 	}
 
 	@RequestMapping(value = "download", method = RequestMethod.GET)
-	public String download(String type, String data, HttpServletResponse response) { // 수동으로
-																						// 데이터를
-																						// 내보내야
-																						// 하는
-																						// 경우
-																						// HttpServletResponse를
-																						// 사용한다
+	public String download(String type, String data, HttpServletResponse response) { 
 		// 다른 방법
 		// 매개변수로 boardnum이 아닌 savedfile을 받으면 DB에 갈 필요가 없다. String fullpath부분부터
 		// 바로 하면 된다.

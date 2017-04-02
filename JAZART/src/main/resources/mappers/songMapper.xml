@@ -11,7 +11,7 @@
    <update id="recommend" parameterType="int">
 	  update SongInfo set song_like = song_like+1 where songnum = #{songnum}   
    </update>
-   <select id="SongReply" resultType="SongReply" parameterType="int">
+   <select id="songReply" resultType="SongReply" parameterType="int">
       select * from SongReply where songnum = #{songnum} order by reply_inputdate desc
    </select>
    <insert id="insertSongReply" parameterType="SongReply">

@@ -53,6 +53,16 @@
 .qt-combo3 {margin-left: auto; text-align: left; }
 .board2 {margin: auto; text-align: center;}
 .board3 {margin: auto; text-align: right;}
+table, th, td {text-align: center}
+.td1{width:50px} .td2{width:100px} .td3{width:100px} .td4{width:250px} .td5{width:100px} .td6{width:50px}
+.qt-pagination li.item {
+    height: auto;
+    vertical-align: middle;
+    margin: 1rem 0 0 1rem;
+    height: 2rem;
+    line-height: 1.5rem;
+}
+.ctn{ text-decoration: none}
 </style>
 <script>
 	function pagingForSubmit(currentPage) {
@@ -204,7 +214,7 @@
          <!-- HEADER CONTACTS ========================= -->
          <div class="qt-pageheader qt-negative">
             <div class="qt-container">
-               <h1 class="qt-caption qt-spacer-s">Free community</h1>
+               <h1 class="qt-caption qt-spacer-s"><a href="#container" class="ctn">Free community</a></h1>
                <ul class="qt-menu-social qt-spacer-s">
                   <li><a href="#"><i class="qticon-beatport"></i></a></li>
                   <li><a href="#"><i class="qticon-facebook"></i></a></li>
@@ -220,7 +230,7 @@
             </div>
          </div>
          <!-- HEADER CONTACTS END ========================= -->
-         <div class="qt-container qt-vertical-padding-l ">
+         <div class="qt-container qt-vertical-padding-l " id="container">
             <div class="row">
                <div class="freeBoard">
                   <!-- ======================11 SECTION BOOKING AND CONTACTS ================================================ -->
@@ -237,7 +247,7 @@
                                           <select class="qt-btn qt-btn-s qt-combo" name="searchTitle">
                                              <option value="board_nickname" ${searchTitle=="board_nickname"? "selected" : ""} >글쓴이</option>
                                              <option value="board_title" ${searchTitle=="board_title"? "selected" : ""}>제목</option>
-                                             <option value="board_content" ${searchTitle=="content"? "selected" : ""}>내용</option>
+                                             <option value="board_tag" ${searchTitle=="board_tag"? "selected" : ""}>말머리</option>
                                           </select> 
                                           </div>
                                        <div class="col s12 m4 l2 ">   
@@ -255,27 +265,35 @@
                               </div>
                            </div>
                            <!-- 검색 끝 -->
-                           <table>
+                           
+                           <table class="board">
                               <tbody>
                                  <tr>
                                     <th>Num</th>
                                     <th class="views">User</th>
+									<th>Tag</th>
                                     <th>Title</th>
                                     <th>Date</th>
                                     <th>Hit</th>
                                  </tr>
+                                 <c:if test="${empty bList}">
+								 <tr><td>게시된 글이 없습니다</td></tr>                                 
+                                 </c:if>
+                                 <c:if test="${not empty bList}">
                                  <c:forEach var="list" items="${bList}" >
                                  <tr class="odd">
-                                    <td>${list.boardNum}</td>
-                                    <td><a href="http://example.com/">${list.board_nickname}</a></td>
-                                    <td><a href="boardRead?boardNum=${list.boardNum}">${list.board_title}</td>
-                                    <td>${list.board_inputdate}</td>
-                                    <td>${list.board_hits}</td>
-                                    
+                                    <td class="td1">${list.boardNum}</td>
+                                    <td class="td2"><a href="http://example.com/">${list.board_nickname}</a></td>
+                                    <td class="td3">${list.board_tag}</td>
+                                    <td class="td4"><a href="boardRead?boardNum=${list.boardNum}">${list.board_title}</td>
+                                    <td class="td5">${list.board_inputdate}</td>
+                                    <td class="td6">${list.board_hits}</td>
                                  </tr>
                                  </c:forEach>
+                                 </c:if>
                               </tbody>
                            </table>
+                           
                         
                            
                            <div class="qt-combo2">
@@ -309,49 +327,15 @@
            
             <c:forEach begin="${navi.startPageGroup}" end="${navi.endPageGroup}"
 				var="counter">
-				<a
-					<c:if test="${navi.currentPage!=counter}">
-					href="javascript:pagingForSubmit(${counter})"
-				</c:if>
 					<c:if test="${navi.currentPage==counter}">
-					class="item waves-effect hide-on-large-and-down"
-				</c:if>
-				>
-					${counter}</a>&nbsp;
+						<li class="item active hide-on-large-and-down">${counter}</li>
+					</c:if>
+					<c:if test="${navi.currentPage!=counter}">
+						<li class="item waves-effect hide-on-large-and-down">
+						<a href="javascript:pagingForSubmit(${counter})">${counter}</a>
+						</li>
+					</c:if>
 			</c:forEach>
-            
-            
-            <%-- <c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
-				<li class="item active hide-on-large-and-down"><a href="javascript:pagingForSubmit(${counter})">${counter}</a></li>
-				<li class="item waves-effect hide-on-large-and-down"><a href="javascript:pagingForSubmit(${counter })">${counter}</a></li>
-			</c:forEach> --%>
-            
-
-            <%-- <li class="item active hide-on-large-and-down"><a href="javascript:pagingForSubmit(${navi.currentPage+1})">1</a></li>
-            <li class="item waves-effect hide-on-large-and-down"><a
-               href="javascript:pagingForSubmit(${navi.currentPage+1})">2</a></li>
-            <li class="item waves-effect hide-on-large-and-down"><a
-               href="javascript:pagingForSubmit(${navi.currentPage+1})">3</a></li>
-            <li class="item waves-effect hide-on-large-and-down"><a
-               href="javascript:pagingForSubmit(${navi.currentPage+1})">4</a></li>
-            <li class="item waves-effect hide-on-large-and-down"><a
-               href="javascript:pagingForSubmit(${navi.currentPage+1})">5</a></li>
-            <li class="item waves-effect hide-on-large-and-down"><a
-               href="javascript:pagingForSubmit(${navi.currentPage+1})">6</a></li>
-            <li class="item waves-effect hide-on-large-and-down"><a
-               href="javascript:pagingForSubmit(${navi.currentPage+1})">7</a></li>
-            <li class="item waves-effect hide-on-large-and-down"><a
-               href="javascript:pagingForSubmit(${navi.currentPage+1})">8</a></li>
-            <li class="item waves-effect hide-on-large-and-down"><a
-               href="javascript:pagingForSubmit(${navi.currentPage+1})">9</a></li>
-            <li class="item waves-effect hide-on-large-and-down"><a
-               href="javascript:pagingForSubmit(${navi.currentPage+1})">10</a></li>
-            <li class="item waves-effect hide-on-large-and-down"><a
-               href="javascript:pagingForSubmit(${navi.currentPage+1})">11</a></li>
-            <li class="item waves-effect hide-on-large-and-down"><a
-               href="javascript:pagingForSubmit(${navi.currentPage+1})">12</a></li>
-            <li class="item waves-effect hide-on-large-and-down"><a
-               href="javascript:pagingForSubmit(${navi.currentPage+1})">13</a></li> --%>
          </ul>
          <!-- PAGINATION END ========================= -->
 

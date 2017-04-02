@@ -37,13 +37,12 @@
 		,board_title
 		,board_nickname
 		,board_content
-		,to_char(board_inputdate, 'yyyy-mm-dd hh:mi') board_inputdate
+		,to_char(board_inputdate, 'yy/mm/dd HH24:MI') board_inputdate
 		,board_hits
 		from
 		board
 		where
 		boardnum=#{boardnum}
-
 	</select>
 	<update id="updateBoard" parameterType="Board">
 		update board set
@@ -66,7 +65,14 @@
 	<select id="boardList" resultType="Board" parameterType="map">
 		select * from
 		( select rownum rnum, b.* from
-		( select * from board
+		( select 	
+		 boardNum
+		,board_tag
+		,board_title
+		,board_nickname
+		,board_content
+		,to_char(board_inputdate, 'yy/mm/dd HH24:MI') board_inputdate
+		,board_hits from board
 		<if test="searchText != null and searchTitle != null ">
 			<choose>
 				<when test="searchTitle == 'board_nickname'">
@@ -75,8 +81,8 @@
 				<when test="searchTitle == 'board_title'">
 					where board_title like '%' || #{searchText} || '%'
 				</when>
-				<when test="searchTitle == 'board_content'">
-					where board_content like '%' || #{searchText} || '%'
+				<when test="searchTitle == 'board_tag'">
+					where board_tag like '%' || #{searchText} || '%'
 				</when>
 			</choose>
 		</if>
@@ -107,7 +113,7 @@
 	
 	
    <select id="boardReply" resultType="BoardReply" parameterType="int">
-      select * from boardreply where boardnum = #{boardNum} order by reply_inputdate desc
+      select replynum, reply_nickname, reply_text, to_char(reply_inputdate, 'yy/mm/dd HH24:MI') reply_inputdate, reply_like, boardnum from boardreply where boardnum = #{boardNum} order by reply_inputdate desc
    </select>
    <insert id="insertBoardReply" parameterType="BoardReply">
    	  insert into boardreply values(boardreply_seq.nextval, #{reply_nickname}, #{reply_text}, sysdate, 0, #{boardNum}) 

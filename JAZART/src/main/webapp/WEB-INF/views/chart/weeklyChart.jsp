@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>jazart</title>
+<title>Jazart</title>
 <meta name="description" content="Radio station HTML template">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -232,19 +232,21 @@
 					<div class="col s12 m12 l8">
 						<ul class="collapsible qt-chart-tracklist"
 							data-collapsible="accordion">
-							<c:forEach var="music" varStatus="status" items="${ chartList }">
+
+
+							<c:forEach var="weekly" varStatus="status" items="${wc}">
 								<!-- CHART TRACK ========================= -->
 								<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
 									<div
 										class="qt-chart-table collapsible-header qt-content-primary">
 										<div class="qt-position">
-											<img src="resources/imagestemplate/thumb-170-170.jpg"
+											<img src="download?type=song&data=${weekly.songnum}"
 												class="qt-chart-cover" alt="Chart track" width="170"
 												height="170"> <span>${status.count}</span>
 										</div>
 										<div class="qt-titles">
-											<h3 class="qt-ellipsis qt-t">${ music.song_title }</h3>
-											<p>${ music.song_nickname }</p>
+											<h3 class="qt-ellipsis qt-t">${ weekly.song_title }</h3>
+											<p>${ weekly.song_nickname }</p>
 										</div>
 										<div class="qt-action">
 											<a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i
@@ -252,11 +254,12 @@
 										</div>
 									</div>
 									<div class="collapsible-body qt-paper">
-										<p>${ music.song_desc }</p>
+										<p>${ weekly.song_desc }</p>
 									</div>
 								</li>
 								<!-- CHART TRACK END ========================= -->
 							</c:forEach>
+
 						</ul>
 					</div>
 					<div class="qt-sidebar col s12 m12 l3">
@@ -311,8 +314,8 @@
 													class="dripicons-media-play"></i></a>
 											</div>
 											<div class="qt-header-bg"
-												data-bgimage="imagestemplate/medium-690-302.jpg">
-												<img src="imagestemplate/medium-690-302.jpg"
+												data-bgimage="resources/imagestemplate/medium-690-302.jpg">
+												<img src="resources/imagestemplate/medium-690-302.jpg"
 													alt="Featured image" width="690" height="302">
 											</div>
 										</div>
@@ -353,24 +356,24 @@
 												<a href="#showlink">About Jenny</a>
 											</h5>
 											<p>07:00 pm</p> <img
-											src="imagestemplate/thumbnail-200-110.jpg" alt="Show cover"
-											width="200" height="110" class="right">
+											src="resources/imagestemplate/thumbnail-200-110.jpg"
+											alt="Show cover" width="200" height="110" class="right">
 										</li>
 										<li class="qt-card-s paper">
 											<h5>
 												<a href="#showlink">About Jenny</a>
 											</h5>
 											<p>07:00 pm</p> <img
-											src="imagestemplate/thumbnail-200-110.jpg" alt="Show cover"
-											width="200" height="110" class="right">
+											src="resources/imagestemplate/thumbnail-200-110.jpg"
+											alt="Show cover" width="200" height="110" class="right">
 										</li>
 										<li class="qt-card-s paper">
 											<h5>
 												<a href="#showlink">About Jenny</a>
 											</h5>
 											<p>07:00 pm</p> <img
-											src="imagestemplate/thumbnail-200-110.jpg" alt="Show cover"
-											width="200" height="110" class="right">
+											src="resources/imagestemplate/thumbnail-200-110.jpg"
+											alt="Show cover" width="200" height="110" class="right">
 										</li>
 									</ul>
 								</div>

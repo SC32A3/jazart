@@ -51,21 +51,91 @@
 	height: 500px;
 }
 
-.table2 {
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-
 .h_content {
 	margin: 0 30px;
 }
 
 .replyArea {
-	background-color: #cccccc;
-	width: 700px;
+	background-color: #dddddd;
+	width: auto;
+	margin : 0 auto;
+}
+
+input[type=button] {
+	background-color: ghostwhite;
+	margin: 0 2px;
+	padding: 5px;
+	line-height: 1.0rem;
+	font-size: 14px;
+}
+
+table, th, td {
+	border-bottom: 1px solid black;
+	text-align: center;
+}
+
+.tdName {
+	width: 100px
+}
+
+.tdText {
+	width: 250px
+}
+
+.tdDate {
+	width: 100px
+}
+
+.tdLike {
+	width: 70px
+}
+
+.tdBtn {
+	width: 150px
+}
+
+.line {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	vertical-align: sub;
+}
+
+.qt-btn.qt-btn-l, input[type="button"].qt-btn-l {
+    line-height: 2rem;
+    font-size: 1.414rem;
+    padding: 0 0.7rem;
+    min-width: 4rem;
+}
+
+.bContent {
+	font-size: 20px;
+	font-weight: bold;
+	font-family: 'Khand', sans-serif;
+	clear: both;
+	margin-bottom: 10px;
+}
+
+p.bContent b{
+  position:relative;
+  display: block;
+}
+
+p.bContent b:after{
+  position:absolute;
+  content:"";
+  width: 60px;
+  height:1px;
+  background: #ffd736;
+  left:0;
+  bottom:-1px;
+}
+
+.contentBrg { background-color: antiquewhite; padding: 10px;}
+.qt-spacer-m {
+	margin-top: 1rem;
 }
 </style>
-
 <script type="text/javascript">
 	function deleteCheck(boardNum) {
 		var answer = confirm("글을 삭제하시겠습니까?");
@@ -135,10 +205,10 @@
 					msg += '<tr><th>ID</th><th>Text</th><th>Date</th><th>Like</th><th></th></tr>';
 					$.each(resp, function(index, item) {
 						msg += "<tr>"; 
-						msg += "<td class='tdNum'>"+item.reply_nickname+"</td>";
-						msg += "<td class='tdName' id='"+item.replynum+"_name'><span id='"+item.replynum+"_span1'>"+item.reply_text+"</span></td>";
-						msg += "<td class='tdText' id='"+item.replynum+"_text'>"+item.reply_inputdate+"</td>";
-						msg += "<td>"+item.reply_like+"</td>";
+						msg += "<td class='tdName'>"+item.reply_nickname+"</td>";
+						msg += "<td class='tdText' id='"+item.replynum+"_name'><span id='"+item.replynum+"_span1'>"+item.reply_text+"</span></td>";
+						msg += "<td class='tdDate' id='"+item.replynum+"_text'>"+item.reply_inputdate+"</td>";
+						msg += "<td class='tdLike'>"+item.reply_like+"</td>";
 						if (item.reply_nickname == loginNickname) {
 							msg += "<td class='tdBtn'><span id='"+item.replynum+"_span2'><input type='button' value='삭제' class='del' data-num='"+item.replynum+"'>";
 							msg += "<input type='button' value='수정' class='upd' data-num='"+item.replynum+"'>";
@@ -387,35 +457,26 @@
 										<div id="form" class="row">
 
 											<div class="row">
-												<div class="input-field col s8">
-													<input type="hidden" id="boardnum"
-														value="${board.boardNum}">
-													<table class="table2" border="1">
-														<tr>
-															<td>Title</td>
-															<td>${board.board_title}</td>
-														</tr>
-														<tr>
-															<td>Name</td>
-															<td>${board.board_nickname}</td>
-															<td>Date</td>
-															<td>${board.board_inputdate}</td>
-															<td>Hits</td>
-															<td>${board.board_hits}</td>
-													</table>
-
-													<div class="input-field col s12 ">
-														<p class="comment-form-comment">
-															<tr>
+												<!-- <hr class="qt-spacer-s hide-on-med-and-up"> 요 클래스 기능이 뭐지.. -->
+												<div class="row">
+													<div class="input-field col s12 titleBrg">
+														<input type="hidden" id="boardnum"
+															value="${board.boardNum}">
+														<h4>${board.board_title}</h4>
+														${board.board_nickname}<img class="line" alt="line"
+															src="images/line1.png"> ${board.board_inputdate}<img
+															class="line" alt="line" src="images/line1.png">
+														${board.board_hits}
+													</div>
+													<div class="input-field col s12">
+														<%-- <tr>
 																<td>Content</td>
 																<td style="width: 400px; height: 300px;"><pre>${board.board_content}</pre></td>
-															</tr>
-
-														</p>
+															</tr> --%>
+														<!-- <p class="bContent"> <b> CONTENT </b></p> -->
+														<pre class="contentBrg">${board.board_content}</pre>
 													</div>
-												</div>
-												<hr class="qt-spacer-s hide-on-med-and-up">
-												<div class="row">
+
 													<div class="input-field col s12">
 														<button
 															class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light"
@@ -441,17 +502,13 @@
 												</div>
 												<!-- /form -->
 												<br>
-												<br>
 												<div id="respond">
 													<h4 id="reply-title" class="comment-reply-title">
 														Leave a Reply</h4>
 
 													<p class="comment-form-comment">
-														<!-- <textarea style="width:600px; height:100px;" id="comment" placeholder="Comment *"
-															name="comment" cols="45" aria-required="true"
-															required="required"></textarea> -->
-														<input style="width:500px;" name="comment" id="comment" type="text" class="validate qt-input-s">
-														<input
+														<input style="width: 500px;" name="comment" id="comment"
+															type="text" class="validate qt-input-s"> <input
 															name="leaveReply" type="button" id="leaveReply"
 															class="form-submit qt-btn qt-btn-primary"
 															value="Post Comment">
