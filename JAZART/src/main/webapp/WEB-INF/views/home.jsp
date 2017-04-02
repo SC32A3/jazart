@@ -137,7 +137,10 @@
 						<li><a href="dailyChart">Daily Chart</a></li>
 						<li><a href="weeklyChart">Weekly Chart</a></li>
 					</ul></li>
-				<li><a href="page-contacts.html">Contacts</a></li>
+				<li class="menu-item-has-children"><a href="qna">Contacts</a>
+					<ul>
+						<li><a href="qna">QnA</a>
+					</ul></li>
 			</ul>
 		</div>
 		<!-- mobile toolbar -->
