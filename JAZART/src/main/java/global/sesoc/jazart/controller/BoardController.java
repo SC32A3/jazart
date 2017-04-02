@@ -154,4 +154,9 @@ public class BoardController {
 			   return result;   
 		   }
 	   }
+	   
+	   @RequestMapping(value = "qna", method = RequestMethod.GET)
+		public String qna() {
+		return "user/qna";
+	}
 }
