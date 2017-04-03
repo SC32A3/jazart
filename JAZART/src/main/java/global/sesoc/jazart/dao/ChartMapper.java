@@ -11,6 +11,7 @@ public interface ChartMapper {
 	  public ArrayList<SongInfo> realtimeChart() throws Exception;
 	  public ArrayList<SongInfo> weeklyChart(String day) throws Exception;
 	  public String getDay() throws Exception;
-	  public ArrayList<SongInfo> weeklyChart(Map<String, String> search);
+	  public ArrayList<SongInfo> weeklyChart(Map<String, String> search) throws Exception;
 	  public int dailyCount() throws Exception;
+	  public int weeklyCount(Map<String, String> search) throws Exception;
 }

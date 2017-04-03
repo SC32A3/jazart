@@ -50,16 +50,87 @@
 	var paging = '';
 
 	function chart(type) {
-		if (type == 'daily') {
+		var page = document.getElementById("page");
+		$.ajax({
+			method : "get",
+			url : "dwChart",
+			data : {'type' : type, 'page' : page.value},
+			success : inputdata
+				/* alert(JSON.stringify(resp["dc"][0])); //
+				alert(JSON.stringify(resp["navi"]["countPerPage"]));  // 10 */
+		})
+	}  
+	
+	function inputdata(resp) {
+		var type = JSON.stringify(resp["type"]);
+		alert(type);
+		var msg = '';
+		var paging = '';
 
-		}
-
-		if (type == 'weekly') {
-
-		}
-
+		
+		//		if (type == 'daily') {
+				msg = '';
+				msg += '<div class="col s12 m4 l4">';
+				msg += '<div class="qt-part-archive-item qt-part-show-schedule-day-item">';
+				
+			$.each(resp["dc"], function(index, item) {
+				msg += '<div class="qt-item-header">';
+				msg += '<div class="qt-header-mid qt-vc">';
+				msg += '<div class="qt-vi">';
+				msg += 				'<h4 class="qt-item-title qt-title"><a href="#read" class="qt-ellipsis  qt-t">'+(index+1)+'위</a></h4>';
+				msg += 				'<p class="qt-item-det"><span class="qt-time">'+item.song_title+'</span><span class="qt-day qt-capfont">'+item.song_nickname+'</span></p>';
+				msg += '</div></div>';
+				msg += 				'<a href="#" class="qt-info bottom right"><i	class="dripicons-information"></i></a>';
+				msg += '<div class="qt-header-bg" data-bgimage="download?type=song&data='+item.songnum+'"><img src="download?type=song&data='+item.songnum+'" alt="Featured image" width="690" height="302">';
+				msg += '</div></div>';
+				// 4개열리고 4개닫히고
+				msg += '<div class="qt-overinfo qt-paper">';
+				msg += 				'<p class="qt-item-det qt-accent"><span class="qt-time">'+item.song_title+'</span><span class="qt-day qt-capfont">'+item.song_nickname+'</span></p>';
+				msg += '<div class="qt-more"><p class="qt-ellipsis-2">'+item.song_desc+'</p><a href="songPage?songnum='+parseInt(item.songnum)+'">더보기</a>';
+				msg += '</div>';
+				msg += '</div>';
+			})
+				msg += '</div></div>';
+			
+			paging = '';
+			paging += '<div class="qt-pagination qt-content-primary">';
+		    paging += '<input type="hidden" id="page" name="page">';
+			paging += '<input type="hidden" id="type" name="type" value="daily">'
+		    paging += '<ul class="pagination qt-container">';
+			paging += '<li class="special"><span class="qt-pagination-label qt-content-primary-dark">PAGES</span></li>';
+			paging += '<li class="special disabled"><a href="javascript:pagingForSubmit('+resp["navi"]["currentPage"]-resp["navi"]["pagePerGroup"]+')" class="qt-btn qt-btn-l qt-btn-primary"><i class="dripicons-arrow-thin-left"></i></a></li>';	
+			paging += '<li class="special waves-effect"><a href="javascript:pagingForSubmit('+(resp["navi"]["currentPage"]+1)+')" class="qt-btn qt-btn-l qt-btn-primary"><i class="dripicons-arrow-thin-right"></i></a></li>';	
+			for (var counter = resp["navi"]["startPageGroup"]; counter < resp["navi"]["endPageGroup"]; counter++) {
+				if (resp["navi"]["currentPage"] != counter) {
+					paging += '<li class="item active hide-on-large-and-down"><a href="javascript:pagingForSubmit('+counter+')">'+counter+'</a></li>';	
+				}
+				if (resp["navi"]["currentPage"] == counter) {
+					paging += '<li class="item waves-effect hide-on-large-and-down"><a	href="#!">'+counter+'</a></li>';					
+				}		
+			}
+			paging += '</ul></div>';
+//		}
+		
 		$("#dw_content").html(msg);
 		$("#dw_paging").html(paging);
+	}
+	
+	function pagingForSubmit(currentPage) {
+		/* var form = document.getElementById("pagingForm"); */
+		var page = document.getElementById("page");
+		var type = document.getElementById("type");
+		page.value = currentPage;
+		/* form.submit(); */
+		
+		$.ajax({
+			method : "get",
+			url : "dwChartPaging",
+			data : {'type' : type.value, 'page' : page.value},
+			success : function() {
+				
+			}
+		})
+		
 	}
 </script>
 </head>
@@ -353,45 +424,35 @@
 				</div>
 
 				<div id="dw_paging">
-					<div class="qt-pagination qt-content-primary">
-						<!-- PAGINATION ========================= -->
-						<ul class="pagination qt-container">
-							<li class="special"><span
-								class="qt-pagination-label qt-content-primary-dark">PAGES</span></li>
-							<li class="special disabled"><a href="#!"
-								class="qt-btn qt-btn-l qt-btn-primary"><i
-									class="dripicons-arrow-thin-left"></i></a></li>
-							<li class="special waves-effect"><a href="#!"
-								class="qt-btn qt-btn-l qt-btn-primary"><i
-									class="dripicons-arrow-thin-right"></i></a></li>
-							<li class="item active hide-on-large-and-down"><a href="#!">1</a></li>
-							<li class="item waves-effect hide-on-large-and-down"><a
-								href="#!">2</a></li>
-							<li class="item waves-effect hide-on-large-and-down"><a
-								href="#!">3</a></li>
-							<li class="item waves-effect hide-on-large-and-down"><a
-								href="#!">4</a></li>
-							<li class="item waves-effect hide-on-large-and-down"><a
-								href="#!">5</a></li>
-							<li class="item waves-effect hide-on-large-and-down"><a
-								href="#!">6</a></li>
-							<li class="item waves-effect hide-on-large-and-down"><a
-								href="#!">7</a></li>
-							<li class="item waves-effect hide-on-large-and-down"><a
-								href="#!">8</a></li>
-							<li class="item waves-effect hide-on-large-and-down"><a
-								href="#!">9</a></li>
-							<li class="item waves-effect hide-on-large-and-down"><a
-								href="#!">10</a></li>
-							<li class="item waves-effect hide-on-large-and-down"><a
-								href="#!">11</a></li>
-							<li class="item waves-effect hide-on-large-and-down"><a
-								href="#!">12</a></li>
-							<li class="item waves-effect hide-on-large-and-down"><a
-								href="#!">13</a></li>
-						</ul>
-						<!-- PAGINATION END ========================= -->
-					</div>
+				<div class="qt-pagination qt-content-primary">
+				<!-- <form method="get" action="dwChart" class="qt-inline-form" id="pagingForm"> -->
+				<input type="hidden" id="page" name="page">
+				<input type="hidden" id="type" name="type" value="daily">
+				<!-- </form>  -->
+					<!-- PAGINATION ========================= -->
+					<ul class="pagination qt-container">
+						<li class="special"><span
+							class="qt-pagination-label qt-content-primary-dark">PAGES</span></li>
+						
+						<li class="special disabled"><a href="javascript:pagingForSubmit(${navi.currentPage-navi.pagePerGroup})"
+							class="qt-btn qt-btn-l qt-btn-primary"><i
+								class="dripicons-arrow-thin-left"></i></a></li>
+						
+						<li class="special waves-effect"><a href="javascript:pagingForSubmit(${navi.currentPage + 1})"
+							class="qt-btn qt-btn-l qt-btn-primary"><i
+								class="dripicons-arrow-thin-right"></i></a></li>
+						
+						<c:forEach begin="${navi.startPageGroup}" end="${navi.endPageGroup}" var="counter">
+							<c:if test="${navi.currentPage!=counter}">
+								<li class="item active hide-on-large-and-down"><a href="javascript:pagingForSubmit(${counter})">${counter}</a></li>
+							</c:if>
+							<c:if test="${navi.currentPage==counter}">
+								<li class="item waves-effect hide-on-large-and-down"><a	href="#!">${counter}</a></li>
+							</c:if>
+						</c:forEach>
+					</ul>
+					<!-- PAGINATION END ========================= -->
+				</div>
 				</div>
 
 

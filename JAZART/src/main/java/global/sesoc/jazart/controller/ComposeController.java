@@ -85,6 +85,7 @@ public class ComposeController {
 		// 다른 방법
 		// 매개변수로 boardnum이 아닌 savedfile을 받으면 DB에 갈 필요가 없다. String fullpath부분부터
 		// 바로 하면 된다.
+		logger.info("다운로드type,data"+type+", "+data);
 		String originalfile = "";
 		String fullpath = "";
 		ServletOutputStream fileout = null;

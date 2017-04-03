@@ -57,4 +57,20 @@ public class ChartRepository {
 		}
 		return result;
 	}
+
+	public int weeklyCount() {
+		ChartMapper mapper = sqlSession.getMapper(ChartMapper.class);
+		int result = 0;
+		Map<String, String> search = new HashMap<>();
+		try {
+			String day = mapper.getDay();
+			logger.info("위클리차트/요일2=> "+day);
+			search.put("day", day);
+			result = mapper.weeklyCount(search);
+			logger.info("주간 글개수=> "+result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

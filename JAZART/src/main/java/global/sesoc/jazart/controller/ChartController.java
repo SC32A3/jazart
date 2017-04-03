@@ -1,7 +1,8 @@
 package global.sesoc.jazart.controller;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -13,10 +14,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import global.sesoc.jazart.dao.ChartRepository;
 import global.sesoc.jazart.utility.PageNavigator;
-import global.sesoc.jazart.vo.Board;
 import global.sesoc.jazart.vo.SongInfo;
 
 @Controller
@@ -34,11 +35,18 @@ public class ChartController {
 	
 	@RequestMapping(value = "realtimeChart", method = RequestMethod.GET)
 	public String realtimect(Model model) {
+		int page = 1; 
+		int total = cr.dailyCount();
+		PageNavigator navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
+		int start = navi.getStartRecord(); //1,11,21
+		int end = start + countPerPage - 1; //10,20,30
+
 		logger.info("> realtime chart");
-		ArrayList<SongInfo> cList = cr.chartList("rc", 0, 0);
-		ArrayList<SongInfo> cList2 = cr.chartList("dc", 0, 0);
+		ArrayList<SongInfo> cList = cr.chartList("rc", start, end);
+		ArrayList<SongInfo> cList2 = cr.chartList("dc", start, end);
 		model.addAttribute("rc", cList);
 		model.addAttribute("dc", cList2);
+		model.addAttribute("navi", navi); //페이징을 위해서
 		return "chart/realtimeChart";
 	}
 
@@ -68,5 +76,32 @@ public class ChartController {
 		ArrayList<SongInfo> cList = cr.chartList("wc", 0, 0);
 		model.addAttribute("wc", cList);
 		return "chart/weeklyChart";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "dwChart", method = RequestMethod.GET)
+	public Map<String, Object> dwChart(Model model, @RequestParam(value="page", defaultValue="1") int page, String type) {
+		Map<String, Object> data = new HashMap<>();
+		logger.info("dwChart,page,type"+page+", "+type);
+		if (type.equals("daily")) {
+			int total = cr.dailyCount();
+			PageNavigator navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
+			int start = navi.getStartRecord(); //1,11,21
+			int end = start + countPerPage - 1; //10,20,30
+			logger.info("페이징재료page,start,end=> "+page+", "+start+", "+end);
+			ArrayList<SongInfo> cList = cr.chartList("dc", start, end);
+			data.put("dc", cList); data.put("navi", navi); data.put("type", type);
+		}
+		
+		if (type.equals("weekly")) {
+			int total = cr.weeklyCount();
+			PageNavigator navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
+			int start = navi.getStartRecord(); //1,11,21
+			int end = start + countPerPage - 1; //10,20,30
+			logger.info("페이징재료page,start,end=> "+page+", "+start+", "+end);
+			ArrayList<SongInfo> cList = cr.chartList("wc", start, end);
+			data.put("dc", cList); data.put("navi", navi); data.put("type", type);
+		}
+		return data;
 	}
 }
