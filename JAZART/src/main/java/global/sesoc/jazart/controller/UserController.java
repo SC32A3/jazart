@@ -1,5 +1,7 @@
 package global.sesoc.jazart.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -15,6 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import global.sesoc.jazart.dao.UserRepository;
 import global.sesoc.jazart.utility.FileService;
+import global.sesoc.jazart.vo.Playlist;
+import global.sesoc.jazart.vo.SongInfo;
 import global.sesoc.jazart.vo.User;
 
 /**
@@ -94,5 +98,13 @@ public class UserController {
       sessionStatus.setComplete();
       session.invalidate();
       return "redirect:/";
+   }
+   
+   @RequestMapping(value = "songPopup", method = RequestMethod.GET)
+   public String songPopup(Model model) {
+	  String userId = (String) session.getAttribute("loginId"); 
+	  ArrayList<SongInfo> playlist = ur.playlist(userId); 
+	  model.addAttribute("playlist", playlist);
+      return "user/songPopup";
    }
 }

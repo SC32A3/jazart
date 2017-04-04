@@ -412,3 +412,6 @@ b) where rnum between #{start} and #{end}
  insert into playlist values('apple2', '2', to_date('2017/04/04 09:25', 'yyyy/mm/dd HH24:MI'));
   insert into playlist values('apple2', '1', to_date('2017/04/04 11:25', 'yyyy/mm/dd HH24:MI'));
   insert into playlist values('apple2', '21', to_date('2017/04/03 21:25', 'yyyy/mm/dd HH24:MI'));
+  
+  select info.songnum, info.song_title, info.song_picture, info.song_nickname, info.song_file from playlist list, songinfo info
+  		where list.songnum = info.songnum and list.user_id = #{userId}
