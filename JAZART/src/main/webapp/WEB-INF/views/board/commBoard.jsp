@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
@@ -9,31 +9,31 @@
 <title>jazart</title>
 <meta name="description" content="Radio station HTML template">
 <meta name="viewport"
-   content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <!-- icons -->
 <link href='resources/fonts/dripicons/webfont.css' rel='stylesheet'
-   type='text/css'>
+	type='text/css'>
 <link href='resources/fonts/qticons/qticons.css' rel='stylesheet'
-   type='text/css'>
+	type='text/css'>
 
 <!-- slick slider -->
 <link href='resources/components/slick/slick.css' rel='stylesheet'
-   type='text/css'>
+	type='text/css'>
 
 <!-- swipebox -->
 <link href='resources/components/swipebox/src/css/swipebox.min.css'
-   rel='stylesheet' type='text/css'>
+	rel='stylesheet' type='text/css'>
 
 <!-- countdown component -->
 <link rel="stylesheet" type="text/css"
-   href="resources/components/countdown/css/jquery.classycountdown.css" />
+	href="resources/components/countdown/css/jquery.classycountdown.css" />
 
 <!-- QT 360 PLAYER component -->
 <link rel="stylesheet" type="text/css"
-   href="resources/components/soundmanager/templates/qtradio-player/css/flashblock.css" />
+	href="resources/components/soundmanager/templates/qtradio-player/css/flashblock.css" />
 <link rel="stylesheet" type="text/css"
-   href="resources/components/soundmanager/templates/qtradio-player/css/qt-360player-volume.css" />
+	href="resources/components/soundmanager/templates/qtradio-player/css/qt-360player-volume.css" />
 
 
 <!-- Main css file -->
@@ -45,24 +45,75 @@
 
 <style type="text/css">
 .freeBoard {
-   margin: auto;
-   text-align: center;
+	margin: auto;
+	text-align: center;
 }
-.qt-combo {width: auto; height: 35px;}
-.qt-combo2 {width: auto; height: 35px; text-align: right;}
-.qt-combo3 {margin-left: auto; text-align: left; }
-.board2 {margin: auto; text-align: center;}
-.board3 {margin: auto; text-align: right;}
-table, th, td {text-align: center}
-.td1{width:50px} .td2{width:100px} .td3{width:100px} .td4{width:250px} .td5{width:100px} .td6{width:50px}
+
+.qt-combo {
+	width: auto;
+	height: 35px;
+}
+
+.qt-combo2 {
+	width: auto;
+	height: 35px;
+	text-align: right;
+}
+
+.qt-combo3 {
+	margin-left: auto;
+	text-align: left;
+}
+
+.board2 {
+	margin: auto;
+	text-align: center;
+}
+
+.board3 {
+	margin: auto;
+	text-align: right;
+}
+
+table, th, td {
+	text-align: center
+}
+
+.td1 {
+	width: 50px
+}
+
+.td2 {
+	width: 100px
+}
+
+.td3 {
+	width: 100px
+}
+
+.td4 {
+	width: 250px
+}
+
+.td5 {
+	width: 100px
+}
+
+.td6 {
+	width: 50px
+}
+
 .qt-pagination li.item {
-    height: auto;
-    vertical-align: middle;
-    margin: 1rem 0 0 1rem;
-    height: 2rem;
-    line-height: 1.5rem;
+	height: auto;
+	vertical-align: middle;
+	margin: 1rem 0 0 1rem;
+	height: 2rem;
+	line-height: 1.5rem;
 }
-.ctn{ text-decoration: none}
+
+.ctn {
+	text-decoration: none
+}
 </style>
 <script>
 	function pagingForSubmit(currentPage) {
@@ -76,8 +127,8 @@ table, th, td {text-align: center}
 
 </head>
 <body>
-   <div class="qt-parentcontainer">
-     <!-- QT MENUBAR TOP ================================ -->
+	<div class="qt-parentcontainer">
+		<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
 			<ul>
 				<li><a href="#"><i class="dripicons-chevron-right"></i>About
@@ -106,7 +157,7 @@ table, th, td {text-align: center}
 						class="qticon-soundcloud qt-socialicon"></i></a></li>
 			</ul>
 		</div>
-     <!-- QT MENUBAR  ================================ -->
+		<!-- QT MENUBAR  ================================ -->
 		<nav class="qt-menubar nav-wrapper qt-content-primary ">
 			<!-- desktop menu  HIDDEN IN MOBILE AND TABLETS -->
 			<ul class="qt-desktopmenu hide-on-xl-and-down">
@@ -171,418 +222,430 @@ table, th, td {text-align: center}
 				<li><a href="page-contacts.html">Contacts</a></li>
 			</ul>
 		</div>
-      <!-- mobile toolbar -->
-      <ul
-         class="qt-mobile-toolbar qt-content-primary-dark qt-content-aside hide-on-large-only">
-         <li><a href="#!" data-expandable="#qtsearchbar"
-            class="qt-scrolltop"><i class="icon dripicons-search"></i></a></li>
-         <li><a href="page-popup.html" class="qt-popupwindow"
-            data-name="Music Player" data-width="320" data-height="500"><i
-               class="icon dripicons-duplicate"></i></a></li>
-         <li><a href="#!" class="button-playlistswitch"
-            data-activates="channelslist"><i
-               class="icon dripicons-media-play"></i></a></li>
-      </ul>
-      <!-- SEARCH FORM ========================= -->
+		<!-- mobile toolbar -->
+		<ul
+			class="qt-mobile-toolbar qt-content-primary-dark qt-content-aside hide-on-large-only">
+			<li><a href="#!" data-expandable="#qtsearchbar"
+				class="qt-scrolltop"><i class="icon dripicons-search"></i></a></li>
+			<li><a href="page-popup.html" class="qt-popupwindow"
+				data-name="Music Player" data-width="320" data-height="500"><i
+					class="icon dripicons-duplicate"></i></a></li>
+			<li><a href="#!" class="button-playlistswitch"
+				data-activates="channelslist"><i
+					class="icon dripicons-media-play"></i></a></li>
+		</ul>
+		<!-- SEARCH FORM ========================= -->
 
-      <div id="qtsearchbar"
-         class="qt-searchbar qt-content-primary qt-expandable">
-         <div class="qt-expandable-inner">
-            <form method="post" action="#search" class="qt-inline-form">
-               <div class="row qt-nopadding">
-                  <div class="col s12 m8 l9">
-                     <input placeholder="Search" value="" id="searchtex" type="text"
-                        class="validate qt-input-l">
-                  </div>
-                  <div class="col s12 m3 l2">
-                     <input type="button" value="Search"
-                        class="qt-btn qt-btn-primary qt-btn-l qt-fullwidth">
-                  </div>
-                  <div class="col s12 m1 l1">
-                     <a href="#!"
-                        class="qt-btn qt-btn-l qt-btn-secondary qt-fullwidth aligncenter"
-                        data-expandable="#qtsearchbar"><i class="dripicons-cross"></i></a>
-                  </div>
-               </div>
-            </form>
-         </div>
-      </div>
-      <!-- SEARCH FORM END ========================= -->
+		<div id="qtsearchbar"
+			class="qt-searchbar qt-content-primary qt-expandable">
+			<div class="qt-expandable-inner">
+				<form method="post" action="#search" class="qt-inline-form">
+					<div class="row qt-nopadding">
+						<div class="col s12 m8 l9">
+							<input placeholder="Search" value="" id="searchtex" type="text"
+								class="validate qt-input-l">
+						</div>
+						<div class="col s12 m3 l2">
+							<input type="button" value="Search"
+								class="qt-btn qt-btn-primary qt-btn-l qt-fullwidth">
+						</div>
+						<div class="col s12 m1 l1">
+							<a href="#!"
+								class="qt-btn qt-btn-l qt-btn-secondary qt-fullwidth aligncenter"
+								data-expandable="#qtsearchbar"><i class="dripicons-cross"></i></a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- SEARCH FORM END ========================= -->
 
-      <div id="maincontent" class="qt-main">
-         <!-- ======================= HEADER SECTION ======================= -->
-         <!-- HEADER CONTACTS ========================= -->
-         <div class="qt-pageheader qt-negative">
-            <div class="qt-container">
-               <h1 class="qt-caption qt-spacer-s"><a href="#container" class="ctn">Free community</a></h1>
-               <ul class="qt-menu-social qt-spacer-s">
-                  <li><a href="#"><i class="qticon-beatport"></i></a></li>
-                  <li><a href="#"><i class="qticon-facebook"></i></a></li>
-                  <li><a href="#"><i class="qticon-twitter"></i></a></li>
-                  <li><a href="#"><i class="qticon-youtube"></i></a></li>
-                  <li><a href="#"><i class="qticon-soundcloud"></i></a></li>
-               </ul>
-            </div>
-            <div class="qt-header-bg"
-               data-bgimage="resources/imagestemplate/full-1600-700.jpg">
-               <img src="" alt="Featured image"
-                  width="690" height="302">
-            </div>
-         </div>
-         <!-- HEADER CONTACTS END ========================= -->
-         <div class="qt-container qt-vertical-padding-l " id="container">
-            <div class="row">
-               <div class="freeBoard">
-                  <!-- ======================11 SECTION BOOKING AND CONTACTS ================================================ -->
-                  <div>
-                     <div class="board3" >
-                        <div class="qt-the-content">
-                           <!-- 검색 -->
-                           <div class="col s12 m3 l12">
-                              <div class="">
-                                 <hr class="qt-spacer-s ">
-                                 <form method="get" action="commBoard" class="qt-inline-form" id="pagingForm">
-                                    <div class="row qt-nopadding">
-                                          <div class="col s12 m4 l1">
-                                          <select class="qt-btn qt-btn-s qt-combo" name="searchTitle">
-                                             <option value="board_nickname" ${searchTitle=="board_nickname"? "selected" : ""} >글쓴이</option>
-                                             <option value="board_title" ${searchTitle=="board_title"? "selected" : ""}>제목</option>
-                                             <option value="board_tag" ${searchTitle=="board_tag"? "selected" : ""}>말머리</option>
-                                          </select> 
-                                          </div>
-                                       <div class="col s12 m4 l2 ">   
-                                          <input placeholder="Music Search" name="searchText" id="searchText" value="${searchText}" type="text"
-                                             class="validate qt-input-s">
-                                       </div>
-                                       <div class="col s12 m4 l1">
-									<input class="qt-btn qt-btn-secondary qt-btn-s qt-fullwidth" type="button" onclick="pagingForSubmit(1)" value="Search">
-                                    <input type="hidden" name="page" id="page">
-                                       </div>
-                                    </div>
-                                 </form>
-                                          
-                                          
-                              </div>
-                           </div>
-                           <!-- 검색 끝 -->
-                           
-                           <table class="board">
-                              <tbody>
-                                 <tr>
-                                    <th>Num</th>
-                                    <th class="views">User</th>
-									<th>Tag</th>
-                                    <th>Title</th>
-                                    <th>Date</th>
-                                    <th>Hit</th>
-                                 </tr>
-                                 <c:if test="${empty bList}">
-								 <tr><td>게시된 글이 없습니다</td></tr>                                 
-                                 </c:if>
-                                 <c:if test="${not empty bList}">
-                                 <c:forEach var="list" items="${bList}" >
-                                 <tr class="odd">
-                                    <td class="td1">${list.boardNum}</td>
-                                    <td class="td2"><a href="http://example.com/">${list.board_nickname}</a></td>
-                                    <td class="td3">${list.board_tag}</td>
-                                    <td class="td4"><a href="boardRead?boardNum=${list.boardNum}">${list.board_title}</td>
-                                    <td class="td5">${list.board_inputdate}</td>
-                                    <td class="td6">${list.board_hits}</td>
-                                 </tr>
-                                 </c:forEach>
-                                 </c:if>
-                              </tbody>
-                           </table>
-                           
-                        
-                           
-                           <div class="qt-combo2">
-                           <p><a href="boardWrite"><input type="button" value="write"
-                           class="qt-btn qt-btn-secondary qt-btn-s " name="page" id="page">
-                           </a></p></div>
-   
-                           <!-- POST CONTENT END ========================= -->
-                        </div>
-                        <hr class="qt-spacer-l">
-                     </div>
-                  </div>
-                  <!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="qt-pagination qt-content-primary">
-         <!-- PAGINATION ========================= -->
-         <ul class="pagination qt-container">
-            <li class="special"><span
-               class="qt-pagination-label qt-content-primary-dark">PAGES</span></li>
+		<div id="maincontent" class="qt-main">
+			<!-- ======================= HEADER SECTION ======================= -->
+			<!-- HEADER CONTACTS ========================= -->
+			<div class="qt-pageheader qt-negative">
+				<div class="qt-container">
+					<h1 class="qt-caption qt-spacer-s">
+						<a href="#container" class="ctn">Free community</a>
+					</h1>
+					<ul class="qt-menu-social qt-spacer-s">
+						<li><a href="#"><i class="qticon-beatport"></i></a></li>
+						<li><a href="#"><i class="qticon-facebook"></i></a></li>
+						<li><a href="#"><i class="qticon-twitter"></i></a></li>
+						<li><a href="#"><i class="qticon-youtube"></i></a></li>
+						<li><a href="#"><i class="qticon-soundcloud"></i></a></li>
+					</ul>
+				</div>
+				<div class="qt-header-bg"
+					data-bgimage="resources/imagestemplate/full-1600-700.jpg">
+					<img src="" alt="Featured image" width="690" height="302">
+				</div>
+			</div>
+			<!-- HEADER CONTACTS END ========================= -->
+			<div class="qt-container qt-vertical-padding-l " id="container">
+				<div class="row">
+					<div class="freeBoard">
+						<!-- ======================11 SECTION BOOKING AND CONTACTS ================================================ -->
+						<div>
+							<div class="board3">
+								<div class="qt-the-content">
+									<!-- 검색 -->
+									<div class="col s12 m3 l12">
+										<div class="">
+											<hr class="qt-spacer-s ">
+											<form method="get" action="commBoard" class="qt-inline-form"
+												id="pagingForm">
+												<div class="row qt-nopadding">
+													<div class="col s12 m4 l1">
+														<select class="qt-btn qt-btn-s qt-combo"
+															name="searchTitle">
+															<option value="board_nickname"
+																${searchTitle=="board_nickname"? "selected" : ""}>글쓴이</option>
+															<option value="board_title"
+																${searchTitle=="board_title"? "selected" : ""}>제목</option>
+															<option value="board_tag"
+																${searchTitle=="board_tag"? "selected" : ""}>말머리</option>
+														</select>
+													</div>
+													<div class="col s12 m4 l2 ">
+														<input placeholder="Music Search" name="searchText"
+															id="searchText" value="${searchText}" type="text"
+															class="validate qt-input-s">
+													</div>
+													<div class="col s12 m4 l1">
+														<input
+															class="qt-btn qt-btn-secondary qt-btn-s qt-fullwidth"
+															type="button" onclick="pagingForSubmit(1)" value="Search">
+														<input type="hidden" name="page" id="page">
+													</div>
+												</div>
+											</form>
 
-            <li class="special disabled"><a href="javascript:pagingForSubmit(${navi.currentPage-navi.pagePerGroup})"
-               class="qt-btn qt-btn-l qt-btn-primary"><i
-                  class="dripicons-arrow-thin-left"></i></a></li>
-            
-            <li class="special waves-effect"><a href="javascript:pagingForSubmit(${navi.currentPage + 1})"
-               class="qt-btn qt-btn-l qt-btn-primary"><i
-                  class="dripicons-arrow-thin-right"></i></a></li>
-           
-            <c:forEach begin="${navi.startPageGroup}" end="${navi.endPageGroup}"
-				var="counter">
+
+										</div>
+									</div>
+									<!-- 검색 끝 -->
+
+									<table class="board">
+										<tbody>
+											<tr>
+												<th>Num</th>
+												<th>Tag</th>
+												<th class="views">User</th>
+												<th>Title</th>
+												<th>Date</th>
+												<th>Hit</th>
+											</tr>
+											<c:if test="${empty bList}">
+												<tr>
+													<td>게시된 글이 없습니다</td>
+												</tr>
+											</c:if>
+											<c:if test="${not empty bList}">
+												<c:forEach var="list" items="${bList}">
+													<tr class="odd">
+														<td class="td1">${list.boardNum}</td>
+														<td class="td2">${list.board_tag}</td>
+														<td class="td3">${list.board_nickname}</td>
+														<td class="td4"><a
+															href="boardRead?boardNum=${list.boardNum}">${list.board_title}</a></td>
+														<td class="td5">${list.board_inputdate}</td>
+														<td class="td6">${list.board_hits}</td>
+													</tr>
+												</c:forEach>
+											</c:if>
+										</tbody>
+									</table>
+									<div class="qt-combo2">
+										<p>
+											<a href="boardWrite"><input type="button" value="write"
+												class="qt-btn qt-btn-secondary qt-btn-s " name="page"
+												id="page"> </a>
+										</p>
+									</div>
+
+									<!-- POST CONTENT END ========================= -->
+								</div>
+								<hr class="qt-spacer-l">
+							</div>
+						</div>
+						<!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="qt-pagination qt-content-primary">
+			<!-- PAGINATION ========================= -->
+			<ul class="pagination qt-container">
+				<li class="special"><span
+					class="qt-pagination-label qt-content-primary-dark">PAGES</span></li>
+
+				<li class="special disabled"><a
+					href="javascript:pagingForSubmit(${navi.currentPage-navi.pagePerGroup})"
+					class="qt-btn qt-btn-l qt-btn-primary"><i
+						class="dripicons-arrow-thin-left"></i></a></li>
+
+				<li class="special waves-effect"><a
+					href="javascript:pagingForSubmit(${navi.currentPage + 1})"
+					class="qt-btn qt-btn-l qt-btn-primary"><i
+						class="dripicons-arrow-thin-right"></i></a></li>
+
+				<c:forEach begin="${navi.startPageGroup}" end="${navi.endPageGroup}"
+					var="counter">
 					<c:if test="${navi.currentPage==counter}">
 						<li class="item active hide-on-large-and-down">${counter}</li>
 					</c:if>
 					<c:if test="${navi.currentPage!=counter}">
-						<li class="item waves-effect hide-on-large-and-down">
-						<a href="javascript:pagingForSubmit(${counter})">${counter}</a>
-						</li>
+						<li class="item waves-effect hide-on-large-and-down"><a
+							href="javascript:pagingForSubmit(${counter})">${counter}</a></li>
 					</c:if>
-			</c:forEach>
-         </ul>
-         <!-- PAGINATION END ========================= -->
+				</c:forEach>
+			</ul>
+			<!-- PAGINATION END ========================= -->
 
-      </div>
+		</div>
 
-      <div class="qt-footer qt-footerwidgets">
-         <div class="qt-section qt-footer-widgets qt-content-primary-light">
-            <div class="qt-container">
-               <h2 class="qt-footer-logo">
-                  <a href="./" class="brand-logo qt-logo-text">jazar<span>t</span></a>
-               </h2>
-               <div
-                  class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
-                  <div class="col s12 m3 l3">
-                     <div class="qt-widget">
-                        <h5 class="qt-caption-small">
-                           <span>Stay Connected</span>
-                        </h5>
-                        Subscribe now to the newsletter to receive weekly updates.
-                        <hr class="qt-spacer-s">
-                        <form method="post" action="#newsletter" class="qt-inline-form">
-                           <div class="row qt-nopadding">
-                              <div class="col s12 m8 l9">
-                                 <input placeholder="Your email" value="" type="text"
-                                    class="validate qt-input-s">
-                              </div>
-                              <div class="col s12 m4 l3">
-                                 <input type="button" value="submit"
-                                    class="qt-btn qt-btn-secondary qt-btn-s qt-fullwidth">
-                              </div>
-                           </div>
-                        </form>
-                     </div>
-                  </div>
-                  <div class="col s12 m3 l3">
-                     <div class="qt-widget">
-                        <h5 class="qt-caption-small">
-                           <span>Contacts</span>
-                        </h5>
-                        <div class="qt-widget-contacts">
-                           <p>
-                              <i class="qticon-home"></i><a
-                                 href="http://www.qantumthemes.com">www.qantumthemes.com</a>
-                           </p>
-                           <p>
-                              <i class="qticon-at-sign"></i><a
-                                 href="mailto:info@someofyoursite.com">info@someofyoursite.com</a>
-                           </p>
-                           <p>
-                              <i class="qticon-phone"></i><a href="tel:1-847-555-5555">1-847-555-5555</a>
-                           </p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col s12 m3 l3">
-                     <div class="qt-widget">
-                        <h5 class="qt-caption-small">
-                           <span>Contacts</span>
-                        </h5>
-                        <div class="qt-widget-about">
-                           <p>
-                              We are a young and dynamic radio station which wants to bring
-                              happyness in your life. <br> <a
-                                 href="http://www.qantumthemes.com">Discover more <i
-                                 class="dripicons-arrow-thin-right"></i></a>
-                           </p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col s12 m3 l3">
-                     <div class="qt-widget">
-                        <h5 class="qt-caption-small">
-                           <span>Main links</span>
-                        </h5>
-                        <ul class="qt-widget-menu qt-list-chevron">
-                           <li><a href="http://www.qantumthemes.com">Home page</a></li>
-                           <li><a href="http://www.qantumthemes.com">Shows
-                                 schedule</a></li>
-                           <li><a href="http://www.qantumthemes.com">Events
-                                 archive</a></li>
-                           <li><a href="http://www.qantumthemes.com">Contacts</a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="qt-header-bg"
-               data-bgimage="resources/imagestemplate/full-1600-700.jpg">
-               <img src="resources/imagestemplate/full-1600-700.jpg" alt="Featured image"
-                  width="690" height="302">
-            </div>
-         </div>
-         <div class="qt-footer-bottom qt-content-primary-dark">
-            <div class="qt-container">
-               <div class="row">
-                  <div class="col s12 m12 l8">
-                     Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
-                     | Radio Station HTML Template
-                     <ul class="qt-menu-footer qt-small qt-list-chevron ">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Sitemap</a></li>
-                     </ul>
-                  </div>
-                  <div class="col s12 m12 l4">
-                     <ul class="qt-menu-social">
-                        <li class="right"><a href="#"><i
-                              class="qticon-beatport"></i></a></li>
-                        <li class="right"><a href="#"><i
-                              class="qticon-facebook"></i></a></li>
-                        <li class="right"><a href="#"><i class="qticon-twitter"></i></a></li>
-                        <li class="right"><a href="#"><i class="qticon-youtube"></i></a></li>
-                        <li class="right"><a href="#"><i
-                              class="qticon-soundcloud"></i></a></li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-   <!-- PLAYER SIDEBAR ========================= -->
-   <div id="channelslist"
-      class="side-nav qt-content-primary qt-right-sidebar">
-      <a href="#"
-         class="qt-btn qt-btn-secondary button-playlistswitch-close qt-close-sidebar-right"
-         data-activates="channelslist"><i class="icon dripicons-cross"></i></a>
-      <!-- PLAYER ========================= -->
-      <div id="qtplayercontainer" data-playervolume="true"
-         data-accentcolor="#dd0e34" data-accentcolordark="#ff0442"
-         data-textcolor="#ffffff"
-         data-soundmanagerurl="./resources/components/soundmanager/swf/"
-         class="qt-playercontainer qt-playervolume qt-clearfix qt-content-primary">
-         <div class="qt-playercontainer-content qt-vertical-padding-m">
-            <div class="qt-playercontainer-header">
-               <h5 class="qt-text-shadow small">Now on</h5>
-               <h3 id="qtradiotitle" class="qt-text-shadow">STATION 1 RADIO</h3>
-               <h4 id="qtradiosubtitle" class="qt-thin qt-text-shadow small">Subtitle
-                  of the radio</h4>
-            </div>
-            <div class="qt-playercontainer-musicplayer" id="qtmusicplayer">
-               <div class="qt-musicplayer">
-                  <div class="ui360 ui360-vis qt-ui360">
-                     <a id="playerlink"
-                        href="http://freshly-ground.com/data/audio/sm2/Adrian%20Glynn%20-%20Blue%20Belle%20Lament.mp3"></a>
-                  </div>
-               </div>
-            </div>
-            <div
-               class="qt-playercontainer-data qt-container qt-text-shadow small">
-               <h6 class="qt-inline-textdeco">
-                  <span>Current track</span>
-               </h6>
-               <div class="qt-t qt-current-track">
-                  <h5 id="qtFeedPlayerTrack">TITLE</h5>
-                  <h6 class="qt-small" id="qtFeedPlayerAuthor">ARTIST</h6>
-               </div>
-               <hr class="qt-inline-textdeco">
-            </div>
-         </div>
-         <div id="playerimage" class="qt-header-bg"
-            data-bgimage="resources/imagestemplate/full-1600-700.jpg">
-            <img src="resources/imagestemplate/full-1600-700.jpg" alt="Featured image"
-               width="690" height="302">
-         </div>
-      </div>
-      <!-- this is for xml radio feed -->
-      <div id="qtShoutcastFeedData" class="hidden" data-style=""
-         data-channel="1" data-host="173.192.105.231" data-port="3540"></div>
-      <!-- PLAYER END ========================= -->
-      <!-- CHANNELS LIST ========================= -->
-      <div class="qt-part-channels-list">
-         <ul class="qt-content-aside qt-channelslist qt-negative">
-            <li class="qt-channel"><a href="#!" class="qt-ellipsis"
-               data-title="06AM Ibiza" data-subtitle="Underground Radio"
-               data-background="imagestemplate/photo-squared-500-500.jpg"
-               data-logo="imagestemplate/radio-logo.png"
-               data-playtrack="http://173.192.105.231:3540/stream.mp3"
-               data-host="173.192.105.231" data-port="3540" data-stats_path=""
-               data-played_path="" data-channel=""> 
-                  <i class="dripicons-media-play"></i> Station 1
-            </a></li>
-            <li class="qt-channel"><a href="#!" class="qt-ellipsis"
-               data-title="altradio" data-subtitle="The subtitle of radio 2"
-               data-background="imagestemplate/large-1170-512.jpg"
-               data-logo="imagestemplate/radio-logo.png"
-               data-playtrack="http://82.77.137.30:8557/;listen.mp3"
-               data-host="82.77.137.30" data-port="8557" data-stats_path=""
-               data-played_path="" data-channel=""> <img
-                  src="" alt="logo"
-                  class="qt-radiologo" width="80" height="80"> <i
-                  class="dripicons-media-play"></i> altradio
-            </a></li>
-         </ul>
-      </div>
-      <!-- CHANNELS LIST END ========================= -->
-   </div>
+		<div class="qt-footer qt-footerwidgets">
+			<div class="qt-section qt-footer-widgets qt-content-primary-light">
+				<div class="qt-container">
+					<h2 class="qt-footer-logo">
+						<a href="./" class="brand-logo qt-logo-text">jazar<span>t</span></a>
+					</h2>
+					<div
+						class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
+						<div class="col s12 m3 l3">
+							<div class="qt-widget">
+								<h5 class="qt-caption-small">
+									<span>Stay Connected</span>
+								</h5>
+								Subscribe now to the newsletter to receive weekly updates.
+								<hr class="qt-spacer-s">
+								<form method="post" action="#newsletter" class="qt-inline-form">
+									<div class="row qt-nopadding">
+										<div class="col s12 m8 l9">
+											<input placeholder="Your email" value="" type="text"
+												class="validate qt-input-s">
+										</div>
+										<div class="col s12 m4 l3">
+											<input type="button" value="submit"
+												class="qt-btn qt-btn-secondary qt-btn-s qt-fullwidth">
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="col s12 m3 l3">
+							<div class="qt-widget">
+								<h5 class="qt-caption-small">
+									<span>Contacts</span>
+								</h5>
+								<div class="qt-widget-contacts">
+									<p>
+										<i class="qticon-home"></i><a
+											href="http://www.qantumthemes.com">www.qantumthemes.com</a>
+									</p>
+									<p>
+										<i class="qticon-at-sign"></i><a
+											href="mailto:info@someofyoursite.com">info@someofyoursite.com</a>
+									</p>
+									<p>
+										<i class="qticon-phone"></i><a href="tel:1-847-555-5555">1-847-555-5555</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col s12 m3 l3">
+							<div class="qt-widget">
+								<h5 class="qt-caption-small">
+									<span>Contacts</span>
+								</h5>
+								<div class="qt-widget-about">
+									<p>
+										We are a young and dynamic radio station which wants to bring
+										happyness in your life. <br> <a
+											href="http://www.qantumthemes.com">Discover more <i
+											class="dripicons-arrow-thin-right"></i></a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col s12 m3 l3">
+							<div class="qt-widget">
+								<h5 class="qt-caption-small">
+									<span>Main links</span>
+								</h5>
+								<ul class="qt-widget-menu qt-list-chevron">
+									<li><a href="http://www.qantumthemes.com">Home page</a></li>
+									<li><a href="http://www.qantumthemes.com">Shows
+											schedule</a></li>
+									<li><a href="http://www.qantumthemes.com">Events
+											archive</a></li>
+									<li><a href="http://www.qantumthemes.com">Contacts</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="qt-header-bg"
+					data-bgimage="resources/imagestemplate/full-1600-700.jpg">
+					<img src="resources/imagestemplate/full-1600-700.jpg"
+						alt="Featured image" width="690" height="302">
+				</div>
+			</div>
+			<div class="qt-footer-bottom qt-content-primary-dark">
+				<div class="qt-container">
+					<div class="row">
+						<div class="col s12 m12 l8">
+							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
+							| Radio Station HTML Template
+							<ul class="qt-menu-footer qt-small qt-list-chevron ">
+								<li><a href="#">Home</a></li>
+								<li><a href="#">Privacy</a></li>
+								<li><a href="#">Sitemap</a></li>
+							</ul>
+						</div>
+						<div class="col s12 m12 l4">
+							<ul class="qt-menu-social">
+								<li class="right"><a href="#"><i
+										class="qticon-beatport"></i></a></li>
+								<li class="right"><a href="#"><i
+										class="qticon-facebook"></i></a></li>
+								<li class="right"><a href="#"><i class="qticon-twitter"></i></a></li>
+								<li class="right"><a href="#"><i class="qticon-youtube"></i></a></li>
+								<li class="right"><a href="#"><i
+										class="qticon-soundcloud"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- PLAYER SIDEBAR ========================= -->
+	<div id="channelslist"
+		class="side-nav qt-content-primary qt-right-sidebar">
+		<a href="#"
+			class="qt-btn qt-btn-secondary button-playlistswitch-close qt-close-sidebar-right"
+			data-activates="channelslist"><i class="icon dripicons-cross"></i></a>
+		<!-- PLAYER ========================= -->
+		<div id="qtplayercontainer" data-playervolume="true"
+			data-accentcolor="#dd0e34" data-accentcolordark="#ff0442"
+			data-textcolor="#ffffff"
+			data-soundmanagerurl="./resources/components/soundmanager/swf/"
+			class="qt-playercontainer qt-playervolume qt-clearfix qt-content-primary">
+			<div class="qt-playercontainer-content qt-vertical-padding-m">
+				<div class="qt-playercontainer-header">
+					<h5 class="qt-text-shadow small">Now on</h5>
+					<h3 id="qtradiotitle" class="qt-text-shadow">STATION 1 RADIO</h3>
+					<h4 id="qtradiosubtitle" class="qt-thin qt-text-shadow small">Subtitle
+						of the radio</h4>
+				</div>
+				<div class="qt-playercontainer-musicplayer" id="qtmusicplayer">
+					<div class="qt-musicplayer">
+						<div class="ui360 ui360-vis qt-ui360">
+							<a id="playerlink"
+								href="http://freshly-ground.com/data/audio/sm2/Adrian%20Glynn%20-%20Blue%20Belle%20Lament.mp3"></a>
+						</div>
+					</div>
+				</div>
+				<div
+					class="qt-playercontainer-data qt-container qt-text-shadow small">
+					<h6 class="qt-inline-textdeco">
+						<span>Current track</span>
+					</h6>
+					<div class="qt-t qt-current-track">
+						<h5 id="qtFeedPlayerTrack">TITLE</h5>
+						<h6 class="qt-small" id="qtFeedPlayerAuthor">ARTIST</h6>
+					</div>
+					<hr class="qt-inline-textdeco">
+				</div>
+			</div>
+			<div id="playerimage" class="qt-header-bg"
+				data-bgimage="resources/imagestemplate/full-1600-700.jpg">
+				<img src="resources/imagestemplate/full-1600-700.jpg"
+					alt="Featured image" width="690" height="302">
+			</div>
+		</div>
+		<!-- this is for xml radio feed -->
+		<div id="qtShoutcastFeedData" class="hidden" data-style=""
+			data-channel="1" data-host="173.192.105.231" data-port="3540"></div>
+		<!-- PLAYER END ========================= -->
+		<!-- CHANNELS LIST ========================= -->
+		<div class="qt-part-channels-list">
+			<ul class="qt-content-aside qt-channelslist qt-negative">
+				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
+					data-title="06AM Ibiza" data-subtitle="Underground Radio"
+					data-background="imagestemplate/photo-squared-500-500.jpg"
+					data-logo="imagestemplate/radio-logo.png"
+					data-playtrack="http://173.192.105.231:3540/stream.mp3"
+					data-host="173.192.105.231" data-port="3540" data-stats_path=""
+					data-played_path="" data-channel=""> <i
+						class="dripicons-media-play"></i> Station 1
+				</a></li>
+				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
+					data-title="altradio" data-subtitle="The subtitle of radio 2"
+					data-background="imagestemplate/large-1170-512.jpg"
+					data-logo="imagestemplate/radio-logo.png"
+					data-playtrack="http://82.77.137.30:8557/;listen.mp3"
+					data-host="82.77.137.30" data-port="8557" data-stats_path=""
+					data-played_path="" data-channel=""> <img src="" alt="logo"
+						class="qt-radiologo" width="80" height="80"> <i
+						class="dripicons-media-play"></i> altradio
+				</a></li>
+			</ul>
+		</div>
+		<!-- CHANNELS LIST END ========================= -->
+	</div>
 
-   <!-- PLAYER SIDEBAR END ========================= -->
+	<!-- PLAYER SIDEBAR END ========================= -->
 
-   <!-- QT BODY END ================================ -->
+	<!-- QT BODY END ================================ -->
 
-   <!-- QT FOOTER SCRIPTS ================================ -->
-   <script src="resources/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-   <script src="resources/js/jquery.js"></script>
-   <!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
-   <script src="resources/js/jquery-migrate.min.js"></script>
-   <!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
+	<!-- QT FOOTER SCRIPTS ================================ -->
+	<script src="resources/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+	<script src="resources/js/jquery.js"></script>
+	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
+	<script src="resources/js/jquery-migrate.min.js"></script>
+	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
 
-   <!-- Framework -->
-   <script src="resources/js/materializecss/bin/materialize.min.js"></script>
+	<!-- Framework -->
+	<script src="resources/js/materializecss/bin/materialize.min.js"></script>
 
-   <!-- Cookies for player -->
-   <script src="resources/js/jquerycookie.js"></script>
+	<!-- Cookies for player -->
+	<script src="resources/js/jquerycookie.js"></script>
 
-   <!-- Slick carousel and skrollr -->
-   <script src="resources/components/slick/slick.min.js"></script>
-   <script src="resources/components/skrollr/skrollr.min.js"></script>
+	<!-- Slick carousel and skrollr -->
+	<script src="resources/components/slick/slick.min.js"></script>
+	<script src="resources/components/skrollr/skrollr.min.js"></script>
 
-   <!-- Swipebox -->
-   <script
-      src="resources/components/swipebox/lib/ios-orientationchange-fix.js"></script>
-   <script
-      src="resources/components/swipebox/src/js/jquery.swipebox.min.js"></script>
+	<!-- Swipebox -->
+	<script
+		src="resources/components/swipebox/lib/ios-orientationchange-fix.js"></script>
+	<script
+		src="resources/components/swipebox/src/js/jquery.swipebox.min.js"></script>
 
-   <!-- Countdown -->
-   <script src="resources/components/countdown/js/jquery.knob.js"></script>
-   <script src="resources/components/countdown/js/jquery.throttle.js"></script>
-   <script
-      src="resources/components/countdown/js/jquery.classycountdown.min.js"></script>
+	<!-- Countdown -->
+	<script src="resources/components/countdown/js/jquery.knob.js"></script>
+	<script src="resources/components/countdown/js/jquery.throttle.js"></script>
+	<script
+		src="resources/components/countdown/js/jquery.classycountdown.min.js"></script>
 
-   <!-- Soundmanager2 -->
-   <!--[if IE]><script src="components/soundmanager/script/excanvas.js"></script><![endif]-->
-   <script
-      src="resources/components/soundmanager/script/berniecode-animator.js"></script>
-   <script
-      src="resources/components/soundmanager/script/soundmanager2-nodebug.js"></script>
-   <script src="resources/components/soundmanager/script/shoutcast.js"></script>
-   <script
-      src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script>
+	<!-- Soundmanager2 -->
+	<!--[if IE]><script src="components/soundmanager/script/excanvas.js"></script><![endif]-->
+	<script
+		src="resources/components/soundmanager/script/berniecode-animator.js"></script>
+	<script
+		src="resources/components/soundmanager/script/soundmanager2-nodebug.js"></script>
+	<script src="resources/components/soundmanager/script/shoutcast.js"></script>
+	<script
+		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script>
 
-   <!-- Popup -->
-   <script src="resources/components/popup/popup.js"></script>
+	<!-- Popup -->
+	<script src="resources/components/popup/popup.js"></script>
 
 
-   <!-- MAIN JAVASCRIPT FILE ================================ -->
-   <script src="resources/js/qt-main.js"></script>
+	<!-- MAIN JAVASCRIPT FILE ================================ -->
+	<script src="resources/js/qt-main.js"></script>
 
 </body>
 </html>

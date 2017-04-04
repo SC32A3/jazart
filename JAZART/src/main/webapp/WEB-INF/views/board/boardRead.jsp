@@ -58,7 +58,7 @@
 .replyArea {
 	background-color: #dddddd;
 	width: auto;
-	margin : 0 auto;
+	margin: 0 auto;
 }
 
 input[type=button] {
@@ -102,10 +102,10 @@ table, th, td {
 }
 
 .qt-btn.qt-btn-l, input[type="button"].qt-btn-l {
-    line-height: 2rem;
-    font-size: 1.414rem;
-    padding: 0 0.7rem;
-    min-width: 4rem;
+	line-height: 2rem;
+	font-size: 1.414rem;
+	padding: 0 0.7rem;
+	min-width: 4rem;
 }
 
 .bContent {
@@ -116,24 +116,34 @@ table, th, td {
 	margin-bottom: 10px;
 }
 
-p.bContent b{
-  position:relative;
-  display: block;
+p.bContent b {
+	position: relative;
+	display: block;
 }
 
-p.bContent b:after{
-  position:absolute;
-  content:"";
-  width: 60px;
-  height:1px;
-  background: #ffd736;
-  left:0;
-  bottom:-1px;
+p.bContent b:after {
+	position: absolute;
+	content: "";
+	width: 60px;
+	height: 1px;
+	background: #ffd736;
+	left: 0;
+	bottom: -1px;
 }
 
-.contentBrg { background-color: antiquewhite; padding: 10px;}
+.contentBrg {
+	background-color: antiquewhite;
+	padding: 10px;
+}
+
 .qt-spacer-m {
 	margin-top: 1rem;
+}
+
+.btns {
+	display : inline-block;
+	text-align: center;
+	
 }
 </style>
 <script type="text/javascript">
@@ -145,9 +155,7 @@ p.bContent b:after{
 	}
 
 	function updateCheck(boardNum) {
-		if (confirm("글을 수정하시겠습니까?")) {
 			location.href = "boardUpdate?boardNum=" + boardNum;
-		}
 	}
 	
 </script>
@@ -455,9 +463,7 @@ p.bContent b:after{
 											</li>
 										</ul>
 										<div id="form" class="row">
-
 											<div class="row">
-												<!-- <hr class="qt-spacer-s hide-on-med-and-up"> 요 클래스 기능이 뭐지.. -->
 												<div class="row">
 													<div class="input-field col s12 titleBrg">
 														<input type="hidden" id="boardnum"
@@ -477,28 +483,27 @@ p.bContent b:after{
 														<pre class="contentBrg">${board.board_content}</pre>
 													</div>
 
-													<div class="input-field col s12">
+													<div class="input-field col s12 btns">
+													
 														<button
 															class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light"
 															onclick="location.href='commBoard'">
 															<span class="lnr lnr-rocket"></span> List
 														</button>
-														<c:if test="${loginNickname == board.board_nickname}">
-															<button
-																class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light"
-																onclick="javascript:updateCheck(${board.boardNum })">
-																<span class="lnr lnr-rocket"></span> update
+														<button
+															class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light"
+															onclick="javascript:updateCheck(${board.boardNum })"
+															<c:if test="${loginNickname!=board.board_nickname}">disabled="disabled" style ="opacity:0.5;"</c:if>>
+															<span class="lnr lnr-rocket"></span> update
+														</button>
+														<button
+															class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light"
+															onclick="javascript:deleteCheck(${board.boardNum })"
+															<c:if test="${loginNickname!=board.board_nickname}">disabled="disabled" style ="opacity:0.5;"</c:if>>
+															<span class="lnr lnr-rocket"></span> delete
+														</button>
 
-															</button>
-															<button
-																class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light"
-																onclick="javascript:deleteCheck(${board.boardNum })">
-																<span class="lnr lnr-rocket"></span> delete
-															</button>
-														</c:if>
 													</div>
-
-
 												</div>
 												<!-- /form -->
 												<br>
