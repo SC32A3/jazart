@@ -46,91 +46,11 @@
 <!-- 내꺼 -->
 <script src="resources/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
-	var msg = '';
-	var paging = '';
-
-	function chart(type) {
-		var page = document.getElementById("page");
-		$.ajax({
-			method : "get",
-			url : "dwChart",
-			data : {'type' : type, 'page' : page.value},
-			success : inputdata
-				/* alert(JSON.stringify(resp["dc"][0])); //
-				alert(JSON.stringify(resp["navi"]["countPerPage"]));  // 10 */
-		})
-	}  
-	
-	function inputdata(resp) {
-		var type = JSON.stringify(resp["type"]);
-		alert(type);
-		var msg = '';
-		var paging = '';
-
-		
-		//		if (type == 'daily') {
-				msg = '';
-				msg += '<div class="col s12 m4 l4">';
-				msg += '<div class="qt-part-archive-item qt-part-show-schedule-day-item">';
-				
-			$.each(resp["dc"], function(index, item) {
-				msg += '<div class="qt-item-header">';
-				msg += '<div class="qt-header-mid qt-vc">';
-				msg += '<div class="qt-vi">';
-				msg += 				'<h4 class="qt-item-title qt-title"><a href="#read" class="qt-ellipsis  qt-t">'+(index+1)+'위</a></h4>';
-				msg += 				'<p class="qt-item-det"><span class="qt-time">'+item.song_title+'</span><span class="qt-day qt-capfont">'+item.song_nickname+'</span></p>';
-				msg += '</div></div>';
-				msg += 				'<a href="#" class="qt-info bottom right"><i	class="dripicons-information"></i></a>';
-				msg += '<div class="qt-header-bg" data-bgimage="download?type=song&data='+item.songnum+'"><img src="download?type=song&data='+item.songnum+'" alt="Featured image" width="690" height="302">';
-				msg += '</div></div>';
-				// 4개열리고 4개닫히고
-				msg += '<div class="qt-overinfo qt-paper">';
-				msg += 				'<p class="qt-item-det qt-accent"><span class="qt-time">'+item.song_title+'</span><span class="qt-day qt-capfont">'+item.song_nickname+'</span></p>';
-				msg += '<div class="qt-more"><p class="qt-ellipsis-2">'+item.song_desc+'</p><a href="songPage?songnum='+parseInt(item.songnum)+'">더보기</a>';
-				msg += '</div>';
-				msg += '</div>';
-			})
-				msg += '</div></div>';
-			
-			paging = '';
-			paging += '<div class="qt-pagination qt-content-primary">';
-		    paging += '<input type="hidden" id="page" name="page">';
-			paging += '<input type="hidden" id="type" name="type" value="daily">'
-		    paging += '<ul class="pagination qt-container">';
-			paging += '<li class="special"><span class="qt-pagination-label qt-content-primary-dark">PAGES</span></li>';
-			paging += '<li class="special disabled"><a href="javascript:pagingForSubmit('+resp["navi"]["currentPage"]-resp["navi"]["pagePerGroup"]+')" class="qt-btn qt-btn-l qt-btn-primary"><i class="dripicons-arrow-thin-left"></i></a></li>';	
-			paging += '<li class="special waves-effect"><a href="javascript:pagingForSubmit('+(resp["navi"]["currentPage"]+1)+')" class="qt-btn qt-btn-l qt-btn-primary"><i class="dripicons-arrow-thin-right"></i></a></li>';	
-			for (var counter = resp["navi"]["startPageGroup"]; counter < resp["navi"]["endPageGroup"]; counter++) {
-				if (resp["navi"]["currentPage"] != counter) {
-					paging += '<li class="item active hide-on-large-and-down"><a href="javascript:pagingForSubmit('+counter+')">'+counter+'</a></li>';	
-				}
-				if (resp["navi"]["currentPage"] == counter) {
-					paging += '<li class="item waves-effect hide-on-large-and-down"><a	href="#!">'+counter+'</a></li>';					
-				}		
-			}
-			paging += '</ul></div>';
-//		}
-		
-		$("#dw_content").html(msg);
-		$("#dw_paging").html(paging);
-	}
-	
 	function pagingForSubmit(currentPage) {
-		/* var form = document.getElementById("pagingForm"); */
+		var form = document.getElementById("pagingForm"); */
 		var page = document.getElementById("page");
-		var type = document.getElementById("type");
 		page.value = currentPage;
-		/* form.submit(); */
-		
-		$.ajax({
-			method : "get",
-			url : "dwChartPaging",
-			data : {'type' : type.value, 'page' : page.value},
-			success : function() {
-				
-			}
-		})
-		
+		form.submit();
 	}
 </script>
 </head>
@@ -295,55 +215,65 @@
 			<!-- SLIDESHOW UPCOMING SHOWS ================================================== -->
 			<div class="qt-slickslider-container qt-slickslider-externalarrows">
 				<div class="row">
-					<div
-						class="qt-slickslider qt-slickslider-multiple qt-slickslider-podcast"
-						data-slidestoshow="5" data-variablewidth="false"
-						data-arrows="true" data-dots="false" data-infinite="true"
-						data-centermode="false" data-pauseonhover="true"
-						data-autoplay="false" data-arrowsmobile="false"
-						data-centermodemobile="true" data-dotsmobile="false"
-						data-slidestoshowmobile="1" data-variablewidthmobile="true"
-						data-infinitemobile="false">
-
 
 						<c:forEach var="realtime" varStatus="status" items="${rc}">
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<!-- SHOW UPCOMING ITEM ========================= -->
-								<div
-									class="qt-part-archive-item qt-part-archive-item-show qt-negative">
-									<div class="qt-item-header">
-										<div class="qt-header-top">
-											<ul class="qt-tags">
-												<li><a href="#">${realtime.song_genre}</a></li>
-											</ul>
-										</div>
-										<div class="qt-header-mid qt-vc">
-											<div class="qt-vi">
-												<h5 class="qt-time">${status.count}위</h5>
-												<h3 class="qt-ellipsis qt-t qt-title">
-													<a href="#read" class="qt-text-shadow">${realtime.song_title}</a>
-												</h3>
-												<p class="qt-small qt-ellipsis">By
-													${realtime.song_nickname}</p>
+								<!-- TAB CONTENTS ======================================== -->
+								<div id="daymonday" class="qt-show-schedule-day">
+									<!-- SCHEDULE DAY ================================================== -->
+									<div class="qt-show-schedule-day row">
+
+										<c:forEach var="realtime" varStatus="status" items="${rc}">
+											<div class="col s12 m4 l4">
+												<!-- SCHEDULE SHOW ========================= -->
+												<div
+													class="qt-part-archive-item qt-part-show-schedule-day-item">
+													<div class="qt-item-header">
+														<div class="qt-header-mid qt-vc">
+															<div class="qt-vi">
+																<h4 class="qt-item-title qt-title">
+																	<a href="#read" class="qt-ellipsis  qt-t">${status.count}위</a>
+																</h4>
+																<p class="qt-item-det">
+																	<span class="qt-time">${realtime.song_title}</span>
+																	<!-- <span class="qt-am">am</span> -->
+																	<span class="qt-day qt-capfont">${realtime.song_nickname}</span>
+																</p>
+															</div>
+														</div>
+														<a href="#" class="qt-info bottom right"><i
+															class="dripicons-information"></i></a>
+														<div class="qt-header-bg"
+															data-bgimage="download?type=song&data=${realtime.songnum}">
+															<img src="download?type=song&data=${realtime.songnum}"
+																alt="Featured image" width="690" height="302">
+														</div>
+													</div>
+													<div class="qt-overinfo qt-paper">
+														<p class="qt-item-det qt-accent">
+															<span class="qt-time">${realtime.song_title}</span>
+															<!-- <span class="qt-am">am</span> -->
+															<span class="qt-day qt-capfont">${realtime.song_nickname}</span>
+														</p>
+														<div class="qt-more">
+															<p class="qt-ellipsis-2">${realtime.song_desc}</p>
+															<a href="songPage?songnum=${realtime.songnum}">더보기</a>
+														</div>
+													</div>
+												</div>
+												<!-- SCHEDULE SHOW END ========================= -->
 											</div>
-										</div>
-										<div class="qt-header-bottom">
-											<a href="#read" class="qt-btn qt-btn-primary qt-readmore"><i
-												class="dripicons-headset"></i></a>
-										</div>
-										<div class="qt-header-bg"
-											data-bgimage="download?type=song&data=${realtime.songnum}">
-											<!-- data-bgimage="download?type=song&data=${realtime.songnum}" -->
-											<img src="download?type=song&data=${realtime.songnum}"
-												alt="Featured image" width="690" height="302">
-										</div>
+											<!-- SCHEDULE DAY END ================================================== -->
+										</c:forEach>
+
 									</div>
 								</div>
+								<!-- TAB CONTENTS end======================================== -->
 								<!-- SHOW UPCOMING ITEM END ========================= -->
 							</div>
 						</c:forEach>
-					</div>
 
 					<!-- 경계 -->
 				</div>
@@ -352,108 +282,49 @@
 		</div>
 		<!-- ======================= SCHEDULE  SECTION ======================= -->
 		<div class="qt-container qt-spacer-l">
-			<h3 class="qt-caption-med">
+			<!-- <h3 class="qt-caption-med">
 				<span>Realtime Chart</span>
-			</h3>
+			</h3> -->
 			<hr class="qt-spacer-s">
 			<!-- SCHEDULE ================================================== -->
 			<div class="qt-show-schedule">
-				<!-- TAB MENU ==== -->
-				<ul class="tabs">
 
-					<li class="tab"><a href="#"
-						onclick="javascript:chart('daily');">Daily</a></li>
-					<li class="tab"><a href="#"
-						onclick="javascript:chart('weekly');">Weekly</a></li>
+				<!-- 원래차트 있던곳 -->
 
+					<div class="qt-pagination qt-content-primary">
+						<!-- <form method="get" action="dwChart" class="qt-inline-form" id="pagingForm"> -->
+						<input type="hidden" id="page" name="page"> <input
+							type="hidden" id="type" name="type" value="daily">
+						<!-- </form>  -->
+						<!-- PAGINATION ========================= -->
+						<ul class="pagination qt-container">
+							<li class="special"><span
+								class="qt-pagination-label qt-content-primary-dark">PAGES</span></li>
 
-				</ul>
-				<!-- TAB MENU END ==== -->
-				<hr class="qt-spacer-s">
-				<!-- TAB CONTENTS ======================================== -->
+							<li class="special disabled"><a
+								href="javascript:pagingForSubmit(${navi.currentPage-navi.pagePerGroup})"
+								class="qt-btn qt-btn-l qt-btn-primary"><i
+									class="dripicons-arrow-thin-left"></i></a></li>
 
-				<div id="daymonday" class="qt-show-schedule-day">
-					<!-- SCHEDULE DAY ================================================== -->
-					<div class="qt-show-schedule-day row">
-						<div id="dw_content">
+							<li class="special waves-effect"><a
+								href="javascript:pagingForSubmit(${navi.currentPage + 1})"
+								class="qt-btn qt-btn-l qt-btn-primary"><i
+									class="dripicons-arrow-thin-right"></i></a></li>
 
-							<c:forEach var="daily" varStatus="status" items="${dc}">
-								<div class="col s12 m4 l4">
-									<!-- SCHEDULE SHOW ========================= -->
-									<div
-										class="qt-part-archive-item qt-part-show-schedule-day-item">
-										<div class="qt-item-header">
-											<div class="qt-header-mid qt-vc">
-												<div class="qt-vi">
-													<h4 class="qt-item-title qt-title">
-														<a href="#read" class="qt-ellipsis  qt-t">${status.count}위</a>
-													</h4>
-													<p class="qt-item-det">
-														<span class="qt-time">${daily.song_title}</span><!-- <span class="qt-am">am</span> -->
-														<span class="qt-day qt-capfont">${daily.song_nickname}</span>
-													</p>
-												</div>
-											</div>
-											<a href="#" class="qt-info bottom right"><i
-												class="dripicons-information"></i></a>
-											<div class="qt-header-bg"
-												data-bgimage="download?type=song&data=${daily.songnum}">
-												<img src="download?type=song&data=${daily.songnum}"
-													alt="Featured image" width="690" height="302">
-											</div>
-										</div>
-										<div class="qt-overinfo qt-paper">
-											<p class="qt-item-det qt-accent">
-												<span class="qt-time">${daily.song_title}</span><!-- <span class="qt-am">am</span> -->
-												<span class="qt-day qt-capfont">${daily.song_nickname}</span>
-											</p>
-											<div class="qt-more">
-												<p class="qt-ellipsis-2">${daily.song_desc}</p>
-												<a href="songPage?songnum=${daily.songnum}">더보기</a>
-											</div>
-										</div>
-									</div>
-									<!-- SCHEDULE SHOW END ========================= -->
-								</div>
-								<!-- SCHEDULE DAY END ================================================== -->
+							<c:forEach begin="${navi.startPageGroup}"
+								end="${navi.endPageGroup}" var="counter">
+								<c:if test="${navi.currentPage!=counter}">
+									<li class="item active hide-on-large-and-down"><a
+										href="javascript:pagingForSubmit(${counter})">${counter}</a></li>
+								</c:if>
+								<c:if test="${navi.currentPage==counter}">
+									<li class="item waves-effect hide-on-large-and-down"><a
+										href="#!">${counter}</a></li>
+								</c:if>
 							</c:forEach>
-
-						</div>
+						</ul>
+						<!-- PAGINATION END ========================= -->
 					</div>
-
-				</div>
-
-				<div id="dw_paging">
-				<div class="qt-pagination qt-content-primary">
-				<!-- <form method="get" action="dwChart" class="qt-inline-form" id="pagingForm"> -->
-				<input type="hidden" id="page" name="page">
-				<input type="hidden" id="type" name="type" value="daily">
-				<!-- </form>  -->
-					<!-- PAGINATION ========================= -->
-					<ul class="pagination qt-container">
-						<li class="special"><span
-							class="qt-pagination-label qt-content-primary-dark">PAGES</span></li>
-						
-						<li class="special disabled"><a href="javascript:pagingForSubmit(${navi.currentPage-navi.pagePerGroup})"
-							class="qt-btn qt-btn-l qt-btn-primary"><i
-								class="dripicons-arrow-thin-left"></i></a></li>
-						
-						<li class="special waves-effect"><a href="javascript:pagingForSubmit(${navi.currentPage + 1})"
-							class="qt-btn qt-btn-l qt-btn-primary"><i
-								class="dripicons-arrow-thin-right"></i></a></li>
-						
-						<c:forEach begin="${navi.startPageGroup}" end="${navi.endPageGroup}" var="counter">
-							<c:if test="${navi.currentPage!=counter}">
-								<li class="item active hide-on-large-and-down"><a href="javascript:pagingForSubmit(${counter})">${counter}</a></li>
-							</c:if>
-							<c:if test="${navi.currentPage==counter}">
-								<li class="item waves-effect hide-on-large-and-down"><a	href="#!">${counter}</a></li>
-							</c:if>
-						</c:forEach>
-					</ul>
-					<!-- PAGINATION END ========================= -->
-				</div>
-				</div>
 
 
 

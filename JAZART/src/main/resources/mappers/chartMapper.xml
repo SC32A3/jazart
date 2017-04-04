@@ -14,41 +14,41 @@
 		  group by info.songnum, info.song_nickname, info.song_picture, info.song_title, info.song_desc
 		  order by cnt desc)b)c where rnum between #{start} and #{end}
 	</select>
-	<select id="dailyCount" resultType="int">
+	<select id="dailyCount" resultType="Integer">
 		select count(slike.like_time) cnt
 		from songinfo info, songlike slike
 		where info.songnum = slike.songnum and slike.like_time between
 		to_date(sysdate-1, 'yy/mm/dd') and to_date(sysdate, 'yy/mm/dd')
 	</select>
-	<select id="realtimeChart" resultType="SongInfo">
-		select info.songnum, info.song_title, info.song_genre, info.song_nickname,
-		info.song_picture, count(slike.songnum) cnt
-		from songinfo info, songlike slike
-		where info.songnum = slike.songnum and
-		slike.like_time between sysdate-5/24 and sysdate
-		group by info.songnum,
-		info.song_title, info.song_genre, info.song_nickname,
-		info.song_picture
-		order by cnt desc
+	<select id="realtimeChart" resultType="SongInfo" parameterType="map">
+		select * from
+		(select rownum rnum, b.* from
+			(select info.songnum, info.song_title, info.song_genre, info.song_nickname, info.song_desc, count(slike.songnum) count
+			from songinfo info, songlike slike
+			where info.songnum = slike.songnum and slike.like_time between sysdate-5/24 and sysdate
+			group by info.songnum, info.song_title, info.song_genre, info.song_nickname, info.song_desc
+			order by count desc)
+		b) where rnum between #{start} and #{end}
 	</select>
 	<select id="getDay" resultType="String">
 		select to_char(sysdate, 'day') from	dual
 	</select>
 	<select id="weeklyChart" resultType="SongInfo" parameterType="map">
-		select info.songnum, info.song_nickname, info.song_picture,
-		info.song_title, info.song_desc, count(slike.like_time) cnt
-		from songinfo info, songlike slike
-		where info.songnum = slike.songnum and
-		slike.like_time between
-		<choose>
-			<when test="day == '일요일'"> next_day(sysdate-14, '월요일') and next_day(sysdate-14, '일요일') </when>
-			<otherwise> next_day(sysdate-14, '월요일') and next_day(sysdate-7, '일요일') </otherwise>
-		</choose>
-		group by info.songnum, info.song_nickname, info.song_picture,
-		info.song_title, info.song_desc
-		order by cnt desc
+		select * from (select rownum rnum, b.* from(
+    		select info.songnum, info.song_nickname, info.song_picture,
+			info.song_title, info.song_desc, count(slike.like_time) cnt
+			from songinfo info, songlike slike
+			where info.songnum = slike.songnum and
+			slike.like_time between
+			<choose>
+				<when test="day == '일요일'"> next_day(sysdate-14, '월요일') and next_day(sysdate-14, '일요일') </when>
+				<otherwise> next_day(sysdate-14, '월요일') and next_day(sysdate-7, '일요일') </otherwise>
+			</choose>
+			group by info.songnum, info.song_nickname, info.song_picture,
+			info.song_title, info.song_desc
+			order by cnt desc) b) c where rnum between #{start} and #{end}
 	</select>
-	<select id="weeklyCount" resultType="int" parameterType="map">
+	<select id="weeklyCount" resultType="Integer" parameterType="map">
 	select count(slike.like_time) cnt
 	from songinfo info, songlike slike
 	where info.songnum = slike.songnum and
@@ -57,5 +57,11 @@
 		<when test="day == '일요일'"> next_day(sysdate-14, '월요일') and next_day(sysdate-14, '일요일') </when>
 		<otherwise> next_day(sysdate-14, '월요일') and next_day(sysdate-7, '일요일') </otherwise>
 	</choose>
+	</select>
+	<select id="realtimeCount" resultType="int">
+    select count(*) cnt
+		from songinfo info, songlike slike    
+		where info.songnum = slike.songnum and
+		slike.like_time between sysdate-5/24 and sysdate
 	</select>
 </mapper>   
