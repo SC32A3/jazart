@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Jazart</title>
+<title>Jazart♬</title>
 <meta name="description" content="Radio station HTML template">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -63,7 +63,7 @@
 						${loginNickname}</li>
 				</c:if>
 
-				<li class="right"><a href="#"><i
+<!-- 				<li class="right"><a href="#"><i
 						class="qticon-beatport qt-socialicon"></i></a></li>
 				<li class="right"><a href="#"><i
 						class="qticon-facebook qt-socialicon"></i></a></li>
@@ -72,7 +72,7 @@
 				<li class="right"><a href="#"><i
 						class="qticon-youtube qt-socialicon"></i></a></li>
 				<li class="right"><a href="#"><i
-						class="qticon-soundcloud qt-socialicon"></i></a></li>
+						class="qticon-soundcloud qt-socialicon"></i></a></li> -->
 			</ul>
 		</div>
 		<!-- QT MENUBAR  ================================ -->
@@ -97,7 +97,7 @@
 						<li><a href="dailyChart">Daily Chart</a></li>
 						<li><a href="weeklyChart">Weekly Chart</a></li>
 					</ul></li>
-				<li><a href="page-contacts.html">Contacts</a></li>
+				<li><a href="qna">Q&A</a></li>
 				<li class="right"><a href="#!" data-expandable="#qtsearchbar"
 					class="qt-btn qt-btn-l qt-scrolltop"><i
 						class="icon dripicons-search"></i></a></li>
@@ -114,7 +114,7 @@
 				<li><a href="#" data-activates="qt-mobile-menu"
 					class="button-collapse qt-menu-switch qt-btn qt-btn-primary qt-btn-m"><i
 						class="dripicons-menu"></i></a></li>
-				<li><a href="#!" class="brand-logo qt-logo-text">jazart</a></li>
+				<li><a href="#!" class="brand-logo qt-logo-text">jazart<span>♬</a></li>
 			</ul>
 		</nav>
 		<!-- mobile menu -->
@@ -207,16 +207,12 @@
 											<li><a href="#">Adventure</a></li>
 										</ul>
 										<h2 class="qt-title">
-											<a href="#read" class="qt-text-shadow"> HERO - THE LIGHT
-												AND MUSIC EXPOSITION HITS LOS ANGELES IN THE FASHION WEEK
-												asd asd asd asd asd </a>
+											<a href="#read" class="qt-text-shadow"> The music makes your heart bounce.<br> Let's start our composing journey. </a>
 										</h2>
 										<div
 											class="qt-the-content qt-spacer-s small hide-on-med-and-down ">
-											<p class="qt-spacer-s qt-text-shadow">Lorem ipsum dolor
-												sit amet, consectetur adipiscing elit. Ut vitae auctor nisi.
-												Sed bibendum, lectus in fringilla semper, justo lorem
-												commodo dolor.</p>
+											<p class="qt-spacer-s qt-text-shadow">More easy, More quickly makes your music!!<br> Whenever you're in trouble or
+											feeling down jazart'll be there for you.</p>
 											<p>
 												<a href="#read" class="qt-btn qt-btn-l qt-btn-primary "><i
 													class="dripicons-align-justify"></i></a>
@@ -1323,7 +1319,7 @@
 			<div class="qt-section qt-footer-widgets qt-content-primary-light">
 				<div class="qt-container">
 					<h2 class="qt-footer-logo">
-						<a href="./" class="brand-logo qt-logo-text">JAZAR<span>T</span></a>
+						<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
 					</h2>
 					<div
 						class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
@@ -1356,14 +1352,14 @@
 								<div class="qt-widget-contacts">
 									<p>
 										<i class="qticon-home"></i><a
-											href="http://www.qantumthemes.com">www.qantumthemes.com</a>
+											href="http://www.qantumthemes.com">www.jazart.com</a>
 									</p>
 									<p>
 										<i class="qticon-at-sign"></i><a
-											href="mailto:info@someofyoursite.com">info@someofyoursite.com</a>
+											href="mailto:info@someofyoursite.com">info@jazart.com</a>
 									</p>
 									<p>
-										<i class="qticon-phone"></i><a href="tel:1-847-555-5555">1-847-555-5555</a>
+										<i class="qticon-phone"></i><a href="tel:1-847-555-5555">02-123-1234</a>
 									</p>
 								</div>
 							</div>
@@ -1375,7 +1371,7 @@
 								</h5>
 								<div class="qt-widget-about">
 									<p>
-										We are a young and dynamic radio station which wants to bring
+										We are a young and dynamic compose station which wants to bring
 										happyness in your life. <br> <a
 											href="http://www.qantumthemes.com">Discover more <i
 											class="dripicons-arrow-thin-right"></i></a>
@@ -1409,7 +1405,7 @@
 			<div class="qt-footer-bottom qt-content-primary-dark">
 				<div class="qt-container">
 					<div class="row">
-						<div class="col s12 m12 l8">
+						<!-- <div class="col s12 m12 l8">
 							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
 							| Radio Station HTML Template
 							<ul class="qt-menu-footer qt-small qt-list-chevron ">
@@ -1417,9 +1413,9 @@
 								<li><a href="#">Privacy</a></li>
 								<li><a href="#">Sitemap</a></li>
 							</ul>
-						</div>
+						</div> -->
 						<div class="col s12 m12 l4">
-							<ul class="qt-menu-social">
+							<!-- <ul class="qt-menu-social">
 								<li class="right"><a href="#"><i
 										class="qticon-beatport"></i></a></li>
 								<li class="right"><a href="#"><i
@@ -1428,7 +1424,7 @@
 								<li class="right"><a href="#"><i class="qticon-youtube"></i></a></li>
 								<li class="right"><a href="#"><i
 										class="qticon-soundcloud"></i></a></li>
-							</ul>
+							</ul> -->
 						</div>
 					</div>
 				</div>
