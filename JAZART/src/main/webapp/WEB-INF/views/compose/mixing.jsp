@@ -44,9 +44,214 @@
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 
 <!-- Mixing API -->
-<link href='resources/css/mixing.css' rel='stylesheet' type='text/css'>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
-<script src="resources/js/jquery.knob.js"></script>
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+<link href="resources/css/bootstrap.min.css" rel="stylesheet"
+	media="screen">
+<!--<link href="css/bootstrap-responsive.css" rel="stylesheet">-->
+
+<style>
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+
+.sidebar {
+	height: 420px;
+	min-width: 130px;
+	position: relative;
+}
+
+.sidebarTabs {
+	position: absolute;
+	bottom: 0px;
+}
+
+.sidebarTab {
+	height: 380px;
+}
+
+.tabContents {
+	margin: 0px;
+}
+
+.clock {
+	position: absolute;
+	top: 12px;
+}
+
+#VUmeterCanvas {
+	position: absolute;
+	top: 5px;
+	left: 12px;
+}
+
+#masterVolume {
+	height: 72px;
+	position: absolute;
+	top: 14px;
+	left: 48px;
+}
+
+#effectSortable {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#effectSortable li {
+	margin: 3px 3px 3px 0;
+	background-color: #E0E0E0;
+	border: 1px solid #000000;
+	border-radius: 10px;
+	padding: 1px;
+	float: left;
+	width: 190px;
+	height: 80px;
+	font-size: 4em;
+	text-align: center;
+	position: relative;
+}
+
+.hidden {
+	display: none;
+}
+
+.effectsBed {
+	margin-left: 80px;
+	position: absolute;
+	bottom: 0px;
+}
+
+.effectClose {
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 20px;
+	text-shadow: 0 1px 0 #fff;
+	opacity: .2;
+	filter: alpha(opacity = 20);
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	-webkit-appearance: none;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+.effectClose:hover, .effectClose:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+	opacity: .4;
+}
+
+.knobs {
+	position: absolute;
+	left: 5px;
+	top: 35px;
+}
+
+.left-knob-label {
+	font-size: 10px;
+	margin-left: 5px;
+	position: absolute;
+	top: 17px;
+}
+
+.middle-knob-label {
+	font-size: 10px;
+	padding-bottom: 20px;
+	top: 17px;
+	left: 75px;
+	position: absolute;
+}
+
+.right-knob-label {
+	font-size: 10px;
+	margin-right: 5px;
+	position: absolute;
+	right: 5px;
+	top: 17px;
+}
+
+.track {
+	height: 82px;
+	position: relative;
+	background-color: #f5f5f5;
+	border: 1px solid #e3e3e3;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+
+.addTrack {
+	opacity: .4;
+	border: 1px solid #e3e3e3;
+	background-color: #f5f5f5;
+	border-radius: 10px;
+	padding: 5px;
+	transition: opacity .5s;
+	margin-bottom: 10px;
+}
+
+.addTrack:hover {
+	opacity: 100;
+}
+
+.plusButton {
+	width: 50%;
+	margin: 0 auto;
+}
+
+.trackBox {
+	height: 82px;
+	position: relative;
+	background-color: #f5f5f5;
+	border: 1px solid #e3e3e3;
+	border-radius: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+.timeline {
+	height: 40px;
+	margin-bottom: 10px;
+	background-color: #f5f5f5;
+	border: 1px solid #e3e3e3;
+	border-radius: 10px;
+}
+
+.ui-resizable-helper {
+	border: 2px dotted #00F;
+}
+
+#holder {
+	min-height: 100%;
+	position: relative;
+}
+
+.scrollable {
+	overflow-x: scroll;
+}
+
+#trackEffects {
+	display: none;
+	height: 95px;
+	position: relative;
+}
+
+#masterControl {
+	display: none;
+	height: 95px;
+	position: relative;
+}
+
+#reverbList {
+	width: 100%;
+	font-size: 10px;
+}
+</style>
+
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->
@@ -235,386 +440,350 @@
 			<!-- HEADER CONTACTS END ========================= -->
 			<div class="qt-container qt-vertical-padding-l">
 				<div class="row">
-					<div class="col s12 m8 push-m2">
-						<!-- ====================== SECTION BOOKING AND CONTACTS ================================================ -->
-						<div id="booking" class="section qt-section-booking qt-card">
-							<div class="qt-valign-wrapper">
-								<div class="qt-valign flow-text">
-									<div class="qt-booking-form" data-100p-top="opacity:0;"
-										data-80p-top="opacity:0;" data-30p-top="opacity:1;">
-										<ul class="tabs">
-											<li class="tab col s4">
-												<h5>
-													<a href="#form" class="active">Mixing api test</a>
-												</h5>
-											</li>
-										</ul>
-										<div id="form" class="row">
-											<form class="col s12" method="post" action="join">
-												<!-- email_sender.php -->
-												<input type="hidden" name="antispam" value="x123">
-												<h3 class="left-align qt-vertical-padding-m">Web Audio Loop Mixer</h3>
-												<div id="page-wrap">
-													<div id="controls" class="panel">
-														<div class="stripTransport">
-															<input id="inputSource1" type="file" accept="audio/*">
-															<input id="inputSource2" type="file" accept="audio/*">
-															<input id="inputSource3" type="file" accept="audio/*">
-															<input id="inputSource4" type="file" accept="audio/*">
-														</div>
-														<div class="stripTransport">
-															<button onclick="playSound()" disabled>Play</button>
-															<button onclick="stopSound()" disabled>Stop</button>
-														</div>
-														<div class="strip">
-															<div class="stripSection">
-																<p class="label">
-																<h3>Ch 1</h3>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="knobContainer label">
-																	<span class="green">Gain</span> <input id="gain-1"
-																		data-step="1" data-min="0" data-max="20"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#8FE356" data-bgColor="#777" value="10" />
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
-																	<span>Vol</span> <span class="sliderContainer"><input
-																		id="volume-1" class="slider" type="range" min="0"
-																		max="1" step="0.1" value="1" /></span>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="knobContainer label">
-																	<span class="pink">Delay</span> <input id="delay-1"
-																		data-step="1" data-min="0" data-max="10"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#E455E4" data-bgColor="#777" value="0" />
-																</p>
-																<p class="knobContainer label">
-																	<span class="purple">Distortion</span> <input
-																		id="distortion-1" data-step="1" data-min="0"
-																		data-max="10" data-width="60" data-cursor=true
-																		data-thickness=.5 data-angleOffset=-125
-																		data-angleArc=250 data-fgColor="#944ddc"
-																		data-bgColor="#777" value="0" />
-																</p>
-															</div>
-														</div>
-														<div class="strip">
-															<div class="stripSection">
-																<p class="label">
-																<h3>Ch 2</h3>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="knobContainer label">
-																	<span class="green">Gain</span> <input id="gain-2"
-																		data-step="1" data-min="0" data-max="20"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#8FE356" data-bgColor="#777" value="10" />
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
-																	<span>Vol</span> <span class="sliderContainer"><input
-																		id="volume-2" class="slider" type="range" min="0"
-																		max="1" step="0.1" value="1" /></span>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="knobContainer label">
-																	<span class="pink">Delay</span> <input id="delay-2"
-																		data-step="1" data-min="0" data-max="10"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#E455E4" data-bgColor="#777" value="0" />
-																</p>
-																<p class="knobContainer label">
-																	<span class="purple">Distortion</span> <input
-																		id="distortion-2" data-step="1" data-min="0"
-																		data-max="10" data-width="60" data-cursor=true
-																		data-thickness=.5 data-angleOffset=-125
-																		data-angleArc=250 data-fgColor="#944ddc"
-																		data-bgColor="#777" value="0" />
-																</p>
-															</div>
-														</div>
-														<div class="strip">
-															<div class="stripSection">
-																<p class="label">
-																<h3>Ch 3</h3>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="knobContainer label">
-																	<span class="green">Gain</span> <input id="gain-3"
-																		data-step="1" data-min="0" data-max="20"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#8FE356" data-bgColor="#777" value="10" />
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
-																	<span>Vol</span> <span class="sliderContainer"><input
-																		id="volume-3" class="slider" type="range" min="0"
-																		max="1" step="0.1" value="1" /></span>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="knobContainer label">
-																	<span class="pink">Delay</span> <input id="delay-3"
-																		data-step="1" data-min="0" data-max="10"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#E455E4" data-bgColor="#777" value="0" />
-																</p>
-																<p class="knobContainer label">
-																	<span class="purple">Distortion</span> <input
-																		id="distortion-3" data-step="1" data-min="0"
-																		data-max="10" data-width="60" data-cursor=true
-																		data-thickness=.5 data-angleOffset=-125
-																		data-angleArc=250 data-fgColor="#944ddc"
-																		data-bgColor="#777" value="0" />
-																</p>
-															</div>
-														</div>
-														<div class="strip">
-															<div class="stripSection">
-																<p class="label">
-																<h3>Ch 4</h3>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="knobContainer label">
-																	<span class="green">Gain</span> <input id="gain-4"
-																		data-step="1" data-min="0" data-max="20"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#8FE356" data-bgColor="#777" value="10" />
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
-																	<span>Vol</span> <span class="sliderContainer"><input
-																		id="volume-4" class="slider" type="range" min="0"
-																		max="1" step="0.1" value="1" /></span>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="knobContainer label">
-																	<span class="pink">Delay</span> <input id="delay-4"
-																		data-step="1" data-min="0" data-max="10"
-																		data-width="60" data-cursor=true data-thickness=.5
-																		data-angleOffset=-125 data-angleArc=250
-																		data-fgColor="#E455E4" data-bgColor="#777" value="0" />
-																</p>
-																<p class="knobContainer label">
-																	<span class="purple">Distortion</span> <input
-																		id="distortion-4" data-step="1" data-min="0"
-																		data-max="10" data-width="60" data-cursor=true
-																		data-thickness=.5 data-angleOffset=-125
-																		data-angleArc=250 data-fgColor="#944ddc"
-																		data-bgColor="#777" value="0" />
-																</p>
-															</div>
-														</div>
-														<div class="strip" id="delay">
-															<div class="stripSection">
-																<p class="label">
-																<h3 class="pink">Delay</h3>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
-																	<span class="pink">Level</span> <span
-																		class="sliderContainer"><input id="delayLevel"
-																		class="slider" type="range" min="0" max="1" step="0.1"
-																		value="1" /></span>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
-																	<span class="pink">Delay Time</span> <span
-																		class="sliderContainer"><input id="delayTime"
-																		class="slider" type="range" min="0.05" max="1"
-																		step="0.05" value="0.5" /></span>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
-																	<span class="pink">Feedback</span> <span
-																		class="sliderContainer"><input
-																		id="delayFeedback" class="slider" type="range" min="0"
-																		max="0.95" step="0.05" value="0.8" /></span>
-																</p>
-															</div>
-															<div class="stripSection">
-																<p class="label">
-																	<span class="pink">Cutoff Freq</span> <span
-																		class="sliderContainer"><input id="delayFilter"
-																		class="slider" type="range" min="0" max="4000"
-																		step="100" value="1000" /></span>
-																</p>
-															</div>
-															<!--
-																<div class="stripSection">
-																	<p class="label"><h3 class="purple">Dist.</h3></p>
-																</div>
-																<div class="stripSection">			
-																	<p class="label"><span class="purple">Level</span>
-																	<input id="distortionLevel" class="slider" type="range" min="0" max="1" step="0.1" value="0.3"/></p>						
-																</div>					
-																-->
-														</div>
-													</div>
-													<script src="assets/js/webaudioloopmixer.js"></script>
-													<script>
-													  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-													  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-													  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-													  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-													
-													  ga('create', 'UA-59683033-1', 'auto');
-													  ga('send', 'pageview');
-													
-													</script>		
-													
-												</div>
+					<div class="navbar navbar-inverse navbar-fixed-top">
+						<div class="navbar-inner">
+							<div class="container-fluid">
+								<button type="button" class="btn btn-navbar"
+									data-toggle="collapse" data-target=".nav-collapse">
+									<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+										class="icon-bar"></span>
+								</button>
+								<a class="brand" href="#">OpenDAW</a>
+								<div class="nav-collapse collapse">
+									<ul class="nav">
+										<li><a href="#">Export</a></li>
+										<li><a href="#">Save</a></li>
 
-											</form>
+										<li><a id="step-backward" href="#"><i
+												class="icon-step-backward icon-white"></i></a></li>
+										<li><a id="playPause" href="#"><i
+												class="icon-play icon-white"></i></a></li>
+										<li><a id="stop" href="#"><i
+												class="icon-stop icon-white"></i></a></li>
+
+									</ul>
+								</div>
+								<!--/.nav-collapse -->
+							</div>
+						</div>
+					</div>
+					<div class="container-fluid">
+						<div id="holder">
+							<div class="row-fluid" id="trackBed">
+								<div class="span3">
+									<div class="sidebar tabbable tabs-below well">
+										<div class="tab-content tabContents">
+											<div class="tab-pane sidebar-nav sidebarTab active"
+												id="library">
+												<ul id="libraryList" class="nav nav-list">
+													<li class="nav-header">Library</li>
+												</ul>
+											</div>
+											<div class="tab-pane sidebarTab" id="upload">
+												<ul id="uploadList" class="nav nav-list">
+													<li class="nav-header">Upload</li>
+												</ul>
+											</div>
+											<div class="tab-pane sidebarTab" id="effects">
+												<ul id="effectList" class="nav nav-list">
+													<li class="nav-header">Effects</li>
+													<li class="effectDrag"><a href="#">Reverb</a></li>
+													<li class="effectDrag"><a href="#">Filter</a></li>
+													<li class="effectDrag"><a href="#">Tremolo</a></li>
+													<li class="effectDrag"><a href="#">Compressor</a></li>
+													<li class="effectDrag"><a href="#">Delay</a></li>
+
+												</ul>
+											</div>
+										</div>
+										<ul class="nav nav-pills sidebarTabs">
+											<li class="active"><a href="#library" data-toggle="tab">Library</a></li>
+											<li><a href="#upload" data-toggle="tab">Upload</a></li>
+											<li><a href="#effects" data-toggle="tab">Effects</a></li>
+										</ul>
+									</div>
+
+								</div>
+								<div id="tracks" class="span9 scrollable">
+									<div class="row-fluid">
+										<div class="span1" style="position: relative;">
+											<div id="clock" class="clock"></div>
+										</div>
+										<div class="span1">
+											<div id="zoom">
+												<div class="btn-toolbar">
+													<div class="btn-group">
+														<button type="button" class="btn btn-mini" id="zoomOut">
+															<i class="icon-minus"></i>
+														</button>
+														<button type="button" class="btn btn-mini" id="zoomIn">
+															<i class="icon-plus"></i>
+														</button>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="span10 timeline">
+											<canvas id="timeline" width="500" height="20"
+												style="padding-top: 10px;"> </canvas>
 										</div>
 									</div>
 								</div>
+								<div id="newTrackButton" class="span9 addTrack">
+									<a id="addTrackButton" href="#"><p class="text-center">
+											<i class="icon-plus-sign"></i>
+										</p></a>
+								</div>
+							</div>
+							<div class="row-fluid">
+								<div class="span11 well" id="trackEffects">
+									<button id="trackEffectsClose" class="close">&times;</button>
+									<div>
+										<h4 id="trackEffectsHeader"></h4>
+									</div>
+									<div class="effectsBed">
+										<ul id="effectSortable">
+											<li class="hidden effect" id="Reverb">
+												<h6 style="margin: 0px 0;">Reverb</h6>
+												<p class="left-knob-label">Reverb Type</p>
+
+												<p class="right-knob-label">Wet/Dry</p> <span class="knobs">
+													<!--<form>
+                                <select id="reverbList">
+                                    <option>reverb1</option>
+                                    <option>reverb2</option>  
+                                </select>
+                            </form> --> <input id="reverbIrSelectKnob"
+													data-fgColor="#222222" data-linecap=round
+													data-angleOffset=-125 data-angleArc=250 data-width="50"
+													data-min="0" data-max="1" class="dial" value="0"> <input
+													id="reverbWetDryKnob" data-fgColor="#bd362f"
+													data-linecap=round data-angleOffset=-125 data-angleArc=250
+													data-width="50" class="dial">
+
+
+											</span>
+												<button class="effectClose">&times;</button>
+											</li>
+											<li class="hidden effect" id="Filter">
+												<h6 style="margin: 0px 0;">Filter</h6>
+												<p class="left-knob-label">Cutoff</p>
+												<p class="middle-knob-label">Q</p>
+												<p class="right-knob-label">Type</p> <span class="knobs">
+													<input id="filterCutoffKnob" data-fgColor="#bd362f"
+													data-linecap=round data-angleOffset=-125 data-angleArc=250
+													data-width="50" data-min="0" data-max="100" class="dial"
+													value="30"> <input id="filterQKnob"
+													data-fgColor="#f89406" data-linecap=round
+													data-angleOffset=-125 data-angleArc=250 data-width="50"
+													data-min="1" data-max="10" class="dial" value="1">
+													<input id="filterTypeKnob" data-fgColor="#222222"
+													data-linecap=round data-angleOffset=-125 data-angleArc=250
+													data-width="50" data-min="0" data-max="2" class="dial"
+													value="0">
+											</span>
+												<button class="effectClose">&times;</button>
+											</li>
+											<li class="hidden effect" id="Delay">
+												<h6 style="margin: 0px 0;">Delay</h6>
+												<p class="left-knob-label">Delay Time</p>
+												<p class="middle-knob-label">Feedback</p>
+												<p class="right-knob-label">Wet/Dry</p> <span class="knobs">
+													<input id="delayTimeKnob" data-fgColor="#bd362f"
+													data-linecap=round data-angleOffset=-125 data-angleArc=250
+													data-width="50" data-min="0" data-max="8" class="dial"
+													value="1"> <input id="delayFeedbackKnob"
+													data-fgColor="#f89406" data-linecap=round
+													data-angleOffset=-125 data-angleArc=250 data-width="50"
+													data-min="1" data-max="100" class="dial" value="1">
+													<input id="delayWetDryKnob" data-fgColor="#222222"
+													data-linecap=round data-angleOffset=-125 data-angleArc=250
+													data-width="50" data-min="0" data-max="100" class="dial"
+													value="0">
+											</span>
+												<button class="effectClose">&times;</button>
+											</li>
+											<li class="hidden effect" id="Compressor">
+												<h6 style="margin: 0px 0;">Compressor</h6>
+												<p class="left-knob-label">Threshold</p>
+												<p class="middle-knob-label">Ratio</p>
+												<p class="right-knob-label">Attack</p> <span class="knobs">
+													<input id="compressorThresholdKnob" data-fgColor="#08c"
+													data-linecap=round data-angleOffset=-125 data-angleArc=250
+													data-width="50" data-min="-100" data-max="-1" class="dial"
+													value="-24"> <input id="compressorRatioKnob"
+													data-fgColor="#51a351" data-linecap=round
+													data-angleOffset=-125 data-angleArc=250 data-width="50"
+													data-min="1" data-max="20" class="dial" value="12">
+													<input id="compressorAttackKnob" data-fgColor="#bd362f"
+													data-linecap=round data-angleOffset=-125 data-angleArc=250
+													data-width="50" data-min="0" data-max="1000" class="dial"
+													value="3">
+											</span>
+												<button class="effectClose">&times;</button>
+											</li>
+											<li class="hidden effect" id="Tremolo">
+												<h6 style="margin: 0px 0;">Tremolo</h6>
+												<p class="left-knob-label">-</p>
+												<p class="middle-knob-label">Rate</p>
+												<p class="right-knob-label">Depth</p> <span class="knobs">
+													<input id="tremoloNothingKnob" data-fgColor="#08c"
+													data-linecap=round data-angleOffset=-125 data-angleArc=250
+													data-width="50" data-min="-100" data-max="-1" class="dial"
+													value="0"> <input id="tremoloRateKnob"
+													data-fgColor="#51a351" data-linecap=round
+													data-angleOffset=-125 data-angleArc=250 data-width="50"
+													data-min="1" data-max="20" class="dial" value="2">
+													<input id="tremoloDepthKnob" data-fgColor="#bd362f"
+													data-linecap=round data-angleOffset=-125 data-angleArc=250
+													data-width="50" data-min="0" data-max="100" class="dial"
+													value="10">
+											</span>
+												<button class="effectClose">&times;</button>
+											</li>
+											</ul>
+									</div>
+								</div>
+								<div id="masterControl" class="span1 well">
+									<canvas id="VUmeterCanvas" width="30" height="80"
+										style="display: block;"></canvas>
+									<div id="masterVolume"></div>
+								</div>
 							</div>
 						</div>
-						<!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
+					</div>
+					<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+					<script src="resources/js/bootstrap.min.js"></script>
+					<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+					<script src="resources/js/bootstrap-button.js"></script>
+					<script src="src/wavesurfer.js"></script>
+					<script src="src/webaudio.js"></script>
+					<script src="src/drawer.js"></script>
+					<script src="src/scheduler.js"></script>
+					<script src="src/storage.js"></script>
+					<script src="src/jquery.knob.js"></script>
+					<script src="src/recorder.js"></script>
+					<script src="src/effects.js"></script>
+					<script src="src/main.js"></script>
+					<script src="src/vumeter.js"></script>
+		<!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
+	</div>
+	</div>
+	</div>
+	</div>
+	<div class="qt-footer qt-footerwidgets">
+		<div class="qt-section qt-footer-widgets qt-content-primary-light">
+			<div class="qt-container">
+				<h2 class="qt-footer-logo">
+					<a href="./" class="brand-logo qt-logo-text">Jazart<span>♬</span></a>
+				</h2>
+				<div
+					class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Stay Connected</span>
+							</h5>
+							Subscribe now to the newsletter to receive weekly updates.
+							<hr class="qt-spacer-s">
+							<form method="post" action="#newsletter" class="qt-inline-form">
+								<div class="row qt-nopadding">
+									<div class="col s12 m8 l9">
+										<input placeholder="Your email" value="" type="text"
+											class="validate qt-input-s">
+									</div>
+									<div class="col s12 m4 l3">
+										<input type="button" value="submit"
+											class="qt-btn qt-btn-secondary qt-btn-s qt-fullwidth">
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Contacts</span>
+							</h5>
+							<div class="qt-widget-contacts">
+								<p>
+									<i class="qticon-home"></i><a
+										href="http://www.qantumthemes.com">www.qantumthemes.com</a>
+								</p>
+								<p>
+									<i class="qticon-at-sign"></i><a
+										href="mailto:info@someofyoursite.com">info@someofyoursite.com</a>
+								</p>
+								<p>
+									<i class="qticon-phone"></i><a href="tel:1-847-555-5555">1-847-555-5555</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Contacts</span>
+							</h5>
+							<div class="qt-widget-about">
+								<p>
+									We are a young and dynamic radio station which wants to bring
+									happyness in your life. <br> <a
+										href="http://www.qantumthemes.com">Discover more <i
+										class="dripicons-arrow-thin-right"></i></a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Main links</span>
+							</h5>
+							<ul class="qt-widget-menu qt-list-chevron">
+								<li><a href="http://www.qantumthemes.com">Home page</a></li>
+								<li><a href="http://www.qantumthemes.com">Shows
+										schedule</a></li>
+								<li><a href="http://www.qantumthemes.com">Events
+										archive</a></li>
+								<li><a href="http://www.qantumthemes.com">Contacts</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="qt-header-bg"
+				data-bgimage="imagestemplate/full-1600-700.jpg">
+				<img src="resources/imagestemplate/full-1600-700.jpg"
+					alt="Featured image" width="690" height="302">
+			</div>
+		</div>
+		<div class="qt-footer-bottom qt-content-primary-dark">
+			<div class="qt-container">
+				<div class="row">
+					<div class="col s12 m12 l8">
+						Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
+						| Radio Station HTML Template
+						<ul class="qt-menu-footer qt-small qt-list-chevron ">
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Privacy</a></li>
+							<li><a href="#">Sitemap</a></li>
+						</ul>
+					</div>
+					<div class="col s12 m12 l4">
+						<ul class="qt-menu-social">
+							<li class="right"><a href="#"><i class="qticon-beatport"></i></a></li>
+							<li class="right"><a href="#"><i class="qticon-facebook"></i></a></li>
+							<li class="right"><a href="#"><i class="qticon-twitter"></i></a></li>
+							<li class="right"><a href="#"><i class="qticon-youtube"></i></a></li>
+							<li class="right"><a href="#"><i
+									class="qticon-soundcloud"></i></a></li>
+						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="qt-footer qt-footerwidgets">
-			<div class="qt-section qt-footer-widgets qt-content-primary-light">
-				<div class="qt-container">
-					<h2 class="qt-footer-logo">
-						<a href="./" class="brand-logo qt-logo-text">Jazart<span>♬</span></a>
-					</h2>
-					<div
-						class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Stay Connected</span>
-								</h5>
-								Subscribe now to the newsletter to receive weekly updates.
-								<hr class="qt-spacer-s">
-								<form method="post" action="#newsletter" class="qt-inline-form">
-									<div class="row qt-nopadding">
-										<div class="col s12 m8 l9">
-											<input placeholder="Your email" value="" type="text"
-												class="validate qt-input-s">
-										</div>
-										<div class="col s12 m4 l3">
-											<input type="button" value="submit"
-												class="qt-btn qt-btn-secondary qt-btn-s qt-fullwidth">
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Contacts</span>
-								</h5>
-								<div class="qt-widget-contacts">
-									<p>
-										<i class="qticon-home"></i><a
-											href="http://www.qantumthemes.com">www.qantumthemes.com</a>
-									</p>
-									<p>
-										<i class="qticon-at-sign"></i><a
-											href="mailto:info@someofyoursite.com">info@someofyoursite.com</a>
-									</p>
-									<p>
-										<i class="qticon-phone"></i><a href="tel:1-847-555-5555">1-847-555-5555</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Contacts</span>
-								</h5>
-								<div class="qt-widget-about">
-									<p>
-										We are a young and dynamic radio station which wants to bring
-										happyness in your life. <br> <a
-											href="http://www.qantumthemes.com">Discover more <i
-											class="dripicons-arrow-thin-right"></i></a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Main links</span>
-								</h5>
-								<ul class="qt-widget-menu qt-list-chevron">
-									<li><a href="http://www.qantumthemes.com">Home page</a></li>
-									<li><a href="http://www.qantumthemes.com">Shows
-											schedule</a></li>
-									<li><a href="http://www.qantumthemes.com">Events
-											archive</a></li>
-									<li><a href="http://www.qantumthemes.com">Contacts</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="qt-header-bg"
-					data-bgimage="imagestemplate/full-1600-700.jpg">
-					<img src="resources/imagestemplate/full-1600-700.jpg"
-						alt="Featured image" width="690" height="302">
-				</div>
-			</div>
-			<div class="qt-footer-bottom qt-content-primary-dark">
-				<div class="qt-container">
-					<div class="row">
-						<div class="col s12 m12 l8">
-							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
-							| Radio Station HTML Template
-							<ul class="qt-menu-footer qt-small qt-list-chevron ">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Privacy</a></li>
-								<li><a href="#">Sitemap</a></li>
-							</ul>
-						</div>
-						<div class="col s12 m12 l4">
-							<ul class="qt-menu-social">
-								<li class="right"><a href="#"><i
-										class="qticon-beatport"></i></a></li>
-								<li class="right"><a href="#"><i
-										class="qticon-facebook"></i></a></li>
-								<li class="right"><a href="#"><i class="qticon-twitter"></i></a></li>
-								<li class="right"><a href="#"><i class="qticon-youtube"></i></a></li>
-								<li class="right"><a href="#"><i
-										class="qticon-soundcloud"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	</div>
 	</div>
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"
