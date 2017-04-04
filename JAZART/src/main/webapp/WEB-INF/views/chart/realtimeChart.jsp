@@ -47,7 +47,7 @@
 <script src="resources/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
 	function pagingForSubmit(currentPage) {
-		var form = document.getElementById("pagingForm"); */
+		var form = document.getElementById("pagingForm");
 		var page = document.getElementById("page");
 		page.value = currentPage;
 		form.submit();
