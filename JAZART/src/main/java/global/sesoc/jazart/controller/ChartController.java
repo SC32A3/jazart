@@ -23,7 +23,7 @@ import global.sesoc.jazart.vo.SongInfo;
 @Controller
 public class ChartController {
 
-	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+	private static final Logger logger = LoggerFactory.getLogger(ChartController.class);
 
 	@Autowired
 	ChartRepository cr;
@@ -34,18 +34,15 @@ public class ChartController {
 	final int pagePerGroup = 5; //페이지 그룹에 표시되는 그룹 수
 	
 	@RequestMapping(value = "realtimeChart", method = RequestMethod.GET)
-	public String realtimect(Model model) {
-		int page = 1; 
-		int total = cr.dailyCount();
+	public String realtimect(Model model, @RequestParam(value="page", defaultValue="1") int page) {
+		int total = cr.realtimeCount();
 		PageNavigator navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
 		int start = navi.getStartRecord(); //1,11,21
 		int end = start + countPerPage - 1; //10,20,30
 
 		logger.info("> realtime chart");
 		ArrayList<SongInfo> cList = cr.chartList("rc", start, end);
-		ArrayList<SongInfo> cList2 = cr.chartList("dc", start, end);
 		model.addAttribute("rc", cList);
-		model.addAttribute("dc", cList2);
 		model.addAttribute("navi", navi); //페이징을 위해서
 		return "chart/realtimeChart";
 	}
@@ -71,10 +68,20 @@ public class ChartController {
 	}
 
 	@RequestMapping(value = "weeklyChart", method = RequestMethod.GET)
-	public String weekilyct(Model model) {
+	public String weekilyct(Model model, @RequestParam(value="page", defaultValue="1") int page) {
 		logger.info("> weekly chart");
-		ArrayList<SongInfo> cList = cr.chartList("wc", 0, 0);
+		
+		int total = cr.dailyCount();
+		
+		PageNavigator navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
+		int start = navi.getStartRecord(); //1,11,21
+		int end = start + countPerPage - 1; //10,20,30
+		logger.info("페이징재료page,start,end=> "+page+", "+start+", "+end);
+		
+		ArrayList<SongInfo> cList = cr.chartList("wc", start, end);
 		model.addAttribute("wc", cList);
+		model.addAttribute("navi", navi); //페이징을 위해서
+		
 		return "chart/weeklyChart";
 	}
 	

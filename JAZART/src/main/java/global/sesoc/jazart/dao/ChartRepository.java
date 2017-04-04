@@ -28,15 +28,15 @@ public class ChartRepository {
 				search.put("start", start+""); search.put("end", end+"");
 				cList = mapper.dailyChart(search);
 				logger.info("데일리차트=> "+cList);
-			
 			} else if (type.equals("rc")) {
-				cList = mapper.realtimeChart();
+				search.put("start", start+""); search.put("end", end+"");
+				cList = mapper.realtimeChart(search);
 				logger.info("실시간차트=> "+cList);
-			
 			} else if (type.equals("wc")) {
 				String day = mapper.getDay();
 				logger.info("위클리차트/요일=> "+day);
 				search.put("day", day);
+				search.put("start", start+""); search.put("end", end+"");
 				cList = mapper.weeklyChart(search);
 				logger.info("위클리차트=> "+cList);
 			}
@@ -68,6 +68,18 @@ public class ChartRepository {
 			search.put("day", day);
 			result = mapper.weeklyCount(search);
 			logger.info("주간 글개수=> "+result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public int realtimeCount() {
+		ChartMapper mapper = sqlSession.getMapper(ChartMapper.class);
+		int result = 0;
+		try {
+			result = mapper.realtimeCount();
+			logger.info("실시간 글개수=> "+result);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

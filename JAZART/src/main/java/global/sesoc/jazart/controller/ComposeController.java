@@ -105,12 +105,7 @@ public class ComposeController {
 		// text/html에서 파일 다운로드 가능한 형태로 변경
 		try {
 			response.setHeader("Content-Disposition",
-					"attachment;filename=" + URLEncoder.encode(originalfile, "UTF-8")); // 첫번째
-																						// 매개변수
-																						// :
-																						// 실제로
-																						// 받아야하는
-																						// 아이
+					"attachment;filename=" + URLEncoder.encode(originalfile, "UTF-8")); 
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}

@@ -42,6 +42,15 @@
 
 <!-- Custom typography settings and google fonts -->
 <link rel="stylesheet" href="resources/css/qt-typography.css">
+<script>
+	function pagingForSubmit(currentPage) {
+		var form = document.getElementById("pagingForm");
+		var page = document.getElementById("page");
+		page.value = currentPage;
+
+		form.submit();
+	}
+</script>
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->
@@ -395,85 +404,43 @@
 						<!-- SIDEBAR END ================================================== -->
 					</div>
 				</div>
-				<div class="qt-pagination qt-content-primary">
-					<!-- PAGINATION ========================= -->
-					<ul class="pagination qt-container">
-						<li class="special"><span
-							class="qt-pagination-label qt-content-primary-dark">PAGES</span></li>
-						<li class="special disabled"><a href="#!"
-							class="qt-btn qt-btn-l qt-btn-primary"><i
-								class="dripicons-arrow-thin-left"></i></a></li>
-						<li class="special waves-effect"><a href="#!"
-							class="qt-btn qt-btn-l qt-btn-primary"><i
-								class="dripicons-arrow-thin-right"></i></a></li>
-						<li class="item active hide-on-large-and-down"><a href="#!">1</a></li>
-						<li class="item waves-effect hide-on-large-and-down"><a
-							href="#!">2</a></li>
-						<li class="item waves-effect hide-on-large-and-down"><a
-							href="#!">3</a></li>
-						<li class="item waves-effect hide-on-large-and-down"><a
-							href="#!">4</a></li>
-						<li class="item waves-effect hide-on-large-and-down"><a
-							href="#!">5</a></li>
-						<li class="item waves-effect hide-on-large-and-down"><a
-							href="#!">6</a></li>
-						<li class="item waves-effect hide-on-large-and-down"><a
-							href="#!">7</a></li>
-						<li class="item waves-effect hide-on-large-and-down"><a
-							href="#!">8</a></li>
-						<li class="item waves-effect hide-on-large-and-down"><a
-							href="#!">9</a></li>
-						<li class="item waves-effect hide-on-large-and-down"><a
-							href="#!">10</a></li>
-						<li class="item waves-effect hide-on-large-and-down"><a
-							href="#!">11</a></li>
-						<li class="item waves-effect hide-on-large-and-down"><a
-							href="#!">12</a></li>
-						<li class="item waves-effect hide-on-large-and-down"><a
-							href="#!">13</a></li>
-					</ul>
-					<!-- PAGINATION END ========================= -->
-				</div>
 			</div>
+
 			<div class="qt-pagination qt-content-primary">
+				<form method="get" action="dailyChart" class="qt-inline-form"
+					id="pagingForm">
+					<input type="hidden" id="page" name="page">
+				</form>
 				<!-- PAGINATION ========================= -->
 				<ul class="pagination qt-container">
 					<li class="special"><span
 						class="qt-pagination-label qt-content-primary-dark">PAGES</span></li>
-					<li class="special disabled"><a href="#!"
+
+					<li class="special disabled"><a
+						href="javascript:pagingForSubmit(${navi.currentPage-navi.pagePerGroup})"
 						class="qt-btn qt-btn-l qt-btn-primary"><i
 							class="dripicons-arrow-thin-left"></i></a></li>
-					<li class="special waves-effect"><a href="#!"
+
+					<li class="special waves-effect"><a
+						href="javascript:pagingForSubmit(${navi.currentPage + 1})"
 						class="qt-btn qt-btn-l qt-btn-primary"><i
 							class="dripicons-arrow-thin-right"></i></a></li>
-					<li class="item active hide-on-large-and-down"><a href="#!">1</a></li>
-					<li class="item waves-effect hide-on-large-and-down"><a
-						href="#!">2</a></li>
-					<li class="item waves-effect hide-on-large-and-down"><a
-						href="#!">3</a></li>
-					<li class="item waves-effect hide-on-large-and-down"><a
-						href="#!">4</a></li>
-					<li class="item waves-effect hide-on-large-and-down"><a
-						href="#!">5</a></li>
-					<li class="item waves-effect hide-on-large-and-down"><a
-						href="#!">6</a></li>
-					<li class="item waves-effect hide-on-large-and-down"><a
-						href="#!">7</a></li>
-					<li class="item waves-effect hide-on-large-and-down"><a
-						href="#!">8</a></li>
-					<li class="item waves-effect hide-on-large-and-down"><a
-						href="#!">9</a></li>
-					<li class="item waves-effect hide-on-large-and-down"><a
-						href="#!">10</a></li>
-					<li class="item waves-effect hide-on-large-and-down"><a
-						href="#!">11</a></li>
-					<li class="item waves-effect hide-on-large-and-down"><a
-						href="#!">12</a></li>
-					<li class="item waves-effect hide-on-large-and-down"><a
-						href="#!">13</a></li>
+
+					<c:forEach begin="${navi.startPageGroup}"
+						end="${navi.endPageGroup}" var="counter">
+						<c:if test="${navi.currentPage!=counter}">
+							<li class="item active hide-on-large-and-down"><a
+								href="javascript:pagingForSubmit(${counter})">${counter}</a></li>
+						</c:if>
+						<c:if test="${navi.currentPage==counter}">
+							<li class="item waves-effect hide-on-large-and-down"><a
+								href="#!">${counter}</a></li>
+						</c:if>
+					</c:forEach>
 				</ul>
 				<!-- PAGINATION END ========================= -->
 			</div>
+
 			<!-- ======================= RELATED SECTION ======================= -->
 			<div
 				class="qt-content-primary qt-negative qt-related-section qt-vertical-padding-l">
