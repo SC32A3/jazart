@@ -26,6 +26,17 @@
 	
 	<context:component-scan base-package="global.sesoc.jazart" />
 	
-	
+	<!-- 스캔하는영역 베이스 -->
+	<!-- 로그인인터셉터 정의 I인터,A추상는 빈등록 불가 -->
+	<beans:bean id="LoginInterceptor"
+		class="global.sesoc.jazart.interceptor.LoginInterceptor">
+	</beans:bean>
+	<interceptors>
+		<interceptor>
+			<mapping path="/boardRead" />
+			<!-- 위에 맵핑된 경로들을 컨트롤러에 요청할때 빈을 요청한후 실행시킨다 -->
+			<beans:ref bean="LoginInterceptor" />
+		</interceptor>
+	</interceptors>
 	
 </beans:beans>
