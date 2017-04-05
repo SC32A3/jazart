@@ -19,9 +19,7 @@
 
 
 !function ($) {
-
   "use strict"; // jshint ;_;
-
 
  /* BUTTON PUBLIC CLASS DEFINITION
   * ============================== */

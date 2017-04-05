@@ -44,18 +44,13 @@
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 
 <!-- Mixing API -->
-<link rel="stylesheet"
-	href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+<!-- <link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" /> -->
 <link href="resources/css/bootstrap.min.css" rel="stylesheet"
 	media="screen">
 <!--<link href="css/bootstrap-responsive.css" rel="stylesheet">-->
 
 <style>
-body {
-	padding-top: 60px;
-	padding-bottom: 40px;
-}
-
 .sidebar {
 	height: 420px;
 	min-width: 130px;
