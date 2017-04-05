@@ -2282,7 +2282,7 @@ table th[class*="span"],
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url("../img/glyphicons-halflings.png");
+  background-image: url("../images/glyphicons-halflings.png");
   background-position: 14px 14px;
   background-repeat: no-repeat;
 }
@@ -2306,7 +2306,7 @@ table th[class*="span"],
 .dropdown-submenu:focus > a > [class^="icon-"],
 .dropdown-submenu:hover > a > [class*=" icon-"],
 .dropdown-submenu:focus > a > [class*=" icon-"] {
-  background-image: url("../img/glyphicons-halflings-white.png");
+  background-image: url("../images/glyphicons-halflings-white.png");
 }
 
 .icon-glass {
@@ -4354,8 +4354,6 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar {
-  *position: relative;
-  *z-index: 2;
   margin-bottom: 20px;
   overflow: visible;
 }
@@ -4404,13 +4402,13 @@ input[type="submit"].btn.btn-mini {
 
 .navbar .brand {
   display: block;
-  float: left;
-  padding: 10px 20px 10px;
-  margin-left: -20px;
-  font-size: 20px;
-  font-weight: 200;
-  color: #777777;
-  text-shadow: 0 1px 0 #ffffff;
+	  float: left;
+	  padding: 10px 20px 10px;
+	  margin-left: -20px;
+	  font-size: 20px;
+	  font-weight: 200;
+	  color: #777777;
+	  text-shadow: 0 1px 0 #ffffff;
 }
 
 .navbar .brand:hover,

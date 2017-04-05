@@ -251,7 +251,6 @@
 <body>
 	<!-- QT HEADER END ================================ -->
 	<div class="qt-parentcontainer">
-
 		<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
 			<ul>
@@ -268,7 +267,7 @@
 						${loginNickname}</li>
 				</c:if>
 
-				<li class="right"><a href="#"><i
+<!-- 				<li class="right"><a href="#"><i
 						class="qticon-beatport qt-socialicon"></i></a></li>
 				<li class="right"><a href="#"><i
 						class="qticon-facebook qt-socialicon"></i></a></li>
@@ -277,7 +276,7 @@
 				<li class="right"><a href="#"><i
 						class="qticon-youtube qt-socialicon"></i></a></li>
 				<li class="right"><a href="#"><i
-						class="qticon-soundcloud qt-socialicon"></i></a></li>
+						class="qticon-soundcloud qt-socialicon"></i></a></li> -->
 			</ul>
 		</div>
 		<!-- QT MENUBAR  ================================ -->
@@ -288,35 +287,21 @@
 					class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
 				<li><a href="compose">Compose</a>
 					<ul>
-						<li><a href="page-schedule.html">Time Chart</a></li>
-						<li><a href="single-show.html">Week Chart</a></li>
+						<li><a href="mixing">(test)Mixing Page</a></li>
+						<li><a href="artistPage">(test)Artist Page</a></li>
 					</ul></li>
-				<li><a href="archive-podcast.html">Board</a>
+				<li><a href="musicBoard">Board</a>
 					<ul>
-						<li><a href="music_community">Music Community</a></li>
-						<li><a href="single-podcast.html">Free Community</a></li>
+						<li><a href="musicBoard">Music Community</a></li>
+						<li><a href="commBoard">Free Community</a></li>
 					</ul></li>
-				<li><a href="archive-members.html">Song</a>
+				<li><a href="realtimeChart">Charts</a>
 					<ul>
-						<li><a href="songPage">Song Page</a></li>
-						<li><a href="artistPage">Artist Page</a></li>
+						<li><a href="realtimeChart">Realtime Chart</a></li>
+						<li><a href="dailyChart">Daily Chart</a></li>
+						<li><a href="weeklyChart">Weekly Chart</a></li>
 					</ul></li>
-				<li><a href="archive.html">Blog</a>
-					<ul>
-						<li><a href="archive.html">Blog archive</a></li>
-						<li><a href="single-post.html">Single post</a></li>
-					</ul></li>
-				<li><a href="archive-chart.html">Charts</a>
-					<ul>
-						<li><a href="archive-chart.html">Charts archive</a></li>
-						<li><a href="single-chart.html">Single chart</a></li>
-					</ul></li>
-				<li><a href="archive-events.html">Events</a>
-					<ul>
-						<li><a href="archive-events.html">Events archive</a></li>
-						<li><a href="single-event.html">Single event</a></li>
-					</ul></li>
-				<li><a href="page-contacts.html">1Contacts</a></li>
+				<li><a href="qna">Q&A</a></li>
 				<li class="right"><a href="#!" data-expandable="#qtsearchbar"
 					class="qt-btn qt-btn-l qt-scrolltop"><i
 						class="icon dripicons-search"></i></a></li>
@@ -333,47 +318,33 @@
 				<li><a href="#" data-activates="qt-mobile-menu"
 					class="button-collapse qt-menu-switch qt-btn qt-btn-primary qt-btn-m"><i
 						class="dripicons-menu"></i></a></li>
-				<li><a href="#!" class="brand-logo qt-logo-text">jazart</a></li>
+				<li><a href="#!" class="brand-logo qt-logo-text">jazart<span>♬</a></li>
 			</ul>
 		</nav>
 		<!-- mobile menu -->
 		<div id="qt-mobile-menu" class="side-nav qt-content-primary">
 			<ul class=" qt-side-nav">
-				<li><a href="index.html">Home</a></li>
-				<li class="menu-item-has-children"><a href="page-schedule.html">COMPOSE</a>
+				<li><a href="/">jazart<span>♬</span></a></li>
+				<li class="menu-item-has-children"><a href="compose">Compose</a>
 					<ul>
-						<li><a href="page-schedule.html">Archive</a></li>
-						<li><a href="single-show.html">Single show page</a></li>
+						<li><a href="mixing">(test)Mixing Page</a></li>
+						<li><a href="artistPage">(test)Artist Page</a></li>
 					</ul></li>
-				<li class="menu-item-has-children"><a
-					href="archive-podcast.html">Board</a>
+				<li class="menu-item-has-children"><a href="musicBoard">Board</a>
 					<ul>
-						<li><a href="music_community">music community</a></li>
-						<li><a href="single-podcast.html">free community</a></li>
+						<li><a href="musicBoard">Music Community</a></li>
+						<li><a href="commBoard">Free Community</a></li>
 					</ul></li>
-				<li class="menu-item-has-children"><a
-					href="archive-members.html">Team</a>
+				<li class="menu-item-has-children"><a href="realtimeChart">Charts</a>
 					<ul>
-						<li><a href="archive-members.html">Archive</a></li>
-						<li><a href="single-member.html">Single show page</a></li>
+						<li><a href="realtimeChart">Realtime Chart</a></li>
+						<li><a href="dailyChart">Daily Chart</a></li>
+						<li><a href="weeklyChart">Weekly Chart</a></li>
 					</ul></li>
-				<li class="menu-item-has-children"><a href="archive.html">Blog</a>
+				<li class="menu-item-has-children"><a href="qna">Contacts</a>
 					<ul>
-						<li><a href="archive.html">Blog archive</a></li>
-						<li><a href="single-post.html">Single post</a></li>
+						<li><a href="qna">QnA</a>
 					</ul></li>
-				<li class="menu-item-has-children"><a href="archive-chart.html">Charts</a>
-					<ul>
-						<li><a href="archive-chart.html">Charts archive</a></li>
-						<li><a href="single-chart.html">Single chart</a></li>
-					</ul></li>
-				<li class="menu-item-has-children"><a
-					href="archive-events.html">Events</a>
-					<ul>
-						<li><a href="archive-events.html">Events archive</a></li>
-						<li><a href="single-event.html">Single event</a></li>
-					</ul></li>
-				<li><a href="page-contacts.html">Contacts</a></li>
 			</ul>
 		</div>
 		<!-- mobile toolbar -->
@@ -435,7 +406,7 @@
 			<!-- HEADER CONTACTS END ========================= -->
 			<div class="qt-container qt-vertical-padding-l">
 				<div class="row">
-					<div class="navbar navbar-inverse navbar-fixed-top">
+					<!-- <div class="navbar navbar-inverse navbar-fixed-top">
 						<div class="navbar-inner">
 							<div class="container-fluid">
 								<button type="button" class="btn btn-navbar"
@@ -446,7 +417,7 @@
 								<a class="brand" href="#">OpenDAW</a>
 								<div class="nav-collapse collapse">
 									<ul class="nav">
-										<li><a href="#">Export</a></li>
+											<li><a href="#">Export</a></li>
 										<li><a href="#">Save</a></li>
 
 										<li><a id="step-backward" href="#"><i
@@ -458,13 +429,31 @@
 
 									</ul>
 								</div>
-								<!--/.nav-collapse -->
+								/.nav-collapse
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<div class="container-fluid">
+						<!-- <div class="nav-collapse collapse">
+							<ul class="nav">
+								<li><a href="#">Export</a></li>
+								<li><a href="#">Save</a></li>
+
+								<li><a id="step-backward" href="#">backward<i
+										class="icon-step-backward icon-white"></i></a></li>
+								<li><a id="playPause" href="#">play/pause<i
+										class="icon-play icon-white"></i></a></li>
+								<li><a id="stop" href="#">stop<i
+										class="icon-stop icon-white"></i></a></li>
+							</ul>
+						</div> -->
+						
+						<table>
+						<tr><td><a id="step-backward" href="#">backward</a></td>
+						<td><a id="playPause" href="#">play/pause</a></td><td><a id="stop" href="#">stop</a></td></tr></table>
 						<div id="holder">
 							<div class="row-fluid" id="trackBed">
+
 								<div class="span3">
 									<div class="sidebar tabbable tabs-below well">
 										<div class="tab-content tabContents">
@@ -636,7 +625,7 @@
 											</span>
 												<button class="effectClose">&times;</button>
 											</li>
-											</ul>
+										</ul>
 									</div>
 								</div>
 								<div id="masterControl" class="span1 well">
@@ -661,10 +650,10 @@
 					<script src="src/effects.js"></script>
 					<script src="src/main.js"></script>
 					<script src="src/vumeter.js"></script>
-		<!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
-	</div>
-	</div>
-	</div>
+					<!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
+				</div>
+			</div>
+		</div>
 	</div>
 	<div class="qt-footer qt-footerwidgets">
 		<div class="qt-section qt-footer-widgets qt-content-primary-light">
