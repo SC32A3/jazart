@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -98,7 +99,13 @@ public class ComposeController {
 
 		} else if (type.equals("user")) {
 			originalfile = data;
+		} else if (type.equals("music")) {
+			StringTokenizer token = new StringTokenizer(data, "?");
+			
+			String data2 = token.nextToken();
+			originalfile = data2;
 		}
+		
 		fullpath = uploadPath + "/" + originalfile;
 		// 사용자 측에서 다운로드 받도록 하기 위해서
 		// response 객체의 헤더를 조작함, 웹페이지 개발자모드(F12)의 Head에서 확인할수 있다
@@ -131,7 +138,8 @@ public class ComposeController {
 		}
 		return null;
 	}
-
+	
+	
 	@RequestMapping(value = "songRecommend", method = RequestMethod.GET)
 	public @ResponseBody int recommend(int songnum) {
 		String loginNickname = (String) session.getAttribute("loginNickname");
@@ -170,5 +178,13 @@ public class ComposeController {
 			result = sr.recommendSongReply(replynum, loginNickname);
 			return result;
 		}
+	}
+	
+	@RequestMapping(value = "songPopup", method = RequestMethod.GET)
+	public String songPopup(Model model) {
+		String userId = (String) session.getAttribute("loginId");
+		ArrayList<SongInfo> playlist = ur.playlist(userId);
+		model.addAttribute("playlist", playlist);
+		return "user/songPopup";
 	}
 }

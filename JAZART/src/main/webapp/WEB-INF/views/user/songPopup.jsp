@@ -44,6 +44,7 @@
 	function input(title, nickname) {
 		var myTitle = $('#myTitle');
 		var myNickname = $('#myNickname');
+		
 		myTitle.html(title);
 		myNickname.html(nickname);
 	}
@@ -74,7 +75,9 @@
 					<div class="qt-musicplayer">
 						<div class="ui360 ui360-vis qt-ui360">
 							<a id="playerlink"
-								href="http://freshly-ground.com/data/audio/sm2/Adrian%20Glynn%20-%20Blue%20Belle%20Lament.mp3"></a>
+								href="download?type=music&data=${item.song_file}"></a>
+								<!-- <a id="playerlink"
+								href="http://freshly-ground.com/data/audio/sm2/Adrian%20Glynn%20-%20Blue%20Belle%20Lament.mp3"> -->
 						</div>
 					</div>
 				</div>
@@ -101,8 +104,11 @@
 		</div>
 		
 		<!-- this is for xml radio feed -->
+		
 		<div id="qtShoutcastFeedData" class="hidden" data-style=""
 			data-channel="1" data-host="173.192.105.231" data-port="3540"></div>
+		<!-- <div id="qtShoutcastFeedData" class="hidden" data-style=""
+			data-channel="1" data-host="203.233.196.37" data-port="9099"></div> -->
 		<!-- PLAYER END ========================= -->
 		<!-- CHANNELS LIST ========================= -->
 		<div class="qt-part-channels-list">
@@ -113,25 +119,31 @@
 					data-logo="resources/imagestemplate/radio-logo.png"
 					
 					data-host="173.192.105.231" data-port="3540"
-					
+					data-playtrack="http://173.192.105.231:3540/stream.mp3"
 					//img src="resources/imagestemplate/radio-logo.png" alt="logo"
 				-->
-				<c:forEach var="item" varStatus="status" items="${playlist}">
+		<c:forEach var="item" varStatus="status" items="${playlist}">
 				<li class="qt-channel">
 				<a href="#!" class="qt-ellipsis"
 					data-title="" data-subtitle=""
 					data-background="download?type=song&data=${item.songnum}"
 					data-logo="download?type=song&data=${item.songnum}"
-					data-playtrack="http://173.192.105.231:3540/stream.mp3"
+					data-playtrack="download?type=music&data=${item.song_file}"
 					data-stats_path="" data-played_path="" data-channel="" onclick="javascript:input('${item.song_title}','${item.song_nickname}')">
 					
 				<img src="download?type=song&data=${item.songnum}" alt="logo"
 						class="qt-radiologo dripicons-media-play" width="80" height="80">
 				<i class="dripicons-media-play"></i> ${item.song_title}
 				</a></li>
-				</c:forEach>
 				
-				<!-- <li class="qt-channel"><a href="#!" class="qt-ellipsis"
+
+		</c:forEach>
+			</ul>
+		</div>
+		<!-- CHANNELS LIST END ========================= -->
+	</div>
+	
+					<!-- <li class="qt-channel"><a href="#!" class="qt-ellipsis"
 					data-title="altradio" data-subtitle="The subtitle of radio 2"
 					data-background="resources/imagestemplate/large-1170-512.jpg"
 					data-logo="resources/imagestemplate/radio-logo.png"
@@ -142,11 +154,8 @@
 						class="qt-radiologo" width="80" height="80"> <i
 						class="dripicons-media-play"></i> altradio
 				</a></li> -->
-			</ul>
-		</div>
-		<!-- CHANNELS LIST END ========================= -->
-
-	</div>
+	
+	
 	<!-- QT BODY END ================================ -->
 
 	<!-- QT FOOTER SCRIPTS ================================ -->
