@@ -12,7 +12,6 @@
       <typeAlias type="global.sesoc.jazart.vo.BoardReply" alias="BoardReply" />
       <typeAlias type="global.sesoc.jazart.vo.SongInfo" alias="SongInfo" />
       <typeAlias type="global.sesoc.jazart.vo.SongReply" alias="SongReply" />
-      <typeAlias type="global.sesoc.jazart.vo.Playlist" alias="Playlist" />
    </typeAliases>
 
    <mappers>
