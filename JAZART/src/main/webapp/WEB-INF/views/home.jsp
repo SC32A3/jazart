@@ -50,7 +50,7 @@
 		<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
 			<ul>
-				<li><a href="#"><i class="dripicons-chevron-right"></i>About
+				<li><a href="#"><i class="about"></i>About
 						US</a></li>
 				<c:if test="${empty loginNickname}">
 					<li><a href="login"><i class="dripicons-chevron-right"></i>Login</a></li>
@@ -97,7 +97,11 @@
 						<li><a href="dailyChart">Daily Chart</a></li>
 						<li><a href="weeklyChart">Weekly Chart</a></li>
 					</ul></li>
-				<li><a href="qna">Q&A</a></li>
+				<li><a href="qna">Q&A</a>
+					<ul>
+						<li><a href="qna">FAQ</a></li>
+						<li><a href="question">Qustion</a></li>
+					</ul></li>
 				<li class="right"><a href="#!" data-expandable="#qtsearchbar"
 					class="qt-btn qt-btn-l qt-scrolltop"><i
 						class="icon dripicons-search"></i></a></li>
