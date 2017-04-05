@@ -98,7 +98,10 @@ public class ComposeController {
 
 		} else if (type.equals("user")) {
 			originalfile = data;
+		} else if (type.equals("music")) {
+			originalfile = data;
 		}
+		
 		fullpath = uploadPath + "/" + originalfile;
 		// 사용자 측에서 다운로드 받도록 하기 위해서
 		// response 객체의 헤더를 조작함, 웹페이지 개발자모드(F12)의 Head에서 확인할수 있다
@@ -131,7 +134,8 @@ public class ComposeController {
 		}
 		return null;
 	}
-
+	
+	
 	@RequestMapping(value = "songRecommend", method = RequestMethod.GET)
 	public @ResponseBody int recommend(int songnum) {
 		String loginNickname = (String) session.getAttribute("loginNickname");

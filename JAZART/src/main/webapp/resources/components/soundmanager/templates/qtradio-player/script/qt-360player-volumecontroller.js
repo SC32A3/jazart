@@ -1662,6 +1662,7 @@ soundManager.onready(threeSixtyPlayer.init);
 			$.fn.destroyAll360Sounds();
 			playtrack = c.attr( "data-playtrack");
 			if(playtrack === undefined) {
+				alert('바보');
 				return;
 			}
 			mp3url =  c.attr( "data-playtrack").split("geo-sample").join("sample");
