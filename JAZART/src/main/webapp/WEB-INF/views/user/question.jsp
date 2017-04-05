@@ -186,7 +186,7 @@
                     <div class="qt-container">
               
                         <h1 class="qt-caption qt-spacer-s">
-                         FAQ
+                         Question
                         </h1>
                         <h4 class="qt-subtitle">
                             Subtitle of the page
@@ -201,295 +201,66 @@
                 <div class="qt-container">
                     <div class="row qt-vertical-padding-l ">
                         <div class="col s12 m12 l1 qt-pushpin-container">
-                        <!--     <div class="qt-pushpin">
-                                SHARE FUNCTIONS ==================================================
-                                <ul class="qt-sharepage qt-content-primary">
-                                    <li class="hide-on-med-and-down">
-                                        <i class="qticon-share qt-shareicon qt-content-primary-dark"></i>
-                                    </li>
-                                    <li>
-                                        <a class="qt-popupwindow qt-sharelink" data-sharetype="facebook" data-name="Share" data-width="600" data-height="500" target="_blank" href="#">
-                                            <i class="qticon-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="qt-popupwindow qt-sharelink" data-sharetype="twitter" data-name="Share" data-width="600" data-height="500" target="_blank" href="#">
-                                            <i class="qticon-twitter"></i>
-                                        </a>
-                                        </li>
-                                    <li>
-                                        <a class="qt-popupwindow qt-sharelink" data-sharetype="google" data-name="Share" data-width="600" data-height="500" target="_blank" href="#">
-                                            <i class="qticon-googleplus"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="qt-popupwindow qt-sharelink" data-sharetype="pinterest" data-name="Share" data-width="600" data-height="500" target="_blank" href="#">
-                                            <i class="qticon-pinterest"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="qt-btn-primary qt-sharelink"><i class="dripicons-heart"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                                SHARE FUNCTIONS ==================================================
-                            </div> -->
+       
+                            
+                            
+                          
                             <hr class="qt-spacer-m">
                         </div>
-                        <div class="col s12 m12 l8">
-                            <ul class="collapsible qt-chart-tracklist" data-collapsible="accordion">
-                                <!-- CHART TRACK ========================= -->
-                                <li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
-                                    <div class="qt-chart-table collapsible-header qt-content-primary">
-                                        <div class="qt-position">
-                                            <img src="resources/imagestemplate/thumb-170-170.jpg" class="qt-chart-cover" alt="Chart track" width="170" height="170">
-                                            <span>Q</span>
-                                        </div>
-                                        <div class="qt-titles">
-                                            <h3 class="qt-ellipsis qt-t">jazart는 어떤 프로그램(사이트)인가요??</h3>
-                                     
-                                        </div>
-                                        <div class="qt-action">
-                                            <a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i class="dripicons-cart"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="collapsible-body qt-paper">
-                                        <p>
-                                           기존의 허접하고 겁나 어려운 작곡 프로그램에
- 화가나셨나요?? 내가 만든곡을 겁나 자랑하고 싶은데
- 어디서 자랑해야 될지 모르겠다고요??
- 21세기 울트라 최첨단 신기술 멀티 작곡 프로그램
- jazart가 여러분의 꽉~막힌 고민은 아주 시~원하게 
- 뚫어 드립니다. 초급자들은 몇번의 클릭만으로 빌보드
- 차트에 오를 만한 곡을 아주 손쉽게, 고급자들은 자신의 
- 감성을 살린 곡을 소름끼치도록 만들 수 있게 
- jazart로 여러분의
- 숨겨진 잠재력은 폭발 시켜보세요. 
-                                        </p>
-                                    </div>
-                                </li>
-                                <!-- CHART TRACK END ========================= -->
-                                <!-- CHART TRACK ========================= -->
-                                <li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
-                                    <div class="qt-chart-table collapsible-header qt-content-primary">
-                                        <div class="qt-position">
-                                            <img src="resources/imagestemplate/thumb-170-170.jpg" class="qt-chart-cover" alt="Chart track" width="170" height="170">
-                                            <span>Q</span>
-                                        </div>
-                                        <div class="qt-titles">
-                                            <h3 class="qt-ellipsis qt-t">jazart초급과 고급은 어떻게 다른가요??</h3>
-                                        
-                                        </div>
-                                        <div class="qt-action">
-                                            <a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i class="dripicons-cart"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="collapsible-body qt-paper">
-                                        <p>
-                                             초급은 그동안의 어려웠던 작곡 스타일을 과감히 버리고
- 전문가들이 만든 멜로디를 추천받아 장르??분위기??에 따라
- 겁나 허벌나게 완벽한 음악을 만들 수 있는 전설의 시스템
- 입니다.
- 고급은 어려분의 실력발휘를 하여서 모짜르트를 뛰어 넘는 
- 여러분의 실력을 섬세하게 발휘할 수 있도록 저희가 다~준비 
- 해놓았습니다. 이제 여러분이 해야 할 일은 어려분의 
- 즐거운 작곡 여정을 시작하는 일입니다.♥
-                                        </p>
-                                    </div>
-                                </li>
-                                <!-- CHART TRACK END ========================= -->
-                                <!-- CHART TRACK ========================= -->
-                                <li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
-                                    <div class="qt-chart-table collapsible-header qt-content-primary">
-                                        <div class="qt-position">
-                                            <img src="resources/imagestemplate/thumb-170-170.jpg" class="qt-chart-cover" alt="Chart track" width="170" height="170">
-                                            <span>Q</span>
-                                        </div>
-                                        <div class="qt-titles">
-                                            <h3 class="qt-ellipsis qt-t">차트 순위는 어떻게 결정되나요??</h3>
-                                        
-                                        </div>
-                                        <div class="qt-action">
-                                            <a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i class="dripicons-cart"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="collapsible-body qt-paper">
-                                        <p>
-                                             차트는 사용자들의 추천수를 합산해 순위가 결정됩니다. 
- 사용자들은 중복추천을 할 수 없으므로 사용자의(of the User)
- ,사용자에 의한(by the User)사용자를 위한(for the User)
- 공정한 차트입니다.
-                                        </p>
-                                    </div>
-                                </li>
-                                <!-- CHART TRACK END ========================= -->
-                                <!-- CHART TRACK ========================= -->
-                                <li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
-                                    <div class="qt-chart-table collapsible-header qt-content-primary">
-                                        <div class="qt-position">
-                                            <img src="resources/imagestemplate/thumb-170-170.jpg" class="qt-chart-cover" alt="Chart track" width="170" height="170">
-                                            <span>Q</span>
-                                        </div>
-                                        <div class="qt-titles">
-                                            <h3 class="qt-ellipsis qt-t">작곡을 이어서 할 수 있나요??</h3>
-                                           
-                                        </div>
-                                        <div class="qt-action">
-                                            <a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i class="dripicons-cart"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="collapsible-body qt-paper">
-                                        <p>
-                                          모찌롱 입니다. 여러분이 작곡을 하다 갑자기 지진이 났을
- 경우 여러분은 잠시 작곡을 쉬고 이어서 다시 작곡을 할 수 
- 있습니다. 겁나 편리하죠?? 여러분이 feel이 꽃혔을 때 언제든
- 이어서 작곡 할 수 있습니다. 여러분은 jazart의  평생회원
- 이니깐요~~~@_@
-                                        </p>
-                                    </div>
-                                </li>
-                                <!-- CHART TRACK END ========================= -->
-                                <!-- CHART TRACK ========================= -->
-                                <li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
-                                    <div class="qt-chart-table collapsible-header qt-content-primary">
-                                        <div class="qt-position">
-                                            <img src="resources/imagestemplate/thumb-170-170.jpg" class="qt-chart-cover" alt="Chart track" width="170" height="170">
-                                            <span>Q</span>
-                                        </div>
-                                        <div class="qt-titles">
-                                            <h3 class="qt-ellipsis qt-t">jazart의 의미는 무엇인가요?</h3>
-                                        </div>
-                                        <div class="qt-action">
-                                            <a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i class="dripicons-cart"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="collapsible-body qt-paper">
-                                        <p>
-                                            jazart는 자바를 이용한 프로그램으로 모차르트 처럼 작곡을 할 수 있다는 의미로서 java+mozart=jazart가 되었습니다.
-                          
-                                        </p>
-                                    </div>
-                                </li>
-                                <!-- CHART TRACK END ========================= -->
-                                <!-- CHART TRACK ========================= -->
-                                <li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
-                                    <div class="qt-chart-table collapsible-header qt-content-primary">
-                                        <div class="qt-position">
-                                            <img src="resources/imagestemplate/thumb-170-170.jpg" class="qt-chart-cover" alt="Chart track" width="170" height="170">
-                                            <span>Q</span>
-                                        </div>
-                                        <div class="qt-titles">
-                                            <h3 class="qt-ellipsis qt-t">제품 사용하다가 궁금하거나 불편한 점이 있을 경우 어디로 연락해야하나요</h3>
-                                        </div>
-                                        <div class="qt-action">
-                                            <a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i class="dripicons-cart"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="collapsible-body qt-paper">
-                                        <p>
-                                            저희 제품을 사용하시다 궁금한 점이나 불편함이 있으시다면 전화, 온라인, 문자, 채팅, 팩스를 이용하여 문의하실 수 있습니다. 아래의 방법 중, 편한 방법을 활용하여 문의 주시면 빠른 시일 내에 답변 또는 연락 드리겠습니다.
-- 전화상담: 080-022-7007
-- 온라인상담: 제품관련 문의하러 가기
-- 채팅상담 : 채팅상담 바로 가기
-- 팩스상담: 02-528-2678
-                                        </p>
-                                    </div>
-                                </li>
-                                <!-- CHART TRACK END ========================= -->
-                                <!-- CHART TRACK ========================= -->
-                                <li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
-                                    <div class="qt-chart-table collapsible-header qt-content-primary">
-                                        <div class="qt-position">
-                                            <img src="resources/imagestemplate/thumb-170-170.jpg" class="qt-chart-cover" alt="Chart track" width="170" height="170">
-                                            <span>Q</span>
-                                        </div>
-                                        <div class="qt-titles">
-                                            <h3 class="qt-ellipsis qt-t">핸드폰으로도 사용하고 싶어요</h3>
-                                        </div>
-                                        <div class="qt-action">
-                                            <a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i class="dripicons-cart"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="collapsible-body qt-paper">
-                                        <p>
-                                            안드로이드 버전이 있으므로 지금 구글플레이에서 다운받아 사용해보세요.
-                                        </p>
-                                    </div>
-                                </li>
-                                <!-- CHART TRACK END ========================= -->
-                                <!-- CHART TRACK ========================= -->
-                                <li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
-                                    <div class="qt-chart-table collapsible-header qt-content-primary">
-                                        <div class="qt-position">
-                                            <img src="resources/imagestemplate/thumb-170-170.jpg" class="qt-chart-cover" alt="Chart track" width="170" height="170">
-                                            <span>Q</span>
-                                        </div>
-                                        <div class="qt-titles">
-                                            <h3 class="qt-ellipsis qt-t">작곡을 하지 않고 다른 사람의 음악만 들을 수 있나요?</h3>
-                                        </div>
-                                        <div class="qt-action">
-                                            <a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i class="dripicons-cart"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="collapsible-body qt-paper">
-                                        <p>
-                                            네 문제 없습니다. 음악만 듣는 것도 물론 가능하며또한 jazart는 자유게시판을 통해 여러분의 다양한 의견을 교환할 수 있는 장소를 마련해 두었으니 한 번 이용해 보세요.
-                                        </p>
-                                    </div>
-                                </li>
-                                <!-- CHART TRACK END ========================= -->
-                                <!-- CHART TRACK ========================= -->
-                                <li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
-                                    <div class="qt-chart-table collapsible-header qt-content-primary">
-                                        <div class="qt-position">
-                                            <img src="resources/imagestemplate/thumb-170-170.jpg" class="qt-chart-cover" alt="Chart track" width="170" height="170">
-                                            <span>Q</span>
-                                        </div>
-                                        <div class="qt-titles">
-                                            <h3 class="qt-ellipsis qt-t">jazart유료입니까?무료입니까?</h3>
-                                        </div>
-                                        <div class="qt-action">
-                                            <a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i class="dripicons-cart"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="collapsible-body qt-paper">
-                                        <p>
-                                            무료 프로그램입니다. 따라서 저희 프로그램을 부담없이 이용해 보세요. 가격은 무료이지만 성능은 프리이엄 이란 것 다 알고 계시죠~
-                                        </p>
-                                    </div>
-                                </li>
-                                <!-- CHART TRACK END ========================= -->
-                                <!-- CHART TRACK ========================= -->
-                                <li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
-                                    <div class="qt-chart-table collapsible-header qt-content-primary">
-                                        <div class="qt-position">
-                                            <img src="resources/imagestemplate/thumb-170-170.jpg" class="qt-chart-cover" alt="Chart track" width="170" height="170">
-                                            <span>Q</span>
-                                        </div>
-                                        <div class="qt-titles">
-                                            <h3 class="qt-ellipsis qt-t">악플러가 있다면 어떻게 합니까?</h3>
-                               
-                                        </div>
-                                        <div class="qt-action">
-                                            <a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i class="dripicons-cart"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="collapsible-body qt-paper">
-                                        <p>
-                                          저희 운영팀 info@jazart.com으로 알려주세요 저희가 악플러 판단 후 즉시 해당 사용자 아이디를 정지시키겠습니다.
-                                        </p>
-                                    </div>
-                                </li>
-                                <!-- CHART TRACK END ========================= -->
-                              
-                          
-                            </ul>
-                        </div>
-                   
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        
+    
+
+ <form action="accept" name="write_form_member" method="get">
+   <table width="940" style="padding:5px 0 5px 0; ">
+      <tr height="2" bgcolor="#FFC8C3"><td colspan="2"></td></tr>
+    
+      <tr>
+         <th>*닉네임</th>
+         <td><input type="text" name="nickname" ></td>
+      </tr>
+    
+        <tr>
+          <th>*이메일</th>
+          <td>
+            <input type='text' name="email">@
+            <input type='text' name="email_dns">
+              <select name="emailaddr">
+                 <option value="">직접입력</option>
+                 <option value="daum.net">daum.net</option>
+                 <option value="empal.com">empal.com</option>
+                 <option value="gmail.com">gmail.com</option>
+                 <option value="hanmail.net">hanmail.net</option>
+                 <option value="msn.com">msn.com</option>
+                 <option value="naver.com">naver.com</option>
+                 <option value="nate.com">nate.com</option>
+              </select>
+            </td>
+         </tr>
+    	   <tr>
+         <th>*제목</th>
+         <td><input type="text" name="title"></td>
+      </tr>
+      <tr>
+         <th>*내용</th>
+         <td><textarea></textarea></td>
+      </tr>
+           <tr height="2" bgcolor="#FFC8C3"><td colspan="2"></td></tr>
+           <tr>
+             <td colspan="2" align="center">
+               <input type="submit" value="문의하기">
+            </td>
+           </tr>
+           </table>
+          </td>
+          </tr>
+          </form>
+
+                        
+                
+                       
+                      
+             
+                
                 </div>
             </div>
             <!-- .qt-main end -->
