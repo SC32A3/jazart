@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -99,7 +100,10 @@ public class ComposeController {
 		} else if (type.equals("user")) {
 			originalfile = data;
 		} else if (type.equals("music")) {
-			originalfile = data;
+			StringTokenizer token = new StringTokenizer(data, "?");
+			
+			String data2 = token.nextToken();
+			originalfile = data2;
 		}
 		
 		fullpath = uploadPath + "/" + originalfile;
@@ -174,5 +178,13 @@ public class ComposeController {
 			result = sr.recommendSongReply(replynum, loginNickname);
 			return result;
 		}
+	}
+	
+	@RequestMapping(value = "songPopup", method = RequestMethod.GET)
+	public String songPopup(Model model) {
+		String userId = (String) session.getAttribute("loginId");
+		ArrayList<SongInfo> playlist = ur.playlist(userId);
+		model.addAttribute("playlist", playlist);
+		return "user/songPopup";
 	}
 }

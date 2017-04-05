@@ -216,7 +216,6 @@
 			<div class="qt-slickslider-container qt-slickslider-externalarrows">
 				<div class="row">
 
-						<c:forEach var="realtime" varStatus="status" items="${rc}">
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<!-- SHOW UPCOMING ITEM ========================= -->
@@ -273,7 +272,6 @@
 								<!-- TAB CONTENTS end======================================== -->
 								<!-- SHOW UPCOMING ITEM END ========================= -->
 							</div>
-						</c:forEach>
 
 					<!-- 경계 -->
 				</div>
