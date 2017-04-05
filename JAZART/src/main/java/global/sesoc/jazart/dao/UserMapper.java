@@ -2,7 +2,6 @@ package global.sesoc.jazart.dao;
 
 import java.util.ArrayList;
 
-import global.sesoc.jazart.vo.Playlist;
 import global.sesoc.jazart.vo.SongInfo;
 import global.sesoc.jazart.vo.User;
 

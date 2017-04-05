@@ -17,7 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import global.sesoc.jazart.dao.UserRepository;
 import global.sesoc.jazart.utility.FileService;
-import global.sesoc.jazart.vo.Playlist;
 import global.sesoc.jazart.vo.SongInfo;
 import global.sesoc.jazart.vo.User;
 
