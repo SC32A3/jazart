@@ -118,13 +118,14 @@ canvas {
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->
-	<div class="qt-parentcontainer">
 
+	<div class="qt-parentcontainer">
 		<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
 			<ul>
 				<li><a href="#"><i class="dripicons-chevron-right"></i>About
 						US</a></li>
+
 				<c:if test="${empty loginNickname}">
 					<li><a href="login"><i class="dripicons-chevron-right"></i>Login</a></li>
 					<li><a href="join"><i class="dripicons-chevron-right"></i>Join
@@ -135,17 +136,6 @@ canvas {
 					<li><i class="dripicons-chevron-right"></i>Welcome
 						${loginNickname}</li>
 				</c:if>
-
-				<li class="right"><a href="#"><i
-						class="qticon-beatport qt-socialicon"></i></a></li>
-				<li class="right"><a href="#"><i
-						class="qticon-facebook qt-socialicon"></i></a></li>
-				<li class="right"><a href="#"><i
-						class="qticon-twitter qt-socialicon"></i></a></li>
-				<li class="right"><a href="#"><i
-						class="qticon-youtube qt-socialicon"></i></a></li>
-				<li class="right"><a href="#"><i
-						class="qticon-soundcloud qt-socialicon"></i></a></li>
 			</ul>
 		</div>
 		<!-- QT MENUBAR  ================================ -->
@@ -156,35 +146,21 @@ canvas {
 					class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
 				<li><a href="compose">Compose</a>
 					<ul>
-						<li><a href="page-schedule.html">Time Chart</a></li>
-						<li><a href="single-show.html">Week Chart</a></li>
+						<li><a href="mixing">(test)Mixing Page</a></li>
+						<li><a href="artistPage">(test)Artist Page</a></li>
 					</ul></li>
-				<li><a href="archive-podcast.html">Board</a>
+				<li><a href="musicBoard">Board</a>
 					<ul>
-						<li><a href="music_community">Music Community</a></li>
-						<li><a href="single-podcast.html">Free Community</a></li>
+						<li><a href="musicBoard">Music Community</a></li>
+						<li><a href="commBoard">Free Community</a></li>
 					</ul></li>
-				<li><a href="archive-members.html">Song</a>
+				<li><a href="realtimeChart">Charts</a>
 					<ul>
-						<li><a href="songPage">Song Page</a></li>
-						<li><a href="artistPage">Artist Page</a></li>
+						<li><a href="realtimeChart">Realtime Chart</a></li>
+						<li><a href="dailyChart">Daily Chart</a></li>
+						<li><a href="weeklyChart">Weekly Chart</a></li>
 					</ul></li>
-				<li><a href="archive.html">Blog</a>
-					<ul>
-						<li><a href="archive.html">Blog archive</a></li>
-						<li><a href="single-post.html">Single post</a></li>
-					</ul></li>
-				<li><a href="archive-chart.html">Charts</a>
-					<ul>
-						<li><a href="archive-chart.html">Charts archive</a></li>
-						<li><a href="single-chart.html">Single chart</a></li>
-					</ul></li>
-				<li><a href="archive-events.html">Events</a>
-					<ul>
-						<li><a href="archive-events.html">Events archive</a></li>
-						<li><a href="single-event.html">Single event</a></li>
-					</ul></li>
-				<li><a href="page-contacts.html">1Contacts</a></li>
+				<li><a href="page-contacts.html">Contacts</a></li>
 				<li class="right"><a href="#!" data-expandable="#qtsearchbar"
 					class="qt-btn qt-btn-l qt-scrolltop"><i
 						class="icon dripicons-search"></i></a></li>
@@ -207,39 +183,22 @@ canvas {
 		<!-- mobile menu -->
 		<div id="qt-mobile-menu" class="side-nav qt-content-primary">
 			<ul class=" qt-side-nav">
-				<li><a href="index.html">Home</a></li>
-				<li class="menu-item-has-children"><a href="page-schedule.html">COMPOSE</a>
+				<li><a href="/">jazart<span>♬</span></a></li>
+				<li class="menu-item-has-children"><a href="compose">Compose</a>
 					<ul>
-						<li><a href="page-schedule.html">Archive</a></li>
-						<li><a href="single-show.html">Single show page</a></li>
+						<li><a href="mixing">(test)Mixing Page</a></li>
+						<li><a href="artistpage">(test)Artist Page</a></li>
 					</ul></li>
-				<li class="menu-item-has-children"><a
-					href="archive-podcast.html">Board</a>
+				<li class="menu-item-has-children"><a href="musicBoard">Board</a>
 					<ul>
-						<li><a href="music_community">music community</a></li>
-						<li><a href="single-podcast.html">free community</a></li>
+						<li><a href="musicBoard">Music Community</a></li>
+						<li><a href="commBoard">Free Community</a></li>
 					</ul></li>
-				<li class="menu-item-has-children"><a
-					href="archive-members.html">Team</a>
+				<li class="menu-item-has-children"><a href="realtimeChart">Charts</a>
 					<ul>
-						<li><a href="archive-members.html">Archive</a></li>
-						<li><a href="single-member.html">Single show page</a></li>
-					</ul></li>
-				<li class="menu-item-has-children"><a href="archive.html">Blog</a>
-					<ul>
-						<li><a href="archive.html">Blog archive</a></li>
-						<li><a href="single-post.html">Single post</a></li>
-					</ul></li>
-				<li class="menu-item-has-children"><a href="archive-chart.html">Charts</a>
-					<ul>
-						<li><a href="archive-chart.html">Charts archive</a></li>
-						<li><a href="single-chart.html">Single chart</a></li>
-					</ul></li>
-				<li class="menu-item-has-children"><a
-					href="archive-events.html">Events</a>
-					<ul>
-						<li><a href="archive-events.html">Events archive</a></li>
-						<li><a href="single-event.html">Single event</a></li>
+						<li><a href="realtimeChart">Realtime Chart</a></li>
+						<li><a href="dailyChart">Daily Chart</a></li>
+						<li><a href="weeklyChart">Weekly Chart</a></li>
 					</ul></li>
 				<li><a href="page-contacts.html">Contacts</a></li>
 			</ul>
@@ -257,6 +216,7 @@ canvas {
 					class="icon dripicons-media-play"></i></a></li>
 		</ul>
 		<!-- SEARCH FORM ========================= -->
+
 		<div id="qtsearchbar"
 			class="qt-searchbar qt-content-primary qt-expandable">
 			<div class="qt-expandable-inner">
@@ -294,9 +254,8 @@ canvas {
 						<li><a href="#"><i class="qticon-soundcloud"></i></a></li>
 					</ul>
 				</div>
-				<div class="qt-header-bg"
-					data-bgimage="imagestemplate/full-1600-700.jpg">
-					<img src="images/compose.jpg" alt="Featured image" width="690"
+				<div class="qt-header-bg" data-bgimage="images/back1.jpg">
+					<img src="images/back1.jpg" alt="Featured image" width="690"
 						height="302">
 				</div>
 			</div>

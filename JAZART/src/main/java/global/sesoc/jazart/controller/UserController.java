@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,94 +24,99 @@ import global.sesoc.jazart.vo.User;
 @Controller
 public class UserController {
 
-   private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
-   @Autowired
-   UserRepository ur;
-   @Autowired
-   HttpSession session;
+	@Autowired
+	UserRepository ur;
+	@Autowired
+	HttpSession session;
 
-   final String uploadPath = "/userProfile"; //파일이 업로드 되는 경로
+	final String uploadPath = "/userProfile"; // 파일이 업로드 되는 경로
 
-   @RequestMapping(value = "/", method = RequestMethod.GET)
-   public String home() {
-      return "home";
-   }
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String home() {
+		return "home";
+	}
 
-   @RequestMapping(value = "login", method = RequestMethod.GET)
-   public String login() {
-      return "user/login";
-   }
+	@RequestMapping(value = "login", method = RequestMethod.GET)
+	public String login() {
+		return "user/login";
+	}
 
-   @RequestMapping(value = "login", method = RequestMethod.POST)
-   public String login(String userid, String password, Model model) {
-      User loginUser = ur.selectUser(userid);
-      if (loginUser == null) {
-         model.addAttribute("message", "fail");
-         return "user/login";
-      }
+	@RequestMapping(value = "login", method = RequestMethod.POST)
+	public String login(String userid, String password, Model model) {
+		User loginUser = ur.selectUser(userid);
+		if (loginUser == null) {
+			model.addAttribute("message", "fail");
+			return "user/login";
+		}
 
-      if (loginUser.getUser_pw().equals(password)) {
-         model.addAttribute("message", "success");
-         session.setAttribute("loginId", loginUser.getUser_id());
-         session.setAttribute("loginNickname", loginUser.getUser_nickname());
-         return "redirect:/";
-      } else {
-         model.addAttribute("message", "fail");
-         return "user/login";
-      }
-   }
+		if (loginUser.getUser_pw().equals(password)) {
+			model.addAttribute("message", "success");
+			session.setAttribute("loginId", loginUser.getUser_id());
+			session.setAttribute("loginNickname", loginUser.getUser_nickname());
+			return "redirect:/";
+		} else {
+			model.addAttribute("message", "fail");
+			return "user/login";
+		}
+	}
 
-   @RequestMapping(value = "join", method = RequestMethod.GET)
-   public String join() {
-      return "user/join";
-   }
-   
-   @RequestMapping(value = "joinCheck", method = RequestMethod.GET)
-   public @ResponseBody String joinCheck(User user) {
-      String result = ur.joinCheck(user);
-      return result;
-   }
+	@RequestMapping(value = "join", method = RequestMethod.GET)
+	public String join() {
+		return "user/join";
+	}
 
-   @RequestMapping(value = "join", method = RequestMethod.POST)
-   public String join(User user, MultipartFile upload) {
-      String userName = user.getUser_nickname();
-      
-      // 첨부된 파일을 처리
-      if (!upload.isEmpty()) {
-         String savedfile = FileService.saveFile(upload, uploadPath, userName);
-         user.setUser_picture(savedfile);
-      } else {
-         user.setUser_picture("default.jpg");
-      }
+	@RequestMapping(value = "joinCheck", method = RequestMethod.GET)
+	public @ResponseBody String joinCheck(User user) {
+		String result = ur.joinCheck(user);
+		return result;
+	}
 
-      ur.regist(user);
+	@RequestMapping(value = "join", method = RequestMethod.POST)
+	public String join(User user, MultipartFile upload) {
+		String userName = user.getUser_nickname();
 
-      return "redirect:/";
-   }
-   
-   @RequestMapping(value = "logout", method = RequestMethod.GET)
-   public String logout(SessionStatus sessionStatus) {
-      sessionStatus.setComplete();
-      session.invalidate();
-      return "redirect:/";
-   }
-   @RequestMapping(value = "about", method = RequestMethod.GET)
-   public String about() {
+		// 첨부된 파일을 처리
+		if (!upload.isEmpty()) {
+			String savedfile = FileService.saveFile(upload, uploadPath, userName);
+			user.setUser_picture(savedfile);
+		} else {
+			user.setUser_picture("default.jpg");
+		}
 
-      return "user/about";
-   }
-   @RequestMapping(value = "qna", method = RequestMethod.GET)
+		ur.regist(user);
+
+		return "redirect:/";
+	}
+
+	@RequestMapping(value = "logout", method = RequestMethod.GET)
+	public String logout(SessionStatus sessionStatus) {
+		sessionStatus.setComplete();
+		session.invalidate();
+		return "redirect:/";
+	}
+
+	@RequestMapping(value = "about", method = RequestMethod.GET)
+	public String about() {
+
+		return "user/about";
+	}
+
+	@RequestMapping(value = "qna", method = RequestMethod.GET)
 	public String qna() {
-	return "user/qna";
-}
-   @RequestMapping(value = "question", method = RequestMethod.GET)
+		return "user/qna";
+	}
+
+	@RequestMapping(value = "question", method = RequestMethod.GET)
 	public String question() {
-	return "user/question";
-}
-   @RequestMapping(value = "accept", method = RequestMethod.GET)
-	public String accept() {
-	return "user/accept";
-}
+		return "user/question";
+	}
+
+	@RequestMapping(value = "accept", method = RequestMethod.GET)
+	public String accept(String user_id, String user_phone, String title, String contents) {
+		logger.info("accept result : " + user_id + "," + user_phone + "," + title + "," + contents);
+		return "user/accept";
+	}
 
 }

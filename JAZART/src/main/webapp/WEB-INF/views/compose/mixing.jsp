@@ -267,7 +267,7 @@
 						${loginNickname}</li>
 				</c:if>
 
-<!-- 				<li class="right"><a href="#"><i
+				<!-- 				<li class="right"><a href="#"><i
 						class="qticon-beatport qt-socialicon"></i></a></li>
 				<li class="right"><a href="#"><i
 						class="qticon-facebook qt-socialicon"></i></a></li>
@@ -397,10 +397,9 @@
 						<li><a href="#"><i class="qticon-soundcloud"></i></a></li>
 					</ul>
 				</div>
-				<div class="qt-header-bg"
-					data-bgimage="imagestemplate/full-1600-700.jpg">
-					<img src="resources/imagestemplate/full-1600-700.jpg"
-						alt="Featured image" width="690" height="302">
+				<div class="qt-header-bg" data-bgimage="images/back1.jpg">
+					<img src="images/back1.jpg" alt="Featured image" width="690"
+						height="302">
 				</div>
 			</div>
 			<!-- HEADER CONTACTS END ========================= -->
@@ -447,10 +446,14 @@
 										class="icon-stop icon-white"></i></a></li>
 							</ul>
 						</div> -->
-						
+
 						<table>
-						<tr><td><a id="step-backward" href="#">backward</a></td>
-						<td><a id="playPause" href="#">play/pause</a></td><td><a id="stop" href="#">stop</a></td></tr></table>
+							<tr>
+								<td><a id="step-backward" href="#">backward</a></td>
+								<td><a id="playPause" href="#">play/pause</a></td>
+								<td><a id="stop" href="#">stop</a></td>
+							</tr>
+						</table>
 						<div id="holder">
 							<div class="row-fluid" id="trackBed">
 

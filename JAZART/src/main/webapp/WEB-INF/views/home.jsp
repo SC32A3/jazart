@@ -45,13 +45,14 @@
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->
-	<div class="qt-parentcontainer">
 
+	<div class="qt-parentcontainer">
 		<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
 			<ul>
-				<li><a href="about"><i class="about"></i>About
+				<li><a href="#"><i class="dripicons-chevron-right"></i>About
 						US</a></li>
+
 				<c:if test="${empty loginNickname}">
 					<li><a href="login"><i class="dripicons-chevron-right"></i>Login</a></li>
 					<li><a href="join"><i class="dripicons-chevron-right"></i>Join
@@ -62,17 +63,6 @@
 					<li><i class="dripicons-chevron-right"></i>Welcome
 						${loginNickname}</li>
 				</c:if>
-
-<!-- 				<li class="right"><a href="#"><i
-						class="qticon-beatport qt-socialicon"></i></a></li>
-				<li class="right"><a href="#"><i
-						class="qticon-facebook qt-socialicon"></i></a></li>
-				<li class="right"><a href="#"><i
-						class="qticon-twitter qt-socialicon"></i></a></li>
-				<li class="right"><a href="#"><i
-						class="qticon-youtube qt-socialicon"></i></a></li>
-				<li class="right"><a href="#"><i
-						class="qticon-soundcloud qt-socialicon"></i></a></li> -->
 			</ul>
 		</div>
 		<!-- QT MENUBAR  ================================ -->
@@ -97,10 +87,10 @@
 						<li><a href="dailyChart">Daily Chart</a></li>
 						<li><a href="weeklyChart">Weekly Chart</a></li>
 					</ul></li>
-				<li><a href="qna">Q&A</a>
+				<li><a href="qna">Contacts</a>
 					<ul>
-						<li><a href="qna">FAQ</a></li>
-						<li><a href="question">Qustion</a></li>
+						<li><a href="qna">QnA</a></li>
+						<li><a href="question">Question</a></li>
 					</ul></li>
 				<li class="right"><a href="#!" data-expandable="#qtsearchbar"
 					class="qt-btn qt-btn-l qt-scrolltop"><i
@@ -118,7 +108,7 @@
 				<li><a href="#" data-activates="qt-mobile-menu"
 					class="button-collapse qt-menu-switch qt-btn qt-btn-primary qt-btn-m"><i
 						class="dripicons-menu"></i></a></li>
-				<li><a href="#!" class="brand-logo qt-logo-text">jazart<span>♬</a></li>
+				<li><a href="#!" class="brand-logo qt-logo-text">jazart</a></li>
 			</ul>
 		</nav>
 		<!-- mobile menu -->
@@ -128,7 +118,7 @@
 				<li class="menu-item-has-children"><a href="compose">Compose</a>
 					<ul>
 						<li><a href="mixing">(test)Mixing Page</a></li>
-						<li><a href="artistPage">(test)Artist Page</a></li>
+						<li><a href="artistpage">(test)Artist Page</a></li>
 					</ul></li>
 				<li class="menu-item-has-children"><a href="musicBoard">Board</a>
 					<ul>
@@ -141,10 +131,7 @@
 						<li><a href="dailyChart">Daily Chart</a></li>
 						<li><a href="weeklyChart">Weekly Chart</a></li>
 					</ul></li>
-				<li class="menu-item-has-children"><a href="qna">Contacts</a>
-					<ul>
-						<li><a href="qna">QnA</a>
-					</ul></li>
+				<li><a href="page-contacts.html">Contacts</a></li>
 			</ul>
 		</div>
 		<!-- mobile toolbar -->
@@ -160,6 +147,7 @@
 					class="icon dripicons-media-play"></i></a></li>
 		</ul>
 		<!-- SEARCH FORM ========================= -->
+
 		<div id="qtsearchbar"
 			class="qt-searchbar qt-content-primary qt-expandable">
 			<div class="qt-expandable-inner">
@@ -211,12 +199,18 @@
 											<li><a href="#">Adventure</a></li>
 										</ul>
 										<h2 class="qt-title">
-											<a href="#read" class="qt-text-shadow"> The music makes your heart bounce.<br> Let's start our composing journey. </a>
+											<a href="#read" class="qt-text-shadow"> The music makes
+												your heart bounce.<br> Let's start our composing
+												journey.
+											</a>
 										</h2>
 										<div
 											class="qt-the-content qt-spacer-s small hide-on-med-and-down ">
-											<p class="qt-spacer-s qt-text-shadow">More easy, More quickly makes your music!!<br> Whenever you're in trouble or
-											feeling down jazart'll be there for you.</p>
+											<p class="qt-spacer-s qt-text-shadow">
+												More easy, More quickly makes your music!!<br> Whenever
+												you're in trouble or feeling down jazart'll be there for
+												you.
+											</p>
 											<p>
 												<a href="#read" class="qt-btn qt-btn-l qt-btn-primary "><i
 													class="dripicons-align-justify"></i></a>
@@ -1375,8 +1369,8 @@
 								</h5>
 								<div class="qt-widget-about">
 									<p>
-										We are a young and dynamic compose station which wants to bring
-										happyness in your life. <br> <a
+										We are a young and dynamic compose station which wants to
+										bring happyness in your life. <br> <a
 											href="http://www.qantumthemes.com">Discover more <i
 											class="dripicons-arrow-thin-right"></i></a>
 									</p>
