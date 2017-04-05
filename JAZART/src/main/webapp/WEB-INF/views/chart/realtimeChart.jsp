@@ -47,7 +47,7 @@
 <script src="resources/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
 	function pagingForSubmit(currentPage) {
-		var form = document.getElementById("pagingForm"); */
+		var form = document.getElementById("pagingForm");
 		var page = document.getElementById("page");
 		page.value = currentPage;
 		form.submit();
@@ -109,16 +109,17 @@
 						<li><a href="weeklyChart">Weekly Chart</a></li>
 					</ul></li>
 				<li><a href="page-contacts.html">Contacts</a></li>
-				<li class="right"><a href="#!" data-expandable="#qtsearchbar"
-					class="qt-btn qt-btn-l qt-scrolltop"><i
-						class="icon dripicons-search"></i></a></li>
-				<li class="right"><a href="page-popup.html"
-					class="qt-popupwindow" data-name="Music Player" data-width="320"
-					data-height="500"><i class="icon dripicons-duplicate"></i>
-						Popup</a></li>
-				<li class="right"><a href="#!" class="button-playlistswitch"
-					data-activates="channelslist"><i
-						class="icon dripicons-media-play"></i> Listen</a></li>
+				
+				<!-- 서치바 -->
+				<li class="right">
+					<a href="#!" data-expandable="#qtsearchbar" class="qt-btn qt-btn-l qt-scrolltop">
+					<i	class="icon dripicons-search"></i></a></li>
+				<c:if test="${not empty loginNickname}">	
+				<li class="right">
+					<a href="songPopup" class="qt-popupwindow" data-name="Music Player" data-width="320" data-height="500">
+					<i class="icon dripicons-duplicate"></i>Popup</a></li>
+				</c:if>
+						
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
 			<ul class="qt-desktopmenu hide-on-xl-only ">
@@ -152,8 +153,7 @@
 			</ul>
 		</div>
 		<!-- mobile toolbar -->
-		<ul
-			class="qt-mobile-toolbar qt-content-primary-dark qt-content-aside hide-on-large-only">
+		<ul	class="qt-mobile-toolbar qt-content-primary-dark qt-content-aside hide-on-large-only">
 			<li><a href="#!" data-expandable="#qtsearchbar"
 				class="qt-scrolltop"><i class="icon dripicons-search"></i></a></li>
 			<li><a href="resources/page-popup.html" class="qt-popupwindow"
@@ -337,93 +337,7 @@
 	<!-- SCHEDULE END ================================================== -->
 	</div>
 	<hr class="qt-spacer-l">
-	<!-- ======================= SPONSORS ======================= -->
-	<div class="qt-vertical-padding-m qt-sponsors">
-		<h3 class="qt-caption-med">
-			<span>SPONSORS</span>
-		</h3>
-		<hr class="qt-spacer-m">
-		<!-- SLIDESHOW SPONSORS ================================================== -->
-		<div
-			class="qt-slickslider-container qt-slickslider-externalarrows qt-slickslider-fullscreen">
-			<div class="row">
-				<div class="qt-slickslider qt-slickslider-multiple qt-text-shadow "
-					data-slidestoshow="6" data-slidestoshowipad="3"
-					data-variablewidth="false" data-arrows="true" data-dots="false"
-					data-infinite="true" data-centermode="false"
-					data-pauseonhover="true" data-autoplay="true"
-					data-arrowsmobile="false" data-centermodemobile="true"
-					data-dotsmobile="false" data-slidestoshowmobile="1"
-					data-variablewidthmobile="true" data-infinitemobile="false">
-					<!-- SLIDESHOW ITEM -->
-					<div class="qt-item">
-						<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-							<img src="resources/imagestemplate/sponsor.png" width="235"
-							height="132" alt="sponsor" class="qt-image-responsive">
-						</a>
-					</div>
-					<!-- SLIDESHOW ITEM -->
-					<div class="qt-item">
-						<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-							<img src="resources/imagestemplate/sponsor.png" width="235"
-							height="132" alt="sponsor" class="qt-image-responsive">
-						</a>
-					</div>
-					<!-- SLIDESHOW ITEM -->
-					<div class="qt-item">
-						<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-							<img src="resources/imagestemplate/sponsor.png" width="235"
-							height="132" alt="sponsor" class="qt-image-responsive">
-						</a>
-					</div>
-					<!-- SLIDESHOW ITEM -->
-					<div class="qt-item">
-						<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-							<img src="resources/imagestemplate/sponsor.png" width="235"
-							height="132" alt="sponsor" class="qt-image-responsive">
-						</a>
-					</div>
-					<!-- SLIDESHOW ITEM -->
-					<div class="qt-item">
-						<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-							<img src="resources/imagestemplate/sponsor.png" width="235"
-							height="132" alt="sponsor" class="qt-image-responsive">
-						</a>
-					</div>
-					<!-- SLIDESHOW ITEM -->
-					<div class="qt-item">
-						<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-							<img src="resources/imagestemplate/sponsor.png" width="235"
-							height="132" alt="sponsor" class="qt-image-responsive">
-						</a>
-					</div>
-					<!-- SLIDESHOW ITEM -->
-					<div class="qt-item">
-						<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-							<img src="resources/imagestemplate/sponsor.png" width="235"
-							height="132" alt="sponsor" class="qt-image-responsive">
-						</a>
-					</div>
-					<!-- SLIDESHOW ITEM -->
-					<div class="qt-item">
-						<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-							<img src="resources/imagestemplate/sponsor.png" width="235"
-							height="132" alt="sponsor" class="qt-image-responsive">
-						</a>
-					</div>
-					<!-- SLIDESHOW ITEM -->
-					<div class="qt-item">
-						<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-							<img src="resources/imagestemplate/sponsor.png" width="235"
-							height="132" alt="sponsor" class="qt-image-responsive">
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- SLIDESHOW SPONSORS END ================================================== -->
-		<hr class="qt-spacer-s">
-	</div>
+	
 	</div>
 	<!-- .qt-main end -->
 	<div class="qt-footer qt-footerwidgets">
@@ -540,86 +454,9 @@
 		</div>
 	</div>
 	</div>
+	
+	
 	<!-- PLAYER SIDEBAR ========================= -->
-	<div id="channelslist"
-		class="side-nav qt-content-primary qt-right-sidebar">
-		<a href="#"
-			class="qt-btn qt-btn-secondary button-playlistswitch-close qt-close-sidebar-right"
-			data-activates="channelslist"><i class="icon dripicons-cross"></i></a>
-		<!-- PLAYER ========================= -->
-		<div id="qtplayercontainer" data-playervolume="true"
-			data-accentcolor="#dd0e34" data-accentcolordark="#ff0442"
-			data-textcolor="#ffffff"
-			data-soundmanagerurl="./components/soundmanager/swf/"
-			class="qt-playercontainer qt-playervolume qt-clearfix qt-content-primary">
-			<div class="qt-playercontainer-content qt-vertical-padding-m">
-				<div class="qt-playercontainer-header">
-					<h5 class="qt-text-shadow small">Now on</h5>
-					<h3 id="qtradiotitle" class="qt-text-shadow">STATION 1 RADIO</h3>
-					<h4 id="qtradiosubtitle" class="qt-thin qt-text-shadow small">Subtitle
-						of the radio</h4>
-				</div>
-				<div class="qt-playercontainer-musicplayer" id="qtmusicplayer">
-					<div class="qt-musicplayer">
-						<div class="ui360 ui360-vis qt-ui360">
-							<a id="playerlink"
-								href="http://freshly-ground.com/data/audio/sm2/Adrian%20Glynn%20-%20Blue%20Belle%20Lament.mp3"></a>
-						</div>
-					</div>
-				</div>
-				<div
-					class="qt-playercontainer-data qt-container qt-text-shadow small">
-					<h6 class="qt-inline-textdeco">
-						<span>Current track</span>
-					</h6>
-					<div class="qt-t qt-current-track">
-						<h5 id="qtFeedPlayerTrack">TITLE</h5>
-						<h6 class="qt-small" id="qtFeedPlayerAuthor">ARTIST</h6>
-					</div>
-					<hr class="qt-inline-textdeco">
-				</div>
-			</div>
-			<div id="playerimage" class="qt-header-bg"
-				data-bgimage="resources/imagestemplate/full-1600-700.jpg">
-				<img src="resources/imagestemplate/full-1600-700.jpg"
-					alt="Featured image" width="690" height="302">
-			</div>
-		</div>
-		<!-- this is for xml radio feed -->
-		<div id="qtShoutcastFeedData" class="hidden" data-style=""
-			data-channel="1" data-host="173.192.105.231" data-port="3540"></div>
-		<!-- PLAYER END ========================= -->
-		<!-- CHANNELS LIST ========================= -->
-		<div class="qt-part-channels-list">
-			<ul class="qt-content-aside qt-channelslist qt-negative">
-				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
-					data-title="06AM Ibiza" data-subtitle="Underground Radio"
-					data-background="imagestemplate/photo-squared-500-500.jpg"
-					data-logo="imagestemplate/radio-logo.png"
-					data-playtrack="http://173.192.105.231:3540/stream.mp3"
-					data-host="173.192.105.231" data-port="3540" data-stats_path=""
-					data-played_path="" data-channel=""> <img
-						src="resources/imagestemplate/radio-logo.png" alt="logo"
-						class="qt-radiologo dripicons-media-play" width="80" height="80">
-						<i class="dripicons-media-play"></i> Station 1
-				</a></li>
-				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
-					data-title="altradio" data-subtitle="The subtitle of radio 2"
-					data-background="imagestemplate/large-1170-512.jpg"
-					data-logo="imagestemplate/radio-logo.png"
-					data-playtrack="http://82.77.137.30:8557/;listen.mp3"
-					data-host="82.77.137.30" data-port="8557" data-stats_path=""
-					data-played_path="" data-channel=""> <img
-						src="resources/imagestemplate/radio-logo.png" alt="logo"
-						class="qt-radiologo" width="80" height="80"> <i
-						class="dripicons-media-play"></i> altradio
-				</a></li>
-			</ul>
-		</div>
-		<!-- CHANNELS LIST END ========================= -->
-	</div>
-	<!-- PLAYER SIDEBAR END ========================= -->
-
 
 	<!-- QT BODY END ================================ -->
 

@@ -1767,10 +1767,11 @@ soundManager.onready(threeSixtyPlayer.init);
 
 						// console.log("author: "+author);
 						// console.log("title: "+title);
-
+						
 
 						qtFeedPlayerTrack.html(title);
 						qtFeedPlayerAuthor.html(author);
+						
 					 } else {
 					 	// Add disconnect here
 					 	$.SHOUTcast().stopStats();
@@ -1805,6 +1806,7 @@ soundManager.onready(threeSixtyPlayer.init);
 
 						qtFeedPlayerTrack.html(title);
 						qtFeedPlayerAuthor.html(author);
+					
 					 } else {
 					 	// Add disconnect here
 					 	$.SHOUTcast().stopStats();
@@ -1934,6 +1936,7 @@ soundManager.onready(threeSixtyPlayer.init);
 
 							qtFeedPlayerTrack.html(title);
 							qtFeedPlayerAuthor.html(author);
+							
 						 } else {
 						 	// Add disconnect here
 						 	$.SHOUTcast().stopStats();

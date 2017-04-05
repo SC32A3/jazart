@@ -80,6 +80,7 @@ public class BoardController {
    
    @RequestMapping(value="boardRead", method=RequestMethod.GET)
    public String read(int boardNum, Model model){
+	   
 	   br.addHits(boardNum);
 	   Board board = br.selectList(boardNum);
       if(board == null){

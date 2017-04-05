@@ -356,45 +356,62 @@ select count(user_email) from userinfo where user_email = 'bj@nae.com';
 update songinfo set song_like = song_like+1 where songnum = #{songnum}
 
 -------------------------------------------------------------------------------------------------------------------------------
---실시간차트(5시간 이내)
-select like_seq, like_nickname, to_char(like_time, 'yy/mm/dd HH24:MI') like_time, songnum
-from songlike where like_time between sysdate-1/24 and sysdate;
---랭킹으로
-select songnum, count(songnum) count 
-from songlike where like_time between sysdate-5/24 and sysdate group by songnum order by count desc;
-
---일간차트
-select info.songnum, info.song_nickname, info.song_picture, info.song_title,
-		info.song_desc, count(slike.like_time) cnt
-		from songinfo info, songlike
-		slike
-		where info.songnum = slike.songnum and slike.like_time between
-		to_date(sysdate-1, 'yy/mm/dd') and to_date(sysdate, 'yy/mm/dd')
-		group
-		by info.songnum, info.song_nickname, info.song_picture,
-		info.song_title, info.song_desc
-		order by cnt desc
-
---일간 (페이징후)
-select * from (select rownum rnum, b.* from (select info.songnum, info.song_nickname, info.song_picture, info.song_title,
-		info.song_desc, count(slike.like_time) cnt
+--일간차트카운트
+select count(slike.like_time) cnt
 		from songinfo info, songlike slike
 		where info.songnum = slike.songnum and slike.like_time between
 		to_date(sysdate-1, 'yy/mm/dd') and to_date(sysdate, 'yy/mm/dd')
-		group	by info.songnum, info.song_nickname, info.song_picture,	info.song_title, info.song_desc
-		order by cnt desc)b)c where rnum between 1 and 10;
 
+--일간차트
+	select * from (select rownum rnum, b.* from (select info.songnum, info.song_nickname, info.song_picture, info.song_title,
+		info.song_desc, count(slike.like_time) cnt
+		from songinfo info, songlike slike
+		where info.songnum = slike.songnum and slike.like_time
+		  between to_date(sysdate-1, 'yy/mm/dd') and to_date(sysdate, 'yy/mm/dd')
+		  group by info.songnum, info.song_nickname, info.song_picture, info.song_title, info.song_desc
+		  order by cnt desc)b)c where rnum between #{start} and #{end}
+
+--주간차트카운트
+select count(slike.like_time) cnt
+	from songinfo info, songlike slike
+	where info.songnum = slike.songnum and
+	slike.like_time between
+	
 --주간차트
-select to_char(sysdate-5, 'day') from dual;
-select next_day(sysdate-14, '월요일'), next_day(sysdate-14, '일요일') from dual; --일요일
-select next_day(sysdate-15, '월요일'), next_day(sysdate-8, '일요일') from dual; --토요일
-select next_day(sysdate-16, '월요일'), next_day(sysdate-9, '일요일') from dual; --금요일
-select next_day(sysdate-17, '월요일'), next_day(sysdate-10, '일요일') from dual; --목요일
-select next_day(sysdate-18, '월요일'), next_day(sysdate-11, '일요일') from dual; --수요일
-select next_day(sysdate-19, '월요일'), next_day(sysdate-12, '일요일') from dual; --화요일
-select next_day(sysdate-20, '월요일'), next_day(sysdate-13, '일요일') from dual; --월요일
+select * from (select rownum rnum, b.* from(
+	select info.songnum, info.song_nickname, info.song_picture,
+	info.song_title, info.song_desc, count(slike.like_time) cnt
+	from songinfo info, songlike slike
+	where info.songnum = slike.songnum and
+	slike.like_time between
+	<choose>
+		<when test="day == '일요일'"> next_day(sysdate-14, '월요일') and next_day(sysdate-14, '일요일') </when>
+		<otherwise> next_day(sysdate-14, '월요일') and next_day(sysdate-7, '일요일') </otherwise>
+	</choose>
+	group by info.songnum, info.song_nickname, info.song_picture,
+	info.song_title, info.song_desc
+	order by cnt desc) b) c where rnum between #{start} and #{end}
 
-select to_char(sysdate-1/24,'yyyy/mm/dd HH24:MI') from dual; --작동함
---월간차트 되넹
-select like_seq, like_nickname, to_char(like_time, 'yy/mm/dd HH24:MI') like_time, songnum
-from songlike where like_time between to_date('17/03/01 00:00', 'yy/mm/dd HH24:MI') and to_date('17/04/01 00:00', 'yy/mm/dd HH24:MI');
+--실시간차트카운트
+select count(*) cnt
+		from songinfo info, songlike slike    
+		where info.songnum = slike.songnum and
+		slike.like_time between sysdate-5/24 and sysdate;
+		
+--실시간차트
+select * from
+(select rownum rnum, b.* from
+	(select info.songnum, info.song_title, info.song_genre, info.song_nickname, info.song_desc, count(slike.songnum) count
+	from songinfo info, songlike slike
+	where info.songnum = slike.songnum and slike.like_time between sysdate-5/24 and sysdate
+	group by info.songnum, info.song_title, info.song_genre, info.song_nickname, info.song_desc
+	order by count desc)
+b) where rnum between #{start} and #{end}
+
+--플레이리스트
+ insert into playlist values('apple2', '2', to_date('2017/04/04 09:25', 'yyyy/mm/dd HH24:MI'));
+  insert into playlist values('apple2', '1', to_date('2017/04/04 11:25', 'yyyy/mm/dd HH24:MI'));
+  insert into playlist values('apple2', '21', to_date('2017/04/03 21:25', 'yyyy/mm/dd HH24:MI'));
+  
+  select info.songnum, info.song_title, info.song_picture, info.song_nickname, info.song_file from playlist list, songinfo info
+  		where list.songnum = info.songnum and list.user_id = #{userId}

@@ -23,4 +23,6 @@ public interface UserMapper {
    public int countEmail(String user_email) throws Exception;
 
    public ArrayList<SongInfo> songsByArtist(String loginNickname) throws Exception;
+
+   public ArrayList<SongInfo> playlist(String userId) throws Exception;
 }
