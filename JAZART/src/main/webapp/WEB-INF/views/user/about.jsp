@@ -122,25 +122,21 @@ volume.css" />
 				<li><a href="page-contacts.html">Contacts</a></li>
 				<li class="right"><a href="#!" data-expandable="#qtsearchbar"
 					class="qt-btn qt-btn-l qt-scrolltop"><i
-						class="icon 
+						class="icon dripicons-search"></i></a></li>
 
-dripicons-search"></i></a></li>
-				<li class="right"><a href="page-popup.html"
-					class="qt-popupwindow" data-name="Music Player" data-width="320"
-					data-height="500"><i class="icon dripicons-duplicate"></i>
-						Popup</a></li>
-				<li class="right"><a href="#!" class="button-playlistswitch"
-					data-activates="channelslist"><i
-						class="icon dripicons-
+				<!-- 플레이리스트 -->
+				<c:if test="${not empty loginNickname}">
+					<li class="right"><a href="songPopup" class="qt-popupwindow"
+						data-name="Music Player" data-width="320" data-height="500"> <i
+							class="icon dripicons-duplicate"></i>Playlist
+					</a></li>
+				</c:if>
 
-media-play"></i> Listen</a></li>
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
 			<ul class="qt-desktopmenu hide-on-xl-only ">
 				<li><a href="#" data-activates="qt-mobile-menu"
-					class="button-collapse qt-menu-switch qt-btn qt-btn-primary qt-btn-
-
-m"><i
+					class="button-collapse qt-menu-switch qt-btn qt-btn-primary qt-btn-m"><i
 						class="dripicons-menu"></i></a></li>
 				<li><a href="#!" class="brand-logo qt-logo-text">Jazart</a></li>
 			</ul>

@@ -114,10 +114,11 @@
 				<li class="right">
 					<a href="#!" data-expandable="#qtsearchbar" class="qt-btn qt-btn-l qt-scrolltop">
 					<i	class="icon dripicons-search"></i></a></li>
+				
 				<c:if test="${not empty loginNickname}">	
 				<li class="right">
 					<a href="songPopup" class="qt-popupwindow" data-name="Music Player" data-width="320" data-height="500">
-					<i class="icon dripicons-duplicate"></i>Popup</a></li>
+					<i class="icon dripicons-duplicate"></i>Playlist</a></li>
 				</c:if>
 						
 			</ul>
