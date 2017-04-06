@@ -50,7 +50,7 @@
 		<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
 			<ul>
-				<li><a href="#"><i class="dripicons-chevron-right"></i>About
+				<li><a href="about"><i class="dripicons-chevron-right"></i>About
 						US</a></li>
 
 				<c:if test="${empty loginNickname}">
