@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import global.sesoc.jazart.dao.UserRepository;
 import global.sesoc.jazart.utility.FileService;
+import global.sesoc.jazart.utility.SendMailTest;
 import global.sesoc.jazart.vo.User;
 
 /**
@@ -113,10 +114,16 @@ public class UserController {
 		return "user/question";
 	}
 
-	@RequestMapping(value = "accept", method = RequestMethod.GET)
-	public String accept(String user_id, String user_phone, String title, String contents) {
-		logger.info("accept result : " + user_id + "," + user_phone + "," + title + "," + contents);
-		return "user/accept";
+	@RequestMapping(value = "accept", method = RequestMethod.POST)
+	public String accept(String title, String contents) {
+		logger.info("accept result : " + title + "," + contents);
+		String user_id = (String) session.getAttribute("loginId");
+		User user = ur.selectUser(user_id);
+		String user_email = user.getUser_email();
+		
+		
+		SendMailTest mail = new SendMailTest();
+		mail.main(user_id, user_email, title, contents);
+		return "redirect:/";
 	}
-
 }

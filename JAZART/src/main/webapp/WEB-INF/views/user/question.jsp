@@ -42,6 +42,16 @@
 
 <!-- Custom typography settings and google fonts -->
 <link rel="stylesheet" href="resources/css/qt-typography.css">
+
+<script src="resources/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#sendBtn').on("click", function() {
+			alert('문의가 접수되었습니다. 감사합니다');
+			$('#questionForm').submit();
+		})
+	})
+</script>
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->
@@ -207,59 +217,32 @@
 											</li>
 										</ul>
 										<div id="form" class="row">
-											<form class="col s12" method="get" action="accept"
-												id="questionForm" enctype="multipart/form-data">
-												<!-- 
-
-email_sender.php -->
+											<form class="col s12" method="post" action="accept"
+												id="questionForm">
+												<!--email_sender.php -->
 												<input type="hidden" name="antispam" value="x123">
-												<h3 class="left-align qt-vertical-padding-m">write down
-													below</h3>
-												<div class="row">
-													<div class="input-field col s6">
-														<input name="user_id" id="user_id" type="text"
-															class="validate" required> <label>ID</label>
-													</div>
-													<div class="input-field col s6">
-														<input name="user_phone" id="user_phone" type="text"
-															class="validate"> <label>Phone</label>
-													</div>
-												</div>
-												<div class="row">
-													<div class="input-field col s12">
-														<input name="user_email" id="user_email" type="email"
-															class="validate" required> <label>Email</label>
-													</div>
-												</div>
+												<h3 class="left-align qt-vertical-padding-m">Question</h3>
 												<br/>
 												<div class="row">
 													<div class="input-field col s12">
 														<input name="title" id="title" type="text"
-															class="validate" required> <label>title</label>
+															class="validate" required> <label>제목</label>
 													</div>
 												</div>
 												<div class="row">
 													<div class="input-field col s12">
 														<p class="comment-form-comment">
-															<textarea id="contents" placeholder="Comment *"
-																name="contents" aria-required="true" style="height: 100px; resize: none;"></textarea>
+															<textarea id="contents" placeholder="내용"
+																name="contents" aria-required="true" style="height: 100px; resize: none;" required></textarea>
 														</p>
 													</div>
 												</div>
 												<br/>
-												<div class="row">
-													<div class="input-field col s12">
-														<input type="file" name="upload">
-													</div>
-												</div>
 												<hr class="qt-spacer-s hide-on-med-and-up">
 												<div class="row">
 													<div class="input-field col s12">
-														<input type="button"
-															class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-
-
-light lnr lnr-rocket"
-															value="Send" name="action" onclick="return check();" />
+														<input type="button" class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light lnr lnr-rocket"
+															value="Send" id="sendBtn"/>
 														<!--  <span class=""></span> join -->
 													</div>
 												</div>
@@ -275,40 +258,6 @@ light lnr lnr-rocket"
 			</div>
 		</div>
 	</div>
-	
-	<script type="text/javascript">
-	var userData;
-	function check() {
-		var id = document.getElementById("user_id").value;
-		var phone = document.getElementById("user_phone").value;
-		var title = document.getElementById("title").value;
-		var contents = document.getElementById("contents").value;
-
-		if (id.length < 4) {
-			alert("글자수는 4글자이상으로");
-			return false;
-		}
-
-		if (phone.length < 11) {
-			alert("전화번호를 정확히 입력해주세요.");
-			return false;
-		}
-
-		if (title == null || title.length < 1) {
-			alert("제목을 정확히 입력해주세요.");
-			return false;
-		}
-		
-		if (contents == null || contents.length < 1) {
-			alert("문의 내용을 정확히 입력해주세요.");
-			return false;
-		}
-		
-		var formdata = document.getElementById("questionForm");
-		formdata.submit();
-	}
-</script>
-	
 	<!-- .qt-main end -->
 	<div class="qt-footer qt-footerwidgets">
 		<div class="qt-section qt-footer-widgets qt-content-primary-light">
