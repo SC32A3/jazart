@@ -71,7 +71,7 @@ public class ChartController {
 	public String weekilyct(Model model, @RequestParam(value="page", defaultValue="1") int page) {
 		logger.info("> weekly chart");
 		
-		int total = cr.dailyCount();
+		int total = cr.weeklyCount();
 		
 		PageNavigator navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
 		int start = navi.getStartRecord(); //1,11,21
