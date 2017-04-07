@@ -241,20 +241,22 @@
 											class="dripicons-heart"></i></a>
 									</div>
 								</div>
-								<div class="qt-header-mid qt-vc">
+											<div class="qt-header-mid qt-vc">
 									<div class="qt-vi">
 								
 										<h2 class="qt-title">
-											<a href="#read" class="qt-text-shadow"> HERO - THE LIGHT
-												AND MUSIC EXPOSITION HITS LOS ANGELES IN THE FASHION WEEK
-												asd asd asd asd asd </a>
+											<a href="#read" class="qt-text-shadow"> The music makes
+												your heart bounce.<br> Let's start our composing
+												journey.
+											</a>
 										</h2>
 										<div
 											class="qt-the-content qt-spacer-s small hide-on-med-and-down ">
-											<p class="qt-spacer-s qt-text-shadow">Lorem ipsum dolor
-												sit amet, consectetur adipiscing elit. Ut vitae auctor nisi.
-												Sed bibendum, lectus in fringilla semper, justo lorem
-												commodo dolor.</p>
+											<p class="qt-spacer-s qt-text-shadow">
+												More easy, More quickly makes your music!!<br> Whenever
+												you're in trouble or feeling down jazart'll be there for
+												you.
+											</p>
 											<p>
 												<a href="#read" class="qt-btn qt-btn-l qt-btn-primary "><i
 													class="dripicons-align-justify"></i></a>
@@ -281,20 +283,22 @@
 											class="dripicons-heart"></i></a>
 									</div>
 								</div>
-								<div class="qt-header-mid qt-vc">
+											<div class="qt-header-mid qt-vc">
 									<div class="qt-vi">
-									
+								
 										<h2 class="qt-title">
-											<a href="#read" class="qt-text-shadow"> HERO - THE LIGHT
-												AND MUSIC EXPOSITION HITS LOS ANGELES IN THE FASHION WEEK
-												asd asd asd asd asd </a>
+											<a href="#read" class="qt-text-shadow"> The music makes
+												your heart bounce.<br> Let's start our composing
+												journey.
+											</a>
 										</h2>
 										<div
 											class="qt-the-content qt-spacer-s small hide-on-med-and-down ">
-											<p class="qt-spacer-s qt-text-shadow">Lorem ipsum dolor
-												sit amet, consectetur adipiscing elit. Ut vitae auctor nisi.
-												Sed bibendum, lectus in fringilla semper, justo lorem
-												commodo dolor.</p>
+											<p class="qt-spacer-s qt-text-shadow">
+												More easy, More quickly makes your music!!<br> Whenever
+												you're in trouble or feeling down jazart'll be there for
+												you.
+											</p>
 											<p>
 												<a href="#read" class="qt-btn qt-btn-l qt-btn-primary "><i
 													class="dripicons-align-justify"></i></a>
@@ -321,20 +325,22 @@
 											class="dripicons-heart"></i></a>
 									</div>
 								</div>
-								<div class="qt-header-mid qt-vc">
+											<div class="qt-header-mid qt-vc">
 									<div class="qt-vi">
 								
 										<h2 class="qt-title">
-											<a href="#read" class="qt-text-shadow"> HERO - THE LIGHT
-												AND MUSIC EXPOSITION HITS LOS ANGELES IN THE FASHION WEEK
-												asd asd asd asd asd </a>
+											<a href="#read" class="qt-text-shadow"> The music makes
+												your heart bounce.<br> Let's start our composing
+												journey.
+											</a>
 										</h2>
 										<div
 											class="qt-the-content qt-spacer-s small hide-on-med-and-down ">
-											<p class="qt-spacer-s qt-text-shadow">Lorem ipsum dolor
-												sit amet, consectetur adipiscing elit. Ut vitae auctor nisi.
-												Sed bibendum, lectus in fringilla semper, justo lorem
-												commodo dolor.</p>
+											<p class="qt-spacer-s qt-text-shadow">
+												More easy, More quickly makes your music!!<br> Whenever
+												you're in trouble or feeling down jazart'll be there for
+												you.
+											</p>
 											<p>
 												<a href="#read" class="qt-btn qt-btn-l qt-btn-primary "><i
 													class="dripicons-align-justify"></i></a>
@@ -969,44 +975,20 @@
 				</h3>
 				<hr class="qt-spacer-s">
 				<!-- POST VIDEO ITEM ========================= -->
-				<div class="qt-part-archive-item qt-part-item-post-hero">
-					<div class="qt-item-header">
-						<div class="qt-header-top">
-							<div class="qt-feedback">
-								<a>17<i class="dripicons-message"></i></a><a>34<i
-									class="dripicons-heart"></i></a>
-							</div>
-						</div>
-						<div class="qt-header-mid qt-vc">
-							<div class="qt-vi">
-								<ul class="qt-tags">
-									<li><a href="#">Adventure</a></li>
-								</ul>
-								<h2 class="qt-title">
-									<a href="#read" class="qt-text-shadow"> THE LIGHT AND MUSIC
-										EXPOSITION HITS LOS ANGELES IN THE FASHION WEEK asd asd asd
-										asd asd </a>
-								</h2>
-								<div
-									class="qt-the-content qt-spacer-s small hide-on-med-and-down ">
-									<p class="qt-spacer-s qt-text-shadow">Lorem ipsum dolor sit
-										amet, consectetur adipiscing elit. Ut vitae auctor nisi. Sed
-										bibendum, lectus in fringilla semper, justo lorem commodo
-										dolor.</p>
-									<p>
-										<a href="#read" class="qt-btn qt-btn-l qt-btn-primary "><i
-											class="dripicons-media-play"></i></a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="qt-header-bg"
-							data-bgimage="imagestemplate/large-1170-512.jpg">
-							<img src="imagestemplate/large-1170-512.jpg" alt="Featured image"
-								width="1170" height="512">
-						</div>
-					</div>
-				</div>
+				
+					
+				
+				
+						
+						
+												<div class="embed-responsive embed-responsive-16by9">
+<iframe width="800" height="450" src="https://www.youtube.com/embed/J_eeOf-_UdA" frameborder="0" allowfullscreen></iframe>
+</div>
+		
+						
+					
+					
+			
 				<!-- POST VIDEO ITEM END ========================= -->
 			</div>
 			<!-- ======================= VIEDO LIST SECTION ======================= -->
@@ -1029,11 +1011,9 @@
 									<a href="#" class="qt-btn qt-btn-primary qt-readmore"><i
 										class="dripicons-media-play"></i></a>
 								</div>
-								<div class="qt-header-bg"
-									data-bgimage="imagestemplate/medium-690-302.jpg">
-									<img src="imagestemplate/medium-690-302.jpg"
-										alt="Featured image" width="690" height="302">
-								</div>
+																				<div class="embed-responsive embed-responsive-16by9">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8A2t_tAjMz8" frameborder="0" allowfullscreen></iframe>
+</div>
 							</div>
 							<h4 class="qt-title">
 								<a href="#" class="qt-spacer-s qt-ellipsis-2 qt-t"> This is
@@ -1059,11 +1039,9 @@
 									<a href="#" class="qt-btn qt-btn-primary qt-readmore"><i
 										class="dripicons-media-play"></i></a>
 								</div>
-								<div class="qt-header-bg"
-									data-bgimage="imagestemplate/medium-690-302.jpg">
-									<img src="imagestemplate/medium-690-302.jpg"
-										alt="Featured image" width="690" height="302">
-								</div>
+																				<div class="embed-responsive embed-responsive-16by9">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xEeFrLSkMm8" frameborder="0" allowfullscreen></iframe>
+</div>
 							</div>
 							<h4 class="qt-title">
 								<a href="#" class="qt-spacer-s qt-ellipsis-2 qt-t"> This is
@@ -1089,11 +1067,9 @@
 									<a href="#" class="qt-btn qt-btn-primary qt-readmore"><i
 										class="dripicons-media-play"></i></a>
 								</div>
-								<div class="qt-header-bg"
-									data-bgimage="imagestemplate/medium-690-302.jpg">
-									<img src="imagestemplate/medium-690-302.jpg"
-										alt="Featured image" width="690" height="302">
-								</div>
+																				<div class="embed-responsive embed-responsive-16by9">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_eSjDiYRxqw" frameborder="0" allowfullscreen></iframe>
+</div>
 							</div>
 							<h4 class="qt-title">
 								<a href="#" class="qt-spacer-s qt-ellipsis-2 qt-t"> This is
@@ -1119,11 +1095,9 @@
 									<a href="#" class="qt-btn qt-btn-primary qt-readmore"><i
 										class="dripicons-media-play"></i></a>
 								</div>
-								<div class="qt-header-bg"
-									data-bgimage="imagestemplate/medium-690-302.jpg">
-									<img src="imagestemplate/medium-690-302.jpg"
-										alt="Featured image" width="690" height="302">
-								</div>
+																				<div class="embed-responsive embed-responsive-16by9">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5Xy_ijxTVzI" frameborder="0" allowfullscreen></iframe>
+</div>
 							</div>
 							<h4 class="qt-title">
 								<a href="#" class="qt-spacer-s qt-ellipsis-2 qt-t"> This is
@@ -1243,63 +1217,63 @@
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="imagestemplate/sponsor.png" width="235" height="132"
+									<img src="resources/imagestemplate/jfc.jpg" width="235" height="132"
 									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="imagestemplate/sponsor.png" width="235" height="132"
+									<img src="resources/imagestemplate/jyp.jpg" width="235" height="132"
 									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="imagestemplate/sponsor.png" width="235" height="132"
+									<img src="resources/imagestemplate/kt.jpg" width="235" height="132"
 									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="imagestemplate/sponsor.png" width="235" height="132"
+									<img src="resources/imagestemplate/loen.jpg" width="235" height="132"
 									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="imagestemplate/sponsor.png" width="235" height="132"
+									<img src="resources/imagestemplate/ple.jpg" width="235" height="132"
 									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="imagestemplate/sponsor.png" width="235" height="132"
+									<img src="resources/imagestemplate/sm.jpg" width="235" height="132"
 									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="imagestemplate/sponsor.png" width="235" height="132"
+									<img src="resources/imagestemplate/sony.jpg" width="235" height="132"
 									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="imagestemplate/sponsor.png" width="235" height="132"
+									<img src="resources/imagestemplate/star.jpg" width="235" height="132"
 									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="imagestemplate/sponsor.png" width="235" height="132"
+									<img src="resources/imagestemplate/yg.jpg" width="235" height="132"
 									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>

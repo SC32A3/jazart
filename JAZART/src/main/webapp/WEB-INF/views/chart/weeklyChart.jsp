@@ -268,7 +268,9 @@
 								</li>
 								<!-- CHART TRACK END ========================= -->
 							</c:forEach>
+							
 
+	
 						</ul>
 					</div>
 					<div class="qt-sidebar col s12 m12 l3">
