@@ -133,7 +133,11 @@
 						<li><a href="dailyChart">Daily Chart</a></li>
 						<li><a href="weeklyChart">Weekly Chart</a></li>
 					</ul></li>
-				<li><a href="page-contacts.html">Contacts</a></li>
+				<li><a href="qna">Contacts</a>
+					<ul>
+						<li><a href="qna">QnA</a></li>
+						<li><a href="question">Question</a></li>
+					</ul></li>
 			</ul>
 		</div>
 		<!-- mobile toolbar -->
@@ -197,9 +201,7 @@
 								</div>
 								<div class="qt-header-mid qt-vc">
 									<div class="qt-vi">
-										<ul class="qt-tags">
-											<li><a href="#">Adventure</a></li>
-										</ul>
+								
 										<h2 class="qt-title">
 											<a href="#read" class="qt-text-shadow"> The music makes
 												your heart bounce.<br> Let's start our composing
@@ -241,9 +243,7 @@
 								</div>
 								<div class="qt-header-mid qt-vc">
 									<div class="qt-vi">
-										<ul class="qt-tags">
-											<li><a href="#">Adventure</a></li>
-										</ul>
+								
 										<h2 class="qt-title">
 											<a href="#read" class="qt-text-shadow"> HERO - THE LIGHT
 												AND MUSIC EXPOSITION HITS LOS ANGELES IN THE FASHION WEEK
@@ -283,9 +283,7 @@
 								</div>
 								<div class="qt-header-mid qt-vc">
 									<div class="qt-vi">
-										<ul class="qt-tags">
-											<li><a href="#">Adventure</a></li>
-										</ul>
+									
 										<h2 class="qt-title">
 											<a href="#read" class="qt-text-shadow"> HERO - THE LIGHT
 												AND MUSIC EXPOSITION HITS LOS ANGELES IN THE FASHION WEEK
@@ -325,9 +323,7 @@
 								</div>
 								<div class="qt-header-mid qt-vc">
 									<div class="qt-vi">
-										<ul class="qt-tags">
-											<li><a href="#">Adventure</a></li>
-										</ul>
+								
 										<h2 class="qt-title">
 											<a href="#read" class="qt-text-shadow"> HERO - THE LIGHT
 												AND MUSIC EXPOSITION HITS LOS ANGELES IN THE FASHION WEEK

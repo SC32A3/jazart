@@ -47,10 +47,10 @@
 	<!-- QT HEADER END ================================ -->
 
 	<div class="qt-parentcontainer">
-		<!-- QT MENUBAR TOP ================================ -->
+	<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
 			<ul>
-				<li><a href="#"><i class="dripicons-chevron-right"></i>About
+				<li><a href="about"><i class="dripicons-chevron-right"></i>About
 						US</a></li>
 
 				<c:if test="${empty loginNickname}">
@@ -133,7 +133,11 @@
 						<li><a href="dailyChart">Daily Chart</a></li>
 						<li><a href="weeklyChart">Weekly Chart</a></li>
 					</ul></li>
-				<li><a href="page-contacts.html">Contacts</a></li>
+					<li><a href="qna">Contacts</a>
+					<ul>
+						<li><a href="qna">QnA</a></li>
+						<li><a href="question">Question</a></li>
+					</ul></li>
 			</ul>
 		</div>
 		<!-- mobile toolbar -->
@@ -216,6 +220,43 @@
 								</div>
 							</li>
 							<!-- CHART TRACK END ========================= -->
+									<!-- CHART TRACK ========================= -->
+							<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
+								<div
+									class="qt-chart-table collapsible-header qt-content-primary">
+									<div class="qt-position" style="width: 170px; height: 100px;">
+											<span>Q</span>
+									</div>
+									<div class="qt-titles">
+										<h3 class="qt-ellipsis qt-t">jazart의
+											의미는 무엇인가요?</h3>
+										<p>사이트 정보</p>
+									</div>
+								</div>
+								<div class="collapsible-body qt-paper">
+									<p>Jazart는 자바를 이용한 프로그램으로 모차르트 처럼 작곡을 할 수 있다는 의미로서
+										Java + Mozart = Jazart가 되었습니다.</p>
+								</div>
+							</li>
+							<!-- CHART TRACK END ========================= -->
+							<!-- CHART TRACK ========================= -->
+							<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
+								<div
+									class="qt-chart-table collapsible-header qt-content-primary">
+									<div class="qt-position" style="width: 170px; height: 100px;">
+											<span>Q</span>
+									</div>
+									<div class="qt-titles">
+										<h3 class="qt-ellipsis qt-t">Jazart 유료입니까?무료입니까?</h3>
+										<p>사이트 정보</p>
+									</div>
+								</div>
+								<div class="collapsible-body qt-paper">
+									<p>무료 프로그램입니다. 따라서 저희 프로그램을 부담없이 이용해 보세요. 가격은 무료이지만 성능은
+										프리이엄 이란 것 다 알고 계시죠~</p>
+								</div>
+							</li>
+							<!-- CHART TRACK END ========================= -->
 							<!-- CHART TRACK ========================= -->
 							<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
 								<div
@@ -257,45 +298,8 @@
 								</div>
 							</li>
 							<!-- CHART TRACK END ========================= -->
-							<!-- CHART TRACK ========================= -->
-							<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
-								<div
-									class="qt-chart-table collapsible-header qt-content-primary">
-									<div class="qt-position" style="width: 170px; height: 100px;">
-											<span>Q</span>
-									</div>
-									<div class="qt-titles">
-										<h3 class="qt-ellipsis qt-t">작곡을
-											이어서 할 수 있나요?</h3>
-										<p>작곡 기능 정보</p>
-									</div>
-								</div>
-								<div class="collapsible-body qt-paper">
-									<p>모찌롱 입니다. 여러분이 작곡을 하다 갑자기 지진이 났을 경우 여러분은 잠시 작곡을 쉬고 이어서 다시
-										작곡을 할 수 있습니다. 겁나 편리하죠? 여러분이 feel이 꽃혔을 때 언제든 이어서 작곡 할 수 있습니다.
-										여러분은 Jazart의 평생회원 이니깐요~~~@_@</p>
-								</div>
-							</li>
-							<!-- CHART TRACK END ========================= -->
-							<!-- CHART TRACK ========================= -->
-							<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
-								<div
-									class="qt-chart-table collapsible-header qt-content-primary">
-									<div class="qt-position" style="width: 170px; height: 100px;">
-											<span>Q</span>
-									</div>
-									<div class="qt-titles">
-										<h3 class="qt-ellipsis qt-t">jazart의
-											의미는 무엇인가요?</h3>
-										<p>사이트 정보</p>
-									</div>
-								</div>
-								<div class="collapsible-body qt-paper">
-									<p>Jazart는 자바를 이용한 프로그램으로 모차르트 처럼 작곡을 할 수 있다는 의미로서
-										Java + Mozart = Jazart가 되었습니다.</p>
-								</div>
-							</li>
-							<!-- CHART TRACK END ========================= -->
+						
+					
 							<!-- CHART TRACK ========================= -->
 							<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
 								<div
@@ -353,24 +357,7 @@
 								</div>
 							</li>
 							<!-- CHART TRACK END ========================= -->
-							<!-- CHART TRACK ========================= -->
-							<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
-								<div
-									class="qt-chart-table collapsible-header qt-content-primary">
-									<div class="qt-position" style="width: 170px; height: 100px;">
-											<span>Q</span>
-									</div>
-									<div class="qt-titles">
-										<h3 class="qt-ellipsis qt-t">Jazart 유료입니까?무료입니까?</h3>
-										<p>사이트 정보</p>
-									</div>
-								</div>
-								<div class="collapsible-body qt-paper">
-									<p>무료 프로그램입니다. 따라서 저희 프로그램을 부담없이 이용해 보세요. 가격은 무료이지만 성능은
-										프리이엄 이란 것 다 알고 계시죠~</p>
-								</div>
-							</li>
-							<!-- CHART TRACK END ========================= -->
+							
 							<!-- CHART TRACK ========================= -->
 							<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
 								<div
@@ -390,13 +377,33 @@
 								</div>
 							</li>
 							<!-- CHART TRACK END ========================= -->
+								<!-- CHART TRACK ========================= -->
+							<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
+								<div
+									class="qt-chart-table collapsible-header qt-content-primary">
+									<div class="qt-position" style="width: 170px; height: 100px;">
+											<span>Q</span>
+									</div>
+									<div class="qt-titles">
+										<h3 class="qt-ellipsis qt-t">작곡을
+											이어서 할 수 있나요?</h3>
+										<p>작곡 기능 정보</p>
+									</div>
+								</div>
+								<div class="collapsible-body qt-paper">
+									<p>모찌롱 입니다. 여러분이 작곡을 하다 갑자기 지진이 났을 경우 여러분은 잠시 작곡을 쉬고 이어서 다시
+										작곡을 할 수 있습니다. 겁나 편리하죠? 여러분이 feel이 꽃혔을 때 언제든 이어서 작곡 할 수 있습니다.
+										여러분은 Jazart의 평생회원 이니깐요~~~@_@</p>
+								</div>
+							</li>
+							<!-- CHART TRACK END ========================= -->
 						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- .qt-main end -->
-		<div class="qt-footer qt-footerwidgets">
+			<div class="qt-footer qt-footerwidgets">
 			<div class="qt-section qt-footer-widgets qt-content-primary-light">
 				<div class="qt-container">
 					<h2 class="qt-footer-logo">
@@ -433,14 +440,14 @@
 								<div class="qt-widget-contacts">
 									<p>
 										<i class="qticon-home"></i><a
-											href="http://www.qantumthemes.com">www.qantumthemes.com</a>
+											href="http://www.qantumthemes.com">www.jazart.com</a>
 									</p>
 									<p>
 										<i class="qticon-at-sign"></i><a
-											href="mailto:info@someofyoursite.com">info@someofyoursite.com</a>
+											href="mailto:info@someofyoursite.com">info@jazart.com</a>
 									</p>
 									<p>
-										<i class="qticon-phone"></i><a href="tel:1-847-555-5555">1-847-555-5555</a>
+										<i class="qticon-phone"></i><a href="tel:1-847-555-5555">02-123-1234</a>
 									</p>
 								</div>
 							</div>
@@ -452,8 +459,8 @@
 								</h5>
 								<div class="qt-widget-about">
 									<p>
-										We are a young and dynamic radio station which wants to bring
-										happyness in your life. <br> <a
+										We are a young and dynamic compose station which wants to
+										bring happyness in your life. <br> <a
 											href="http://www.qantumthemes.com">Discover more <i
 											class="dripicons-arrow-thin-right"></i></a>
 									</p>
@@ -486,7 +493,7 @@
 			<div class="qt-footer-bottom qt-content-primary-dark">
 				<div class="qt-container">
 					<div class="row">
-						<div class="col s12 m12 l8">
+						<!-- <div class="col s12 m12 l8">
 							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
 							| Radio Station HTML Template
 							<ul class="qt-menu-footer qt-small qt-list-chevron ">
@@ -494,16 +501,19 @@
 								<li><a href="#">Privacy</a></li>
 								<li><a href="#">Sitemap</a></li>
 							</ul>
+						</div> -->
+						<div class="col s12 m12 l4">
+							<!-- <ul class="qt-menu-social">
+								<li class="right"><a href="#"><i
+										class="qticon-beatport"></i></a></li>
+								<li class="right"><a href="#"><i
+										class="qticon-facebook"></i></a></li>
+								<li class="right"><a href="#"><i class="qticon-twitter"></i></a></li>
+								<li class="right"><a href="#"><i class="qticon-youtube"></i></a></li>
+								<li class="right"><a href="#"><i
+										class="qticon-soundcloud"></i></a></li>
+							</ul> -->
 						</div>
-						<!--  <div class="col s12 m12 l4">
-                                <ul class="qt-menu-social">
-                                    <li class="right"><a href="#"><i class="qticon-beatport"></i></a></li>
-                                    <li class="right"><a href="#"><i class="qticon-facebook"></i></a></li>
-                                    <li class="right"><a href="#"><i class="qticon-twitter"></i></a></li>
-                                    <li class="right"><a href="#"><i class="qticon-youtube"></i></a></li>
-                                    <li class="right"><a href="#"><i class="qticon-soundcloud"></i></a></li>
-                                </ul>
-                            </div> -->
 					</div>
 				</div>
 			</div>
@@ -549,9 +559,9 @@
 				</div>
 			</div>
 			<div id="playerimage" class="qt-header-bg"
-				data-bgimage="resources/imagestemplate/full-1600-700.jpg">
-				<img src="resources/imagestemplate/full-1600-700.jpg"
-					alt="Featured image" width="690" height="302">
+				data-bgimage="imagestemplate/full-1600-700.jpg">
+				<img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
+					width="690" height="302">
 			</div>
 		</div>
 		<!-- this is for xml radio feed -->
@@ -568,7 +578,7 @@
 					data-playtrack="http://173.192.105.231:3540/stream.mp3"
 					data-host="173.192.105.231" data-port="3540" data-stats_path=""
 					data-played_path="" data-channel=""> <img
-						src="resources/imagestemplate/radio-logo.png" alt="logo"
+						src="imagestemplate/radio-logo.png" alt="logo"
 						class="qt-radiologo dripicons-media-play" width="80" height="80">
 						<i class="dripicons-media-play"></i> Station 1
 				</a></li>
@@ -579,7 +589,7 @@
 					data-playtrack="http://82.77.137.30:8557/;listen.mp3"
 					data-host="82.77.137.30" data-port="8557" data-stats_path=""
 					data-played_path="" data-channel=""> <img
-						src="resources/imagestemplate/radio-logo.png" alt="logo"
+						src="imagestemplate/radio-logo.png" alt="logo"
 						class="qt-radiologo" width="80" height="80"> <i
 						class="dripicons-media-play"></i> altradio
 				</a></li>
@@ -588,7 +598,6 @@
 		<!-- CHANNELS LIST END ========================= -->
 	</div>
 	<!-- PLAYER SIDEBAR END ========================= -->
-
 
 	<!-- QT BODY END ================================ -->
 

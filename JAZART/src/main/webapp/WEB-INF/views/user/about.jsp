@@ -52,7 +52,7 @@ volume.css" />
 	<!-- QT HEADER END ================================ -->
 
 	<div class="qt-parentcontainer">
-		<!-- QT MENUBAR TOP ================================ -->
+	<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
 			<ul>
 				<li><a href="about"><i class="dripicons-chevron-right"></i>About
@@ -138,7 +138,11 @@ volume.css" />
 						<li><a href="dailyChart">Daily Chart</a></li>
 						<li><a href="weeklyChart">Weekly Chart</a></li>
 					</ul></li>
-				<li><a href="page-contacts.html">Contacts</a></li>
+					<li><a href="qna">Contacts</a>
+					<ul>
+						<li><a href="qna">QnA</a></li>
+						<li><a href="question">Question</a></li>
+					</ul></li>
 			</ul>
 		</div>
 		<!-- mobile toolbar -->
@@ -184,13 +188,7 @@ volume.css" />
 			<div class="qt-pageheader qt-negative">
 				<div class="qt-container">
 					<h1 class="qt-caption qt-spacer-s">About us</h1>
-					<ul class="qt-menu-social qt-spacer-s">
-						<li><a href="#"><i class="qticon-beatport"></i></a></li>
-						<li><a href="#"><i class="qticon-facebook"></i></a></li>
-						<li><a href="#"><i class="qticon-twitter"></i></a></li>
-						<li><a href="#"><i class="qticon-youtube"></i></a></li>
-						<li><a href="#"><i class="qticon-soundcloud"></i></a></li>
-					</ul>
+					<h4 class="qt-subtitle">Subtitle of the page</h4>
 				</div>
 				<div class="qt-header-bg"
 					data-bgimage="resources/imagestemplate/full-1600-700.jpg">
