@@ -206,31 +206,30 @@
 			<!-- HEADER CAPTION END ========================= -->
 		</div>
 
+<!-- ======================= CONTENT SECTION ======================= -->
+         <div class="qt-container qt-vertical-padding-l qt-archive-team">
+            <div class="search">
+               <div class="col s12 m3 l12">
+                  <div class="qt-widget">
 
-			<!-- ======================= CONTENT SECTION ======================= -->
-			<div class="qt-container qt-vertical-padding-l qt-archive-team">
-				<div class="search">
-					<div class="col s12 m3 l12">
-						<div class="qt-widget">
-
-							<hr class="qt-spacer-s">
-							<form method="post" action="search" class="qt-inline-form">
-								<div class="row qt-nopadding">
-									<div class="col s12 m8 l9">
-										<input placeholder="Music Search" value="" type="text"
-											class="validate qt-input-s">
-									</div>
-									<div class="col s12 m4 l3">
-										<input type="button" value="Search"
-											class="qt-btn qt-btn-secondary qt-btn-s qt-fullwidth">
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
+                     <hr class="qt-spacer-s">
+                     <form method="post" action="search" class="qt-inline-form">
+                        <div class="row qt-nopadding">
+                           <div class="col s12 m8 l9">
+                              <input placeholder="Music Search" value="" type="text"
+                                 class="validate qt-input-s">
+                           </div>
+                           <div class="col s12 m4 l3">
+                              <input type="button" value="Search"
+                                 class="qt-btn qt-btn-secondary qt-btn-s qt-fullwidth">
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="row">
 
 				<!-- search  -->
 
