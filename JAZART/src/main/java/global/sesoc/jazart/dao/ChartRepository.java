@@ -25,20 +25,23 @@ public class ChartRepository {
 		Map<String, String> search = new HashMap<>();
 		try {
 			if (type.equals("dc")) {
-				search.put("start", start+""); search.put("end", end+"");
+				search.put("start", start + "");
+				search.put("end", end + "");
 				cList = mapper.dailyChart(search);
-				logger.info("데일리차트=> "+cList);
+				logger.info("데일리차트=> " + cList);
 			} else if (type.equals("rc")) {
-				search.put("start", start+""); search.put("end", end+"");
+				search.put("start", start + "");
+				search.put("end", end + "");
 				cList = mapper.realtimeChart(search);
-				logger.info("실시간차트=> "+cList);
+				logger.info("실시간차트=> " + cList);
 			} else if (type.equals("wc")) {
 				String day = mapper.getDay();
-				logger.info("위클리차트/요일=> "+day);
+				logger.info("위클리차트/요일=> " + day);
 				search.put("day", day);
-				search.put("start", start+""); search.put("end", end+"");
+				search.put("start", start + "");
+				search.put("end", end + "");
 				cList = mapper.weeklyChart(search);
-				logger.info("위클리차트=> "+cList);
+				logger.info("위클리차트=> " + cList);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -51,7 +54,7 @@ public class ChartRepository {
 		int result = 0;
 		try {
 			result = mapper.dailyCount();
-			logger.info("일간 글개수=> "+result);
+			logger.info("일간 글개수=> " + result);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -64,10 +67,10 @@ public class ChartRepository {
 		Map<String, String> search = new HashMap<>();
 		try {
 			String day = mapper.getDay();
-			logger.info("위클리차트/요일2=> "+day);
+			logger.info("위클리차트/요일2=> " + day);
 			search.put("day", day);
 			result = mapper.weeklyCount(search);
-			logger.info("주간 글개수=> "+result);
+			logger.info("주간 글개수=> " + result);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -79,8 +82,37 @@ public class ChartRepository {
 		int result = 0;
 		try {
 			result = mapper.realtimeCount();
-			logger.info("실시간 글개수=> "+result);
+			logger.info("실시간 글개수=> " + result);
 		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public ArrayList<SongInfo> allList(int start, int end) {
+		ChartMapper mapper = sqlSession.getMapper(ChartMapper.class);
+		ArrayList<SongInfo> cList = null;
+		Map<String, String> search = new HashMap<>();
+		search.put("start", start + "");
+		search.put("end", end + "");
+		try {
+			cList = mapper.allList(search);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		logger.info("데일리차트=> " + cList);
+
+		return cList;
+	}
+
+	public int allCount() {
+		ChartMapper mapper = sqlSession.getMapper(ChartMapper.class);
+		int result = 0;
+		try {
+			result = mapper.allCount();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;

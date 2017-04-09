@@ -58,7 +58,7 @@
 	<!-- QT HEADER END ================================ -->
 	<div class="qt-parentcontainer">
 
-	<!-- QT MENUBAR TOP ================================ -->
+		<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
 			<ul>
 				<li><a href="about"><i class="dripicons-chevron-right"></i>About
@@ -103,18 +103,19 @@
 						<li><a href="qna">QnA</a></li>
 						<li><a href="question">Question</a></li>
 					</ul></li>
-				
+
 				<!-- 서치바 -->
-				<li class="right">
-					<a href="#!" data-expandable="#qtsearchbar" class="qt-btn qt-btn-l qt-scrolltop">
-					<i	class="icon dripicons-search"></i></a></li>
-				
-				<c:if test="${not empty loginNickname}">	
-				<li class="right">
-					<a href="songPopup" class="qt-popupwindow" data-name="Music Player" data-width="320" data-height="500">
-					<i class="icon dripicons-duplicate"></i>Playlist</a></li>
+				<li class="right"><a href="#!" data-expandable="#qtsearchbar"
+					class="qt-btn qt-btn-l qt-scrolltop"> <i
+						class="icon dripicons-search"></i></a></li>
+
+				<c:if test="${not empty loginNickname}">
+					<li class="right"><a href="songPopup" class="qt-popupwindow"
+						data-name="Music Player" data-width="320" data-height="500"> <i
+							class="icon dripicons-duplicate"></i>Playlist
+					</a></li>
 				</c:if>
-						
+
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
 			<ul class="qt-desktopmenu hide-on-xl-only ">
@@ -152,7 +153,8 @@
 			</ul>
 		</div>
 		<!-- mobile toolbar -->
-		<ul	class="qt-mobile-toolbar qt-content-primary-dark qt-content-aside hide-on-large-only">
+		<ul
+			class="qt-mobile-toolbar qt-content-primary-dark qt-content-aside hide-on-large-only">
 			<li><a href="#!" data-expandable="#qtsearchbar"
 				class="qt-scrolltop"><i class="icon dripicons-search"></i></a></li>
 			<li><a href="resources/page-popup.html" class="qt-popupwindow"
@@ -194,7 +196,7 @@
 					<ul class="qt-tags">
 
 					</ul>
-					<h1 class="qt-caption qt-spacer-s">music community</h1>
+					<h1 class="qt-caption qt-spacer-s">ALL MUSIC</h1>
 					<h4 class="qt-subtitle">Subtitle of the page</h4>
 				</div>
 				<div class="qt-header-bg"
@@ -205,653 +207,224 @@
 			</div>
 			<!-- HEADER CAPTION END ========================= -->
 		</div>
+		<!-- ======================= UPCOMING SHOWS  SECTION ======================= -->
+		<div class="qt-container qt-spacer-m">
+			<h5 class="qt-caption-small">
+				<span>Upcoming shows</span>
+			</h5>
+			<hr class="qt-spacer-s">
+			<!-- SLIDESHOW UPCOMING SHOWS ================================================== -->
+			<div class="qt-slickslider-container qt-slickslider-externalarrows">
+				<div class="row">
 
-<!-- ======================= CONTENT SECTION ======================= -->
-         <div class="qt-container qt-vertical-padding-l qt-archive-team">
-            <div class="search">
-               <div class="col s12 m3 l12">
-                  <div class="qt-widget">
+					<!-- SLIDESHOW ITEM -->
+					<div class="qt-item">
+						<!-- SHOW UPCOMING ITEM ========================= -->
+						<!-- TAB CONTENTS ======================================== -->
+						<div id="daymonday" class="qt-show-schedule-day">
+							<!-- SCHEDULE DAY ================================================== -->
+							<div class="qt-show-schedule-day row">
+								<c:forEach var="allList" varStatus="status" items="${all}">
+									<div class="col s12 m4 l4">
+										<!-- SCHEDULE SHOW ========================= -->
+										<div
+											class="qt-part-archive-item qt-part-show-schedule-day-item">
+											<div class="qt-item-header">
+												<div class="qt-header-mid qt-vc">
+													<div class="qt-vi">
+														<h4 class="qt-item-title qt-title">
+															<a href="#read" class="qt-ellipsis  qt-t">생각해봐</a>
+														</h4>
+														<p class="qt-item-det">
+															<span class="qt-time">${allList.song_title}</span>
+															<!-- <span class="qt-am">am</span> -->
+															<span class="qt-day qt-capfont">${allList.song_nickname}</span>
+														</p>
+													</div>
+												</div>
+												<a href="#" class="qt-info bottom right"><i
+													class="dripicons-information"></i></a>
+												<div class="qt-header-bg"
+													data-bgimage="download?type=song&data=${allList.songnum}">
+													<img src="download?type=song&data=${allList.songnum}"
+														alt="Featured image" width="690" height="302">
+												</div>
+											</div>
+											<div class="qt-overinfo qt-paper">
+												<p class="qt-item-det qt-accent">
+													<span class="qt-time">${allList.song_title}</span>
+													<!-- <span class="qt-am">am</span> -->
+													<span class="qt-day qt-capfont">${allList.song_nickname}</span>
+												</p>
+												<div class="qt-more">
+													<p class="qt-ellipsis-2">${allList.song_desc}</p>
+													<a href="songPage?songnum=${allList.songnum}">더보기</a>
+												</div>
+											</div>
+										</div>
+										<!-- SCHEDULE SHOW END ========================= -->
+									</div>
+									<!-- SCHEDULE DAY END ================================================== -->
+								</c:forEach>
 
-                     <hr class="qt-spacer-s">
-                     <form method="post" action="search" class="qt-inline-form">
-                        <div class="row qt-nopadding">
-                           <div class="col s12 m8 l9">
-                              <input placeholder="Music Search" value="" type="text"
-                                 class="validate qt-input-s">
-                           </div>
-                           <div class="col s12 m4 l3">
-                              <input type="button" value="Search"
-                                 class="qt-btn qt-btn-secondary qt-btn-s qt-fullwidth">
-                           </div>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="row">
-
-				<!-- search  -->
-
-				<div class="col s12 m4 l3">
-					<!-- MEMBER ========================= -->
-					<div class="qt-part-archive-item qt-item-member">
-						<div class="qt-item-header">
-							<div class="qt-header-top">
-								<ul class="qt-tags">
-									<li><a href="#tag-link">Tag</a></li>
-								</ul>
-							</div>
-
-							<div class="qt-header-mid qt-vc">
-								<div class="qt-vi">
-									<h4 class="qt-ellipsis qt-title">
-										<a href="single-member.php" class="qt-text-shadow">Tom
-											Rogers</a>
-									</h4>
-								</div>
-							</div>
-
-							<div class="qt-header-bottom">
-								<a href="single-member.php"
-									class="qt-btn qt-btn-primary qt-readmore"><i
-									class="dripicons-user"></i></a>
-							</div>
-							<div class="qt-header-bg"
-								data-bgimage="imagestemplate/medium-690-302.jpg">
-								<img src="imagestemplate/medium-690-302.jpg"
-									alt="Featured image" width="690" height="690">
 							</div>
 						</div>
-
-						<div class="qt-item-content-xs qt-card">
-							<p class="qt-ellipsis-3">Donec gravida nunc non elit lacinia,
-								a tempus est finibus. Aliquam a fringilla arcu, sit amet iaculis
-								mauris. Phasellus varius enim vel urna viverra fringilla.
-								Interdum et malesuada fames ac.</p>
-						</div>
+						<!-- TAB CONTENTS end======================================== -->
+						<!-- SHOW UPCOMING ITEM END ========================= -->
 					</div>
-					<!-- MEMBER END ========================= -->
+
+					<!-- 경계 -->
 				</div>
-				<div class="col s12 m4 l3">
-					<!-- MEMBER ========================= -->
-					<div class="qt-part-archive-item qt-item-member">
-						<div class="qt-item-header">
-							<div class="qt-header-top">
-								<ul class="qt-tags">
-									<li><a href="#tag-link">Tag</a></li>
-								</ul>
-							</div>
+			</div>
+			<!-- SLIDESHOW UPCOMING SHOWS END ================================================== -->
+		</div>
+		<!-- ======================= SCHEDULE  SECTION ======================= -->
+		<div class="qt-container qt-spacer-l">
+			<!-- <h3 class="qt-caption-med">
+				<span>Realtime Chart</span>
+			</h3> -->
+			<hr class="qt-spacer-s">
+			<!-- SCHEDULE ================================================== -->
+			<div class="qt-show-schedule">
 
-							<div class="qt-header-mid qt-vc">
-								<div class="qt-vi">
-									<h4 class="qt-ellipsis qt-title">
-										<a href="single-member.php" class="qt-text-shadow">Tom
-											Rogers</a>
-									</h4>
-								</div>
-							</div>
+				<!-- 원래차트 있던곳 -->
+				<div class="qt-pagination qt-content-primary">
+					<!-- <form method="get" action="dwChart" class="qt-inline-form" id="pagingForm"> -->
+					<input type="hidden" id="page" name="page"> <input
+						type="hidden" id="type" name="type" value="daily">
+					<!-- </form>  -->
+					<!-- PAGINATION ========================= -->
+					<ul class="pagination qt-container">
+						<li class="special"><span
+							class="qt-pagination-label qt-content-primary-dark">PAGES</span></li>
 
-							<div class="qt-header-bottom">
-								<a href="single-member.php"
-									class="qt-btn qt-btn-primary qt-readmore"><i
-									class="dripicons-user"></i></a>
-							</div>
-							<div class="qt-header-bg"
-								data-bgimage="imagestemplate/medium-690-302.jpg">
-								<img src="imagestemplate/medium-690-302.jpg"
-									alt="Featured image" width="690" height="690">
-							</div>
-						</div>
+						<li class="special disabled"><a
+							href="javascript:pagingForSubmit(${navi.currentPage-navi.pagePerGroup})"
+							class="qt-btn qt-btn-l qt-btn-primary"><i
+								class="dripicons-arrow-thin-left"></i></a></li>
 
-						<div class="qt-item-content-xs qt-card">
-							<p class="qt-ellipsis-3">Donec gravida nunc non elit lacinia,
-								a tempus est finibus. Aliquam a fringilla arcu, sit amet iaculis
-								mauris. Phasellus varius enim vel urna viverra fringilla.
-								Interdum et malesuada fames ac.</p>
-						</div>
-					</div>
-					<!-- MEMBER END ========================= -->
-				</div>
-				<div class="col s12 m4 l3">
-					<!-- MEMBER ========================= -->
-					<div class="qt-part-archive-item qt-item-member">
-						<div class="qt-item-header">
-							<div class="qt-header-top">
-								<ul class="qt-tags">
-									<li><a href="#tag-link">Tag</a></li>
-								</ul>
-							</div>
+						<li class="special waves-effect"><a
+							href="javascript:pagingForSubmit(${navi.currentPage + 1})"
+							class="qt-btn qt-btn-l qt-btn-primary"><i
+								class="dripicons-arrow-thin-right"></i></a></li>
 
-							<div class="qt-header-mid qt-vc">
-								<div class="qt-vi">
-									<h4 class="qt-ellipsis qt-title">
-										<a href="single-member.php" class="qt-text-shadow">Tom
-											Rogers</a>
-									</h4>
-								</div>
-							</div>
-
-							<div class="qt-header-bottom">
-								<a href="single-member.php"
-									class="qt-btn qt-btn-primary qt-readmore"><i
-									class="dripicons-user"></i></a>
-							</div>
-							<div class="qt-header-bg"
-								data-bgimage="imagestemplate/medium-690-302.jpg">
-								<img src="imagestemplate/medium-690-302.jpg"
-									alt="Featured image" width="690" height="690">
-							</div>
-						</div>
-
-						<div class="qt-item-content-xs qt-card">
-							<p class="qt-ellipsis-3">Donec gravida nunc non elit lacinia,
-								a tempus est finibus. Aliquam a fringilla arcu, sit amet iaculis
-								mauris. Phasellus varius enim vel urna viverra fringilla.
-								Interdum et malesuada fames ac.</p>
-						</div>
-					</div>
-					<!-- MEMBER END ========================= -->
-				</div>
-				<div class="col s12 m4 l3">
-					<!-- MEMBER ========================= -->
-					<div class="qt-part-archive-item qt-item-member">
-						<div class="qt-item-header">
-							<div class="qt-header-top">
-								<ul class="qt-tags">
-									<li><a href="#tag-link">Tag</a></li>
-								</ul>
-							</div>
-
-							<div class="qt-header-mid qt-vc">
-								<div class="qt-vi">
-									<h4 class="qt-ellipsis qt-title">
-										<a href="single-member.php" class="qt-text-shadow">Tom
-											Rogers</a>
-									</h4>
-								</div>
-							</div>
-
-							<div class="qt-header-bottom">
-								<a href="single-member.php"
-									class="qt-btn qt-btn-primary qt-readmore"><i
-									class="dripicons-user"></i></a>
-							</div>
-							<div class="qt-header-bg"
-								data-bgimage="imagestemplate/medium-690-302.jpg">
-								<img src="imagestemplate/medium-690-302.jpg"
-									alt="Featured image" width="690" height="690">
-							</div>
-						</div>
-
-						<div class="qt-item-content-xs qt-card">
-							<p class="qt-ellipsis-3">Donec gravida nunc non elit lacinia,
-								a tempus est finibus. Aliquam a fringilla arcu, sit amet iaculis
-								mauris. Phasellus varius enim vel urna viverra fringilla.
-								Interdum et malesuada fames ac.</p>
-						</div>
-					</div>
-					<!-- MEMBER END ========================= -->
-				</div>
-				<div class="col s12 m4 l3">
-					<!-- MEMBER ========================= -->
-					<div class="qt-part-archive-item qt-item-member">
-						<div class="qt-item-header">
-							<div class="qt-header-top">
-								<ul class="qt-tags">
-									<li><a href="#tag-link">Tag</a></li>
-								</ul>
-							</div>
-
-							<div class="qt-header-mid qt-vc">
-								<div class="qt-vi">
-									<h4 class="qt-ellipsis qt-title">
-										<a href="single-member.php" class="qt-text-shadow">Tom
-											Rogers</a>
-									</h4>
-								</div>
-							</div>
-
-							<div class="qt-header-bottom">
-								<a href="single-member.php"
-									class="qt-btn qt-btn-primary qt-readmore"><i
-									class="dripicons-user"></i></a>
-							</div>
-							<div class="qt-header-bg"
-								data-bgimage="imagestemplate/medium-690-302.jpg">
-								<img src="imagestemplate/medium-690-302.jpg"
-									alt="Featured image" width="690" height="690">
-							</div>
-						</div>
-
-						<div class="qt-item-content-xs qt-card">
-							<p class="qt-ellipsis-3">Donec gravida nunc non elit lacinia,
-								a tempus est finibus. Aliquam a fringilla arcu, sit amet iaculis
-								mauris. Phasellus varius enim vel urna viverra fringilla.
-								Interdum et malesuada fames ac.</p>
-						</div>
-					</div>
-					<!-- MEMBER END ========================= -->
-				</div>
-				<div class="col s12 m4 l3">
-					<!-- MEMBER ========================= -->
-					<div class="qt-part-archive-item qt-item-member">
-						<div class="qt-item-header">
-							<div class="qt-header-top">
-								<ul class="qt-tags">
-									<li><a href="#tag-link">Tag</a></li>
-								</ul>
-							</div>
-
-							<div class="qt-header-mid qt-vc">
-								<div class="qt-vi">
-									<h4 class="qt-ellipsis qt-title">
-										<a href="single-member.php" class="qt-text-shadow">Tom
-											Rogers</a>
-									</h4>
-								</div>
-							</div>
-
-							<div class="qt-header-bottom">
-								<a href="single-member.php"
-									class="qt-btn qt-btn-primary qt-readmore"><i
-									class="dripicons-user"></i></a>
-							</div>
-							<div class="qt-header-bg"
-								data-bgimage="imagestemplate/medium-690-302.jpg">
-								<img src="imagestemplate/medium-690-302.jpg"
-									alt="Featured image" width="690" height="690">
-							</div>
-						</div>
-
-						<div class="qt-item-content-xs qt-card">
-							<p class="qt-ellipsis-3">Donec gravida nunc non elit lacinia,
-								a tempus est finibus. Aliquam a fringilla arcu, sit amet iaculis
-								mauris. Phasellus varius enim vel urna viverra fringilla.
-								Interdum et malesuada fames ac.</p>
-						</div>
-					</div>
-					<!-- MEMBER END ========================= -->
-				</div>
-				<div class="col s12 m4 l3">
-					<!-- MEMBER ========================= -->
-					<div class="qt-part-archive-item qt-item-member">
-						<div class="qt-item-header">
-							<div class="qt-header-top">
-								<ul class="qt-tags">
-									<li><a href="#tag-link">Tag</a></li>
-								</ul>
-							</div>
-
-							<div class="qt-header-mid qt-vc">
-								<div class="qt-vi">
-									<h4 class="qt-ellipsis qt-title">
-										<a href="single-member.php" class="qt-text-shadow">Tom
-											Rogers</a>
-									</h4>
-								</div>
-							</div>
-
-							<div class="qt-header-bottom">
-								<a href="single-member.php"
-									class="qt-btn qt-btn-primary qt-readmore"><i
-									class="dripicons-user"></i></a>
-							</div>
-							<div class="qt-header-bg"
-								data-bgimage="imagestemplate/medium-690-302.jpg">
-								<img src="imagestemplate/medium-690-302.jpg"
-									alt="Featured image" width="690" height="690">
-							</div>
-						</div>
-
-						<div class="qt-item-content-xs qt-card">
-							<p class="qt-ellipsis-3">Donec gravida nunc non elit lacinia,
-								a tempus est finibus. Aliquam a fringilla arcu, sit amet iaculis
-								mauris. Phasellus varius enim vel urna viverra fringilla.
-								Interdum et malesuada fames ac.</p>
-						</div>
-					</div>
-					<!-- MEMBER END ========================= -->
-				</div>
-				<div class="col s12 m4 l3">
-					<!-- MEMBER ========================= -->
-					<div class="qt-part-archive-item qt-item-member">
-						<div class="qt-item-header">
-							<div class="qt-header-top">
-								<ul class="qt-tags">
-									<li><a href="#tag-link">Tag</a></li>
-								</ul>
-							</div>
-
-							<div class="qt-header-mid qt-vc">
-								<div class="qt-vi">
-									<h4 class="qt-ellipsis qt-title">
-										<a href="single-member.php" class="qt-text-shadow">Tom
-											Rogers</a>
-									</h4>
-								</div>
-							</div>
-
-							<div class="qt-header-bottom">
-								<a href="single-member.php"
-									class="qt-btn qt-btn-primary qt-readmore"><i
-									class="dripicons-user"></i></a>
-							</div>
-							<div class="qt-header-bg"
-								data-bgimage="imagestemplate/medium-690-302.jpg">
-								<img src="imagestemplate/medium-690-302.jpg"
-									alt="Featured image" width="690" height="690">
-							</div>
-						</div>
-
-						<div class="qt-item-content-xs qt-card">
-							<p class="qt-ellipsis-3">Donec gravida nunc non elit lacinia,
-								a tempus est finibus. Aliquam a fringilla arcu, sit amet iaculis
-								mauris. Phasellus varius enim vel urna viverra fringilla.
-								Interdum et malesuada fames ac.</p>
-						</div>
-					</div>
-					<!-- MEMBER END ========================= -->
-				</div>
-				<div class="col s12 m4 l3">
-					<!-- MEMBER ========================= -->
-					<div class="qt-part-archive-item qt-item-member">
-						<div class="qt-item-header">
-							<div class="qt-header-top">
-								<ul class="qt-tags">
-									<li><a href="#tag-link">Tag</a></li>
-								</ul>
-							</div>
-
-							<div class="qt-header-mid qt-vc">
-								<div class="qt-vi">
-									<h4 class="qt-ellipsis qt-title">
-										<a href="single-member.php" class="qt-text-shadow">Tom
-											Rogers</a>
-									</h4>
-								</div>
-							</div>
-
-							<div class="qt-header-bottom">
-								<a href="single-member.php"
-									class="qt-btn qt-btn-primary qt-readmore"><i
-									class="dripicons-user"></i></a>
-							</div>
-							<div class="qt-header-bg"
-								data-bgimage="imagestemplate/medium-690-302.jpg">
-								<img src="imagestemplate/medium-690-302.jpg"
-									alt="Featured image" width="690" height="690">
-							</div>
-						</div>
-
-						<div class="qt-item-content-xs qt-card">
-							<p class="qt-ellipsis-3">Donec gravida nunc non elit lacinia,
-								a tempus est finibus. Aliquam a fringilla arcu, sit amet iaculis
-								mauris. Phasellus varius enim vel urna viverra fringilla.
-								Interdum et malesuada fames ac.</p>
-						</div>
-					</div>
-					<!-- MEMBER END ========================= -->
-				</div>
-				<div class="col s12 m4 l3">
-					<!-- MEMBER ========================= -->
-					<div class="qt-part-archive-item qt-item-member">
-						<div class="qt-item-header">
-							<div class="qt-header-top">
-								<ul class="qt-tags">
-									<li><a href="#tag-link">Tag</a></li>
-								</ul>
-							</div>
-
-							<div class="qt-header-mid qt-vc">
-								<div class="qt-vi">
-									<h4 class="qt-ellipsis qt-title">
-										<a href="single-member.php" class="qt-text-shadow">Tom
-											Rogers</a>
-									</h4>
-								</div>
-							</div>
-
-							<div class="qt-header-bottom">
-								<a href="single-member.php"
-									class="qt-btn qt-btn-primary qt-readmore"><i
-									class="dripicons-user"></i></a>
-							</div>
-							<div class="qt-header-bg"
-								data-bgimage="imagestemplate/medium-690-302.jpg">
-								<img src="imagestemplate/medium-690-302.jpg"
-									alt="Featured image" width="690" height="690">
-							</div>
-						</div>
-
-						<div class="qt-item-content-xs qt-card">
-							<p class="qt-ellipsis-3">Donec gravida nunc non elit lacinia,
-								a tempus est finibus. Aliquam a fringilla arcu, sit amet iaculis
-								mauris. Phasellus varius enim vel urna viverra fringilla.
-								Interdum et malesuada fames ac.</p>
-						</div>
-					</div>
-					<!-- MEMBER END ========================= -->
-				</div>
-				<div class="col s12 m4 l3">
-					<!-- MEMBER ========================= -->
-					<div class="qt-part-archive-item qt-item-member">
-						<div class="qt-item-header">
-							<div class="qt-header-top">
-								<ul class="qt-tags">
-									<li><a href="#tag-link">Tag</a></li>
-								</ul>
-							</div>
-
-							<div class="qt-header-mid qt-vc">
-								<div class="qt-vi">
-									<h4 class="qt-ellipsis qt-title">
-										<a href="single-member.php" class="qt-text-shadow">Tom
-											Rogers</a>
-									</h4>
-								</div>
-							</div>
-
-							<div class="qt-header-bottom">
-								<a href="single-member.php"
-									class="qt-btn qt-btn-primary qt-readmore"><i
-									class="dripicons-user"></i></a>
-							</div>
-							<div class="qt-header-bg"
-								data-bgimage="imagestemplate/medium-690-302.jpg">
-								<img src="imagestemplate/medium-690-302.jpg"
-									alt="Featured image" width="690" height="690">
-							</div>
-						</div>
-
-						<div class="qt-item-content-xs qt-card">
-							<p class="qt-ellipsis-3">Donec gravida nunc non elit lacinia,
-								a tempus est finibus. Aliquam a fringilla arcu, sit amet iaculis
-								mauris. Phasellus varius enim vel urna viverra fringilla.
-								Interdum et malesuada fames ac.</p>
-						</div>
-					</div>
-					<!-- MEMBER END ========================= -->
-				</div>
-				<div class="col s12 m4 l3">
-					<!-- MEMBER ========================= -->
-					<div class="qt-part-archive-item qt-item-member">
-						<div class="qt-item-header">
-							<div class="qt-header-top">
-								<ul class="qt-tags">
-									<li><a href="#tag-link">Tag</a></li>
-								</ul>
-							</div>
-
-							<div class="qt-header-mid qt-vc">
-								<div class="qt-vi">
-									<h4 class="qt-ellipsis qt-title">
-										<a href="single-member.php" class="qt-text-shadow">Tom
-											Rogers</a>
-									</h4>
-								</div>
-							</div>
-
-							<div class="qt-header-bottom">
-								<a href="single-member.php"
-									class="qt-btn qt-btn-primary qt-readmore"><i
-									class="dripicons-user"></i></a>
-							</div>
-							<div class="qt-header-bg"
-								data-bgimage="imagestemplate/medium-690-302.jpg">
-								<img src="imagestemplate/medium-690-302.jpg"
-									alt="Featured image" width="690" height="690">
-							</div>
-						</div>
-
-						<div class="qt-item-content-xs qt-card">
-							<p class="qt-ellipsis-3">Donec gravida nunc non elit lacinia,
-								a tempus est finibus. Aliquam a fringilla arcu, sit amet iaculis
-								mauris. Phasellus varius enim vel urna viverra fringilla.
-								Interdum et malesuada fames ac.</p>
-						</div>
-					</div>
-					<!-- MEMBER END ========================= -->
+						<c:forEach begin="${navi.startPageGroup}"
+							end="${navi.endPageGroup}" var="counter">
+							<c:if test="${navi.currentPage!=counter}">
+								<li class="item active hide-on-large-and-down"><a
+									href="javascript:pagingForSubmit(${counter})">${counter}</a></li>
+							</c:if>
+							<c:if test="${navi.currentPage==counter}">
+								<li class="item waves-effect hide-on-large-and-down"><a
+									href="#!">${counter}</a></li>
+							</c:if>
+						</c:forEach>
+					</ul>
+					<!-- PAGINATION END ========================= -->
 				</div>
 			</div>
 		</div>
-
-		<div class="qt-pagination qt-content-primary">
-			<!-- PAGINATION ========================= -->
-			<ul class="pagination qt-container">
-				<li class="special"><span
-					class="qt-pagination-label qt-content-primary-dark">PAGES</span></li>
-
-				<li class="special disabled"><a href="#!"
-					class="qt-btn qt-btn-l qt-btn-primary"><i
-						class="dripicons-arrow-thin-left"></i></a></li>
-				<li class="special waves-effect"><a href="#!"
-					class="qt-btn qt-btn-l qt-btn-primary"><i
-						class="dripicons-arrow-thin-right"></i></a></li>
-
-				<li class="item active hide-on-large-and-down"><a href="#!">1</a></li>
-				<li class="item waves-effect hide-on-large-and-down"><a
-					href="#!">2</a></li>
-				<li class="item waves-effect hide-on-large-and-down"><a
-					href="#!">3</a></li>
-				<li class="item waves-effect hide-on-large-and-down"><a
-					href="#!">4</a></li>
-				<li class="item waves-effect hide-on-large-and-down"><a
-					href="#!">5</a></li>
-				<li class="item waves-effect hide-on-large-and-down"><a
-					href="#!">6</a></li>
-				<li class="item waves-effect hide-on-large-and-down"><a
-					href="#!">7</a></li>
-				<li class="item waves-effect hide-on-large-and-down"><a
-					href="#!">8</a></li>
-				<li class="item waves-effect hide-on-large-and-down"><a
-					href="#!">9</a></li>
-				<li class="item waves-effect hide-on-large-and-down"><a
-					href="#!">10</a></li>
-				<li class="item waves-effect hide-on-large-and-down"><a
-					href="#!">11</a></li>
-				<li class="item waves-effect hide-on-large-and-down"><a
-					href="#!">12</a></li>
-				<li class="item waves-effect hide-on-large-and-down"><a
-					href="#!">13</a></li>
-			</ul>
-			<!-- PAGINATION END ========================= -->
-
-		</div>
+		<!-- SCHEDULE DAY END ================================================== -->
+	</div>
+	<!-- TAB CONTENTS END ======================================== -->
+	</div>
+	<!-- SCHEDULE END ================================================== -->
+	</div>
+	<hr class="qt-spacer-l">
 
 	</div>
 	<!-- .qt-main end -->
-		<div class="qt-footer qt-footerwidgets">
-			<div class="qt-section qt-footer-widgets qt-content-primary-light">
-				<div class="qt-container">
-					<h2 class="qt-footer-logo">
-						<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
-					</h2>
-					<div
-						class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Stay Connected</span>
-								</h5>
-								Subscribe now to the newsletter to receive weekly updates.
-								<hr class="qt-spacer-s">
-								<form method="post" action="#newsletter" class="qt-inline-form">
-									<div class="row qt-nopadding">
-										<div class="col s12 m8 l9">
-											<input placeholder="Your email" value="" type="text"
-												class="validate qt-input-s">
-										</div>
-										<div class="col s12 m4 l3">
-											<input type="button" value="submit"
-												class="qt-btn qt-btn-secondary qt-btn-s qt-fullwidth">
-										</div>
+	<div class="qt-footer qt-footerwidgets">
+		<div class="qt-section qt-footer-widgets qt-content-primary-light">
+			<div class="qt-container">
+				<h2 class="qt-footer-logo">
+					<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
+				</h2>
+				<div
+					class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Stay Connected</span>
+							</h5>
+							Subscribe now to the newsletter to receive weekly updates.
+							<hr class="qt-spacer-s">
+							<form method="post" action="#newsletter" class="qt-inline-form">
+								<div class="row qt-nopadding">
+									<div class="col s12 m8 l9">
+										<input placeholder="Your email" value="" type="text"
+											class="validate qt-input-s">
 									</div>
-								</form>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Contacts</span>
-								</h5>
-								<div class="qt-widget-contacts">
-									<p>
-										<i class="qticon-home"></i><a
-											href="http://www.qantumthemes.com">www.jazart.com</a>
-									</p>
-									<p>
-										<i class="qticon-at-sign"></i><a
-											href="mailto:info@someofyoursite.com">info@jazart.com</a>
-									</p>
-									<p>
-										<i class="qticon-phone"></i><a href="tel:1-847-555-5555">02-123-1234</a>
-									</p>
+									<div class="col s12 m4 l3">
+										<input type="button" value="submit"
+											class="qt-btn qt-btn-secondary qt-btn-s qt-fullwidth">
+									</div>
 								</div>
-							</div>
+							</form>
 						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Contacts</span>
-								</h5>
-								<div class="qt-widget-about">
-									<p>
-										We are a young and dynamic compose station which wants to
-										bring happyness in your life. <br> <a
-											href="http://www.qantumthemes.com">Discover more <i
-											class="dripicons-arrow-thin-right"></i></a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Main links</span>
-								</h5>
-								<ul class="qt-widget-menu qt-list-chevron">
-									<li><a href="http://www.qantumthemes.com">Home page</a></li>
-									<li><a href="http://www.qantumthemes.com">Shows
-											schedule</a></li>
-									<li><a href="http://www.qantumthemes.com">Events
-											archive</a></li>
-									<li><a href="http://www.qantumthemes.com">Contacts</a></li>
-								</ul>
+					</div>
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Contacts</span>
+							</h5>
+							<div class="qt-widget-contacts">
+								<p>
+									<i class="qticon-home"></i><a
+										href="http://www.qantumthemes.com">www.jazart.com</a>
+								</p>
+								<p>
+									<i class="qticon-at-sign"></i><a
+										href="mailto:info@someofyoursite.com">info@jazart.com</a>
+								</p>
+								<p>
+									<i class="qticon-phone"></i><a href="tel:1-847-555-5555">02-123-1234</a>
+								</p>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="qt-header-bg"
-					data-bgimage="imagestemplate/full-1600-700.jpg">
-					<img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
-						width="690" height="302">
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Contacts</span>
+							</h5>
+							<div class="qt-widget-about">
+								<p>
+									We are a young and dynamic compose station which wants to bring
+									happyness in your life. <br> <a
+										href="http://www.qantumthemes.com">Discover more <i
+										class="dripicons-arrow-thin-right"></i></a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Main links</span>
+							</h5>
+							<ul class="qt-widget-menu qt-list-chevron">
+								<li><a href="http://www.qantumthemes.com">Home page</a></li>
+								<li><a href="http://www.qantumthemes.com">Shows
+										schedule</a></li>
+								<li><a href="http://www.qantumthemes.com">Events
+										archive</a></li>
+								<li><a href="http://www.qantumthemes.com">Contacts</a></li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="qt-footer-bottom qt-content-primary-dark">
-				<div class="qt-container">
-					<div class="row">
-						<!-- <div class="col s12 m12 l8">
+			<div class="qt-header-bg"
+				data-bgimage="imagestemplate/full-1600-700.jpg">
+				<img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
+					width="690" height="302">
+			</div>
+		</div>
+		<div class="qt-footer-bottom qt-content-primary-dark">
+			<div class="qt-container">
+				<div class="row">
+					<!-- <div class="col s12 m12 l8">
 							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
 							| Radio Station HTML Template
 							<ul class="qt-menu-footer qt-small qt-list-chevron ">
@@ -860,8 +433,8 @@
 								<li><a href="#">Sitemap</a></li>
 							</ul>
 						</div> -->
-						<div class="col s12 m12 l4">
-							<!-- <ul class="qt-menu-social">
+					<div class="col s12 m12 l4">
+						<!-- <ul class="qt-menu-social">
 								<li class="right"><a href="#"><i
 										class="qticon-beatport"></i></a></li>
 								<li class="right"><a href="#"><i
@@ -871,11 +444,11 @@
 								<li class="right"><a href="#"><i
 										class="qticon-soundcloud"></i></a></li>
 							</ul> -->
-						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"
@@ -1007,4 +580,3 @@
 
 </body>
 </html>
-
