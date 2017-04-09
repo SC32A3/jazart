@@ -10,7 +10,7 @@ public interface BoardMapper {
 	public ArrayList<Board> boardList(Map<String, String> search) throws Exception;
 
 	public int getCount(Map<String, String> search) throws Exception;
-	
+
 	public int write(Board board) throws Exception;
 
 	public Board selectList(int boardNum) throws Exception;

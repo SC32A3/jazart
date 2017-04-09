@@ -233,7 +233,7 @@
 												<div class="qt-header-mid qt-vc">
 													<div class="qt-vi">
 														<h4 class="qt-item-title qt-title">
-															<a href="#read" class="qt-ellipsis  qt-t">생각해봐</a>
+															<a href="#read" class="qt-ellipsis  qt-t">생각해봐!</a>
 														</h4>
 														<p class="qt-item-det">
 															<span class="qt-time">${allList.song_title}</span>

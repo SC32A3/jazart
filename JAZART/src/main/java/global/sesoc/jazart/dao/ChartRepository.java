@@ -108,7 +108,7 @@ public class ChartRepository {
 
 	public int allCount() {
 		ChartMapper mapper = sqlSession.getMapper(ChartMapper.class);
-		int result = 0;
+		int result = 1;
 		try {
 			result = mapper.allCount();
 		} catch (Exception e) {

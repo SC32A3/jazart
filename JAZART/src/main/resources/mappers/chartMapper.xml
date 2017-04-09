@@ -10,7 +10,7 @@
 	</select>
 	<select id="allList" parameterType="map" resultType="SongInfo">
 		select *
-		from songinfo
+		from songinfo order by song_inputdate
 	</select>
 	<select id="dailyChart" resultType="SongInfo" parameterType="map">
 		select * from (select rownum rnum, b.* from (select info.songnum,

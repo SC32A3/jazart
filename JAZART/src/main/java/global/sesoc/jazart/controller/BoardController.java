@@ -15,11 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import global.sesoc.jazart.dao.BoardRepository;
-import global.sesoc.jazart.dao.ChartRepository;
 import global.sesoc.jazart.utility.PageNavigator;
 import global.sesoc.jazart.vo.Board;
 import global.sesoc.jazart.vo.BoardReply;
-import global.sesoc.jazart.vo.SongInfo;
 
 /**
  * Handles requests for the application home page.

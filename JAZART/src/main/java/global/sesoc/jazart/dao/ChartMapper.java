@@ -22,5 +22,5 @@ public interface ChartMapper {
 
 	public int allCount() throws Exception;
 
-	public ArrayList<SongInfo> allList(Map<String, String> search) throws Exception;
+	public ArrayList<SongInfo> allList(Map<String, String> searchs) throws Exception;
 }
