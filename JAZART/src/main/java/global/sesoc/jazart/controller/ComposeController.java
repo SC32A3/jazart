@@ -1,5 +1,6 @@
 package global.sesoc.jazart.controller;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -43,6 +44,7 @@ public class ComposeController {
 	HttpSession session;
 
 	final String uploadPath = "/userProfile"; // 파일이 업로드 되는 경로
+	final String uploadPath2 = "/recording"; // 파일이 업로드 되는 경로
 
 	@RequestMapping(value = "compose", method = RequestMethod.GET)
 	public String compose() {
@@ -187,4 +189,18 @@ public class ComposeController {
 		model.addAttribute("playlist", playlist);
 		return "user/songPopup";
 	}
+	
+	@RequestMapping(value = "reclist", method = RequestMethod.GET)
+	public @ResponseBody ArrayList<String> reclist(HttpServletResponse response) {
+		ArrayList<String> reclist = new ArrayList<>();
+		
+		File path = new File(uploadPath2);
+		
+		for (String string : path.list()) {
+			reclist.add(string);
+		}
+		
+		return reclist; 
+	}
 }
+

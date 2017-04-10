@@ -30,7 +30,7 @@ var times = []; // contains start times of samples and their id#
 var reverbIRs = []
 var pixelsPer16 = 6; // pixels per 16th note. used for grid snapping
 var pixelsPer4 = 4 * pixelsPer16; // pixels per 1/4 note used for sample
-									// canvas size
+// canvas size
 var bpm = tempo;
 var secondsPer16 = 0.25 * 60 / bpm;
 
@@ -177,6 +177,7 @@ var wavesurfer = (function() {
 			});
 
 		}
+
 		// wavesurfers is array of all tracks
 		var wavesurfers = json.samples.map(createWavesurfer);
 		$.each(wavesurfers, function() {
@@ -257,7 +258,6 @@ $('body').bind('zoomIn-event', function(e) {
 $('body').bind('zoomOut-event', function(e) {
 	timelineZoomOut();
 });
-
 $(document)
 		.ready(
 				function() {
@@ -1010,10 +1010,10 @@ function createTrack(trackNumber) {
 															grid : [
 																	pixelsPer16,
 																	0 ], // grid
-																			// snaps
-																			// to
-																			// 16th
-																			// notes
+															// snaps
+															// to
+															// 16th
+															// notes
 															stop : function() {
 																// get rid of
 																// old entry in
@@ -1147,7 +1147,7 @@ function createTrack(trackNumber) {
 								axis : "x",
 								containment : "parent",
 								grid : [ pixelsPer16, 0 ], // grid snaps to
-															// 16th notes
+								// 16th notes
 								stop : function() {
 									var currentStartBar = $(this).attr(
 											'data-startTime');

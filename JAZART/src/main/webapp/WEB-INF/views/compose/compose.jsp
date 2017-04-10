@@ -114,7 +114,67 @@ canvas {
       width: 90%;
    }
 }
+/* 추가부분 */
+.button {
+   display: inline-block;
+   vertical-align: middle;
+   margin: 0px 5px;
+   padding: 5px 12px;
+   cursor: pointer;
+   outline: none;
+   font-size: 13px;
+   text-decoration: none !important;
+   text-align: center;
+   color: #fff;
+   background-color: #4D90FE;
+   background-image: linear-gradient(top, #4D90FE, #4787ED);
+   background-image: -ms-linear-gradient(top, #4D90FE, #4787ED);
+   background-image: -o-linear-gradient(top, #4D90FE, #4787ED);
+   background-image: linear-gradient(top, #4D90FE, #4787ED);
+   border: 1px solid #4787ED;
+   box-shadow: 0 1px 3px #BFBFBF;
+}
+
+a.button {
+   color: #fff;
+}
+
+.button:hover {
+   box-shadow: inset 0px 1px 1px #8C8C8C;
+}
+
+.button.disabled {
+   box-shadow: none;
+   opacity: 0.7;
+}
+
+canvas {
+   display: block;
+}
 </style>
+<script src="resources/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		init();
+	})
+	function init() {
+		var reclist = $("#reclist");
+		var msg = '';
+		
+		$.ajax({
+			method : 'get',
+			url : 'reclist',
+			success : function(resp) {
+				msg += '<table>'
+				$.each(resp, function(index, item) {
+					msg += '<tr><td>'+JSON.stringify(item)+'</td></tr>';
+				}) 
+				msg += '</table>'
+				reclist.html(msg);
+			}
+		});
+	}
+</script>
 </head>
 <body>
    <!-- QT HEADER END ================================ -->
@@ -283,52 +343,21 @@ canvas {
                                     <!-- email_sender.php -->
                                     <input type="hidden" name="antispam" value="x123">
                                     <h3 class="left-align qt-vertical-padding-m">test!</h3>
+                                    
+                                    <!-- 원본 -->
                                     <div id="viz">
-                                       <canvas id="wavedisplay" width="1024" height="500"></canvas>
-                                    </div>
-                                    <div id="controls">
-                                       <img id="record" src="images/record.png"
-                                          onclick="toggleRecording(this);"> <a id="save"
-                                          href="#"><img src="images/save.png"></a>
-                                    </div>
-                                    <style>
-.button {
-   display: inline-block;
-   vertical-align: middle;
-   margin: 0px 5px;
-   padding: 5px 12px;
-   cursor: pointer;
-   outline: none;
-   font-size: 13px;
-   text-decoration: none !important;
-   text-align: center;
-   color: #fff;
-   background-color: #4D90FE;
-   background-image: linear-gradient(top, #4D90FE, #4787ED);
-   background-image: -ms-linear-gradient(top, #4D90FE, #4787ED);
-   background-image: -o-linear-gradient(top, #4D90FE, #4787ED);
-   background-image: linear-gradient(top, #4D90FE, #4787ED);
-   border: 1px solid #4787ED;
-   box-shadow: 0 1px 3px #BFBFBF;
-}
-
-a.button {
-   color: #fff;
-}
-
-.button:hover {
-   box-shadow: inset 0px 1px 1px #8C8C8C;
-}
-
-.button.disabled {
-   box-shadow: none;
-   opacity: 0.7;
-}
-
-canvas {
-   display: block;
-}
-</style>
+										<canvas id="analyser" width="1024" height="500"></canvas>
+										<canvas id="wavedisplay" width="1024" height="500"></canvas>
+									</div>
+									<div id="controls">
+										<img id="record" src="images/record.png" onclick="toggleRecording(this);">
+										<!-- <a id="save" href="#"><img src="images/save.png"></a> -->
+										<a id="save" href="#"><img src="images/save.png"></a>
+									</div>
+									<div id="reclist">
+									</div>
+									<!--  -->
+                                    
                                     <br />
                                  </form>
                               </div>
@@ -423,7 +452,7 @@ canvas {
                </div>
             </div>
             <div class="qt-header-bg"
-               data-bgimage="imagestemplate/full-1600-700.jpg">
+               data-bgimage="resources/imagestemplate/full-1600-700.jpg">
                <img src="resources/imagestemplate/full-1600-700.jpg"
                   alt="Featured image" width="690" height="302">
             </div>
@@ -467,7 +496,7 @@ canvas {
       <div id="qtplayercontainer" data-playervolume="true"
          data-accentcolor="#dd0e34" data-accentcolordark="#ff0442"
          data-textcolor="#ffffff"
-         data-soundmanagerurl="./components/soundmanager/swf/"
+         data-soundmanagerurl="resources/components/soundmanager/swf/"
          class="qt-playercontainer qt-playervolume qt-clearfix qt-content-primary">
          <div class="qt-playercontainer-content qt-vertical-padding-m">
             <div class="qt-playercontainer-header">
@@ -512,7 +541,7 @@ canvas {
             <li class="qt-channel"><a href="#!" class="qt-ellipsis"
                data-title="06AM Ibiza" data-subtitle="Underground Radio"
                data-background="resources/imagestemplate/photo-squared-500-500.jpg"
-               data-logo="imagestemplate/radio-logo.png"
+               data-logo="resources/imagestemplate/radio-logo.png"
                data-playtrack="http://173.192.105.231:3540/stream.mp3"
                data-host="173.192.105.231" data-port="3540" data-stats_path=""
                data-played_path="" data-channel=""> <img
@@ -523,7 +552,7 @@ canvas {
             <li class="qt-channel"><a href="#!" class="qt-ellipsis"
                data-title="altradio" data-subtitle="The subtitle of radio 2"
                data-background="resources/imagestemplate/large-1170-512.jpg"
-               data-logo="imagestemplate/radio-logo.png"
+               data-logo="resources/imagestemplate/radio-logo.png"
                data-playtrack="http://82.77.137.30:8557/;listen.mp3"
                data-host="82.77.137.30" data-port="8557" data-stats_path=""
                data-played_path="" data-channel=""> <img

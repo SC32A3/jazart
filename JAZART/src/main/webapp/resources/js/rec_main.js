@@ -39,8 +39,8 @@ function saveAudio() {
 
 function gotBuffers( buffers ) {
     var canvas = document.getElementById( "wavedisplay" );
-
-    drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
+    //alert(buffers); //012013021103213323이런값으로 옴
+    drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] ); //표시해주는것
 
     // the ONLY time gotBuffers is called is right after a new recording is completed - 
     // so here's where we should set up the download.
@@ -48,17 +48,19 @@ function gotBuffers( buffers ) {
 }
 
 function doneEncoding( blob ) {
+	//alert(blob); //object blob
     Recorder.setupDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
     recIndex++;
 }
 
 function toggleRecording( e ) {
     if (e.classList.contains("recording")) {
+    	alert('recording');
         // stop recording
         audioRecorder.stop();
         e.classList.remove("recording");
         audioRecorder.getBuffers( gotBuffers );
-    } else {
+    } else { 
     	// start recording
         if (!audioRecorder)
             return;
