@@ -47,6 +47,61 @@
 <script src="resources/js/audiodisplay.js"></script>
 <script src="resources/js/recorderjs/recorder.js"></script>
 <script src="resources/js/rec_main.js"></script>
+
+<script src="resources/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		init();
+	});
+	function init() {
+		var reclist = $("#reclist");
+		var msg = '';
+		
+		$.ajax({
+			method : 'get',
+			url : 'reclist',
+			success : function(resp) {
+				msg += '<table>';
+				$.each(resp, function(index, item) { //<input type="button" value="재생" onclick="play('+index+','+item+')">
+					msg += '<tr><td>'+item+'</td>';
+					msg += '<td><input type="checkbox" name="recs" value="'+item+'">';
+					msg += '<input type="button" value="재생" onclick="play('+index+')"><audio id="audio'+index+'" controls><source src="download?type=rec&data='+item+'" type="audio/mpeg"></audio>';
+					msg += '</td></tr>';
+				}) 
+				msg += '<tr><td><input type="button" value="업로드" onclick="upload()"></td></tr>'
+				msg += '</table>';
+				reclist.html(msg);
+			}
+		});
+	};
+	
+	function play(index) {
+		var aud = document.getElementById('audio'+index);
+		aud.play();
+	};
+	
+	function upload() {
+		var select = $("#select");
+		var msg = '';
+		
+		var recArray = new Array;
+		$('input:checkbox:checked').each(function() {
+			recArray.push($(this).val());
+		})
+			alert(JSON.stringify(recArray));
+		var fuck = '아 젠장';
+		//{"ppp" : recArray}
+		$.ajax({
+			method : "post", 
+			url : "recUpload", 
+			data : {"pre": JSON.stringify(recArray)} , 
+			success : function(resp) {
+				alert('야호');
+			}
+		});		
+	}
+</script>
+
 <style>
 canvas {
    display: inline-block;
@@ -151,30 +206,22 @@ a.button {
 canvas {
    display: block;
 }
+
+.recBg {
+	background-color: antiquewhite;
+	padding: 10px;
+}
+
+audio {
+	display: none;
+}
+
+[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+    position: relative;
+    left: auto;
+    opacity: 1;
+}
 </style>
-<script src="resources/jquery-3.1.1.min.js"></script>
-<script type="text/javascript">
-	$(function() {
-		init();
-	})
-	function init() {
-		var reclist = $("#reclist");
-		var msg = '';
-		
-		$.ajax({
-			method : 'get',
-			url : 'reclist',
-			success : function(resp) {
-				msg += '<table>'
-				$.each(resp, function(index, item) {
-					msg += '<tr><td>'+JSON.stringify(item)+'</td></tr>';
-				}) 
-				msg += '</table>'
-				reclist.html(msg);
-			}
-		});
-	}
-</script>
 </head>
 <body>
    <!-- QT HEADER END ================================ -->
@@ -339,7 +386,7 @@ canvas {
                                  </li>
                               </ul>
                               <div id="form" class="row">
-                                 <form class="col s12" method="post" action="join">
+                                 
                                     <!-- email_sender.php -->
                                     <input type="hidden" name="antispam" value="x123">
                                     <h3 class="left-align qt-vertical-padding-m">test!</h3>
@@ -354,12 +401,29 @@ canvas {
 										<!-- <a id="save" href="#"><img src="images/save.png"></a> -->
 										<a id="save" href="#"><img src="images/save.png"></a>
 									</div>
-									<div id="reclist">
+									<div id="reclist" class="recBg">
+										등록된 곡이 없습니다
 									</div>
+									<form class="col s12" method="post" action="join" enctype="multipart/form-data"> 
+									<div id="select" class="recBg">
+									
+									</div>
+									</form>
+									<!-- <div>
+									좀떠라좀!!!!!
+									<audio controls="controls">
+										<source src="resources/horse.ogg" type="audio/ogg"> 됨
+									</audio>
+									<audio controls="controls">
+										<source src="download?type=rec&data=horse.ogg" type="audio/ogg"> 됨
+									</audio>
+									<audio controls="controls">
+										<source src="c:\recording\horse.ogg" type="audio/ogg"> 안됨
+									</audio>
+									</div> -->
 									<!--  -->
                                     
                                     <br />
-                                 </form>
                               </div>
                            </div>
                         </div>

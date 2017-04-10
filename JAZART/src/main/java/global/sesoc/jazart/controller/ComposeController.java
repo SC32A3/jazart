@@ -2,10 +2,12 @@ package global.sesoc.jazart.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 import javax.servlet.ServletOutputStream;
@@ -44,7 +46,8 @@ public class ComposeController {
 	HttpSession session;
 
 	final String uploadPath = "/userProfile"; // 파일이 업로드 되는 경로
-	final String uploadPath2 = "/recording"; // 파일이 업로드 되는 경로
+	final String uploadPath2 = "/recording"; // 내 녹음이 업로드되는 경로
+	final String uploadPath3 = "/userRecording"; // 내 녹음이 서버에 이전 되는 경로
 
 	@RequestMapping(value = "compose", method = RequestMethod.GET)
 	public String compose() {
@@ -112,6 +115,14 @@ public class ComposeController {
 		// 사용자 측에서 다운로드 받도록 하기 위해서
 		// response 객체의 헤더를 조작함, 웹페이지 개발자모드(F12)의 Head에서 확인할수 있다
 		// text/html에서 파일 다운로드 가능한 형태로 변경
+		
+		if (type.equals("rec")) {
+			originalfile = data;
+			fullpath = uploadPath2 + "/" + originalfile;
+			System.out.println("풀패스"+fullpath);
+		}
+		
+		
 		try {
 			response.setHeader("Content-Disposition",
 					"attachment;filename=" + URLEncoder.encode(originalfile, "UTF-8")); 
@@ -201,6 +212,55 @@ public class ComposeController {
 		}
 		
 		return reclist; 
+	}
+	
+	@RequestMapping(value = "recUpload", method = RequestMethod.POST)
+	public @ResponseBody String recUpload(String[] pre, HttpServletResponse response) {
+		
+		File path = new File(uploadPath3); //서버 폴더경로
+		FileInputStream filein = null;
+		FileOutputStream fileout = null;
+		String fullpath = null;
+		String fullpath2 = null;
+		
+		if (!path.isDirectory()) {
+	         path.mkdirs();
+	     }
+		for (String originalfile : pre) {
+			
+			System.out.println("값: "+originalfile);
+			fullpath = uploadPath2 + "/" + originalfile;
+			fullpath2 = uploadPath3 + "/" + originalfile;
+			try {
+				response.setHeader("Content-Disposition",
+						"attachment;filename=" + URLEncoder.encode(originalfile, "UTF-8")); 
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+
+			// (웹유저) <---servletOutputStream(출력)---- (서버(웹프로젝트 주체))
+			// <--FileInputStream(입력)-- (하드 rose.jpg)
+			try {
+				filein = new FileInputStream(fullpath);
+				fileout = new FileOutputStream(fullpath2);
+				// Spring에서 제공하는 유틸리티
+				FileCopyUtils.copy(filein, fileout);
+				//copy(filein, fileout);
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (filein != null)
+						filein.close();
+					if (fileout != null)
+						fileout.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			
+		}
+		return null; 
 	}
 }
 
