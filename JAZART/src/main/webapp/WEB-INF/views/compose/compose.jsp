@@ -80,6 +80,11 @@
 		aud.play();
 	};
 	
+	function play2(index) {
+		var aud = document.getElementById('2audio'+index);
+		aud.play();
+	};
+	
 	function upload() {
 		var select = $("#select");
 		var msg = '';
@@ -96,7 +101,16 @@
 			url : "recUpload", 
 			data : {"pre": JSON.stringify(recArray)} , 
 			success : function(resp) {
-				alert('야호');
+				msg += '<table>';
+				msg += '<tr><td>서버저장목록</td></tr>';
+				$.each(resp, function(index, item) { //<input type="button" value="재생" onclick="play('+index+','+item+')">
+					msg += '<tr><td>'+item+'</td>';
+					msg += '<td>';
+					msg += '<input type="button" value="재생" onclick="play2('+index+')"><audio id="2audio'+index+'" controls><source src="download?type=rec&data='+item+'" type="audio/mpeg"></audio>';
+					msg += '</td></tr>';
+				}) 
+				msg += '</table>';
+				select.html(msg);
 			}
 		});		
 	}

@@ -215,20 +215,25 @@ public class ComposeController {
 	}
 	
 	@RequestMapping(value = "recUpload", method = RequestMethod.POST)
-	public @ResponseBody String recUpload(String[] pre, HttpServletResponse response) {
+	public @ResponseBody ArrayList<String> recUpload(String[] pre, HttpServletResponse response) {
 		
 		File path = new File(uploadPath3); //서버 폴더경로
 		FileInputStream filein = null;
 		FileOutputStream fileout = null;
 		String fullpath = null;
 		String fullpath2 = null;
+
 		
 		if (!path.isDirectory()) {
 	         path.mkdirs();
 	     }
-		for (String originalfile : pre) {
+		for (String data : pre) {
 			
-			System.out.println("값: "+originalfile);
+			System.out.println("값: "+data);
+			String[] datas =data.split("\"");
+			System.out.println(datas[1]);
+			String originalfile = datas[1];
+			
 			fullpath = uploadPath2 + "/" + originalfile;
 			fullpath2 = uploadPath3 + "/" + originalfile;
 			try {
@@ -260,7 +265,14 @@ public class ComposeController {
 			}
 			
 		}
-		return null; 
+		
+		ArrayList<String> reclist = new ArrayList<>();
+		
+		for (String string : path.list()) {
+			reclist.add(string);
+		}
+		
+		return reclist; 
 	}
 }
 
