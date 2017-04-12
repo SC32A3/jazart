@@ -95,7 +95,7 @@
 				<li class="right"><a href="#!" data-expandable="#qtsearchbar"
 					class="qt-btn qt-btn-l qt-scrolltop"><i
 						class="icon dripicons-search"></i></a></li>
-				
+
 				<!-- 플레이리스트 -->
 				<c:if test="${not empty loginNickname}">
 					<li class="right"><a href="songPopup" class="qt-popupwindow"
@@ -103,7 +103,7 @@
 							class="icon dripicons-duplicate"></i>Playlist
 					</a></li>
 				</c:if>
-				
+
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
 			<ul class="qt-desktopmenu hide-on-xl-only ">
@@ -118,16 +118,16 @@
 			<ul class=" qt-side-nav">
 				<li><a href="/">jazart<span>♬</span></a></li>
 				<li class="menu-item-has-children"><a href="compose">Compose</a>
-					<ul>
+						<ul>
 						<li><a href="mixing">(test)Mixing Page</a></li>
-						<li><a href="artistpage">(test)Artist Page</a></li>
+						<li><a href="artistPage">(test)Artist Page</a></li>
 					</ul></li>
-				<li class="menu-item-has-children"><a href="musicBoard">Board</a>
+				<li><a href="musicBoard">Board</a>
 					<ul>
 						<li><a href="musicBoard">Music Community</a></li>
 						<li><a href="commBoard">Free Community</a></li>
 					</ul></li>
-				<li class="menu-item-has-children"><a href="realtimeChart">Charts</a>
+				<li><a href="realtimeChart">Charts</a>
 					<ul>
 						<li><a href="realtimeChart">Realtime Chart</a></li>
 						<li><a href="dailyChart">Daily Chart</a></li>
@@ -201,17 +201,17 @@
 								</div>
 								<div class="qt-header-mid qt-vc">
 									<div class="qt-vi">
-								
+
 										<h2 class="qt-title">
-											<a href="#read" class="qt-text-shadow"> 
-											compose
-											</a>
+											<a href="#read" class="qt-text-shadow"> compose </a>
 										</h2>
 										<div
 											class="qt-the-content qt-spacer-s small hide-on-med-and-down ">
 											<p class="qt-spacer-s qt-text-shadow">
-											Let's start our composing journey. More easy, more quickly makes your music!!<br> 
-											1. Click (test)mixing page. <br>2. Select genres and atmosphere. <br>3. Simply drag the recommended music file.
+												Let's start our composing journey. More easy, more quickly
+												makes your music!!<br> 1. Click (test)mixing page. <br>2.
+												Select genres and atmosphere. <br>3. Simply drag the
+												recommended music file.
 											</p>
 											<p>
 												<a href="mixing" class="qt-btn qt-btn-l qt-btn-primary "><i
@@ -239,18 +239,18 @@
 											class="dripicons-heart"></i></a>
 									</div>
 								</div>
-											<div class="qt-header-mid qt-vc">
+								<div class="qt-header-mid qt-vc">
 									<div class="qt-vi">
-								
+
 										<h2 class="qt-title">
-											<a href="#read" class="qt-text-shadow"> board
-											</a>
+											<a href="#read" class="qt-text-shadow"> board </a>
 										</h2>
 										<div
 											class="qt-the-content qt-spacer-s small hide-on-med-and-down ">
 											<p class="qt-spacer-s qt-text-shadow">
-										We provide music community, and free community. <br>
-Don't hesitate to write. Our search box makes it easier to use.
+												We provide music community, and free community. <br>
+												Don't hesitate to write. Our search box makes it easier to
+												use.
 											</p>
 											<p>
 												<a href="commBoard" class="qt-btn qt-btn-l qt-btn-primary "><i
@@ -278,22 +278,22 @@ Don't hesitate to write. Our search box makes it easier to use.
 											class="dripicons-heart"></i></a>
 									</div>
 								</div>
-											<div class="qt-header-mid qt-vc">
+								<div class="qt-header-mid qt-vc">
 									<div class="qt-vi">
-								
+
 										<h2 class="qt-title">
-											<a href="#read" class="qt-text-shadow"> chart
-											</a>
+											<a href="#read" class="qt-text-shadow"> chart </a>
 										</h2>
 										<div
 											class="qt-the-content qt-spacer-s small hide-on-med-and-down ">
 											<p class="qt-spacer-s qt-text-shadow">
-											We have a more detailed chart for users.<br> 
-											Check!! the realtime chart, daily chart, and weekly chart.<br> 
-Your recommendation can change the ranking.
+												We have a more detailed chart for users.<br> Check!!
+												the realtime chart, daily chart, and weekly chart.<br>
+												Your recommendation can change the ranking.
 											</p>
 											<p>
-												<a href="realtimeChart" class="qt-btn qt-btn-l qt-btn-primary "><i
+												<a href="realtimeChart"
+													class="qt-btn qt-btn-l qt-btn-primary "><i
 													class="dripicons-align-justify"></i></a>
 											</p>
 										</div>
@@ -318,19 +318,19 @@ Your recommendation can change the ranking.
 											class="dripicons-heart"></i></a>
 									</div>
 								</div>
-											<div class="qt-header-mid qt-vc">
+								<div class="qt-header-mid qt-vc">
 									<div class="qt-vi">
-								
+
 										<h2 class="qt-title">
-											<a href="#read" class="qt-text-shadow"> contacts
-											</a>
+											<a href="#read" class="qt-text-shadow"> contacts </a>
 										</h2>
 										<div
 											class="qt-the-content qt-spacer-s small hide-on-med-and-down ">
 											<p class="qt-spacer-s qt-text-shadow">
-											We are always ready to answer your questions.<br>
-											1. Check out the FAQ(frequently asked questions). <br>
-2.If you can't find a solution, please send a message from the question page.
+												We are always ready to answer your questions.<br> 1.
+												Check out the FAQ(frequently asked questions). <br>
+												2.If you can't find a solution, please send a message from
+												the question page.
 											</p>
 											<p>
 												<a href="qna" class="qt-btn qt-btn-l qt-btn-primary "><i
@@ -350,13 +350,13 @@ Your recommendation can change the ranking.
 				</div>
 			</div>
 			<!-- SLIDESHOW FULLSCREEN END ================================================== -->
-		
-		
-		
-		
-		
-		
-		
+
+
+
+
+
+
+
 			<!-- ======================= HERO VIDEO POST SECTION ======================= -->
 			<div class="qt-container qt-spacer-m qt-section">
 				<h3 class="qt-caption-med">
@@ -364,337 +364,103 @@ Your recommendation can change the ranking.
 				</h3>
 				<hr class="qt-spacer-s">
 				<!-- POST VIDEO ITEM ========================= -->
-				
-					
-				
-				
-						
-						
-												<div class="embed-responsive embed-responsive-16by9">
-<iframe width="800" height="450" src="https://www.youtube.com/embed/J_eeOf-_UdA" frameborder="0" allowfullscreen></iframe>
-</div>
-		
-						
-					
-					
-			
+
+
+
+
+
+
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe width="800" height="450"
+						src="https://www.youtube.com/embed/J_eeOf-_UdA" frameborder="0"
+						allowfullscreen></iframe>
+				</div>
+
+
+
+
+
 				<!-- POST VIDEO ITEM END ========================= -->
 			</div>
 			<!-- ======================= VIEDO LIST SECTION ======================= -->
 			<div class="qt-container qt-spacer-m qt-section">
 				<div class="row">
-					<div class="col s12 m6 l3">
-						
-					</div>
+					<div class="col s12 m6 l3"></div>
 				</div>
 			</div>
-			
-				<!-- ======================= POST SLIDESHOW ======================= -->
+
+			<!-- ======================= UPCOMING SHOWS  SECTION ======================= -->
 			<div class="qt-container qt-spacer-m">
 				<h5 class="qt-caption-small">
 					<span>Featured posts</span>
 				</h5>
 				<hr class="qt-spacer-s">
-				<!-- SLIDESHOW POST ================================================== -->
+				<!-- SLIDESHOW UPCOMING SHOWS ================================================== -->
 				<div class="qt-slickslider-container qt-slickslider-externalarrows">
 					<div class="row">
-						<div
-							class="qt-slickslider qt-slickslider-multiple qt-text-shadow "
-							data-slidestoshow="3" data-variablewidth="false"
-							data-arrows="true" data-dots="false" data-infinite="true"
-							data-centermode="false" data-pauseonhover="true"
-							data-autoplay="false" data-arrowsmobile="false"
-							data-centermodemobile="true" data-dotsmobile="false"
-							data-slidestoshowmobile="1" data-variablewidthmobile="true"
-							data-infinitemobile="false">
-							<!-- SLIDESHOW ITEM -->
-							<div class="qt-item">
-								<!-- POST VERTICAL ITEM ========================= -->
-								<div class="qt-part-archive-item qt-vertical">
-									<div class="qt-item-header">
-										<div class="qt-header-top">
-											<ul class="qt-tags">
-												<li><a href="#">Adventure</a></li>
-											</ul>
-											<div class="qt-feedback">
-												<a>17<i class="dripicons-message"></i></a><a>34<i
-													class="dripicons-heart"></i></a>
-											</div>
-										</div>
-										<div class="qt-header-mid qt-vc">
-											<div class="qt-vi">
-												<h3 class="qt-title">
-													<a href="#" class="qt-text-shadow"> This is a very long
-														post title to be sure it fits nice in the page </a>
-												</h3>
-											</div>
-										</div>
-										<div class="qt-header-bottom">
-											<div class="qt-item-metas">
-												<a class="qt-author-thumb" href="#"> <img
-													src="imagestemplate/author-thumbnail.jpg" alt="" width="30"
-													height="30">
-												</a>
-												<div class="qt-texts">
-													<p class="qt-author">
-														<a href="#">Anthony Rother</a>
+
+						<!-- SLIDESHOW ITEM -->
+						<div class="qt-item">
+							<!-- SHOW UPCOMING ITEM ========================= -->
+							<!-- TAB CONTENTS ======================================== -->
+							<div id="daymonday" class="qt-show-schedule-day">
+								<!-- SCHEDULE DAY ================================================== -->
+								<div class="qt-show-schedule-day row">
+									<c:forEach var="allList" varStatus="status" items="${all}">
+										<div class="col s12 m4 l4">
+											<!-- SCHEDULE SHOW ========================= -->
+											<div
+												class="qt-part-archive-item qt-part-show-schedule-day-item">
+												<div class="qt-item-header">
+													<div class="qt-header-mid qt-vc">
+														<div class="qt-vi">
+															<h4 class="qt-item-title qt-title">
+																<a href="#read" class="qt-ellipsis  qt-t">생각해봐!</a>
+															</h4>
+															<p class="qt-item-det">
+																<span class="qt-time">${allList.song_title}</span>
+																<!-- <span class="qt-am">am</span> -->
+																<span class="qt-day qt-capfont">${allList.song_nickname}</span>
+															</p>
+														</div>
+													</div>
+													<a href="#" class="qt-info bottom right"><i
+														class="dripicons-information"></i></a>
+													<div class="qt-header-bg"
+														data-bgimage="download?type=song&data=${allList.songnum}">
+														<img src="download?type=song&data=${allList.songnum}"
+															alt="Featured image" width="690" height="302">
+													</div>
+												</div>
+												<div class="qt-overinfo qt-paper">
+													<p class="qt-item-det qt-accent">
+														<span class="qt-time">${allList.song_title}</span>
+														<!-- <span class="qt-am">am</span> -->
+														<span class="qt-day qt-capfont">${allList.song_nickname}</span>
 													</p>
-													<p class="qt-date">03 October 2016</p>
+													<div class="qt-more">
+														<p class="qt-ellipsis-2">${allList.song_desc}</p>
+														<a href="songPage?songnum=${allList.songnum}">더보기</a>
+													</div>
 												</div>
 											</div>
-											<a href="#" class="qt-btn qt-btn-primary qt-readmore"><i
-												class="dripicons-align-justify"></i></a>
+											<!-- SCHEDULE SHOW END ========================= -->
 										</div>
-										<div class="qt-header-bg"
-											data-bgimage="imagestemplate/medium-690-302.jpg">
-											<img src="imagestemplate/medium-690-302.jpg"
-												alt="Featured image" width="690" height="302">
-										</div>
-									</div>
+										<!-- SCHEDULE DAY END ================================================== -->
+									</c:forEach>
+
 								</div>
-								<!-- POST VERTICAL ITEM END ========================= -->
 							</div>
-							<!-- SLIDESHOW ITEM -->
-							<div class="qt-item">
-								<!-- POST VERTICAL ITEM ========================= -->
-								<div class="qt-part-archive-item qt-vertical">
-									<div class="qt-item-header">
-										<div class="qt-header-top">
-											<ul class="qt-tags">
-												<li><a href="#">Adventure</a></li>
-											</ul>
-											<div class="qt-feedback">
-												<a>17<i class="dripicons-message"></i></a><a>34<i
-													class="dripicons-heart"></i></a>
-											</div>
-										</div>
-										<div class="qt-header-mid qt-vc">
-											<div class="qt-vi">
-												<h3 class="qt-title">
-													<a href="#" class="qt-text-shadow"> This is a very long
-														post title to be sure it fits nice in the page </a>
-												</h3>
-											</div>
-										</div>
-										<div class="qt-header-bottom">
-											<div class="qt-item-metas">
-												<a class="qt-author-thumb" href="#"> <img
-													src="imagestemplate/author-thumbnail.jpg" alt="" width="30"
-													height="30">
-												</a>
-												<div class="qt-texts">
-													<p class="qt-author">
-														<a href="#">Anthony Rother</a>
-													</p>
-													<p class="qt-date">03 October 2016</p>
-												</div>
-											</div>
-											<a href="#" class="qt-btn qt-btn-primary qt-readmore"><i
-												class="dripicons-align-justify"></i></a>
-										</div>
-										<div class="qt-header-bg"
-											data-bgimage="imagestemplate/medium-690-302.jpg">
-											<img src="imagestemplate/medium-690-302.jpg"
-												alt="Featured image" width="690" height="302">
-										</div>
-									</div>
-								</div>
-								<!-- POST VERTICAL ITEM END ========================= -->
-							</div>
-							<!-- SLIDESHOW ITEM -->
-							<div class="qt-item">
-								<!-- POST VERTICAL ITEM ========================= -->
-								<div class="qt-part-archive-item qt-vertical">
-									<div class="qt-item-header">
-										<div class="qt-header-top">
-											<ul class="qt-tags">
-												<li><a href="#">Adventure</a></li>
-											</ul>
-											<div class="qt-feedback">
-												<a>17<i class="dripicons-message"></i></a><a>34<i
-													class="dripicons-heart"></i></a>
-											</div>
-										</div>
-										<div class="qt-header-mid qt-vc">
-											<div class="qt-vi">
-												<h3 class="qt-title">
-													<a href="#" class="qt-text-shadow"> This is a very long
-														post title to be sure it fits nice in the page </a>
-												</h3>
-											</div>
-										</div>
-										<div class="qt-header-bottom">
-											<div class="qt-item-metas">
-												<a class="qt-author-thumb" href="#"> <img
-													src="imagestemplate/author-thumbnail.jpg" alt="" width="30"
-													height="30">
-												</a>
-												<div class="qt-texts">
-													<p class="qt-author">
-														<a href="#">Anthony Rother</a>
-													</p>
-													<p class="qt-date">03 October 2016</p>
-												</div>
-											</div>
-											<a href="#" class="qt-btn qt-btn-primary qt-readmore"><i
-												class="dripicons-align-justify"></i></a>
-										</div>
-										<div class="qt-header-bg"
-											data-bgimage="imagestemplate/medium-690-302.jpg">
-											<img src="imagestemplate/medium-690-302.jpg"
-												alt="Featured image" width="690" height="302">
-										</div>
-									</div>
-								</div>
-								<!-- POST VERTICAL ITEM END ========================= -->
-							</div>
-							<!-- SLIDESHOW ITEM -->
-							<div class="qt-item">
-								<!-- POST VERTICAL ITEM ========================= -->
-								<div class="qt-part-archive-item qt-vertical">
-									<div class="qt-item-header">
-										<div class="qt-header-top">
-											<ul class="qt-tags">
-												<li><a href="#">Adventure</a></li>
-											</ul>
-											<div class="qt-feedback">
-												<a>17<i class="dripicons-message"></i></a><a>34<i
-													class="dripicons-heart"></i></a>
-											</div>
-										</div>
-										<div class="qt-header-mid qt-vc">
-											<div class="qt-vi">
-												<h3 class="qt-title">
-													<a href="#" class="qt-text-shadow"> This is a very long
-														post title to be sure it fits nice in the page </a>
-												</h3>
-											</div>
-										</div>
-										<div class="qt-header-bottom">
-											<div class="qt-item-metas">
-												<a class="qt-author-thumb" href="#"> <img
-													src="imagestemplate/author-thumbnail.jpg" alt="" width="30"
-													height="30">
-												</a>
-												<div class="qt-texts">
-													<p class="qt-author">
-														<a href="#">Anthony Rother</a>
-													</p>
-													<p class="qt-date">03 October 2016</p>
-												</div>
-											</div>
-											<a href="#" class="qt-btn qt-btn-primary qt-readmore"><i
-												class="dripicons-align-justify"></i></a>
-										</div>
-										<div class="qt-header-bg"
-											data-bgimage="imagestemplate/medium-690-302.jpg">
-											<img src="imagestemplate/medium-690-302.jpg"
-												alt="Featured image" width="690" height="302">
-										</div>
-									</div>
-								</div>
-								<!-- POST VERTICAL ITEM END ========================= -->
-							</div>
-							<!-- SLIDESHOW ITEM -->
-							<div class="qt-item">
-								<!-- POST VERTICAL ITEM ========================= -->
-								<div class="qt-part-archive-item qt-vertical">
-									<div class="qt-item-header">
-										<div class="qt-header-top">
-											<ul class="qt-tags">
-												<li><a href="#">Adventure</a></li>
-											</ul>
-											<div class="qt-feedback">
-												<a>17<i class="dripicons-message"></i></a><a>34<i
-													class="dripicons-heart"></i></a>
-											</div>
-										</div>
-										<div class="qt-header-mid qt-vc">
-											<div class="qt-vi">
-												<h3 class="qt-title">
-													<a href="#" class="qt-text-shadow"> This is a very long
-														post title to be sure it fits nice in the page </a>
-												</h3>
-											</div>
-										</div>
-										<div class="qt-header-bottom">
-											<div class="qt-item-metas">
-												<a class="qt-author-thumb" href="#"> <img
-													src="imagestemplate/author-thumbnail.jpg" alt="" width="30"
-													height="30">
-												</a>
-												<div class="qt-texts">
-													<p class="qt-author">
-														<a href="#">Anthony Rother</a>
-													</p>
-													<p class="qt-date">03 October 2016</p>
-												</div>
-											</div>
-											<a href="#" class="qt-btn qt-btn-primary qt-readmore"><i
-												class="dripicons-align-justify"></i></a>
-										</div>
-										<div class="qt-header-bg"
-											data-bgimage="imagestemplate/medium-690-302.jpg">
-											<img src="imagestemplate/medium-690-302.jpg"
-												alt="Featured image" width="690" height="302">
-										</div>
-									</div>
-								</div>
-								<!-- POST VERTICAL ITEM END ========================= -->
-							</div>
-							<!-- SLIDESHOW ITEM -->
-							<div class="qt-item">
-								<!-- POST VERTICAL ITEM ========================= -->
-								<div class="qt-part-archive-item qt-vertical">
-									<div class="qt-item-header">
-										<div class="qt-header-top">
-											<ul class="qt-tags">
-												<li><a href="#">Adventure</a></li>
-											</ul>
-											<div class="qt-feedback">
-												<a>17<i class="dripicons-message"></i></a><a>34<i
-													class="dripicons-heart"></i></a>
-											</div>
-										</div>
-										<div class="qt-header-mid qt-vc">
-											<div class="qt-vi">
-												<h3 class="qt-title">
-													<a href="#" class="qt-text-shadow"> This is a very long
-														post title to be sure it fits nice in the page </a>
-												</h3>
-											</div>
-										</div>
-										<div class="qt-header-bottom">
-											<div class="qt-item-metas">
-												<a class="qt-author-thumb" href="#"> <img
-													src="imagestemplate/author-thumbnail.jpg" alt="" width="30"
-													height="30">
-												</a>
-												<div class="qt-texts">
-													<p class="qt-author">
-														<a href="#">Anthony Rother</a>
-													</p>
-													<p class="qt-date">03 October 2016</p>
-												</div>
-											</div>
-											<a href="#" class="qt-btn qt-btn-primary qt-readmore"><i
-												class="dripicons-align-justify"></i></a>
-										</div>
-										<div class="qt-header-bg"
-											data-bgimage="imagestemplate/medium-690-302.jpg">
-											<img src="imagestemplate/medium-690-302.jpg"
-												alt="Featured image" width="690" height="302">
-										</div>
-									</div>
-								</div>
-								<!-- POST VERTICAL ITEM END ========================= -->
-							</div>
+							<!-- TAB CONTENTS end======================================== -->
+							<!-- SHOW UPCOMING ITEM END ========================= -->
 						</div>
+
+						<!-- 경계 -->
 					</div>
 				</div>
-				<!-- SLIDESHOW POST END ================================================== -->
+				<!-- SLIDESHOW UPCOMING SHOWS END ================================================== -->
 			</div>
-			
+
 			<hr class="qt-spacer-m">
 			<!-- ======================= CHART SECTION ======================= -->
 			<div class="qt-vertical-padding-l qt-content-primary-dark qt-section">
@@ -704,76 +470,37 @@ Your recommendation can change the ranking.
 					</h3>
 					<ul class="collapsible qt-chart-tracklist qt-spacer-m"
 						data-collapsible="accordion">
-						<!-- CHART TRACK ========================= -->
-						<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
-							<div class="qt-chart-table collapsible-header qt-content-primary">
-								<div class="qt-position">
-									<img src="imagestemplate/thumb-170-170.jpg"
-										class="qt-chart-cover" alt="Chart track" width="170"
-										height="170"> <span>10</span>
+
+						<c:forEach var="weekly" varStatus="status" items="${wc}">
+							<!-- CHART TRACK ========================= -->
+							<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
+								<div
+									class="qt-chart-table collapsible-header qt-content-primary">
+									<div class="qt-position">
+										<img src="download?type=song&data=${weekly.songnum}"
+											class="qt-chart-cover" alt="Chart track" width="170"
+											height="170"> <span>${status.count}</span>
+									</div>
+									<div class="qt-titles">
+										<h3 class="qt-ellipsis qt-t">${ weekly.song_title }</h3>
+										<p>${ weekly.song_nickname }</p>
+									</div>
+									<div class="qt-action">
+										<a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i
+											class="dripicons-cart"></i></a>
+									</div>
 								</div>
-								<div class="qt-titles">
-									<h3 class="qt-ellipsis qt-t">Last night a Dj Saved My Life</h3>
-									<p>Dj Phoenix Da Housemat feat Emix Bizz</p>
+								<div class="collapsible-body qt-paper">
+									<p>${ weekly.song_desc }</p>
 								</div>
-								<div class="qt-action">
-									<a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i
-										class="dripicons-cart"></i></a>
-								</div>
-							</div>
-							<div class="collapsible-body qt-paper">
-								<p>Lorem ipsum dolor sit amet.</p>
-							</div>
-						</li>
-						<!-- CHART TRACK END ========================= -->
-						<!-- CHART TRACK ========================= -->
-						<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
-							<div class="qt-chart-table collapsible-header qt-content-primary">
-								<div class="qt-position">
-									<img src="imagestemplate/thumb-170-170.jpg"
-										class="qt-chart-cover" alt="Chart track" width="170"
-										height="170"> <span>10</span>
-								</div>
-								<div class="qt-titles">
-									<h3 class="qt-ellipsis qt-t">Last night a Dj Saved My Life</h3>
-									<p>Dj Phoenix Da Housemat feat Emix Bizz</p>
-								</div>
-								<div class="qt-action">
-									<a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i
-										class="dripicons-cart"></i></a>
-								</div>
-							</div>
-							<div class="collapsible-body qt-paper">
-								<p>Lorem ipsum dolor sit amet.</p>
-							</div>
-						</li>
-						<!-- CHART TRACK END ========================= -->
-						<!-- CHART TRACK ========================= -->
-						<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
-							<div class="qt-chart-table collapsible-header qt-content-primary">
-								<div class="qt-position">
-									<img src="imagestemplate/thumb-170-170.jpg"
-										class="qt-chart-cover" alt="Chart track" width="170"
-										height="170"> <span>10</span>
-								</div>
-								<div class="qt-titles">
-									<h3 class="qt-ellipsis qt-t">Last night a Dj Saved My Life</h3>
-									<p>Dj Phoenix Da Housemat feat Emix Bizz</p>
-								</div>
-								<div class="qt-action">
-									<a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i
-										class="dripicons-cart"></i></a>
-								</div>
-							</div>
-							<div class="collapsible-body qt-paper">
-								<p>Lorem ipsum dolor sit amet.</p>
-							</div>
-						</li>
-						<!-- CHART TRACK END ========================= -->
+							</li>
+							<!-- CHART TRACK END ========================= -->
+						</c:forEach>
+
 					</ul>
 					<p class="aligncenter qt-spacer-m">
-						<a href="#" class="qt-btn qt-btn qt-btn-l qt-btn-primary">View
-							full chart</a>
+						<a href="weeklyChart"
+							class="qt-btn qt-btn qt-btn-l qt-btn-primary">View full chart</a>
 					</p>
 				</div>
 				<div class="qt-header-bg"
@@ -785,8 +512,7 @@ Your recommendation can change the ranking.
 			<!-- ======================= SPONSORS ======================= -->
 			<div class="qt-vertical-padding-m qt-sponsors qt-section">
 				<h3 class="qt-caption-med">
-					<span>
-Used language</span>
+					<span> Used language</span>
 				</h3>
 				<hr class="qt-spacer-m">
 				<!-- SLIDESHOW SPONSORS ================================================== -->
@@ -794,7 +520,8 @@ Used language</span>
 					class="qt-slickslider-container qt-slickslider-externalarrows qt-slickslider-fullscreen">
 					<div class="row">
 						<div
-							class="qt-slickslider qt-slickslider-multiple qt-text-shadow "							data-slidestoshow="6" data-slidestoshowipad="3"
+							class="qt-slickslider qt-slickslider-multiple qt-text-shadow "
+							data-slidestoshow="6" data-slidestoshowipad="3"
 							data-variablewidth="false" data-arrows="true" data-dots="false"
 							data-infinite="true" data-centermode="false"
 							data-pauseonhover="true" data-autoplay="true"
@@ -804,53 +531,53 @@ Used language</span>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="resources/imagestemplate/css.jpg" width="235" height="132"
-									alt="sponsor" class="qt-image-responsive">
+									<img src="resources/imagestemplate/css.jpg" width="235"
+									height="132" alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="resources/imagestemplate/html.jpg" width="235" height="132"
-									alt="sponsor" class="qt-image-responsive">
+									<img src="resources/imagestemplate/html.jpg" width="235"
+									height="132" alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="resources/imagestemplate/java.jpg" width="235" height="132"
-									alt="sponsor" class="qt-image-responsive">
+									<img src="resources/imagestemplate/java.jpg" width="235"
+									height="132" alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="resources/imagestemplate/javascript.jpg" width="235" height="132"
-									alt="sponsor" class="qt-image-responsive">
+									<img src="resources/imagestemplate/javascript.jpg" width="235"
+									height="132" alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="resources/imagestemplate/jquery.jpg" width="235" height="132"
-									alt="sponsor" class="qt-image-responsive">
+									<img src="resources/imagestemplate/jquery.jpg" width="235"
+									height="132" alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="resources/imagestemplate/ajax.jpg" width="235" height="132"
-									alt="sponsor" class="qt-image-responsive">
+									<img src="resources/imagestemplate/ajax.jpg" width="235"
+									height="132" alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="resources/imagestemplate/servlets.jpg" width="235" height="132"
-									alt="sponsor" class="qt-image-responsive">
+									<img src="resources/imagestemplate/servlets.jpg" width="235"
+									height="132" alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
-							
+
 						</div>
 					</div>
 				</div>
@@ -870,40 +597,14 @@ Used language</span>
 						<div class="col s12 m3 l3">
 							<div class="qt-widget">
 								<h5 class="qt-caption-small">
-									<span>Stay Connected</span>
+									<span>About site</span>
 								</h5>
-								Subscribe now to the newsletter to receive weekly updates.
-								<hr class="qt-spacer-s">
-								<form method="post" action="#newsletter" class="qt-inline-form">
-									<div class="row qt-nopadding">
-										<div class="col s12 m8 l9">
-											<input placeholder="Your email" value="" type="text"
-												class="validate qt-input-s">
-										</div>
-										<div class="col s12 m4 l3">
-											<input type="button" value="submit"
-												class="qt-btn qt-btn-secondary qt-btn-s qt-fullwidth">
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Contacts</span>
-								</h5>
-								<div class="qt-widget-contacts">
+								<div class="qt-widget-about">
 									<p>
-										<i class="qticon-home"></i><a
-											href="http://www.qantumthemes.com">www.jazart.com</a>
-									</p>
-									<p>
-										<i class="qticon-at-sign"></i><a
-											href="mailto:info@someofyoursite.com">jazart2017@gmail.com</a>
-									</p>
-									<p>
-										<i class="qticon-phone"></i><a href="tel:1-847-555-5555">02-123-1234</a>
+										We are a young and dynamic compose station which wants to
+										bring happyness in your life. <br> <a href="sitemap">
+											Site Map <i class="dripicons-arrow-thin-right"></i>
+										</a>
 									</p>
 								</div>
 							</div>
@@ -913,12 +614,31 @@ Used language</span>
 								<h5 class="qt-caption-small">
 									<span>Contacts</span>
 								</h5>
+								<div class="qt-widget-contacts">
+									<p>
+										<i class="qticon-home"></i><a href="#">www.jazart.com</a>
+									</p>
+									<p>
+										<i class="qticon-at-sign"></i><a href="question">jazart2017@gmail.com</a>
+									</p>
+									<p>
+										<i class="qticon-phone"></i><a href="#">02-123-1234</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col s12 m3 l3">
+							<div class="qt-widget">
+								<h5 class="qt-caption-small">
+									<span>Our Team</span>
+								</h5>
 								<div class="qt-widget-about">
 									<p>
-										We are a young and dynamic compose station which wants to
-										bring happyness in your life. <br> <a
-											href="about">Discover more <i
-											class="dripicons-arrow-thin-right"></i></a>
+
+										We are a small group of designers and developers. We create
+										clean, minimal and apps. <br> <a href="about">About
+											us <i class="dripicons-arrow-thin-right"></i>
+										</a>
 									</p>
 								</div>
 							</div>
@@ -930,10 +650,8 @@ Used language</span>
 								</h5>
 								<ul class="qt-widget-menu qt-list-chevron">
 									<li><a href="compose">Compose</a></li>
-									<li><a href="commBoard">Board
-											</a></li>
-									<li><a href="realtimeChart">Charts
-											</a></li>
+									<li><a href="commBoard">Board </a></li>
+									<li><a href="realtimeChart">Charts </a></li>
 									<li><a href="qna">Contacts</a></li>
 								</ul>
 							</div>

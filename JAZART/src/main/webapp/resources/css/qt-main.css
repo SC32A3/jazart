@@ -3143,8 +3143,8 @@ nav .button-collapse i { font-size: 1.4em; }
   .qt-menubar ul.qt-desktopmenu > li.right::after, .qt-menubar ul.qt-desktopmenu > li.right::before, .qt-menubar ul.qt-desktopmenu > li.right > a::after, .qt-menubar ul.qt-desktopmenu > li.right > a::before, .qt-menubar ul.qt-desktopmenu > li .brand-logo::after, .qt-menubar ul.qt-desktopmenu > li .brand-logo::before, .qt-menubar ul.qt-desktopmenu > li.qt-logo-link::after, .qt-menubar ul.qt-desktopmenu > li.qt-logo-link::before { display: none; }
   .qt-menubar ul.qt-desktopmenu > li:hover::after, .qt-menubar ul.qt-desktopmenu > li:hover > a::after, .qt-menubar ul.qt-desktopmenu > li:hover > a::before { -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite; opacity: 1; }
   .qt-menubar ul.qt-desktopmenu > li ul { position: absolute; display: none; margin-top: 1px; min-width: 300px; }
-  .qt-menubar ul.qt-desktopmenu > li ul li { display: block; width: 100%; }
-  .qt-menubar ul.qt-desktopmenu > li ul li a { display: inline-block; width: auto; float: left; line-height: 2.121rem; padding: 0  1rem; }
+  .qt-menubar ul.qt-desktopmenu > li ul li { display: block; width: 165px; }
+  .qt-menubar ul.qt-desktopmenu > li ul li a { display: inline-block; width: 165px; float: left; line-height: 2.121rem; padding: 0  1rem; }
   .qt-menubar ul.qt-desktopmenu > li ul::after { display: block; clear: both; width: 100%; }
   .qt-menubar ul.qt-desktopmenu > li::after { display: block; clear: both; width: 100%; }
   .qt-menubar ul.qt-desktopmenu > li:hover ul { display: block; }

@@ -125,21 +125,21 @@
 				<li><a href="#!" class="brand-logo qt-logo-text">jazart</a></li>
 			</ul>
 		</nav>
-		<!-- mobile menu -->
+<!-- mobile menu -->
 		<div id="qt-mobile-menu" class="side-nav qt-content-primary">
 			<ul class=" qt-side-nav">
 				<li><a href="/">jazart<span>♬</span></a></li>
 				<li class="menu-item-has-children"><a href="compose">Compose</a>
-					<ul>
+						<ul>
 						<li><a href="mixing">(test)Mixing Page</a></li>
 						<li><a href="artistPage">(test)Artist Page</a></li>
 					</ul></li>
-				<li class="menu-item-has-children"><a href="musicBoard">Board</a>
+				<li><a href="musicBoard">Board</a>
 					<ul>
 						<li><a href="musicBoard">Music Community</a></li>
 						<li><a href="commBoard">Free Community</a></li>
 					</ul></li>
-				<li class="menu-item-has-children"><a href="realtimeChart">Charts</a>
+				<li><a href="realtimeChart">Charts</a>
 					<ul>
 						<li><a href="realtimeChart">Realtime Chart</a></li>
 						<li><a href="dailyChart">Daily Chart</a></li>
@@ -152,7 +152,7 @@
 					</ul></li>
 			</ul>
 		</div>
-			<!-- mobile toolbar -->
+		<!-- mobile toolbar -->
 			<ul class="qt-mobile-toolbar qt-content-primary-dark qt-content-aside hide-on-large-only">
 				<li><a href="#!" data-expandable="#qtsearchbar" class="qt-scrolltop"><i class="icon dripicons-search"></i></a></li>
 				<li><a href="page-popup.html" class="qt-popupwindow" data-name="Music Player" data-width="320" data-height="500"><i class="icon dripicons-duplicate"></i></a></li>
@@ -315,40 +315,14 @@
 						<div class="col s12 m3 l3">
 							<div class="qt-widget">
 								<h5 class="qt-caption-small">
-									<span>Stay Connected</span>
+									<span>About site</span>
 								</h5>
-								Subscribe now to the newsletter to receive weekly updates.
-								<hr class="qt-spacer-s">
-								<form method="post" action="#newsletter" class="qt-inline-form">
-									<div class="row qt-nopadding">
-										<div class="col s12 m8 l9">
-											<input placeholder="Your email" value="" type="text"
-												class="validate qt-input-s">
-										</div>
-										<div class="col s12 m4 l3">
-											<input type="button" value="submit"
-												class="qt-btn qt-btn-secondary qt-btn-s qt-fullwidth">
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Contacts</span>
-								</h5>
-								<div class="qt-widget-contacts">
+								<div class="qt-widget-about">
 									<p>
-										<i class="qticon-home"></i><a
-											href="http://www.qantumthemes.com">www.jazart.com</a>
-									</p>
-									<p>
-										<i class="qticon-at-sign"></i><a
-											href="mailto:info@someofyoursite.com">info@jazart.com</a>
-									</p>
-									<p>
-										<i class="qticon-phone"></i><a href="tel:1-847-555-5555">02-123-1234</a>
+										We are a young and dynamic compose station which wants to
+										bring happyness in your life. <br> <a href="sitemap">
+											Site Map <i class="dripicons-arrow-thin-right"></i>
+										</a>
 									</p>
 								</div>
 							</div>
@@ -358,12 +332,31 @@
 								<h5 class="qt-caption-small">
 									<span>Contacts</span>
 								</h5>
+								<div class="qt-widget-contacts">
+									<p>
+										<i class="qticon-home"></i><a href="#">www.jazart.com</a>
+									</p>
+									<p>
+										<i class="qticon-at-sign"></i><a href="question">jazart2017@gmail.com</a>
+									</p>
+									<p>
+										<i class="qticon-phone"></i><a href="#">02-123-1234</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col s12 m3 l3">
+							<div class="qt-widget">
+								<h5 class="qt-caption-small">
+									<span>Our Team</span>
+								</h5>
 								<div class="qt-widget-about">
 									<p>
-										We are a young and dynamic compose station which wants to
-										bring happyness in your life. <br> <a
-											href="http://www.qantumthemes.com">Discover more <i
-											class="dripicons-arrow-thin-right"></i></a>
+
+										We are a small group of designers and developers. We create
+										clean, minimal and apps. <br> <a href="about">About
+											us <i class="dripicons-arrow-thin-right"></i>
+										</a>
 									</p>
 								</div>
 							</div>
@@ -374,12 +367,10 @@
 									<span>Main links</span>
 								</h5>
 								<ul class="qt-widget-menu qt-list-chevron">
-									<li><a href="http://www.qantumthemes.com">Home page</a></li>
-									<li><a href="http://www.qantumthemes.com">Shows
-											schedule</a></li>
-									<li><a href="http://www.qantumthemes.com">Events
-											archive</a></li>
-									<li><a href="http://www.qantumthemes.com">Contacts</a></li>
+									<li><a href="compose">Compose</a></li>
+									<li><a href="commBoard">Board </a></li>
+									<li><a href="realtimeChart">Charts </a></li>
+									<li><a href="qna">Contacts</a></li>
 								</ul>
 							</div>
 						</div>

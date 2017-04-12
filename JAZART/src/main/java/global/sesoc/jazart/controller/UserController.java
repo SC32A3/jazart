@@ -1,5 +1,7 @@
 package global.sesoc.jazart.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -10,13 +12,17 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
+import global.sesoc.jazart.dao.ChartRepository;
 import global.sesoc.jazart.dao.UserRepository;
 import global.sesoc.jazart.utility.FileService;
+import global.sesoc.jazart.utility.PageNavigator;
 import global.sesoc.jazart.utility.SendMailTest;
+import global.sesoc.jazart.vo.SongInfo;
 import global.sesoc.jazart.vo.User;
 
 /**
@@ -30,12 +36,31 @@ public class UserController {
 	@Autowired
 	UserRepository ur;
 	@Autowired
+	ChartRepository cr;
+	@Autowired
 	HttpSession session;
+	
+	final int countPerPage = 10; // 페이지당 글 수
+	final int pagePerGroup = 5; // 페이지 그룹에 표시되는 그룹 수
 
 	final String uploadPath = "/userProfile"; // 파일이 업로드 되는 경로
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home() {
+	public String home(Model model, @RequestParam(value = "page", defaultValue = "1") int page) {
+		logger.info("> weekly chart");
+
+		int total = cr.weeklyCount();
+
+		PageNavigator navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
+		int start = navi.getStartRecord(); // 1,11,21
+		int end = start + countPerPage - 1; // 10,20,30
+		logger.info("페이징재료page,start,end=> " + page + ", " + start + ", " + end);
+
+		ArrayList<SongInfo> cList = cr.allList(start, end);
+		model.addAttribute("all", cList);
+		ArrayList<SongInfo> cList2 = cr.chartList("wc", start, end);
+		model.addAttribute("wc", cList2);
+		model.addAttribute("navi", navi); // 페이징을 위해서
 		return "home";
 	}
 
@@ -112,6 +137,11 @@ public class UserController {
 	@RequestMapping(value = "question", method = RequestMethod.GET)
 	public String question() {
 		return "user/question";
+	}
+	
+	@RequestMapping(value = "sitemap", method = RequestMethod.GET)
+	public String sitemap() {
+		return "user/siteMap";
 	}
 
 	@RequestMapping(value = "accept", method = RequestMethod.POST)
