@@ -68,9 +68,10 @@
 					msg += '<input type="button" value="재생" onclick="play('+index+')"><audio id="audio'+index+'" controls><source src="download?type=rec&data='+item+'" type="audio/mpeg"></audio>';
 					msg += '</td></tr>';
 				}) 
-				msg += '<tr><td><input type="button" value="업로드" onclick="upload()"></td></tr>'
+				msg += '<tr><td><input type="button" value="업로드" onclick="upload1()"></td></tr>'
 				msg += '</table>';
 				reclist.html(msg);
+				alert('init1 성공');
 			}
 		});
 	};
@@ -85,9 +86,35 @@
 		aud.play();
 	};
 	
-	function upload() {
+	function upload1() {
 		var select = $("#select");
 		var msg = '';
+		
+		var recArray = new Array();
+		$('input:checkbox:checked').each(function() {
+			recArray.push($(this).val());
+		})
+			msg += '<table>';
+			msg += '<tr><td>업로드할 파일</td></tr>';
+		$.each(recArray, function(index, item) {
+			msg += '<tr><td>'+item+'</td></tr>';
+		})
+			msg += '<tr><td><input type="button" id="upBtn" value="올리기"></td></tr>';
+			msg += '</table>';
+			select.html(msg);
+			
+			
+			$("#upBtn").on("click", function() {
+				var uploadForm = $("#uploadForm");
+				$("#pre").val(recArray);
+				alert($("#pre").val());
+				uploadForm.submit();
+			});
+	}
+	
+	/* function upload2() {
+		var uploadForm = $("#uploadForm");
+		uploadForm
 		
 		var recArray = new Array;
 		$('input:checkbox:checked').each(function() {
@@ -102,7 +129,7 @@
 			data : {"pre": JSON.stringify(recArray)} , 
 			success : function(resp) {
 				msg += '<table>';
-				msg += '<tr><td>서버저장목록</td></tr>';
+				msg += '<tr><td>업로드할 파일</td></tr>';
 				$.each(resp, function(index, item) { //<input type="button" value="재생" onclick="play('+index+','+item+')">
 					msg += '<tr><td>'+item+'</td>';
 					msg += '<td>';
@@ -113,7 +140,7 @@
 				select.html(msg);
 			}
 		});		
-	}
+	} */
 </script>
 
 <style>
@@ -235,6 +262,9 @@ audio {
     left: auto;
     opacity: 1;
 }
+
+analysis
+
 </style>
 </head>
 <body>
@@ -406,11 +436,11 @@ audio {
                                     <h3 class="left-align qt-vertical-padding-m">test!</h3>
                                     
                                     <!-- 원본 -->
-                                    <div id="viz">
-										<canvas id="analyser" width="1024" height="500"></canvas>
-										<canvas id="wavedisplay" width="1024" height="500"></canvas>
+                                    <div id="viz" class="analyser">
+										<canvas id="analyser" width="1024" height="100"></canvas>
+										<canvas id="wavedisplay" width="1024" height="100"></canvas>
 									</div>
-									<div id="controls">
+									<div id="controls" class="analyser">
 										<img id="record" src="images/record.png" onclick="toggleRecording(this);">
 										<!-- <a id="save" href="#"><img src="images/save.png"></a> -->
 										<a id="save" href="#"><img src="images/save.png"></a>
@@ -418,25 +448,14 @@ audio {
 									<div id="reclist" class="recBg">
 										등록된 곡이 없습니다
 									</div>
-									<form class="col s12" method="post" action="join" enctype="multipart/form-data"> 
+									<form id="uploadForm" action="upload2" method="post">
 									<div id="select" class="recBg">
-									
+										<table>
+										<tr><td>업로드할 파일</td></tr>
+										</table>
 									</div>
+									<input type="hidden" id="pre" name="pre" value="">
 									</form>
-									<!-- <div>
-									좀떠라좀!!!!!
-									<audio controls="controls">
-										<source src="resources/horse.ogg" type="audio/ogg"> 됨
-									</audio>
-									<audio controls="controls">
-										<source src="download?type=rec&data=horse.ogg" type="audio/ogg"> 됨
-									</audio>
-									<audio controls="controls">
-										<source src="c:\recording\horse.ogg" type="audio/ogg"> 안됨
-									</audio>
-									</div> -->
-									<!--  -->
-                                    
                                     <br />
                               </div>
                            </div>

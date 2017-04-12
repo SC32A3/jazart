@@ -46,7 +46,7 @@ public class ComposeController {
 	HttpSession session;
 
 	final String uploadPath = "/userProfile"; // 파일이 업로드 되는 경로
-	final String uploadPath2 = "/recording"; // 내 녹음이 업로드되는 경로
+	final String uploadPath2 = System.getProperty("user.home")+"/downloads"; // 내 녹음이 업로드되는 경로
 	final String uploadPath3 = "/userRecording"; // 내 녹음이 서버에 이전 되는 경로
 
 	@RequestMapping(value = "compose", method = RequestMethod.GET)
@@ -119,7 +119,6 @@ public class ComposeController {
 		if (type.equals("rec")) {
 			originalfile = data;
 			fullpath = uploadPath2 + "/" + originalfile;
-			System.out.println("풀패스"+fullpath);
 		}
 		
 		
@@ -203,55 +202,75 @@ public class ComposeController {
 	
 	@RequestMapping(value = "reclist", method = RequestMethod.GET)
 	public @ResponseBody ArrayList<String> reclist(HttpServletResponse response) {
+		System.out.println("init진입");
 		ArrayList<String> reclist = new ArrayList<>();
 		
 		File path = new File(uploadPath2);
 		
-		for (String string : path.list()) {
-			reclist.add(string);
+		if (!path.isDirectory()) {
+	        path.mkdirs();
+	    }
+		File[] data = path.listFiles();
+		for (File file : data) {
+			if (!file.isDirectory()) {
+				//if (file.getName().substring(1, 4).equals("jaz")) {
+					//System.out.println(file.getName());
+					reclist.add(file.getName());
+				//}
+			}
 		}
 		
 		return reclist; 
 	}
 	
-	@RequestMapping(value = "recUpload", method = RequestMethod.POST)
-	public @ResponseBody ArrayList<String> recUpload(String[] pre, HttpServletResponse response) {
-		
+	@RequestMapping(value = "upload2", method = RequestMethod.POST)
+	public String recUpload(String[] pre, Model model) {
 		File path = new File(uploadPath3); //서버 폴더경로
 		FileInputStream filein = null;
 		FileOutputStream fileout = null;
 		String fullpath = null;
 		String fullpath2 = null;
-
+		ArrayList<String> list = new ArrayList<>();
 		
 		if (!path.isDirectory()) {
 	         path.mkdirs();
 	     }
-		for (String data : pre) {
-			
-			System.out.println("값: "+data);
+		
+		for (String originalfile : pre) {
+			System.out.println("originalfile: "+originalfile);
+			/*System.out.println("값: "+data);
 			String[] datas =data.split("\"");
 			System.out.println(datas[1]);
-			String originalfile = datas[1];
+			String originalfile = datas[1];*/
 			
 			fullpath = uploadPath2 + "/" + originalfile;
 			fullpath2 = uploadPath3 + "/" + originalfile;
-			try {
+			/*try {
 				response.setHeader("Content-Disposition",
 						"attachment;filename=" + URLEncoder.encode(originalfile, "UTF-8")); 
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
-			}
+			} catch (Exception e1){
+				e1.printStackTrace();
+			}*/
 
 			// (웹유저) <---servletOutputStream(출력)---- (서버(웹프로젝트 주체))
 			// <--FileInputStream(입력)-- (하드 rose.jpg)
 			try {
-				filein = new FileInputStream(fullpath);
+				File up_file = new File(fullpath);
+				File down_file = new File(fullpath2);
+				filein = new FileInputStream(up_file);
 				fileout = new FileOutputStream(fullpath2);
 				// Spring에서 제공하는 유틸리티
-				FileCopyUtils.copy(filein, fileout);
+				//FileCopyUtils.copy(filein, fileout);
 				//copy(filein, fileout);
-			} catch (IOException e) {
+				
+				int data = 0;
+				while((data=filein.read())!=-1) {
+				    fileout.write(data);
+				}
+				
+			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
 				try {
@@ -264,15 +283,12 @@ public class ComposeController {
 				}
 			}
 			
+			list.add(originalfile);
+			System.out.println("list : "+list);
+			model.addAttribute("list", list);
 		}
-		
-		ArrayList<String> reclist = new ArrayList<>();
-		
-		for (String string : path.list()) {
-			reclist.add(string);
-		}
-		
-		return reclist; 
+		System.out.println("넘어가라규");
+		return "compose/mixing";
 	}
 }
 

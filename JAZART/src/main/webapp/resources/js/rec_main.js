@@ -55,7 +55,6 @@ function doneEncoding( blob ) {
 
 function toggleRecording( e ) {
     if (e.classList.contains("recording")) {
-    	alert('recording');
         // stop recording
         audioRecorder.stop();
         e.classList.remove("recording");
