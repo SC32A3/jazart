@@ -203,6 +203,7 @@ public class ComposeController {
 		for (MultipartFile multipartFile : upload) {
 			if (!multipartFile.isEmpty()) {
 				String savedfile = FileService.saveFile(multipartFile, uploadPath3, type);
+				System.out.println("savedfile"+savedfile);
 			}
 		}
 		return "compose/mixing";

@@ -45,17 +45,17 @@ public class FileService {
       else {
          ext = "." + originalFilename.substring(lastIndex + 1);
       }
-
       //저장할 전체 경로를 포함한 File 객체
       File serverFile = null;
       
       //같은 이름의 파일이 있는 경우의 처리
       while (true) {
-         serverFile = new File(uploadPath + "/" + originalFilename + ext);
+         serverFile = new File(uploadPath + "/" + originalFilename);
          //같은 이름의 파일이 없으면 나감.
          if ( !serverFile.isFile()) break;   
          //같은 이름의 파일이 있으면 이름 뒤에 long 타입의 시간정보를 덧붙임.
          //두번째 파일부터 시간이 붙는 형식(67번줄 참조), 다른방법 유효ID발급
+         originalFilename = originalFilename + new Date().getTime();	
       }      
       
       //파일 저장
@@ -64,7 +64,7 @@ public class FileService {
       } catch (Exception e) {
          e.printStackTrace();
       }
-      return originalFilename + ext;
+      return originalFilename;
    }
    
    /**
