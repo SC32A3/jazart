@@ -48,7 +48,7 @@ volume.css" />
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 <link href="resources/css/aboutus.css" rel="stylesheet">
 </head>
-<body id="aboutus">
+<body>
 	<!-- QT HEADER END ================================ -->
 
 	<div class="qt-parentcontainer">
@@ -182,23 +182,23 @@ volume.css" />
 			</div>
 		</div>
 		<!-- SEARCH FORM END ========================= -->
-		<div id="maincontent" class="qt-main">
-			<!-- ======================= HEADER SECTION ======================= -->
-			<!-- HEADER CONTACTS ========================= -->
-			<div class="qt-pageheader qt-negative">
-				<div class="qt-container">
-					<h1 class="qt-caption qt-spacer-s">About us</h1>
+			<div id="maincontent" class="qt-main">
+				<!-- ======================= HEADER SECTION ======================= -->
+				<!-- HEADER MEMBERS ========================= -->
+				<div class="qt-pageheader qt-negative">
+					<div class="qt-container">
+						
+						<h1 class="qt-caption qt-spacer-s">
+							about us
+						</h1>
 					<h4 class="qt-subtitle">Subtitle of the page</h4>
+					</div>
+					<div class="qt-header-bg" data-bgimage="images/table.jpg">
+						<img src="images/table.jpg" alt="Featured image" width="690" height="302">
+					</div>
 				</div>
-				<div class="qt-header-bg"
-					data-bgimage="resources/imagestemplate/full-1600-700.jpg">
-					<img src="resources/imagestemplate/full-1600-700.jpg"
-						alt="Featured image" width="690" height="302">
-				</div>
-			</div>
 			<!-- HEADER CONTACTS END ========================= -->
-		</div>
-	</div>
+
 
 	<div class="container-about">
 		<div class="container">

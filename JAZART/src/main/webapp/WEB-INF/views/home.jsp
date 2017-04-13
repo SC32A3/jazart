@@ -116,9 +116,10 @@
 		<!-- mobile menu -->
 		<div id="qt-mobile-menu" class="side-nav qt-content-primary">
 			<ul class=" qt-side-nav">
-				<li><a href="/">jazart<span>♬</span></a></li>
-				<li class="menu-item-has-children"><a href="compose">Compose</a>
-						<ul>
+					<li class="qt-logo-link"><a href="./"
+					class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
+				<li><a href="compose">Compose</a>
+					<ul>
 						<li><a href="mixing">(test)Mixing Page</a></li>
 						<li><a href="artistPage">(test)Artist Page</a></li>
 					</ul></li>
@@ -214,7 +215,7 @@
 												recommended music file.
 											</p>
 											<p>
-												<a href="mixing" class="qt-btn qt-btn-l qt-btn-primary "><i
+												<a href="compose" class="qt-btn qt-btn-l qt-btn-primary "><i
 													class="dripicons-align-justify"></i></a>
 											</p>
 										</div>

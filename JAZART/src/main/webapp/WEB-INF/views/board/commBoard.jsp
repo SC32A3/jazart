@@ -268,8 +268,8 @@ table, th, td {
 					<h4 class="qt-subtitle">Subtitle of the page</h4>
 				</div>
 				<div class="qt-header-bg"
-					data-bgimage="resources/imagestemplate/full-1600-700.jpg">
-					<img src="resources/imagestemplate/full-1600-700.jpg"
+					data-bgimage="images/back2.jpg">
+					<img src="images/back2.jpg"
 						alt="Featured image" width="690" height="302">
 				</div>
 			</div>
