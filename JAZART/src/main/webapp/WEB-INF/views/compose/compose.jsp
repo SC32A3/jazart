@@ -347,17 +347,7 @@ analysis
                                     <input type="hidden" name="antispam" value="x123">
                                     <h3 class="left-align qt-vertical-padding-m">test!</h3>
                                     
-                                    <!-- 원본 -->
-								<%-- 	<div id="viz" class="analyser">
-										<canvas id="analyser" width="1024" height="100"></canvas>
-										<canvas id="wavedisplay" width="1024" height="100"></canvas>
-									</div>
-									<div id="controls" class="analyser">
-										<img id="record" src="images/record.png" onclick="toggleRecording(this);">
-										<!-- <a id="save" href="#"><img src="images/save.png">다운받기</a> -->
-									</div> --%>
-									
-									<section class="main-controls">
+									  <section class="main-controls">
 								        <canvas class="visualizer"></canvas>
 								        <div id="buttons">
 								          <button class="record">Record</button>
@@ -378,6 +368,13 @@ analysis
 								        -->
 								
 								      </section>
+								      
+								      <div>
+									      <form action="eeee" method="post" enctype="multipart/form-data">
+										      <input type="file" name="upload" multiple="multiple">
+										      <input type="submit" value="다음단계로">
+									      </form>
+								      </div>
 									
 									<!-- 보류 -->
                                     <br />

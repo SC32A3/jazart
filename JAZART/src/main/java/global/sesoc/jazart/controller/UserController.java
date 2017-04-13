@@ -102,10 +102,11 @@ public class UserController {
 	@RequestMapping(value = "join", method = RequestMethod.POST)
 	public String join(User user, MultipartFile upload) {
 		String userName = user.getUser_nickname();
-
+		String type = "u_";
+		
 		// 첨부된 파일을 처리
 		if (!upload.isEmpty()) {
-			String savedfile = FileService.saveFile(upload, uploadPath, userName);
+			String savedfile = FileService.saveFile(upload, uploadPath, type);
 			user.setUser_picture(savedfile);
 		} else {
 			user.setUser_picture("default.jpg");

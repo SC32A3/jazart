@@ -18,7 +18,7 @@ public class FileService {
     * @param path 저장할 경로
     * @return 저장된 파일명
     */
-   public static String saveFile(MultipartFile mfile, String uploadPath, String userName) {
+   public static String saveFile(MultipartFile mfile, String uploadPath, String type) {
       //업로드된 파일이 없거나 크기가 0이면 저장하지 않고 null을 리턴
       if (mfile == null || mfile.isEmpty() || mfile.getSize() == 0) {
          return null;
@@ -31,7 +31,7 @@ public class FileService {
       }
       
       //원본 파일명
-      String originalFilename = mfile.getOriginalFilename();
+      String originalFilename = type+mfile.getOriginalFilename();
       
       //원본 파일의 확장자
       //lastIndexOf(뒤에서부터 ''값을 찾음) '123456.789의 경우' lastIndexOf('.') 결과값 7 
@@ -51,7 +51,7 @@ public class FileService {
       
       //같은 이름의 파일이 있는 경우의 처리
       while (true) {
-         serverFile = new File(uploadPath + "/" + userName + ext);
+         serverFile = new File(uploadPath + "/" + originalFilename + ext);
          //같은 이름의 파일이 없으면 나감.
          if ( !serverFile.isFile()) break;   
          //같은 이름의 파일이 있으면 이름 뒤에 long 타입의 시간정보를 덧붙임.
@@ -62,11 +62,9 @@ public class FileService {
       try {
          mfile.transferTo(serverFile);
       } catch (Exception e) {
-         userName = null;
          e.printStackTrace();
       }
-      
-      return userName + ext;
+      return originalFilename + ext;
    }
    
    /**

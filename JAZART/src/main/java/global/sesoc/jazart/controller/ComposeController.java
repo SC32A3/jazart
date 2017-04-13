@@ -23,9 +23,11 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import global.sesoc.jazart.dao.SongRepository;
 import global.sesoc.jazart.dao.UserRepository;
+import global.sesoc.jazart.utility.FileService;
 import global.sesoc.jazart.vo.SongInfo;
 import global.sesoc.jazart.vo.SongReply;
 import global.sesoc.jazart.vo.User;
@@ -88,9 +90,6 @@ public class ComposeController {
 
 	@RequestMapping(value = "download", method = RequestMethod.GET)
 	public String download(String type, String data, HttpServletResponse response) { 
-		// 다른 방법
-		// 매개변수로 boardnum이 아닌 savedfile을 받으면 DB에 갈 필요가 없다. String fullpath부분부터
-		// 바로 하면 된다.
 		logger.info("다운로드type,data"+type+", "+data);
 		String originalfile = "";
 		String fullpath = "";
@@ -101,12 +100,10 @@ public class ComposeController {
 			int songnum = Integer.parseInt(data);
 			SongInfo song = sr.selectSong(songnum);
 			originalfile = song.getSong_picture();
-
 		} else if (type.equals("user")) {
 			originalfile = data;
 		} else if (type.equals("music")) {
 			StringTokenizer token = new StringTokenizer(data, "?");
-			
 			String data2 = token.nextToken();
 			originalfile = data2;
 		}
@@ -200,94 +197,14 @@ public class ComposeController {
 		return "user/songPopup";
 	}
 	
-	@RequestMapping(value = "reclist", method = RequestMethod.GET)
-	public @ResponseBody ArrayList<String> reclist(HttpServletResponse response) {
-		System.out.println("init진입");
-		ArrayList<String> reclist = new ArrayList<>();
-		
-		File path = new File(uploadPath2);
-		
-		if (!path.isDirectory()) {
-	        path.mkdirs();
-	    }
-		File[] data = path.listFiles();
-		for (File file : data) {
-			if (!file.isDirectory()) {
-				//if (file.getName().substring(1, 4).equals("jaz")) {
-					//System.out.println(file.getName());
-					reclist.add(file.getName());
-				//}
+	@RequestMapping(value = "eeee", method = RequestMethod.POST)
+	public String saveRecord(MultipartFile[] upload) {
+		String type = "r_";
+		for (MultipartFile multipartFile : upload) {
+			if (!multipartFile.isEmpty()) {
+				String savedfile = FileService.saveFile(multipartFile, uploadPath, type);
 			}
 		}
-		
-		return reclist; 
-	}
-	
-	@RequestMapping(value = "upload2", method = RequestMethod.POST)
-	public String recUpload(String[] pre, Model model) {
-		File path = new File(uploadPath3); //서버 폴더경로
-		FileInputStream filein = null;
-		FileOutputStream fileout = null;
-		String fullpath = null;
-		String fullpath2 = null;
-		ArrayList<String> list = new ArrayList<>();
-		
-		if (!path.isDirectory()) {
-	         path.mkdirs();
-	     }
-		
-		for (String originalfile : pre) {
-			System.out.println("originalfile: "+originalfile);
-			/*System.out.println("값: "+data);
-			String[] datas =data.split("\"");
-			System.out.println(datas[1]);
-			String originalfile = datas[1];*/
-			
-			fullpath = uploadPath2 + "/" + originalfile;
-			fullpath2 = uploadPath3 + "/" + originalfile;
-			/*try {
-				response.setHeader("Content-Disposition",
-						"attachment;filename=" + URLEncoder.encode(originalfile, "UTF-8")); 
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-			} catch (Exception e1){
-				e1.printStackTrace();
-			}*/
-
-			// (웹유저) <---servletOutputStream(출력)---- (서버(웹프로젝트 주체))
-			// <--FileInputStream(입력)-- (하드 rose.jpg)
-			try {
-				File up_file = new File(fullpath);
-				File down_file = new File(fullpath2);
-				filein = new FileInputStream(up_file);
-				fileout = new FileOutputStream(fullpath2);
-				// Spring에서 제공하는 유틸리티
-				//FileCopyUtils.copy(filein, fileout);
-				//copy(filein, fileout);
-				
-				int data = 0;
-				while((data=filein.read())!=-1) {
-				    fileout.write(data);
-				}
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					if (filein != null)
-						filein.close();
-					if (fileout != null)
-						fileout.close();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-			
-			list.add(originalfile);
-			System.out.println("list : "+list);
-			model.addAttribute("list", list);
-		}
-		System.out.println("넘어가라규");
 		return "compose/mixing";
 	}
 }
