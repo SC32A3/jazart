@@ -44,17 +44,84 @@
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 
 <!-- Recording API -->
-<!-- <script src="resources/js/audiodisplay.js"></script>
+<script src="resources/js/audiodisplay.js"></script>
 <script src="resources/js/recorderjs/recorder.js"></script>
-<script src="resources/js/recorderjs/recorderWorker.js"></script>
-<script src="resources/js/rec_main.js"></script> -->
+<script src="resources/js/rec_main.js"></script>
 
 <script src="resources/jquery-3.1.1.min.js"></script>
-<script src="resources/rTest/test.js"></script>
+<script src="resources/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
+	$(function() {
+		//init();
+	});
+	function init() {
+		var reclist = $("#reclist");
+		var msg = '';
+		
+		$.ajax({
+			method : 'get',
+			url : 'reclist',
+			success : function(resp) {
+				msg += '<table>';
+				$.each(resp, function(index, item) { //<input type="button" value="재생" onclick="play('+index+','+item+')">
+					msg += '<tr><td>'+item+'</td>';
+					msg += '<td><input type="checkbox" name="recs" value="'+item+'">';
+					msg += '<input type="button" value="재생" onclick="play('+index+')"><audio id="audio'+index+'" controls><source src="download?type=rec&data='+item+'" type="audio/mpeg"></audio>';
+					msg += '</td></tr>';
+				}) 
+				msg += '<tr><td><input type="button" value="업로드" onclick="upload1()"></td></tr>'
+				msg += '</table>';
+				reclist.html(msg);
+				alert('init1 성공');
+			}
+		});
+	};
 	
+	function play(index) {
+		var aud = document.getElementById('audio'+index);
+		aud.play();
+	};
+	
+	function play2(index) {
+		var aud = document.getElementById('2audio'+index);
+		aud.play();
+	};
+	
+	function upload1() {
+		var select = $("#select");
+		var msg = '';
+		
+		var recArray = new Array();
+		$('input:checkbox:checked').each(function() {
+			recArray.push($(this).val());
+		})
+			msg += '<table>';
+			msg += '<tr><td>업로드할 파일</td></tr>';
+		$.each(recArray, function(index, item) {
+			msg += '<tr><td>'+item+'</td></tr>';
+		})
+			msg += '<tr><td><input type="button" id="upBtn" value="올리기"></td></tr>';
+			msg += '</table>';
+			select.html(msg);
+			
+			
+			$("#upBtn").on("click", function() {
+				var uploadForm = $("#uploadForm");
+				$("#pre").val(recArray);
+				alert($("#pre").val());
+				uploadForm.submit();
+			});
+	}
+	
+	function inputTitle() {
+		var text = prompt('파일명을 입력하세요', '확장자 제외');
+		/* var inputText= text + ((recIndex<10)?"0":"") + recIndex + ".wav" 
+	    recIndex++; */
+	    var link = document.getElementById("save");
+		link.download = text || 'output.wav';
+	}
 </script>
-<link rel="stylesheet" href="resources/rTest/app.css">
+
 <style>
 canvas {
    display: inline-block;
@@ -348,38 +415,30 @@ analysis
                                     <h3 class="left-align qt-vertical-padding-m">test!</h3>
                                     
                                     <!-- 원본 -->
-								<%-- 	<div id="viz" class="analyser">
+                                    <div id="viz" class="analyser">
 										<canvas id="analyser" width="1024" height="100"></canvas>
 										<canvas id="wavedisplay" width="1024" height="100"></canvas>
 									</div>
 									<div id="controls" class="analyser">
 										<img id="record" src="images/record.png" onclick="toggleRecording(this);">
-										<!-- <a id="save" href="#"><img src="images/save.png">다운받기</a> -->
-									</div> --%>
+										<!-- <a id="save" href="#"><img src="images/save.png"></a> -->
+										<a id="save" href="#" onclick="inputTitle()"><img src="images/save.png"></a>
+										<span id="testSpan"></span>
+									</div>
+									<div id="reclist" class="recBg">
+										등록된 곡이 없습니다
+									</div>
 									
-									<section class="main-controls">
-								        <canvas class="visualizer"></canvas>
-								        <div id="buttons">
-								          <button class="record">Record</button>
-								          <button class="stop">Stop</button>
-								        </div>
-								      </section>
-								
-								      <section class="sound-clips">
-								
-								        <!-- This is left here as a helper for testing the style of the clips
-								        If you want to edit their appearance without having to record clips,
-								        uncomment this and reload the page. Remember to comment it again when done!
-								        <article class="clip">
-								          <audio controls></audio>
-								          <p>Sample clip name</p>
-								          <button class="delete">Delete</button>
-								        </article>
-								        -->
-								
-								      </section>
 									
 									<!-- 보류 -->
+									<form id="uploadForm" action="upload2" method="post">
+									<div id="select" class="recBg">
+										<table>
+										<tr><td>업로드할 파일</td></tr>
+										</table>
+									</div>
+									<input type="hidden" id="pre" name="pre" value="">
+									</form>
                                     <br />
                               </div>
                            </div>

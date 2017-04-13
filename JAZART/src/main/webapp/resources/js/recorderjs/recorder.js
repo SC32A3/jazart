@@ -18,7 +18,7 @@ DEALINGS IN THE SOFTWARE.
 */
 
 (function(window){
-
+  var recIndex = 0;
   var WORKER_PATH = 'resources/js/recorderjs/recorderWorker.js';
 
   var Recorder = function(source, cfg){
@@ -106,14 +106,44 @@ DEALINGS IN THE SOFTWARE.
     this.node.connect(this.context.destination);   // if the script node is not connected to an output the "onaudioprocess" event is not triggered in chrome.
   };
 
-  Recorder.setupDownload = function(blob, filename){
-    var url = (window.URL || window.webkitURL).createObjectURL(blob);
-    	
-    //c://userProfile/**.jpg //fileservice.java
-    var link = document.getElementById("save");
+  Recorder.setupDownload = function(blob, downfile){
+	
+	  var url = (window.URL || window.webkitURL).createObjectURL(blob); alert(url);
+	  //내코드
+	  var controls = document.getElementById('controls');
+	  var clipContainer = document.createElement('article');//아티클
+      var clipLabel = document.createElement('p');//파일명
+      
+      var audio = document.createElement('audio'); //오디오
+      	  audio.src = url;
+      	  audio.controls = true;
+      var aTag = document.createElement('a'); //atag
+	      aTag.href = url;
+	      aTag.download = downfile || 'output.wav';
+      var deleteButton = document.createElement('button'); //삭제버튼
+     
+      clipContainer.classList.add('clip');
+      
+      audio.setAttribute('controls', '');
+      deleteButton.textContent = 'Delete';
+      deleteButton.className = 'delete';
+
+      if(clipName === null) {
+        clipLabel.textContent = 'My unnamed clip';
+      } else {
+        clipLabel.textContent = downfile;
+      }
+
+      clipContainer.appendChild(audio); //오디오->아티클 
+      clipContainer.appendChild(clipLabel); //파일명->아티클
+      clipContainer.appendChild(deleteButton); //삭제버튼->아티클
+      controls.appendChild(clipContainer); //아티클->div
+	  //내 코드끝
+	  
+    /*var link = document.getElementById("save");
     link.href = url;
-    link.download = 'jaz_'+filename || 'output.wav';
-    
+    link.download = downfile || 'output.wav';*/
+    //c://userProfile/**.jpg //fileservice.java
   }
 
   window.Recorder = Recorder;
