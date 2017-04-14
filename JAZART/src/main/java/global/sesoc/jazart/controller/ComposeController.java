@@ -198,14 +198,17 @@ public class ComposeController {
 	}
 	
 	@RequestMapping(value = "eeee", method = RequestMethod.POST)
-	public String saveRecord(MultipartFile[] upload) {
+	public String saveRecord(MultipartFile[] upload, Model model) {
+		ArrayList<String> list = new ArrayList<>();
 		String type = "r_";
 		for (MultipartFile multipartFile : upload) {
 			if (!multipartFile.isEmpty()) {
 				String savedfile = FileService.saveFile(multipartFile, uploadPath3, type);
 				System.out.println("savedfile"+savedfile);
+				list.add(savedfile);
 			}
 		}
+		model.addAttribute("list", list);
 		return "compose/mixing";
 	}
 }
