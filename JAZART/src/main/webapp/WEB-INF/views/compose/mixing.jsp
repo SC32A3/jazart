@@ -483,7 +483,7 @@
 											<li><a href="#effects" data-toggle="tab">Effects</a></li>
 										</ul>
 									</div>
-
+<!-- test -->
 								</div>
 								<div id="tracks" class="span9 scrollable">
 									<div class="row-fluid">
