@@ -125,12 +125,12 @@
 				<li><a href="#!" class="brand-logo qt-logo-text">jazart</a></li>
 			</ul>
 		</nav>
-	<!-- mobile menu -->
+		<!-- mobile menu -->
 		<div id="qt-mobile-menu" class="side-nav qt-content-primary">
 			<ul class=" qt-side-nav">
 				<li><a href="/">jazart<span>♬</span></a></li>
 				<li class="menu-item-has-children"><a href="compose">Compose</a>
-						<ul>
+					<ul>
 						<li><a href="mixing">(test)Mixing Page</a></li>
 						<li><a href="artistPage">(test)Artist Page</a></li>
 					</ul></li>
@@ -199,10 +199,9 @@
 					<h1 class="qt-caption qt-spacer-s">ALL MUSIC</h1>
 					<h4 class="qt-subtitle">Subtitle of the page</h4>
 				</div>
-				<div class="qt-header-bg"
-					data-bgimage="images/back2.jpg">
-					<img src="images/back2.jpg"
-						alt="Featured image" width="690" height="302">
+				<div class="qt-header-bg" data-bgimage="images/back2.jpg">
+					<img src="images/back2.jpg" alt="Featured image" width="690"
+						height="302">
 				</div>
 			</div>
 			<!-- HEADER CAPTION END ========================= -->
@@ -250,7 +249,8 @@
 														alt="Featured image" width="690" height="302">
 												</div>
 											</div>
-											<div class="qt-overinfo qt-paper">
+											<div class="qt-overinfo qt-paper"
+												style="background-image: ${allList.song_file}">
 												<p class="qt-item-det qt-accent">
 													<span class="qt-time">${allList.song_title}</span>
 													<!-- <span class="qt-am">am</span> -->
@@ -335,87 +335,87 @@
 	</div>
 	<!-- .qt-main end -->
 	<div class="qt-footer qt-footerwidgets">
-			<div class="qt-section qt-footer-widgets qt-content-primary-light">
-				<div class="qt-container">
-					<h2 class="qt-footer-logo">
-						<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
-					</h2>
-					<div
-						class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>About site</span>
-								</h5>
-								<div class="qt-widget-about">
-									<p>
-										We are a young and dynamic compose station which wants to
-										bring happyness in your life. <br> <a href="sitemap">
-											Site Map <i class="dripicons-arrow-thin-right"></i>
-										</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Contacts</span>
-								</h5>
-								<div class="qt-widget-contacts">
-									<p>
-										<i class="qticon-home"></i><a href="#">www.jazart.com</a>
-									</p>
-									<p>
-										<i class="qticon-at-sign"></i><a href="question">jazart2017@gmail.com</a>
-									</p>
-									<p>
-										<i class="qticon-phone"></i><a href="#">02-123-1234</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Our Team</span>
-								</h5>
-								<div class="qt-widget-about">
-									<p>
-
-										We are a small group of designers and developers. We create
-										clean, minimal and apps. <br> <a href="about">About
-											us <i class="dripicons-arrow-thin-right"></i>
-										</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Main links</span>
-								</h5>
-								<ul class="qt-widget-menu qt-list-chevron">
-									<li><a href="compose">Compose</a></li>
-									<li><a href="commBoard">Board </a></li>
-									<li><a href="realtimeChart">Charts </a></li>
-									<li><a href="qna">Contacts</a></li>
-								</ul>
+		<div class="qt-section qt-footer-widgets qt-content-primary-light">
+			<div class="qt-container">
+				<h2 class="qt-footer-logo">
+					<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
+				</h2>
+				<div
+					class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>About site</span>
+							</h5>
+							<div class="qt-widget-about">
+								<p>
+									We are a young and dynamic compose station which wants to bring
+									happyness in your life. <br> <a href="sitemap"> Site
+										Map <i class="dripicons-arrow-thin-right"></i>
+									</a>
+								</p>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="qt-header-bg"
-					data-bgimage="imagestemplate/full-1600-700.jpg">
-					<img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
-						width="690" height="302">
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Contacts</span>
+							</h5>
+							<div class="qt-widget-contacts">
+								<p>
+									<i class="qticon-home"></i><a href="#">www.jazart.com</a>
+								</p>
+								<p>
+									<i class="qticon-at-sign"></i><a href="question">jazart2017@gmail.com</a>
+								</p>
+								<p>
+									<i class="qticon-phone"></i><a href="#">02-123-1234</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Our Team</span>
+							</h5>
+							<div class="qt-widget-about">
+								<p>
+
+									We are a small group of designers and developers. We create
+									clean, minimal and apps. <br> <a href="about">About us
+										<i class="dripicons-arrow-thin-right"></i>
+									</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Main links</span>
+							</h5>
+							<ul class="qt-widget-menu qt-list-chevron">
+								<li><a href="compose">Compose</a></li>
+								<li><a href="commBoard">Board </a></li>
+								<li><a href="realtimeChart">Charts </a></li>
+								<li><a href="qna">Contacts</a></li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="qt-footer-bottom qt-content-primary-dark">
-				<div class="qt-container">
-					<div class="row">
-						<!-- <div class="col s12 m12 l8">
+			<div class="qt-header-bg"
+				data-bgimage="imagestemplate/full-1600-700.jpg">
+				<img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
+					width="690" height="302">
+			</div>
+		</div>
+		<div class="qt-footer-bottom qt-content-primary-dark">
+			<div class="qt-container">
+				<div class="row">
+					<!-- <div class="col s12 m12 l8">
 							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
 							| Radio Station HTML Template
 							<ul class="qt-menu-footer qt-small qt-list-chevron ">
@@ -424,8 +424,8 @@
 								<li><a href="#">Sitemap</a></li>
 							</ul>
 						</div> -->
-						<div class="col s12 m12 l4">
-							<!-- <ul class="qt-menu-social">
+					<div class="col s12 m12 l4">
+						<!-- <ul class="qt-menu-social">
 								<li class="right"><a href="#"><i
 										class="qticon-beatport"></i></a></li>
 								<li class="right"><a href="#"><i
@@ -435,11 +435,11 @@
 								<li class="right"><a href="#"><i
 										class="qticon-soundcloud"></i></a></li>
 							</ul> -->
-						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"
