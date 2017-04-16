@@ -198,22 +198,19 @@
 		<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
 			<ul>
-				<li><a href="#"><i class="dripicons-chevron-right"></i>About
+				<li><a href="about"><i class="dripicons-chevron-right"></i>About
 						US</a></li>
-				<li><a href="#"><i class="dripicons-chevron-right"></i>Advertisement</a></li>
-				<li><a href="page-contacts.html"><i
-						class="dripicons-chevron-right"></i>Contacts</a></li>
-				<li><a href="#"><i class="dripicons-chevron-right"></i>Privacy</a></li>
-				<li class="right"><a href="#"><i
-						class="qticon-beatport qt-socialicon"></i></a></li>
-				<li class="right"><a href="#"><i
-						class="qticon-facebook qt-socialicon"></i></a></li>
-				<li class="right"><a href="#"><i
-						class="qticon-twitter qt-socialicon"></i></a></li>
-				<li class="right"><a href="#"><i
-						class="qticon-youtube qt-socialicon"></i></a></li>
-				<li class="right"><a href="#"><i
-						class="qticon-soundcloud qt-socialicon"></i></a></li>
+
+				<c:if test="${empty loginNickname}">
+					<li><a href="login"><i class="dripicons-chevron-right"></i>Login</a></li>
+					<li><a href="join"><i class="dripicons-chevron-right"></i>Join
+							Us</a></li>
+				</c:if>
+				<c:if test="${not empty loginNickname}">
+					<li><a href="logout"><i class="dripicons-chevron-right"></i>logout</a></li>
+					<li><i class="dripicons-chevron-right"></i>Welcome
+						${loginNickname}</li>
+				</c:if>
 			</ul>
 		</div>
 		<!-- QT MENUBAR  ================================ -->

@@ -311,17 +311,6 @@ p.bContent b:after {
 					<li><i class="dripicons-chevron-right"></i>Welcome
 						${loginNickname}</li>
 				</c:if>
-
-				<li class="right"><a href="#"><i
-						class="qticon-beatport qt-socialicon"></i></a></li>
-				<li class="right"><a href="#"><i
-						class="qticon-facebook qt-socialicon"></i></a></li>
-				<li class="right"><a href="#"><i
-						class="qticon-twitter qt-socialicon"></i></a></li>
-				<li class="right"><a href="#"><i
-						class="qticon-youtube qt-socialicon"></i></a></li>
-				<li class="right"><a href="#"><i
-						class="qticon-soundcloud qt-socialicon"></i></a></li>
 			</ul>
 		</div>
 		<!-- QT MENUBAR  ================================ -->

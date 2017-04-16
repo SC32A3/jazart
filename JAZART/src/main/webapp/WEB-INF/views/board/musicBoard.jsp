@@ -71,8 +71,8 @@
 				</c:if>
 				<c:if test="${not empty loginNickname}">
 					<li><a href="logout"><i class="dripicons-chevron-right"></i>logout</a></li>
-					<li><i class="dripicons-chevron-right"></i>Welcome
-						${loginNickname}</li>
+					<li><i class="dripicons-chevron-right"></i>Welcome<a
+						href="artistPage">${loginNickname}</a></li>
 				</c:if>
 			</ul>
 		</div>
@@ -115,7 +115,6 @@
 							class="icon dripicons-duplicate"></i>Playlist
 					</a></li>
 				</c:if>
-
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
 			<ul class="qt-desktopmenu hide-on-xl-only ">
@@ -194,7 +193,6 @@
 			<div class="qt-pageheader qt-negative">
 				<div class="qt-container">
 					<ul class="qt-tags">
-
 					</ul>
 					<h1 class="qt-caption qt-spacer-s">ALL MUSIC</h1>
 					<h4 class="qt-subtitle">Subtitle of the page</h4>
@@ -258,7 +256,9 @@
 												</p>
 												<div class="qt-more">
 													<p class="qt-ellipsis-2">${allList.song_desc}</p>
-													<a href="songPage?songnum=${allList.songnum}">더보기</a>
+													<a href="songPage?songnum=${allList.songnum}">더보기</a> <a
+														href="songRecommend?songnum=${allList.songnum}">좋아요</a> <a>${allList.song_like}
+													</a>
 												</div>
 											</div>
 										</div>

@@ -38,7 +38,7 @@
 			function recommend(num) {
 				var snum = num;
 				$.ajax({
-					method : "get",
+					method : "post",
 					url : "songRecommend",
 					data : {"songnum" : snum},
 					success : function(resp) {

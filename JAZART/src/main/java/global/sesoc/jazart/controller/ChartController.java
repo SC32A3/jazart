@@ -115,6 +115,9 @@ public class ChartController {
 			ArrayList<SongInfo> cList = cr.chartList("dc", start, end);
 			data.put("dc", cList);
 			data.put("navi", navi);
+			
+
+			
 			data.put("type", type);
 		}
 		if (type.equals("weekly")) {

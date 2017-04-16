@@ -48,7 +48,10 @@ public class ComposeController {
 	HttpSession session;
 
 	final String uploadPath = "/userProfile"; // 파일이 업로드 되는 경로
-	final String uploadPath2 = System.getProperty("user.home")+"/downloads"; // 내 녹음이 업로드되는 경로
+	final String uploadPath2 = System.getProperty("user.home") + "/downloads"; // 내
+																				// 녹음이
+																				// 업로드되는
+																				// 경로
 	final String uploadPath3 = "/userRecording"; // 내 녹음이 서버에 이전 되는 경로
 
 	@RequestMapping(value = "compose", method = RequestMethod.GET)
@@ -63,7 +66,7 @@ public class ComposeController {
 
 	@RequestMapping(value = "songPage", method = RequestMethod.GET)
 	public String songpage(int songnum, Model model) {
-		logger.info("songPage replynum=> "+songnum);
+		logger.info("songPage replynum=> " + songnum);
 		SongInfo song = sr.selectSong(songnum);
 		ArrayList<SongReply> replyList = sr.songReply(songnum);
 		model.addAttribute("song", song);
@@ -89,8 +92,8 @@ public class ComposeController {
 	}
 
 	@RequestMapping(value = "download", method = RequestMethod.GET)
-	public String download(String type, String data, HttpServletResponse response) { 
-		logger.info("다운로드type,data"+type+", "+data);
+	public String download(String type, String data, HttpServletResponse response) {
+		logger.info("다운로드type,data" + type + ", " + data);
 		String originalfile = "";
 		String fullpath = "";
 		ServletOutputStream fileout = null;
@@ -107,21 +110,20 @@ public class ComposeController {
 			String data2 = token.nextToken();
 			originalfile = data2;
 		}
-		
+
 		fullpath = uploadPath + "/" + originalfile;
 		// 사용자 측에서 다운로드 받도록 하기 위해서
 		// response 객체의 헤더를 조작함, 웹페이지 개발자모드(F12)의 Head에서 확인할수 있다
 		// text/html에서 파일 다운로드 가능한 형태로 변경
-		
+
 		if (type.equals("rec")) {
 			originalfile = data;
 			fullpath = uploadPath2 + "/" + originalfile;
 		}
-		
-		
+
 		try {
 			response.setHeader("Content-Disposition",
-					"attachment;filename=" + URLEncoder.encode(originalfile, "UTF-8")); 
+					"attachment;filename=" + URLEncoder.encode(originalfile, "UTF-8"));
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -147,9 +149,16 @@ public class ComposeController {
 		}
 		return null;
 	}
-	
-	
+
 	@RequestMapping(value = "songRecommend", method = RequestMethod.GET)
+	public String recommendMusic(int songnum) {
+		String loginNickname = (String) session.getAttribute("loginNickname");
+		String message = "";
+		int result = sr.recommend(songnum, loginNickname);
+		return "redirect:/musicBoard";
+	}
+
+	@RequestMapping(value = "songRecommend", method = RequestMethod.POST)
 	public @ResponseBody int recommend(int songnum) {
 		String loginNickname = (String) session.getAttribute("loginNickname");
 		int result = sr.recommend(songnum, loginNickname);
@@ -188,7 +197,7 @@ public class ComposeController {
 			return result;
 		}
 	}
-	
+
 	@RequestMapping(value = "songPopup", method = RequestMethod.GET)
 	public String songPopup(Model model) {
 		String userId = (String) session.getAttribute("loginId");
@@ -196,7 +205,7 @@ public class ComposeController {
 		model.addAttribute("playlist", playlist);
 		return "user/songPopup";
 	}
-	
+
 	@RequestMapping(value = "eeee", method = RequestMethod.POST)
 	public String saveRecord(MultipartFile[] upload, Model model) {
 		ArrayList<String> list = new ArrayList<>();
@@ -204,7 +213,7 @@ public class ComposeController {
 		for (MultipartFile multipartFile : upload) {
 			if (!multipartFile.isEmpty()) {
 				String savedfile = FileService.saveFile(multipartFile, uploadPath3, type);
-				System.out.println("savedfile"+savedfile);
+				System.out.println("savedfile" + savedfile);
 				list.add(savedfile);
 			}
 		}
@@ -212,4 +221,3 @@ public class ComposeController {
 		return "compose/mixing";
 	}
 }
-
