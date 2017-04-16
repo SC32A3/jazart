@@ -259,7 +259,6 @@
 												<div class="qt-more">
 													<p class="qt-ellipsis-2">${allList.song_desc}</p>
 													<a href="songPage?songnum=${allList.songnum}">더보기</a>
-													<!-- wntjr -->
 												</div>
 											</div>
 										</div>
