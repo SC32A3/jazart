@@ -119,7 +119,19 @@ public class UserRepository {
 		ArrayList<SongInfo> playlist = null;
 		try {
 			playlist = mapper.playlist(userId);
-			logger.info("플레이리스트=> " + playlist);
+			logger.info("플레이리스트=> list " + playlist);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return playlist;
+	}
+
+	public ArrayList<SongInfo> getPlayOne(int songnum) {
+		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+		ArrayList<SongInfo> playlist = null;
+		try {
+			playlist = mapper.getPlayOne(songnum);
+			logger.info("플레이리스트=> one " + songnum + "==" + playlist.get(0).getSongnum());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

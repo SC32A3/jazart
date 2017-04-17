@@ -236,8 +236,11 @@
 											<a style="float: right;"
 												href="artistPage?song_nickname=${weekly.song_nickname}">가수보기&nbsp;</a><a
 												style="float: right;"
-												href="songPage?songnum=${weekly.songnum}">노래보기&nbsp;</a><a
-												style="float: right;">노래듣기&nbsp;</a>
+												href="songPage?songnum=${weekly.songnum}">노래보기&nbsp;</a> <a
+												style="float: right;"
+												href="songPopup?songnum=${weekly.songnum}"
+												class="qt-popupwindow" data-name="Music Player"
+												data-width="320" data-hqeight="500">노래듣기&nbsp;</a>
 										</p>
 									</div>
 								</li>

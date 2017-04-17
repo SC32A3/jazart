@@ -240,7 +240,10 @@
 												href="artistPage?song_nickname=${realtime.song_nickname}">가수보기&nbsp;</a><a
 												style="float: right;"
 												href="songPage?songnum=${realtime.songnum}">노래보기&nbsp;</a><a
-												style="float: right;">노래듣기&nbsp;</a>
+												style="float: right;"
+												href="songPopup?songnum=${ realtime.songnum}"
+												class="qt-popupwindow" data-name="Music Player"
+												data-width="320" data-hqeight="500">노래듣기&nbsp;</a>
 										</p>
 									</div>
 								</li>

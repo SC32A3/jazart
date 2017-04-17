@@ -204,11 +204,18 @@ public class ComposeController {
 	}
 
 	@RequestMapping(value = "songPopup", method = RequestMethod.GET)
-	public String songPopup(Model model) {
-		String userId = (String) session.getAttribute("loginId");
-		ArrayList<SongInfo> playlist = ur.playlist(userId);
-		model.addAttribute("playlist", playlist);
-		return "user/songPopup";
+	public String songPopup(Model model, int songnum) {
+		ArrayList<SongInfo> playlist = null;
+		if (songnum == 0) {
+			String userId = (String) session.getAttribute("loginId");
+			playlist = ur.playlist(userId);
+			model.addAttribute("playlist", playlist);
+			return "user/songPopup";
+		} else {
+			playlist = ur.getPlayOne(songnum);
+			model.addAttribute("playlist", playlist);
+			return "user/songPopup";
+		}
 	}
 
 	@RequestMapping(value = "mixing", method = RequestMethod.POST)
