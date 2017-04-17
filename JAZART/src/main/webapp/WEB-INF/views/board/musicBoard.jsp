@@ -52,24 +52,6 @@
 		page.value = currentPage;
 		form.submit();
 	}
-	function recommend(num) {
-		var snum = num;
-		$.ajax({
-			method : "post",
-			url : "songRecommend",
-			data : {"songnum" : snum},
-			success : function(resp) {
-				if (resp == 1) {
-					alert('추천되었습니다');	
-				} else {
-					alert('추천은 한번만 가능합니다');
-				}
-			}, 
-			error : function(resp) {
-				alert(resp);
-			}
-		});
-	}
 </script>
 </head>
 <body>
@@ -274,10 +256,9 @@
 												</p>
 												<div class="qt-more">
 													<p class="qt-ellipsis-2">${allList.song_desc}</p>
-													<a href="songPage?songnum=${allList.songnum}">곡더보기</a>
-													<a href="artistPage?song_nickname=${allList.song_nickname}">아티스트보기</a> 
-													<a href="javascript:recommend(${allList.songnum})">좋아요</a>
-
+													<a href="songPage?songnum=${allList.songnum}">더보기</a> <a
+														href="songRecommend?songnum=${allList.songnum}">좋아요</a> <a>${allList.song_like}
+													</a>
 												</div>
 											</div>
 										</div>

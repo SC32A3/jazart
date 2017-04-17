@@ -99,9 +99,9 @@
 						<li><a href="qna">QnA</a></li>
 						<li><a href="question">Question</a></li>
 					</ul></li>
-				<li class="right"><a href="#!" data-expandable="#qtsearchbar"
+			<!-- 	<li class="right"><a href="#!" data-expandable="#qtsearchbar"
 					class="qt-btn qt-btn-l qt-scrolltop"><i
-						class="icon dripicons-search"></i></a></li>
+						class="icon dripicons-search"></i></a></li> -->
 				
 				<!-- 플레이리스트 -->
 				<c:if test="${not empty loginNickname}">
@@ -192,7 +192,7 @@
 						<h1 class="qt-caption qt-spacer-s">
 							login
 						</h1>
-					<h4 class="qt-subtitle">Subtitle of the page</h4>
+					<h4 class="qt-subtitle">로그인</h4>
 					</div>
 					<div class="qt-header-bg" data-bgimage="images/vic.jpg">
 						<img src="images/vic.jpg" alt="Featured image" width="690" height="302">
@@ -329,8 +329,8 @@
 					</div>
 				</div>
 				<div class="qt-header-bg"
-					data-bgimage="imagestemplate/full-1600-700.jpg">
-					<img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
+					data-bgimage="images/back.jpg">
+					<img src="images/back.jpg" alt="Featured image"
 						width="690" height="302">
 				</div>
 			</div>

@@ -151,9 +151,9 @@ paddin-bottom:10px;
 					</ul></li>
 
 				<!-- 서치바 -->
-				<li class="right"><a href="#!" data-expandable="#qtsearchbar"
+	<!-- 			<li class="right"><a href="#!" data-expandable="#qtsearchbar"
 					class="qt-btn qt-btn-l qt-scrolltop"> <i
-						class="icon dripicons-search"></i></a></li>
+						class="icon dripicons-search"></i></a></li> -->
 
 				<c:if test="${not empty loginNickname}">
 					<li class="right"><a href="songPopup" class="qt-popupwindow"
@@ -243,7 +243,7 @@ paddin-bottom:10px;
 
 					</ul>
 					<h1 class="qt-caption qt-spacer-s">site map</h1>
-					<h4 class="qt-subtitle">Subtitle of the page</h4>
+					<h4 class="qt-subtitle">사이트맵</h4>
 				</div>
 				<div class="qt-header-bg"
 					data-bgimage="images/map.jpg">
@@ -400,8 +400,8 @@ paddin-bottom:10px;
 					</div>
 				</div>
 				<div class="qt-header-bg"
-					data-bgimage="imagestemplate/full-1600-700.jpg">
-					<img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
+					data-bgimage="images/back.jpg">
+					<img src="images/back.jpg" alt="Featured image"
 						width="690" height="302">
 				</div>
 			</div>

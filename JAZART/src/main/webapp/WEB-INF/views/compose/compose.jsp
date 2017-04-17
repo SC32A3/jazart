@@ -465,8 +465,8 @@ analysis
 					</div>
 				</div>
 				<div class="qt-header-bg"
-					data-bgimage="resources/imagestemplate/full-1600-700.jpg">
-					<img src="resources/imagestemplate/full-1600-700.jpg" alt="Featured image"
+					data-bgimage="images/back.jpg">
+					<img src="images/back.jpg" alt="Featured image"
 						width="690" height="302">
 				</div>
 			</div>
@@ -509,7 +509,7 @@ analysis
 		<div id="qtplayercontainer" data-playervolume="true"
 			data-accentcolor="#dd0e34" data-accentcolordark="#ff0442"
 			data-textcolor="#ffffff"
-			data-soundmanagerurl="./resources/components/soundmanager/swf/"
+			data-soundmanagerurl="./components/soundmanager/swf/"
 			class="qt-playercontainer qt-playervolume qt-clearfix qt-content-primary">
 			<div class="qt-playercontainer-content qt-vertical-padding-m">
 				<div class="qt-playercontainer-header">
@@ -539,8 +539,8 @@ analysis
 				</div>
 			</div>
 			<div id="playerimage" class="qt-header-bg"
-				data-bgimage="resources/imagestemplate/full-1600-700.jpg">
-				<img src="resources/imagestemplate/full-1600-700.jpg" alt="Featured image"
+				data-bgimage="imagestemplate/full-1600-700.jpg">
+				<img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
 					width="690" height="302">
 			</div>
 		</div>
@@ -553,23 +553,23 @@ analysis
 			<ul class="qt-content-aside qt-channelslist qt-negative">
 				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
 					data-title="06AM Ibiza" data-subtitle="Underground Radio"
-					data-background="resources/imagestemplate/photo-squared-500-500.jpg"
-					data-logo="resources/imagestemplate/radio-logo.png"
+					data-background="imagestemplate/photo-squared-500-500.jpg"
+					data-logo="imagestemplate/radio-logo.png"
 					data-playtrack="http://173.192.105.231:3540/stream.mp3"
 					data-host="173.192.105.231" data-port="3540" data-stats_path=""
 					data-played_path="" data-channel=""> <img
-						src="resources/imagestemplate/radio-logo.png" alt="logo"
+						src="imagestemplate/radio-logo.png" alt="logo"
 						class="qt-radiologo dripicons-media-play" width="80" height="80">
 						<i class="dripicons-media-play"></i> Station 1
 				</a></li>
 				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
 					data-title="altradio" data-subtitle="The subtitle of radio 2"
-					data-background="resources/imagestemplate/large-1170-512.jpg"
-					data-logo="resources/imagestemplate/radio-logo.png"
+					data-background="imagestemplate/large-1170-512.jpg"
+					data-logo="imagestemplate/radio-logo.png"
 					data-playtrack="http://82.77.137.30:8557/;listen.mp3"
 					data-host="82.77.137.30" data-port="8557" data-stats_path=""
 					data-played_path="" data-channel=""> <img
-						src="resources/imagestemplate/radio-logo.png" alt="logo"
+						src="imagestemplate/radio-logo.png" alt="logo"
 						class="qt-radiologo" width="80" height="80"> <i
 						class="dripicons-media-play"></i> altradio
 				</a></li>

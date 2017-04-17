@@ -102,9 +102,9 @@
 						<li><a href="qna">QnA</a></li>
 						<li><a href="question">Question</a></li>
 					</ul></li>
-				<li class="right"><a href="#!" data-expandable="#qtsearchbar"
+		<!-- 		<li class="right"><a href="#!" data-expandable="#qtsearchbar"
 					class="qt-btn qt-btn-l qt-scrolltop"><i
-						class="icon dripicons-search"></i></a></li>
+						class="icon dripicons-search"></i></a></li> -->
 				
 				<!-- 플레이리스트 -->
 				<c:if test="${not empty loginNickname}">
@@ -193,7 +193,7 @@
 				<div class="qt-container">
 
 					<h1 class="qt-caption qt-spacer-s">daily chart</h1>
-					<h4 class="qt-subtitle">Subtitle of the page</h4>
+					<h4 class="qt-subtitle">일간 차트</h4>
 				</div>
 				<div class="qt-header-bg"
 					data-bgimage="images/back3.jpg">
@@ -207,35 +207,7 @@
 				<div class="row qt-vertical-padding-l ">
 					<div class="col s12 m12 l1 qt-pushpin-container">
 						<div class="qt-pushpin">
-							<!-- SHARE FUNCTIONS ================================================== -->
-							<ul class="qt-sharepage qt-content-primary">
-								<li class="hide-on-med-and-down"><i
-									class="qticon-share qt-shareicon qt-content-primary-dark"></i>
-								</li>
-								<li><a class="qt-popupwindow qt-sharelink"
-									data-sharetype="facebook" data-name="Share" data-width="600"
-									data-height="500" target="_blank" href="#"> <i
-										class="qticon-facebook"></i>
-								</a></li>
-								<li><a class="qt-popupwindow qt-sharelink"
-									data-sharetype="twitter" data-name="Share" data-width="600"
-									data-height="500" target="_blank" href="#"> <i
-										class="qticon-twitter"></i>
-								</a></li>
-								<li><a class="qt-popupwindow qt-sharelink"
-									data-sharetype="google" data-name="Share" data-width="600"
-									data-height="500" target="_blank" href="#"> <i
-										class="qticon-googleplus"></i>
-								</a></li>
-								<li><a class="qt-popupwindow qt-sharelink"
-									data-sharetype="pinterest" data-name="Share" data-width="600"
-									data-height="500" target="_blank" href="#"> <i
-										class="qticon-pinterest"></i>
-								</a></li>
-								<li><a href="#" class="qt-btn-primary qt-sharelink"><i
-										class="dripicons-heart"></i> </a></li>
-							</ul>
-							<!-- SHARE FUNCTIONS ================================================== -->
+					
 						</div>
 						<hr class="qt-spacer-m">
 					</div>
@@ -272,143 +244,83 @@
 
 						</ul>
 					</div>
-					<div class="qt-sidebar col s12 m12 l3">
-						<!-- SIDEBAR ================================================== -->
-						<div class="qt-widgets qt-sidebar-main qt-text-secondary row">
-							<div class="col s12 m3 l12">
-								<div class="qt-widget">
-									<h5 class="qt-caption-small">
-										<span>Stay Connected</span>
-									</h5>
-									Subscribe now to the newsletter to receive weekly updates.
-									<hr class="qt-spacer-s">
-									<form method="post" action="#newsletter" class="qt-inline-form">
-										<div class="row qt-nopadding">
-											<div class="col s12 m8 l9">
-												<input placeholder="Your email" value="" type="text"
-													class="validate qt-input-s">
-											</div>
-											<div class="col s12 m4 l3">
-												<input type="button" value="submit"
-													class="qt-btn qt-btn-secondary qt-btn-s qt-fullwidth">
-											</div>
-										</div>
-									</form>
-								</div>
-							</div>
-							<div class="col s12 m3 l12">
-								<div class="qt-widget">
-									<h5 class="qt-caption-small">
-										<span>Recent Posts</span>
-									</h5>
-									<!-- POST SMALL TITLE ITEM ========================= -->
-									<div
-										class="qt-part-archive-item qt-part-archive-item-small-title">
-										<div class="qt-item-header">
-											<div class="qt-header-top">
-												<ul class="qt-tags">
-													<li><a href="#">Adventure</a></li>
-												</ul>
-											</div>
-											<div class="qt-header-mid qt-vc">
-												<div class="qt-vi">
-													<h4 class="qt-title">
-														<a href="#read" class="qt-text-shadow"> HERO - THE
-															LIGHT AND MUSIC EXPOSITION HITS LOS ANGELES IN THE
-															FASHION WEEK </a>
-													</h4>
-												</div>
-											</div>
-											<div class="qt-header-bottom">
-												<a href="#read" class="qt-btn qt-btn-primary qt-readmore"><i
-													class="dripicons-media-play"></i></a>
-											</div>
-											<div class="qt-header-bg"
-												data-bgimage="resources/imagestemplate/medium-690-302.jpg">
-												<img src="resources/imagestemplate/medium-690-302.jpg"
-													alt="Featured image" width="690" height="302">
-											</div>
-										</div>
-									</div>
-									<!-- POST SMALL TITLE ITEM END ========================= -->
-								</div>
-							</div>
-							<div class="col s12 m3 l12">
-								<div class="qt-widget">
-									<h5 class="qt-caption-small">
-										<span>Now on air</span>
-									</h5>
-									<div class="qt-widget-onair qt-card aligncenter">
-										<a href="#post"> <img
-											src="resources/imagestemplate/thumbnail.jpg"
-											class="qt-featured-image" alt="photo" />
-										</a>
-										<h4 class="qt-caption-med">
-											<span>Sound circus</span>
-										</h4>
-										<h6 class="qt-onair-title">By Tom Shepard</h6>
-										<p class="qt-small">A journey into the music of your best
-											holiday nights, full of melodies and rhythm. Dance and get
-											crazy with Tom Shepard!</p>
-										<a href="#show" class="qt-btn qt-btn-s qt-btn-secondary">Info
-											and episodes</a>
-									</div>
-								</div>
-							</div>
-							<div class="col s12 m3 l12">
-								<div class="qt-widget">
-									<h5 class="qt-caption-small">
-										<span>Next shows</span>
-									</h5>
-									<ul class="qt-widget-upcoming">
-										<li class="qt-card-s paper">
-											<h5>
-												<a href="#showlink">About Jenny</a>
-											</h5>
-											<p>07:00 pm</p> <img
-											src="resources/imagestemplate/thumbnail-200-110.jpg"
-											alt="Show cover" width="200" height="110" class="right">
-										</li>
-										<li class="qt-card-s paper">
-											<h5>
-												<a href="#showlink">About Jenny</a>
-											</h5>
-											<p>07:00 pm</p> <img
-											src="resources/imagestemplate/thumbnail-200-110.jpg"
-											alt="Show cover" width="200" height="110" class="right">
-										</li>
-										<li class="qt-card-s paper">
-											<h5>
-												<a href="#showlink">About Jenny</a>
-											</h5>
-											<p>07:00 pm</p> <img
-											src="resources/imagestemplate/thumbnail-200-110.jpg"
-											alt="Show cover" width="200" height="110" class="right">
-										</li>
-									</ul>
-								</div>
-							</div>
-							<div class="col s12 m3 l12">
-								<div class="qt-widget">
-									<h5 class="qt-caption-small">
-										<span>Sponsor</span>
-									</h5>
-									<div class="qt-widget-sponsor qt-card">
-										<a href="#sponsorlink" target="_blank" rel="nofollow"> <img
-											src="resources/imagestemplate/sponsor.png" alt="Sponsor"
-											width="235" height="132">
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- SIDEBAR END ================================================== -->
-					</div>
-				</div>
-		
-				
-				
-			</div>
+					          <div class="qt-sidebar col s12 m12 l3">
+                  <!-- SIDEBAR ================================================== -->
+                  <div class="qt-widgets qt-sidebar-main qt-text-secondary row">
+                    
+                     <div class="col s12 m3 l12">
+                        <div class="qt-widget">
+                           <h5 class="qt-caption-small">
+                              <span>일간차트</span>
+                           </h5>
+                           <div class="qt-widget-onair qt-card aligncenter">
+                              <a href="#post"> <img
+                                 src="images/jazart.jpg"
+                                 class="images/jazart.jpg" alt="photo" />
+                              </a>
+                              <h4 class="qt-caption-med">
+                                 <span>daily chart</span>
+                              </h4>
+                              <h6 class="qt-onair-title"></h6>
+                              <p class="qt-small">여러분의 투표로 선정되는 <br>
+									하루의 특별한 곡!<br>
+									일간차트는 이렇게 선정됩니다.</p>
+                              <a href="dailyChart" class="qt-btn qt-btn-s qt-btn-secondary">daily chart</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col s12 m3 l12">
+                        <div class="qt-widget">
+                           <h5 class="qt-caption-small">
+                              <span>선정 방법</span>
+                           </h5>
+                           <ul class="qt-widget-upcoming">
+                              <li class="qt-card-s paper">
+                                 <h5>
+                                    <a href="#showlink">step1</a>
+                                 </h5>
+                                  <p>음악게시판을 기반으로 한 모든 곡이 
+									일간차트의 후보가 됩니다.	</p> <img
+                                 src="images/back1.jpg"
+                                 alt="Show cover" width="200" height="110" class="right">
+                              </li>
+                              <li class="qt-card-s paper">
+                                 <h5>
+                                    <a href="#showlink">step2</a>
+                                 </h5>
+                                 <p>일간차트 투표는 회원이라면  
+									누구나 참여가능합니다.
+									(회원당 1곡에 1회 참여가능)		</p> <img
+                                 src="images/back2.jpg"
+                                 alt="Show cover" width="200" height="110" class="right">
+                              </li>
+                              <li class="qt-card-s paper">
+                                 <h5>
+                                    <a href="#showlink">step3</a>
+                                 </h5>
+                                 <p>		하루 단위로 좋아요를 합산하여 
+									결과를 집계합니다.		</p> <img
+                                 src="images/back3.jpg"
+                                 alt="Show cover" width="200" height="110" class="right">
+                              </li>
+                              <li class="qt-card-s paper">
+                                 <h5>
+                                    <a href="#showlink">step4</a>
+                                 </h5>
+                                 <p>	여러분이 만들어 가는 일간차트! 
+									매일, 일간차트 결과를 확인하세요. </p> <img
+                                 src="images/back4.jpg"
+                                 alt="Show cover" width="200" height="110" class="right">
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+      
+                  </div>
+                  <!-- SIDEBAR END ================================================== -->
+               </div>
+            </div>
+         </div>
 		
 			<!-- 페이징 -->	
 			<div class="qt-pagination qt-content-primary">
@@ -446,102 +358,97 @@
 				class="qt-content-primary qt-negative qt-related-section qt-vertical-padding-l">
 				<div class="qt-container">
 					<h5 class="qt-caption-small">
-						<span>Related charts</span>
+						<span>charts</span>
 					</h5>
+					
 					<div class="qt-related-list row">
 						<div class="col s12 m4">
 							<div class="qt-part-archive-item qt-item-chart">
 								<div class="qt-item-header">
 									<div class="qt-header-top">
 										<ul class="qt-tags">
-											<li><a href="#">Dance</a></li>
+											<li><a href="realtimeChart">chart</a></li>
 										</ul>
-										<div class="qt-feedback">
-											<a>17<i class="dripicons-message"></i></a><a>34<i
-												class="dripicons-heart"></i></a>
-										</div>
+								
 									</div>
 									<div class="qt-header-mid qt-vc">
 										<div class="qt-vi">
 											<h3 class="qt-title">
-												<a href="#" class="qt-text-shadow"> 2016 Summer Chart </a>
+												<a href="realtimeChart" class="qt-text-shadow"> realtime Chart </a>
 											</h3>
 										</div>
 									</div>
 									<div class="qt-header-bottom">
-										<a href="#" class="qt-btn qt-btn-primary qt-readmore"><i
+										<a href="realtimeChart" class="qt-btn qt-btn-primary qt-readmore"><i
 											class="dripicons-align-justify"></i></a>
 									</div>
 									<div class="qt-header-bg"
-										data-bgimage="resources/imagestemplate/squared-690-690.jpg">
-										<img src="resources/imagestemplate/squared-690-690.jpg"
+										data-bgimage="images/band.jpg">
+										<img src="images/band.jpg"
 											alt="Featured image" width="690" height="690">
 									</div>
 								</div>
 							</div>
 						</div>
+						
 						<div class="col s12 m4">
 							<div class="qt-part-archive-item qt-item-chart">
 								<div class="qt-item-header">
 									<div class="qt-header-top">
 										<ul class="qt-tags">
-											<li><a href="#">Dance</a></li>
+											<li><a href="dailyChart">chart</a></li>
 										</ul>
-										<div class="qt-feedback">
-											<a>17<i class="dripicons-message"></i></a><a>34<i
-												class="dripicons-heart"></i></a>
-										</div>
+								
 									</div>
 									<div class="qt-header-mid qt-vc">
 										<div class="qt-vi">
 											<h3 class="qt-title">
-												<a href="#" class="qt-text-shadow"> 2016 Summer Chart </a>
+												<a href="dailyChart" class="qt-text-shadow"> daily Chart </a>
 											</h3>
 										</div>
 									</div>
 									<div class="qt-header-bottom">
-										<a href="#" class="qt-btn qt-btn-primary qt-readmore"><i
+										<a href="dailyChart" class="qt-btn qt-btn-primary qt-readmore"><i
 											class="dripicons-align-justify"></i></a>
 									</div>
 									<div class="qt-header-bg"
-										data-bgimage="resources/imagestemplate/squared-690-690.jpg">
-										<img src="resources/imagestemplate/squared-690-690.jpg"
+										data-bgimage="images/compose1.jpg">
+										<img src="images/compose1.jpg"
 											alt="Featured image" width="690" height="690">
 									</div>
 								</div>
 							</div>
 						</div>
+						
 						<div class="col s12 m4">
 							<div class="qt-part-archive-item qt-item-chart">
 								<div class="qt-item-header">
 									<div class="qt-header-top">
 										<ul class="qt-tags">
-											<li><a href="#">Dance</a></li>
+											<li><a href="weeklyChart">chart</a></li>
 										</ul>
-										<div class="qt-feedback">
-											<a>17<i class="dripicons-message"></i></a><a>34<i
-												class="dripicons-heart"></i></a>
-										</div>
+								
 									</div>
 									<div class="qt-header-mid qt-vc">
 										<div class="qt-vi">
 											<h3 class="qt-title">
-												<a href="#" class="qt-text-shadow"> 2016 Summer Chart </a>
+												<a href="weeklyChart" class="qt-text-shadow"> weekly Chart </a>
 											</h3>
 										</div>
 									</div>
 									<div class="qt-header-bottom">
-										<a href="#" class="qt-btn qt-btn-primary qt-readmore"><i
+										<a href="weeklyChart" class="qt-btn qt-btn-primary qt-readmore"><i
 											class="dripicons-align-justify"></i></a>
 									</div>
 									<div class="qt-header-bg"
-										data-bgimage="resources/imagestemplate/squared-690-690.jpg">
-										<img src="resources/imagestemplate/squared-690-690.jpg"
+										data-bgimage="images/gitar.jpg">
+										<img src="images/gitar.jpg"
 											alt="Featured image" width="690" height="690">
 									</div>
 								</div>
 							</div>
 						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -620,8 +527,8 @@
 					</div>
 				</div>
 				<div class="qt-header-bg"
-					data-bgimage="imagestemplate/full-1600-700.jpg">
-					<img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
+					data-bgimage="images/back.jpg">
+					<img src="images/back.jpg" alt="Featured image"
 						width="690" height="302">
 				</div>
 			</div>
