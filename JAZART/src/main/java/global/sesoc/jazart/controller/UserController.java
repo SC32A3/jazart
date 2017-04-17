@@ -39,7 +39,7 @@ public class UserController {
 	ChartRepository cr;
 	@Autowired
 	HttpSession session;
-	
+
 	final int countPerPage = 10; // 페이지당 글 수
 	final int pagePerGroup = 5; // 페이지 그룹에 표시되는 그룹 수
 
@@ -103,7 +103,7 @@ public class UserController {
 	public String join(User user, MultipartFile upload) {
 		String userName = user.getUser_nickname();
 		String type = "u_";
-		
+
 		// 첨부된 파일을 처리
 		if (!upload.isEmpty()) {
 			String savedfile = FileService.saveFile(upload, uploadPath, type);
@@ -111,9 +111,7 @@ public class UserController {
 		} else {
 			user.setUser_picture("default.jpg");
 		}
-
 		ur.regist(user);
-
 		return "redirect:/";
 	}
 
@@ -139,7 +137,7 @@ public class UserController {
 	public String question() {
 		return "user/question";
 	}
-	
+
 	@RequestMapping(value = "sitemap", method = RequestMethod.GET)
 	public String sitemap() {
 		return "user/siteMap";
@@ -151,8 +149,7 @@ public class UserController {
 		String user_id = (String) session.getAttribute("loginId");
 		User user = ur.selectUser(user_id);
 		String user_email = user.getUser_email();
-		
-		
+
 		SendMailTest mail = new SendMailTest();
 		mail.main(user_id, user_email, title, contents);
 		return "redirect:/";

@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>jazart</title>
+<title>Jazart</title>
 <meta name="description" content="Radio station HTML template">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -43,13 +43,12 @@
 <!-- Custom typography settings and google fonts -->
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 
-<!-- 내꺼 -->
-<script src="resources/jquery-3.1.1.min.js"></script>
-<script type="text/javascript">
+<script>
 	function pagingForSubmit(currentPage) {
 		var form = document.getElementById("pagingForm");
 		var page = document.getElementById("page");
 		page.value = currentPage;
+
 		form.submit();
 	}
 </script>
@@ -58,7 +57,7 @@
 	<!-- QT HEADER END ================================ -->
 	<div class="qt-parentcontainer">
 
-	<!-- QT MENUBAR TOP ================================ -->
+		<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
 			<ul>
 				<li><a href="about"><i class="dripicons-chevron-right"></i>About
@@ -98,23 +97,23 @@
 						<li><a href="dailyChart">Daily Chart</a></li>
 						<li><a href="weeklyChart">Weekly Chart</a></li>
 					</ul></li>
-					<li><a href="qna">Contacts</a>
+				<li><a href="qna">Contacts</a>
 					<ul>
 						<li><a href="qna">QnA</a></li>
 						<li><a href="question">Question</a></li>
 					</ul></li>
-				
-				<!-- 서치바 -->
-		<!-- 		<li class="right">
-					<a href="#!" data-expandable="#qtsearchbar" class="qt-btn qt-btn-l qt-scrolltop">
-					<i	class="icon dripicons-search"></i></a></li> -->
-				
-				<c:if test="${not empty loginNickname}">	
-				<li class="right">
-					<a href="songPopup" class="qt-popupwindow" data-name="Music Player" data-width="320" data-height="500">
-					<i class="icon dripicons-duplicate"></i>Playlist</a></li>
+				<!-- 		<li class="right"><a href="#!" data-expandable="#qtsearchbar"
+					class="qt-btn qt-btn-l qt-scrolltop"><i
+						class="icon dripicons-search"></i></a></li> -->
+
+				<!-- 플레이리스트 -->
+				<c:if test="${not empty loginNickname}">
+					<li class="right"><a href="songPopup" class="qt-popupwindow"
+						data-name="Music Player" data-width="320" data-height="500"> <i
+							class="icon dripicons-duplicate"></i>Playlist
+					</a></li>
 				</c:if>
-						
+
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
 			<ul class="qt-desktopmenu hide-on-xl-only ">
@@ -129,7 +128,7 @@
 			<ul class=" qt-side-nav">
 				<li><a href="/">jazart<span>♬</span></a></li>
 				<li class="menu-item-has-children"><a href="compose">Compose</a>
-						<ul>
+					<ul>
 						<li><a href="mixing">(test)Mixing Page</a></li>
 						<li><a href="artistPage">(test)Artist Page</a></li>
 					</ul></li>
@@ -152,10 +151,11 @@
 			</ul>
 		</div>
 		<!-- mobile toolbar -->
-		<ul	class="qt-mobile-toolbar qt-content-primary-dark qt-content-aside hide-on-large-only">
+		<ul
+			class="qt-mobile-toolbar qt-content-primary-dark qt-content-aside hide-on-large-only">
 			<li><a href="#!" data-expandable="#qtsearchbar"
 				class="qt-scrolltop"><i class="icon dripicons-search"></i></a></li>
-			<li><a href="resources/page-popup.html" class="qt-popupwindow"
+			<li><a href="page-popup.html" class="qt-popupwindow"
 				data-name="Music Player" data-width="320" data-height="500"><i
 					class="icon dripicons-duplicate"></i></a></li>
 			<li><a href="#!" class="button-playlistswitch"
@@ -191,152 +191,276 @@
 			<!-- HEADER CAPTION ========================= -->
 			<div class="qt-pageheader qt-negative">
 				<div class="qt-container">
-					<ul class="qt-tags">
 
-					</ul>
 					<h1 class="qt-caption qt-spacer-s">realtime chart</h1>
 					<h4 class="qt-subtitle">실시간 차트</h4>
 				</div>
-				<div class="qt-header-bg"
-					data-bgimage="images/back3.jpg">
-					<img src="images/back3.jpg"
-						alt="Featured image" width="690" height="302">
+				<div class="qt-header-bg" data-bgimage="images/back3.jpg">
+					<img src="images/back3.jpg" alt="Featured image" width="690"
+						height="302">
 				</div>
 			</div>
 			<!-- HEADER CAPTION END ========================= -->
-		</div>
-		<!-- ======================= UPCOMING SHOWS  SECTION ======================= -->
-		<div class="qt-container qt-spacer-m">
-			<h5 class="qt-caption-small">
-				<span>chart list</span>
-			</h5>
-			<hr class="qt-spacer-s">
-			<!-- SLIDESHOW UPCOMING SHOWS ================================================== -->
-			<div class="qt-slickslider-container qt-slickslider-externalarrows">
-				<div class="row">
+			<!-- ======================= CONTENT SECTION ======================= -->
+			<div class="qt-container">
+				<div class="row qt-vertical-padding-l ">
+					<div class="col s12 m12 l1 qt-pushpin-container">
+						<div class="qt-pushpin"></div>
+						<hr class="qt-spacer-m">
+					</div>
+					<div class="col s12 m12 l8">
+						<ul class="collapsible qt-chart-tracklist"
+							data-collapsible="accordion">
 
-							<!-- SLIDESHOW ITEM -->
-							<div class="qt-item">
-								<!-- SHOW UPCOMING ITEM ========================= -->
-								<!-- TAB CONTENTS ======================================== -->
-								<div id="daymonday" class="qt-show-schedule-day">
-									<!-- SCHEDULE DAY ================================================== -->
-									<div class="qt-show-schedule-day row">
 
-										<c:forEach var="realtime" varStatus="status" items="${rc}">
-											<div class="col s12 m4 l4">
-												<!-- SCHEDULE SHOW ========================= -->
-												<div
-													class="qt-part-archive-item qt-part-show-schedule-day-item">
-													<div class="qt-item-header">
-														<div class="qt-header-mid qt-vc">
-															<div class="qt-vi">
-																<h4 class="qt-item-title qt-title">
-																	<a href="#read" class="qt-ellipsis  qt-t">${status.count}위</a>
-																</h4>
-																<p class="qt-item-det">
-																	<span class="qt-time">${realtime.song_title}</span>
-																	<!-- <span class="qt-am">am</span> -->
-																	<span class="qt-day qt-capfont">${realtime.song_nickname}</span>
-																</p>
-															</div>
-														</div>
-														<a href="#" class="qt-info bottom right"><i
-															class="dripicons-information"></i></a>
-														<div class="qt-header-bg"
-															data-bgimage="download?type=song&data=${realtime.songnum}">
-															<img src="download?type=song&data=${realtime.songnum}"
-																alt="Featured image" width="690" height="302">
-														</div>
-													</div>
-													<div class="qt-overinfo qt-paper">
-														<p class="qt-item-det qt-accent">
-															<span class="qt-time">${realtime.song_title}</span>
-															<!-- <span class="qt-am">am</span> -->
-															<span class="qt-day qt-capfont">${realtime.song_nickname}</span>
-														</p>
-														<div class="qt-more">
-															<p class="qt-ellipsis-2">${realtime.song_desc}</p>
-															<a href="songPage?songnum=${realtime.songnum}">더보기</a>
-														</div>
-													</div>
-												</div>
-												<!-- SCHEDULE SHOW END ========================= -->
-											</div>
-											<!-- SCHEDULE DAY END ================================================== -->
-										</c:forEach>
+							<c:forEach var="realtime" varStatus="status" items="${rc}">
+								<!-- CHART TRACK ========================= -->
+								<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
+									<div
+										class="qt-chart-table collapsible-header qt-content-primary">
+										<div class="qt-position">
+											<img src="download?type=song&data=${realtime.songnum}"
+												class="qt-chart-cover" alt="Chart track" width="170"
+												height="170"> <span>${status.count}</span>
+										</div>
+										<div class="qt-titles">
+											<h3 class="qt-ellipsis qt-t">${ realtime.song_title }</h3>
+											<p>${ realtime.song_nickname }</p>
+										</div>
+										<div class="qt-action">
+											<a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i
+												class="dripicons-cart"></i></a>
+										</div>
+									</div>
+									<div class="collapsible-body qt-paper">
+										<p>${ realtime.song_desc }
+											<a style="float: right;"
+												href="artistPage?song_nickname=${realtime.song_nickname}">가수보기&nbsp;</a><a
+												style="float: right;"
+												href="songPage?songnum=${realtime.songnum}">노래보기&nbsp;</a> <a
+												style="float: right;">노래듣기&nbsp;</a>
+										</p>
+									</div>
+								</li>
+								<!-- CHART TRACK END ========================= -->
+							</c:forEach>
 
+						</ul>
+					</div>
+					<div class="qt-sidebar col s12 m12 l3">
+						<!-- SIDEBAR ================================================== -->
+						<div class="qt-widgets qt-sidebar-main qt-text-secondary row">
+
+							<div class="col s12 m3 l12">
+								<div class="qt-widget">
+									<h5 class="qt-caption-small">
+										<span>실시간 차트</span>
+									</h5>
+									<div class="qt-widget-onair qt-card aligncenter">
+										<a href="#post"> <img src="images/jazart.jpg"
+											class="images/jazart.jpg" alt="photo" />
+										</a>
+										<h4 class="qt-caption-med">
+											<span>RealTime Chart</span>
+										</h4>
+										<h6 class="qt-onair-title"></h6>
+										<p class="qt-small">
+											여러분의 투표로 선정되는 <br> 하루의 특별한 곡!<br> 일간차트는 이렇게 선정됩니다.
+										</p>
+										<a href="realtimeChart"
+											class="qt-btn qt-btn-s qt-btn-secondary">RealTimeChart</a>
 									</div>
 								</div>
-								<!-- TAB CONTENTS end======================================== -->
-								<!-- SHOW UPCOMING ITEM END ========================= -->
+							</div>
+							<div class="col s12 m3 l12">
+								<div class="qt-widget">
+									<h5 class="qt-caption-small">
+										<span>선정 방법</span>
+									</h5>
+									<ul class="qt-widget-upcoming">
+										<li class="qt-card-s paper">
+											<h5>
+												<a href="#showlink">step1</a>
+											</h5>
+											<p>음악게시판을 기반으로 한 모든 곡이 일간차트의 후보가 됩니다.</p> <img
+											src="images/back1.jpg" alt="Show cover" width="200"
+											height="110" class="right">
+										</li>
+										<li class="qt-card-s paper">
+											<h5>
+												<a href="#showlink">step2</a>
+											</h5>
+											<p>일간차트 투표는 회원이라면 누구나 참여가능합니다. (회원당 1곡에 1회 참여가능)</p> <img
+											src="images/back2.jpg" alt="Show cover" width="200"
+											height="110" class="right">
+										</li>
+										<li class="qt-card-s paper">
+											<h5>
+												<a href="#showlink">step3</a>
+											</h5>
+											<p>하루 단위로 좋아요를 합산하여 결과를 집계합니다.</p> <img
+											src="images/back3.jpg" alt="Show cover" width="200"
+											height="110" class="right">
+										</li>
+										<li class="qt-card-s paper">
+											<h5>
+												<a href="#showlink">step4</a>
+											</h5>
+											<p>여러분이 만들어 가는 일간차트! 매일, 일간차트 결과를 확인하세요.</p> <img
+											src="images/back4.jpg" alt="Show cover" width="200"
+											height="110" class="right">
+										</li>
+									</ul>
+								</div>
 							</div>
 
-					<!-- 경계 -->
+						</div>
+
+						<!-- SIDEBAR END ================================================== -->
+					</div>
 				</div>
 			</div>
-			<!-- SLIDESHOW UPCOMING SHOWS END ================================================== -->
-		</div>
-		<!-- ======================= SCHEDULE  SECTION ======================= -->
-		<div class="qt-container qt-spacer-l">
-			<!-- <h3 class="qt-caption-med">
-				<span>Realtime Chart</span>
-			</h3> -->
-			<hr class="qt-spacer-s">
-			<!-- SCHEDULE ================================================== -->
-			<div class="qt-show-schedule">
 
-				<!-- 원래차트 있던곳 -->
+			<!-- 페이징 -->
+			<div class="qt-pagination qt-content-primary">
+				<form method="get" action="dailyChart" class="qt-inline-form"
+					id="pagingForm">
+					<input type="hidden" id="page" name="page">
+				</form>
+				<!-- PAGINATION ========================= -->
+				<ul class="pagination qt-container">
+					<li class="special"><span
+						class="qt-pagination-label qt-content-primary-dark">PAGES</span></li>
 
-					<div class="qt-pagination qt-content-primary">
-						<!-- <form method="get" action="dwChart" class="qt-inline-form" id="pagingForm"> -->
-						<input type="hidden" id="page" name="page"> <input
-							type="hidden" id="type" name="type" value="daily">
-						<!-- </form>  -->
-						<!-- PAGINATION ========================= -->
-						<ul class="pagination qt-container">
-							<li class="special"><span
-								class="qt-pagination-label qt-content-primary-dark">PAGES</span></li>
+					<li class="special disabled"><a
+						href="javascript:pagingForSubmit(${navi.currentPage-navi.pagePerGroup})"
+						class="qt-btn qt-btn-l qt-btn-primary"><i
+							class="dripicons-arrow-thin-left"></i></a></li>
 
-							<li class="special disabled"><a
-								href="javascript:pagingForSubmit(${navi.currentPage-navi.pagePerGroup})"
-								class="qt-btn qt-btn-l qt-btn-primary"><i
-									class="dripicons-arrow-thin-left"></i></a></li>
+					<li class="special waves-effect"><a
+						href="javascript:pagingForSubmit(${navi.currentPage + 1})"
+						class="qt-btn qt-btn-l qt-btn-primary"><i
+							class="dripicons-arrow-thin-right"></i></a></li>
 
-							<li class="special waves-effect"><a
-								href="javascript:pagingForSubmit(${navi.currentPage + 1})"
-								class="qt-btn qt-btn-l qt-btn-primary"><i
-									class="dripicons-arrow-thin-right"></i></a></li>
+					<c:forEach begin="${navi.startPageGroup}"
+						end="${navi.endPageGroup}" var="counter">
+						<c:if test="${navi.currentPage!=counter}">
+							<li class="item active hide-on-large-and-down"><a
+								href="javascript:pagingForSubmit(${counter})">${counter}</a></li>
+						</c:if>
+						<c:if test="${navi.currentPage==counter}">
+							<li class="item waves-effect hide-on-large-and-down"><a
+								href="#!">${counter}</a></li>
+						</c:if>
+					</c:forEach>
+				</ul>
+				<!-- PAGINATION END ========================= -->
+			</div>
 
-							<c:forEach begin="${navi.startPageGroup}"
-								end="${navi.endPageGroup}" var="counter">
-								<c:if test="${navi.currentPage!=counter}">
-									<li class="item active hide-on-large-and-down"><a
-										href="javascript:pagingForSubmit(${counter})">${counter}</a></li>
-								</c:if>
-								<c:if test="${navi.currentPage==counter}">
-									<li class="item waves-effect hide-on-large-and-down"><a
-										href="#!">${counter}</a></li>
-								</c:if>
-							</c:forEach>
-						</ul>
-						<!-- PAGINATION END ========================= -->
+
+			<!-- ======================= RELATED SECTION ======================= -->
+			<div
+				class="qt-content-primary qt-negative qt-related-section qt-vertical-padding-l">
+				<div class="qt-container">
+					<h5 class="qt-caption-small">
+						<span>charts</span>
+					</h5>
+
+					<div class="qt-related-list row">
+						<div class="col s12 m4">
+							<div class="qt-part-archive-item qt-item-chart">
+								<div class="qt-item-header">
+									<div class="qt-header-top">
+										<ul class="qt-tags">
+											<li><a href="realtimeChart">chart</a></li>
+										</ul>
+
+									</div>
+									<div class="qt-header-mid qt-vc">
+										<div class="qt-vi">
+											<h3 class="qt-title">
+												<a href="realtimeChart" class="qt-text-shadow"> realtime
+													Chart </a>
+											</h3>
+										</div>
+									</div>
+									<div class="qt-header-bottom">
+										<a href="realtimeChart"
+											class="qt-btn qt-btn-primary qt-readmore"><i
+											class="dripicons-align-justify"></i></a>
+									</div>
+									<div class="qt-header-bg" data-bgimage="images/band.jpg">
+										<img src="images/band.jpg" alt="Featured image" width="690"
+											height="690">
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col s12 m4">
+							<div class="qt-part-archive-item qt-item-chart">
+								<div class="qt-item-header">
+									<div class="qt-header-top">
+										<ul class="qt-tags">
+											<li><a href="dailyChart">chart</a></li>
+										</ul>
+
+									</div>
+									<div class="qt-header-mid qt-vc">
+										<div class="qt-vi">
+											<h3 class="qt-title">
+												<a href="dailyChart" class="qt-text-shadow"> daily Chart
+												</a>
+											</h3>
+										</div>
+									</div>
+									<div class="qt-header-bottom">
+										<a href="dailyChart" class="qt-btn qt-btn-primary qt-readmore"><i
+											class="dripicons-align-justify"></i></a>
+									</div>
+									<div class="qt-header-bg" data-bgimage="images/compose1.jpg">
+										<img src="images/compose1.jpg" alt="Featured image"
+											width="690" height="690">
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col s12 m4">
+							<div class="qt-part-archive-item qt-item-chart">
+								<div class="qt-item-header">
+									<div class="qt-header-top">
+										<ul class="qt-tags">
+											<li><a href="weeklyChart">chart</a></li>
+										</ul>
+
+									</div>
+									<div class="qt-header-mid qt-vc">
+										<div class="qt-vi">
+											<h3 class="qt-title">
+												<a href="weeklyChart" class="qt-text-shadow"> weekly
+													Chart </a>
+											</h3>
+										</div>
+									</div>
+									<div class="qt-header-bottom">
+										<a href="weeklyChart"
+											class="qt-btn qt-btn-primary qt-readmore"><i
+											class="dripicons-align-justify"></i></a>
+									</div>
+									<div class="qt-header-bg" data-bgimage="images/gitar.jpg">
+										<img src="images/gitar.jpg" alt="Featured image" width="690"
+											height="690">
+									</div>
+								</div>
+							</div>
+						</div>
+
 					</div>
-
-
-
+				</div>
 			</div>
 		</div>
-		<!-- SCHEDULE DAY END ================================================== -->
-	</div>
-	<!-- TAB CONTENTS END ======================================== -->
-	</div>
-	<!-- SCHEDULE END ================================================== -->
-	</div>
-	<hr class="qt-spacer-l">
-	
-	</div>
-	<!-- .qt-main end -->
+		<!-- .qt-main end -->
 		<div class="qt-footer qt-footerwidgets">
 			<div class="qt-section qt-footer-widgets qt-content-primary-light">
 				<div class="qt-container">
@@ -409,10 +533,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="qt-header-bg"
-					data-bgimage="images/back.jpg">
-					<img src="images/back.jpg" alt="Featured image"
-						width="690" height="302">
+				<div class="qt-header-bg" data-bgimage="images/back.jpg">
+					<img src="images/back.jpg" alt="Featured image" width="690"
+						height="302">
 				</div>
 			</div>
 			<div class="qt-footer-bottom qt-content-primary-dark">
