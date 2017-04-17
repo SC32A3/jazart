@@ -105,9 +105,9 @@
 					</ul></li>
 				
 				<!-- 서치바 -->
-				<li class="right">
+		<!-- 		<li class="right">
 					<a href="#!" data-expandable="#qtsearchbar" class="qt-btn qt-btn-l qt-scrolltop">
-					<i	class="icon dripicons-search"></i></a></li>
+					<i	class="icon dripicons-search"></i></a></li> -->
 				
 				<c:if test="${not empty loginNickname}">	
 				<li class="right">
@@ -195,7 +195,7 @@
 
 					</ul>
 					<h1 class="qt-caption qt-spacer-s">realtime chart</h1>
-					<h4 class="qt-subtitle">Subtitle of the page</h4>
+					<h4 class="qt-subtitle">실시간 차트</h4>
 				</div>
 				<div class="qt-header-bg"
 					data-bgimage="images/back3.jpg">
@@ -208,7 +208,7 @@
 		<!-- ======================= UPCOMING SHOWS  SECTION ======================= -->
 		<div class="qt-container qt-spacer-m">
 			<h5 class="qt-caption-small">
-				<span>chart</span>
+				<span>chart list</span>
 			</h5>
 			<hr class="qt-spacer-s">
 			<!-- SLIDESHOW UPCOMING SHOWS ================================================== -->
@@ -410,8 +410,8 @@
 					</div>
 				</div>
 				<div class="qt-header-bg"
-					data-bgimage="imagestemplate/full-1600-700.jpg">
-					<img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
+					data-bgimage="images/back.jpg">
+					<img src="images/back.jpg" alt="Featured image"
 						width="690" height="302">
 				</div>
 			</div>
