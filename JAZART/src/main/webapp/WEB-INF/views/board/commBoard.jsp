@@ -173,9 +173,7 @@ table, th, td {
 						<li><a href="qna">QnA</a></li>
 						<li><a href="question">Question</a></li>
 					</ul></li>
-		<!-- 		<li class="right"><a href="#!" data-expandable="#qtsearchbar"
-					class="qt-btn qt-btn-l qt-scrolltop"><i
-						class="icon dripicons-search"></i></a></li> -->
+	
 				
 					<c:if test="${not empty loginNickname}">	
 				<li class="right">

@@ -104,9 +104,7 @@
 						<li><a href="qna">QnA</a></li>
 						<li><a href="question">Question</a></li>
 					</ul></li>
-				<li class="right"><a href="#!" data-expandable="#qtsearchbar"
-					class="qt-btn qt-btn-l qt-scrolltop"><i
-						class="icon dripicons-search"></i></a></li>
+			
 				
 				<!-- 플레이리스트 -->
 				<c:if test="${not empty loginNickname}">
@@ -186,7 +184,7 @@
 						<h1 class="qt-caption qt-spacer-s">
 							Artist Page
 						</h1>
-					<h4 class="qt-subtitle">Subtitle of the page</h4>
+					<h4 class="qt-subtitle">아티스트페이지</h4>
 					</div>
 					<div class="qt-header-bg" data-bgimage="images/back1.jpg">
 						<img src="images/back1.jpg" alt="Featured image" width="690" height="302">
