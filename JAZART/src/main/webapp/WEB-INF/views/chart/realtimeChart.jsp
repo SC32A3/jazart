@@ -265,7 +265,7 @@
 										</h4>
 										<h6 class="qt-onair-title"></h6>
 										<p class="qt-small">
-											여러분의 투표로 선정되는 <br> 하루의 특별한 곡!<br> 일간차트는 이렇게 선정됩니다.
+											여러분의 투표로 선정되는 <br> 순간의 특별한 곡!<br> 실시간차트는 이렇게 선정됩니다.
 										</p>
 										<a href="realtimeChart"
 											class="qt-btn qt-btn-s qt-btn-secondary">RealTimeChart</a>
@@ -282,7 +282,7 @@
 											<h5>
 												<a href="#showlink">step1</a>
 											</h5>
-											<p>음악게시판을 기반으로 한 모든 곡이 일간차트의 후보가 됩니다.</p> <img
+											<p>음악게시판을 기반으로 한 모든 곡이 실시간차트의 후보가 됩니다.</p> <img
 											src="images/back1.jpg" alt="Show cover" width="200"
 											height="110" class="right">
 										</li>
@@ -290,7 +290,7 @@
 											<h5>
 												<a href="#showlink">step2</a>
 											</h5>
-											<p>일간차트 투표는 회원이라면 누구나 참여가능합니다. (회원당 1곡에 1회 참여가능)</p> <img
+											<p>실시간차트 투표는 회원이라면 누구나 참여가능합니다. (회원당 1곡에 1회 참여가능)</p> <img
 											src="images/back2.jpg" alt="Show cover" width="200"
 											height="110" class="right">
 										</li>
@@ -298,7 +298,7 @@
 											<h5>
 												<a href="#showlink">step3</a>
 											</h5>
-											<p>하루 단위로 좋아요를 합산하여 결과를 집계합니다.</p> <img
+											<p>실시간으로 좋아요를 합산하여 결과를 집계합니다.</p> <img
 											src="images/back3.jpg" alt="Show cover" width="200"
 											height="110" class="right">
 										</li>
@@ -306,7 +306,7 @@
 											<h5>
 												<a href="#showlink">step4</a>
 											</h5>
-											<p>여러분이 만들어 가는 일간차트! 매일, 일간차트 결과를 확인하세요.</p> <img
+											<p>여러분이 만들어 가는 실시간차트! 실시간으로, 실시간차트 결과를 확인하세요.</p> <img
 											src="images/back4.jpg" alt="Show cover" width="200"
 											height="110" class="right">
 										</li>
