@@ -111,9 +111,7 @@ public class UserController {
 		} else {
 			user.setUser_picture("default.jpg");
 		}
-
 		ur.regist(user);
-
 		return "redirect:/";
 	}
 

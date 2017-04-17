@@ -386,7 +386,6 @@
 			<!-- HEADER MEMBERS ========================= -->
 			<div class="qt-pageheader qt-negative">
 				<div class="qt-container">
-
 					<h1 class="qt-caption qt-spacer-s">Mixing Page</h1>
 					<h4 class="qt-subtitle">Subtitle of the page</h4>
 				</div>

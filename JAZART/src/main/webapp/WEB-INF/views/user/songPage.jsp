@@ -454,7 +454,7 @@
 			<hr class="qt-spacer-l">
 		</div>
 	</div>
-	</div>
+
 
 	<!-- .qt-main end -->
 	<div class="qt-footer qt-footerwidgets">

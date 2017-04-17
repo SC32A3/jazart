@@ -82,13 +82,21 @@ public class ComposeController {
 	}
 
 	@RequestMapping(value = "artistPage", method = RequestMethod.GET)
-	public String artistpage(Model model) {
-		String loginNickname = (String) session.getAttribute("loginNickname");
-		User user = ur.selectUser(loginNickname);
-		model.addAttribute("user", user);
-		ArrayList<SongInfo> songsByArtist = ur.songsByArtist(loginNickname);
-		model.addAttribute("songs", songsByArtist);
-		return "user/artistPage";
+	public String artistpage(Model model, String song_nickname) {
+		if (song_nickname != null) {
+			User user = ur.selectUser(song_nickname);
+			model.addAttribute("user", user);
+			ArrayList<SongInfo> songsByArtist = ur.songsByArtist(song_nickname);
+			model.addAttribute("songs", songsByArtist);
+			return "user/artistPage";
+		} else {
+			String loginNickname = (String) session.getAttribute("loginNickname");
+			User user = ur.selectUser(loginNickname);
+			model.addAttribute("user", user);
+			ArrayList<SongInfo> songsByArtist = ur.songsByArtist(loginNickname);
+			model.addAttribute("songs", songsByArtist);
+			return "user/artistPage";
+		}
 	}
 
 	@RequestMapping(value = "download", method = RequestMethod.GET)
@@ -150,13 +158,6 @@ public class ComposeController {
 		return null;
 	}
 
-	@RequestMapping(value = "songRecommend", method = RequestMethod.GET)
-	public String recommendMusic(int songnum) {
-		String loginNickname = (String) session.getAttribute("loginNickname");
-		String message = "";
-		int result = sr.recommend(songnum, loginNickname);
-		return "redirect:/musicBoard";
-	}
 
 	@RequestMapping(value = "songRecommend", method = RequestMethod.POST)
 	public @ResponseBody int recommend(int songnum) {
