@@ -199,35 +199,7 @@
 						<div class="col s12 m12 l1 qt-pushpin-container">
 							<div class="qt-pushpin">
 								<!-- SHARE FUNCTIONS ================================================== -->
-								<ul class="qt-sharepage qt-content-primary">
-									<li class="hide-on-med-and-down">
-										<i class="qticon-share qt-shareicon qt-content-primary-dark"></i>
-									</li>
-									<li>
-										<a class="qt-popupwindow qt-sharelink" data-sharetype="facebook" data-name="Share" data-width="600" data-height="500" target="_blank" href="#">
-											<i class="qticon-facebook"></i>
-										</a>
-									</li>
-									<li>
-										<a class="qt-popupwindow qt-sharelink" data-sharetype="twitter" data-name="Share" data-width="600" data-height="500" target="_blank" href="#">
-											<i class="qticon-twitter"></i>
-										</a>
-										</li>
-									<li>
-										<a class="qt-popupwindow qt-sharelink" data-sharetype="google" data-name="Share" data-width="600" data-height="500" target="_blank" href="#">
-											<i class="qticon-googleplus"></i>
-										</a>
-									</li>
-									<li>
-										<a class="qt-popupwindow qt-sharelink" data-sharetype="pinterest" data-name="Share" data-width="600" data-height="500" target="_blank" href="#">
-											<i class="qticon-pinterest"></i>
-										</a>
-									</li>
-									<li>
-										<a href="#" class="qt-btn-primary qt-sharelink"><i class="dripicons-heart"></i>
-										</a>
-									</li>
-								</ul>
+							
 								<!-- SHARE FUNCTIONS ================================================== -->
 							</div>
 							<hr class="qt-spacer-m">
@@ -304,7 +276,7 @@
 				</div>
 			
 			<!-- .qt-main end -->
-		<div class="qt-footer qt-footerwidgets">
+			<div class="qt-footer qt-footerwidgets">
 			<div class="qt-section qt-footer-widgets qt-content-primary-light">
 				<div class="qt-container">
 					<h2 class="qt-footer-logo">
@@ -377,8 +349,8 @@
 					</div>
 				</div>
 				<div class="qt-header-bg"
-					data-bgimage="imagestemplate/full-1600-700.jpg">
-					<img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
+					data-bgimage="images/back.jpg">
+					<img src="images/back.jpg" alt="Featured image"
 						width="690" height="302">
 				</div>
 			</div>
