@@ -1,13 +1,14 @@
 package global.sesoc.jazart.controller;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import javax.servlet.ServletOutputStream;
@@ -24,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import global.sesoc.jazart.dao.SongRepository;
 import global.sesoc.jazart.dao.UserRepository;
@@ -207,18 +209,45 @@ public class ComposeController {
 		return "user/songPopup";
 	}
 
-	@RequestMapping(value = "eeee", method = RequestMethod.POST)
-	public String saveRecord(MultipartFile[] upload, Model model) {
+	@RequestMapping(value = "mixing", method = RequestMethod.POST)
+	public String saveRecord(MultipartHttpServletRequest request, MultipartFile[] upload, Model model) {
 		ArrayList<String> list = new ArrayList<>();
 		String type = "r_";
-		for (MultipartFile multipartFile : upload) {
-			if (!multipartFile.isEmpty()) {
-				String savedfile = FileService.saveFile(multipartFile, uploadPath3, type);
-				System.out.println("savedfile" + savedfile);
-				list.add(savedfile);
+
+		FileWriter fw;
+		try {
+			fw = new FileWriter(new File(request.getServletContext().getRealPath("/src/data/samples.txt")));
+			BufferedWriter bw = new BufferedWriter(fw);
+			PrintWriter pw = new PrintWriter(bw);
+
+			pw.println(
+					"{\"projectInfo\":{\"tempo\":\"128\",\"tracks\":\"4\",\"effects\":[[],[],[],[]]},\"samples\": [");
+			for (int i = 0; i < upload.length; i++) {
+				MultipartFile multipartFile = upload[i];
+				if (!multipartFile.isEmpty()) {
+					// String savedfile =
+					// FileService.saveFile(multipartFile,uploadPath3, type);
+					String savedfile = FileService.saveFile(multipartFile,
+							request.getServletContext().getRealPath("src/data/samples/"), type);
+					list.add(savedfile);
+					pw.print("{\"id\":\"" + (i + 1) + "\",\"url\":\"src/data/samples/" + savedfile
+							+ "\",\"track\":\"1\",\"startTime\":[],\"duration\":\"3.8399999141693115\"}");
+				}
+
+				if (i != upload.length - 1) {
+					pw.println(",");
+				} else {
+					pw.println("]}");
+					pw.flush();
+				}
 			}
+			pw.close();
+			bw.close();
+			model.addAttribute("srclist", list);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		model.addAttribute("list", list);
 		return "compose/mixing";
 	}
 }

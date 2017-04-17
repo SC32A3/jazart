@@ -372,7 +372,7 @@ analysis
 								      </section>
 								      
 								      <div>
-									      <form action="eeee" method="post" enctype="multipart/form-data">
+									      <form action="mixing" method="post" enctype="multipart/form-data">
 										      <input type="file" name="upload" multiple="multiple">
 										      <input type="submit" value="다음단계로">
 									      </form>
