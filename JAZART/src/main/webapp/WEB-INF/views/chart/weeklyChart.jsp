@@ -358,111 +358,106 @@
             <!-- PAGINATION END ========================= -->
          </div>
 
-         <!-- ======================= RELATED SECTION ======================= -->
-         <div
-            class="qt-content-primary qt-negative qt-related-section qt-vertical-padding-l">
-            <div class="qt-container">
-               <h5 class="qt-caption-small">
-                  <span>Related charts</span>
-               </h5>
-               <div class="qt-related-list row">
-                  <div class="col s12 m4">
-                     <div class="qt-part-archive-item qt-item-chart">
-                        <div class="qt-item-header">
-                           <div class="qt-header-top">
-                              <ul class="qt-tags">
-                                 <li><a href="#">Dance</a></li>
-                              </ul>
-                              <div class="qt-feedback">
-                                 <a>17<i class="dripicons-message"></i></a><a>34<i
-                                    class="dripicons-heart"></i></a>
-                              </div>
-                           </div>
-                           <div class="qt-header-mid qt-vc">
-                              <div class="qt-vi">
-                                 <h3 class="qt-title">
-                                    <a href="#" class="qt-text-shadow"> 2016 Summer Chart </a>
-                                 </h3>
-                              </div>
-                           </div>
-                           <div class="qt-header-bottom">
-                              <a href="#" class="qt-btn qt-btn-primary qt-readmore"><i
-                                 class="dripicons-align-justify"></i></a>
-                           </div>
-                           <div class="qt-header-bg"
-                              data-bgimage="resources/imagestemplate/squared-690-690.jpg">
-                              <img src="resources/imagestemplate/squared-690-690.jpg"
-                                 alt="Featured image" width="690" height="690">
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col s12 m4">
-                     <div class="qt-part-archive-item qt-item-chart">
-                        <div class="qt-item-header">
-                           <div class="qt-header-top">
-                              <ul class="qt-tags">
-                                 <li><a href="#">Dance</a></li>
-                              </ul>
-                              <div class="qt-feedback">
-                                 <a>17<i class="dripicons-message"></i></a><a>34<i
-                                    class="dripicons-heart"></i></a>
-                              </div>
-                           </div>
-                           <div class="qt-header-mid qt-vc">
-                              <div class="qt-vi">
-                                 <h3 class="qt-title">
-                                    <a href="#" class="qt-text-shadow"> 2016 Summer Chart </a>
-                                 </h3>
-                              </div>
-                           </div>
-                           <div class="qt-header-bottom">
-                              <a href="#" class="qt-btn qt-btn-primary qt-readmore"><i
-                                 class="dripicons-align-justify"></i></a>
-                           </div>
-                           <div class="qt-header-bg"
-                              data-bgimage="resources/imagestemplate/squared-690-690.jpg">
-                              <img src="resources/imagestemplate/squared-690-690.jpg"
-                                 alt="Featured image" width="690" height="690">
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col s12 m4">
-                     <div class="qt-part-archive-item qt-item-chart">
-                        <div class="qt-item-header">
-                           <div class="qt-header-top">
-                              <ul class="qt-tags">
-                                 <li><a href="#">Dance</a></li>
-                              </ul>
-                              <div class="qt-feedback">
-                                 <a>17<i class="dripicons-message"></i></a><a>34<i
-                                    class="dripicons-heart"></i></a>
-                              </div>
-                           </div>
-                           <div class="qt-header-mid qt-vc">
-                              <div class="qt-vi">
-                                 <h3 class="qt-title">
-                                    <a href="#" class="qt-text-shadow"> 2016 Summer Chart </a>
-                                 </h3>
-                              </div>
-                           </div>
-                           <div class="qt-header-bottom">
-                              <a href="#" class="qt-btn qt-btn-primary qt-readmore"><i
-                                 class="dripicons-align-justify"></i></a>
-                           </div>
-                           <div class="qt-header-bg"
-                              data-bgimage="resources/imagestemplate/squared-690-690.jpg">
-                              <img src="resources/imagestemplate/squared-690-690.jpg"
-                                 alt="Featured image" width="690" height="690">
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
+       <!-- ======================= RELATED SECTION ======================= -->
+			<div
+				class="qt-content-primary qt-negative qt-related-section qt-vertical-padding-l">
+				<div class="qt-container">
+					<h5 class="qt-caption-small">
+						<span>charts</span>
+					</h5>
+					
+					<div class="qt-related-list row">
+						<div class="col s12 m4">
+							<div class="qt-part-archive-item qt-item-chart">
+								<div class="qt-item-header">
+									<div class="qt-header-top">
+										<ul class="qt-tags">
+											<li><a href="realtimeChart">chart</a></li>
+										</ul>
+								
+									</div>
+									<div class="qt-header-mid qt-vc">
+										<div class="qt-vi">
+											<h3 class="qt-title">
+												<a href="realtimeChart" class="qt-text-shadow"> realtime Chart </a>
+											</h3>
+										</div>
+									</div>
+									<div class="qt-header-bottom">
+										<a href="realtimeChart" class="qt-btn qt-btn-primary qt-readmore"><i
+											class="dripicons-align-justify"></i></a>
+									</div>
+									<div class="qt-header-bg"
+										data-bgimage="images/band.jpg">
+										<img src="images/band.jpg"
+											alt="Featured image" width="690" height="690">
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col s12 m4">
+							<div class="qt-part-archive-item qt-item-chart">
+								<div class="qt-item-header">
+									<div class="qt-header-top">
+										<ul class="qt-tags">
+											<li><a href="dailyChart">chart</a></li>
+										</ul>
+								
+									</div>
+									<div class="qt-header-mid qt-vc">
+										<div class="qt-vi">
+											<h3 class="qt-title">
+												<a href="dailyChart" class="qt-text-shadow"> daily Chart </a>
+											</h3>
+										</div>
+									</div>
+									<div class="qt-header-bottom">
+										<a href="dailyChart" class="qt-btn qt-btn-primary qt-readmore"><i
+											class="dripicons-align-justify"></i></a>
+									</div>
+									<div class="qt-header-bg"
+										data-bgimage="images/compose1.jpg">
+										<img src="images/compose1.jpg"
+											alt="Featured image" width="690" height="690">
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col s12 m4">
+							<div class="qt-part-archive-item qt-item-chart">
+								<div class="qt-item-header">
+									<div class="qt-header-top">
+										<ul class="qt-tags">
+											<li><a href="weeklyChart">chart</a></li>
+										</ul>
+								
+									</div>
+									<div class="qt-header-mid qt-vc">
+										<div class="qt-vi">
+											<h3 class="qt-title">
+												<a href="weeklyChart" class="qt-text-shadow"> weekly Chart </a>
+											</h3>
+										</div>
+									</div>
+									<div class="qt-header-bottom">
+										<a href="weeklyChart" class="qt-btn qt-btn-primary qt-readmore"><i
+											class="dripicons-align-justify"></i></a>
+									</div>
+									<div class="qt-header-bg"
+										data-bgimage="images/gitar.jpg">
+										<img src="images/gitar.jpg"
+											alt="Featured image" width="690" height="690">
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
       <!-- .qt-main end -->
       <div class="qt-footer qt-footerwidgets">
          <div class="qt-section qt-footer-widgets qt-content-primary-light">
