@@ -51,7 +51,20 @@ public class ChartController {
 	@RequestMapping(value = "realtimeChart", method = RequestMethod.GET)
 	public String realtimect(Model model, @RequestParam(value = "page", defaultValue = "1") int page) {
 		int total = cr.realtimeCount();
-		PageNavigator navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
+		PageNavigator navi;
+		if (total == 0) {
+			total = cr.allCount();
+			navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
+			int start = navi.getStartRecord(); // 1,11,21
+			int end = start + countPerPage - 1; // 10,20,30
+			ArrayList<SongInfo> cList = cr.allList(start, end);
+			model.addAttribute("type", "all");
+			model.addAttribute("rc", cList);
+			model.addAttribute("total", total); // 글 개수 출력
+			model.addAttribute("navi", navi); // 페이징을 위해서
+			return "chart/realtimeChart";
+		}
+		navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
 		int start = navi.getStartRecord(); // 1,11,21
 		int end = start + countPerPage - 1; // 10,20,30
 
@@ -78,7 +91,6 @@ public class ChartController {
 
 		model.addAttribute("total", total); // 글 개수 출력
 		model.addAttribute("navi", navi); // 페이징을 위해서
-
 		return "chart/dailyChart";
 	}
 
@@ -115,9 +127,6 @@ public class ChartController {
 			ArrayList<SongInfo> cList = cr.chartList("dc", start, end);
 			data.put("dc", cList);
 			data.put("navi", navi);
-			
-
-			
 			data.put("type", type);
 		}
 		if (type.equals("weekly")) {

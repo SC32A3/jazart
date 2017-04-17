@@ -160,10 +160,12 @@ public class ComposeController {
 		return null;
 	}
 
-
 	@RequestMapping(value = "songRecommend", method = RequestMethod.POST)
 	public @ResponseBody int recommend(int songnum) {
 		String loginNickname = (String) session.getAttribute("loginNickname");
+		if (loginNickname == null) {
+			return 3;
+		}
 		int result = sr.recommend(songnum, loginNickname);
 		return result;
 	}

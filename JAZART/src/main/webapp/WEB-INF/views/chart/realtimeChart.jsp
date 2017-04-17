@@ -208,10 +208,12 @@
 						<div class="qt-pushpin"></div>
 						<hr class="qt-spacer-m">
 					</div>
+					<c:if test="${not empty type}">
+						<h3 class="qt-footer-logo">전체리스트임</h3>
+					</c:if>
 					<div class="col s12 m12 l8">
 						<ul class="collapsible qt-chart-tracklist"
 							data-collapsible="accordion">
-
 
 							<c:forEach var="realtime" varStatus="status" items="${rc}">
 								<!-- CHART TRACK ========================= -->
@@ -237,7 +239,7 @@
 											<a style="float: right;"
 												href="artistPage?song_nickname=${realtime.song_nickname}">가수보기&nbsp;</a><a
 												style="float: right;"
-												href="songPage?songnum=${realtime.songnum}">노래보기&nbsp;</a> <a
+												href="songPage?songnum=${realtime.songnum}">노래보기&nbsp;</a><a
 												style="float: right;">노래듣기&nbsp;</a>
 										</p>
 									</div>
@@ -298,9 +300,8 @@
 											<h5>
 												<a href="#showlink">step3</a>
 											</h5>
-											<p>실시간으로 좋아요를 합산하여 결과를 집계합니다.</p> <img
-											src="images/back3.jpg" alt="Show cover" width="200"
-											height="110" class="right">
+											<p>실시간으로 좋아요를 합산하여 결과를 집계합니다.</p> <img src="images/back3.jpg"
+											alt="Show cover" width="200" height="110" class="right">
 										</li>
 										<li class="qt-card-s paper">
 											<h5>
