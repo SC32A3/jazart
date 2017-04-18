@@ -42,8 +42,20 @@
 
 <!-- Custom typography settings and google fonts -->
 <link rel="stylesheet" href="resources/css/qt-typography.css">
-
+<script src="resources/jquery-3.1.1.min.js"></script>
 <script>
+	$(function() {
+		setTimeout(scrollMove, 5000);
+		$(document).off(".disableScroll");
+	});
+
+	function scrollMove() {
+		var offset = $("#test").offset();
+		$('html, body').animate({
+			scrollTop : offset.top
+		}, 400);
+	}
+
 	function pagingForSubmit(currentPage) {
 		var form = document.getElementById("pagingForm");
 		var page = document.getElementById("page");
@@ -202,7 +214,7 @@
 			</div>
 			<!-- HEADER CAPTION END ========================= -->
 			<!-- ======================= CONTENT SECTION ======================= -->
-			<div class="qt-container">
+			<div class="qt-container" id="test">
 				<div class="row qt-vertical-padding-l ">
 					<div class="col s12 m12 l1 qt-pushpin-container">
 						<div class="qt-pushpin"></div>

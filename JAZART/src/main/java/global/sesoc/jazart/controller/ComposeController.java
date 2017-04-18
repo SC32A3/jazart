@@ -227,7 +227,6 @@ public class ComposeController {
 		} else {
 			playlist = ur.getPlayOne(songnum);
 			model.addAttribute("playlist", playlist);
-
 			return "user/songPopup";
 		}
 	}

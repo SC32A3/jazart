@@ -78,17 +78,26 @@ public class ChartController {
 	@RequestMapping(value = "dailyChart", method = RequestMethod.GET)
 	public String dailyct(Model model, @RequestParam(value = "page", defaultValue = "1") int page) {
 		logger.info("> daily chart");
-
+		PageNavigator navi;
 		int total = cr.dailyCount();
-
-		PageNavigator navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
+		if (total == 0) {
+			total = cr.allCount();
+			navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
+			int start = navi.getStartRecord(); // 1,11,21
+			int end = start + countPerPage - 1; // 10,20,30
+			ArrayList<SongInfo> cList = cr.allList(start, end);
+			model.addAttribute("type", "all");
+			model.addAttribute("dc", cList);
+			model.addAttribute("total", total); // 글 개수 출력
+			model.addAttribute("navi", navi); // 페이징을 위해서
+			return "chart/dailyChart";
+		}
+		navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
 		int start = navi.getStartRecord(); // 1,11,21
 		int end = start + countPerPage - 1; // 10,20,30
 		logger.info("페이징재료page,start,end=> " + page + ", " + start + ", " + end);
-
 		ArrayList<SongInfo> cList = cr.chartList("dc", start, end);
 		model.addAttribute("dc", cList);
-
 		model.addAttribute("total", total); // 글 개수 출력
 		model.addAttribute("navi", navi); // 페이징을 위해서
 		return "chart/dailyChart";
@@ -97,21 +106,29 @@ public class ChartController {
 	@RequestMapping(value = "weeklyChart", method = RequestMethod.GET)
 	public String weekilyct(Model model, @RequestParam(value = "page", defaultValue = "1") int page) {
 		logger.info("> weekly chart");
-
+		PageNavigator navi;
 		int total = cr.weeklyCount();
-
-		PageNavigator navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
+		if (total == 0) {
+			total = cr.allCount();
+			navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
+			int start = navi.getStartRecord(); // 1,11,21
+			int end = start + countPerPage - 1; // 10,20,30
+			ArrayList<SongInfo> cList = cr.allList(start, end);
+			model.addAttribute("type", "all");
+			model.addAttribute("wc", cList);
+			model.addAttribute("total", total); // 글 개수 출력
+			model.addAttribute("navi", navi); // 페이징을 위해서
+			return "chart/weeklyChart";
+		}
+		navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
 		int start = navi.getStartRecord(); // 1,11,21
 		int end = start + countPerPage - 1; // 10,20,30
 		logger.info("페이징재료page,start,end=> " + page + ", " + start + ", " + end);
-
 		ArrayList<SongInfo> cList = cr.chartList("wc", start, end);
 		model.addAttribute("wc", cList);
 		model.addAttribute("navi", navi); // 페이징을 위해서
-
 		return "chart/weeklyChart";
 	}
-
 	@ResponseBody
 	@RequestMapping(value = "dwChart", method = RequestMethod.GET)
 	public Map<String, Object> dwChart(Model model, @RequestParam(value = "page", defaultValue = "1") int page,

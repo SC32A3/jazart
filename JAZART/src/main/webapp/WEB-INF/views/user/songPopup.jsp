@@ -61,7 +61,7 @@
 			},
 			success: function(resp) {
 			 	if(resp==1){
-			 		
+			 	location.href="songPopup?songnum=0";
 			 	}
 			},
 			error : function(resp) {
@@ -83,6 +83,8 @@
 			class="qt-playercontainer qt-playervolume qt-clearfix qt-content-primary">
 			<c:forEach var="item" begin="0" end="0" items="${playlist}">
 				<div class="qt-playercontainer-content qt-vertical-padding-m">
+
+
 
 					<div class="qt-playercontainer-header">
 						<h5 class="qt-text-shadow small">Now on</h5>
