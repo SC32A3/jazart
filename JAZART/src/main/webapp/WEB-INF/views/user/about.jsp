@@ -47,12 +47,27 @@ volume.css" />
 <!-- Custom typography settings and google fonts -->
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 <link href="resources/css/aboutus.css" rel="stylesheet">
+<style>
+.qt-header-yg{
+	width:2026px; 
+	height:360px;
+	
+}
+.qt-spacer-s{
+	font-size:67px;
+}
+
+
+</style>
+
+
+
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->
-
-	<div class="qt-parentcontainer">
-	<!-- QT MENUBAR TOP ================================ -->
+	
+		<div class="qt-parentcontainer">
+		<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
 			<ul>
 				<li><a href="about"><i class="dripicons-chevron-right"></i>About
@@ -97,10 +112,8 @@ volume.css" />
 						<li><a href="qna">QnA</a></li>
 						<li><a href="question">Question</a></li>
 					</ul></li>
-		<!-- 		<li class="right"><a href="#!" data-expandable="#qtsearchbar"
-					class="qt-btn qt-btn-l qt-scrolltop"><i
-						class="icon dripicons-search"></i></a></li> -->
-
+			
+				
 				<!-- 플레이리스트 -->
 				<c:if test="${not empty loginNickname}">
 					<li class="right"><a href="songPopup" class="qt-popupwindow"
@@ -108,7 +121,7 @@ volume.css" />
 							class="icon dripicons-duplicate"></i>Playlist
 					</a></li>
 				</c:if>
-
+				
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
 			<ul class="qt-desktopmenu hide-on-xl-only ">
@@ -118,7 +131,7 @@ volume.css" />
 				<li><a href="#!" class="brand-logo qt-logo-text">jazart</a></li>
 			</ul>
 		</nav>
-	<!-- mobile menu -->
+<!-- mobile menu -->
 		<div id="qt-mobile-menu" class="side-nav qt-content-primary">
 			<ul class=" qt-side-nav">
 				<li><a href="/">jazart<span>♬</span></a></li>
@@ -145,43 +158,31 @@ volume.css" />
 					</ul></li>
 			</ul>
 		</div>
-		<!-- mobile toolbar -->
-		<ul
-			class="qt-mobile-toolbar qt-content-primary-dark qt-content-aside hide-on-large-only">
-			<li><a href="#!" data-expandable="#qtsearchbar"
-				class="qt-scrolltop"><i class="icon dripicons-search"></i></a></li>
-			<li><a href="page-popup.html" class="qt-popupwindow"
-				data-name="Music Player" data-width="320" data-height="500"><i
-					class="icon dripicons-duplicate"></i></a></li>
-			<li><a href="#!" class="button-playlistswitch"
-				data-activates="channelslist"><i
-					class="icon dripicons-media-play"></i></a></li>
-		</ul>
+	<!-- mobile toolbar -->
+			<ul class="qt-mobile-toolbar qt-content-primary-dark qt-content-aside hide-on-large-only">
+				<li><a href="#!" data-expandable="#qtsearchbar" class="qt-scrolltop"><i class="icon dripicons-search"></i></a></li>
+				<li><a href="page-popup.html" class="qt-popupwindow" data-name="Music Player" data-width="320" data-height="500"><i class="icon dripicons-duplicate"></i></a></li>
+				<li><a href="#!" class="button-playlistswitch" data-activates="channelslist"><i class="icon dripicons-media-play"></i></a></li>
+			</ul>
 		<!-- SEARCH FORM ========================= -->
-
-		<div id="qtsearchbar"
-			class="qt-searchbar qt-content-primary qt-expandable">
-			<div class="qt-expandable-inner">
-				<form method="post" action="#search" class="qt-inline-form">
-					<div class="row qt-nopadding">
-						<div class="col s12 m8 l9">
-							<input placeholder="Search" value="" id="searchtex" type="text"
-								class="validate qt-input-l">
+			<div id="qtsearchbar" class="qt-searchbar qt-content-primary qt-expandable">
+				<div class="qt-expandable-inner">
+					<form method="post" action="#search" class="qt-inline-form">
+						<div class="row qt-nopadding">
+							<div class="col s12 m8 l9">
+								<input placeholder="Search" value="" id="searchtex" type="text" class="validate qt-input-l">
+							</div>
+							<div class="col s12 m3 l2">
+								<input type="button" value="Search" class="qt-btn qt-btn-primary qt-btn-l qt-fullwidth">
+							</div>
+							<div class="col s12 m1 l1">
+								<a href="#!" class="qt-btn qt-btn-l qt-btn-secondary qt-fullwidth aligncenter" data-expandable="#qtsearchbar"><i class="dripicons-cross"></i></a>
+							</div>
 						</div>
-						<div class="col s12 m3 l2">
-							<input type="button" value="Search"
-								class="qt-btn qt-btn-primary qt-btn-l qt-fullwidth">
-						</div>
-						<div class="col s12 m1 l1">
-							<a href="#!"
-								class="qt-btn qt-btn-l qt-btn-secondary qt-fullwidth aligncenter"
-								data-expandable="#qtsearchbar"><i class="dripicons-cross"></i></a>
-						</div>
-					</div>
-				</form>
+					</form>
+				</div>
 			</div>
-		</div>
-		<!-- SEARCH FORM END ========================= -->
+			<!-- SEARCH FORM END ========================= -->
 			<div id="maincontent" class="qt-main">
 				<!-- ======================= HEADER SECTION ======================= -->
 				<!-- HEADER MEMBERS ========================= -->
@@ -193,7 +194,7 @@ volume.css" />
 						</h1>
 					<h4 class="qt-subtitle">팀원소개</h4>
 					</div>
-					<div class="qt-header-bg" data-bgimage="images/table.jpg">
+					<div class="qt-header-yg" data-bgimage="images/table.jpg">
 						<img src="images/table.jpg" alt="Featured image" width="690" height="302">
 					</div>
 				</div>
@@ -387,14 +388,14 @@ volume.css" />
 		</div>
 	</div>
 	<!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
-	<div class="qt-footer qt-footerwidgets">
-			<div class="qt-section qt-footer-widgets qt-content-primary-light">
-				<div class="qt-container">
+	<div class="qt-footer qt-footerwidgets" >
+			<div class="qt-section qt-footer-widgets qt-content-primary-light" >
+				<div class="qt-container" >
 					<h2 class="qt-footer-logo">
 						<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
 					</h2>
 					<div
-						class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
+						class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row" >
 						<div class="col s12 m3 l3">
 							<div class="qt-widget">
 								<h5 class="qt-caption-small">
@@ -466,7 +467,7 @@ volume.css" />
 				</div>
 			</div>
 			<div class="qt-footer-bottom qt-content-primary-dark">
-				<div class="qt-container">
+				<div class="qt-container27">
 					<div class="row">
 						<!-- <div class="col s12 m12 l8">
 							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
