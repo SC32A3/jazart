@@ -138,4 +138,28 @@ public class UserRepository {
 		return playlist;
 	}
 
+	public int addSongList(int songnum, String user_id) {
+		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+		int result = 0;
+		try {
+			result = mapper.addSongList(songnum, user_id);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public int deleteSongList(String user_id, int songnum) {
+		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+		int result = 0;
+		try {
+			result = mapper.deleteSongList(user_id, songnum);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }

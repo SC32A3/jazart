@@ -50,6 +50,25 @@
 		myTitle.html(title);
 		myNickname.html(nickname);
 	}
+	function deleteSongList(songnum) {
+		var snum = songnum;
+		alert("delete");
+		$.ajax({
+			method : "get",
+			url : "deleteSongList",
+			data : {
+				"songnum" : snum 
+			},
+			success: function(resp) {
+			 	if(resp==1){
+			 		
+			 	}
+			},
+			error : function(resp) {
+				alert(resp);
+			}
+		});	
+	}
 </script>
 </head>
 <body>
@@ -133,13 +152,10 @@
 						data-playtrack="download?type=music&data=${item.song_file}"
 						data-stats_path="" data-played_path="" data-channel=""
 						onclick="javascript:input('${item.song_title}','${item.song_nickname}')">
-
 							<img src="download?type=song&data=${item.songnum}" alt="logo"
 							class="qt-radiologo dripicons-media-play" width="80" height="80">
 							<i class="dripicons-media-play"></i> ${item.song_title}
-					</a></li>
-
-
+					</a><a href="javascript:deleteSongList(${item.songnum})">목록제거</a></li>
 				</c:forEach>
 			</ul>
 		</div>
@@ -202,8 +218,6 @@
 
 	<!-- Popup -->
 	<script src="resources/components/popup/popup.js"></script>
-
-
 	<!-- MAIN JAVASCRIPT FILE ================================ -->
 	<script src="resources/js/qt-main.js"></script>
 

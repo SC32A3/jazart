@@ -246,11 +246,11 @@
 				
 				<!-- 플레이리스트 -->
 				<c:if test="${not empty loginNickname}">
-					<li class="right"><a href="songPopup" class="qt-popupwindow"
-						data-name="Music Player" data-width="320" data-height="500"> <i
-							class="icon dripicons-duplicate"></i>Playlist
-					</a></li>
-				</c:if>
+				<li class="right"><a href="songPopup?songnum=0"
+					class="qt-popupwindow" data-name="Music Player" data-width="320"
+					data-height="500"> <i class="icon dripicons-duplicate"></i>Playlist
+				</a></li>
+			</c:if>
 				
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->

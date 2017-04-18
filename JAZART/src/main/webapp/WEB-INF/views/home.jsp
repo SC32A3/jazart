@@ -124,9 +124,9 @@
 
 				<!-- 플레이리스트 -->
 				<c:if test="${not empty loginNickname}">
-					<li class="right"><a href="songPopup" class="qt-popupwindow"
-						data-name="Music Player" data-width="320" data-height="500"> <i
-							class="icon dripicons-duplicate"></i>Playlist
+					<li class="right"><a href="songPopup?songnum=0"
+						class="qt-popupwindow" data-name="Music Player" data-width="320"
+						data-height="500"> <i class="icon dripicons-duplicate"></i>Playlist
 					</a></li>
 				</c:if>
 
@@ -442,12 +442,12 @@
 													<div class="qt-header-mid qt-vc">
 														<div class="qt-vi">
 															<h4 class="qt-item-title qt-title">
-																<a href="#read" class="qt-ellipsis  qt-t">생각해봐!</a>
+																<a href="#read" class="qt-ellipsis  qt-t">${allList.song_nickname}</a>
 															</h4>
 															<p class="qt-item-det">
 																<span class="qt-time">${allList.song_title}</span>
 																<!-- <span class="qt-am">am</span> -->
-																<span class="qt-day qt-capfont">${allList.song_nickname}</span>
+																<span class="qt-day qt-capfont">${allList.song_genre}</span>
 															</p>
 														</div>
 													</div>
@@ -471,8 +471,11 @@
 														<a style="float: right;"
 															href="artistPage?song_nickname=${allList.song_nickname}">가수보기&nbsp;</a><a
 															style="float: right;"
-															href="songPage?songnum=${allList.songnum}">노래보기&nbsp;</a><a
-															style="float: right;">노래듣기&nbsp;</a>
+															href="songPage?songnum=${allList.songnum}">노래보기&nbsp;</a>
+														<a style="float: right;"
+															href="songPopup?songnum=${weekly.songnum}"
+															class="qt-popupwindow" data-name="Music Player"
+															data-width="320" data-hqeight="500">노래듣기&nbsp;</a>
 													</div>
 												</div>
 											</div>
@@ -523,12 +526,21 @@
 									</div>
 								</div>
 								<div class="collapsible-body qt-paper">
-									<p>${ weekly.song_desc }</p>
+									<p>${ weekly.song_desc }
+										<a style="float: right;"
+											href="artistPage?song_nickname=${weekly.song_nickname}">가수보기&nbsp;</a><a
+											style="float: right;"
+											href="songPage?songnum=${weekly.songnum}">노래보기&nbsp;</a> <a
+											style="float: right;"
+											href="songPopup?songnum=${weekly.songnum}"
+											class="qt-popupwindow" data-name="Music Player"
+											data-width="320" data-hqeight="500">노래듣기&nbsp;</a>
+
+									</p>
 								</div>
 							</li>
 							<!-- CHART TRACK END ========================= -->
 						</c:forEach>
-
 					</ul>
 					<p class="aligncenter qt-spacer-m">
 						<a href="weeklyChart"

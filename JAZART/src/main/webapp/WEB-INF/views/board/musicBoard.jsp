@@ -127,9 +127,9 @@
 					</ul></li>
 
 				<c:if test="${not empty loginNickname}">
-					<li class="right"><a href="songPopup" class="qt-popupwindow"
-						data-name="Music Player" data-width="320" data-hqeight="500">
-							<i class="icon dripicons-duplicate"></i>Playlist
+					<li class="right"><a href="songPopup?songnum=0"
+						class="qt-popupwindow" data-name="Music Player" data-width="320"
+						data-height="500"> <i class="icon dripicons-duplicate"></i>Playlist
 					</a></li>
 				</c:if>
 			</ul>
@@ -247,12 +247,12 @@
 												<div class="qt-header-mid qt-vc">
 													<div class="qt-vi">
 														<h4 class="qt-item-title qt-title">
-															<a href="#read" class="qt-ellipsis  qt-t">생각해봐!</a>
+															<a href="#read" class="qt-ellipsis  qt-t">${allList.song_nickname}</a>
 														</h4>
 														<p class="qt-item-det">
 															<span class="qt-time">${allList.song_title}</span>
 															<!-- <span class="qt-am">am</span> -->
-															<span class="qt-day qt-capfont">${allList.song_nickname}</span>
+															<span class="qt-day qt-capfont">${allList.song_genre}</span>
 														</p>
 													</div>
 												</div>

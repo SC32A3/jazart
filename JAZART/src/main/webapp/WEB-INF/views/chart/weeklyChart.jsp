@@ -42,6 +42,8 @@
 
 <!-- Custom typography settings and google fonts -->
 <link rel="stylesheet" href="resources/css/qt-typography.css">
+<script src="resources/jquery-3.1.1.min.js"></script>
+<script type="text/javascript"></script>
 <script>
 	function pagingForSubmit(currentPage) {
 		var form = document.getElementById("pagingForm");
@@ -49,6 +51,30 @@
 		page.value = currentPage;
 
 		form.submit();
+	}
+
+	function addSongList(songnum) {
+		var snum = songnum;
+		alert(snum);
+		$.ajax({
+			method : "get",
+			url : "addSongList",
+			data : {
+				"songnum" : snum
+			},
+			success : function(resp){
+				if (resp == 1){
+					alert('추가되었스빈다');
+				} else if (resp == 0){
+					alert('추가안됐어');
+				} else if (resp == 3) {
+					alert('로그인후 이용해주세요');
+				}
+			},
+			error : function(resp) {
+				alert(resp);
+			}
+		});
 	}
 </script>
 </head>
@@ -107,9 +133,9 @@
 
 				<!-- 플레이리스트 -->
 				<c:if test="${not empty loginNickname}">
-					<li class="right"><a href="songPopup" class="qt-popupwindow"
-						data-name="Music Player" data-width="320" data-height="500"> <i
-							class="icon dripicons-duplicate"></i>Playlist
+					<li class="right"><a href="songPopup?songnum=0"
+						class="qt-popupwindow" data-name="Music Player" data-width="320"
+						data-height="500"> <i class="icon dripicons-duplicate"></i>Playlist
 					</a></li>
 				</c:if>
 
@@ -227,7 +253,8 @@
 											<p>${ weekly.song_nickname }</p>
 										</div>
 										<div class="qt-action">
-											<a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i
+											<a href="javascript:addSongList(${weekly.songnum})"
+												class="qt-btn qt-btn-ghost qt-btn-l"><i
 												class="dripicons-cart"></i></a>
 										</div>
 									</div>

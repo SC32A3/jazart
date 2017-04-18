@@ -178,6 +178,19 @@ public class ComposeController {
 		return result;
 	}
 
+	@RequestMapping(value = "addSongList", method = RequestMethod.GET)
+	public @ResponseBody int addSongList(int songnum) {
+		int result = 0;
+		logger.info("controller in");
+		String loginNickname = (String) session.getAttribute("loginNickname");
+		if (loginNickname == null) {
+			return 3;
+		}
+		User user = ur.selectUser(loginNickname);
+		result = ur.addSongList(songnum, user.getUser_id());
+		return result;
+	}
+
 	@RequestMapping(value = "songDeleteReply", method = RequestMethod.GET)
 	public @ResponseBody int deleteReply(int replynum) {
 		int result = sr.deleteSongReply(replynum);
@@ -214,8 +227,16 @@ public class ComposeController {
 		} else {
 			playlist = ur.getPlayOne(songnum);
 			model.addAttribute("playlist", playlist);
+
 			return "user/songPopup";
 		}
+	}
+
+	@RequestMapping(value = "deleteSongList", method = RequestMethod.GET)
+	public @ResponseBody int deleteSongList(Model model, int songnum) {
+		String user_id = (String) session.getAttribute("loginId");
+		int result = ur.deleteSongList(user_id, songnum);
+		return result;
 	}
 
 	@RequestMapping(value = "mixing", method = RequestMethod.POST)

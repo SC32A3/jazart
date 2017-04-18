@@ -45,4 +45,13 @@
 		info.song_nickname, info.song_file from playlist list, songinfo info
 		where list.songnum = info.songnum and list.songnum = #{songnum}
 	</select>
+	<insert id="addSongList" parameterType="map">
+		insert into playlist
+		values(#{1},#{0},sysdate)
+	</insert>
+
+	<delete id="deleteSongList" parameterType="map">
+		delete playlist where
+		songnum=#{1} and user_id = #{0}
+	</delete>
 </mapper>

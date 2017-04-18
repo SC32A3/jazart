@@ -27,4 +27,8 @@ public interface UserMapper {
 	public ArrayList<SongInfo> playlist(String userId) throws Exception;
 
 	public ArrayList<SongInfo> getPlayOne(int songnum) throws Exception;
+
+	public int addSongList(int songnum, String user_id) throws Exception;
+
+	public int deleteSongList(String user_id, int songnum) throws Exception;
 }
