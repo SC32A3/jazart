@@ -74,10 +74,10 @@
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-
+ 
 	<filter>
 		<filter-name>Logging Filter</filter-name>
-		<filter-class>WEB-INF/classes/HttpRedirectFilter</filter-class>
+		<filter-class>global.sesoc.jazart.utility.HttpsRedirectFilter</filter-class>
 		<init-param>
 			<param-name>encoding</param-name>
 			<param-value>UTF-8</param-value>
@@ -85,7 +85,6 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>Logging Filter</filter-name>
-		<url-pattern>/compose</url-pattern>
+		<url-pattern>/mixing</url-pattern>
 	</filter-mapping>
-
 </web-app>

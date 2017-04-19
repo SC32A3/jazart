@@ -625,7 +625,6 @@ analysis
 	<!-- Popup -->
 	<script src="resources/components/popup/popup.js"></script>
 
-
 	<!-- MAIN JAVASCRIPT FILE ================================ -->
 	<script src="resources/js/qt-main.js"></script>
 

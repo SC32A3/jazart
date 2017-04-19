@@ -11,19 +11,25 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class HttpsRedirectFilter implements Filter {
 	private FilterConfig fc;
-	
+
+	static final Logger log = LoggerFactory.getLogger(HttpsRedirectFilter.class);
+
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 
 		if (request instanceof HttpServletRequest && response instanceof HttpServletResponse) {
+
 			HttpServletRequest httpReq = (HttpServletRequest) request;
 			String redirectTarget = httpReq.getRequestURL().toString();
 			redirectTarget = redirectTarget.replaceFirst("https", "http");
-			redirectTarget = redirectTarget.replaceFirst(":8443", ":9099");
-			// redirectTarget = redirectTarget.replaceFirst("home", "home.do");
+			redirectTarget = redirectTarget.replaceFirst(":8443", ":80");
+
 			if (request.isSecure()) {
 				((HttpServletResponse) response).sendRedirect(redirectTarget);
 			} else {
