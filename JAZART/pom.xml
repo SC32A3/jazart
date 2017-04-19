@@ -45,7 +45,7 @@
 </dependency>
 	
 	<!-- 시큐리티  -->
-	<!-- <dependency>
+		<dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
             <version>4.2.2.RELEASE</version>
@@ -64,7 +64,7 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-taglibs</artifactId>
             <version>4.2.2.RELEASE</version>
-        </dependency> -->
+        </dependency>
 	
 		<!-- json 처리를 위한 dependency -->
 		<dependency>

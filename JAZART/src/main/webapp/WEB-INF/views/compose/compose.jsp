@@ -507,7 +507,7 @@ analysis
 		<div id="qtplayercontainer" data-playervolume="true"
 			data-accentcolor="#dd0e34" data-accentcolordark="#ff0442"
 			data-textcolor="#ffffff"
-			data-soundmanagerurl="./components/soundmanager/swf/"
+			data-soundmanagerurl="./resources/components/soundmanager/swf/"
 			class="qt-playercontainer qt-playervolume qt-clearfix qt-content-primary">
 			<div class="qt-playercontainer-content qt-vertical-padding-m">
 				<div class="qt-playercontainer-header">
@@ -537,17 +537,21 @@ analysis
 				</div>
 			</div>
 			<div id="playerimage" class="qt-header-bg"
-				data-bgimage="imagestemplate/full-1600-700.jpg">
-				<img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
+				data-bgimage="resources/imagestemplate/full-1600-700.jpg">
+				<img src="resources/imagestemplate/full-1600-700.jpg" alt="Featured image"
 					width="690" height="302">
 			</div>
 		</div>
+		
+		
 		<!-- this is for xml radio feed -->
-		<div id="qtShoutcastFeedData" class="hidden" data-style=""
-			data-channel="1" data-host="173.192.105.231" data-port="3540"></div>
+		
+		<!-- <div id="qtShoutcastFeedData" class="hidden" data-style=""
+			data-channel="1" data-host="173.192.105.231" data-port="3540"></div> -->
+		
 		<!-- PLAYER END ========================= -->
 		<!-- CHANNELS LIST ========================= -->
-		<div class="qt-part-channels-list">
+		<!-- <div class="qt-part-channels-list">
 			<ul class="qt-content-aside qt-channelslist qt-negative">
 				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
 					data-title="06AM Ibiza" data-subtitle="Underground Radio"
@@ -572,7 +576,7 @@ analysis
 						class="dripicons-media-play"></i> altradio
 				</a></li>
 			</ul>
-		</div>
+		</div> -->
 		<!-- CHANNELS LIST END ========================= -->
 	</div>
 	<!-- PLAYER SIDEBAR END ========================= -->
@@ -581,7 +585,7 @@ analysis
 
 	<!-- QT FOOTER SCRIPTS ================================ -->
 	<script src="resources/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-	<script src="resources/js/jquery.js"></script>
+	<!-- <script src="resources/js/jquery.js"></script> -->
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
 	<script src="resources/js/jquery-migrate.min.js"></script>
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
@@ -614,9 +618,9 @@ analysis
 		src="resources/components/soundmanager/script/berniecode-animator.js"></script>
 	<script
 		src="resources/components/soundmanager/script/soundmanager2-nodebug.js"></script>
-	<script src="resources/components/soundmanager/script/shoutcast.js"></script>
+	<!-- <script src="resources/components/soundmanager/script/shoutcast.js"></script>
 	<script
-		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script>
+		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script> -->
 
 	<!-- Popup -->
 	<script src="resources/components/popup/popup.js"></script>
