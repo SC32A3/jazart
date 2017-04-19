@@ -156,8 +156,11 @@
 						onclick="javascript:input('${item.song_title}','${item.song_nickname}')">
 							<img src="download?type=song&data=${item.songnum}" alt="logo"
 							class="qt-radiologo dripicons-media-play" width="80" height="80">
-							<i class="dripicons-media-play"></i> ${item.song_title}
-					</a><a href="javascript:deleteSongList(${item.songnum})">목록제거</a></li>
+							<i class="dripicons-media-play"></i><i
+							class="icon dripicons-minus"
+							onclick="javascript:deleteSongList(${item.songnum})"></i>
+							${item.song_title}
+					</a></li>
 				</c:forEach>
 			</ul>
 		</div>

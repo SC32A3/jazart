@@ -9,6 +9,7 @@
 		<web-resource-collection>
 			<web-resource-name>my-secure-app</web-resource-name>
 			<url-pattern>/compose</url-pattern>
+			<url-pattern>/mixing</url-pattern>
 		</web-resource-collection>
 		<user-data-constraint>
 			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
@@ -85,6 +86,6 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>Logging Filter</filter-name>
-		<url-pattern>/mixing</url-pattern>
+		<url-pattern>/savePage</url-pattern>
 	</filter-mapping>
 </web-app>

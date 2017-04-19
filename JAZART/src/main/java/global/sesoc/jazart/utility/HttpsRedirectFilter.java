@@ -28,7 +28,7 @@ public class HttpsRedirectFilter implements Filter {
 			HttpServletRequest httpReq = (HttpServletRequest) request;
 			String redirectTarget = httpReq.getRequestURL().toString();
 			redirectTarget = redirectTarget.replaceFirst("https", "http");
-			redirectTarget = redirectTarget.replaceFirst(":8443", ":80");
+			redirectTarget = redirectTarget.replaceFirst(":8443", ":9099");
 
 			if (request.isSecure()) {
 				((HttpServletResponse) response).sendRedirect(redirectTarget);

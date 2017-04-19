@@ -279,4 +279,14 @@ public class ComposeController {
 		}
 		return "compose/mixing";
 	}
+	
+	@RequestMapping(value = "savePage", method = RequestMethod.GET)
+	public String savePage() {
+		return "compose/savePage";
+	}
+	
+	@RequestMapping(value = "saveSong", method = RequestMethod.POST)
+	public String saveSong() {
+		return "home";
+	}
 }
