@@ -3,6 +3,7 @@ package global.sesoc.jazart.controller;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -254,13 +255,21 @@ public class ComposeController {
 			for (int i = 0; i < upload.length; i++) {
 				MultipartFile multipartFile = upload[i];
 				if (!multipartFile.isEmpty()) {
-					// String savedfile =
-					// FileService.saveFile(multipartFile,uploadPath3, type);
-					String savedfile = FileService.saveFile(multipartFile,
-							request.getServletContext().getRealPath("src/data/samples/"), type);
+					String savedfile = FileService.saveFile(multipartFile,uploadPath3, type);
+					/*String savedfile = FileService.saveFile(multipartFile,
+							request.getServletContext().getRealPath("src/data/samples/"), type);*/
 					list.add(savedfile);
 					pw.print("{\"id\":\"" + (i + 1) + "\",\"url\":\"src/data/samples/" + savedfile
 							+ "\",\"track\":\"1\",\"startTime\":[],\"duration\":\"3.8399999141693115\"}");
+				
+					
+					File d = new File(uploadPath3+"/"+savedfile);
+					logger.info("1: "+uploadPath3+"/"+savedfile);
+					File e = new File(request.getServletContext().getRealPath("src/data/samples/")+savedfile);
+					logger.info("2 "+request.getServletContext().getRealPath("src/data/samples/")+savedfile);
+					FileInputStream fis = new FileInputStream(d);
+					FileOutputStream fos = new FileOutputStream(e);
+					FileCopyUtils.copy(fis, fos);
 				}
 
 				if (i != upload.length - 1) {
