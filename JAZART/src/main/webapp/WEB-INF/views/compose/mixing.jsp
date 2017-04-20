@@ -44,6 +44,7 @@
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 
 <!-- Mixing API -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
 <link href="resources/css/bootstrap.min.css" rel="stylesheet"
 	media="screen">
 <link rel="stylesheet" href="resources/css/mixing.css">
@@ -433,9 +434,11 @@
 							</div>
 						</div>
 					</div>
-					<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+					
+					<!-- mixing JS -->
+					<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 					<script src="resources/js/bootstrap.min.js"></script>
-					<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+					<script src="https://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 					<script src="resources/js/bootstrap-button.js"></script>
 					<script src="src/wavesurfer.js"></script>
 					<script src="src/webaudio.js"></script>
@@ -642,7 +645,7 @@
 
 	<!-- QT FOOTER SCRIPTS ================================ -->
 	<script src="resources/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-	<script src="resources/js/jquery.js"></script>
+	<!-- <script src="resources/js/jquery.js"></script> -->
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
 	<script src="resources/js/jquery-migrate.min.js"></script>
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
@@ -675,9 +678,9 @@
 		src="resources/components/soundmanager/script/berniecode-animator.js"></script>
 	<script
 		src="resources/components/soundmanager/script/soundmanager2-nodebug.js"></script>
-	<script src="resources/components/soundmanager/script/shoutcast.js"></script>
-	<script
-		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script>
+	<!-- <script src="resources/components/soundmanager/script/shoutcast.js"></script> -->
+	<!-- <script
+		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script> -->
 
 	<!-- Popup -->
 	<script src="resources/components/popup/popup.js"></script>
