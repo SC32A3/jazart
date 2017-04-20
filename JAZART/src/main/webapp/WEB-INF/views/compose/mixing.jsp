@@ -447,6 +447,10 @@
 					<script src="src/storage.js"></script>
 					<script src="src/jquery.knob.js"></script>
 					<script src="src/recorder.js"></script>
+					<script src="src/recorderWorker.js">
+					
+					
+					</script>
 					<script src="src/effects.js"></script>
 					<script src="src/main.js"></script>
 					<script src="src/vumeter.js"></script>

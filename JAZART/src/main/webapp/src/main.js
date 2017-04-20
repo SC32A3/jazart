@@ -60,6 +60,8 @@ var wavesurfer = (function() {
 						+ " data-url=" + song.url + " data-duration="
 						+ song.duration + "><a href=\"#\">" + sampleTitle
 						+ "</a></li>");
+		alert("변경:"+song.duration);
+		
 		$("#librarySample" + song.id).draggable({
 			revert : true,
 			helper : "clone",
@@ -104,8 +106,10 @@ var wavesurfer = (function() {
 							// get rid of old entry in table
 							var currentStartBar = $(this)
 									.attr('data-startTime');
+							alert('아아왜안뜨는데에에에');
 							alert("id : " + song.id + "/ currentStartBar : " + currentStartBar);
 							alert("hyunwo : "+JSON.stringify(times[currentStartBar]));
+							alert("baababab: "+JSON.stringify(song.duration));
 							times[currentStartBar] = jQuery.removeFromArray(
 									song.id, times[currentStartBar]);
 							$(this)

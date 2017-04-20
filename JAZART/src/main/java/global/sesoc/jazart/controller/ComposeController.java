@@ -263,6 +263,11 @@ public class ComposeController {
 							+ "\",\"track\":\"1\",\"startTime\":[],\"duration\":\"3.8399999141693115\"}");
 				
 					
+					/*(multipartFile.getBytes().length * ( 3.8399999141693115 / 338732) * 8)+"\"}");
+		               logger.info("계산된 길이 : " + multipartFile.getBytes().length * ( 3.8399999141693115 / 338732) * 8);*/
+
+					
+					
 					File d = new File(uploadPath3+"/"+savedfile);
 					logger.info("1: "+uploadPath3+"/"+savedfile);
 					File e = new File(request.getServletContext().getRealPath("src/data/samples/")+savedfile);
