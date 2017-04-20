@@ -36,12 +36,14 @@ var secondsPer16 = 0.25 * 60 / bpm;
 
 jQuery.removeFromArray = function(value, arr) {
 	return jQuery.grep(arr, function(elem, index) {
+		console.log(" elem.id !== value >>> " +  elem.id !== value);
 		return elem.id !== value;
 	});
 };
 
 var globalNumberOfTracks;
 var globalWavesurfers = [];
+var printTrackNumber;
 
 var wavesurfer = (function() {
 	'use strict';
@@ -102,6 +104,8 @@ var wavesurfer = (function() {
 							// get rid of old entry in table
 							var currentStartBar = $(this)
 									.attr('data-startTime');
+							alert("id : " + song.id + "/ currentStartBar : " + currentStartBar);
+							alert("hyunwo : "+JSON.stringify(times[currentStartBar]));
 							times[currentStartBar] = jQuery.removeFromArray(
 									song.id, times[currentStartBar]);
 							$(this)
@@ -177,7 +181,6 @@ var wavesurfer = (function() {
 			});
 
 		}
-
 		// wavesurfers is array of all tracks
 		var wavesurfers = json.samples.map(createWavesurfer);
 		$.each(wavesurfers, function() {
@@ -208,7 +211,6 @@ var wavesurfer = (function() {
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function() {
 		if (this.readyState == this.DONE && this.status == 200) {
-
 			processData(JSON.parse(this.responseText));
 		}
 	};
@@ -236,6 +238,9 @@ initSched({
 	audioContext : ac
 });
 
+$('body').bind('save-event', function(e){
+	exportWAV('audio/wav');
+});
 $('body').bind('playPause-event', function(e) {
 	schedPlay(ac.currentTime);
 });
@@ -259,6 +264,7 @@ $('body').bind('zoomIn-event', function(e) {
 $('body').bind('zoomOut-event', function(e) {
 	timelineZoomOut();
 });
+
 $(document)
 		.ready(
 				function() {
@@ -275,6 +281,10 @@ $(document)
 
 					});
 
+					// 희경 - 저장해볼깜
+					$("#save").click(function(){
+						$('body').trigger('save-event');
+					});
 					$("#trackEffects")
 							.droppable(
 									{
@@ -319,6 +329,8 @@ $(document)
 													ir : "0",
 													wetDry : "50"
 												});
+												alert('리버브 효과입혀짐');
+												alert(JSON.stringify(effects[activeTrack - 1]));
 											}
 											if (ui.draggable[0].textContent == "Filter") {
 												$("#filterCutoffKnob").val(30)
@@ -509,7 +521,6 @@ $(document)
 													wetDry : "50"
 												});
 											}
-
 										}
 
 									});
@@ -761,9 +772,45 @@ $(document)
 																	.drawBuffer(wavesurfer.backend.currentBuffer);
 														});
 									});
-					$("#trackEffectsClose").click(function() {
-						$("#trackEffects").css("display", "none");
-						$("#masterControl").css("display", "none");
+					$("#trackEffectsClose").click(
+							// 희경 - 트랙 삭제
+							function() {
+								if (globalNumberOfTracks > 4) {
+									var currentSideBarHeight = parseInt($(
+											".sidebar").css('height'));
+									currentSideBarHeight -= 90;
+									$(".sidebar").css('height',
+											"" + currentSideBarHeight + "px");
+
+								}
+								globalNumberOfTracks--;
+
+								var sample = $("#track" + printTrackNumber
+										+ " span");
+								$.each(sample, function(index, items) {
+									var currentStartBar = $(items).attr(
+											'data-startTime');
+									var procId = (($(items).attr('id'))
+											.split('sample')[1]).split('Span');
+									
+									alert("매개1 : " + procId[0] + " / 매개2 : " + JSON.stringify(times[currentStartBar]));
+									
+									times[currentStartBar] = jQuery
+											.removeFromArray(procId[0],
+													times[currentStartBar]);
+								});
+
+								effects[printTrackNumber - 1] = null;
+								$("#trackEffects").css("display", "none");
+								$("#masterControl").css("display", "none");
+								$("#selectTrack" + printTrackNumber).remove();
+							});
+
+					$(".effectClose").click(function() { // 희경 - 효과삭제
+						$(".effect").addClass("hidden");
+						var type = $(this).parent().attr("id");
+
+						effects[activeTrack-1].splice(0,1);
 					});
 
 					$("#masterVolume").slider({
@@ -811,6 +858,7 @@ $(document)
 										trackVolumeGains[newTrackNumber] = trackVolumeNode;
 										trackInputNodes[newTrackNumber] = trackInputNode;
 									});
+
 					drawTimeline();
 
 				});
@@ -850,70 +898,54 @@ function createTrack(trackNumber) {
 			setTrackVolume(muteTrackNumber, ui.value);
 		}
 	});
-	$("#selectTrack" + trackNumber)
-			.click(
-					function() {
-						var printTrackNumber = $(this).attr('id').split(
-								'selectTrack')[1];
-						activeTrack = printTrackNumber;
-						// compensation for off by one (track1 = effects[0])
-						$(".effect").addClass("hidden");
-						$.each(effects[activeTrack - 1],
-								function() {
-									var currentEffect = this;
-									$("#" + currentEffect.type).removeClass(
-											"hidden");
-									if (currentEffect.type == "Compressor") {
-										$("#compressorThresholdKnob").val(
-												currentEffect.threshold)
-												.trigger('change');
-										$("#compressorRatioKnob").val(
-												currentEffect.ratio).trigger(
-												'change');
-										$("#compressorAttackKnob").val(
-												currentEffect.attack * 1000)
-												.trigger('change');
-									}
-									if (currentEffect.type == "Filter") {
-										$("#filterCutoffKnob").val(
-												currentEffect.cutoff).trigger(
-												'change');
-										$("#filterQKnob").val(currentEffect.q)
-												.trigger('change');
-										$("#filterTypeKnob").val(
-												currentEffect.filterType)
-												.trigger('change');
-									}
-									if (currentEffect.type == "Reverb") {
-										$("#reverbWetDryKnob").val(
-												currentEffect.wetDry);
-										$("#reverbIrSelectKnob").val(
-												currentEffect.ir);
 
-									}
-									if (currentEffect.type == "Delay") {
-										$("#delayTimeKnob").val(
-												currentEffect.time);
-										$("#delayFeedbackKnob").val(
-												currentEffect.feedback);
-										$("#delayWetDryKnob").val(
-												currentEffect.wetDry);
-									}
-									if (currentEffect.type == "Tremelo") {
-										$("#tremeloRateKnob").val(
-												currentEffect.rate).trigger(
-												'change');
-										$("#tremeloDepthKnob").val(
-												currentEffect.depth).trigger(
-												'change');
-									}
-								});
-						Object.keys(effects[activeTrack - 1]);
-						$("#trackEffectsHeader").html(
-								"Track " + printTrackNumber);
-						$("#trackEffects").css("display", "block");
-						$("#masterControl").css("display", "block");
-					});
+	$("#selectTrack" + trackNumber).click(
+			function() {
+				printTrackNumber = $(this).attr('id').split('selectTrack')[1];
+				activeTrack = printTrackNumber;
+				// compensation for off by one (track1 = effects[0])
+				$(".effect").addClass("hidden");
+				$.each(effects[activeTrack - 1], function() {
+					var currentEffect = this;
+					$("#" + currentEffect.type).removeClass("hidden");
+					if (currentEffect.type == "Compressor") {
+						$("#compressorThresholdKnob").val(
+								currentEffect.threshold).trigger('change');
+						$("#compressorRatioKnob").val(currentEffect.ratio)
+								.trigger('change');
+						$("#compressorAttackKnob").val(
+								currentEffect.attack * 1000).trigger('change');
+					}
+					if (currentEffect.type == "Filter") {
+						$("#filterCutoffKnob").val(currentEffect.cutoff)
+								.trigger('change');
+						$("#filterQKnob").val(currentEffect.q)
+								.trigger('change');
+						$("#filterTypeKnob").val(currentEffect.filterType)
+								.trigger('change');
+					}
+					if (currentEffect.type == "Reverb") {
+						$("#reverbWetDryKnob").val(currentEffect.wetDry);
+						$("#reverbIrSelectKnob").val(currentEffect.ir);
+
+					}
+					if (currentEffect.type == "Delay") {
+						$("#delayTimeKnob").val(currentEffect.time);
+						$("#delayFeedbackKnob").val(currentEffect.feedback);
+						$("#delayWetDryKnob").val(currentEffect.wetDry);
+					}
+					if (currentEffect.type == "Tremelo") {
+						$("#tremeloRateKnob").val(currentEffect.rate).trigger(
+								'change');
+						$("#tremeloDepthKnob").val(currentEffect.depth)
+								.trigger('change');
+					}
+				});
+				Object.keys(effects[activeTrack - 1]);
+				$("#trackEffectsHeader").html("Track " + printTrackNumber);
+				$("#trackEffects").css("display", "block");
+				$("#masterControl").css("display", "block");
+			});
 	$("#mute" + trackNumber).click(function() {
 		$(this).button('toggle');
 		var muteTrackNumber = $(this).attr('id').split('mute')[1];
@@ -1106,7 +1138,6 @@ function createTrack(trackNumber) {
 													recordingCount++;
 												});
 									});
-
 						}
 
 					});
@@ -1143,6 +1174,26 @@ function createTrack(trackNumber) {
 							"" + startBar * pixelsPer16 + "px");
 					$("#sample" + sampleID + "Span" + rand).css('position',
 							'absolute');
+					$("#sample" + sampleID + "Span" + rand).click(
+							function() {
+								// 희경 - 음원 선택 부분
+								$(".sample").css('border', '0px solid black');
+								$("#sample" + sampleID + "Canvas" + rand).css(
+										'border', '2px solid red');
+								$("#sample" + sampleID + "Canvas" + rand).css(
+										'border-radius', '10px');
+							});
+					$("#sample" + sampleID + "Span" + rand).dblclick(
+							function() {
+								// 희경 - 음원 삭제 - 더블클릭
+								$("#sample" + sampleID + "Span" + rand)
+										.remove();
+								var currentStartBar = $(this).attr(
+										'data-startTime');
+								times[currentStartBar] = jQuery
+										.removeFromArray(sampleID,
+												times[currentStartBar]);
+							});
 					$("#sample" + sampleID + "Span" + rand).draggable(
 							{
 								axis : "x",
@@ -1152,6 +1203,8 @@ function createTrack(trackNumber) {
 								stop : function() {
 									var currentStartBar = $(this).attr(
 											'data-startTime');
+									alert("id : " + sampleID + "/ currentStartBar : " + currentStartBar);
+									alert("hyunwo : "+JSON.stringify(times[currentStartBar]));
 									times[currentStartBar] = jQuery
 											.removeFromArray(sampleID,
 													times[currentStartBar]);
@@ -1174,7 +1227,6 @@ function createTrack(trackNumber) {
 									}
 								}
 							});
-
 					var wavesurfer = Object.create(WaveSurfer);
 					wavesurfer.init({
 						canvas : canvas,
