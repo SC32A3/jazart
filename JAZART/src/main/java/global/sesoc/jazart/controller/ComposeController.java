@@ -259,8 +259,10 @@ public class ComposeController {
 					/*String savedfile = FileService.saveFile(multipartFile,
 							request.getServletContext().getRealPath("src/data/samples/"), type);*/
 					list.add(savedfile);
+					logger.info("getSize : "+multipartFile.getSize());
+					logger.info("getTime : "+multipartFile.getSize()*8/52/1000);
 					pw.print("{\"id\":\"" + (i + 1) + "\",\"url\":\"src/data/samples/" + savedfile
-							+ "\",\"track\":\"1\",\"startTime\":[],\"duration\":\"3.8399999141693115\"}");
+							+ "\",\"track\":\"1\",\"startTime\":[],\"duration\":"+multipartFile.getSize()*8/52/1000+"}");
 				
 					
 					/*(multipartFile.getBytes().length * ( 3.8399999141693115 / 338732) * 8)+"\"}");
@@ -275,6 +277,8 @@ public class ComposeController {
 					FileInputStream fis = new FileInputStream(d);
 					FileOutputStream fos = new FileOutputStream(e);
 					FileCopyUtils.copy(fis, fos);
+					fis.close();
+					fos.close();
 				}
 
 				if (i != upload.length - 1) {
