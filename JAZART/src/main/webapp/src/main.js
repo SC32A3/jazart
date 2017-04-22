@@ -60,7 +60,7 @@ var wavesurfer = (function() {
 						+ " data-url=" + song.url + " data-duration="
 						+ song.duration + "><a href=\"#\">" + sampleTitle
 						+ "</a></li>");
-		alert("변경:"+song.duration);
+		
 		
 		$("#librarySample" + song.id).draggable({
 			revert : true,
@@ -1207,8 +1207,8 @@ function createTrack(trackNumber) {
 								stop : function() {
 									var currentStartBar = $(this).attr(
 											'data-startTime');
-									alert("id : " + sampleID + "/ currentStartBar : " + currentStartBar);
-									alert("hyunwo : "+JSON.stringify(times[currentStartBar]));
+									/*alert("id : " + sampleID + "/ currentStartBar : " + currentStartBar);
+									alert("hyunwo : "+JSON.stringify(times[currentStartBar]));*/
 									times[currentStartBar] = jQuery
 											.removeFromArray(sampleID,
 													times[currentStartBar]);
@@ -1218,16 +1218,19 @@ function createTrack(trackNumber) {
 													/ pixelsPer16);
 									var newStartTime = $(this).attr(
 											'data-startTime');
+										//alert('NST: '+newStartTime);
 									if (times[newStartTime] == null) {
 										times[newStartTime] = [ {
 											id : sampleID,
 											track : trackNumber
 										} ];
+										//alert('new1: '+JSON.stringify(times[newStartTime]));
 									} else {
 										times[newStartTime].push({
 											id : sampleID,
 											track : trackNumber
 										});
+										//alert('new2: '+JSON.stringify(times[newStartTime]));
 									}
 								}
 							});
