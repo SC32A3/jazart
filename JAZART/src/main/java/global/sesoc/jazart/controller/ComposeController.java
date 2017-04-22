@@ -57,6 +57,10 @@ public class ComposeController {
 																				// 경로
 	final String uploadPath3 = "/userRecording"; // 내 녹음이 서버에 이전 되는 경로
 
+	@RequestMapping(value = "test", method = RequestMethod.GET)
+	public String test() {
+		return "compose/test";
+	}
 	@RequestMapping(value = "compose", method = RequestMethod.GET)
 	public String compose() {
 		return "compose/compose";
