@@ -215,15 +215,15 @@
 			<div class="qt-container qt-vertical-padding-l">
 				<div class="row">
 
-					<div id="app"></div>
+					<div id="app">ssss</div>
 
 					<!-- Production -->
 					<script src="bin/gs-daw.min.js"></script>
 					<!-- -->
 
 					<!-- Development - ->
+<script src="resources/jquery-3.1.1.min.js"></script>
 <script src="src/featuresTest.js"></script>
-
 <script src="src/dep/keyboardRouter.min.js"></script>
 <script src="src/dep/handlebars.runtime.min.js"></script>
 <script src="src/dep/gs-ui-components.min.js"></script>

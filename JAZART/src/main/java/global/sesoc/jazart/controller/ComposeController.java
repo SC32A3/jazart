@@ -296,7 +296,6 @@ public class ComposeController {
 			bw.close();
 			model.addAttribute("srclist", list);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "compose/mixing";
@@ -310,5 +309,15 @@ public class ComposeController {
 	@RequestMapping(value = "saveSong", method = RequestMethod.POST)
 	public String saveSong() {
 		return "home";
+	}
+	
+	@RequestMapping(value = "test2", method = RequestMethod.GET)
+	public String test2() {
+		return "compose/test2";
+	}
+	
+	@RequestMapping(value = "test3", method = RequestMethod.GET)
+	public String test3() {
+		return "compose/test3";
 	}
 }
