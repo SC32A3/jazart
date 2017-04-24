@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
@@ -331,5 +332,23 @@ public class ComposeController {
 	@RequestMapping(value = "test3", method = RequestMethod.GET)
 	public String test3() {
 		return "compose/test3";
+	}
+	
+	@RequestMapping(value = "ajaxTest1", method = RequestMethod.GET)
+	public @ResponseBody ArrayList<File> ajaxTest1() {
+		ArrayList<File> result = new ArrayList<>();
+		File dd = new File("c:\\Test\\");
+		
+		for (File file : dd.listFiles()) {
+			if (!file.isDirectory()) {
+				result.add(file);
+			}
+		}
+		return result;
+	}
+	
+	@RequestMapping(value = "test5", method = RequestMethod.GET)
+	public String test5() {
+		return "compose/test5";
 	}
 }
