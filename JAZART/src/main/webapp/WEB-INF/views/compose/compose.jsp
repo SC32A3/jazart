@@ -44,16 +44,8 @@
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 
 <!-- Recording API -->
-<!-- <script src="resources/js/audiodisplay.js"></script>
-<script src="resources/js/recorderjs/recorder.js"></script>
-<script src="resources/js/recorderjs/recorderWorker.js"></script>
-<script src="resources/js/rec_main.js"></script> -->
-
 <script src="resources/jquery-3.1.1.min.js"></script>
 <script src="resources/rTest/test.js"></script>
-<script type="text/javascript">
-	
-</script>
 <link rel="stylesheet" href="resources/rTest/app.css">
 <style>
 canvas {
@@ -377,7 +369,6 @@ analysis
 										      <input type="submit" value="다음단계로">
 									      </form>
 								      </div>
-									
 									<!-- 보류 -->
                                     <br />
                               </div>

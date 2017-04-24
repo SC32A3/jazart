@@ -335,9 +335,14 @@ public class ComposeController {
 		return "compose/test2";
 	}
 	
-	@RequestMapping(value = "test3", method = RequestMethod.GET)
-	public String test3() {
-		return "compose/test3";
+	@RequestMapping(value = "piano", method = RequestMethod.GET)
+	public String piano() {
+		return "compose/piano";
+	}
+	
+	@RequestMapping(value = "drum", method = RequestMethod.GET)
+	public String drum() {
+		return "compose/drum";
 	}
 	
 	@RequestMapping(value = "ajaxTest1", method = RequestMethod.GET)
