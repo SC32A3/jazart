@@ -2042,12 +2042,15 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
             this.elWave = this.elRoot.querySelector(".gsuiWaveform"),
             this.elRoot.onmousedown = this.mousedown.bind(this),
             this.elRoot.onclick = this.click.bind(this),
-            this.elRoot.ondragstart = this.dragstart.bind(this);
-            alert('elRoot: '+this.elRoot);
+            this.elRoot.ondragstart = this.dragstart.bind(this),
+            //alert('elRoot: '+this.elRoot); //빈값이옴
+            alert('elRoot: '+JSON.stringify(this.elRoot));
+            alert('elName: '+JSON.stringify(this.elName));
+            alert('elIcon: '+JSON.stringify(this.elIcon));
+            alert('elWave: '+JSON.stringify(this.elWave));
             this.elRoot.oncontextmenu = function() {
                 return !1
             }
-            
         }
         waFwk.on.addSource = function(e) {
             var i = new t,
@@ -2534,11 +2537,15 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
         }, document.body.ondrop = function(i) {
             var a, r = 0,
                 l = i && i.dataTransfer;
-            if (o = [], s = !1, l.items && l.items.length) e(l.items);
+            alert("i: "+JSON.stringify(i));
+            alert(JSON.stringify(i.dataTransfer.files[0].name));
+            if (o = [], s = !1, l.items && l.items.length) {
+            	e(l.items);
+            }
             else {
                 for (; a = l.files[r++];) n(a);
                 gs.compositions.readFile(s).then(function() {
-                    t()
+                	t()
                 })
             }
             return !1

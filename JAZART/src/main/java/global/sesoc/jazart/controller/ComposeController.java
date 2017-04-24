@@ -312,7 +312,19 @@ public class ComposeController {
 	}
 	
 	@RequestMapping(value = "test2", method = RequestMethod.GET)
-	public String test2() {
+	public String test2(Model model) {
+		File dd = new File("c:\\Test\\");
+		ArrayList<File> fList = new ArrayList<>();
+		for (File file : dd.listFiles()) {
+			if (!file.isDirectory()) {
+				fList.add(file);
+			}
+		}
+		
+		ArrayList<String> sList = new ArrayList<>();
+		sList.add("1"); sList.add("2"); sList.add("3");
+		model.addAttribute("sList", sList);
+		model.addAttribute("fList", fList);
 		return "compose/test2";
 	}
 	

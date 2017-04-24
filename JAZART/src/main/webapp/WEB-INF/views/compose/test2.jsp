@@ -213,7 +213,13 @@
 			<div id="app"></div>
 
 			<!-- Production -->
-			<script src="bin/gs-daw2.js"></script>               
+			<script src="bin/gs-daw2.js"></script>     
+			<script type="text/javascript">
+				document.body.onload = function() {
+					var test = "${sList}";
+					alert('test: '+test);	
+				}
+			</script>          
          </div>
       </div>
       	<div class="qt-footer qt-footerwidgets">
