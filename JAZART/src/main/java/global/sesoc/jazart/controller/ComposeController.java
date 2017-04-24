@@ -61,6 +61,12 @@ public class ComposeController {
 	public String test() {
 		return "compose/test";
 	}
+	
+	@RequestMapping(value = "mySrc", method = RequestMethod.GET)
+	public String mySrc() {
+		return "compose/mySource";
+	}
+	
 	@RequestMapping(value = "compose", method = RequestMethod.GET)
 	public String compose() {
 		return "compose/compose";

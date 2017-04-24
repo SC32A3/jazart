@@ -572,9 +572,8 @@
 							class="qt-btn qt-btn qt-btn-l qt-btn-primary">View full chart</a>
 					</p>
 				</div>
-				<div class="qt-header-bg"
-					data-bgimage="imagestemplate/full-1600-700.jpg">
-					<img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
+				<div class="qt-header-bg">
+					<img src="images/back1.jpg" alt="Featured image"
 						width="690" height="302">
 				</div>
 			</div>
@@ -600,49 +599,49 @@
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="resources/imagestemplate/css.jpg" width="235"
+									<img src="images/css.jpg" width="235"
 									height="132" alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="resources/imagestemplate/html.jpg" width="235"
+									<img src="images/html.jpg" width="235"
 									height="132" alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="resources/imagestemplate/java.jpg" width="235"
+									<img src="images/java.jpg" width="235"
 									height="132" alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="resources/imagestemplate/javascript.jpg" width="235"
+									<img src="images/javascript.jpg" width="235"
 									height="132" alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="resources/imagestemplate/jquery.jpg" width="235"
+									<img src="images/jquery.jpg" width="235"
 									height="132" alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="resources/imagestemplate/ajax.jpg" width="235"
+									<img src="images/ajax.jpg" width="235"
 									height="132" alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="resources/imagestemplate/servlets.jpg" width="235"
+									<img src="images/servlets.jpg" width="235"
 									height="132" alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
@@ -800,9 +799,8 @@
 					<hr class="qt-inline-textdeco">
 				</div>
 			</div>
-			<div id="playerimage" class="qt-header-bg"
-				data-bgimage="imagestemplate/full-1600-700.jpg">
-				<img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
+			<div id="playerimage" class="qt-header-bg">
+				<img src="images/back1.jpg" alt="Featured image"
 					width="690" height="302">
 			</div>
 		</div>
@@ -813,25 +811,13 @@
 		<!-- CHANNELS LIST ========================= -->
 		<div class="qt-part-channels-list">
 			<ul class="qt-content-aside qt-channelslist qt-negative">
-				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
-					data-title="06AM Ibiza" data-subtitle="Underground Radio"
-					data-background="imagestemplate/photo-squared-500-500.jpg"
-					data-logo="imagestemplate/radio-logo.png"
-					data-playtrack="http://173.192.105.231:3540/stream.mp3"
-					data-host="173.192.105.231" data-port="3540" data-stats_path=""
-					data-played_path="" data-channel=""> <img
-						src="imagestemplate/radio-logo.png" alt="logo"
+				<li class="qt-channel"><a href="#!" class="qt-ellipsis"> <img
+						src="images/radio-logo.png" alt="logo"
 						class="qt-radiologo dripicons-media-play" width="80" height="80">
 						<i class="dripicons-media-play"></i> Station 1
 				</a></li>
-				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
-					data-title="altradio" data-subtitle="The subtitle of radio 2"
-					data-background="imagestemplate/large-1170-512.jpg"
-					data-logo="imagestemplate/radio-logo.png"
-					data-playtrack="http://82.77.137.30:8557/;listen.mp3"
-					data-host="82.77.137.30" data-port="8557" data-stats_path=""
-					data-played_path="" data-channel=""> <img
-						src="imagestemplate/radio-logo.png" alt="logo"
+				<li class="qt-channel"><a href="#!" class="qt-ellipsis"> <img
+						src="images/radio-logo.png" alt="logo"
 						class="qt-radiologo" width="80" height="80"> <i
 						class="dripicons-media-play"></i> altradio
 				</a></li>
