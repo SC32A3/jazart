@@ -43,13 +43,50 @@
 <!-- Custom typography settings and google fonts -->
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 
+<script src="resources/jquery-3.1.1.min.js"></script>
+<script type="text/javascript"></script>
 <script>
+$(function() {
+	setTimeout(scrollMove, 1000);
+/* 	$(document).off(".disableScroll"); */
+});
+
+function scrollMove() {
+	var offset = $("#test").offset();
+	$('html, body').animate({
+		scrollTop : offset.top
+	}, 400);
+}
 	function pagingForSubmit(currentPage) {
 		var form = document.getElementById("pagingForm");
 		var page = document.getElementById("page");
 		page.value = currentPage;
 
 		form.submit();
+	}
+
+	function addSongList(songnum) {
+		var snum = songnum;
+		alert(snum);
+		$.ajax({
+			method : "get",
+			url : "addSongList",
+			data : {
+				"songnum" : snum
+			},
+			success : function(resp) {
+				if (resp == 1) {
+					alert('추가되었습니다');
+				} else if (resp == 0) {
+					alert('실패');
+				} else if (resp == 3) {
+					alert('로그인후 이용해주세요');
+				}
+			},
+			error : function(resp) {
+				alert(resp);
+			}
+		});
 	}
 </script>
 </head>
@@ -202,7 +239,7 @@
 			</div>
 			<!-- HEADER CAPTION END ========================= -->
 			<!-- ======================= CONTENT SECTION ======================= -->
-			<div class="qt-container">
+			<div class="qt-container" id="test">
 				<div class="row qt-vertical-padding-l ">
 					<div class="col s12 m12 l1 qt-pushpin-container">
 						<div class="qt-pushpin"></div>
@@ -230,7 +267,8 @@
 											<p>${ realtime.song_nickname }</p>
 										</div>
 										<div class="qt-action">
-											<a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i
+											<a href="javascript:addSongList(${realtime.songnum})"
+												class="qt-btn qt-btn-ghost qt-btn-l"><i
 												class="dripicons-cart"></i></a>
 										</div>
 									</div>
@@ -246,6 +284,8 @@
 												data-width="320" data-hqeight="500">노래듣기&nbsp;</a>
 										</p>
 									</div>
+									
+									
 								</li>
 								<!-- CHART TRACK END ========================= -->
 							</c:forEach>

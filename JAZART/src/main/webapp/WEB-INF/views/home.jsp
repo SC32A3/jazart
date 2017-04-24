@@ -44,6 +44,30 @@
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 <script src="resources/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
+	function addSongList(songnum) {
+		var snum = songnum;
+		alert(snum);
+		$.ajax({
+			method : "get",
+			url : "addSongList",
+			data : {
+				"songnum" : snum
+			},
+			success : function(resp) {
+				if (resp == 1) {
+					alert('추가되었습니다');
+				} else if (resp == 0) {
+					alert('실패');
+				} else if (resp == 3) {
+					alert('로그인후 이용해주세요');
+				}
+			},
+			error : function(resp) {
+				alert(resp);
+			}
+		});
+	}
+
 	function recommend(num) {
 		var snum = num;
 		$.ajax({
@@ -521,7 +545,8 @@
 										<p>${ weekly.song_nickname }</p>
 									</div>
 									<div class="qt-action">
-										<a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i
+										<a href="javascript:addSongList(${weekly.songnum})"
+											class="qt-btn qt-btn-ghost qt-btn-l"><i
 											class="dripicons-cart"></i></a>
 									</div>
 								</div>
@@ -707,10 +732,10 @@
 						height="302">
 				</div>
 			</div>
-			<div class="qt-footer-bottom qt-content-primary-dark">
+			<!-- <div class="qt-footer-bottom qt-content-primary-dark">
 				<div class="qt-container">
-					<div class="row">
-						<!-- <div class="col s12 m12 l8">
+					<div class="row"> 
+						<div class="col s12 m12 l8">
                      Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
                      | Radio Station HTML Template
                      <ul class="qt-menu-footer qt-small qt-list-chevron ">
@@ -718,9 +743,9 @@
                         <li><a href="#">Privacy</a></li>
                         <li><a href="#">Sitemap</a></li>
                      </ul>
-                  </div> -->
+                  </div> 
 						<div class="col s12 m12 l4">
-							<!-- <ul class="qt-menu-social">
+							<ul class="qt-menu-social">
                         <li class="right"><a href="#"><i
                               class="qticon-beatport"></i></a></li>
                         <li class="right"><a href="#"><i
@@ -729,13 +754,13 @@
                         <li class="right"><a href="#"><i class="qticon-youtube"></i></a></li>
                         <li class="right"><a href="#"><i
                               class="qticon-soundcloud"></i></a></li>
-                     </ul> -->
+                     </ul> 
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
-	</div>
+	
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"
 		class="side-nav qt-content-primary qt-right-sidebar">

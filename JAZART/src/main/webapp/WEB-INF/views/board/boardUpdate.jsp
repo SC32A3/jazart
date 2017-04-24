@@ -81,11 +81,17 @@
 						<li><a href="dailyChart">Daily Chart</a></li>
 						<li><a href="weeklyChart">Weekly Chart</a></li>
 					</ul></li>
-				<li><a href="page-contacts.html">Contacts</a></li>
+					<li><a href="qna">Contacts</a>
+					<ul>
+						<li><a href="qna">QnA</a></li>
+						<li><a href="question">Question</a></li>
+					</ul></li>
+					
+			<!-- 	<li><a href="page-contacts.html">Contacts</a></li>
 				<li class="right"><a href="#!" data-expandable="#qtsearchbar"
 					class="qt-btn qt-btn-l qt-scrolltop"><i
 						class="icon dripicons-search"></i></a></li>
-
+ -->
 				<c:if test="${not empty loginNickname}">
 					<li class="right"><a href="songPopup?songnum=0"
 						class="qt-popupwindow" data-name="Music Player" data-width="320"

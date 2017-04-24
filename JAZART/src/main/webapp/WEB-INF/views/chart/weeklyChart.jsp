@@ -45,6 +45,16 @@
 <script src="resources/jquery-3.1.1.min.js"></script>
 <script type="text/javascript"></script>
 <script>
+	$(function() {
+		setTimeout(scrollMove, 1000);
+	/* 	$(document).off(".disableScroll"); */
+	});
+	function scrollMove() {
+		var offset = $("#test").offset();
+		$('html, body').animate({
+			scrollTop : offset.top
+		}, 400);
+	}
 	function pagingForSubmit(currentPage) {
 		var form = document.getElementById("pagingForm");
 		var page = document.getElementById("page");
@@ -62,11 +72,11 @@
 			data : {
 				"songnum" : snum
 			},
-			success : function(resp){
-				if (resp == 1){
-					alert('추가되었스빈다');
-				} else if (resp == 0){
-					alert('추가안됐어');
+			success : function(resp) {
+				if (resp == 1) {
+					alert('추가되었습니다');
+				} else if (resp == 0) {
+					alert('실패');
 				} else if (resp == 3) {
 					alert('로그인후 이용해주세요');
 				}
@@ -227,7 +237,7 @@
 			</div>
 			<!-- HEADER CAPTION END ========================= -->
 			<!-- ======================= CONTENT SECTION ======================= -->
-			<div class="qt-container">
+			<div class="qt-container" id="test">
 				<div class="row qt-vertical-padding-l ">
 					<div class="col s12 m12 l1 qt-pushpin-container">
 						<div class="qt-pushpin"></div>

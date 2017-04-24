@@ -74,7 +74,12 @@
 <body>
 	<!-- QT HEADER END ================================ -->
 	<div class="qt-parentcontainer">
-
+		<c:if test="${empty playlist}">
+			<script type="text/javascript">
+				alert('재생목록없음');
+				this.close();
+		</script>
+		</c:if>
 		<!-- PLAYER ========================= -->
 		<div id="qtplayercontainer" data-playervolume="true"
 			data-accentcolor="#dd0e34" data-accentcolordark="#ff0442"
@@ -83,9 +88,6 @@
 			class="qt-playercontainer qt-playervolume qt-clearfix qt-content-primary">
 			<c:forEach var="item" begin="0" end="0" items="${playlist}">
 				<div class="qt-playercontainer-content qt-vertical-padding-m">
-
-
-
 					<div class="qt-playercontainer-header">
 						<h5 class="qt-text-shadow small">Now on</h5>
 						<!-- <h3 id="qtradiotitle" class="qt-text-shadow">STATION 1 RADIO</h3> -->
