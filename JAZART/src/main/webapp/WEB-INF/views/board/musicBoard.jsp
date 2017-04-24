@@ -350,12 +350,11 @@
 		<!-- SCHEDULE DAY END ================================================== -->
 	</div>
 	<!-- TAB CONTENTS END ======================================== -->
-	</div>
+	<div></div>
 	<!-- SCHEDULE END ================================================== -->
-	</div>
+	<div></div>
 	<hr class="qt-spacer-l">
-
-	</div>
+	<div></div>
 	<!-- .qt-main end -->
 	<div class="qt-footer qt-footerwidgets">
 		<div class="qt-section qt-footer-widgets qt-content-primary-light">
@@ -461,7 +460,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"

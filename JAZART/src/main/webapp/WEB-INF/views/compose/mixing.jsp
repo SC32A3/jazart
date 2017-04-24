@@ -198,48 +198,7 @@
 			<!-- HEADER CONTACTS END ========================= -->
 			<div class="qt-container qt-vertical-padding-l">
 				<div class="row">
-					<!-- <div class="navbar navbar-inverse navbar-fixed-top">
-						<div class="navbar-inner">
-							<div class="container-fluid">
-								<button type="button" class="btn btn-navbar"
-									data-toggle="collapse" data-target=".nav-collapse">
-									<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-										class="icon-bar"></span>
-								</button>
-								<a class="brand" href="#">OpenDAW</a>
-								<div class="nav-collapse collapse">
-									<ul class="nav">
-											<li><a href="#">Export</a></li>
-										<li><a href="#">Save</a></li>
-
-										<li><a id="step-backward" href="#"><i
-												class="icon-step-backward icon-white"></i></a></li>
-										<li><a id="playPause" href="#"><i
-												class="icon-play icon-white"></i></a></li>
-										<li><a id="stop" href="#"><i
-												class="icon-stop icon-white"></i></a></li>
-
-									</ul>
-								</div>
-								/.nav-collapse
-							</div>
-						</div>
-					</div> -->
 					<div class="container-fluid">
-						<!-- <div class="nav-collapse collapse">
-							<ul class="nav">
-								<li><a href="#">Export</a></li>
-								<li><a href="#">Save</a></li>
-
-								<li><a id="step-backward" href="#">backward<i
-										class="icon-step-backward icon-white"></i></a></li>
-								<li><a id="playPause" href="#">play/pause<i
-										class="icon-play icon-white"></i></a></li>
-								<li><a id="stop" href="#">stop<i
-										class="icon-stop icon-white"></i></a></li>
-							</ul>
-						</div> -->
-
 						<table>
 							<tr>
 								<td><a id="step-backward" href="#">backward</a></td>

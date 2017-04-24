@@ -44,6 +44,30 @@
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 <script src="resources/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
+	function addSongList(songnum) {
+		var snum = songnum;
+		alert(snum);
+		$.ajax({
+			method : "get",
+			url : "addSongList",
+			data : {
+				"songnum" : snum
+			},
+			success : function(resp) {
+				if (resp == 1) {
+					alert('추가되었습니다');
+				} else if (resp == 0) {
+					alert('실패');
+				} else if (resp == 3) {
+					alert('로그인후 이용해주세요');
+				}
+			},
+			error : function(resp) {
+				alert(resp);
+			}
+		});
+	}
+
 	function recommend(num) {
 		var snum = num;
 		$.ajax({
@@ -521,7 +545,8 @@
 										<p>${ weekly.song_nickname }</p>
 									</div>
 									<div class="qt-action">
-										<a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i
+										<a href="javascript:addSongList(${weekly.songnum})"
+											class="qt-btn qt-btn-ghost qt-btn-l"><i
 											class="dripicons-cart"></i></a>
 									</div>
 								</div>
@@ -547,9 +572,8 @@
 							class="qt-btn qt-btn qt-btn-l qt-btn-primary">View full chart</a>
 					</p>
 				</div>
-				<div class="qt-header-bg"
-					data-bgimage="imagestemplate/full-1600-700.jpg">
-					<img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
+				<div class="qt-header-bg">
+					<img src="images/back1.jpg" alt="Featured image"
 						width="690" height="302">
 				</div>
 			</div>
@@ -575,49 +599,49 @@
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="resources/imagestemplate/css.jpg" width="235"
+									<img src="images/css.jpg" width="235"
 									height="132" alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="resources/imagestemplate/html.jpg" width="235"
+									<img src="images/html.jpg" width="235"
 									height="132" alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="resources/imagestemplate/java.jpg" width="235"
+									<img src="images/java.jpg" width="235"
 									height="132" alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="resources/imagestemplate/javascript.jpg" width="235"
+									<img src="images/javascript.jpg" width="235"
 									height="132" alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="resources/imagestemplate/jquery.jpg" width="235"
+									<img src="images/jquery.jpg" width="235"
 									height="132" alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="resources/imagestemplate/ajax.jpg" width="235"
+									<img src="images/ajax.jpg" width="235"
 									height="132" alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="resources/imagestemplate/servlets.jpg" width="235"
+									<img src="images/servlets.jpg" width="235"
 									height="132" alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
@@ -707,10 +731,10 @@
 						height="302">
 				</div>
 			</div>
-			<div class="qt-footer-bottom qt-content-primary-dark">
+			<!-- <div class="qt-footer-bottom qt-content-primary-dark">
 				<div class="qt-container">
-					<div class="row">
-						<!-- <div class="col s12 m12 l8">
+					<div class="row"> 
+						<div class="col s12 m12 l8">
                      Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
                      | Radio Station HTML Template
                      <ul class="qt-menu-footer qt-small qt-list-chevron ">
@@ -718,9 +742,9 @@
                         <li><a href="#">Privacy</a></li>
                         <li><a href="#">Sitemap</a></li>
                      </ul>
-                  </div> -->
+                  </div> 
 						<div class="col s12 m12 l4">
-							<!-- <ul class="qt-menu-social">
+							<ul class="qt-menu-social">
                         <li class="right"><a href="#"><i
                               class="qticon-beatport"></i></a></li>
                         <li class="right"><a href="#"><i
@@ -729,13 +753,13 @@
                         <li class="right"><a href="#"><i class="qticon-youtube"></i></a></li>
                         <li class="right"><a href="#"><i
                               class="qticon-soundcloud"></i></a></li>
-                     </ul> -->
+                     </ul> 
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
-	</div>
+	
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"
 		class="side-nav qt-content-primary qt-right-sidebar">
@@ -775,9 +799,8 @@
 					<hr class="qt-inline-textdeco">
 				</div>
 			</div>
-			<div id="playerimage" class="qt-header-bg"
-				data-bgimage="imagestemplate/full-1600-700.jpg">
-				<img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
+			<div id="playerimage" class="qt-header-bg">
+				<img src="images/back1.jpg" alt="Featured image"
 					width="690" height="302">
 			</div>
 		</div>
@@ -788,25 +811,13 @@
 		<!-- CHANNELS LIST ========================= -->
 		<div class="qt-part-channels-list">
 			<ul class="qt-content-aside qt-channelslist qt-negative">
-				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
-					data-title="06AM Ibiza" data-subtitle="Underground Radio"
-					data-background="imagestemplate/photo-squared-500-500.jpg"
-					data-logo="imagestemplate/radio-logo.png"
-					data-playtrack="http://173.192.105.231:3540/stream.mp3"
-					data-host="173.192.105.231" data-port="3540" data-stats_path=""
-					data-played_path="" data-channel=""> <img
-						src="imagestemplate/radio-logo.png" alt="logo"
+				<li class="qt-channel"><a href="#!" class="qt-ellipsis"> <img
+						src="images/radio-logo.png" alt="logo"
 						class="qt-radiologo dripicons-media-play" width="80" height="80">
 						<i class="dripicons-media-play"></i> Station 1
 				</a></li>
-				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
-					data-title="altradio" data-subtitle="The subtitle of radio 2"
-					data-background="imagestemplate/large-1170-512.jpg"
-					data-logo="imagestemplate/radio-logo.png"
-					data-playtrack="http://82.77.137.30:8557/;listen.mp3"
-					data-host="82.77.137.30" data-port="8557" data-stats_path=""
-					data-played_path="" data-channel=""> <img
-						src="imagestemplate/radio-logo.png" alt="logo"
+				<li class="qt-channel"><a href="#!" class="qt-ellipsis"> <img
+						src="images/radio-logo.png" alt="logo"
 						class="qt-radiologo" width="80" height="80"> <i
 						class="dripicons-media-play"></i> altradio
 				</a></li>

@@ -47,7 +47,7 @@
 	<!-- QT HEADER END ================================ -->
 
 	<div class="qt-parentcontainer">
-	<!-- QT MENUBAR TOP ================================ -->
+		<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
 			<ul>
 				<li><a href="about"><i class="dripicons-chevron-right"></i>About
@@ -92,18 +92,18 @@
 						<li><a href="qna">QnA</a></li>
 						<li><a href="question">Question</a></li>
 					</ul></li>
-	<!-- 			<li class="right"><a href="#!" data-expandable="#qtsearchbar"
+				<!-- 			<li class="right"><a href="#!" data-expandable="#qtsearchbar"
 					class="qt-btn qt-btn-l qt-scrolltop"><i
 						class="icon dripicons-search"></i></a></li> -->
-				
+
 				<!-- 플레이리스트 -->
 				<c:if test="${not empty loginNickname}">
-				<li class="right"><a href="songPopup?songnum=0"
-					class="qt-popupwindow" data-name="Music Player" data-width="320"
-					data-height="500"> <i class="icon dripicons-duplicate"></i>Playlist
-				</a></li>
-			</c:if>
-				
+					<li class="right"><a href="songPopup?songnum=0"
+						class="qt-popupwindow" data-name="Music Player" data-width="320"
+						data-height="500"> <i class="icon dripicons-duplicate"></i>Playlist
+					</a></li>
+				</c:if>
+
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
 			<ul class="qt-desktopmenu hide-on-xl-only ">
@@ -118,7 +118,7 @@
 			<ul class=" qt-side-nav">
 				<li><a href="/">jazart<span>♬</span></a></li>
 				<li class="menu-item-has-children"><a href="compose">Compose</a>
-						<ul>
+					<ul>
 						<li><a href="mixing">(test)Mixing Page</a></li>
 						<li><a href="artistPage">(test)Artist Page</a></li>
 					</ul></li>
@@ -186,10 +186,9 @@
 					<h1 class="qt-caption qt-spacer-s">FAQ</h1>
 					<h4 class="qt-subtitle">자주하는 질문</h4>
 				</div>
-				<div class="qt-header-bg"
-					data-bgimage="images/back4.jpg">
-					<img src="images/back4.jpg"
-						alt="Featured image" width="690" height="302">
+				<div class="qt-header-bg" data-bgimage="images/back4.jpg">
+					<img src="images/back4.jpg" alt="Featured image" width="690"
+						height="302">
 				</div>
 			</div>
 			<!-- HEADER CAPTION END ========================= -->
@@ -204,38 +203,18 @@
 								<div
 									class="qt-chart-table collapsible-header qt-content-primary">
 									<div class="qt-position" style="width: 170px; height: 100px;">
-											<span>Q</span>
+										<span>Q</span>
 									</div>
 									<div class="qt-titles">
-										<h3 class="qt-ellipsis qt-t">어떤 프로그램(사이트)인가요?</h3>
+										<h4 class="qt-ellipsis qt-t">어떤 프로그램(사이트)인가요?</h4>
 										<p>사이트 정보</p>
 									</div>
 								</div>
 								<div class="collapsible-body qt-paper">
-									<p>기존의 복잡하고 어려운 작곡 프로그램에 실망하셨습니까? 내가 만든곡을  자랑하고 싶은데 어디서
-										자랑해야 될지 모르겠습니까? 사용자의 편의를 고려한 간편 작곡 프로그램 Jazart가 여러분의 꽉막힌
-										고민은 아주 시원하게 뚫어 드립니다. 초급자들은 몇번의 클릭만으로 완성도 있는 곡을 아주 손쉽게,
-										고급자들은 자신의 감성을 살린 곡을  만들 수 있게 Jazart로 여러분의 숨겨진 잠재력을 폭발
-										시켜보세요.</p>
-								</div>
-							</li>
-							<!-- CHART TRACK END ========================= -->
-									<!-- CHART TRACK ========================= -->
-							<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
-								<div
-									class="qt-chart-table collapsible-header qt-content-primary">
-									<div class="qt-position" style="width: 170px; height: 100px;">
-											<span>Q</span>
-									</div>
-									<div class="qt-titles">
-										<h3 class="qt-ellipsis qt-t">jazart의
-											의미는 무엇인가요?</h3>
-										<p>사이트 정보</p>
-									</div>
-								</div>
-								<div class="collapsible-body qt-paper">
-									<p>Jazart는 자바를 이용한 프로그램으로 모차르트 처럼 작곡을 할 수 있다는 의미로서
-										Java + Mozart = Jazart가 되었습니다.</p>
+									<p>기존의 복잡하고 어려운 작곡 프로그램에 실망하셨습니까? 내가 만든곡을 자랑하고 싶은데 어디서 자랑해야
+										될지 모르겠습니까? 사용자의 편의를 고려한 간편 작곡 프로그램 Jazart가 여러분의 꽉막힌 고민은 아주
+										시원하게 뚫어 드립니다. 초급자들은 몇번의 클릭만으로 완성도 있는 곡을 아주 손쉽게, 고급자들은 자신의 감성을
+										살린 곡을 만들 수 있게 Jazart로 여러분의 숨겨진 잠재력을 폭발 시켜보세요.</p>
 								</div>
 							</li>
 							<!-- CHART TRACK END ========================= -->
@@ -244,10 +223,28 @@
 								<div
 									class="qt-chart-table collapsible-header qt-content-primary">
 									<div class="qt-position" style="width: 170px; height: 100px;">
-											<span>Q</span>
+										<span>Q</span>
 									</div>
 									<div class="qt-titles">
-										<h3 class="qt-ellipsis qt-t">Jazart 유료입니까?무료입니까?</h3>
+										<h4 class="qt-ellipsis qt-t">jazart의 의미는 무엇인가요?</h4>
+										<p>사이트 정보</p>
+									</div>
+								</div>
+								<div class="collapsible-body qt-paper">
+									<p>Jazart는 자바를 이용한 프로그램으로 모차르트 처럼 작곡을 할 수 있다는 의미로서 Java +
+										Mozart = Jazart가 되었습니다.</p>
+								</div>
+							</li>
+							<!-- CHART TRACK END ========================= -->
+							<!-- CHART TRACK ========================= -->
+							<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
+								<div
+									class="qt-chart-table collapsible-header qt-content-primary">
+									<div class="qt-position" style="width: 170px; height: 100px;">
+										<span>Q</span>
+									</div>
+									<div class="qt-titles">
+										<h4 class="qt-ellipsis qt-t">Jazart 유료입니까?무료입니까?</h4>
 										<p>사이트 정보</p>
 									</div>
 								</div>
@@ -262,19 +259,17 @@
 								<div
 									class="qt-chart-table collapsible-header qt-content-primary">
 									<div class="qt-position" style="width: 170px; height: 100px;">
-											<span>Q</span>
+										<span>Q</span>
 									</div>
 									<div class="qt-titles">
-										<h3 class="qt-ellipsis qt-t">Jazart 초급과
-											고급은 어떻게 다른가요?</h3>
+										<h4 class="qt-ellipsis qt-t">Jazart 초급과 고급은 어떻게 다른가요?</h4>
 										<p>이용 정보</p>
 									</div>
 								</div>
 								<div class="collapsible-body qt-paper">
-									<p>초급은 그동안의 어려웠던 작곡 스타일을 과감히 버리고 전문가들이 만든 멜로디를 추천받아
-										장르와 분위기에 따라 추천받은 음원으로  작곡을 할 수 있도록 하였습니다. 
-										고급은 어려분의 여러분의 실력을 섬세하게 발휘할 수 있도록 세세한 수정이 가능하도록 하였습니다.
-										jazart와 함께 즐거운 작곡 여정을 시작합시다.</p>
+									<p>초급은 그동안의 어려웠던 작곡 스타일을 과감히 버리고 전문가들이 만든 멜로디를 추천받아 장르와
+										분위기에 따라 추천받은 음원으로 작곡을 할 수 있도록 하였습니다. 고급은 어려분의 여러분의 실력을 섬세하게
+										발휘할 수 있도록 세세한 수정이 가능하도록 하였습니다. jazart와 함께 즐거운 작곡 여정을 시작합시다.</p>
 								</div>
 							</li>
 							<!-- CHART TRACK END ========================= -->
@@ -283,11 +278,10 @@
 								<div
 									class="qt-chart-table collapsible-header qt-content-primary">
 									<div class="qt-position" style="width: 170px; height: 100px;">
-											<span>Q</span>
+										<span>Q</span>
 									</div>
 									<div class="qt-titles">
-										<h3 class="qt-ellipsis qt-t">차트
-											순위는 어떻게 결정되나요?</h3>
+										<h4 class="qt-ellipsis qt-t">차트 순위는 어떻게 결정되나요?</h4>
 										<p>이용 정보</p>
 									</div>
 								</div>
@@ -298,25 +292,25 @@
 								</div>
 							</li>
 							<!-- CHART TRACK END ========================= -->
-						
-					
+
+
 							<!-- CHART TRACK ========================= -->
-							<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
+							<li class="qt-part-chart qt-chart-track qt-negative qt-card-s"">
 								<div
 									class="qt-chart-table collapsible-header qt-content-primary">
 									<div class="qt-position" style="width: 170px; height: 100px;">
-											<span>Q</span>
+										<span>Q</span>
 									</div>
 									<div class="qt-titles">
-										<h3 class="qt-ellipsis qt-t">다른 궁금하거나 불편한 점이 있을 경우 어디로 연락해야하나요</h3>
+										<h4 class="qt-ellipsis qt-t">다른 궁금하거나 불편한 점이 있을 경우 어디로
+											연락해야하나요</h4>
 										<p>이용 정보</p>
 									</div>
 								</div>
 								<div class="collapsible-body qt-paper">
-									<p>저희 제품을 사용하시다 궁금한 점이나 불편함이 있으시다면 question page를 통해  문의하실 수 있습니다. 
-									문의 주시면 빠른 시일 내에 답변 드리겠습니다. 
-									- 전화상담: 02-123-4567 
-									- info@jazart.com
+									<p>저희 제품을 사용하시다 궁금한 점이나 불편함이 있으시다면 question page를 통해 문의하실 수
+										있습니다. 문의 주시면 빠른 시일 내에 답변 드리겠습니다. - 전화상담: 02-123-4567 -
+										info@jazart.com
 								</div>
 							</li>
 							<!-- CHART TRACK END ========================= -->
@@ -325,18 +319,16 @@
 								<div
 									class="qt-chart-table collapsible-header qt-content-primary">
 									<div class="qt-position" style="width: 170px; height: 100px;">
-											<span>Q</span>
+										<span>Q</span>
 									</div>
 									<div class="qt-titles">
-										<h3 class="qt-ellipsis qt-t">핸드폰으로도
-											사용하고 싶어요</h3>
+										<h4 class="qt-ellipsis qt-t">핸드폰으로도 사용하고 싶어요</h4>
 										<p>이용 정보</p>
 									</div>
 								</div>
 								<div class="collapsible-body qt-paper">
-									<p>아직은 핸드폰으로 사용할 수 없지만 조만간 안드로이드 버전 개발 개획이 있으므로  안드로이드 버전이 개발되면
-									공지할 계획입니다. 
-									</p>
+									<p>아직은 핸드폰으로 사용할 수 없지만 조만간 안드로이드 버전 개발 개획이 있으므로 안드로이드 버전이
+										개발되면 공지할 계획입니다.</p>
 								</div>
 							</li>
 							<!-- CHART TRACK END ========================= -->
@@ -345,11 +337,11 @@
 								<div
 									class="qt-chart-table collapsible-header qt-content-primary">
 									<div class="qt-position" style="width: 170px; height: 100px;">
-											<span>Q</span>
+										<span>Q</span>
 									</div>
 									<div class="qt-titles">
-										<h3 class="qt-ellipsis qt-t">작곡을
-											하지 않고 다른 사람의 음악만 들을 수 있나요?</h3>
+										<h4 class="qt-ellipsis qt-t">작곡을 하지 않고 다른 사람의 음악만 들을 수
+											있나요?</h4>
 										<p>이용 정보</p>
 									</div>
 								</div>
@@ -359,17 +351,16 @@
 								</div>
 							</li>
 							<!-- CHART TRACK END ========================= -->
-							
+
 							<!-- CHART TRACK ========================= -->
 							<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
 								<div
 									class="qt-chart-table collapsible-header qt-content-primary">
 									<div class="qt-position" style="width: 170px; height: 100px;">
-											<span>Q</span>
+										<span>Q</span>
 									</div>
 									<div class="qt-titles">
-										<h3 class="qt-ellipsis qt-t">악플러가
-											있다면 어떻게 합니까?</h3>
+										<h4 class="qt-ellipsis qt-t">악플러가 있다면 어떻게 합니까?</h4>
 										<p>이용 정보</p>
 									</div>
 								</div>
@@ -379,23 +370,21 @@
 								</div>
 							</li>
 							<!-- CHART TRACK END ========================= -->
-								<!-- CHART TRACK ========================= -->
+							<!-- CHART TRACK ========================= -->
 							<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
 								<div
 									class="qt-chart-table collapsible-header qt-content-primary">
 									<div class="qt-position" style="width: 170px; height: 100px;">
-											<span>Q</span>
+										<span>Q</span>
 									</div>
 									<div class="qt-titles">
-										<h3 class="qt-ellipsis qt-t">작곡을
-											이어서 할 수 있나요?</h3>
+										<h4 class="qt-ellipsis qt-t">작곡을 이어서 할 수 있나요?</h4>
 										<p>작곡 기능 정보</p>
 									</div>
 								</div>
 								<div class="collapsible-body qt-paper">
-									<p>물론입니다. 여러분이 작곡을 하다 잠시 작곡을 쉬고 이어서 다시
-										작곡을 할 수 있습니다.  편리하죠? 여러분이 작곡을 하고 싶을 때 언제든 이어서 작곡 할 수 있습니다.
-										여러분은 Jazart의 평생회원입니다.</p>
+									<p>물론입니다. 여러분이 작곡을 하다 잠시 작곡을 쉬고 이어서 다시 작곡을 할 수 있습니다. 편리하죠?
+										여러분이 작곡을 하고 싶을 때 언제든 이어서 작곡 할 수 있습니다. 여러분은 Jazart의 평생회원입니다.</p>
 								</div>
 							</li>
 							<!-- CHART TRACK END ========================= -->
@@ -405,7 +394,7 @@
 			</div>
 		</div>
 		<!-- .qt-main end -->
-			<div class="qt-footer qt-footerwidgets">
+		<div class="qt-footer qt-footerwidgets">
 			<div class="qt-section qt-footer-widgets qt-content-primary-light">
 				<div class="qt-container">
 					<h2 class="qt-footer-logo">
@@ -477,10 +466,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="qt-header-bg"
-					data-bgimage="images/back.jpg">
-					<img src="images/back.jpg" alt="Featured image"
-						width="690" height="302">
+				<div class="qt-header-bg" data-bgimage="images/back.jpg">
+					<img src="images/back.jpg" alt="Featured image" width="690"
+						height="302">
 				</div>
 			</div>
 			<div class="qt-footer-bottom qt-content-primary-dark">

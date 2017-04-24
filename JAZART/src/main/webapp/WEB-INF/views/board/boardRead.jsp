@@ -334,11 +334,16 @@ p.bContent b:after {
 					<li><a href="dailyChart">Daily Chart</a></li>
 					<li><a href="weeklyChart">Weekly Chart</a></li>
 				</ul></li>
-			<li><a href="page-contacts.html">Contacts</a></li>
+				<li><a href="qna">Contacts</a>
+					<ul>
+						<li><a href="qna">QnA</a></li>
+						<li><a href="question">Question</a></li>
+					</ul></li>
+<!-- 			<li><a href="page-contacts.html">Contacts</a></li>
 			<li class="right"><a href="#!" data-expandable="#qtsearchbar"
 				class="qt-btn qt-btn-l qt-scrolltop"><i
 					class="icon dripicons-search"></i></a></li>
-
+ -->
 			<c:if test="${not empty loginNickname}">
 				<li class="right"><a href="songPopup?songnum=0"
 					class="qt-popupwindow" data-name="Music Player" data-width="320"
@@ -374,7 +379,11 @@ p.bContent b:after {
 					<li><a href="dailyChart">Daily Chart</a></li>
 					<li><a href="weeklyChart">Weekly Chart</a></li>
 				</ul></li>
-			<li><a href="page-contacts.html">Contacts</a></li>
+			<li><a href="qna">Contacts</a>
+				<ul>
+					<li><a href="qna">QnA</a></li>
+					<li><a href="question">Question</a></li>
+				</ul></li>
 		</ul>
 	</div>
 	<!-- mobile toolbar -->
@@ -460,7 +469,7 @@ p.bContent b:after {
 													${board.board_nickname}<img class="line" alt="line"
 														src="images/line1.png"> ${board.board_inputdate}<img
 														class="line" alt="line" src="images/line1.png">
-													${board.board_hits}
+													조회수:${board.board_hits}
 												</div>
 												<div class="input-field col s12">
 													<%-- <tr>
@@ -468,11 +477,11 @@ p.bContent b:after {
 																<td style="width: 400px; height: 300px;"><pre>${board.board_content}</pre></td>
 															</tr> --%>
 													<!-- <p class="bContent"> <b> CONTENT </b></p> -->
-													<pre class="contentBrg">${board.board_content}</pre>
+													<textarea id="contents" readonly="readonly" name="contents"
+														aria-required="true" style="height: 250px; resize: none;"
+														required>${board.board_content}</textarea>
 												</div>
-
 												<div class="input-field col s12 btns">
-
 													<button
 														class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light"
 														onclick="location.href='commBoard'">
