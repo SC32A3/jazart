@@ -70,6 +70,12 @@ public class ComposeController {
 	
 	@RequestMapping(value = "compose", method = RequestMethod.GET)
 	public String compose() {
+		try {
+			Runtime.getRuntime().exec("control mmsys.cpl sounds");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return "compose/compose";
 	}
 
