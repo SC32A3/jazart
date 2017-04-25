@@ -215,6 +215,10 @@
 			<!-- Production -->
 			<script src="bin/gs-daw2.js"></script>     
 			<script type="text/javascript">
+				document.body.onload = function() {
+					var test = "${sList}";
+					alert('test: '+test);	
+				}
 			</script>          
          </div>
       </div>

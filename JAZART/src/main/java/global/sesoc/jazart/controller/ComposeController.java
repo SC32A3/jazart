@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -53,29 +54,26 @@ public class ComposeController {
 
 	final String uploadPath = "/userProfile"; // 파일이 업로드 되는 경로
 	final String uploadPath2 = System.getProperty("user.home") + "/downloads"; // 내
-																				// 녹음이
-																				// 업로드되는
-																				// 경로
+
+	// 녹음이
+
+	// 업로드되는
+
+	// 경로
 	final String uploadPath3 = "/userRecording"; // 내 녹음이 서버에 이전 되는 경로
 
 	@RequestMapping(value = "test", method = RequestMethod.GET)
 	public String test() {
 		return "compose/test";
 	}
-	
+
 	@RequestMapping(value = "mySrc", method = RequestMethod.GET)
 	public String mySrc() {
 		return "compose/mySource";
 	}
-	
+
 	@RequestMapping(value = "compose", method = RequestMethod.GET)
 	public String compose() {
-		try {
-			Runtime.getRuntime().exec("control mmsys.cpl sounds");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		return "compose/compose";
 	}
 
@@ -272,25 +270,34 @@ public class ComposeController {
 			for (int i = 0; i < upload.length; i++) {
 				MultipartFile multipartFile = upload[i];
 				if (!multipartFile.isEmpty()) {
-					String savedfile = FileService.saveFile(multipartFile,uploadPath3, type);
-					/*String savedfile = FileService.saveFile(multipartFile,
-							request.getServletContext().getRealPath("src/data/samples/"), type);*/
+					String savedfile = FileService.saveFile(multipartFile, uploadPath3, type);
+					/*
+					 * String savedfile = FileService.saveFile(multipartFile,
+					 * request.getServletContext().getRealPath(
+					 * "src/data/samples/"),type);
+					 */
 					list.add(savedfile);
-					logger.info("getSize : "+multipartFile.getSize());
-					logger.info("getTime : "+multipartFile.getSize()*8/52/1000);
+					logger.info("getSize : " + multipartFile.getSize());
+					logger.info("getTime : " + multipartFile.getSize() * 8 / 52 / 1000);
 					pw.print("{\"id\":\"" + (i + 1) + "\",\"url\":\"src/data/samples/" + savedfile
-							+ "\",\"track\":\"1\",\"startTime\":[],\"duration\":"+multipartFile.getSize()*8/52/1000+"}");
-				
-					
-					/*(multipartFile.getBytes().length * ( 3.8399999141693115 / 338732) * 8)+"\"}");
-		               logger.info("계산된 길이 : " + multipartFile.getBytes().length * ( 3.8399999141693115 / 338732) * 8);*/
+							+ "\",\"track\":\"1\",\"startTime\":[],\"duration\":"
+							+ multipartFile.getSize() * 8 / 52 / 1000 + "}");
 
-					
-					
-					File d = new File(uploadPath3+"/"+savedfile);
-					logger.info("1: "+uploadPath3+"/"+savedfile);
-					File e = new File(request.getServletContext().getRealPath("src/data/samples/")+savedfile);
-					logger.info("2 "+request.getServletContext().getRealPath("src/data/samples/")+savedfile);
+					/*
+					 * (multipartFile.getBytes().length * ( 3.8399999141693115 /
+					 * 338732) * 8)+"\"}"); logger.info("계산된 길이 : " +
+					 * multipartFile.getBytes().length * ( 3.8399999141693115 /
+					 * 338732) * 8);
+					 */
+
+					File d = new File(uploadPath3 + "/" + savedfile);
+					logger.info("1: " + uploadPath3 + "/" + savedfile);
+					File e = new File(request.getServletContext().getRealPath
+
+					("src/data/samples/") + savedfile);
+					logger.info("2 " + request.getServletContext().getRealPath
+
+					("src/data/samples/") + savedfile);
 					FileInputStream fis = new FileInputStream(d);
 					FileOutputStream fos = new FileOutputStream(e);
 					FileCopyUtils.copy(fis, fos);
@@ -308,22 +315,24 @@ public class ComposeController {
 			pw.close();
 			bw.close();
 			model.addAttribute("srclist", list);
-		} catch (IOException e) {
+		} catch (
+
+		IOException e) {
 			e.printStackTrace();
 		}
 		return "compose/mixing";
 	}
-	
+
 	@RequestMapping(value = "savePage", method = RequestMethod.GET)
 	public String savePage() {
 		return "compose/savePage";
 	}
-	
+
 	@RequestMapping(value = "saveSong", method = RequestMethod.POST)
 	public String saveSong() {
 		return "home";
 	}
-	
+
 	@RequestMapping(value = "test2", method = RequestMethod.GET)
 	public String test2(Model model) {
 		File dd = new File("c:\\Test\\");
@@ -333,37 +342,78 @@ public class ComposeController {
 				fList.add(file);
 			}
 		}
-		
+
 		ArrayList<String> sList = new ArrayList<>();
-		sList.add("1"); sList.add("2"); sList.add("3");
+		sList.add("1");
+		sList.add("2");
+		sList.add("3");
 		model.addAttribute("sList", sList);
 		model.addAttribute("fList", fList);
 		return "compose/test2";
 	}
-	
-	@RequestMapping(value = "piano", method = RequestMethod.GET)
-	public String piano() {
-		return "compose/piano";
+
+	@RequestMapping(value = "test3", method = RequestMethod.GET)
+	public String test3() {
+		return "compose/test3";
 	}
-	
-	@RequestMapping(value = "drum", method = RequestMethod.GET)
-	public String drum() {
-		return "compose/drum";
-	}
-	
+
 	@RequestMapping(value = "ajaxTest1", method = RequestMethod.GET)
-	public @ResponseBody ArrayList<File> ajaxTest1() {
-		ArrayList<File> result = new ArrayList<>();
-		File dd = new File("c:\\Test\\");
-		
-		for (File file : dd.listFiles()) {
-			if (!file.isDirectory()) {
-				result.add(file);
+	public @ResponseBody void ajaxTest1(HttpServletRequest request, HttpServletResponse response) {
+		String originalfile = "test2.wav";
+		String otherpath = request.getServletContext().getRealPath("src/sample/");
+		String fullpath = "";
+		ServletOutputStream fileout = null;
+		FileInputStream filein = null;
+		// 한개의 글을 가져옴
+
+		fullpath = otherpath + originalfile;
+		System.out.println(fullpath);
+		// 사용자 측에서 다운로드 받도록 하기 위해서
+		// response 객체의 헤더를 조작함, 웹페이지 개발자모드(F12)의 Head에서 확인할수 있다
+		// text/html에서 파일 다운로드 가능한 형태로 변경
+
+		try {
+			response.setHeader("Content-Disposition",
+					"attachment;filename=" + URLEncoder.encode(originalfile, "UTF-8"));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
+		// (웹유저) <---servletOutputStream(출력)---- (서버(웹프로젝트 주체))
+		// <--FileInputStream(입력)-- (하드 rose.jpg)
+		try {
+			filein = new FileInputStream(fullpath);
+			fileout = response.getOutputStream();
+			fileout.flush();
+			// Spring에서 제공하는 유틸리티
+			FileCopyUtils.copy(filein, fileout);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (filein != null)
+					filein.close();
+				if (fileout != null)
+					fileout.close();
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
-		return result;
+		// File dd = new
+		// File(request.getServletContext().getRealPath("src/sample/test2.wav"));
+
+		System.out.println("ajaxTest COunt>");
 	}
-	
+
+	/*
+	 * @RequestMapping(value = "ajaxTest1", method = RequestMethod.GET)
+	 * public @ResponseBody File ajaxTest1(HttpServletRequest request) {
+	 * //ArrayList<File> result = new ArrayList<>(); File dd = new
+	 * File("c:\\Test\\"); File dd = new
+	 * File(request.getServletContext().getRealPath("src/sample/test2.wav"));
+	 * logger.info("들어옴2"); for (File file : dd.listFiles()) { if
+	 * (!file.isDirectory()) { result.add(file); } } return dd; }
+	 */
 	@RequestMapping(value = "test5", method = RequestMethod.GET)
 	public String test5() {
 		return "compose/test5";

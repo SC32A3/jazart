@@ -572,10 +572,10 @@
 							class="qt-btn qt-btn qt-btn-l qt-btn-primary">View full chart</a>
 					</p>
 				</div>
-				<div class="qt-header-bg">
+				<!-- 	<div class="qt-header-bg">
 					<img src="images/back1.jpg" alt="Featured image"
 						width="690" height="302">
-				</div>
+				</div> -->
 			</div>
 			<!-- ======================= SPONSORS ======================= -->
 			<div class="qt-vertical-padding-m qt-sponsors qt-section">
@@ -599,50 +599,50 @@
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="images/css.jpg" width="235"
-									height="132" alt="sponsor" class="qt-image-responsive">
+									<img src="images/css.jpg" width="235" height="132"
+									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="images/html.jpg" width="235"
-									height="132" alt="sponsor" class="qt-image-responsive">
+									<img src="images/html.jpg" width="235" height="132"
+									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="images/java.jpg" width="235"
-									height="132" alt="sponsor" class="qt-image-responsive">
+									<img src="images/java.jpg" width="235" height="132"
+									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="images/javascript.jpg" width="235"
-									height="132" alt="sponsor" class="qt-image-responsive">
+									<img src="images/javascript.jpg" width="235" height="132"
+									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="images/jquery.jpg" width="235"
-									height="132" alt="sponsor" class="qt-image-responsive">
+									<img src="images/jquery.jpg" width="235" height="132"
+									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="images/ajax.jpg" width="235"
-									height="132" alt="sponsor" class="qt-image-responsive">
+									<img src="images/ajax.jpg" width="235" height="132"
+									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 							<!-- SLIDESHOW ITEM -->
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="images/servlets.jpg" width="235"
-									height="132" alt="sponsor" class="qt-image-responsive">
+									<img src="images/servlets.jpg" width="235" height="132"
+									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
 
@@ -656,7 +656,8 @@
 		<!-- .qt-main end -->
 		<div class="qt-footer qt-footerwidgets">
 			<div class="qt-section qt-footer-widgets qt-content-primary-light">
-				<div class="qt-container">
+				<div class="qt-container"
+					style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
 					<h2 class="qt-footer-logo">
 						<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
 					</h2>
@@ -757,9 +758,9 @@
 						</div>
 					</div>
 				</div> -->
-			</div>
 		</div>
-	
+	</div>
+
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"
 		class="side-nav qt-content-primary qt-right-sidebar">
@@ -800,8 +801,8 @@
 				</div>
 			</div>
 			<div id="playerimage" class="qt-header-bg">
-				<img src="images/back1.jpg" alt="Featured image"
-					width="690" height="302">
+				<img src="images/back1.jpg" alt="Featured image" width="690"
+					height="302">
 			</div>
 		</div>
 		<!-- this is for xml radio feed -->
@@ -817,9 +818,9 @@
 						<i class="dripicons-media-play"></i> Station 1
 				</a></li>
 				<li class="qt-channel"><a href="#!" class="qt-ellipsis"> <img
-						src="images/radio-logo.png" alt="logo"
-						class="qt-radiologo" width="80" height="80"> <i
-						class="dripicons-media-play"></i> altradio
+						src="images/radio-logo.png" alt="logo" class="qt-radiologo"
+						width="80" height="80"> <i class="dripicons-media-play"></i>
+						altradio
 				</a></li>
 			</ul>
 		</div>

@@ -247,7 +247,7 @@
 						<ul class="collapsible qt-chart-tracklist"
 							data-collapsible="accordion">
 
-	
+
 							<c:forEach var="daily" varStatus="status" items="${dc}">
 								<!-- CHART TRACK ========================= -->
 								<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
@@ -299,8 +299,8 @@
 										<span>일간차트</span>
 									</h5>
 									<div class="qt-widget-onair qt-card aligncenter">
-										<a href="#post"> <img src="${dc[0].song }"
-											class="images/jazart.jpg" alt="photo" />
+										<a href="#post"> <img src="${dc[0].song_picture}"
+											alt="photo" />
 										</a>
 										<h4 class="qt-caption-med">
 											<span>daily chart</span>
@@ -579,9 +579,9 @@
 						height="302">
 				</div>
 			</div>
-			<div class="qt-footer-bottom qt-content-primary-dark">
+			<!-- <div class="qt-footer-bottom qt-content-primary-dark">
 				<div class="qt-container">
-					<div class="row">
+					<div class="row"> -->
 						<!-- <div class="col s12 m12 l8">
 							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
 							| Radio Station HTML Template
@@ -591,7 +591,7 @@
 								<li><a href="#">Sitemap</a></li>
 							</ul>
 						</div> -->
-						<div class="col s12 m12 l4">
+					<!-- 	<div class="col s12 m12 l4"> -->
 							<!-- <ul class="qt-menu-social">
 								<li class="right"><a href="#"><i
 										class="qticon-beatport"></i></a></li>
@@ -602,10 +602,10 @@
 								<li class="right"><a href="#"><i
 										class="qticon-soundcloud"></i></a></li>
 							</ul> -->
-						</div>
+					<!-- 	</div>
 					</div>
-				</div>
-			</div>
+				</div> -->
+			<!-- </div> -->
 		</div>
 	</div>
 	<!-- PLAYER SIDEBAR ========================= -->
