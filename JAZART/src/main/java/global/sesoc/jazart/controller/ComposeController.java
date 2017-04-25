@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -74,6 +73,12 @@ public class ComposeController {
 
 	@RequestMapping(value = "compose", method = RequestMethod.GET)
 	public String compose() {
+		try {
+			Runtime.getRuntime().exec("control mmsys.cpl sounds");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return "compose/compose";
 	}
 
@@ -271,11 +276,7 @@ public class ComposeController {
 				MultipartFile multipartFile = upload[i];
 				if (!multipartFile.isEmpty()) {
 					String savedfile = FileService.saveFile(multipartFile, uploadPath3, type);
-					/*
-					 * String savedfile = FileService.saveFile(multipartFile,
-					 * request.getServletContext().getRealPath(
-					 * "src/data/samples/"),type);
-					 */
+
 					list.add(savedfile);
 					logger.info("getSize : " + multipartFile.getSize());
 					logger.info("getTime : " + multipartFile.getSize() * 8 / 52 / 1000);
@@ -315,9 +316,7 @@ public class ComposeController {
 			pw.close();
 			bw.close();
 			model.addAttribute("srclist", list);
-		} catch (
-
-		IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return "compose/mixing";
@@ -352,9 +351,14 @@ public class ComposeController {
 		return "compose/test2";
 	}
 
-	@RequestMapping(value = "test3", method = RequestMethod.GET)
-	public String test3() {
-		return "compose/test3";
+	@RequestMapping(value = "piano", method = RequestMethod.GET)
+	public String piano() {
+		return "compose/piano";
+	}
+
+	@RequestMapping(value = "drum", method = RequestMethod.GET)
+	public String drum() {
+		return "compose/drum";
 	}
 
 	@RequestMapping(value = "ajaxTest1", method = RequestMethod.GET)

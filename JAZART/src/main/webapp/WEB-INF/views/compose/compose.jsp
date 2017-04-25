@@ -360,7 +360,6 @@ light lnr lnr-rocket">
 								          <button class="delete">Delete</button>
 								        </article>
 								        -->
-<<<<<<< HEAD
 
 											</section>
 											<div></div>
@@ -403,30 +402,6 @@ light lnr lnr-rocket">
 			</div>
 		</div>
 		<div class="qt-footer qt-footerwidgets">
-=======
-								
-								      </section>
-								      
-								      <div>
-									      <form action="mixing" method="post" enctype="multipart/form-data">
-										      <input type="file" name="upload" multiple="multiple">
-										      <input type="submit" value="다음단계로">
-									      </form>
-								      </div>
-									<!-- 보류 -->
-                                    <br />
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
-               </div>
-            </div>
-         </div>
-      </div>
-      	<div class="qt-footer qt-footerwidgets">
->>>>>>> branch 'master' of https://github.com/SC32A3/jazart.git
 			<div class="qt-section qt-footer-widgets qt-content-primary-light">
 				<div class="qt-container">
 					<h2 class="qt-footer-logo">
