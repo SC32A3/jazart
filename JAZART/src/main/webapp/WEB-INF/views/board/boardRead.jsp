@@ -205,7 +205,7 @@ p.bContent b:after {
 				var replyArea = $("#replyArea").val(); 
 				$('#replyArea').empty(); //기존 화면상 데이터 삭제
 				
-				var msg = '<table>';
+				var msg = '<table style= "background-color: #fce4ec;">';
 				if (resp == "") {
 					msg += '<tr><td>저장된 댓글이 없습니다</td></tr>'
 				} else {
@@ -334,12 +334,12 @@ p.bContent b:after {
 					<li><a href="dailyChart">Daily Chart</a></li>
 					<li><a href="weeklyChart">Weekly Chart</a></li>
 				</ul></li>
-				<li><a href="qna">Contacts</a>
-					<ul>
-						<li><a href="qna">QnA</a></li>
-						<li><a href="question">Question</a></li>
-					</ul></li>
-<!-- 			<li><a href="page-contacts.html">Contacts</a></li>
+			<li><a href="qna">Contacts</a>
+				<ul>
+					<li><a href="qna">QnA</a></li>
+					<li><a href="question">Question</a></li>
+				</ul></li>
+			<!-- 			<li><a href="page-contacts.html">Contacts</a></li>
 			<li class="right"><a href="#!" data-expandable="#qtsearchbar"
 				class="qt-btn qt-btn-l qt-scrolltop"><i
 					class="icon dripicons-search"></i></a></li>
@@ -478,7 +478,8 @@ p.bContent b:after {
 															</tr> --%>
 													<!-- <p class="bContent"> <b> CONTENT </b></p> -->
 													<textarea id="contents" readonly="readonly" name="contents"
-														aria-required="true" style="height: 250px; resize: none;"
+														aria-required="true"
+														style="height: 250px; resize: none; background-color: #fce4ec;"
 														required>${board.board_content}</textarea>
 												</div>
 												<div class="input-field col s12 btns">
@@ -518,6 +519,7 @@ p.bContent b:after {
 											</div>
 
 											<br>
+
 											<div id="replyArea" class="replyArea"></div>
 											<br>
 
@@ -566,7 +568,8 @@ p.bContent b:after {
 								<h5 class="qt-caption-small">
 									<span>Contacts</span>
 								</h5>
-								<div class="qt-widget-contacts">
+								<div class="qt-widget-contacts"
+									style="background-color: rgba(255, 255, 255, 0.5); padding-left: 5px;">
 									<p>
 										<i class="qticon-home"></i><a
 											href="http://www.qantumthemes.com">www.qantumthemes.com</a>
@@ -586,7 +589,7 @@ p.bContent b:after {
 								<h5 class="qt-caption-small">
 									<span>Contacts</span>
 								</h5>
-								<div class="qt-widget-about">
+								<div class="qt-widget-about"style="background-color: rgba(255, 255, 255, 0.5); padding-left: 5px;">
 									<p>
 										We are a young and dynamic radio station which wants to bring
 										happyness in your life. <br> <a
