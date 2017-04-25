@@ -2549,7 +2549,66 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
                 })
             }
             return !1
-        }
+        }, document.body.onload = function() {
+        	/*
+			 * $.ajax({ method : 'get', url : 'ajaxTest1', processData: false,
+			 * contentType: false, success : function(resp) { //안됨 var blobData =
+			 * new Blob(resp, {type: 'audio/mpeg'}); var fileData = new
+			 * File(blobData, JSON.stringify(resp)); gs.file.create(fileData); } })
+			 */
+        	
+        	
+        	/*
+			 * var blob = null; //비우면 undefined가 온다 var xhr = new
+			 * XMLHttpRequest(); xhr.open("GET", "ajaxTest1", true);
+			 * //path/to/file
+			 * 
+			 * //xhr.overrideMimeType('application/xml'); //~테스트소스~
+			 * xhr.setRequestHeader("Content-Type","text/xml"); //~테스트소스~
+			 * 
+			 * xhr.responseType = "blob"; xhr.onload = function() { blob =
+			 * xhr.response; } xhr.send()
+			 * //alert(xhr.getResponseHeader("Content-Type")); 안떠ㅠㅠ
+			 * 
+			 * var parts = [ new Blob(['you construct a file...'], {type:
+			 * 'text/plain'}), ' Same way as you do with blob', new
+			 * Uint16Array([33]) ]; var linkB = URL.createObjectURL(blob);
+			 * alert(linkB); //blob:localhost.2183821093 값가져오는 식인데 안먹힘
+			 * alert(blob); alert('blob.size: '+blob.size); //오류나
+			 * alert('blob.type: '+blob.type); var parts = [blob, {type:
+			 * 'audio/wav'}]; //알수없음
+			 *  // Construct a file var file = new File(parts, 'sample.txt', {
+			 * //알수없음 lastModified: new Date(0), // optional - default = now
+			 * type: "audio/wav" // optional - default = '' "overide/mimetype"
+			 * }); gs.file.create(file); //알수없음
+			 */        	
+            	
+        	// 테스트2
+        	var blob = null;
+        	var xhr = new XMLHttpRequest();
+    		// xhr.open("GET", "download?name=" + name, true);
+    		xhr.open("GET", "ajaxTest1", true);
+    		
+    		xhr.overrideMimeType('audio/wav'); // ~테스트소스~ application/xml
+    		// xhr.setRequestHeader("Content-Type","audio/mpeg");
+    		
+    		xhr.responseType = "blob";
+    		xhr.onreadystatechange = function () {
+    		  if (xhr.readyState == xhr.DONE) {
+    		    blob = new Blob([xhr.response], {type : "audio/wav"});
+    		    var parts = [blob]; // 알수없음
+      		  // Construct a file
+      		  	var file = new File(parts, 'dddddd.wav', { // 알수없음
+      			  lastModified: new Date(0), // optional - default = now
+      			  type: "audio/wav" // optional - default = ''
+									// "overide/mimetype"
+      		  });
+      		  	gs.file.create(file); // 알수없음
+    		  }
+    		}
+    		xhr.send();
+    		// alert('onload'); onload는 한번 온다
+		}
     }(),
     function() {
         function t(t) {
