@@ -86,46 +86,42 @@
 			data-textcolor="#ffffff"
 			data-soundmanagerurl="./resources/components/soundmanager/swf/"
 			class="qt-playercontainer qt-playervolume qt-clearfix qt-content-primary">
-			<c:forEach var="item" begin="0" end="0" items="${playlist}">
-				<div class="qt-playercontainer-content qt-vertical-padding-m">
-					<div class="qt-playercontainer-header">
-						<h5 class="qt-text-shadow small">Now on</h5>
-						<!-- <h3 id="qtradiotitle" class="qt-text-shadow">STATION 1 RADIO</h3> -->
-						<!-- <h4 id="qtradiosubtitle" class="qt-thin qt-text-shadow small">Subtitle
+			<div class="qt-playercontainer-content qt-vertical-padding-m">
+				<div class="qt-playercontainer-header">
+					<h5 class="qt-text-shadow small">Now on</h5>
+					<!-- <h3 id="qtradiotitle" class="qt-text-shadow">STATION 1 RADIO</h3> -->
+					<!-- <h4 id="qtradiosubtitle" class="qt-thin qt-text-shadow small">Subtitle
 						of the radio</h4> -->
-					</div>
-
-
-					<div class="qt-playercontainer-musicplayer" id="qtmusicplayer">
-						<div class="qt-musicplayer">
-							<div class="ui360 ui360-vis qt-ui360">
-								<a id="playerlink"
-									href="download?type=music&data=${item.song_file}"></a>
-								<!-- <a id="playerlink"
+				</div>
+				<div class="qt-playercontainer-musicplayer" id="qtmusicplayer">
+					<div class="qt-musicplayer">
+						<div class="ui360 ui360-vis qt-ui360">
+							<a id="playerlink"
+								href="download?type=music&data=${playlist[0].song_file}"></a>
+							<!-- <a id="playerlink"
 								href="http://freshly-ground.com/data/audio/sm2/Adrian%20Glynn%20-%20Blue%20Belle%20Lament.mp3"> -->
-							</div>
 						</div>
 					</div>
-					<div
-						class="qt-playercontainer-data qt-container qt-text-shadow small">
-						<h6 class="qt-inline-textdeco">
-							<span>Current track</span>
-						</h6>
-						<div class="qt-t qt-current-track">
-							<h5 id="myTitle">${item.song_title}</h5>
-							<h6 class="qt-small" id="myNickname">${item.song_nickname}</h6>
-						</div>
-						<!-- qtFeedPlayerTrack  qtFeedPlayerAuthor-->
-						<hr class="qt-inline-textdeco">
+				</div>
+				<div
+					class="qt-playercontainer-data qt-container qt-text-shadow small">
+					<h6 class="qt-inline-textdeco">
+						<span>Current track</span>
+					</h6>
+					<div class="qt-t qt-current-track">
+						<h5 id="myTitle">${playlist[0].song_title}</h5>
+						<h6 class="qt-small" id="myNickname">${playlist[0].song_nickname}</h6>
 					</div>
+					<!-- qtFeedPlayerTrack  qtFeedPlayerAuthor-->
+					<hr class="qt-inline-textdeco">
+				</div>
 
-				</div>
-				<div id="playerimage" class="qt-header-bg"
-					data-bgimage="download?type=song&data=${item.songnum}">
-					<img src="download?type=song&data=${item.songnum}"
-						alt="Featured image" width="690" height="302">
-				</div>
-			</c:forEach>
+			</div>
+			<div id="playerimage" class="qt-header-bg"
+				data-bgimage="download?type=song&data=${playlist[0].songnum}">
+				<img src="download?type=song&data=${playlist[0].songnum}"
+					alt="Featured image" width="690" height="302">
+			</div>
 		</div>
 
 		<!-- this is for xml radio feed -->

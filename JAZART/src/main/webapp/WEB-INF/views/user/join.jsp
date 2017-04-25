@@ -109,7 +109,7 @@ volume.css" />
 	<!-- QT HEADER END ================================ -->
 
 	<div class="qt-parentcontainer">
-	<!-- QT MENUBAR TOP ================================ -->
+		<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
 			<ul>
 				<li><a href="about"><i class="dripicons-chevron-right"></i>About
@@ -149,22 +149,22 @@ volume.css" />
 						<li><a href="dailyChart">Daily Chart</a></li>
 						<li><a href="weeklyChart">Weekly Chart</a></li>
 					</ul></li>
-					<li><a href="qna">Contacts</a>
+				<li><a href="qna">Contacts</a>
 					<ul>
 						<li><a href="qna">QnA</a></li>
 						<li><a href="question">Question</a></li>
 					</ul></li>
-		<!-- 		<li class="right"><a href="#!" data-expandable="#qtsearchbar"
+				<!-- 		<li class="right"><a href="#!" data-expandable="#qtsearchbar"
 					class="qt-btn qt-btn-l qt-scrolltop"><i
 						class="icon dripicons-search"></i></a></li> -->
-				
+
 				<!-- 플레이리스트 -->
 				<c:if test="${not empty loginNickname}">
-				<li class="right"><a href="songPopup?songnum=0"
-					class="qt-popupwindow" data-name="Music Player" data-width="320"
-					data-height="500"> <i class="icon dripicons-duplicate"></i>Playlist
-				</a></li>
-			</c:if>
+					<li class="right"><a href="songPopup?songnum=0"
+						class="qt-popupwindow" data-name="Music Player" data-width="320"
+						data-height="500"> <i class="icon dripicons-duplicate"></i>Playlist
+					</a></li>
+				</c:if>
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
 			<ul class="qt-desktopmenu hide-on-xl-only ">
@@ -179,7 +179,7 @@ volume.css" />
 			<ul class=" qt-side-nav">
 				<li><a href="/">jazart<span>♬</span></a></li>
 				<li class="menu-item-has-children"><a href="compose">Compose</a>
-						<ul>
+					<ul>
 						<li><a href="mixing">(test)Mixing Page</a></li>
 						<li><a href="artistPage">(test)Artist Page</a></li>
 					</ul></li>
@@ -232,7 +232,7 @@ play"></i></a></li>
 						<div class="col s12 m1 l1">
 							<a href="#!"
 								class="qt-btn qt-btn-l qt-btn-secondary qt-fullwidth aligncenter"
-								data- expandable="#qtsearchbar"><i class="dripicons-cross"></i></a>
+								data-expandable="#qtsearchbar"><i class="dripicons-cross"></i></a>
 						</div>
 					</div>
 				</form>
@@ -247,10 +247,9 @@ play"></i></a></li>
 					<h1 class="qt-caption qt-spacer-s">Join Us</h1>
 					<h4 class="qt-subtitle">회원가입</h4>
 				</div>
-				<div class="qt-header-bg"
-					data-bgimage="images/band.jpg">
-					<img src="images/band.jpg"
-						alt="Featured image" width="690" height="302">
+				<div class="qt-header-bg" data-bgimage="images/band.jpg">
+					<img src="images/band.jpg" alt="Featured image" width="690"
+						height="302">
 				</div>
 			</div>
 			<!-- HEADER CONTACTS END ========================= -->
@@ -262,7 +261,7 @@ play"></i></a></li>
 							<div class="qt-valign-wrapper">
 								<div class="qt-valign flow-text">
 									<div class="qt-booking-form" data-100p-top="opacity:0;"
-										data-80p-top="opacity:0;" data-30p- top="opacity:1;">
+										data-80p-top="opacity:0;" data-30p-top="opacity:1;">
 										<ul class="tabs">
 											<li class="tab col s4">
 												<h5>
@@ -273,59 +272,55 @@ play"></i></a></li>
 										<div id="form" class="row">
 											<form class="col s12" method="post" action="join"
 												id="joinForm" enctype="multipart/form-data">
-												<!-- 
-
-email_sender.php -->
 												<input type="hidden" name="antispam" value="x123">
-												<h3 class="left-align qt-vertical-padding-m">write down
+												<!-- <h3 class="left-align qt-vertical-padding-m"> -->
+												<h3>write down
 													below</h3>
+												<br>
 												<div class="row">
 													<div class="input-field col s6">
-														<input name="user_id" id="user_id" type="text"
-															class="validate" required> <label>ID</label>
+														<label>ID</label> <input name="user_id" id="user_id"
+															type="text" class="validate" required>
 													</div>
 													<div class="input-field col s6">
-														<input name="user_pw" id="user_pw" type="password"
-															class="validate" required> <label>Password</label>
+														<label>Password</label> <input name="user_pw" id="user_pw"
+															type="password" class="validate" required>
 													</div>
 												</div>
 												<div class="row">
 													<div class="input-field col s6">
-														<input name="user_nickname" id="user_nickname" type="text"
-															class="validate" required> <label>Nickname</label>
+														<label>Nickname</label> <input name="user_nickname"
+															id="user_nickname" type="text" class="validate" required>
 													</div>
 												</div>
 												<div class="row">
 
 
 													<div class="input-field col s6">
-														<!-- <label>Profile</label> -->
-														<input type="file" name="upload">
+														<label>Profile</label> <input type="file" name="upload">
 													</div>
 
 
 												</div>
 												<div class="row">
 													<div class="input-field col s12">
-														<input name="user_phone" id="user_phone" type="text"
-															class="validate"> <label>Phone</label>
+														<label>Phone</label> <input name="user_phone"
+															id="user_phone" type="text" class="validate">
 													</div>
 												</div>
 												<div class="row">
 													<div class="input-field col s12">
-														<input name="user_email" id="user_email" type="email"
-															class="validate" required> <label>Email</label>
+														<label>Email</label> <input name="user_email"
+															id="user_email" type="email" class="validate" required>
 													</div>
 												</div>
 												<div class="row">
 													<div class="input-field col s12">
+														<label>Comment</label>
 														<p class="comment-form-comment">
-
-
-															<textarea id="user_desc" placeholder="Comment *"
-																name="user_desc" cols="45" aria-required="true"></textarea>
-
-
+															<textarea id="user_desc" placeholder="comment"
+																name="user_desc" aria-required="true"
+																style="height: 130px; resize: none;" required></textarea>
 														</p>
 													</div>
 												</div>
@@ -423,15 +418,14 @@ light lnr lnr-rocket"
 						</div>
 					</div>
 				</div>
-				<div class="qt-header-bg"
-					data-bgimage="images/back.jpg">
-					<img src="images/back.jpg" alt="Featured image"
-						width="690" height="302">
+				<div class="qt-header-bg" data-bgimage="images/back.jpg">
+					<img src="images/back.jpg" alt="Featured image" width="690"
+						height="302">
 				</div>
 			</div>
-			<div class="qt-footer-bottom qt-content-primary-dark">
+		<!-- 	<div class="qt-footer-bottom qt-content-primary-dark">
 				<div class="qt-container">
-					<div class="row">
+					<div class="row"> -->
 						<!-- <div class="col s12 m12 l8">
 							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
 							| Radio Station HTML Template
@@ -441,7 +435,7 @@ light lnr lnr-rocket"
 								<li><a href="#">Sitemap</a></li>
 							</ul>
 						</div> -->
-						<div class="col s12 m12 l4">
+				<!-- 		<div class="col s12 m12 l4"> -->
 							<!-- <ul class="qt-menu-social">
 								<li class="right"><a href="#"><i
 										class="qticon-beatport"></i></a></li>
@@ -454,10 +448,10 @@ light lnr lnr-rocket"
 							</ul> -->
 						</div>
 					</div>
-				</div>
+<!-- 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"
 		class="side-nav qt-content-primary qt-right-sidebar">

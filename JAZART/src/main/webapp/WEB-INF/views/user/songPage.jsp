@@ -417,7 +417,7 @@
 			<hr class="qt-spacer-l">
 		</div>
 	</div>
-	</div>
+	<!-- </div> -->
 
 	<!-- .qt-main end -->
 		<div class="qt-footer qt-footerwidgets">
@@ -498,9 +498,9 @@
 						width="690" height="302">
 				</div>
 			</div>
-			<div class="qt-footer-bottom qt-content-primary-dark">
+		<!-- 	<div class="qt-footer-bottom qt-content-primary-dark">
 				<div class="qt-container">
-					<div class="row">
+					<div class="row"> -->
 						<!-- <div class="col s12 m12 l8">
 							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
 							| Radio Station HTML Template
@@ -510,7 +510,7 @@
 								<li><a href="#">Sitemap</a></li>
 							</ul>
 						</div> -->
-						<div class="col s12 m12 l4">
+						<!-- <div class="col s12 m12 l4"> -->
 							<!-- <ul class="qt-menu-social">
 								<li class="right"><a href="#"><i
 										class="qticon-beatport"></i></a></li>
@@ -522,11 +522,11 @@
 										class="qticon-soundcloud"></i></a></li>
 							</ul> -->
 						</div>
-					</div>
+		<!-- 			</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"
 		class="side-nav qt-content-primary qt-right-sidebar">

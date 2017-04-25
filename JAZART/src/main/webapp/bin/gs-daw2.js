@@ -973,7 +973,7 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
         function n(t, e, i) {
             for (var n = 0; n < i.length; ++n, e += 4) t.setFloat32(e, i[n], !0)
         }
-        window.gswaEncodeWAV = function(s, o) { //저장할 때 뜨는 부분
+        window.gswaEncodeWAV = function(s, o) {
             var a = s.numberOfChannels,
                 r = s.sampleRate,
                 l = o && o.float32 ? 3 : 1,
@@ -1607,9 +1607,6 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
     }, gs.compositionStop = function() {
         gs.composition.stop(), waFwk.do.stop(), gs.currentTime(0), gs.isPaused = gs.isPlaying = !1
     }, gs.file.create = function(t) {
-    	alert('1610gs.file.create'+t);
-    	//alert(t.name); test2.wav
-    	//alert(t.size); 336010
         waFwk.do.addSource({
             data: t.length ? null : t,
             metadata: {
@@ -1617,7 +1614,7 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
                 duration: t.length ? t[3] : void 0
             }
         })
-        alert('1'); //찾았다. 1610번줄에서 한참 왔다갔다하고 여기서 드래그이벤트 종료
+        alert('gs.file.create: '+t);
     }, gs.file.delete = function(t) {
         gs.composition.samples.filter(function(e) {
             return e.data.gsfile === t
@@ -2484,12 +2481,10 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
     }(),
     function() {
         function t() {
-        	alert('2484function t');
             o.forEach(function(t) {
                 gs.files.some(function(e) {
                     var i = e.file ? e.file.size : e.size;
-                    alert('gs.file.size: '+i);
-                    if (e.fullname === t.name && i === t.size) alert('2484if'); return e.file || gs.file.joinFile(e, t), !0
+                    if (e.fullname === t.name && i === t.size) return e.file || gs.file.joinFile(e, t), !0
                 }) || gs.file.create(t)
             })
         }
@@ -2498,7 +2493,6 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
             for (var o, a = 0, r = []; o = e[a++];) o.webkitGetAsEntry && (o = o.webkitGetAsEntry()) ? r.push(i(o)) : (o = o.getAsFile()) && (lg("item.getAsFile()", o), n(o));
             Promise.all(r).then(function() {
                 gs.compositions.readFile(s).then(function() {
-                	alert('function e');
                     t()
                 })
             })
@@ -2546,62 +2540,16 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
             alert("i: "+JSON.stringify(i));
             alert(JSON.stringify(i.dataTransfer.files[0].name));
             if (o = [], s = !1, l.items && l.items.length) {
-            	alert('if l');
             	e(l.items);
             }
             else {
                 for (; a = l.files[r++];) n(a);
                 gs.compositions.readFile(s).then(function() {
-                	alert('else t');
                 	t()
                 })
             }
             return !1
-        }, document.body.onload = function() {
-        	
-        	$.ajax({
-        		method : 'get',
-        		url : 'ajaxTest1',
-        		processData: false,
-        	    contentType: false,
-        		success : function(resp) {
-					alert(resp);
-				}
-        	})
-        	
-        	
-        	/*var blob = null;
-    		var xhr = new XMLHttpRequest();
-    		xhr.open("GET", "xmlTest");  //path/to/file
-    		xhr.responseType = "blob";
-    		xhr.onload = function() 
-    		{
-    		    blob = xhr.response;
-    		    LoadAndDisplayFile(blob)
-    		}
-    		xhr.send()
-        	
-        	
-        	var parts = [
-        		  new Blob(['you construct a file...'], {type: 'text/plain'}),
-        		  ' Same way as you do with blob',
-        		  new Uint16Array([33])
-        		];
-
-        		// Construct a file
-        		var file = new File(parts, 'sample.txt', {
-        		    lastModified: new Date(0), // optional - default = now
-        		    type: "overide/mimetype" // optional - default = ''
-        		});*/
-
-        		
-
-        	
-        	
-        	
-        	
-        	
-		}
+        }
     }(),
     function() {
         function t(t) {
