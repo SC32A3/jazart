@@ -1,159 +1,188 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-}
-
-body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 0.8rem;
-}
-
 .wrapper {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
 }
+
 .main-controls {
-  padding: 0.5rem 0;
+	padding: 0.5rem 0;
+	height: 300px;
+}
+
+.visualizer{
+width: 100%;
+}
+
+.board_tag{
+	width: 150px;
+}
+
+.window{
+	height: 320px;
 }
 
 canvas {
-  width: 100%;
-  height: 60px;
-  display: block;
-  margin-bottom: 0.5rem;
+	display: inline-block;
+	width: 160px;
+	height: 66px;
+}
+
+#controls {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	height: 20%;
+	width: 100%;
+}
+
+#record {
+	height: 15vh;
+}
+
+#record.recording {
+	background: red;
+	background: -webkit-radial-gradient(center, ellipse cover, #ff0000 0%, lightgrey 75%
+		, lightgrey 100%, #7db9e8 100%);
+	background: -moz-radial-gradient(center, ellipse cover, #ff0000 0%, lightgrey 75%,
+		lightgrey 100%, #7db9e8 100%);
+	background: radial-gradient(center, ellipse cover, #ff0000 0%, lightgrey 75%,
+		lightgrey 100%, #7db9e8 100%);
+}
+
+#save, #save img {
+	height: 10vh;
+}
+
+#save {
+	opacity: 0.25;
+}
+
+#save[download] {
+	opacity: 1;
+}
+
+#viz {
+	height: 80%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+@media ( orientation : landscape) {
+	body {
+		flex-direction: row;
+	}
+	#controls {
+		flex-direction: column;
+		height: 100%;
+		width: 10%;
+	}
+	#viz {
+		height: 100%;
+		width: 90%;
+	}
+}
+
+/* audio {
+	display: none;
+} */
+[type="checkbox"]:not (:checked ), [type="checkbox"]:checked {
+	position: relative;
+	left: auto;
+	opacity: 1;
 }
 
 #buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 #buttons button {
-  font-size: 1rem;
-  padding: 1rem;
-  width: calc(50% - 0.25rem);
+	font-size: 1rem;
+	padding: 1rem;
+	width: calc(50% - 0.25rem);
 }
 
 button {
-  font-size: 1rem;
-  background: #ff8080;
-  text-align: center;
-  color: white;
-  border: none;
-  transition: all 0.2s;
-  padding: 0.5rem;
+	font-size: 1rem;
+	background: #ff8080;
+	text-align: center;
+	color: white;
+	border: none;
+	transition: all 0.2s;
+	padding: 0.5rem;
 }
 
 button:hover, button:focus {
-  background: #804040;
+	background: #804040;
 }
-
-button:active {
-  box-shadow: inset 0px 0px 20px rgba(0,0,0,0.5);
-  transform: translateY(2px);
-}
-
 
 /* Make the clips use as much space as possible, and
  * also show a scrollbar when there are too many clips to show
  * in the available space */
 .sound-clips {
-  flex: 1;
-  overflow: auto;
-}
-
-section, article {
-  display: block;
-}
-
-.clip {
-  padding-bottom: 1rem;
+	flex: 1;
+	overflow: auto;
 }
 
 audio {
-  width: 100%;
-  display: block;
-  margin: 1rem auto 0.5rem;
+	width: 100%;
+	display: block;
+	margin: 1rem auto 0.5rem;
 }
 
 .clip p {
-  display: inline-block;
-  font-size: 1rem;
+	display: inline-block;
+	font-size: 1rem;
 }
 
 .clip button {
-  font-size: 1rem;
-  float: right;
+	font-size: 1rem;
+	float: right;
 }
 
 button.delete {
-  background: #ff8080;
-  padding: 0.5rem 0.75rem;
-  font-size: 0.8rem;
+	background: #ff8080;
+	padding: 0.5rem 0.75rem;
+	font-size: 0.8rem;
 }
 
 /* Checkbox hack to control information box display */
-
 label {
-  font-size: 3rem;
-  position: absolute;
-  top: 2px;
-  right: 3px;
-  z-index: 5;
-  cursor: pointer;
+	font-size: 3rem;
+	position: absolute;
+	top: 2px;
+	right: 3px;
+	z-index: 5;
+	cursor: pointer;
 }
 
 input[type=checkbox] {
-   position: absolute;
-   top: -100px;
-}
-
-aside {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: translateX(100%);
-  transition: 0.3s all ease-out;
-  background-color: #efefef;
-  padding: 1rem;
-}
-
-aside p {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-}
-
-aside a {
-  color: #666;
+	position: absolute;
+	top: -100px;
 }
 
 /* Toggled State of information box */
 input[type=checkbox]:checked ~ aside {
-  transform: translateX(0);
+	transform: translateX(0);
 }
 
 /* Cursor when clip name is clicked over */
-
 .clip p {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 /* Adjustments for wider screens */
 @media all and (min-width: 800px) {
-  /* Don't take all the space as readability is lost when line length
+	/* Don't take all the space as readability is lost when line length
      goes past a certain size */
-  .wrapper {
-    width: 90%;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
+	.wrapper {
+		width: 90%;
+		max-width: 1000px;
+		margin: 0 auto;
+	}
 }

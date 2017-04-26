@@ -422,4 +422,14 @@ public class ComposeController {
 	public String test5() {
 		return "compose/test5";
 	}
+
+	@RequestMapping(value = "pitch", method = RequestMethod.GET)
+	public String pitch() {
+		return "compose/pitch";
+	}
+	
+	@RequestMapping(value = "effect", method = RequestMethod.GET)
+	public String effect() {
+		return "compose/effect";
+	}
 }

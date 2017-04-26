@@ -44,125 +44,6 @@
 <script src="resources/jquery-3.1.1.min.js"></script>
 <script src="resources/rTest/test.js"></script>
 <link rel="stylesheet" href="resources/rTest/app.css">
-<style>
-canvas {
-	display: inline-block;
-	background: #202020;
-	width: 160px;
-	height: 66px;
-}
-
-#controls {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-around;
-	height: 20%;
-	width: 100%;
-}
-
-#record {
-	height: 15vh;
-}
-
-#record.recording {
-	background: red;
-	background: -webkit-radial-gradient(center, ellipse cover, #ff0000 0%, lightgrey 75%
-		, lightgrey 100%, #7db9e8 100%);
-	background: -moz-radial-gradient(center, ellipse cover, #ff0000 0%, lightgrey 75%,
-		lightgrey 100%, #7db9e8 100%);
-	background: radial-gradient(center, ellipse cover, #ff0000 0%, lightgrey 75%,
-		lightgrey 100%, #7db9e8 100%);
-}
-
-#save, #save img {
-	height: 10vh;
-}
-
-#save {
-	opacity: 0.25;
-}
-
-#save[download] {
-	opacity: 1;
-}
-
-#viz {
-	height: 80%;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
-}
-
-@media ( orientation : landscape) {
-	body {
-		flex-direction: row;
-	}
-	#controls {
-		flex-direction: column;
-		height: 100%;
-		width: 10%;
-	}
-	#viz {
-		height: 100%;
-		width: 90%;
-	}
-}
-/* 추가부분 */
-.button {
-	display: inline-block;
-	vertical-align: middle;
-	margin: 0px 5px;
-	padding: 5px 12px;
-	cursor: pointer;
-	outline: none;
-	font-size: 13px;
-	text-decoration: none !important;
-	text-align: center;
-	color: #fff;
-	background-color: #4D90FE;
-	background-image: linear-gradient(top, #4D90FE, #4787ED);
-	background-image: -ms-linear-gradient(top, #4D90FE, #4787ED);
-	background-image: -o-linear-gradient(top, #4D90FE, #4787ED);
-	background-image: linear-gradient(top, #4D90FE, #4787ED);
-	border: 1px solid #4787ED;
-	box-shadow: 0 1px 3px #BFBFBF;
-}
-
-a.button {
-	color: #fff;
-}
-
-.button:hover {
-	box-shadow: inset 0px 1px 1px #8C8C8C;
-}
-
-.button.disabled {
-	box-shadow: none;
-	opacity: 0.7;
-}
-
-canvas {
-	display: block;
-}
-
-.recBg {
-	background-color: antiquewhite;
-	padding: 10px;
-}
-
-/* audio {
-	display: none;
-} */
-[type="checkbox"]:not (:checked ), [type="checkbox"]:checked {
-	position: relative;
-	left: auto;
-	opacity: 1;
-}
-analysis
-</style>
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->
@@ -357,15 +238,13 @@ analysis
 										</ul>
 										<div id="keyboard" class="row">
 											<div class="row">
-												<iframe class="window" style="height: 320px;"
-													frameborder="0"
+												<iframe class="window" frameborder="0"
 													src="${pageContext.request.contextPath}\piano"></iframe>
 											</div>
 										</div>
 										<div id="drum" class="row qt-contacts">
 											<div class="row">
-												<iframe class="window" style="height: 320px;"
-													frameborder="0"
+												<iframe class="window" frameborder="0"
 													src="${pageContext.request.contextPath}\drum"></iframe>
 											</div>
 										</div>
@@ -377,6 +256,41 @@ analysis
 					</div>
 				</div>
 			</div>
+		</div>
+		<!-- ======================= SPONSORS ======================= -->
+		<div class="qt-vertical-padding-m qt-sponsors qt-section">
+			<!-- SLIDESHOW SPONSORS ================================================== -->
+			<div
+				class="qt-slickslider-container qt-slickslider-externalarrows qt-slickslider-fullscreen">
+				<div class="row">
+					<div class="qt-slickslider-container qt-slickslider-externalarrows qt-slickslider-fullscreen">
+						<h4>작업 내역</h4>
+					</div>
+					<hr class="qt-spacer-s">
+					<div id="slideshow_items"
+						class="qt-slickslider qt-slickslider-multiple qt-text-shadow "
+						data-slidestoshow="6" data-slidestoshowipad="3"
+						data-variablewidth="false" data-arrows="true" data-dots="false"
+						data-infinite="true" data-centermode="false"
+						data-pauseonhover="true" data-autoplay="true"
+						data-arrowsmobile="false" data-centermodemobile="true"
+						data-dotsmobile="false" data-slidestoshowmobile="1"
+						data-variablewidthmobile="true" data-infinitemobile="false">
+						
+						<!-- SLIDESHOW ITEM -->
+						<div class="qt-item">
+							<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
+								<img src="images/css.jpg" width="235" height="132" alt="sponsor"
+								class="qt-image-responsive">
+							</a>
+						</div>
+						<!-- SLIDESHOW ITEM END -->
+						
+					</div>
+				</div>
+			</div>
+			<!-- SLIDESHOW SPONSORS END ================================================== -->
+			<hr class="qt-spacer-s">
 		</div>
 		<!-- .qt-main end -->
 		<div class="qt-footer qt-footerwidgets">

@@ -47,126 +47,6 @@
 <script src="resources/jquery-3.1.1.min.js"></script>
 <script src="resources/rTest/test.js"></script>
 <link rel="stylesheet" href="resources/rTest/app.css">
-<style>
-canvas {
-	display: inline-block;
-	background: #202020;
-	width: 95%;
-	height: 45%;
-	box-shadow: 0px 0px 10px blue;
-}
-
-#controls {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-around;
-	height: 20%;
-	width: 100%;
-}
-
-#record {
-	height: 15vh;
-}
-
-#record.recording {
-	background: red;
-	background: -webkit-radial-gradient(center, ellipse cover, #ff0000 0%, lightgrey 75%
-		, lightgrey 100%, #7db9e8 100%);
-	background: -moz-radial-gradient(center, ellipse cover, #ff0000 0%, lightgrey 75%,
-		lightgrey 100%, #7db9e8 100%);
-	background: radial-gradient(center, ellipse cover, #ff0000 0%, lightgrey 75%,
-		lightgrey 100%, #7db9e8 100%);
-}
-
-#save, #save img {
-	height: 10vh;
-}
-
-#save {
-	opacity: 0.25;
-}
-
-#save[download] {
-	opacity: 1;
-}
-
-#viz {
-	height: 80%;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
-}
-
-@media ( orientation : landscape) {
-	body {
-		flex-direction: row;
-	}
-	#controls {
-		flex-direction: column;
-		height: 100%;
-		width: 10%;
-	}
-	#viz {
-		height: 100%;
-		width: 90%;
-	}
-}
-/* 추가부분 */
-.button {
-	display: inline-block;
-	vertical-align: middle;
-	margin: 0px 5px;
-	padding: 5px 12px;
-	cursor: pointer;
-	outline: none;
-	font-size: 13px;
-	text-decoration: none !important;
-	text-align: center;
-	color: #fff;
-	background-color: #4D90FE;
-	background-image: linear-gradient(top, #4D90FE, #4787ED);
-	background-image: -ms-linear-gradient(top, #4D90FE, #4787ED);
-	background-image: -o-linear-gradient(top, #4D90FE, #4787ED);
-	background-image: linear-gradient(top, #4D90FE, #4787ED);
-	border: 1px solid #4787ED;
-	box-shadow: 0 1px 3px #BFBFBF;
-}
-
-a.button {
-	color: #fff;
-}
-
-.button:hover {
-	box-shadow: inset 0px 1px 1px #8C8C8C;
-}
-
-.button.disabled {
-	box-shadow: none;
-	opacity: 0.7;
-}
-
-canvas {
-	display: block;
-}
-
-.recBg {
-	background-color: antiquewhite;
-	padding: 10px;
-}
-
-/* audio {
-	display: none;
-} */
-[type="checkbox"]:not (:checked ), [type="checkbox"]:checked {
-	position: relative;
-	left: auto;
-	opacity: 1;
-}
-analysis
-</style>
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->
@@ -337,8 +217,8 @@ analysis
 											<input type="hidden" name="antispam" value="x123">
 											<h3 class="left-align qt-vertical-padding-m">RECORDING</h3>
 
-											<section class="main-controls" style="height: 300px;">
-												<canvas class="visualizer" style="width: 100%;"></canvas>
+											<section class="main-controls">
+												<canvas class="visualizer"></canvas>
 												<div id="buttons"
 													class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-
 
@@ -370,7 +250,7 @@ light lnr lnr-rocket">
 														class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-
 
 light lnr lnr-rocket">
-														<select name="board_tag" style="width: 150px;"
+														<select name="board_tag"
 															class="qt-btn qt-btn-s write_combo">
 															<option value="ballad">Ballad</option>
 															<option value="hiphop">HipHop</option>
