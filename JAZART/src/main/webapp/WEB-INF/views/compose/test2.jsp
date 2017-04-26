@@ -210,9 +210,37 @@
 				</div>
 				<!-- HEADER MEMBERS END ========================= -->
          <div class="qt-container qt-vertical-padding-l">
-			<div id="app"></div>
+			<div class="row">
+				<div class="col l10">
+						<!-- ====================== SECTION BOOKING AND CONTACTS ================================================ -->
+						<div id="booking" class="section qt-section-booking qt-card">
+							<div class="qt-valign-wrapper">
+								<div class="qt-valign flow-text">
+									<div class="qt-booking-form" data-100p-top="opacity:0;"
+										data-80p-top="opacity:0;" data-30p-top="opacity:1;">
+										<ul class="tabs">
+											<li class="tab col s4">
+												<h5>
+													<a href="#mixer" class="active">Mixer</a>
+												</h5>
+											</li>
+										</ul>
+										<div id="mixer" class="row">
+											<div class="row">
+												<iframe class="window" frameborder="0" src="mixer"></iframe>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
+					</div>
+			</div>
+			
+			<!-- <div id="app"></div>
 
-			<!-- Production -->
+			Production
 			<script type="text/javascript">
 				var result = new Array();
 				var sList = '${sList}';
@@ -222,7 +250,7 @@
 				}				
 				
 			</script>
-			<script src="bin/gs-daw2.js"></script>     
+			<script src="bin/gs-daw2.js"></script> -->     
          </div>
       </div>
       	<div class="qt-footer qt-footerwidgets">
