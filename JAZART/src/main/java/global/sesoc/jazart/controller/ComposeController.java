@@ -332,25 +332,6 @@ public class ComposeController {
 		return "home";
 	}
 
-	@RequestMapping(value = "test2", method = RequestMethod.GET)
-	public String test2(Model model) {
-		File dd = new File("c:\\Test\\");
-		ArrayList<File> fList = new ArrayList<>();
-		for (File file : dd.listFiles()) {
-			if (!file.isDirectory()) {
-				fList.add(file);
-			}
-		}
-
-		ArrayList<String> sList = new ArrayList<>();
-		sList.add("1");
-		sList.add("2");
-		sList.add("3");
-		model.addAttribute("sList", sList);
-		model.addAttribute("fList", fList);
-		return "compose/test2";
-	}
-
 	@RequestMapping(value = "piano", method = RequestMethod.GET)
 	public String piano() {
 		return "compose/piano";
@@ -361,9 +342,35 @@ public class ComposeController {
 		return "compose/drum";
 	}
 
-	@RequestMapping(value = "ajaxTest1", method = RequestMethod.GET)
-	public @ResponseBody void ajaxTest1(HttpServletRequest request, HttpServletResponse response) {
-		String originalfile = "test2.wav";
+	@RequestMapping(value = "test2", method = RequestMethod.GET)
+	public String test2(Model model, HttpServletRequest request) {
+		//File dd = new File(request.getServletContext().getRealPath("src/sample/"));
+		File dd = new File("c:\\Test\\");
+		ArrayList<String> sList = new ArrayList<>();
+		System.out.println("왜안뜨냐");
+		
+		/*StringBuffer sf = new StringBuffer();
+		sf.append("{");*/
+		for (File file : dd.listFiles()) {
+			if (!file.isDirectory()) {
+				sList.add("!"+file.getName()+"!");
+			}
+		}
+		System.out.println(sList);
+		model.addAttribute("sList", sList);
+		return "compose/test2";
+	}
+
+	@RequestMapping(value = "test3", method = RequestMethod.GET)
+	public String test3() {
+		return "compose/test3";
+	}
+
+	@RequestMapping(value = "ajaxTest1", method = RequestMethod.POST)
+	public @ResponseBody void ajaxTest1(String data, HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("data1: "+request.getParameter("data"));
+		System.out.println("data2: "+data);
+		String originalfile = "test3.mp3";
 		String otherpath = request.getServletContext().getRealPath("src/sample/");
 		String fullpath = "";
 		ServletOutputStream fileout = null;
@@ -403,9 +410,6 @@ public class ComposeController {
 				e.printStackTrace();
 			}
 		}
-		// File dd = new
-		// File(request.getServletContext().getRealPath("src/sample/test2.wav"));
-
 		System.out.println("ajaxTest COunt>");
 	}
 
