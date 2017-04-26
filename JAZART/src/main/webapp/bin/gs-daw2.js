@@ -2200,12 +2200,7 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
             n = i / 2
     }(), ui.getTrackFromPageY = function(t) {
     	//alert('좌표값: '+(t - ui.gridColsY + ui.gridScrollTop) / ui.trackHeight)
-    	console.log('fuck');
-    	alert('t:'+t);
-    	alert('gridColsY:'+ui.gridColsY);
-    	alert('gridScrollTop:'+ui.gridScrollTop);
-    	alert('trackHeight:'+ui.trackHeight);
-    	alert('track:'+JSON.stringify(waFwk.tracks[0].userData));
+    	//console.log('fuck');
         return waFwk.tracks[Math.floor((t - ui.gridColsY + ui.gridScrollTop) / ui.trackHeight)].userData
     }, ui.panelSection = function(t) {
         ui.dom.app.dataset.panel = t
@@ -2529,7 +2524,7 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
         		var sname = result[i];
 				var blob = null;
 				var xhr = new XMLHttpRequest();
-				xhr.open("POST", "ajaxTest1", false);
+				xhr.open("POST", "mixerWorks", false);
 				
 				xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 				xhr.overrideMimeType("text/plain; charset=x-user-defined");

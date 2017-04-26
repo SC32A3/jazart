@@ -53,11 +53,10 @@
 <script type="text/javascript"></script>
 <link rel="manifest" href="manifest.json"/>
 <link rel="shortcut icon" href="assets/favicon.png"/>
-<link rel="stylesheet" href="bin/gs-daw.css"/>
 <script>function lg( a ) { return console.log.apply( console, arguments ), a; }</script>
 <style type="text/css">
-.qt-container {
-    height: 1000px;
+.mixer {
+    overflow: scroll;
 }
 </style>
 </head>
@@ -225,9 +224,10 @@
 												</h5>
 											</li>
 										</ul>
-										<div id="mixer" class="row">
+										<div id="mixer" class="row" style="overflow-y:auto">
 											<div class="row">
-												<iframe class="window" frameborder="0" src="mixer"></iframe>
+												<iframe frameborder="0" src="mixer"
+												height="640px" class="mixer"></iframe>
 											</div>
 										</div>
 									</div>
@@ -237,20 +237,6 @@
 						<!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
 					</div>
 			</div>
-			
-			<!-- <div id="app"></div>
-
-			Production
-			<script type="text/javascript">
-				var result = new Array();
-				var sList = '${sList}';
-				var toArray = sList.split('!');
-				for (var i = 1; i < toArray.length; i=i+2) {
-					result.push(toArray[i]);
-				}				
-				
-			</script>
-			<script src="bin/gs-daw2.js"></script> -->     
          </div>
       </div>
       	<div class="qt-footer qt-footerwidgets">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>GridSound</title>
+	<title>Jazart</title>
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, user-scalable=no"/>
 	<link rel="stylesheet" href="bin/gs-daw.min.css"/>
@@ -12,7 +12,15 @@
 <div id="app"></div>
 
 <!-- Production -->
-<script src="bin/gs-daw.js"></script>
+<script type="text/javascript">
+	var result = new Array();
+	var sList = '${sList}';
+	var toArray = sList.split('!');
+	for (var i = 1; i < toArray.length; i=i+2) {
+		result.push(toArray[i]);
+	}				
+</script>
+<script src="bin/gs-daw2.js"></script>
 <!-- -->
 
 <!-- Development - ->

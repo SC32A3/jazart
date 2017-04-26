@@ -1,9 +1,11 @@
 package global.sesoc.jazart.controller;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -52,14 +54,8 @@ public class ComposeController {
 	HttpSession session;
 
 	final String uploadPath = "/userProfile"; // 파일이 업로드 되는 경로
-	final String uploadPath2 = System.getProperty("user.home") + "/downloads"; // 내
-
-	// 녹음이
-
-	// 업로드되는
-
-	// 경로
-	final String uploadPath3 = "/userRecording"; // 내 녹음이 서버에 이전 되는 경로
+	final String uploadPath2 = System.getProperty("user.home") + "/downloads"; //브라우저 레코딩 경로
+	final String uploadPath3 = "/userRecording"; // 서버 레코딩 경로
 
 	@RequestMapping(value = "test", method = RequestMethod.GET)
 	public String test() {
@@ -342,35 +338,40 @@ public class ComposeController {
 		return "compose/drum";
 	}
 
-	@RequestMapping(value = "test2", method = RequestMethod.GET)
+	@RequestMapping(value = "mixerPage", method = RequestMethod.GET)
 	public String test2(Model model, HttpServletRequest request) {
 		//File dd = new File(request.getServletContext().getRealPath("src/sample/"));
-		File dd = new File("c:\\Test\\");
-		ArrayList<String> sList = new ArrayList<>();
-		System.out.println("왜안뜨냐");
+		File webFolder = new File(request.getServletContext().getRealPath("src/sample/"));
 		
-		/*StringBuffer sf = new StringBuffer();
-		sf.append("{");*/
-		for (File file : dd.listFiles()) {
-			if (!file.isDirectory()) {
-				sList.add("!"+file.getName()+"!");
+		int flag = 0;
+		FileWriter fw;
+		BufferedWriter bw = null;
+		PrintWriter pw = null;
+		try {
+			for (File file : webFolder.listFiles()) {
+				if (!file.isDirectory()) {
+					flag++;
+					if (flag == 1) {
+						fw = new FileWriter(request.getServletContext().getRealPath("src/mywork/myWork.txt"));
+						bw = new BufferedWriter(fw);
+						pw = new PrintWriter(bw);
+					}
+					pw.println("!"+file.getName()+"!");
+				}
 			}
+			pw.flush();
+			pw.close();
+			bw.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		System.out.println(sList);
-		model.addAttribute("sList", sList);
-		return "compose/test2";
+		return "compose/mixerPage";
 	}
 
-	@RequestMapping(value = "test3", method = RequestMethod.GET)
-	public String test3() {
-		return "compose/test3";
-	}
-
-	@RequestMapping(value = "ajaxTest1", method = RequestMethod.POST)
+	@RequestMapping(value = "mixerWorks", method = RequestMethod.POST)
 	public @ResponseBody void ajaxTest1(String data, HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("data1: "+request.getParameter("data"));
-		System.out.println("data2: "+data);
-		String originalfile = "test3.mp3";
+		System.out.println("data: "+data);
+		String originalfile = data;
 		String otherpath = request.getServletContext().getRealPath("src/sample/");
 		String fullpath = "";
 		ServletOutputStream fileout = null;
@@ -378,25 +379,17 @@ public class ComposeController {
 		// 한개의 글을 가져옴
 
 		fullpath = otherpath + originalfile;
-		System.out.println(fullpath);
-		// 사용자 측에서 다운로드 받도록 하기 위해서
-		// response 객체의 헤더를 조작함, 웹페이지 개발자모드(F12)의 Head에서 확인할수 있다
-		// text/html에서 파일 다운로드 가능한 형태로 변경
-
+		System.out.println("풀패스: "+fullpath);
 		try {
 			response.setHeader("Content-Disposition",
 					"attachment;filename=" + URLEncoder.encode(originalfile, "UTF-8"));
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-
-		// (웹유저) <---servletOutputStream(출력)---- (서버(웹프로젝트 주체))
-		// <--FileInputStream(입력)-- (하드 rose.jpg)
 		try {
 			filein = new FileInputStream(fullpath);
 			fileout = response.getOutputStream();
 			fileout.flush();
-			// Spring에서 제공하는 유틸리티
 			FileCopyUtils.copy(filein, fileout);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -412,20 +405,29 @@ public class ComposeController {
 		}
 		System.out.println("ajaxTest COunt>");
 	}
-
-	/*
-	 * @RequestMapping(value = "ajaxTest1", method = RequestMethod.GET)
-	 * public @ResponseBody File ajaxTest1(HttpServletRequest request) {
-	 * //ArrayList<File> result = new ArrayList<>(); File dd = new
-	 * File("c:\\Test\\"); File dd = new
-	 * File(request.getServletContext().getRealPath("src/sample/test2.wav"));
-	 * logger.info("들어옴2"); for (File file : dd.listFiles()) { if
-	 * (!file.isDirectory()) { result.add(file); } } return dd; }
-	 */
-	@RequestMapping(value = "test5", method = RequestMethod.GET)
-	public String test5() {
-		return "compose/test5";
+	
+	@RequestMapping(value = "mixer", method = RequestMethod.GET)
+	public String mixer(HttpServletRequest request, Model model) {
+		try {
+			////////////////////////////////////////////////////////////////
+			FileReader fr = new FileReader(request.getServletContext().getRealPath("src/mywork/myWork.txt"));
+			BufferedReader br = new BufferedReader(fr);
+			String s;
+			ArrayList<String> sList = new ArrayList<>();
+			while ((s = br.readLine()) != null) {
+				sList.add(s);
+			}
+			System.out.println("sList: "+sList);
+			model.addAttribute("sList", sList);
+			br.close();
+			fr.close();
+			////////////////////////////////////////////////////////////////
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return "compose/mixer";
 	}
+
 
 	@RequestMapping(value = "pitch", method = RequestMethod.GET)
 	public String pitch() {
@@ -436,4 +438,20 @@ public class ComposeController {
 	public String effect() {
 		return "compose/effect";
 	}
+	
+	@RequestMapping(value = "test5", method = RequestMethod.GET)
+	public String test5() { //빈 믹서 페이지
+		return "compose/test5";
+	}
+	
+	@RequestMapping(value = "test6", method = RequestMethod.GET)
+	public String test6() { 
+		return "compose/test6";
+	}
+	
+	@RequestMapping(value = "test7", method = RequestMethod.GET)
+	public String test7() { 
+		return "compose/test7";
+	}
 }
+	
