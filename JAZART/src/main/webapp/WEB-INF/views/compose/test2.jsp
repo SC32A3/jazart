@@ -213,13 +213,16 @@
 			<div id="app"></div>
 
 			<!-- Production -->
-			<script src="bin/gs-daw2.js"></script>     
 			<script type="text/javascript">
-				document.body.onload = function() {
-					var test = "${sList}";
-					alert('test: '+test);	
-				}
-			</script>          
+				var result = new Array();
+				var sList = '${sList}';
+				var toArray = sList.split('!');
+				for (var i = 1; i < toArray.length; i=i+2) {
+					result.push(toArray[i]);
+				}				
+				
+			</script>
+			<script src="bin/gs-daw2.js"></script>     
          </div>
       </div>
       	<div class="qt-footer qt-footerwidgets">
