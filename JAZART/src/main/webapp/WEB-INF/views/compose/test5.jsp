@@ -12,28 +12,23 @@
 		//xhr.open("GET", "download?name=" + name, true);
 		xhr.open("GET", "ajaxTest1", true);
 		
-		var temp = xhr.overrideMimeType('audio/wav'); //~테스트소스~ application/xml
+		xhr.overrideMimeType('audio/wav'); //~테스트소스~ application/xml
 		//xhr.setRequestHeader("Content-Type","audio/mpeg"); 
 		
 		xhr.responseType = "blob";
 		xhr.onreadystatechange = function () {
 		  if (xhr.readyState == xhr.DONE) {
 		    var blob = new Blob([xhr.response], {type: "audio/wav"});
-		    var audio = document.getElementById("my-audio");
-		    audio.addEventListener("load", function (evt) {
-		      URL.revokeObjectURL(evt.target.src);
-		    })
 		    
+		    /* var audio = document.getElementById("my-audio");
+		    audio.src = URL.createObjectURL(blob); */
 		    
-		    audio.src = URL.createObjectURL(blob);
 		    var hihi = document.getElementById("hihi");
 		    hihi.href = URL.createObjectURL(blob);
 		    hihi.download = "hihi.wav";
 		  }
 		}
-		alert(JSON.stringify(xhr.responseType));
-		xhr.send(null);
-		
+		xhr.send();
 	}
 </script>
 </head>
