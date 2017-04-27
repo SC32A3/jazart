@@ -47,6 +47,27 @@
 <script src="resources/jquery-3.1.1.min.js"></script>
 <script src="resources/rTest/test.js"></script>
 <link rel="stylesheet" href="resources/rTest/app.css">
+<style type="text/css">
+.clipSpan{
+	background: #ff8080;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+	float: right;
+    text-align: center;
+    color: white;
+    border: none;
+    transition: all 0.2s;
+}
+
+.clipA{
+	color : white;
+}
+
+.clipA:hover{
+	color : white;
+}
+
+</style>
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->

@@ -69,28 +69,40 @@ $(function() {
 						'My music source');
 				console.log(clipName);
 				var clipContainer = document.createElement('article');
+				var clipText = document.createTextNode(clipName);
+				var clipTextSpan = document.createElement('span');
 				var clipLabel = document.createElement('a');
 				var audio = document.createElement('audio');
-				var saveButton = document.createElement('button');
+				//var saveButton = document.createElement('button');
 				var deleteButton = document.createElement('button');
+				var clipSpan = document.createElement('span');
+				
 
 				clipContainer.classList.add('clip');
+				clipSpan.classList.add('clipSpan');
+				deleteButton.classList.add('clipSpan');
+				clipLabel.classList.add('clipA');
 
 				audio.setAttribute('controls', '');
-				saveButton.textContent = 'Save';
-				saveButton.className = 'save';
+				//saveButton.textContent = 'Save';
+				//saveButton.className = 'save';
 				deleteButton.textContent = 'Delete';
 				deleteButton.className = 'delete';
 
 				if (clipName === null) {
-					clipLabel.textContent = 'My music source ' + count;
+					clipText.textContent = 'My music source ' + count;
 				} else {
-					clipLabel.textContent = clipName;
+					clipText.textContent = clipName + '.wav';
 				}
-
+				
+				clipLabel.textContent = 'Save';
+				
+				clipSpan.appendChild(clipLabel);
+				clipTextSpan.appendChild(clipText);
 				clipContainer.appendChild(audio);
-				clipContainer.appendChild(clipLabel);
-				clipContainer.appendChild(saveButton);
+				clipContainer.appendChild(clipTextSpan);
+				clipContainer.appendChild(clipSpan);
+				//clipContainer.appendChild(saveButton);
 				clipContainer.appendChild(deleteButton);
 				soundClips.appendChild(clipContainer);
 
@@ -98,7 +110,7 @@ $(function() {
 				var blob = new Blob(chunks, {
 					'type' : 'audio/ogg; codecs=opus'
 				});
-				chunks = [];
+				chunks = [];	
 				var audioURL = window.URL.createObjectURL(blob);
 				audio.src = audioURL;
 				
@@ -113,15 +125,6 @@ $(function() {
 					evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode); //section에서 article을 날림
 				}
 
-				/*saveButton.addEventListener('click', function(e) {
-					alert('click: test'+count);
-					var hiddenTag = document.getElementById('hiddnTag');
-					alert('dd'+audioURL);
-					hiddenTag.href = audioURL;
-					hiddenTag.download = clipName + '.wav';
-					
-				});*/
-				
 				// 새이름 붙이기
 				/*
 				 * clipLabel.onclick = function() { var existingName =
