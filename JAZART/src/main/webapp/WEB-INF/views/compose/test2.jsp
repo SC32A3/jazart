@@ -211,14 +211,15 @@
 				<!-- HEADER MEMBERS END ========================= -->
          <div class="qt-container qt-vertical-padding-l">
 			<div id="app"></div>
-
+			<input type="hidden" id="files" value="${fList}">
 			<!-- Production -->
 			<script src="bin/gs-daw2.js"></script>     
 			<script type="text/javascript">
-				document.body.onload = function() {
-					var test = "${sList}";
-					alert('test: '+test);	
-				}
+				/* document.body.onload = function() {
+					var test = "${fList}";
+					alert('jsp에서: '+test);
+					e(test);
+				} */
 			</script>          
          </div>
       </div>
