@@ -54,7 +54,9 @@ public class ComposeController {
 	HttpSession session;
 
 	final String uploadPath = "/userProfile"; // 파일이 업로드 되는 경로
-	final String uploadPath2 = System.getProperty("user.home") + "/downloads"; //브라우저 레코딩 경로
+	final String uploadPath2 = System.getProperty("user.home") + "/downloads"; // 브라우저
+																				// 레코딩
+																				// 경로
 	final String uploadPath3 = "/userRecording"; // 서버 레코딩 경로
 
 	@RequestMapping(value = "test", method = RequestMethod.GET)
@@ -249,7 +251,7 @@ public class ComposeController {
 	}
 
 	@RequestMapping(value = "deleteSongList", method = RequestMethod.GET)
-	public @ResponseBody int deleteSongList(Model model, int songnum) {
+	public @ResponseBody int deleteSongList(Model model, int songnum, String play_inputdate) {
 		String user_id = (String) session.getAttribute("loginId");
 		int result = ur.deleteSongList(user_id, songnum);
 		return result;
@@ -340,9 +342,10 @@ public class ComposeController {
 
 	@RequestMapping(value = "mixerPage", method = RequestMethod.GET)
 	public String test2(Model model, HttpServletRequest request) {
-		//File dd = new File(request.getServletContext().getRealPath("src/sample/"));
+		// File dd = new
+		// File(request.getServletContext().getRealPath("src/sample/"));
 		File webFolder = new File(request.getServletContext().getRealPath("src/sample/"));
-		
+
 		int flag = 0;
 		FileWriter fw;
 		BufferedWriter bw = null;
@@ -356,7 +359,7 @@ public class ComposeController {
 						bw = new BufferedWriter(fw);
 						pw = new PrintWriter(bw);
 					}
-					pw.println("!"+file.getName()+"!");
+					pw.println("!" + file.getName() + "!");
 				}
 			}
 			pw.flush();
@@ -370,7 +373,7 @@ public class ComposeController {
 
 	@RequestMapping(value = "mixerWorks", method = RequestMethod.POST)
 	public @ResponseBody void ajaxTest1(String data, HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("data: "+data);
+		System.out.println("data: " + data);
 		String originalfile = data;
 		String otherpath = request.getServletContext().getRealPath("src/sample/");
 		String fullpath = "";
@@ -379,7 +382,7 @@ public class ComposeController {
 		// 한개의 글을 가져옴
 
 		fullpath = otherpath + originalfile;
-		System.out.println("풀패스: "+fullpath);
+		System.out.println("풀패스: " + fullpath);
 		try {
 			response.setHeader("Content-Disposition",
 					"attachment;filename=" + URLEncoder.encode(originalfile, "UTF-8"));
@@ -405,7 +408,7 @@ public class ComposeController {
 		}
 		System.out.println("ajaxTest COunt>");
 	}
-	
+
 	@RequestMapping(value = "mixer", method = RequestMethod.GET)
 	public String mixer(HttpServletRequest request, Model model) {
 		try {
@@ -417,7 +420,7 @@ public class ComposeController {
 			while ((s = br.readLine()) != null) {
 				sList.add(s);
 			}
-			System.out.println("sList: "+sList);
+			System.out.println("sList: " + sList);
 			model.addAttribute("sList", sList);
 			br.close();
 			fr.close();
@@ -428,30 +431,28 @@ public class ComposeController {
 		return "compose/mixer";
 	}
 
-
 	@RequestMapping(value = "pitch", method = RequestMethod.GET)
 	public String pitch() {
 		return "compose/pitch";
 	}
-	
+
 	@RequestMapping(value = "effect", method = RequestMethod.GET)
 	public String effect() {
 		return "compose/effect";
 	}
-	
+
 	@RequestMapping(value = "test5", method = RequestMethod.GET)
-	public String test5() { //빈 믹서 페이지
+	public String test5() { // 빈 믹서 페이지
 		return "compose/test5";
 	}
-	
+
 	@RequestMapping(value = "test6", method = RequestMethod.GET)
-	public String test6() { 
+	public String test6() {
 		return "compose/test6";
 	}
-	
+
 	@RequestMapping(value = "test7", method = RequestMethod.GET)
-	public String test7() { 
+	public String test7() {
 		return "compose/test7";
 	}
 }
-	

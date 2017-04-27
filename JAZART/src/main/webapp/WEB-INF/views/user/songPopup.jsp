@@ -52,22 +52,21 @@
 	}
 	function deleteSongList(songnum) {
 		var snum = songnum;
-		alert("delete");
 		$.ajax({
 			method : "get",
 			url : "deleteSongList",
 			data : {
-				"songnum" : snum 
+				"songnum" : snum
 			},
-			success: function(resp) {
-			 	if(resp==1){
-			 	location.href="songPopup?songnum=0";
-			 	}
+			success : function(resp) {
+				if (resp == 1) {
+					location.href = "songPopup?songnum=0";
+				}
 			},
 			error : function(resp) {
 				alert(resp);
 			}
-		});	
+		});
 	}
 </script>
 </head>
@@ -78,7 +77,7 @@
 			<script type="text/javascript">
 				alert('재생목록없음');
 				this.close();
-		</script>
+			</script>
 		</c:if>
 		<!-- PLAYER ========================= -->
 		<div id="qtplayercontainer" data-playervolume="true"
@@ -156,7 +155,7 @@
 							class="qt-radiologo dripicons-media-play" width="80" height="80">
 							<i class="dripicons-media-play"></i><i
 							class="icon dripicons-minus"
-							onclick="javascript:deleteSongList(${item.songnum})"></i>
+							onclick="javascript:deleteSongList('${item.songnum}')"></i>
 							${item.song_title}
 					</a></li>
 				</c:forEach>

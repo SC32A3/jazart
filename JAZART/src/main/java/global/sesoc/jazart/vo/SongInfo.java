@@ -12,8 +12,9 @@ public class SongInfo {
 	private int bpm;
 	private String beat;
 	private String song_genre;
-	
-	public SongInfo() {	}
+
+	public SongInfo() {
+	}
 
 	public int getSongnum() {
 		return songnum;

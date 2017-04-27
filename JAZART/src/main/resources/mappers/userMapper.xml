@@ -35,15 +35,21 @@
 		select * from songinfo where song_nickname = #{loginNickname}
 	</select>
 	<select id="playlist" resultType="SongInfo" parameterType="String">
-		select info.songnum, info.song_title, info.song_picture,
-		info.song_nickname, info.song_file from playlist list, songinfo info
-		where list.songnum = info.songnum and list.user_id = #{userId}
+		select info.songnum, info.song_title,
+		info.song_picture,list.play_inputdate,
+		info.song_nickname,
+		info.song_file from playlist list, songinfo info
+		where list.songnum =
+		info.songnum and list.user_id = #{userId}
 	</select>
 
 	<select id="getPlayOne" resultType="SongInfo" parameterType="int">
-		select info.songnum, info.song_title, info.song_picture,
-		info.song_nickname, info.song_file from playlist list, songinfo info
-		where list.songnum = info.songnum and list.songnum = #{songnum}
+		select info.songnum, info.song_title,
+		info.song_picture,list.play_inputdate
+		info.song_nickname,
+		info.song_file from playlist list, songinfo info
+		where list.songnum =
+		info.songnum and list.songnum = #{songnum}
 	</select>
 	<insert id="addSongList" parameterType="map">
 		insert into playlist

@@ -58,27 +58,40 @@
 		from dual
 	</select>
 	<select id="weeklyChart" resultType="SongInfo" parameterType="map">
-		select * from (select rownum rnum, b.* from(
-		select info.songnum,
-		info.song_nickname, info.song_picture,
-		info.song_title, info.song_desc,
-		count(slike.like_time) cnt
-		from songinfo info, songlike slike
-		where
-		info.songnum = slike.songnum and
-		slike.like_time between
-		<choose>
-			<when test="day == '일요일'"> next_day(sysdate-14, '월요일') and next_day(sysdate-14,
-				'일요일')
-			</when>
-			<otherwise> next_day(sysdate-14, '월요일') and next_day(sysdate-7,
-				'일요일')
-			</otherwise>
-		</choose>
-		group by info.songnum, info.song_nickname, info.song_picture,
-		info.song_title, info.song_desc
-		order by cnt desc) b) c where rnum
-		between #{start} and #{end}
+		select * from (
+		select rownum rnum, b.* from(
+		select
+		si.songnum,si.song_like,
+		si.song_nickname, si.song_picture,
+		si.song_title,
+		si.song_desc,
+		sum(case
+		when
+		sl.like_time between sysdate-7
+		and sysdate then 10
+		when sl.like_time between
+		sysdate-1 and sysdate then
+		3
+		when sl.like_time between (sysdate-5/24) and
+		sysdate then 1 else 0
+		end) as test
+		from songinfo si,songlike sl where si.songnum = sl.songnum
+		group by si.songnum,si.song_nickname,si.song_like, si.song_picture,
+		si.song_title,
+		si.song_desc order by test desc
+		) b
+		) where rnum between
+		#{start} and #{end}
+		
+		<!-- select * from (select rownum rnum, b.* from( select info.songnum, 
+			info.song_nickname, info.song_picture, info.song_title, info.song_desc, count(slike.like_time) 
+			cnt from songinfo info, songlike slike where info.songnum = slike.songnum 
+			and slike.like_time between <choose> <when test="day == '일요일'"> next_day(sysdate-14, 
+			'월요일') and next_day(sysdate-14, '일요일') </when> <otherwise> next_day(sysdate-14, 
+			'월요일') and next_day(sysdate-7, '일요일') </otherwise> </choose> group by info.songnum, 
+			info.song_nickname, info.song_picture, info.song_title, info.song_desc order 
+			by cnt desc) b) c where rnum between #{start} and #{end} -->
+
 	</select>
 	<select id="weeklyCount" resultType="Integer" parameterType="map">
 		select count(slike.like_time) cnt

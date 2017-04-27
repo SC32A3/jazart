@@ -76,7 +76,7 @@
 				if (resp == 1) {
 					alert('추가되었습니다');
 				} else if (resp == 0) {
-					alert('실패');
+					alert('');
 				} else if (resp == 3) {
 					alert('로그인후 이용해주세요');
 				}

@@ -31,4 +31,7 @@ public interface UserMapper {
 	public int addSongList(int songnum, String user_id) throws Exception;
 
 	public int deleteSongList(String user_id, int songnum) throws Exception;
+
+	
+
 }

@@ -58,6 +58,10 @@
 .mixer {
     overflow: scroll;
 }
+
+.qt-container {
+	max-width: 95%;
+}
 </style>
 </head>
 <body>
@@ -210,32 +214,30 @@
 				<!-- HEADER MEMBERS END ========================= -->
          <div class="qt-container qt-vertical-padding-l">
 			<div class="row">
-				<div class="col l10">
-						<!-- ====================== SECTION BOOKING AND CONTACTS ================================================ -->
-						<div id="booking" class="section qt-section-booking qt-card">
-							<div class="qt-valign-wrapper">
-								<div class="qt-valign flow-text">
-									<div class="qt-booking-form" data-100p-top="opacity:0;"
-										data-80p-top="opacity:0;" data-30p-top="opacity:1;">
-										<ul class="tabs">
-											<li class="tab col s4">
-												<h5>
-													<a href="#mixer" class="active">Mixer</a>
-												</h5>
-											</li>
-										</ul>
-										<div id="mixer" class="row" style="overflow-y:auto">
-											<div class="row">
-												<iframe frameborder="0" src="mixer"
-												height="640px" class="mixer"></iframe>
-											</div>
-										</div>
+				<!-- ====================== SECTION BOOKING AND CONTACTS ================================================ -->
+				<div id="booking" class="section qt-section-booking qt-card">
+					<div class="qt-valign-wrapper">
+						<div class="qt-valign flow-text">
+							<div class="qt-booking-form" data-100p-top="opacity:0;"
+								data-80p-top="opacity:0;" data-30p-top="opacity:1;">
+								<ul class="tabs">
+									<li class="tab col s4">
+										<h5>
+											<a href="#mixer" class="active">Mixer</a>
+										</h5>
+									</li>
+								</ul>
+								<div id="mixer" class="row" style="overflow-y:auto">
+									<div class="row">
+										<iframe frameborder="0" src="mixer"
+										height="640px" class="mixer"></iframe>
 									</div>
 								</div>
 							</div>
 						</div>
-						<!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
 					</div>
+				</div>
+				<!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
 			</div>
          </div>
       </div>
