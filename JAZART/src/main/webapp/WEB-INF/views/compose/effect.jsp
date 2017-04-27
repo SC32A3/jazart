@@ -11,20 +11,20 @@
 <meta name='apple-mobile-web-app-status-bar-style'
 	content='black-translucent' />
 
-<link rel="stylesheet" href="resources/effect/css/reset.css" />
-<link rel="stylesheet" href="resources/effect/css/common.css" />
-<link rel="stylesheet" href="resources/effect/css/box.css" />
-<link rel="stylesheet" href="resources/effect/css/switch.css" />
-<link rel="stylesheet" href="resources/effect/css/pot.css" />
+<link rel="stylesheet" href="resources/effect/example/css/reset.css" />
+<link rel="stylesheet" href="resources/effect/example/css/common.css" />
+<link rel="stylesheet" href="resources/effect/example/css/box.css" />
+<link rel="stylesheet" href="resources/effect/example/css/switch.css" />
+<link rel="stylesheet" href="resources/effect/example/css/pot.css" />
 <link href='http://fonts.googleapis.com/css?family=Damion'
 	rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Yellowtail'
 	rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Radley:400,400italic'
 	rel='stylesheet' type='text/css'>
-<script type="text/javascript" src="resources/effect/dist/compiled.js"></script>
-<!-- For development comment out the line above and uncomment the lines below. -->
+<script type="text/javascript" src="resources/effect/dist/compiled2.js"></script>
 <script type="text/javascript" src="resources/effect/src/Bootstrapper.js"></script>
+<!-- For development comment out the line above and uncomment the lines below. -->
 </head>
 <body>
 	<div id="world">
@@ -36,13 +36,13 @@
 				<div id="controlPanel">
 					<div id="controlButton">&#9654;</div>
 					<div class="linein">live</div>
-					<!-- <div id="samples">
+			        <div id="samples">
 						<div class="sample">Sample 1</div>
 						<div class="sample">Sample 2</div>
 						<div class="sample">Sample 3</div>
 						<div class="sample">Sample 4</div>
 						<div class="sample">Sample 5</div>
-					</div> -->
+					</div>
 				</div>
 			</div>
 		</div>
@@ -119,7 +119,7 @@
 				return;
 			}
 			settings[sampleNo - 1] && settings[sampleNo - 1]();
-			stage.play('audio/samples/sample' + sampleNo + '.mp3');
+			stage.play('example/audio/samples/sample' + sampleNo + '.mp3');
 		}
 
 		var cBHandler = function() {

@@ -220,13 +220,15 @@
 											<section class="main-controls">
 												<canvas class="visualizer"></canvas>
 												<div id="buttons"
-													class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-
-
-light lnr lnr-rocket">
+													class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light lnr lnr-rocket">
 													<button class="record qt-btn">Record</button>
 													<button class="stop qt-btn">Stop</button>
 												</div>
-
+												
+												
+												<!-- <div class="forHidden">
+												<a id="hiddenTag" href="#" download="#">히든데이터</a>
+												</div> -->
 											</section>
 
 											<section class="sound-clips">
