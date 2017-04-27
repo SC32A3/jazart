@@ -76,7 +76,7 @@ if (navigator.getUserMedia) {
       deleteButton.className = 'delete';
 
       if(clipName === null) {
-        clipLabel.textContent = 'My unnamed clip';
+        clipLabel.textContent = 'My music source';
       } else {
         clipLabel.textContent = clipName;
       }
@@ -149,11 +149,11 @@ function visualize(stream) {
 
     analyser.getByteTimeDomainData(dataArray);
 
-    canvasCtx.fillStyle = 'rgb(200, 200, 200)';
+    canvasCtx.fillStyle = 'rgb(255, 252, 252)';
     canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
 
     canvasCtx.lineWidth = 2;
-    canvasCtx.strokeStyle = 'rgb(0, 0, 0)';
+    canvasCtx.strokeStyle = 'rgb(75, 36, 36)';
 
     canvasCtx.beginPath();
 

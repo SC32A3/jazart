@@ -5,27 +5,10 @@
 <html class="no-js" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>GridSound</title>
+<title>Jazart</title>
 <meta name="description" content="Radio station HTML template">
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, user-scalable=no" />
-<meta property="og:type" content="website" />
-<meta property="og:title"
-	content="GridSound (an open-source audio sequencer)" />
-<meta property="og:url" content="https://gridsound.github.io/" />
-<meta property="og:image"
-	content="https://gridsound.github.io/assets/og-image.jpg" />
-<meta property="og:image:width" content="800" />
-<meta property="og:image:height" content="400" />
-<meta name="theme-color" content="#508ea9" />
-<link rel="manifest" href="manifest.json" />
-<link rel="shortcut icon" href="assets/favicon.png" />
-<link rel="stylesheet" href="bin/gs-daw.min.css" />
-<script>
-	function lg(a) {
-		return console.log.apply(console, arguments), a;
-	}
-</script>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <!-- icons -->
 <link href='resources/fonts/dripicons/webfont.css' rel='stylesheet'
@@ -58,12 +41,9 @@
 <!-- Custom typography settings and google fonts -->
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 
-<!-- Mixing API -->
-<link rel="stylesheet"
-	href="https://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
-<link href="resources/css/bootstrap.min.css" rel="stylesheet"
-	media="screen">
-<link rel="stylesheet" href="resources/css/mixing.css">
+<script src="resources/jquery-3.1.1.min.js"></script>
+<script src="resources/rTest/test.js"></script>
+<link rel="stylesheet" href="resources/rTest/app.css">
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->
@@ -114,13 +94,15 @@
 						<li><a href="qna">QnA</a></li>
 						<li><a href="question">Question</a></li>
 					</ul></li>
-
+				<!-- 		<li class="right"><a href="#!" data-expandable="#qtsearchbar"
+					class="qt-btn qt-btn-l qt-scrolltop"><i
+						class="icon dripicons-search"></i></a></li> -->
 
 				<!-- 플레이리스트 -->
 				<c:if test="${not empty loginNickname}">
-					<li class="right"><a href="songPopup" class="qt-popupwindow"
-						data-name="Music Player" data-width="320" data-height="500"> <i
-							class="icon dripicons-duplicate"></i>Playlist
+					<li class="right"><a href="songPopup?songnum=0"
+						class="qt-popupwindow" data-name="Music Player" data-width="320"
+						data-height="500"> <i class="icon dripicons-duplicate"></i>Playlist
 					</a></li>
 				</c:if>
 
@@ -198,220 +180,202 @@
 		<!-- SEARCH FORM END ========================= -->
 		<div id="maincontent" class="qt-main">
 			<!-- ======================= HEADER SECTION ======================= -->
-			<!-- HEADER MEMBERS ========================= -->
+			<!-- HEADER CAPTION ========================= -->
 			<div class="qt-pageheader qt-negative">
 				<div class="qt-container">
 
-					<h1 class="qt-caption qt-spacer-s">Mixing Page</h1>
-					<h4 class="qt-subtitle">믹싱페이지</h4>
+					<h1 class="qt-caption qt-spacer-s">My Source</h1>
+					<h4 class="qt-subtitle">나만의 음원 소스</h4>
 				</div>
 				<div class="qt-header-bg" data-bgimage="images/back1.jpg">
 					<img src="images/back1.jpg" alt="Featured image" width="690"
 						height="302">
 				</div>
 			</div>
-			<!-- HEADER MEMBERS END ========================= -->
-			<!-- HEADER CONTACTS END ========================= -->
-			<div class="qt-container qt-vertical-padding-l">
+			<!-- HEADER CAPTION END ========================= -->
+			<!-- ======================= CONTENT SECTION ======================= -->
+			<div class="qt-container qt-vertical-padding-m">
 				<div class="row">
-
-					<div id="app">ssss</div>
-
-					<!-- Production -->
-					<script src="bin/gs-daw.min.js"></script>
-					<!-- -->
-
-					<!-- Development - ->
-<script src="resources/jquery-3.1.1.min.js"></script>
-<script src="src/featuresTest.js"></script>
-<script src="src/dep/keyboardRouter.min.js"></script>
-<script src="src/dep/handlebars.runtime.min.js"></script>
-<script src="src/dep/gs-ui-components.min.js"></script>
-<script src="src/dep/gs-webaudio-library.min.js"></script>
-<script src="src/dep/gs-webaudio-framework.min.js"></script>
-<script src="bin/__templates.js"></script>
-
-<script src="src/init.js"></script>
-<script src="src/common/cursor.js"></script>
-<script src="src/common/secCeilFloorRound.js"></script>
-<script src="src/common/timestampText.js"></script>
-<script src="src/common/uuid.js"></script>
-<script src="src/ui/js/app.js"></script>
-<script src="src/ui/js/partials/bpm.js"></script>
-<script src="src/ui/js/partials/clock.js"></script>
-<script src="src/ui/js/partials/controls.js"></script>
-<script src="src/ui/js/partials/grid.js"></script>
-<script src="src/ui/js/partials/gridcontent.js"></script>
-<script src="src/ui/js/partials/history.js"></script>
-<script src="src/ui/js/partials/timeline.js"></script>
-<script src="src/ui/js/partials/toolDelete.js"></script>
-<script src="src/ui/js/partials/tools.js"></script>
-<script src="src/ui/js/partials/toolSelect.js"></script>
-<script src="src/ui/js/partials/tracksBg.js"></script>
-<script src="src/ui/js/partials/visual.js"></script>
-<script src="src/ui/js/templates/itemBuffer.js"></script>
-<script src="src/ui/js/templates/historyAction.js"></script>
-<script src="src/ui/js/templates/gridblockSample.js"></script>
-<script src="src/ui/js/templates/track.js"></script>
-
-<script src="src/ui/js/old/gs/loop.js"></script>
-<script src="src/ui/js/old/gs/playPauseStop.js"></script>
-<script src="src/ui/js/old/gs/reset.js"></script>
-
-<script src="src/ui/js/old/ui.js"></script>
-<script src="src/ui/js/old/btnMagnet.js"></script>
-<script src="src/ui/js/old/exportToWaveFile.js"></script>
-<script src="src/ui/js/old/filesInput.js"></script>
-<script src="src/ui/js/old/save.js"></script>
-<script src="src/ui/js/old/timelineBeats.js"></script>
-<script src="src/ui/js/old/timelineLoop.js"></script>
-<script src="src/ui/js/old/_init.js"></script>
-
-<script src="src/ui/js/old/panelSection.js"></script>
-<script src="src/ui/js/old/resize.js"></script>
-<script src="src/ui/js/old/sample.js"></script>
-<script src="src/ui/js/old/setFilesWidth.js"></script>
-<script src="src/ui/js/old/setTrackNamesWidth.js"></script>
-
-<script src="src/ui/js/old/gs/compositions/init.js"></script>
-<script src="src/ui/js/old/gs/compositions/load.js"></script>
-<script src="src/ui/js/old/gs/compositions/readFile.js"></script>
-<script src="src/ui/js/old/gs/compositions/save.js"></script>
-<script src="src/ui/js/old/gs/compositions/serialize.js"></script>
-<script src="src/ui/js/old/gs/compositions/store.js"></script>
-<script src="src/ui/js/old/gs/samples/selected/copyPaste.js"></script>
-<script src="src/ui/js/old/gs/samples/selected/cut.js"></script>
-<script src="src/ui/js/old/gs/samples/selected/crop.js"></script>
-
-<script src="src/ui/js/old/gs/events/bodyClick.js"></script>
-<script src="src/ui/js/old/gs/events/divExtend.js"></script>
-<script src="src/ui/js/old/gs/events/dropFiles.js"></script>
-<script src="src/ui/js/old/gs/events/fileFilters.js"></script>
-<script src="src/ui/js/old/gs/events/gridMouse.js"></script>
-<script src="src/ui/js/old/gs/events/panelMenu.js"></script>
-<script src="src/ui/js/old/gs/events/resize.js"></script>
-<script src="src/ui/js/old/gs/events/toolCut.js"></script>
-<script src="src/ui/js/old/gs/events/toolHand.js"></script>
-<script src="src/ui/js/old/gs/events/toolMute.js"></script>
-<script src="src/ui/js/old/gs/events/toolPaint.js"></script>
-<script src="src/ui/js/old/gs/events/toolSlip.js"></script>
-<script src="src/ui/js/old/gs/events/toolZoom.js"></script>
-
-<script src="src/databinding.js"></script>
-<script src="src/keybinding.js"></script>
-<script src="src/run.js"></script>
-<!-- -->
-
-					<!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
+					<div class="qt-sidebar col m2">
+						<!-- SIDEBAR ================================================== -->
+						<div>
+							<div class="col l14">
+								<div class="qt-widget">
+									<div class="qt-widget-onair qt-card aligncenter">
+										<h4 class="qt-caption-med">
+											<span>Record</span>
+										</h4>
+										<canvas class="visualizer"></canvas>
+										<p class="qt-small">
+											<button class="record">Record</button>
+											<button class="stop">Stop</button>
+										</p>
+										<section class="sound-clips"></section>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- SIDEBAR END ================================================== -->
+					</div>
+					<div class="col l10">
+						<!-- ====================== SECTION BOOKING AND CONTACTS ================================================ -->
+						<div id="booking" class="section qt-section-booking qt-card">
+							<div class="qt-valign-wrapper">
+								<div class="qt-valign flow-text">
+									<div class="qt-booking-form" data-100p-top="opacity:0;"
+										data-80p-top="opacity:0;" data-30p-top="opacity:1;">
+										<ul class="tabs">
+											<li class="tab col s4">
+												<h5>
+													<a href="#keyboard" class="active">Keyboard</a>
+												</h5>
+											</li>
+											<li class="tab col s4">
+												<h5>
+													<a href="#drum">Drum Pad</a>
+												</h5>
+											</li>
+										</ul>
+										<div id="keyboard" class="row">
+											<div class="row">
+												<iframe class="window" frameborder="0"
+													src="${pageContext.request.contextPath}\piano"></iframe>
+											</div>
+										</div>
+										<div id="drum" class="row qt-contacts">
+											<div class="row">
+												<iframe class="window" frameborder="0"
+													src="${pageContext.request.contextPath}\drum"></iframe>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="qt-footer qt-footerwidgets">
-		<div class="qt-section qt-footer-widgets qt-content-primary-light">
-			<div class="qt-container">
-				<h2 class="qt-footer-logo">
-					<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
-				</h2>
-				<div
-					class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
-					<div class="col s12 m3 l3">
-						<div class="qt-widget">
-							<h5 class="qt-caption-small">
-								<span>About site</span>
-							</h5>
-							<div class="qt-widget-about">
-								<p>
-									We are a young and dynamic compose station which wants to bring
-									happyness in your life. <br> <a href="sitemap"> Site
-										Map <i class="dripicons-arrow-thin-right"></i>
-									</a>
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col s12 m3 l3">
-						<div class="qt-widget">
-							<h5 class="qt-caption-small">
-								<span>Contacts</span>
-							</h5>
-							<div class="qt-widget-contacts">
-								<p>
-									<i class="qticon-home"></i><a href="#">www.jazart.com</a>
-								</p>
-								<p>
-									<i class="qticon-at-sign"></i><a href="question">jazart2017@gmail.com</a>
-								</p>
-								<p>
-									<i class="qticon-phone"></i><a href="#">02-123-1234</a>
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col s12 m3 l3">
-						<div class="qt-widget">
-							<h5 class="qt-caption-small">
-								<span>Our Team</span>
-							</h5>
-							<div class="qt-widget-about">
-								<p>
-
-									We are a small group of designers and developers. We create
-									clean, minimal and apps. <br> <a href="about">About us
-										<i class="dripicons-arrow-thin-right"></i>
-									</a>
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col s12 m3 l3">
-						<div class="qt-widget">
-							<h5 class="qt-caption-small">
-								<span>Main links</span>
-							</h5>
-							<ul class="qt-widget-menu qt-list-chevron">
-								<li><a href="compose">Compose</a></li>
-								<li><a href="commBoard">Board </a></li>
-								<li><a href="realtimeChart">Charts </a></li>
-								<li><a href="qna">Contacts</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="qt-header-bg" data-bgimage="images/back.jpg">
-				<img src="images/back.jpg" alt="Featured image" width="690"
-					height="302">
-			</div>
-		</div>
-		<div class="qt-footer-bottom qt-content-primary-dark">
-			<div class="qt-container">
+		<!-- ======================= SPONSORS ======================= -->
+		<div class="qt-vertical-padding-m qt-sponsors qt-section">
+			<!-- SLIDESHOW SPONSORS ================================================== -->
+			<div
+				class="qt-slickslider-container qt-slickslider-externalarrows qt-slickslider-fullscreen">
 				<div class="row">
-					<!-- <div class="col s12 m12 l8">
-							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
-							| Radio Station HTML Template
-							<ul class="qt-menu-footer qt-small qt-list-chevron ">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Privacy</a></li>
-								<li><a href="#">Sitemap</a></li>
-							</ul>
-						</div> -->
-					<div class="col s12 m12 l4">
-						<!-- <ul class="qt-menu-social">
-								<li class="right"><a href="#"><i
-										class="qticon-beatport"></i></a></li>
-								<li class="right"><a href="#"><i
-										class="qticon-facebook"></i></a></li>
-								<li class="right"><a href="#"><i class="qticon-twitter"></i></a></li>
-								<li class="right"><a href="#"><i class="qticon-youtube"></i></a></li>
-								<li class="right"><a href="#"><i
-										class="qticon-soundcloud"></i></a></li>
-							</ul> -->
+					<div class="qt-slickslider-container qt-slickslider-externalarrows qt-slickslider-fullscreen">
+						<h4>작업 내역</h4>
+					</div>
+					<hr class="qt-spacer-s">
+					<div id="slideshow_items"
+						class="qt-slickslider qt-slickslider-multiple qt-text-shadow "
+						data-slidestoshow="6" data-slidestoshowipad="3"
+						data-variablewidth="false" data-arrows="true" data-dots="false"
+						data-infinite="true" data-centermode="false"
+						data-pauseonhover="true" data-autoplay="true"
+						data-arrowsmobile="false" data-centermodemobile="true"
+						data-dotsmobile="false" data-slidestoshowmobile="1"
+						data-variablewidthmobile="true" data-infinitemobile="false">
+						
+						<!-- SLIDESHOW ITEM -->
+						<div class="qt-item">
+							<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
+								<img src="images/css.jpg" width="235" height="132" alt="sponsor"
+								class="qt-image-responsive">
+							</a>
+						</div>
+						<!-- SLIDESHOW ITEM END -->
+						
 					</div>
 				</div>
 			</div>
+			<!-- SLIDESHOW SPONSORS END ================================================== -->
+			<hr class="qt-spacer-s">
 		</div>
-	</div>
+		<!-- .qt-main end -->
+		<div class="qt-footer qt-footerwidgets">
+			<div class="qt-section qt-footer-widgets qt-content-primary-light">
+				<div class="qt-container">
+					<h2 class="qt-footer-logo">
+						<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
+					</h2>
+					<div
+						class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
+						<div class="col s12 m3 l3">
+							<div class="qt-widget">
+								<h5 class="qt-caption-small">
+									<span>About site</span>
+								</h5>
+								<div class="qt-widget-about">
+									<p>
+										We are a young and dynamic compose station which wants to
+										bring happyness in your life. <br> <a href="sitemap">
+											Site Map <i class="dripicons-arrow-thin-right"></i>
+										</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col s12 m3 l3">
+							<div class="qt-widget">
+								<h5 class="qt-caption-small">
+									<span>Contacts</span>
+								</h5>
+								<div class="qt-widget-contacts">
+									<p>
+										<i class="qticon-home"></i><a href="#">www.jazart.com</a>
+									</p>
+									<p>
+										<i class="qticon-at-sign"></i><a href="question">jazart2017@gmail.com</a>
+									</p>
+									<p>
+										<i class="qticon-phone"></i><a href="#">02-123-1234</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col s12 m3 l3">
+							<div class="qt-widget">
+								<h5 class="qt-caption-small">
+									<span>Our Team</span>
+								</h5>
+								<div class="qt-widget-about">
+									<p>
+
+										We are a small group of designers and developers. We create
+										clean, minimal and apps. <br> <a href="about">About
+											us <i class="dripicons-arrow-thin-right"></i>
+										</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col s12 m3 l3">
+							<div class="qt-widget">
+								<h5 class="qt-caption-small">
+									<span>Main links</span>
+								</h5>
+								<ul class="qt-widget-menu qt-list-chevron">
+									<li><a href="compose">Compose</a></li>
+									<li><a href="commBoard">Board </a></li>
+									<li><a href="realtimeChart">Charts </a></li>
+									<li><a href="qna">Contacts</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="qt-header-bg" data-bgimage="images/back.jpg">
+					<img src="images/back.jpg" alt="Featured image" width="690"
+						height="302">
+				</div>
+			</div>
+			<div class="qt-footer-bottom qt-content-primary-dark">
+				<div class="qt-container">
+					<div class="row"></div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"
@@ -452,40 +416,26 @@
 					<hr class="qt-inline-textdeco">
 				</div>
 			</div>
-			<div id="playerimage" class="qt-header-bg"
-				data-bgimage="resources/imagestemplate/full-1600-700.jpg">
-				<img src="resources/imagestemplate/full-1600-700.jpg"
-					alt="Featured image" width="690" height="302">
+			<div id="playerimage" class="qt-header-bg">
+				<img src="images/default.jpg" alt="Featured image" width="690"
+					height="302">
 			</div>
 		</div>
 		<!-- this is for xml radio feed -->
-		<div id="qtShoutcastFeedData" class="hidden" data-style=""
-			data-channel="1" data-host="173.192.105.231" data-port="3540"></div>
+		<div id="qtShoutcastFeedData" class="hidden"></div>
 		<!-- PLAYER END ========================= -->
 		<!-- CHANNELS LIST ========================= -->
 		<div class="qt-part-channels-list">
 			<ul class="qt-content-aside qt-channelslist qt-negative">
-				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
-					data-title="06AM Ibiza" data-subtitle="Underground Radio"
-					data-background="resources/imagestemplate/photo-squared-500-500.jpg"
-					data-logo="resources/imagestemplate/radio-logo.png"
-					data-playtrack="http://173.192.105.231:3540/stream.mp3"
-					data-host="173.192.105.231" data-port="3540" data-stats_path=""
-					data-played_path="" data-channel=""> <img
-						src="resources/imagestemplate/radio-logo.png" alt="logo"
+				<li class="qt-channel"><a href="#!" class="qt-ellipsis"> <img
+						src="images/radio-logo.png" alt="logo"
 						class="qt-radiologo dripicons-media-play" width="80" height="80">
 						<i class="dripicons-media-play"></i> Station 1
 				</a></li>
-				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
-					data-title="altradio" data-subtitle="The subtitle of radio 2"
-					data-background="resources/imagestemplate/large-1170-512.jpg"
-					data-logo="resources/imagestemplate/radio-logo.png"
-					data-playtrack="http://82.77.137.30:8557/;listen.mp3"
-					data-host="82.77.137.30" data-port="8557" data-stats_path=""
-					data-played_path="" data-channel=""> <img
-						src="resources/imagestemplate/radio-logo.png" alt="logo"
-						class="qt-radiologo" width="80" height="80"> <i
-						class="dripicons-media-play"></i> altradio
+				<li class="qt-channel"><a href="#!" class="qt-ellipsis"> <img
+						src="images/radio-logo.png" alt="logo" class="qt-radiologo"
+						width="80" height="80"> <i class="dripicons-media-play"></i>
+						altradio
 				</a></li>
 			</ul>
 		</div>
@@ -497,7 +447,7 @@
 
 	<!-- QT FOOTER SCRIPTS ================================ -->
 	<script src="resources/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-	<!-- <script src="resources/js/jquery.js"></script> -->
+	<script src="resources/js/jquery.js"></script>
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
 	<script src="resources/js/jquery-migrate.min.js"></script>
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
@@ -530,13 +480,12 @@
 		src="resources/components/soundmanager/script/berniecode-animator.js"></script>
 	<script
 		src="resources/components/soundmanager/script/soundmanager2-nodebug.js"></script>
-	<!-- <script src="resources/components/soundmanager/script/shoutcast.js"></script> -->
-	<!-- <script
-		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script> -->
+	<script src="resources/components/soundmanager/script/shoutcast.js"></script>
+	<script
+		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script>
 
 	<!-- Popup -->
 	<script src="resources/components/popup/popup.js"></script>
-
 
 	<!-- MAIN JAVASCRIPT FILE ================================ -->
 	<script src="resources/js/qt-main.js"></script>

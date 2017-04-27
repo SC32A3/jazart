@@ -1,9 +1,11 @@
 package global.sesoc.jazart.controller;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,6 +15,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -51,18 +54,27 @@ public class ComposeController {
 	HttpSession session;
 
 	final String uploadPath = "/userProfile"; // 파일이 업로드 되는 경로
-	final String uploadPath2 = System.getProperty("user.home") + "/downloads"; // 내
-																				// 녹음이
-																				// 업로드되는
-																				// 경로
-	final String uploadPath3 = "/userRecording"; // 내 녹음이 서버에 이전 되는 경로
+	final String uploadPath2 = System.getProperty("user.home") + "/downloads"; //브라우저 레코딩 경로
+	final String uploadPath3 = "/userRecording"; // 서버 레코딩 경로
 
 	@RequestMapping(value = "test", method = RequestMethod.GET)
 	public String test() {
 		return "compose/test";
 	}
+
+	@RequestMapping(value = "mySrc", method = RequestMethod.GET)
+	public String mySrc() {
+		return "compose/mySource";
+	}
+
 	@RequestMapping(value = "compose", method = RequestMethod.GET)
 	public String compose() {
+		try {
+			Runtime.getRuntime().exec("control mmsys.cpl sounds");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return "compose/compose";
 	}
 
@@ -259,25 +271,30 @@ public class ComposeController {
 			for (int i = 0; i < upload.length; i++) {
 				MultipartFile multipartFile = upload[i];
 				if (!multipartFile.isEmpty()) {
-					String savedfile = FileService.saveFile(multipartFile,uploadPath3, type);
-					/*String savedfile = FileService.saveFile(multipartFile,
-							request.getServletContext().getRealPath("src/data/samples/"), type);*/
-					list.add(savedfile);
-					logger.info("getSize : "+multipartFile.getSize());
-					logger.info("getTime : "+multipartFile.getSize()*8/52/1000);
-					pw.print("{\"id\":\"" + (i + 1) + "\",\"url\":\"src/data/samples/" + savedfile
-							+ "\",\"track\":\"1\",\"startTime\":[],\"duration\":"+multipartFile.getSize()*8/52/1000+"}");
-				
-					
-					/*(multipartFile.getBytes().length * ( 3.8399999141693115 / 338732) * 8)+"\"}");
-		               logger.info("계산된 길이 : " + multipartFile.getBytes().length * ( 3.8399999141693115 / 338732) * 8);*/
+					String savedfile = FileService.saveFile(multipartFile, uploadPath3, type);
 
-					
-					
-					File d = new File(uploadPath3+"/"+savedfile);
-					logger.info("1: "+uploadPath3+"/"+savedfile);
-					File e = new File(request.getServletContext().getRealPath("src/data/samples/")+savedfile);
-					logger.info("2 "+request.getServletContext().getRealPath("src/data/samples/")+savedfile);
+					list.add(savedfile);
+					logger.info("getSize : " + multipartFile.getSize());
+					logger.info("getTime : " + multipartFile.getSize() * 8 / 52 / 1000);
+					pw.print("{\"id\":\"" + (i + 1) + "\",\"url\":\"src/data/samples/" + savedfile
+							+ "\",\"track\":\"1\",\"startTime\":[],\"duration\":"
+							+ multipartFile.getSize() * 8 / 52 / 1000 + "}");
+
+					/*
+					 * (multipartFile.getBytes().length * ( 3.8399999141693115 /
+					 * 338732) * 8)+"\"}"); logger.info("계산된 길이 : " +
+					 * multipartFile.getBytes().length * ( 3.8399999141693115 /
+					 * 338732) * 8);
+					 */
+
+					File d = new File(uploadPath3 + "/" + savedfile);
+					logger.info("1: " + uploadPath3 + "/" + savedfile);
+					File e = new File(request.getServletContext().getRealPath
+
+					("src/data/samples/") + savedfile);
+					logger.info("2 " + request.getServletContext().getRealPath
+
+					("src/data/samples/") + savedfile);
 					FileInputStream fis = new FileInputStream(d);
 					FileOutputStream fos = new FileOutputStream(e);
 					FileCopyUtils.copy(fis, fos);
@@ -300,36 +317,141 @@ public class ComposeController {
 		}
 		return "compose/mixing";
 	}
-	
+
 	@RequestMapping(value = "savePage", method = RequestMethod.GET)
 	public String savePage() {
 		return "compose/savePage";
 	}
-	
+
 	@RequestMapping(value = "saveSong", method = RequestMethod.POST)
 	public String saveSong() {
 		return "home";
 	}
-	
-	@RequestMapping(value = "test2", method = RequestMethod.GET)
-	public String test2(Model model) {
-		File dd = new File("c:\\Test\\");
-		ArrayList<File> fList = new ArrayList<>();
-		for (File file : dd.listFiles()) {
-			if (!file.isDirectory()) {
-				fList.add(file);
+
+	@RequestMapping(value = "piano", method = RequestMethod.GET)
+	public String piano() {
+		return "compose/piano";
+	}
+
+	@RequestMapping(value = "drum", method = RequestMethod.GET)
+	public String drum() {
+		return "compose/drum";
+	}
+
+	@RequestMapping(value = "mixerPage", method = RequestMethod.GET)
+	public String test2(Model model, HttpServletRequest request) {
+		//File dd = new File(request.getServletContext().getRealPath("src/sample/"));
+		File webFolder = new File(request.getServletContext().getRealPath("src/sample/"));
+		
+		int flag = 0;
+		FileWriter fw;
+		BufferedWriter bw = null;
+		PrintWriter pw = null;
+		try {
+			for (File file : webFolder.listFiles()) {
+				if (!file.isDirectory()) {
+					flag++;
+					if (flag == 1) {
+						fw = new FileWriter(request.getServletContext().getRealPath("src/mywork/myWork.txt"));
+						bw = new BufferedWriter(fw);
+						pw = new PrintWriter(bw);
+					}
+					pw.println("!"+file.getName()+"!");
+				}
+			}
+			pw.flush();
+			pw.close();
+			bw.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "compose/mixerPage";
+	}
+
+	@RequestMapping(value = "mixerWorks", method = RequestMethod.POST)
+	public @ResponseBody void ajaxTest1(String data, HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("data: "+data);
+		String originalfile = data;
+		String otherpath = request.getServletContext().getRealPath("src/sample/");
+		String fullpath = "";
+		ServletOutputStream fileout = null;
+		FileInputStream filein = null;
+		// 한개의 글을 가져옴
+
+		fullpath = otherpath + originalfile;
+		System.out.println("풀패스: "+fullpath);
+		try {
+			response.setHeader("Content-Disposition",
+					"attachment;filename=" + URLEncoder.encode(originalfile, "UTF-8"));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		try {
+			filein = new FileInputStream(fullpath);
+			fileout = response.getOutputStream();
+			fileout.flush();
+			FileCopyUtils.copy(filein, fileout);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (filein != null)
+					filein.close();
+				if (fileout != null)
+					fileout.close();
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
-		
-		ArrayList<String> sList = new ArrayList<>();
-		sList.add("1"); sList.add("2"); sList.add("3");
-		model.addAttribute("sList", sList);
-		model.addAttribute("fList", fList);
-		return "compose/test2";
+		System.out.println("ajaxTest COunt>");
 	}
 	
-	@RequestMapping(value = "test3", method = RequestMethod.GET)
-	public String test3() {
-		return "compose/test3";
+	@RequestMapping(value = "mixer", method = RequestMethod.GET)
+	public String mixer(HttpServletRequest request, Model model) {
+		try {
+			////////////////////////////////////////////////////////////////
+			FileReader fr = new FileReader(request.getServletContext().getRealPath("src/mywork/myWork.txt"));
+			BufferedReader br = new BufferedReader(fr);
+			String s;
+			ArrayList<String> sList = new ArrayList<>();
+			while ((s = br.readLine()) != null) {
+				sList.add(s);
+			}
+			System.out.println("sList: "+sList);
+			model.addAttribute("sList", sList);
+			br.close();
+			fr.close();
+			////////////////////////////////////////////////////////////////
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return "compose/mixer";
+	}
+
+
+	@RequestMapping(value = "pitch", method = RequestMethod.GET)
+	public String pitch() {
+		return "compose/pitch";
+	}
+	
+	@RequestMapping(value = "effect", method = RequestMethod.GET)
+	public String effect() {
+		return "compose/effect";
+	}
+	
+	@RequestMapping(value = "test5", method = RequestMethod.GET)
+	public String test5() { //빈 믹서 페이지
+		return "compose/test5";
+	}
+	
+	@RequestMapping(value = "test6", method = RequestMethod.GET)
+	public String test6() { 
+		return "compose/test6";
+	}
+	
+	@RequestMapping(value = "test7", method = RequestMethod.GET)
+	public String test7() { 
+		return "compose/test7";
 	}
 }
+	

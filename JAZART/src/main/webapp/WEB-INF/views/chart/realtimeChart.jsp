@@ -43,13 +43,50 @@
 <!-- Custom typography settings and google fonts -->
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 
+<script src="resources/jquery-3.1.1.min.js"></script>
+<script type="text/javascript"></script>
 <script>
+	$(function() {
+		setTimeout(scrollMove, 1000);
+		/* 	$(document).off(".disableScroll"); */
+	});
+
+	function scrollMove() {
+		var offset = $("#test").offset();
+		$('html, body').animate({
+			scrollTop : offset.top
+		}, 400);
+	}
 	function pagingForSubmit(currentPage) {
 		var form = document.getElementById("pagingForm");
 		var page = document.getElementById("page");
 		page.value = currentPage;
 
 		form.submit();
+	}
+
+	function addSongList(songnum) {
+		var snum = songnum;
+		alert(snum);
+		$.ajax({
+			method : "get",
+			url : "addSongList",
+			data : {
+				"songnum" : snum
+			},
+			success : function(resp) {
+				if (resp == 1) {
+					alert('추가되었습니다');
+				} else if (resp == 0) {
+					alert('실패');
+				} else if (resp == 3) {
+					alert('로그인후 이용해주세요');
+				}
+			},
+			error : function(resp) {
+				alert(resp);
+			}
+		});
 	}
 </script>
 </head>
@@ -108,11 +145,11 @@
 
 				<!-- 플레이리스트 -->
 				<c:if test="${not empty loginNickname}">
-				<li class="right"><a href="songPopup?songnum=0"
-					class="qt-popupwindow" data-name="Music Player" data-width="320"
-					data-height="500"> <i class="icon dripicons-duplicate"></i>Playlist
-				</a></li>
-			</c:if>
+					<li class="right"><a href="songPopup?songnum=0"
+						class="qt-popupwindow" data-name="Music Player" data-width="320"
+						data-height="500"> <i class="icon dripicons-duplicate"></i>Playlist
+					</a></li>
+				</c:if>
 
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
@@ -202,14 +239,15 @@
 			</div>
 			<!-- HEADER CAPTION END ========================= -->
 			<!-- ======================= CONTENT SECTION ======================= -->
-			<div class="qt-container">
+			<div class="qt-container" id="test">
 				<div class="row qt-vertical-padding-l ">
 					<div class="col s12 m12 l1 qt-pushpin-container">
 						<div class="qt-pushpin"></div>
 						<hr class="qt-spacer-m">
 					</div>
 					<c:if test="${not empty type}">
-						<h3 class="qt-footer-logo">전체리스트임</h3>
+						<h4>최신순으로 모든곡이 표시됩니다</h4>
+						<br>
 					</c:if>
 					<div class="col s12 m12 l8">
 						<ul class="collapsible qt-chart-tracklist"
@@ -230,7 +268,8 @@
 											<p>${ realtime.song_nickname }</p>
 										</div>
 										<div class="qt-action">
-											<a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i
+											<a href="javascript:addSongList(${realtime.songnum})"
+												class="qt-btn qt-btn-ghost qt-btn-l"><i
 												class="dripicons-cart"></i></a>
 										</div>
 									</div>
@@ -246,6 +285,8 @@
 												data-width="320" data-hqeight="500">노래듣기&nbsp;</a>
 										</p>
 									</div>
+
+
 								</li>
 								<!-- CHART TRACK END ========================= -->
 							</c:forEach>
@@ -262,8 +303,8 @@
 										<span>실시간 차트</span>
 									</h5>
 									<div class="qt-widget-onair qt-card aligncenter">
-										<a href="#post"> <img src="images/jazart.jpg"
-											class="images/jazart.jpg" alt="photo" />
+										<a href="#post"> <img src="${rc[0].song_picture}"
+											alt="photo" />
 										</a>
 										<h4 class="qt-caption-med">
 											<span>RealTime Chart</span>
@@ -542,9 +583,9 @@
 						height="302">
 				</div>
 			</div>
-			<div class="qt-footer-bottom qt-content-primary-dark">
+			<!-- <div class="qt-footer-bottom qt-content-primary-dark">
 				<div class="qt-container">
-					<div class="row">
+					<div class="row"> -->
 						<!-- <div class="col s12 m12 l8">
 							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
 							| Radio Station HTML Template
@@ -565,9 +606,9 @@
 								<li class="right"><a href="#"><i
 										class="qticon-soundcloud"></i></a></li>
 							</ul> -->
-						</div>
+				<!-- 	</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>

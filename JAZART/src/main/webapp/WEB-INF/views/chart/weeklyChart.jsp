@@ -45,6 +45,16 @@
 <script src="resources/jquery-3.1.1.min.js"></script>
 <script type="text/javascript"></script>
 <script>
+	$(function() {
+		setTimeout(scrollMove, 1000);
+	/* 	$(document).off(".disableScroll"); */
+	});
+	function scrollMove() {
+		var offset = $("#test").offset();
+		$('html, body').animate({
+			scrollTop : offset.top
+		}, 400);
+	}
 	function pagingForSubmit(currentPage) {
 		var form = document.getElementById("pagingForm");
 		var page = document.getElementById("page");
@@ -62,11 +72,11 @@
 			data : {
 				"songnum" : snum
 			},
-			success : function(resp){
-				if (resp == 1){
-					alert('추가되었스빈다');
-				} else if (resp == 0){
-					alert('추가안됐어');
+			success : function(resp) {
+				if (resp == 1) {
+					alert('추가되었습니다');
+				} else if (resp == 0) {
+					alert('실패');
 				} else if (resp == 3) {
 					alert('로그인후 이용해주세요');
 				}
@@ -227,7 +237,7 @@
 			</div>
 			<!-- HEADER CAPTION END ========================= -->
 			<!-- ======================= CONTENT SECTION ======================= -->
-			<div class="qt-container">
+			<div class="qt-container" id="test">
 				<div class="row qt-vertical-padding-l ">
 					<div class="col s12 m12 l1 qt-pushpin-container">
 						<div class="qt-pushpin"></div>
@@ -288,8 +298,8 @@
 										<span>주간차트</span>
 									</h5>
 									<div class="qt-widget-onair qt-card aligncenter">
-										<a href="#post"> <img src="images/jazart.jpg"
-											class="images/jazart.jpg" alt="photo" />
+										<a href="#post"> <img src="${wc[0].song_picture}"
+											alt="photo" />
 										</a>
 										<h4 class="qt-caption-med">
 											<span>weekly chart</span>
@@ -566,9 +576,9 @@
 						height="302">
 				</div>
 			</div>
-			<div class="qt-footer-bottom qt-content-primary-dark">
+			<!-- <div class="qt-footer-bottom qt-content-primary-dark">
 				<div class="qt-container">
-					<div class="row">
+					<div class="row"> -->
 						<!-- <div class="col s12 m12 l8">
                      Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
                      | Radio Station HTML Template
@@ -578,7 +588,7 @@
                         <li><a href="#">Sitemap</a></li>
                      </ul>
                   </div> -->
-						<div class="col s12 m12 l4">
+						<!-- <div class="col s12 m12 l4"> -->
 							<!-- <ul class="qt-menu-social">
                         <li class="right"><a href="#"><i
                               class="qticon-beatport"></i></a></li>
@@ -589,10 +599,10 @@
                         <li class="right"><a href="#"><i
                               class="qticon-soundcloud"></i></a></li>
                      </ul> -->
-						</div>
+			<!-- 	</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<!-- PLAYER SIDEBAR ========================= -->

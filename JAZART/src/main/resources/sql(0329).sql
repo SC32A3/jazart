@@ -1,7 +1,7 @@
 --먼저 system/1234로 접속해서 해야할 일 
-create tablespace temp2 datafile 'c:\temp2.dbf' size 100m;
-create user temp2 identified by temp2 default tablespace temp2;
-grant create session, create table, create sequence, resource to temp2;
+create tablespace jazart datafile 'c:\jazart.dbf' size 100m;
+create user jazart identified by jazart32 default tablespace jazart;
+grant create session, create table, create sequence, resource to jazart;
 commit;
 
 
@@ -119,7 +119,7 @@ CREATE TABLE SongEdit
 	-- 곡일련번호
 	songnum number NOT NULL,
 	listnum number NOT NULL,
-	PRIMARY KEY (mel_seq)
+	PRIMARY KEY (songedit_seq)
 );
 
 
@@ -127,6 +127,7 @@ CREATE TABLE songinfo
 (
 	-- 곡일련번호
 	songnum number NOT NULL,
+	-- 아티스트명
 	song_nickname varchar2(30),
 	-- 곡프로필사진
 	song_picture varchar2(30) DEFAULT 'u_profile',
@@ -140,11 +141,6 @@ CREATE TABLE songinfo
 	song_inputdate date DEFAULT SYSDATE,
 	-- 곡추천수
 	song_like number DEFAULT 0,
-	-- 음악의 빠르기
-	-- 
-	bpm number(4),
-	-- 음악의 박자  ex) 3/4 , 6/8
-	Beat varchar2(10),
 	-- 곡의 장르
 	song_genre varchar2(20),
 	PRIMARY KEY (songnum)

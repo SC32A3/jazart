@@ -53,11 +53,10 @@
 <script type="text/javascript"></script>
 <link rel="manifest" href="manifest.json"/>
 <link rel="shortcut icon" href="assets/favicon.png"/>
-<link rel="stylesheet" href="bin/gs-daw.css"/>
 <script>function lg( a ) { return console.log.apply( console, arguments ), a; }</script>
 <style type="text/css">
-.qt-container {
-    height: 1000px;
+.mixer {
+    overflow: scroll;
 }
 </style>
 </head>
@@ -210,17 +209,34 @@
 				</div>
 				<!-- HEADER MEMBERS END ========================= -->
          <div class="qt-container qt-vertical-padding-l">
-			<div id="app"></div>
-			<input type="hidden" id="files" value="${fList}">
-			<!-- Production -->
-			<script src="bin/gs-daw2.js"></script>     
-			<script type="text/javascript">
-				/* document.body.onload = function() {
-					var test = "${fList}";
-					alert('jsp에서: '+test);
-					e(test);
-				} */
-			</script>          
+			<div class="row">
+				<div class="col l10">
+						<!-- ====================== SECTION BOOKING AND CONTACTS ================================================ -->
+						<div id="booking" class="section qt-section-booking qt-card">
+							<div class="qt-valign-wrapper">
+								<div class="qt-valign flow-text">
+									<div class="qt-booking-form" data-100p-top="opacity:0;"
+										data-80p-top="opacity:0;" data-30p-top="opacity:1;">
+										<ul class="tabs">
+											<li class="tab col s4">
+												<h5>
+													<a href="#mixer" class="active">Mixer</a>
+												</h5>
+											</li>
+										</ul>
+										<div id="mixer" class="row" style="overflow-y:auto">
+											<div class="row">
+												<iframe frameborder="0" src="mixer"
+												height="640px" class="mixer"></iframe>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
+					</div>
+			</div>
          </div>
       </div>
       	<div class="qt-footer qt-footerwidgets">

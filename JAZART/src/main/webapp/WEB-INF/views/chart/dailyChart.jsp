@@ -43,10 +43,11 @@
 <!-- Custom typography settings and google fonts -->
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 <script src="resources/jquery-3.1.1.min.js"></script>
+<script type="text/javascript"></script>
 <script>
 	$(function() {
-		setTimeout(scrollMove, 5000);
-		$(document).off(".disableScroll");
+		setTimeout(scrollMove, 1000);
+		/* $(document).off(".disableScroll"); */
 	});
 
 	function scrollMove() {
@@ -55,13 +56,35 @@
 			scrollTop : offset.top
 		}, 400);
 	}
-
 	function pagingForSubmit(currentPage) {
 		var form = document.getElementById("pagingForm");
 		var page = document.getElementById("page");
 		page.value = currentPage;
-
 		form.submit();
+	}
+
+	function addSongList(songnum) {
+		var snum = songnum;
+		alert(snum);
+		$.ajax({
+			method : "get",
+			url : "addSongList",
+			data : {
+				"songnum" : snum
+			},
+			success : function(resp) {
+				if (resp == 1) {
+					alert('추가되었습니다');
+				} else if (resp == 0) {
+					alert('실패');
+				} else if (resp == 3) {
+					alert('로그인후 이용해주세요');
+				}
+			},
+			error : function(resp) {
+				alert(resp);
+			}
+		});
 	}
 </script>
 </head>
@@ -240,7 +263,8 @@
 											<p>${ daily.song_nickname }</p>
 										</div>
 										<div class="qt-action">
-											<a href="#purchase-link" class="qt-btn qt-btn-ghost qt-btn-l"><i
+											<a href="javascript:addSongList(${daily.songnum})"
+												class="qt-btn qt-btn-ghost qt-btn-l"><i
 												class="dripicons-cart"></i></a>
 										</div>
 									</div>
@@ -275,8 +299,8 @@
 										<span>일간차트</span>
 									</h5>
 									<div class="qt-widget-onair qt-card aligncenter">
-										<a href="#post"> <img src="images/jazart.jpg"
-											class="images/jazart.jpg" alt="photo" />
+										<a href="#post"> <img src="${dc[0].song_picture}"
+											alt="photo" />
 										</a>
 										<h4 class="qt-caption-med">
 											<span>daily chart</span>
@@ -555,9 +579,9 @@
 						height="302">
 				</div>
 			</div>
-			<div class="qt-footer-bottom qt-content-primary-dark">
+			<!-- <div class="qt-footer-bottom qt-content-primary-dark">
 				<div class="qt-container">
-					<div class="row">
+					<div class="row"> -->
 						<!-- <div class="col s12 m12 l8">
 							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
 							| Radio Station HTML Template
@@ -567,7 +591,7 @@
 								<li><a href="#">Sitemap</a></li>
 							</ul>
 						</div> -->
-						<div class="col s12 m12 l4">
+					<!-- 	<div class="col s12 m12 l4"> -->
 							<!-- <ul class="qt-menu-social">
 								<li class="right"><a href="#"><i
 										class="qticon-beatport"></i></a></li>
@@ -578,10 +602,10 @@
 								<li class="right"><a href="#"><i
 										class="qticon-soundcloud"></i></a></li>
 							</ul> -->
-						</div>
+					<!-- 	</div>
 					</div>
-				</div>
-			</div>
+				</div> -->
+			<!-- </div> -->
 		</div>
 	</div>
 	<!-- PLAYER SIDEBAR ========================= -->

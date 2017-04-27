@@ -31,7 +31,6 @@ function gsuiToggle(t, e) {
 }
 
 function gsuiWaveform(t) {
-	alert("gsuiWaveform t: "+t);
 	this.svg = t, this.polygon = t.querySelector("polygon")
 }
 
@@ -43,14 +42,11 @@ function gswaContext() {
     this.ctx = new window.AudioContext, this.destination = this.ctx.destination, this.filters = this.createFilters(), this.nbPlaying = 0, this.filters.connect(this.destination), this.nodeIn = this.filters.nodeIn, delete this.filters.connect
 }
 
-function gswaSample(t, e) {
-	alert("gswaSample t: "+t); //JSON 안먹힘
-	alert("gswaSample e: "+e); //JSON 안먹힘
+function gswaSample(t, e) { //gswaSample
     this.wCtx = t, this.wBuffer = e, this.connectedTo = t.nodeIn, this.started = 0, this.bufferSources = [], this.onended(function() {}), this.edit(0, 0, e.duration), this.bufferDuration = e.duration
 }
 
 function gswaBuffer(t) {
-	alert("gswaBuffer t: "+t); //JSON 안먹힘
     this.wCtx = t, this.samples = [], this.sample = new gswaSample(t, this)
 }
 
@@ -828,9 +824,7 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
         }
     }, ! function() {
         function t(t) {
-        	alert('bufferSources: '+t);
             this.bufferSources.splice(this.bufferSources.findIndex(function(e) {
-            	alert('bufferSources: '+e);
                 return t === e
             }), 1)
         }
@@ -937,16 +931,13 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
         }
     }, gswaContext.prototype = {
         gain: function(t) {
-        	alert('gain: '+t);
             return arguments.length ? (this.filter.gain(t), this) : this.filter.gain()
         },
         createSample: function(t) {
             var e = new gswaSample(this, t);
-            alert('createSample: '+e);
             return t.samples.push(e), e
         },
         createBuffer: function() { //드래그할때 버퍼생성 처음!
-        	alert('createBuffer: '+this.toString());
             return new gswaBuffer(this)
         },
         createFilters: function() { //초기값
@@ -1300,7 +1291,6 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
         }), e.gridBlockSample = t({ //노드에 옮길때
             compiler: [7, ">= 4.0.0"],
             main: function(t, e, i, n, s) {
-            	alert('노드에 옮길때');
                 var o, a;
                 return '<div class="gridBlock sample">\r\n\t<div class="content">\r\n' + (null != (o = t.invokePartial(n.gsuiWaveform, e, {
                     name: "gsuiWaveform",
@@ -1355,7 +1345,6 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
                     hash: {},
                     data: s
                 }) : a)) + "</span>\r\n\t</div>\r\n</a>\r\n";
-                alert("e.itemBuffer: "+JSON.stringify(test));
                 /*  <a class=\"item buffer\" draggable=\"true\">\r\n\t
                 		<svg class=\"gsuiWaveform\" preserveAspectRatio=\"none\">\r\n\t\t
                 			<polygon/>\r\n\t
@@ -1606,7 +1595,8 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
         gs.file.stop(), gs.compositionStop()
     }, gs.compositionStop = function() {
         gs.composition.stop(), waFwk.do.stop(), gs.currentTime(0), gs.isPaused = gs.isPlaying = !1
-    }, gs.file.create = function(t) {
+    }, gs.file.create = function(t) { //gs.file.create
+    	//alert('size&name: '+t.name+','+t.size);
         waFwk.do.addSource({
             data: t.length ? null : t,
             metadata: {
@@ -1614,7 +1604,6 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
                 duration: t.length ? t[3] : void 0
             }
         })
-        alert('gs.file.create: '+t);
     }, gs.file.delete = function(t) {
         gs.composition.samples.filter(function(e) {
             return e.data.gsfile === t
@@ -1630,25 +1619,17 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
             })
         })
         alert('gs.file.joinFile t: '+t);
-        alert('gs.file.joinFile e: '+e);
-        alert('gs.file.joinFile i: '+i);
     }, gs.file.load = function(t, e) {
         var i = t.source;
         t.isLoading = !0, i.loading(), t.wbuff.setFile(t.file).then(function(n) {
             t.isLoaded = !0, t.isLoading = !1, i.loaded(), e(t)
         })
-        alert('gs.file.load t: '+t);
-        alert('gs.file.load e: '+e);
-        alert('gs.file.load i: '+i);
     }, gs.file.play = function(t) {
         var e = gs.file.playingSmp;
         e && e.stop(), t.isLoaded && (ui.filesCursor.insertInto(t.source), gs.file.playingSmp = t.wbuff.sample.start(), setTimeout(ui.filesCursor.startMoving.bind(null, t.wbuff.buffer.duration), 20))
-        alert('gs.file.play t: '+t);
-        alert('gs.file.play e: '+e);
     }, gs.file.stop = function() {
         var t = gs.file.playingSmp;
         t && (t.stop(), ui.filesCursor.remove())
-        alert('gs.file.stop t: '+t);
     },
     function() {
         gs.history = {
@@ -1851,11 +1832,9 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
                 t.remove()
             },
             insertInto: function(e) { //리스트에서 재생 보여주는 것
-            	alert("insertinto: "+e);
                 t.style.transitionDuration = t.style.left = 0, e.elRoot.appendChild(t)
             },
             startMoving: function(e) { //리스트에서 재생 보여주는 것
-            	alert("startmoving: "+e);
                 t.style.transitionDuration = e + "s", t.style.left = "100%"
             }
         }
@@ -1867,7 +1846,7 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
                 e(t.files[0])
             },
             getFile: function(i) {
-            	alert("change: "+JSON.stringify(e));
+            	alert("getFile: "+JSON.stringify(e));
                 e = i, t.click()
             }
         }
@@ -1875,7 +1854,6 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
         var e, i = [];
         return {
             click: function(t) {
-            	alert("click: "+JSON.stringify(t));
                 (t = t.target.historyAction) && gs.history.goToAction(t)
             },
             reset: function() {
@@ -2034,8 +2012,7 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
         lg("pause", t)
     },
     function() {
-        function t() {
-        	alert('드롭1 : '+JSON.stringify(this));
+        function t() { //드롭
             this.elRoot = ui.createHTML(Handlebars.templates.itemBuffer())[0],
             this.elName = this.elRoot.querySelector(".name"),
             this.elIcon = this.elRoot.querySelector(".icon"),
@@ -2044,10 +2021,6 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
             this.elRoot.onclick = this.click.bind(this),
             this.elRoot.ondragstart = this.dragstart.bind(this),
             //alert('elRoot: '+this.elRoot); //빈값이옴
-            alert('elRoot: '+JSON.stringify(this.elRoot));
-            alert('elName: '+JSON.stringify(this.elName));
-            alert('elIcon: '+JSON.stringify(this.elIcon));
-            alert('elWave: '+JSON.stringify(this.elWave));
             this.elRoot.oncontextmenu = function() {
                 return !1
             }
@@ -2067,9 +2040,6 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
                     bufferDuration: e.data ? null : n[3],
                     fullname: n.name || n[1]
                 };
-            alert("addSource i: "+JSON.stringify(i));
-            alert('addSource n: '+JSON.stringify(n));
-            alert('addSource s: '+s); //JSON안됨
             return i.that = s, i.setName(s.fullname.replace(/\.[^.]+$/, "")), ui.dom.filesList.appendChild(i.elRoot), s.wbuff.sample.onended(gs.file.stop), gs.files.push(s), e.data ? i.unloaded() : (s.size = n[2], i.withoutData()), i
         };
         var e, i;
@@ -2229,6 +2199,8 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
         var i = .25,
             n = i / 2
     }(), ui.getTrackFromPageY = function(t) {
+    	//alert('좌표값: '+(t - ui.gridColsY + ui.gridScrollTop) / ui.trackHeight)
+    	//console.log('fuck');
         return waFwk.tracks[Math.floor((t - ui.gridColsY + ui.gridScrollTop) / ui.trackHeight)].userData
     }, ui.panelSection = function(t) {
         ui.dom.app.dataset.panel = t
@@ -2537,8 +2509,6 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
         }, document.body.ondrop = function(i) {
             var a, r = 0,
                 l = i && i.dataTransfer;
-            alert("i: "+JSON.stringify(i));
-            alert(JSON.stringify(i.dataTransfer.files[0].name));
             if (o = [], s = !1, l.items && l.items.length) {
             	e(l.items);
             }
@@ -2549,7 +2519,42 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
                 })
             }
             return !1
-        }
+        }, document.body.onload = function() {
+        	for (var i = 0; i < result.length; i++) {
+        		var sname = result[i];
+				var blob = null;
+				var xhr = new XMLHttpRequest();
+				xhr.open("POST", "mixerWorks", false);
+				
+				xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+				xhr.overrideMimeType("text/plain; charset=x-user-defined");
+				//xhr.overrideMimeType('audio/wav'); // ~테스트소스~ application/xml
+				//xhr.responseType = "blob";
+				xhr.onreadystatechange = function () { //이게 콜백함수구나
+					//alert('readyState&status: '+xhr.readyState+', '+xhr.status);
+					if (xhr.readyState == xhr.DONE) {
+						var wavString = xhr.response;
+						var len = wavString.length;
+						var buf = new ArrayBuffer(len);
+						var view = new Uint8Array(buf);
+						for (var i = 0; i < len; i++) {
+						  view[i] = wavString.charCodeAt(i) & 0xff;
+						}
+						blob = new Blob([view], {type: "audio/x-wav"});
+						var parts = [blob];
+						//Construct a file
+						var file = new File(parts, sname, { 
+							lastModified: new Date(0), // optional - default = now
+							type: "audio/wav" // optional - default = ''
+								// "overide/mimetype"
+						});
+						
+						gs.file.create(file); // 알수없음
+					}
+				}
+				xhr.send("data="+result[i]);
+			}
+		}
     }(),
     function() {
         function t(t) {
