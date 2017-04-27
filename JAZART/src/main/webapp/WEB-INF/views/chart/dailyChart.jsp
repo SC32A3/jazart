@@ -65,7 +65,6 @@
 
 	function addSongList(songnum) {
 		var snum = songnum;
-		alert(snum);
 		$.ajax({
 			method : "get",
 			url : "addSongList",
