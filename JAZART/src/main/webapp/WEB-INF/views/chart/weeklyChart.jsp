@@ -47,7 +47,7 @@
 <script>
 	$(function() {
 		setTimeout(scrollMove, 1000);
-	/* 	$(document).off(".disableScroll"); */
+		/* 	$(document).off(".disableScroll"); */
 	});
 	function scrollMove() {
 		var offset = $("#test").offset();
@@ -65,7 +65,6 @@
 
 	function addSongList(songnum) {
 		var snum = songnum;
-		alert(snum);
 		$.ajax({
 			method : "get",
 			url : "addSongList",
@@ -75,10 +74,14 @@
 			success : function(resp) {
 				if (resp == 1) {
 					alert('추가되었습니다');
-				} else if (resp == 0) {
-					alert('실패');
+					popup=window.open('songPopup?songnum=0');
+					$(popup.document).reload();
+				} else if (resp == 2) {
+					alert('이미추가된곡입니다');
 				} else if (resp == 3) {
 					alert('로그인후 이용해주세요');
+				} else if (resp == 0) {
+					alert('실패');
 				}
 			},
 			error : function(resp) {
@@ -298,8 +301,8 @@
 										<span>주간차트</span>
 									</h5>
 									<div class="qt-widget-onair qt-card aligncenter">
-										<a href="#post"> <img src="${wc[0].song_picture}"
-											alt="photo" />
+										<a href="#post"> <img
+											src="download?type=song&data=${wc[0].songnum}" alt="photo" />
 										</a>
 										<h4 class="qt-caption-med">
 											<span>weekly chart</span>
@@ -579,7 +582,7 @@
 			<!-- <div class="qt-footer-bottom qt-content-primary-dark">
 				<div class="qt-container">
 					<div class="row"> -->
-						<!-- <div class="col s12 m12 l8">
+			<!-- <div class="col s12 m12 l8">
                      Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
                      | Radio Station HTML Template
                      <ul class="qt-menu-footer qt-small qt-list-chevron ">
@@ -588,8 +591,8 @@
                         <li><a href="#">Sitemap</a></li>
                      </ul>
                   </div> -->
-						<!-- <div class="col s12 m12 l4"> -->
-							<!-- <ul class="qt-menu-social">
+			<!-- <div class="col s12 m12 l4"> -->
+			<!-- <ul class="qt-menu-social">
                         <li class="right"><a href="#"><i
                               class="qticon-beatport"></i></a></li>
                         <li class="right"><a href="#"><i
