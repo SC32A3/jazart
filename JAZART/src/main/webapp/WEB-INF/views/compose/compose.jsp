@@ -47,6 +47,27 @@
 <script src="resources/jquery-3.1.1.min.js"></script>
 <script src="resources/rTest/test.js"></script>
 <link rel="stylesheet" href="resources/rTest/app.css">
+<style type="text/css">
+.clipSpan{
+	background: #ff8080;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+	float: right;
+    text-align: center;
+    color: white;
+    border: none;
+    transition: all 0.2s;
+}
+
+.clipA{
+	color : white;
+}
+
+.clipA:hover{
+	color : white;
+}
+
+</style>
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->
@@ -220,13 +241,15 @@
 											<section class="main-controls">
 												<canvas class="visualizer"></canvas>
 												<div id="buttons"
-													class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-
-
-light lnr lnr-rocket">
+													class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light lnr lnr-rocket">
 													<button class="record qt-btn">Record</button>
 													<button class="stop qt-btn">Stop</button>
 												</div>
-
+												
+												
+												<!-- <div class="forHidden">
+												<a id="hiddenTag" href="#" download="#">히든데이터</a>
+												</div> -->
 											</section>
 
 											<section class="sound-clips">
