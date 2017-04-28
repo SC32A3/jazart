@@ -50,7 +50,7 @@ public class ChartController {
 
 	@RequestMapping(value = "realtimeChart", method = RequestMethod.GET)
 	public String realtimect(Model model, @RequestParam(value = "page", defaultValue = "1") int page) {
-		int total = cr.realtimeCount();
+		int total = cr.chartAllCount();
 		PageNavigator navi;
 		if (total == 0) {
 			total = cr.allCount();
@@ -70,6 +70,7 @@ public class ChartController {
 
 		logger.info("> realtime chart");
 		ArrayList<SongInfo> cList = cr.chartList("rc", start, end);
+		logger.info("> realtime chart" + cList.size());
 		model.addAttribute("rc", cList);
 		model.addAttribute("navi", navi); // 페이징을 위해서
 		return "chart/realtimeChart";
@@ -79,7 +80,7 @@ public class ChartController {
 	public String dailyct(Model model, @RequestParam(value = "page", defaultValue = "1") int page) {
 		logger.info("> daily chart");
 		PageNavigator navi;
-		int total = cr.dailyCount();
+		int total = cr.chartAllCount();
 		if (total == 0) {
 			total = cr.allCount();
 			navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
@@ -107,7 +108,7 @@ public class ChartController {
 	public String weekilyct(Model model, @RequestParam(value = "page", defaultValue = "1") int page) {
 		logger.info("> weekly chart");
 		PageNavigator navi;
-		int total = cr.weeklyCount();
+		int total = cr.chartAllCount();
 		if (total == 0) {
 			total = cr.allCount();
 			navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
@@ -129,6 +130,7 @@ public class ChartController {
 		model.addAttribute("navi", navi); // 페이징을 위해서
 		return "chart/weeklyChart";
 	}
+
 	@ResponseBody
 	@RequestMapping(value = "dwChart", method = RequestMethod.GET)
 	public Map<String, Object> dwChart(Model model, @RequestParam(value = "page", defaultValue = "1") int page,
@@ -136,7 +138,7 @@ public class ChartController {
 		Map<String, Object> data = new HashMap<>();
 		logger.info("dwChart,page,type" + page + ", " + type);
 		if (type.equals("daily")) {
-			int total = cr.dailyCount();
+			int total = cr.chartAllCount();
 			PageNavigator navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
 			int start = navi.getStartRecord(); // 1,11,21
 			int end = start + countPerPage - 1; // 10,20,30
@@ -147,7 +149,7 @@ public class ChartController {
 			data.put("type", type);
 		}
 		if (type.equals("weekly")) {
-			int total = cr.weeklyCount();
+			int total = cr.chartAllCount();
 			PageNavigator navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
 			int start = navi.getStartRecord(); // 1,11,21
 			int end = start + countPerPage - 1; // 10,20,30

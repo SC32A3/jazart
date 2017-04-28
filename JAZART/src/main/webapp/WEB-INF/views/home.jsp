@@ -46,7 +46,6 @@
 <script type="text/javascript">
 	function addSongList(songnum) {
 		var snum = songnum;
-		alert(snum);
 		$.ajax({
 			method : "get",
 			url : "addSongList",
@@ -372,7 +371,7 @@
 								<div class="qt-header-mid qt-vc">
 									<div class="qt-vi">
 
-										<h2 class="qt-title">
+										<h2 class="qt-title"> 
 											<a href="#read" class="qt-text-shadow"> contacts </a>
 										</h2>
 										<div
@@ -497,7 +496,7 @@
 															style="float: right;"
 															href="songPage?songnum=${allList.songnum}">노래보기&nbsp;</a>
 														<a style="float: right;"
-															href="songPopup?songnum=${weekly.songnum}"
+															href="songPopup?songnum=${allList.songnum}"
 															class="qt-popupwindow" data-name="Music Player"
 															data-width="320" data-hqeight="500">노래듣기&nbsp;</a>
 													</div>

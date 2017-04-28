@@ -40,7 +40,7 @@ public class UserController {
 	@Autowired
 	HttpSession session;
 
-	final int countPerPage = 10; // 페이지당 글 수
+	final int countPerPage = 14; // 페이지당 글 수
 	final int pagePerGroup = 5; // 페이지 그룹에 표시되는 그룹 수
 
 	final String uploadPath = "/userProfile"; // 파일이 업로드 되는 경로
@@ -49,8 +49,8 @@ public class UserController {
 	public String home(Model model, @RequestParam(value = "page", defaultValue = "1") int page) {
 		logger.info("> weekly chart");
 
-		int total = cr.weeklyCount();
-
+		int total = cr.chartAllCount();
+		System.out.println("토탈 페이지수 " + total);
 		PageNavigator navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
 		int start = navi.getStartRecord(); // 1,11,21
 		int end = start + countPerPage - 1; // 10,20,30

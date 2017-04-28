@@ -323,9 +323,10 @@ create sequence like_seq;
 ----------------------------------------------------------------------------------------------------------------------
 insert into userinfo values('apple2', '1111', 'defalut.jpg', 'apple', '010-2020-1020', 'apple2@naver.com' '안녕하세요, 사과입니다. 충주에서 왔습니다');
 
-insert into songinfo values(songinfo_seq.nextval, 'apple', 'cat2.jpg', '사과송', '충주사과 홍보곡', 'x', sysdate, 0, 50, '4/4', 'hiphop');
+insert into songinfo values(songinfo_seq.nextval, 'apple', 'cat2.jpg', '사과송', '충주사과 홍보곡', '', sysdate, 0, 50, '4/4', 'hiphop');
 insert into songinfo values(songinfo_seq.nextval, 'apple', 'seo.jpg', '사과좋아', '국민가수 사과맨의 컴백곡', 'x', sysdate, 0, 60, '3/4', 'ballad');
 insert into songinfo values(songinfo_seq.nextval, 'apple', 'seo.jpg', '사과만세', '그가 돌아왔다 사과맨', 'x', sysdate, 0, 70, '3/4', 'jazz');
+insert into songinfo values(songinfo_seq.nextval, 'test', 'seo.jpg', 'testrock', 'rockrockrockrock', 'Angry Angst Long.mp3', sysdate, 0, 'rock');
 
 insert into board values(board_seq.nextval, 'x', 'banzzogari', '피처링 구해요', '피쳐링해주실분을 찾고 있습니다', sysdate, 1);
 insert into board values(board_seq.nextval, 'x', 'banzzogari', '안녕하세요', '피쳐링해주실분을 찾고 있습니다', sysdate, 1);

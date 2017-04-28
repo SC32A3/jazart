@@ -371,7 +371,7 @@
 
 			<!-- 페이징 -->
 			<div class="qt-pagination qt-content-primary">
-				<form method="get" action="dailyChart" class="qt-inline-form"
+				<form method="get" action="realtimeChart" class="qt-inline-form"
 					id="pagingForm">
 					<input type="hidden" id="page" name="page">
 				</form>

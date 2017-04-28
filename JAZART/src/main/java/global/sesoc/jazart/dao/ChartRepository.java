@@ -48,7 +48,7 @@ public class ChartRepository {
 		}
 		return cList;
 	}
-
+/*
 	public int dailyCount() {
 		ChartMapper mapper = sqlSession.getMapper(ChartMapper.class);
 		int result = 0;
@@ -87,7 +87,7 @@ public class ChartRepository {
 			e.printStackTrace();
 		}
 		return result;
-	}
+	}*/
 
 	public ArrayList<SongInfo> allList(int start, int end) {
 		ChartMapper mapper = sqlSession.getMapper(ChartMapper.class);
@@ -111,6 +111,18 @@ public class ChartRepository {
 		int result = 1;
 		try {
 			result = mapper.allCount();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public int chartAllCount() {
+		int result = 0;
+		ChartMapper mapper = sqlSession.getMapper(ChartMapper.class);
+		try {
+			result = mapper.chartAllCount();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

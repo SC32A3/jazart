@@ -59,7 +59,6 @@
 		var form = document.getElementById("pagingForm");
 		var page = document.getElementById("page");
 		page.value = currentPage;
-
 		form.submit();
 	}
 
@@ -74,7 +73,7 @@
 			success : function(resp) {
 				if (resp == 1) {
 					alert('추가되었습니다');
-					popup=window.open('songPopup?songnum=0');
+					popup = window.open('songPopup?songnum=0');
 					$(popup.document).reload();
 				} else if (resp == 2) {
 					alert('이미추가된곡입니다');
@@ -365,7 +364,7 @@
 			</div>
 
 			<div class="qt-pagination qt-content-primary">
-				<form method="get" action="dailyChart" class="qt-inline-form"
+				<form method="get" action="weeklyChart" class="qt-inline-form"
 					id="pagingForm">
 					<input type="hidden" id="page" name="page">
 				</form>
