@@ -1,0 +1,104 @@
+@CHARSET "UTF-8";
+
+/* pot.css */
+.pots {
+	width: 100%;
+	padding-top: 40px;
+	-webkit-transform: translateZ(1px) -moz-transform: translateZ(1px)
+}
+
+.pot {
+	font-size: 2vh;
+	text-align: left;
+}
+
+.pot.small {
+	height: 5vh;
+}
+
+.pot.small .knobHolder {
+	display: inline-block;
+	height: 5vh;
+	width: 5vh;
+}
+
+.pot.small .knob {
+	height: 5vh;
+	width: 5vh;
+	background-size: 5vh 5vh;
+}
+
+.pot.small .nameHolder {
+	top: 1.5vh;
+	display: inline-block;
+}
+
+.nameHolder {
+	display: inline-block;
+	right: 50%;
+}
+
+.knob {
+	height: 5vh;
+	width: 5vh;
+	background-size: 5vh;
+	border-radius: 50%;
+}
+
+.overdrive .knob {
+	background-image: url("../img/pot1.png");
+}
+
+.delay .knob {
+	background-image: url("../img/pot2.png");
+}
+
+.reverb .knob {
+	background-image: url("../img/pot3.png");
+}
+
+.volume .knob {
+	background-image: url("../img/pot4.png");
+}
+
+.cabinet .knob {
+	background-image: url("../img/pot5.png");
+}
+
+.pot .name {
+	font-size: 3vh;
+}
+
+.knobHolder {
+	display: inline-block;
+	border-radius: 50%;
+	background-color: #f7f7f7;
+	height: 5vh;
+	width: 5vh;
+	z-index: 2;
+	cursor: pointer;
+}
+
+/* switch.css */
+.switch {
+	cursor: pointer;
+	margin: 1vh;
+	text-align: center;
+	display: inline-block;
+	width: 6vh;
+}
+
+.button {
+	height: 5vh;
+	width: 6vh;
+	background-size: 100%;
+}
+
+.switches {
+	position: absolute;
+	bottom: 2vh;
+	left: 0;
+	width: 100%;
+	-webkit-transform: translateZ(1px);
+	-moz-transform: translateZ(1px);
+}

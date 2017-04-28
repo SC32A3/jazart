@@ -11,11 +11,12 @@
 <meta name='apple-mobile-web-app-status-bar-style'
 	content='black-translucent' />
 
-<link rel="stylesheet" href="resources/effect/example/css/reset.css" />
-<link rel="stylesheet" href="resources/effect/example/css/common.css" /> <!-- 배경, 주요문구 -->
+<!-- <link rel="stylesheet" href="resources/effect/example/css/reset.css" /> -->
+<!-- <link rel="stylesheet" href="resources/effect/example/css/common.css" /> 배경, 주요문구 -->
 <link rel="stylesheet" href="resources/effect/example/css/box.css" /> <!-- 박스디자인  -->
-<link rel="stylesheet" href="resources/effect/example/css/switch.css" /> <!-- 효과전원버튼이펙트 -->
-<link rel="stylesheet" href="resources/effect/example/css/pot.css" /> <!--조절knob  -->
+<!-- <link rel="stylesheet" href="resources/effect/example/css/switch.css" /> 효과전원버튼이펙트 -->
+<!-- <link rel="stylesheet" href="resources/effect/example/css/pot.css" /> 조절knob  -->
+<link rel="stylesheet" href="resources/effect/example/css/effect.css" />
 <link href='http://fonts.googleapis.com/css?family=Damion'
 	rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Yellowtail'

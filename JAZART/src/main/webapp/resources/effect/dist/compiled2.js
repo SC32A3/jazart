@@ -7399,7 +7399,6 @@
             l, 0, 100 * h[2] - 100 * h[2] * (b + 5) / l / 1.6));
         g.splice(0, 0, c(j, 2 * k, 4 * l, 0, 0), c(j / d / 8, 3 * k, 4 * l, 30, l / 12), c(j / d / 8, 2 * k, l, 0, l / 4 / d), c(j / d / 8, 2.55 * k, 2 * l, 5, l / 3 / d));
         g = [].concat(e, g.reverse(), f);
-        a.style.boxShadow = g.join(", ");
         a.style.left = "-" + j / 2 + "px"
     };
     pb.textShadowMaker = function(a, b, c, d, e, f) {
@@ -7499,7 +7498,7 @@
         this.model.toggle()
     };
     pb.footswitch.Switch.prototype.templates_base = function() {
-        return '<div class="switch" id="' + this.getId() + '"><div class="button"></div>' + this.templates_name() + "</div>"
+        return '<div class="switch" id="' + this.getId() + '"><div class="button">ON</div>' + this.templates_name() + "</div>"
     };
     pb.footswitch.Switch.prototype.templates_name = function() {
         return this.model.name ? '<div class="name">' + this.model.name + "</div>" : ""
