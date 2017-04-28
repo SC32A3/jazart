@@ -203,9 +203,9 @@
 					<div class="qt-container">
 						
 						<h1 class="qt-caption qt-spacer-s">
-							compose
+							Mixing
 						</h1>
-					<h4 class="qt-subtitle">작곡페이지</h4>
+					<h4 class="qt-subtitle">작곡/편곡</h4>
 					</div>
 					<div class="qt-header-bg" data-bgimage="images/back1.jpg">
 						<img src="images/back1.jpg" alt="Featured image" width="690" height="302">

@@ -48,7 +48,6 @@
 <script src="resources/rTest/test.js"></script>
 <link rel="stylesheet" href="resources/rTest/app.css">
 <style type="text/css">
-
 #rec-file-list li, #src-file-list li {
 	padding: 5px 0px 5px 5px;
 	margin-bottom: 5px;
@@ -56,7 +55,7 @@
 	font-size: 12px;
 }
 
-#rec-file-list li:last-child, #src-file-list li:last-child  {
+#rec-file-list li:last-child, #src-file-list li:last-child {
 	border-bottom: 0px;
 }
 
@@ -65,6 +64,17 @@
 	display: inline-block;
 	vertical-align: middle;
 	padding: 0px 5px 6px 0px;
+}
+
+#messages {
+	display: inline-block;
+	font-weight: bold;
+	color: #69c773;
+	margin-left: 1rem;
+}
+
+#mysource {
+	padding: 30px 50px 30px 50px;
 }
 
 .files {
@@ -87,19 +97,8 @@
 	padding: 0.5rem 0;
 }
 
-.files h5{
+.files h5 {
 	margin-bottom: 5px;
-}
-
-#messages {
-	display: inline-block;
-	font-weight: bold;
-	color: #69c773;
-	margin-left: 1rem;
-}
-
-#mysource{
-	padding: 30px 50px 30px 50px;
 }
 
 .clip {
@@ -112,7 +111,7 @@
 }
 
 .clipText {
-display: table-caption;
+	display: table-caption;
 	padding: 0px 10px 0px 30px;
 }
 
@@ -174,8 +173,33 @@ display: table-caption;
 	font-size: 11px;
 	margin: 0;
 	border: 1px solid #777;
-}	
+}
 </style>
+<script type="text/javascript">
+	var files = "";
+	$(function() {
+		$('.file_input input[type=file]').change(function() {
+			var fileName = $(this).val();
+			var fileCount = $(this).get(0).files.length;
+
+			if ($(this).get(0).files.length == 1) {
+				$('.file_input input[type=text]').val(fileName);
+			} else {
+				$('.file_input input[type=text]').val('파일 ' + fileCount + '개');
+			}
+		});
+		$(".setting").click(function() {
+			$.ajax({
+				url : "setting",
+				type : "get",
+				success : function(resp) {
+				},
+				error : function(resp) {
+				}
+			});
+		});
+	});
+</script>
 <script src="resources/js/effect_file.js" type="text/javascript"></script>
 </head>
 <body>
@@ -316,8 +340,8 @@ display: table-caption;
 			<div class="qt-pageheader qt-negative">
 				<div class="qt-container">
 
-					<h1 class="qt-caption qt-spacer-s">Recording</h1>
-					<h4 class="qt-subtitle">음성 녹음</h4>
+					<h1 class="qt-caption qt-spacer-s">Effect</h1>
+					<h4 class="qt-subtitle">음향 효과</h4>
 				</div>
 				<div class="qt-header-bg" data-bgimage="images/back1.jpg">
 					<img src="images/back1.jpg" alt="Featured image" width="690"
@@ -339,8 +363,24 @@ display: table-caption;
 										</h4>
 										<canvas class="visualizer"></canvas>
 										<p class="qt-small">
-											<button class="record">Record</button>
+											<button class="record">Rec.</button>
 											<button class="stop">Stop</button>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="col l14">
+								<div class="qt-widget">
+									<div class="qt-widget-onair qt-card aligncenter">
+										<h4 class="qt-caption-med">
+											<span>Setting</span>
+										</h4>
+										<p class="qt-small">
+											<button class="setting">Setting</button>
+											<br> <br> [녹음]<br>-[스테레오 믹스]<br> 마우스 오른쪽
+											클릭<br> '기본 장치로 설정'
 										</p>
 									</div>
 								</div>
@@ -365,7 +405,7 @@ display: table-caption;
 												<h5>
 													<a href="#worklist">Work List</a>
 												</h5>
-											</li> 
+											</li>
 										</ul>
 										<div id="mysource" class="row clearfix">
 											<div class="files">
@@ -380,15 +420,18 @@ display: table-caption;
 										</div>
 										<div id="worklist" class="row qt-contacts">
 											<div class="row">
-												<section class="sound-clips"></section>
-												<div class="file_input">
-													<label> File Attach <input type="file"
-														multiple="multiple" name="source" id="source">
-													</label> <input type="text" id="fileRoot" readonly="readonly"
-														title="File Route">
-												</div>
-												<input type="submit" value="NEXTPAGE" style="width: 160px;"
-													class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m">
+												<form action="mixerPage" method="post"
+													enctype="multipart/form-data">
+													<section class="sound-clips"></section>
+													<div class="file_input">
+														<label> File Attach <input type="file"
+															multiple="multiple" name="source" id="source">
+														</label> <input type="text" id="fileRoot" readonly="readonly"
+															title="File Route">
+													</div>
+													<input type="submit" value="NEXTPAGE" style="width: 160px;"
+														class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m">
+												</form>
 											</div>
 										</div>
 									</div>

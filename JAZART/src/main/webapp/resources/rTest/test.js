@@ -90,6 +90,7 @@ $(function() {
 
 				if (clipName === null || clipName == "My music source") {
 					clipText.textContent = 'My music source ' + count + '.wav';
+					clipName = 'My music source ' + count;
 				} else {
 					clipText.textContent = clipName + '.wav';
 					count--;
@@ -125,15 +126,6 @@ $(function() {
 					evtTgt = e.target;
 					evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode); //section에서 article을 날림
 				}
-
-				// 새이름 붙이기
-				/*
-				 * clipLabel.onclick = function() { var existingName =
-				 * clipLabel.textContent; var newClipName = prompt('Enter a new
-				 * name for your sound clip?'); if(newClipName === null) {
-				 * clipLabel.textContent = existingName; } else {
-				 * clipLabel.textContent = newClipName; } }
-				 */
 			}
 
 			// 데이터가 사용가능하면 빈배열에 데이터를 넣어라..?!

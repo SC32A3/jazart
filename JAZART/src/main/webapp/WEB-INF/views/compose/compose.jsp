@@ -128,12 +128,22 @@
 		$('.file_input input[type=file]').change(function() {
 			var fileName = $(this).val();
 			var fileCount = $(this).get(0).files.length;
-			alert(fileName);
+
 			if ($(this).get(0).files.length == 1) {
 				$('.file_input input[type=text]').val(fileName);
 			} else {
 				$('.file_input input[type=text]').val('파일 ' + fileCount + '개');
 			}
+		});
+		$(".setting").click(function(){
+			$.ajax({
+				url:"setting",
+				type:"get",
+				success : function(resp) {
+				},
+				error : function(resp) {
+				}
+			});
 		});
 	});
 </script>
@@ -299,9 +309,25 @@
 										</h4>
 										<canvas class="visualizer"></canvas>
 										<p class="qt-small">
-											<button class="record">Record</button>
+											<button class="record">Rec.</button>
 											<button class="stop">Stop</button>
 										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="col l14">
+								<div class="qt-widget">
+									<div class="qt-widget-onair qt-card aligncenter">
+										<h4 class="qt-caption-med">
+											<span>Setting</span>
+										</h4>
+										<p class="qt-small">
+											<button class="setting">Setting</button><br><br>
+										[녹음]-[마이크]<br>
+										마우스 오른쪽 클릭<br>
+										'기본 장치로 설정'</p>
 									</div>
 								</div>
 							</div>
@@ -369,7 +395,7 @@
 										</div>
 										<div id="worklist" class="row qt-contacts">
 											<div class="row">
-												<form action="mySrc" method="post">
+												<form action="mySrc" method="post" enctype="multipart/form-data">
 													<section class="sound-clips"></section>
 													<div class="file_input">
 														<label> File Attach <input type="file"

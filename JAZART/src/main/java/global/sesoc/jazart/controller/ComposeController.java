@@ -82,12 +82,6 @@ public class ComposeController {
 
 	@RequestMapping(value = "compose", method = RequestMethod.GET)
 	public String compose() {
-		try {
-			Runtime.getRuntime().exec("control mmsys.cpl sounds");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		return "compose/compose";
 	}
 
@@ -359,7 +353,7 @@ public class ComposeController {
 		return "compose/drum";
 	}
 
-	@RequestMapping(value = "mixerPage", method = RequestMethod.GET)
+	@RequestMapping(value = "mixerPage", method = RequestMethod.POST)
 	public String test2(Model model, HttpServletRequest request) {
 		// File dd = new
 		// File(request.getServletContext().getRealPath("src/sample/"));
@@ -475,10 +469,10 @@ public class ComposeController {
 		return "compose/test7";
 	}
 
-	@RequestMapping(value = "effect_ui", method = RequestMethod.GET)
+	@RequestMapping(value = "effect_ui", method = RequestMethod.POST)
 	public String effect_ui(MultipartHttpServletRequest request, MultipartFile[] upload, Model model) {
 		ArrayList<String> list = new ArrayList<>();
-		String type = "r_";
+		String type = "s_";
 
 		for (int i = 0; i < upload.length; i++) {
 			MultipartFile multipartFile = upload[i];
@@ -490,4 +484,15 @@ public class ComposeController {
 		model.addAttribute("srclist", list);
 		return "compose/effect_ui";
 	}
+
+	@RequestMapping(value = "setting", method = RequestMethod.GET)
+	public @ResponseBody void setting() {
+		try {
+			Runtime.getRuntime().exec("control mmsys.cpl sounds");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 }

@@ -44,6 +44,110 @@
 <script src="resources/jquery-3.1.1.min.js"></script>
 <script src="resources/rTest/test.js"></script>
 <link rel="stylesheet" href="resources/rTest/app.css">
+<style type="text/css">
+#keyboard, #drum {
+	padding: 30px 30px 0px 30px;
+}
+
+.clip {
+	vertical-align: middle;
+	display: table;
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+	text-align: center;
+}
+
+.clipText {
+	display: table-caption;
+	padding: 0px 10px 0px 30px;
+}
+
+.clip audio {
+	padding: 0px 20px 0px 20px;
+}
+
+.clipSpan {
+	background: #ff8080;
+	padding: 0.5rem 0.75rem;
+	text-align: center;
+	color: white;
+	border: none;
+	height: 35px;
+}
+
+.clipSpan:hover {
+	background: #804040;
+}
+
+.clipA {
+	color: white;
+	height: 35px;
+	line-height: 0px;
+}
+
+.clipA:hover {
+	color: white;
+}
+
+.file_input label {
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: middle;
+	overflow: hidden;
+	width: 100px;
+	height: 30px;
+	background: #ff8080;
+	color: #fff;
+	text-align: center;
+	line-height: 30px;
+	font-size: 12px;
+}
+
+.file_input label input {
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+.file_input input[type=text] {
+	vertical-align: middle;
+	display: inline-block;
+	width: 400px;
+	height: 28px;
+	line-height: 28px;
+	font-size: 11px;
+	margin: 0;
+	border: 1px solid #777;
+}
+</style>
+<script type="text/javascript">
+	var files = "";
+	$(function() {
+		$('.file_input input[type=file]').change(function() {
+			var fileName = $(this).val();
+			var fileCount = $(this).get(0).files.length;
+
+			if ($(this).get(0).files.length == 1) {
+				$('.file_input input[type=text]').val(fileName);
+			} else {
+				$('.file_input input[type=text]').val('파일 ' + fileCount + '개');
+			}
+		});
+		$(".setting").click(function() {
+			$.ajax({
+				url : "setting",
+				type : "get",
+				success : function(resp) {
+				},
+				error : function(resp) {
+				}
+			});
+		});
+	});
+</script>
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->
@@ -207,10 +311,25 @@
 										</h4>
 										<canvas class="visualizer"></canvas>
 										<p class="qt-small">
-											<button class="record">Record</button>
+											<button class="record">Rec.</button>
 											<button class="stop">Stop</button>
 										</p>
-										<section class="sound-clips"></section>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="col l14">
+								<div class="qt-widget">
+									<div class="qt-widget-onair qt-card aligncenter">
+										<h4 class="qt-caption-med">
+											<span>Setting</span>
+										</h4>
+										<p class="qt-small">
+											<button class="setting">Setting</button>
+											<br> <br> [녹음]<br>-[스테레오 믹스]<br> 마우스 오른쪽
+											클릭<br> '기본 장치로 설정'
+										</p>
 									</div>
 								</div>
 							</div>
@@ -235,6 +354,11 @@
 													<a href="#drum">Drum Pad</a>
 												</h5>
 											</li>
+											<li class="tab col s4">
+												<h5>
+													<a href="#worklist">Work List</a>
+												</h5>
+											</li>
 										</ul>
 										<div id="keyboard" class="row">
 											<div class="row">
@@ -248,6 +372,23 @@
 													src="${pageContext.request.contextPath}\drum"></iframe>
 											</div>
 										</div>
+										<div id="worklist" class="row qt-contacts">
+											<div class="row">
+												<form action="effect_ui" method="post"
+													enctype="multipart/form-data">
+													<section class="sound-clips"></section>
+													<div class="file_input">
+														<label> File Attach <input type="file"
+															multiple="multiple" name="source" id="source">
+														</label> <input type="text" id="fileRoot" readonly="readonly"
+															title="File Route">
+													</div>
+													<input type="submit" value="NEXTPAGE" style="width: 160px;"
+														class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m"
+														onclick="sendFiles()">
+												</form>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -256,41 +397,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<!-- ======================= SPONSORS ======================= -->
-		<div class="qt-vertical-padding-m qt-sponsors qt-section">
-			<!-- SLIDESHOW SPONSORS ================================================== -->
-			<div
-				class="qt-slickslider-container qt-slickslider-externalarrows qt-slickslider-fullscreen">
-				<div class="row">
-					<div class="qt-slickslider-container qt-slickslider-externalarrows qt-slickslider-fullscreen">
-						<h4>작업 내역</h4>
-					</div>
-					<hr class="qt-spacer-s">
-					<div id="slideshow_items"
-						class="qt-slickslider qt-slickslider-multiple qt-text-shadow "
-						data-slidestoshow="6" data-slidestoshowipad="3"
-						data-variablewidth="false" data-arrows="true" data-dots="false"
-						data-infinite="true" data-centermode="false"
-						data-pauseonhover="true" data-autoplay="true"
-						data-arrowsmobile="false" data-centermodemobile="true"
-						data-dotsmobile="false" data-slidestoshowmobile="1"
-						data-variablewidthmobile="true" data-infinitemobile="false">
-						
-						<!-- SLIDESHOW ITEM -->
-						<div class="qt-item">
-							<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-								<img src="images/css.jpg" width="235" height="132" alt="sponsor"
-								class="qt-image-responsive">
-							</a>
-						</div>
-						<!-- SLIDESHOW ITEM END -->
-						
-					</div>
-				</div>
-			</div>
-			<!-- SLIDESHOW SPONSORS END ================================================== -->
-			<hr class="qt-spacer-s">
 		</div>
 		<!-- .qt-main end -->
 		<div class="qt-footer qt-footerwidgets">
