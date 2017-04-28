@@ -49,8 +49,8 @@
 <link rel="stylesheet" href="resources/rTest/app.css">
 
 <!-- Effect API -->
-<link rel="stylesheet" href="resources/effect/example/css/reset.css" />
-<link rel="stylesheet" href="resources/effect/example/css/common.css" /> <!-- 배경, 주요문구 -->
+<!-- <link rel="stylesheet" href="resources/effect/example/css/reset.css" />
+<link rel="stylesheet" href="resources/effect/example/css/common.css" /> 배경, 주요문구 -->
 <link rel="stylesheet" href="resources/effect/example/css/box.css" /> <!-- 박스디자인 --> 
 <link rel="stylesheet" href="resources/effect/example/css/switch.css" /> <!-- 효과전원버튼이펙트 -->
 <link rel="stylesheet" href="resources/effect/example/css/pot.css" /> <!-- 조절knob --> 
@@ -202,11 +202,12 @@
 
 .src2 {
 	float: left;
-	width: 640px;
+	width: 600px;
 	height: 430px;
 }
 
 .effect{
+	position: relative;
 	margin: 0;
     height: 410px;
     overflow-y: auto;
@@ -226,6 +227,13 @@
 	width: 25%;
 	height: 100%;
 	border: 1px solid black;
+}
+
+#wall{
+	float: left;
+    position: absolute;
+    top: 250px;
+    left: 400px;
 }
 </style>
 <script type="text/javascript">
@@ -476,25 +484,23 @@
 											<div class="src2">
 												<div class="effectBox">
 													<h5 class="effectText">음향 효과</h5>
-													<div id="wall">
-														<div id="controlPanel">
-															<div id="controlButton">플레이버튼</div>
-															<div class="linein">live</div>
-													        <!-- <div id="samples">
-																<div class="sample">Sample 1</div>
-																<div class="sample">Sample 2</div>
-																<div class="sample">Sample 3</div>
-																<div class="sample">Sample 4</div>
-																<div class="sample">Sample 5</div>
-															</div> -->
-														</div>
-													</div>
 													<div class="effect">
 														<div id="floor">
 														
 														</div>
-														
-													
+														<div id="wall">
+														<div id="controlPanel">
+															<div id="controlButton">플레이버튼</div>
+															<div class="linein">live</div>
+													        <div id="samples">
+																<div class="sample">Sample 1</div>
+																<!-- <div class="sample">Sample 2</div>
+																<div class="sample">Sample 3</div>
+																<div class="sample">Sample 4</div>
+																<div class="sample">Sample 5</div> -->
+															</div>
+														</div>
+														</div>														
 													<!-- <div class="effectDetail"></div>
 													<div class="effectDetail"></div>
 													<div class="effectDetail"></div>

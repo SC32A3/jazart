@@ -1,5 +1,5 @@
 .box {
-    height: 30vh;
+    height: 28vh;
     width: 18vh;
     border-radius: 10px;
     margin: 2vh;
@@ -20,27 +20,27 @@
 
 .delay {
     background-color: hsl(34, 21%, 14%);
-    width: 25vh;
+    width: 27vh;
 }
 
 .reverb {
     background-color: hsl(194, 61%, 54%);
-    width: 25vh;
+    width: 27vh;
 }
 
 .overdrive {
     background-color: hsl(90, 67%, 40%);
-    width: 25vh;
+    width: 27vh;
 }
 
 .volume {
     background-color: hsl(50, 60%, 47%);
-    width: 25vh;
+    width: 27vh;
 }
 
 .cabinet {
     background-color: hsl(326, 64%, 37%);
-    width: 25vh;
+    width: 27vh;
 }
 
 .box {
