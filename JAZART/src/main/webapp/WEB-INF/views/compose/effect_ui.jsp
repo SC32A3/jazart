@@ -47,6 +47,24 @@
 <script src="resources/jquery-3.1.1.min.js"></script>
 <script src="resources/rTest/test.js"></script>
 <link rel="stylesheet" href="resources/rTest/app.css">
+
+<!-- Effect API -->
+<link rel="stylesheet" href="resources/effect/example/css/reset.css" />
+<link rel="stylesheet" href="resources/effect/example/css/common.css" /> <!-- 배경, 주요문구 -->
+<link rel="stylesheet" href="resources/effect/example/css/box.css" /> <!-- 박스디자인 --> 
+<link rel="stylesheet" href="resources/effect/example/css/switch.css" /> <!-- 효과전원버튼이펙트 -->
+<link rel="stylesheet" href="resources/effect/example/css/pot.css" /> <!-- 조절knob --> 
+<link href='http://fonts.googleapis.com/css?family=Damion'
+	rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Yellowtail'
+	rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Radley:400,400italic'
+	rel='stylesheet' type='text/css'>
+<script src="resources/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="resources/effect/dist/compiled2.js"></script>
+<script type="text/javascript" src="resources/effect/src/Bootstrapper.js"></script>
+
+
 <style type="text/css">
 #rec-file-list li, #src-file-list li {
 	padding: 5px 0px 5px 5px;
@@ -75,6 +93,7 @@
 
 #mysource {
 	padding: 30px 50px 30px 50px;
+	overflow : hidden;
 }
 
 .files {
@@ -173,6 +192,40 @@
 	font-size: 11px;
 	margin: 0;
 	border: 1px solid #777;
+}
+
+.src1 {
+    float: left;
+    width: 250px;
+    display: inline-block;
+}
+
+.src2 {
+	float: left;
+	width: 640px;
+	height: 430px;
+}
+
+.effect{
+	margin: 0;
+    height: 410px;
+    overflow-y: auto;
+    list-style: none;
+    background: #F7F7F7;
+    border: 1px solid #D9D9D9;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.effectText{
+	margin-bottom: 5px;
+}
+
+.effectDetail{
+	float: left;
+	width: 25%;
+	height: 100%;
+	border: 1px solid black;
 }
 </style>
 <script type="text/javascript">
@@ -407,17 +460,50 @@
 												</h5>
 											</li>
 										</ul>
+										
 										<div id="mysource" class="row clearfix">
-											<div class="files">
-												<h5>녹음 파일</h5>
-												<ul id="rec-file-list"></ul>
+											<div class="src1">
+												<div class="files">
+													<h5>녹음 파일</h5>
+													<ul id="rec-file-list"></ul>
+												</div>
+												<br>
+												<div class="files">
+													<h5>음원 소스 파일</h5>
+													<ul id="src-file-list"></ul>
+												</div>
 											</div>
-											<br>
-											<div class="files">
-												<h5>음원 소스 파일</h5>
-												<ul id="src-file-list"></ul>
+											<div class="src2">
+												<div class="effectBox">
+													<h5 class="effectText">음향 효과</h5>
+													<div id="wall">
+														<div id="controlPanel">
+															<div id="controlButton">플레이버튼</div>
+															<div class="linein">live</div>
+													        <!-- <div id="samples">
+																<div class="sample">Sample 1</div>
+																<div class="sample">Sample 2</div>
+																<div class="sample">Sample 3</div>
+																<div class="sample">Sample 4</div>
+																<div class="sample">Sample 5</div>
+															</div> -->
+														</div>
+													</div>
+													<div class="effect">
+														<div id="floor">
+														
+														</div>
+														
+													
+													<!-- <div class="effectDetail"></div>
+													<div class="effectDetail"></div>
+													<div class="effectDetail"></div>
+													<div class="effectDetail"></div> -->
+													</div>
+												</div>											
 											</div>
 										</div>
+										
 										<div id="worklist" class="row qt-contacts">
 											<div class="row">
 												<form action="mixerPage" method="post"
@@ -596,6 +682,186 @@
 	<!-- PLAYER SIDEBAR END ========================= -->
 
 	<!-- QT BODY END ================================ -->
+
+	<!-- effect Scripts -->
+	<script type="text/javascript">
+		var stage = new pb.Stage();
+		var ctx = stage.getContext();
+
+		var board = new pb.Board(ctx);
+		stage.setBoard(board);
+
+		var overdrive = new pb.stomp.Overdrive(ctx);
+		var reverb = new pb.stomp.Reverb(ctx);
+		var volume = new pb.stomp.Volume(ctx);
+		var cabinet = new pb.stomp.Cabinet(ctx);
+		var delay = new pb.stomp.Delay(ctx);
+
+		board.addPedals([ overdrive, delay, reverb, volume, cabinet ]);
+
+		overdrive.setDrive(.1);
+		overdrive.setTone(.4);
+		overdrive.setLevel(.6);
+		volume.setLevel(1);
+		reverb.setLevel(.3);
+		delay.setDelayTimer(.2);
+		delay.setFeedbackGain(.7);
+
+		stage.render(document.getElementById('floor'));
+
+		/*
+		    Sample controls
+		 */
+		var state = false;
+
+		var cb = document.getElementById('controlButton');
+		var samples = document.getElementsByClassName('sample');
+		var sampleNo = 1;
+		samples = Array.prototype.slice.call(samples);
+		var lb = document.getElementsByClassName('linein')[0];
+
+		var playLineIn = function() {
+			stage.stop();
+			stage.input = new pb.io.StreamInput(stage.getContext());
+			stage.input.addEventListener('loaded', function() {
+				stage.route();
+			});
+		}
+
+		lb.addEventListener('click', function() {
+			state = true;
+			sampleNo = 6;
+			cBDraw();
+			settings[sampleNo - 1]();
+			playLineIn();
+		}, false);
+		var settings = [];
+
+		var cBDraw = function() { //클릭이벤트
+			cb.innerHTML = state ? '&#9724;' : '&#9654;';
+			samples.forEach(function(sample) {
+				sample.className = 'sample';
+			});
+			samples[sampleNo - 1]
+					&& (samples[sampleNo - 1].className = 'sample on');
+
+			sampleNo == 6 ? lb.className = 'linein on'
+					: lb.className = 'linein';
+		};
+
+		var play = function() {
+			if (sampleNo == 6) {
+				playLineIn();
+				return;
+			}
+			settings[sampleNo - 1] && settings[sampleNo - 1]();
+			stage.play('resources/effect/example/audio/samples/sample' + sampleNo + '.mp3');
+		}
+
+		var cBHandler = function() {
+			state = !state;
+			cBDraw();
+			stage.stop();
+			if (state)
+				play();
+		};
+
+		cb.addEventListener('click', cBHandler, false);
+
+		samples.forEach(function(sample) {
+			sample.addEventListener('click', function() {
+				sampleNo = Array.prototype.slice.call(
+						sample.parentNode.children).indexOf(sample) + 1;
+				state = true;
+				cBDraw();
+				play();
+			});
+		});
+
+		settings.push(function() {
+			!overdrive.bypassSwitch.getState()
+					&& overdrive.bypassSwitch.toggle();
+			overdrive.setLevel(1);
+			overdrive.setDrive(.1);
+			overdrive.setTone(1);
+			reverb.setLevel(1);
+			!delay.bypassSwitch.getState() && delay.bypassSwitch.toggle();
+			delay.setDelayTimer(0.6);
+			delay.setFeedbackGain(.5);
+			delay.setLevel(0.7);
+		});
+
+		settings.push(function() {
+			!overdrive.bypassSwitch.getState()
+					&& overdrive.bypassSwitch.toggle();
+			overdrive.setLevel(.6);
+			overdrive.setDrive(.25);
+			overdrive.setTone(.5);
+			reverb.setLevel(.3);
+			delay.bypassSwitch.getState() && delay.bypassSwitch.toggle();
+			delay.setDelayTimer(0);
+			delay.setFeedbackGain(0);
+			delay.setLevel(0);
+		});
+
+		settings.push(function() {
+			!overdrive.bypassSwitch.getState()
+					&& overdrive.bypassSwitch.toggle();
+			overdrive.setLevel(.6);
+			overdrive.setDrive(.4);
+			overdrive.setTone(.5);
+			reverb.setLevel(0.6);
+			delay.bypassSwitch.getState() && delay.bypassSwitch.toggle();
+			delay.setDelayTimer(0);
+			delay.setFeedbackGain(0);
+			delay.setLevel(0);
+		});
+
+		settings.push(function() {
+			overdrive.bypassSwitch.getState()
+					&& overdrive.bypassSwitch.toggle();
+			overdrive.setLevel(1);
+			overdrive.setDrive(0);
+			overdrive.setTone(.1);
+			reverb.setLevel(1);
+			!delay.bypassSwitch.getState() && delay.bypassSwitch.toggle();
+			delay.setDelayTimer(0.8);
+			delay.setFeedbackGain(0.6);
+			delay.setLevel(0.55);
+		});
+
+		settings.push(function() {
+			!overdrive.bypassSwitch.getState()
+					&& overdrive.bypassSwitch.toggle();
+			overdrive.setLevel(1);
+			overdrive.setDrive(0.4);
+			overdrive.setTone(.3);
+			reverb.setLevel(.7);
+			!delay.bypassSwitch.getState() && delay.bypassSwitch.toggle();
+			delay.setDelayTimer(0.77);
+			delay.setFeedbackGain(0.4);
+			delay.setLevel(1);
+		});
+
+		settings.push(function() {
+			overdrive.bypassSwitch.getState()
+					&& overdrive.bypassSwitch.toggle();
+			overdrive.setLevel(1);
+			overdrive.setDrive(.1);
+			overdrive.setTone(.3);
+			reverb.setLevel(.7);
+		});
+		
+		function help(tag) {
+			var knob = document.getElementById('Knob'+tag); //놉
+			var range = document.getElementById('Range'+tag).value;
+			var attribute = "rotateZ(" + range + "deg)";
+			alert(attribute);
+            
+            knob.style.transform = attribute; 
+		}
+	</script>
+
 
 	<!-- QT FOOTER SCRIPTS ================================ -->
 	<script src="resources/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
