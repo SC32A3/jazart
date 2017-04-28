@@ -26,6 +26,15 @@
 <script type="text/javascript" src="resources/effect/dist/compiled2.js"></script>
 <script type="text/javascript" src="resources/effect/src/Bootstrapper.js"></script>
 <!-- For development comment out the line above and uncomment the lines below. -->
+<style type="text/css">
+.barHolder{
+	width: 100px;
+	height: 50px;
+}
+/* .knobHolder{
+	display: none;
+} */
+</style>
 </head>
 <body>
 	<div id="world">
@@ -43,9 +52,6 @@
 						<div class="sample">Sample 3</div>
 						<div class="sample">Sample 4</div>
 						<div class="sample">Sample 5</div>
-						<div>
-							<input type="range" min="0" max="260" id="range1" onchange="help()">
-						</div>
 					</div>
 				</div>
 			</div>
@@ -220,16 +226,13 @@
 			reverb.setLevel(.7);
 		});
 		
-		function help() {
-			alert($('#range1').val());
-			//:9Knob
-			var a = "rotateZ(" + $('#range1').val() + "deg)";
-			var b = document.getElementById('a:9Knob');
-            /*alert('this: '+JSON.stringify(this));
-            alert('this.model: '+JSON.stringify(this.model));*/
-            //$('#a:9Knob').attr('style', 'transform: '+a);
+		function help(tag) {
+			var knob = document.getElementById('Knob'+tag); //놉
+			var range = document.getElementById('Range'+tag).value;
+			var attribute = "rotateZ(" + range + "deg)";
+			alert(attribute);
             
-            b.style.transform = a;
+            knob.style.transform = attribute; 
 		}
 	</script>
 </body>

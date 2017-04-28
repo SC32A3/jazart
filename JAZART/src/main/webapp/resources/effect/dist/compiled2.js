@@ -6886,6 +6886,7 @@
     goog.inherits(tart.ui.ComponentModel, goog.events.EventTarget);
     pb.pot = {};
     pb.pot.PotModel = function(a, b, c, d, e, f) {
+    	
         tart.ui.ComponentModel.call(this);
         a instanceof Function ? this.callback = a : this.param = a;
         this.minValue = d || 0;
@@ -6907,17 +6908,18 @@
             oldValue: b
         };
         this.param ? this.param.value = this.value : this.callback(this.value, b);
-        this.dispatchEvent(a)
+        this.dispatchEvent(a);
     };
     pb.pot.PotModel.prototype.processValue = function(a) {
         this.value = goog.math.lerp(this.minValue, this.maxValue, a) * this.multiplier
     };
     pb.pot.PotModel.prototype.getValue = function() {
-        return this.value
+        return this.value;
     };
-    pb.pot.PotModel.prototype.getNormalizedValue = function() {
+    pb.pot.PotModel.prototype.getNormalizedValue = function() { //이동하는녀석 맞는거같은데
         var a = this.value / this.multiplier;
-        return a = (a - this.minValue) / (this.maxValue - this.minValue)
+        a = (a - this.minValue) / (this.maxValue - this.minValue);
+        return a;
     };
     pb.pot.PotModel.EventType = {
         VALUE_CHANGED: "valueChanged"
@@ -6937,8 +6939,6 @@
     pb.pot.Pot.prototype.updateUi = function() { //초기 degree가져오는건데
         if (this.isInDocument()) {
             var a = "rotateZ(" + this.model.getNormalizedValue() * this.angle + "deg)";
-            /*alert('this: '+JSON.stringify(this));
-            alert('this.model: '+JSON.stringify(this.model));*/
             this.$(this.mappings.KNOB)[0].style["-webkit-transform"] = a;
             this.$(this.mappings.KNOB)[0].style.transform = a
             
@@ -6957,8 +6957,14 @@
             	   "inDocument_":true}*/
         }
     };
-    pb.pot.Pot.prototype.templates_base = function() {
-        return '<div class="pot ' + this.size + '" id="' + this.getId() + '"><div class="knobHolder"><div class="knob" id="a'+this.getId()+'Knob"></div></div><div class="nameHolder"><div class="name">' + this.model.name + "</div></div></div>"
+    pb.pot.Pot.prototype.templates_base = function() { //초기값설정같다
+        var data =  '<div class="pot ' + this.size + '" id="' + this.getId() + '">';
+        	data += '<div class="knobHolder"><div class="knob" id="Knob'+this.getId()+'"></div></div>';
+        	data += '<div class="nameHolder"><div class="name">' + this.model.name + '</div></div>'; 
+        	data += '</div>';
+        	/*<div class="barHolder"><input type="range" min="0" max="260" id="Range'+this.getId()+'" onchange="help(\''+this.getId()+'\')"></div>*/
+    	return data; 
+        	
     };
     pb.pot.Pot.prototype.enterDocument = function() {
         pb.pot.Pot.superClass_.enterDocument.call(this);
@@ -6973,9 +6979,11 @@
         REGULAR: "regular"
     };
     pb.pot.Pot.prototype.bindModelEvents = function() {
+    	//드래그시이벤트아님
         goog.events.listen(this.model, pb.pot.PotModel.EventType.VALUE_CHANGED, this.updateUi, !1, this)
     };
     (function(a) {
+    	//드래그시 이벤트아님
         a.events = {};
         (a.events[goog.events.EventType.MOUSEDOWN] = {})[a.mappings.KNOB] = function(a) {
             this.flag = !0;
