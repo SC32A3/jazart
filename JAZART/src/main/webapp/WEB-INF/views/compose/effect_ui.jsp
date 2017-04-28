@@ -614,7 +614,6 @@
 			</div>
 		</div>
 	</div>
-	</div>
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"
 		class="side-nav qt-content-primary qt-right-sidebar">
