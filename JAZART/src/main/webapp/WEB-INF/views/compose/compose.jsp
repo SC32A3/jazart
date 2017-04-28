@@ -48,26 +48,93 @@
 <script src="resources/rTest/test.js"></script>
 <link rel="stylesheet" href="resources/rTest/app.css">
 <style type="text/css">
-.clipSpan{
+.clip {
+	vertical-align: middle;
+	display: table;
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+	text-align: center;
+}
+
+.clipText {
+display: table-caption;
+	padding: 0px 10px 0px 30px;
+}
+
+.clip audio {
+	padding: 0px 20px 0px 20px;
+}
+
+.clipSpan {
 	background: #ff8080;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.8rem;
-	float: right;
-    text-align: center;
-    color: white;
-    border: none;
-    transition: all 0.2s;
+	padding: 0.5rem 0.75rem;
+	text-align: center;
+	color: white;
+	border: none;
+	height: 35px;
 }
 
-.clipA{
-	color : white;
+.clipSpan:hover {
+	background: #804040;
 }
 
-.clipA:hover{
-	color : white;
+.clipA {
+	color: white;
+	height: 35px;
+	line-height: 0px;
 }
 
+.clipA:hover {
+	color: white;
+}
+
+.file_input label {
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: middle;
+	overflow: hidden;
+	width: 100px;
+	height: 30px;
+	background: #ff8080;
+	color: #fff;
+	text-align: center;
+	line-height: 30px;
+	font-size: 12px;
+}
+
+.file_input label input {
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+.file_input input[type=text] {
+	vertical-align: middle;
+	display: inline-block;
+	width: 400px;
+	height: 28px;
+	line-height: 28px;
+	font-size: 11px;
+	margin: 0;
+	border: 1px solid #777;
+}
 </style>
+<script type="text/javascript">
+	$(function() {
+		$('.file_input input[type=file]').change(function() {
+			var fileName = $(this).val();
+			var fileCount = $(this).get(0).files.length;
+			if ($(this).get(0).files.length == 1) {
+				$('.file_input input[type=text]').val(fileName);
+			} else {
+				$('.file_input input[type=text]').val('파일 ' + fileCount + '개');
+			}
+		});	
+	});
+</script>
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->
@@ -203,22 +270,43 @@
 		<!-- SEARCH FORM END ========================= -->
 		<div id="maincontent" class="qt-main">
 			<!-- ======================= HEADER SECTION ======================= -->
-			<!-- HEADER MEMBERS ========================= -->
+			<!-- HEADER CAPTION ========================= -->
 			<div class="qt-pageheader qt-negative">
 				<div class="qt-container">
 
-					<h1 class="qt-caption qt-spacer-s">compose</h1>
-					<h4 class="qt-subtitle">작곡페이지</h4>
+					<h1 class="qt-caption qt-spacer-s">Recording</h1>
+					<h4 class="qt-subtitle">음성 녹음</h4>
 				</div>
 				<div class="qt-header-bg" data-bgimage="images/back1.jpg">
 					<img src="images/back1.jpg" alt="Featured image" width="690"
 						height="302">
 				</div>
 			</div>
-			<!-- HEADER MEMBERS END ========================= -->
-			<div class="qt-container qt-vertical-padding-l">
+			<!-- HEADER CAPTION END ========================= -->
+			<!-- ======================= CONTENT SECTION ======================= -->
+			<div class="qt-container qt-vertical-padding-m">
 				<div class="row">
-					<div class="col s12 m8 push-m2">
+					<div class="qt-sidebar col m2">
+						<!-- SIDEBAR ================================================== -->
+						<div>
+							<div class="col l14">
+								<div class="qt-widget">
+									<div class="qt-widget-onair qt-card aligncenter">
+										<h4 class="qt-caption-med">
+											<span>Record</span>
+										</h4>
+										<canvas class="visualizer"></canvas>
+										<p class="qt-small">
+											<button class="record">Record</button>
+											<button class="stop">Stop</button>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- SIDEBAR END ================================================== -->
+					</div>
+					<div class="col l10">
 						<!-- ====================== SECTION BOOKING AND CONTACTS ================================================ -->
 						<div id="booking" class="section qt-section-booking qt-card">
 							<div class="qt-valign-wrapper">
@@ -228,188 +316,165 @@
 										<ul class="tabs">
 											<li class="tab col s4">
 												<h5>
-													<a href="#form" class="active">Recoding api test</a>
+													<a href="#songinfo" class="active">Song Info</a>
+												</h5>
+											</li>
+											<li class="tab col s4">
+												<h5>
+													<a href="#worklist">Work List</a>
 												</h5>
 											</li>
 										</ul>
-										<div id="form" class="row">
-
-											<!-- email_sender.php -->
-											<input type="hidden" name="antispam" value="x123">
-											<h3 class="left-align qt-vertical-padding-m">RECORDING</h3>
-
-											<section class="main-controls">
-												<canvas class="visualizer"></canvas>
-												<div id="buttons"
-													class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light lnr lnr-rocket">
-													<button class="record qt-btn">Record</button>
-													<button class="stop qt-btn">Stop</button>
-												</div>
-												
-												
-												<!-- <div class="forHidden">
-												<a id="hiddenTag" href="#" download="#">히든데이터</a>
-												</div> -->
-											</section>
-
-											<section class="sound-clips">
-
-												<!-- This is left here as a helper for testing the style of the clips
-								        If you want to edit their appearance without having to record clips,
-								        uncomment this and reload the page. Remember to comment it again when done!
-								        <article class="clip">
-								          <audio controls></audio>
-								          <p>Sample clip name</p>
-								          <button class="delete">Delete</button>
-								        </article>
-								        -->
-
-											</section>
-											<div></div>
-											<div>
-												<form action="mixing" method="post"
-													enctype="multipart/form-data">
-													<div
-														class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-
-
-light lnr lnr-rocket">
-														<select name="board_tag"
+										<div id="songinfo" class="row">
+											<form action="mixing" method="post"
+												enctype="multipart/form-data">
+												<table>
+													<tr>
+														<th rowspan="2" style="width: 250px; height: 250px;"><img
+															class="albumart" src="" /></th>
+														<th>곡 명</th>
+														<td><input id="title" /></td>
+													</tr>
+													<tr>
+														<th>장 르</th>
+														<td><select name="board_tag"
 															class="qt-btn qt-btn-s write_combo">
-															<option value="ballad">Ballad</option>
-															<option value="hiphop">HipHop</option>
-															<option value="rnb">RnB</option>
-															<option value="rock">Rock</option>
-															<option value="disco">Disco</option>
-															<option value="electronic">Electoronic</option>
-															<option value="blues">Blues</option>
-															<option value="world">World</option>
-														</select>
-													</div>
-													<input type="file" name="upload" multiple="multiple"
-														class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m">
-													<input type="submit" value="NEXTPAGE" style="width: 160px;"
-														class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m">
-												</form>
-											</div>
+																<option value="ballad">Ballad</option>
+																<option value="hiphop">HipHop</option>
+																<option value="rnb">RnB</option>
+																<option value="rock">Rock</option>
+																<option value="disco">Disco</option>
+																<option value="electronic">Electoronic</option>
+																<option value="blues">Blues</option>
+																<option value="world">World</option>
+														</select></td>
+													</tr>
+													<tr>
+														<th><div class="file_input">
+																<label> File Attach <input type="file"
+																	name="albumart" class="albumart">
+																</label> <input type="text" id="fileRoot" readonly="readonly"
+																	style="width: 120px;" title="File Route">
+															</div></th>
+														<th>곡 설 명</th>
+														<td><input id="contents" /></td>
+													</tr>
+													<tr>
+														<th colspan="3" style="text-align: right;"><input
+															type="button" value="저장"></th>
+													</tr>
+												</table>
 
-											<!-- 보류 -->
-											<br />
+											</form>
+										</div>
+										<div id="worklist" class="row qt-contacts">
+											<div class="row">
+												<section class="sound-clips"></section>
+												<div class="file_input">
+													<label> File Attach <input type="file"
+														multiple="multiple" name="source" id="source">
+													</label> <input type="text" id="fileRoot" readonly="readonly"
+														title="File Route">
+												</div>
+												<input type="submit" value="NEXTPAGE" style="width: 160px;"
+													class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m">
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
 					</div>
+					<!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
 				</div>
 			</div>
-		</div>
-		<div class="qt-footer qt-footerwidgets">
-			<div class="qt-section qt-footer-widgets qt-content-primary-light">
-				<div class="qt-container">
-					<h2 class="qt-footer-logo">
-						<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
-					</h2>
-					<div
-						class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>About site</span>
-								</h5>
-								<div class="qt-widget-about">
-									<p>
-										We are a young and dynamic compose station which wants to
-										bring happyness in your life. <br> <a href="sitemap">
-											Site Map <i class="dripicons-arrow-thin-right"></i>
-										</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Contacts</span>
-								</h5>
-								<div class="qt-widget-contacts">
-									<p>
-										<i class="qticon-home"></i><a href="#">www.jazart.com</a>
-									</p>
-									<p>
-										<i class="qticon-at-sign"></i><a href="question">jazart2017@gmail.com</a>
-									</p>
-									<p>
-										<i class="qticon-phone"></i><a href="#">02-123-1234</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Our Team</span>
-								</h5>
-								<div class="qt-widget-about">
-									<p>
-
-										We are a small group of designers and developers. We create
-										clean, minimal and apps. <br> <a href="about">About
-											us <i class="dripicons-arrow-thin-right"></i>
-										</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Main links</span>
-								</h5>
-								<ul class="qt-widget-menu qt-list-chevron">
-									<li><a href="compose">Compose</a></li>
-									<li><a href="commBoard">Board </a></li>
-									<li><a href="realtimeChart">Charts </a></li>
-									<li><a href="qna">Contacts</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="qt-header-bg" data-bgimage="images/back.jpg">
-					<img src="images/back.jpg" alt="Featured image" width="690"
-						height="302">
-				</div>
-			</div>
-			<!-- <div class="qt-footer-bottom qt-content-primary-dark">
-				<div class="qt-container">
-					<div class="row"> -->
-			<!-- <div class="col s12 m12 l8">
-							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
-							| Radio Station HTML Template
-							<ul class="qt-menu-footer qt-small qt-list-chevron ">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Privacy</a></li>
-								<li><a href="#">Sitemap</a></li>
-							</ul>
-						</div> -->
-			<!-- 	<div class="col s12 m12 l4"> -->
-			<!-- <ul class="qt-menu-social">
-								<li class="right"><a href="#"><i
-										class="qticon-beatport"></i></a></li>
-								<li class="right"><a href="#"><i
-										class="qticon-facebook"></i></a></li>
-								<li class="right"><a href="#"><i class="qticon-twitter"></i></a></li>
-								<li class="right"><a href="#"><i class="qticon-youtube"></i></a></li>
-								<li class="right"><a href="#"><i
-										class="qticon-soundcloud"></i></a></li>
-							</ul> -->
 		</div>
 	</div>
-	<!-- 			</div>
+	<!-- .qt-main end -->
+	<div class="qt-footer qt-footerwidgets">
+		<div class="qt-section qt-footer-widgets qt-content-primary-light">
+			<div class="qt-container">
+				<h2 class="qt-footer-logo">
+					<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
+				</h2>
+				<div
+					class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>About site</span>
+							</h5>
+							<div class="qt-widget-about">
+								<p>
+									We are a young and dynamic compose station which wants to bring
+									happyness in your life. <br> <a href="sitemap"> Site
+										Map <i class="dripicons-arrow-thin-right"></i>
+									</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Contacts</span>
+							</h5>
+							<div class="qt-widget-contacts">
+								<p>
+									<i class="qticon-home"></i><a href="#">www.jazart.com</a>
+								</p>
+								<p>
+									<i class="qticon-at-sign"></i><a href="question">jazart2017@gmail.com</a>
+								</p>
+								<p>
+									<i class="qticon-phone"></i><a href="#">02-123-1234</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Our Team</span>
+							</h5>
+							<div class="qt-widget-about">
+								<p>
+
+									We are a small group of designers and developers. We create
+									clean, minimal and apps. <br> <a href="about">About us
+										<i class="dripicons-arrow-thin-right"></i>
+									</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Main links</span>
+							</h5>
+							<ul class="qt-widget-menu qt-list-chevron">
+								<li><a href="compose">Compose</a></li>
+								<li><a href="commBoard">Board </a></li>
+								<li><a href="realtimeChart">Charts </a></li>
+								<li><a href="qna">Contacts</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="qt-header-bg" data-bgimage="images/back.jpg">
+				<img src="images/back.jpg" alt="Featured image" width="690"
+					height="302">
 			</div>
 		</div>
-	</div> -->
+		<div class="qt-footer-bottom qt-content-primary-dark">
+			<div class="qt-container">
+				<div class="row"></div>
+			</div>
+		</div>
+	</div>
+	</div>
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"
 		class="side-nav qt-content-primary qt-right-sidebar">
@@ -420,7 +485,7 @@ light lnr lnr-rocket">
 		<div id="qtplayercontainer" data-playervolume="true"
 			data-accentcolor="#dd0e34" data-accentcolordark="#ff0442"
 			data-textcolor="#ffffff"
-			data-soundmanagerurl="./resources/components/soundmanager/swf/"
+			data-soundmanagerurl="./components/soundmanager/swf/"
 			class="qt-playercontainer qt-playervolume qt-clearfix qt-content-primary">
 			<div class="qt-playercontainer-content qt-vertical-padding-m">
 				<div class="qt-playercontainer-header">
@@ -449,47 +514,29 @@ light lnr lnr-rocket">
 					<hr class="qt-inline-textdeco">
 				</div>
 			</div>
-			<div id="playerimage" class="qt-header-bg"
-				data-bgimage="resources/imagestemplate/full-1600-700.jpg">
-				<img src="resources/imagestemplate/full-1600-700.jpg"
-					alt="Featured image" width="690" height="302">
+			<div id="playerimage" class="qt-header-bg">
+				<img src="images/default.jpg" alt="Featured image" width="690"
+					height="302">
 			</div>
 		</div>
-
-
 		<!-- this is for xml radio feed -->
-
-		<!-- <div id="qtShoutcastFeedData" class="hidden" data-style=""
-			data-channel="1" data-host="173.192.105.231" data-port="3540"></div> -->
-
+		<div id="qtShoutcastFeedData" class="hidden"></div>
 		<!-- PLAYER END ========================= -->
 		<!-- CHANNELS LIST ========================= -->
-		<!-- <div class="qt-part-channels-list">
+		<div class="qt-part-channels-list">
 			<ul class="qt-content-aside qt-channelslist qt-negative">
-				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
-					data-title="06AM Ibiza" data-subtitle="Underground Radio"
-					data-background="imagestemplate/photo-squared-500-500.jpg"
-					data-logo="imagestemplate/radio-logo.png"
-					data-playtrack="http://173.192.105.231:3540/stream.mp3"
-					data-host="173.192.105.231" data-port="3540" data-stats_path=""
-					data-played_path="" data-channel=""> <img
-						src="imagestemplate/radio-logo.png" alt="logo"
+				<li class="qt-channel"><a href="#!" class="qt-ellipsis"> <img
+						src="images/radio-logo.png" alt="logo"
 						class="qt-radiologo dripicons-media-play" width="80" height="80">
 						<i class="dripicons-media-play"></i> Station 1
 				</a></li>
-				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
-					data-title="altradio" data-subtitle="The subtitle of radio 2"
-					data-background="imagestemplate/large-1170-512.jpg"
-					data-logo="imagestemplate/radio-logo.png"
-					data-playtrack="http://82.77.137.30:8557/;listen.mp3"
-					data-host="82.77.137.30" data-port="8557" data-stats_path=""
-					data-played_path="" data-channel=""> <img
-						src="imagestemplate/radio-logo.png" alt="logo"
-						class="qt-radiologo" width="80" height="80"> <i
-						class="dripicons-media-play"></i> altradio
+				<li class="qt-channel"><a href="#!" class="qt-ellipsis"> <img
+						src="images/radio-logo.png" alt="logo" class="qt-radiologo"
+						width="80" height="80"> <i class="dripicons-media-play"></i>
+						altradio
 				</a></li>
 			</ul>
-		</div> -->
+		</div>
 		<!-- CHANNELS LIST END ========================= -->
 	</div>
 	<!-- PLAYER SIDEBAR END ========================= -->
@@ -498,7 +545,7 @@ light lnr lnr-rocket">
 
 	<!-- QT FOOTER SCRIPTS ================================ -->
 	<script src="resources/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-	<!-- <script src="resources/js/jquery.js"></script> -->
+	<script src="resources/js/jquery.js"></script>
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
 	<script src="resources/js/jquery-migrate.min.js"></script>
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
@@ -531,9 +578,9 @@ light lnr lnr-rocket">
 		src="resources/components/soundmanager/script/berniecode-animator.js"></script>
 	<script
 		src="resources/components/soundmanager/script/soundmanager2-nodebug.js"></script>
-	<!-- <script src="resources/components/soundmanager/script/shoutcast.js"></script>
+	<script src="resources/components/soundmanager/script/shoutcast.js"></script>
 	<script
-		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script> -->
+		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script>
 
 	<!-- Popup -->
 	<script src="resources/components/popup/popup.js"></script>
@@ -543,3 +590,4 @@ light lnr lnr-rocket">
 
 </body>
 </html>
+

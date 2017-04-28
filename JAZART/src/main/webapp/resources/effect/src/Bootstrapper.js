@@ -23,7 +23,6 @@ goog.provide('pb.Bootstrapper');
 goog.require('pb.Stage');
 
 
-
 /**
  * Bootstrapper class includes things to do on startup.
  * @constructor

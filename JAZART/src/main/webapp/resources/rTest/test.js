@@ -79,31 +79,32 @@ $(function() {
 				
 
 				clipContainer.classList.add('clip');
+				clipTextSpan.classList.add('clipText');
 				clipSpan.classList.add('clipSpan');
 				deleteButton.classList.add('clipSpan');
 				clipLabel.classList.add('clipA');
 
 				audio.setAttribute('controls', '');
-				//saveButton.textContent = 'Save';
-				//saveButton.className = 'save';
 				deleteButton.textContent = 'Delete';
 				deleteButton.className = 'delete';
 
-				if (clipName === null) {
-					clipText.textContent = 'My music source ' + count;
+				if (clipName === null || clipName == "My music source") {
+					clipText.textContent = 'My music source ' + count + '.wav';
 				} else {
 					clipText.textContent = clipName + '.wav';
+					count--;
 				}
 				
 				clipLabel.textContent = 'Save';
 				
 				clipSpan.appendChild(clipLabel);
 				clipTextSpan.appendChild(clipText);
-				clipContainer.appendChild(audio);
+
 				clipContainer.appendChild(clipTextSpan);
+				clipContainer.appendChild(audio);
 				clipContainer.appendChild(clipSpan);
-				//clipContainer.appendChild(saveButton);
 				clipContainer.appendChild(deleteButton);
+				
 				soundClips.appendChild(clipContainer);
 
 				audio.controls = true;
