@@ -64,8 +64,19 @@ public class ComposeController {
 		return "compose/test";
 	}
 
-	@RequestMapping(value = "mySrc", method = RequestMethod.GET)
-	public String mySrc() {
+	@RequestMapping(value = "mySrc", method = RequestMethod.POST)
+	public String mySrc(MultipartHttpServletRequest request, MultipartFile[] upload, Model model) {
+		ArrayList<String> list = new ArrayList<>();
+		String type = "r_";
+
+		for (int i = 0; i < upload.length; i++) {
+			MultipartFile multipartFile = upload[i];
+			if (!multipartFile.isEmpty()) {
+				String savedfile = FileService.saveFile(multipartFile, uploadPath3, type);
+				list.add(savedfile);
+			}
+		}
+		model.addAttribute("srclist", list);
 		return "compose/mySource";
 	}
 
@@ -205,8 +216,8 @@ public class ComposeController {
 		String loginNickname = (String) session.getAttribute("loginNickname");
 		String userId = (String) session.getAttribute("loginId");
 		playlist = ur.playlist(userId);
-		for(SongInfo songinfo :playlist){
-			if(songinfo.getSongnum() == songnum){
+		for (SongInfo songinfo : playlist) {
+			if (songinfo.getSongnum() == songnum) {
 				return 2;
 			}
 		}
@@ -462,5 +473,21 @@ public class ComposeController {
 	@RequestMapping(value = "test7", method = RequestMethod.GET)
 	public String test7() {
 		return "compose/test7";
+	}
+
+	@RequestMapping(value = "effect_ui", method = RequestMethod.GET)
+	public String effect_ui(MultipartHttpServletRequest request, MultipartFile[] upload, Model model) {
+		ArrayList<String> list = new ArrayList<>();
+		String type = "r_";
+
+		for (int i = 0; i < upload.length; i++) {
+			MultipartFile multipartFile = upload[i];
+			if (!multipartFile.isEmpty()) {
+				String savedfile = FileService.saveFile(multipartFile, uploadPath3, type);
+				list.add(savedfile);
+			}
+		}
+		model.addAttribute("srclist", list);
+		return "compose/effect_ui";
 	}
 }

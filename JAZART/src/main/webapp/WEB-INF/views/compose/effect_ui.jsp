@@ -48,6 +48,60 @@
 <script src="resources/rTest/test.js"></script>
 <link rel="stylesheet" href="resources/rTest/app.css">
 <style type="text/css">
+
+#rec-file-list li, #src-file-list li {
+	padding: 5px 0px 5px 5px;
+	margin-bottom: 5px;
+	border-bottom: 1px solid #efefef;
+	font-size: 12px;
+}
+
+#rec-file-list li:last-child, #src-file-list li:last-child  {
+	border-bottom: 0px;
+}
+
+#rec-file-list li:before, #src-file-list li:before {
+	content: ">";
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0px 5px 6px 0px;
+}
+
+.files {
+	width: 230px;
+}
+
+.files ul {
+	margin: 0;
+	padding: 0.5rem 1rem;
+	height: 180px;
+	overflow-y: auto;
+	list-style: none;
+	background: #F7F7F7;
+	border: 1px solid #D9D9D9;
+	border-radius: 3px;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.files li {
+	padding: 0.5rem 0;
+}
+
+.files h5{
+	margin-bottom: 5px;
+}
+
+#messages {
+	display: inline-block;
+	font-weight: bold;
+	color: #69c773;
+	margin-left: 1rem;
+}
+
+#mysource{
+	padding: 30px 50px 30px 50px;
+}
+
 .clip {
 	vertical-align: middle;
 	display: table;
@@ -58,7 +112,7 @@
 }
 
 .clipText {
-	display: table-caption;
+display: table-caption;
 	padding: 0px 10px 0px 30px;
 }
 
@@ -120,23 +174,9 @@
 	font-size: 11px;
 	margin: 0;
 	border: 1px solid #777;
-}
+}	
 </style>
-<script type="text/javascript">
-	var files = "";
-	$(function() {
-		$('.file_input input[type=file]').change(function() {
-			var fileName = $(this).val();
-			var fileCount = $(this).get(0).files.length;
-			alert(fileName);
-			if ($(this).get(0).files.length == 1) {
-				$('.file_input input[type=text]').val(fileName);
-			} else {
-				$('.file_input input[type=text]').val('파일 ' + fileCount + '개');
-			}
-		});
-	});
-</script>
+<script src="resources/js/effect_file.js" type="text/javascript"></script>
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->
@@ -318,69 +358,37 @@
 										<ul class="tabs">
 											<li class="tab col s4">
 												<h5>
-													<a href="#songinfo" class="active">Song Info</a>
+													<a href="#mysource" class="active">My Source</a>
 												</h5>
 											</li>
 											<li class="tab col s4">
 												<h5>
 													<a href="#worklist">Work List</a>
 												</h5>
-											</li>
+											</li> 
 										</ul>
-										<div id="songinfo" class="row">
-											<table>
-												<tr>
-													<th rowspan="2" style="width: 250px; height: 250px;"><img
-														class="albumart" src="" /></th>
-													<th>곡 명</th>
-													<td><input id="title" /></td>
-												</tr>
-												<tr>
-													<th>장 르</th>
-													<td><select name="board_tag"
-														class="qt-btn qt-btn-s write_combo">
-															<option value="ballad">Ballad</option>
-															<option value="hiphop">HipHop</option>
-															<option value="rnb">RnB</option>
-															<option value="rock">Rock</option>
-															<option value="disco">Disco</option>
-															<option value="electronic">Electoronic</option>
-															<option value="blues">Blues</option>
-															<option value="world">World</option>
-													</select></td>
-												</tr>
-												<tr>
-													<th>
-														<div class="file_input">
-															<label> File Attach <input type="file"
-																name="albumart" class="albumart">
-															</label> <input type="text" id="fileRoot" readonly="readonly"
-																style="width: 120px;" title="File Route">
-														</div>
-													</th>
-													<th>곡 설 명</th>
-													<td><input id="contents" /></td>
-												</tr>
-												<tr>
-													<th colspan="3" style="text-align: right;"><input
-														type="button" value="저장"></th>
-												</tr>
-											</table>
+										<div id="mysource" class="row clearfix">
+											<div class="files">
+												<h5>녹음 파일</h5>
+												<ul id="rec-file-list"></ul>
+											</div>
+											<br>
+											<div class="files">
+												<h5>음원 소스 파일</h5>
+												<ul id="src-file-list"></ul>
+											</div>
 										</div>
 										<div id="worklist" class="row qt-contacts">
 											<div class="row">
-												<form action="mySrc" method="post">
-													<section class="sound-clips"></section>
-													<div class="file_input">
-														<label> File Attach <input type="file"
-															multiple="multiple" name="source" id="source">
-														</label> <input type="text" id="fileRoot" readonly="readonly"
-															title="File Route">
-													</div>
-													<input type="submit" value="NEXTPAGE" style="width: 160px;"
-														class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m"
-														onclick="sendFiles()">
-												</form>
+												<section class="sound-clips"></section>
+												<div class="file_input">
+													<label> File Attach <input type="file"
+														multiple="multiple" name="source" id="source">
+													</label> <input type="text" id="fileRoot" readonly="readonly"
+														title="File Route">
+												</div>
+												<input type="submit" value="NEXTPAGE" style="width: 160px;"
+													class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m">
 											</div>
 										</div>
 									</div>
