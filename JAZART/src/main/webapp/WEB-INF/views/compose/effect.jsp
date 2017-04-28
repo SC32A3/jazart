@@ -12,16 +12,17 @@
 	content='black-translucent' />
 
 <link rel="stylesheet" href="resources/effect/example/css/reset.css" />
-<link rel="stylesheet" href="resources/effect/example/css/common.css" />
-<link rel="stylesheet" href="resources/effect/example/css/box.css" />
-<link rel="stylesheet" href="resources/effect/example/css/switch.css" />
-<link rel="stylesheet" href="resources/effect/example/css/pot.css" />
+<link rel="stylesheet" href="resources/effect/example/css/common.css" /> <!-- 배경, 주요문구 -->
+<link rel="stylesheet" href="resources/effect/example/css/box.css" /> <!-- 박스디자인  -->
+<link rel="stylesheet" href="resources/effect/example/css/switch.css" /> <!-- 효과전원버튼이펙트 -->
+<link rel="stylesheet" href="resources/effect/example/css/pot.css" /> <!--조절knob  -->
 <link href='http://fonts.googleapis.com/css?family=Damion'
 	rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Yellowtail'
 	rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Radley:400,400italic'
 	rel='stylesheet' type='text/css'>
+<script src="resources/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="resources/effect/dist/compiled2.js"></script>
 <script type="text/javascript" src="resources/effect/src/Bootstrapper.js"></script>
 <!-- For development comment out the line above and uncomment the lines below. -->
@@ -42,6 +43,9 @@
 						<div class="sample">Sample 3</div>
 						<div class="sample">Sample 4</div>
 						<div class="sample">Sample 5</div>
+						<div>
+							<input type="range" min="0" max="260" id="range1" onchange="help()">
+						</div>
 					</div>
 				</div>
 			</div>
@@ -101,7 +105,7 @@
 		}, false);
 		var settings = [];
 
-		var cBDraw = function() {
+		var cBDraw = function() { //클릭이벤트
 			cb.innerHTML = state ? '&#9724;' : '&#9654;';
 			samples.forEach(function(sample) {
 				sample.className = 'sample';
@@ -119,7 +123,7 @@
 				return;
 			}
 			settings[sampleNo - 1] && settings[sampleNo - 1]();
-			stage.play('example/audio/samples/sample' + sampleNo + '.mp3');
+			stage.play('resources/effect/example/audio/samples/sample' + sampleNo + '.mp3');
 		}
 
 		var cBHandler = function() {
@@ -215,6 +219,18 @@
 			overdrive.setTone(.3);
 			reverb.setLevel(.7);
 		});
+		
+		function help() {
+			alert($('#range1').val());
+			//:9Knob
+			var a = "rotateZ(" + $('#range1').val() + "deg)";
+			var b = document.getElementById('a:9Knob');
+            /*alert('this: '+JSON.stringify(this));
+            alert('this.model: '+JSON.stringify(this.model));*/
+            //$('#a:9Knob').attr('style', 'transform: '+a);
+            
+            b.style.transform = a;
+		}
 	</script>
 </body>
 </html>

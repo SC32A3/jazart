@@ -6934,15 +6934,31 @@
     pb.pot.Pot.prototype.setValue = function(a) {
         this.model.setValue(a)
     };
-    pb.pot.Pot.prototype.updateUi = function() {
+    pb.pot.Pot.prototype.updateUi = function() { //초기 degree가져오는건데
         if (this.isInDocument()) {
             var a = "rotateZ(" + this.model.getNormalizedValue() * this.angle + "deg)";
+            /*alert('this: '+JSON.stringify(this));
+            alert('this.model: '+JSON.stringify(this.model));*/
             this.$(this.mappings.KNOB)[0].style["-webkit-transform"] = a;
             this.$(this.mappings.KNOB)[0].style.transform = a
+            
+            /*this: {"model_":
+            			{"param":{},"minValue":0,"maxValue":1,"defaultValue":0.5,"name":"volume",
+            						"multiplier":1,"value":0.6,"closure_uid_luq3ko":4},
+            	   "model":
+            	   		{"param":{},"minValue":0,"maxValue":1,"defaultValue":0.5,"name":"volume",
+            		   				"multiplier":1,"value":0.6,"closure_uid_luq3ko":4},
+            	   "size":"regular",
+            	   "dom_": {"document_":{"location":{
+            		   					"href":"http://localhost:9001/jazart/effect","ancestorOrigins":{},"origin":"http://localhost:9001","protocol":"http:","host":"localhost:9001","hostname":"localhost","port":"9001","pathname":"/jazart/effect","search":"","hash":""}}},
+            	   "rightToLeft_":null,
+            	   "id_":":3",
+            	   "element_":{},
+            	   "inDocument_":true}*/
         }
     };
     pb.pot.Pot.prototype.templates_base = function() {
-        return '<div class="pot ' + this.size + '" id="' + this.getId() + '"><div class="knobHolder"><div class="knob"></div></div><div class="nameHolder"><div class="name">' + this.model.name + "</div></div></div>"
+        return '<div class="pot ' + this.size + '" id="' + this.getId() + '"><div class="knobHolder"><div class="knob" id="a'+this.getId()+'Knob"></div></div><div class="nameHolder"><div class="name">' + this.model.name + "</div></div></div>"
     };
     pb.pot.Pot.prototype.enterDocument = function() {
         pb.pot.Pot.superClass_.enterDocument.call(this);
@@ -8489,7 +8505,6 @@
         pb.io.Input.call(this, a);
         var c = this,
             d = new XMLHttpRequest;
-        alert('b: '+b);
         d.open("GET", b, !0);
         d.responseType = "arraybuffer";
         d.onload = function() {
