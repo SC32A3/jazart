@@ -19,4 +19,5 @@
     width: 100%;
     -webkit-transform: translateZ(1px);
     -moz-transform: translateZ(1px);
+    text-align: right;
 }

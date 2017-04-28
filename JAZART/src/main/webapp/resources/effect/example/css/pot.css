@@ -1,18 +1,21 @@
 /* pot.css */
 
 .pots {
+	margin-top: 40px;
 	width: 100%;
 	-webkit-transform: translateZ(1px) -moz-transform: translateZ(1px)
 }
 
 .pot {
+	overflow: hidden;
 	font-size: 2vh;
 	text-align: center;
 }
 
 .pot.small {
 	height: 5vh;
-	width: 5vh
+	width: 5vh;
+	display: inline;
 }
 
 .pot.small .knobHolder {
@@ -21,6 +24,7 @@
 }
 
 .pot.small .knob {	
+	display: inline-block;
 	height: 5vh;
 	width: 5vh;
 	background-size: 5vh 5vh;
@@ -63,11 +67,13 @@
 }
 
 .pot .name {
-	font-size: 3vh;
-	margin-right: -100%;
+	font-size: 2vh;
+    padding-left: 40px;
+    text-align: left;
 }
 
 .knobHolder {
+	float: left;
 	border-radius: 50%;
 	background-color: #f7f7f7;
 	height: 5vh;
