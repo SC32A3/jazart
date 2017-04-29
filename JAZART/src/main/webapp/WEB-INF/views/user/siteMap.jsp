@@ -271,7 +271,7 @@ paddin-bottom:10px;
 						<span class="cat">Compose links</span>
 					</h5>
 					<ul class="qt-widget-menu qt-list-chevron cool">
-						<li class="dog"><a href="mixing">Mixing page</a></li><br>
+						<li class="dog"><a href="compose">Compose</a></li><br>
 						<li class="dog"><a href="artistPage">Artist page </a></li><br>
 					</ul>
 				</div>
