@@ -472,7 +472,7 @@ p.bContent b:after {
 														<!-- <p class="bContent"> <b> CONTENT </b></p> -->
 														<textarea id="contents" readonly="readonly"
 															name="contents" aria-required="true"
-															style="height: 250px; resize: none; background-color: #fce4ec;"
+															style="height: 250px; resize: none; background-color: #fce4ec; border: 0px; border-radius: 10px;"
 															required>${board.board_content}</textarea>
 													</div>
 													<div class="input-field col s12 btns">

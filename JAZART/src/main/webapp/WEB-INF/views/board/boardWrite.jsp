@@ -56,8 +56,8 @@
 
 </head>
 <body>
-		<div class="qt-parentcontainer">
-	<!-- QT MENUBAR TOP ================================ -->
+	<div class="qt-parentcontainer">
+		<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
 			<ul>
 				<li><a href="about"><i class="dripicons-chevron-right"></i>About
@@ -102,14 +102,14 @@
 						<li><a href="qna">QnA</a></li>
 						<li><a href="question">Question</a></li>
 					</ul></li>
-	
-				
+
+
 				<c:if test="${not empty loginNickname}">
-				<li class="right"><a href="songPopup?songnum=0"
-					class="qt-popupwindow" data-name="Music Player" data-width="320"
-					data-height="500"> <i class="icon dripicons-duplicate"></i>Playlist
-				</a></li>
-			</c:if>
+					<li class="right"><a href="songPopup?songnum=0"
+						class="qt-popupwindow" data-name="Music Player" data-width="320"
+						data-height="500"> <i class="icon dripicons-duplicate"></i>Playlist
+					</a></li>
+				</c:if>
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
 			<ul class="qt-desktopmenu hide-on-xl-only ">
@@ -124,7 +124,7 @@
 			<ul class=" qt-side-nav">
 				<li><a href="/">jazart<span>♬</span></a></li>
 				<li class="menu-item-has-children"><a href="compose">Compose</a>
-						<ul>
+					<ul>
 						<li><a href="mixing">(test)Mixing Page</a></li>
 						<li><a href="artistPage">(test)Artist Page</a></li>
 					</ul></li>
@@ -194,10 +194,9 @@
 					<h1 class="qt-caption qt-spacer-s">free community</h1>
 					<h4 class="qt-subtitle">자유게시판</h4>
 				</div>
-				<div class="qt-header-bg"
-					data-bgimage="images/back2.jpg">
-					<img src="images/back2.jpg"
-						alt="Featured image" width="690" height="302">
+				<div class="qt-header-bg" data-bgimage="images/back2.jpg">
+					<img src="images/back2.jpg" alt="Featured image" width="690"
+						height="302">
 				</div>
 			</div>
 			<!-- HEADER CAPTION END ========================= -->
@@ -245,7 +244,7 @@
 
 													<div class="input-field col s12 ">
 														<p class="comment-form-comment">
-															<textarea style="height: 25rem" id="board_content"
+															<textarea style="height: 15em;" id="board_content"
 																placeholder="Content *" name="board_content" cols="45"
 																aria-required="true"></textarea>
 														</p>

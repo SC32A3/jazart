@@ -17,8 +17,9 @@
 		100
 	</select>
 	<select id="allList" parameterType="map" resultType="SongInfo">
-		select *
-		from songinfo order by song_inputdate
+		select * from(select rownum rnum,b.* from
+		(select * from songinfo order by song_inputdate desc) b)
+		where rnum between #{start} and #{end}
 	</select>
 	<select id="dailyChart" resultType="SongInfo" parameterType="map">
 		<!-- select * from (select rownum rnum, b.* from (select info.songnum, 
@@ -30,18 +31,26 @@
 			#{start} and #{end} -->
 		select * from ( select rownum rnum, b.* from( select
 		si.songnum,count(si.song_like),
-		si.song_nickname, si.song_picture, si.song_title, si.song_desc, 
+		si.song_nickname, si.song_picture,
+		si.song_title, si.song_desc,
 		sum(case
-		when sl.like_time between sysdate-1 and sysdate then 10 
-		when sl.like_time between sysdate-7 and sysdate then 3 
-		when sl.like_time between sysdate-14 and sysdate then 1 else 0 end) 
-		as test 
-		from songinfo si,songlike sl 
+		when sl.like_time between
+		sysdate-1 and sysdate then 10
+		when sl.like_time between sysdate-7 and
+		sysdate then 3
+		when sl.like_time between sysdate-14 and sysdate then 1
+		else 0 end)
+		as test
+		from songinfo si,songlike sl
 		where
-		si.songnum = sl.songnum group by
+		si.songnum =
+		sl.songnum group by
 		si.songnum,si.song_nickname,si.song_like,
-		si.song_picture, si.song_title, si.song_desc order by test desc ) b ) where
-		rnum between #{start} and #{end}
+		si.song_picture,
+		si.song_title, si.song_desc order by test desc ) b )
+		where
+		rnum between
+		#{start} and #{end}
 	</select>
 	<!-- <select id="dailyCount" resultType="Integer"> select count(slike.like_time) 
 		cnt from songinfo info, songlike slike where info.songnum = slike.songnum 
@@ -65,11 +74,14 @@
 		and sysdate then 3 when sl.like_time between sysdate-7
 		and sysdate then
 		1 else 0 end) as test from songinfo si,songlike sl where
-		si.songnum = sl.songnum 
+		si.songnum =
+		sl.songnum
 		group by si.songnum,si.song_nickname,si.song_like,
-		si.song_picture, si.song_title, si.song_desc order by test desc ) b )
+		si.song_picture,
+		si.song_title, si.song_desc order by test desc ) b )
 		where
-		rnum between #{start} and #{end}
+		rnum between
+		#{start} and #{end}
 	</select>
 	<select id="getDay" resultType="String">
 		select to_char(sysdate, 'day')

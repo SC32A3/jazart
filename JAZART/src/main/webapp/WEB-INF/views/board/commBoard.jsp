@@ -128,7 +128,7 @@ table, th, td {
 </head>
 <body>
 	<div class="qt-parentcontainer">
-	<!-- QT MENUBAR TOP ================================ -->
+		<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
 			<ul>
 				<li><a href="about"><i class="dripicons-chevron-right"></i>About
@@ -173,14 +173,14 @@ table, th, td {
 						<li><a href="qna">QnA</a></li>
 						<li><a href="question">Question</a></li>
 					</ul></li>
-	
-				
+
+
 				<c:if test="${not empty loginNickname}">
-				<li class="right"><a href="songPopup?songnum=0"
-					class="qt-popupwindow" data-name="Music Player" data-width="320"
-					data-height="500"> <i class="icon dripicons-duplicate"></i>Playlist
-				</a></li>
-			</c:if>
+					<li class="right"><a href="songPopup?songnum=0"
+						class="qt-popupwindow" data-name="Music Player" data-width="320"
+						data-height="500"> <i class="icon dripicons-duplicate"></i>Playlist
+					</a></li>
+				</c:if>
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
 			<ul class="qt-desktopmenu hide-on-xl-only ">
@@ -195,7 +195,7 @@ table, th, td {
 			<ul class=" qt-side-nav">
 				<li><a href="/">jazart<span>♬</span></a></li>
 				<li class="menu-item-has-children"><a href="compose">Compose</a>
-						<ul>
+					<ul>
 						<li><a href="mixing">(test)Mixing Page</a></li>
 						<li><a href="artistPage">(test)Artist Page</a></li>
 					</ul></li>
@@ -264,219 +264,219 @@ table, th, td {
 					<h1 class="qt-caption qt-spacer-s">free community</h1>
 					<h4 class="qt-subtitle">자유게시판</h4>
 				</div>
-				<div class="qt-header-bg"
-					data-bgimage="images/back2.jpg">
-					<img src="images/back2.jpg"
-						alt="Featured image" width="690" height="302">
+				<div class="qt-header-bg" data-bgimage="images/back2.jpg">
+					<img src="images/back2.jpg" alt="Featured image" width="690"
+						height="302">
 				</div>
 			</div>
 			<!-- HEADER CAPTION END ========================= -->
 		</div>
-			<div class="qt-container qt-vertical-padding-l " id="container">
-				<div class="row">
-					<div class="freeBoard">
-						<!-- ======================11 SECTION BOOKING AND CONTACTS ================================================ -->
-						<div>
-							<div class="board3">
-								<div class="qt-the-content">
-									<!-- 검색 -->
-									<div class="col s12 m3 l12">
-										<div class="">
-											<hr class="qt-spacer-s ">
-											<form method="get" action="commBoard" class="qt-inline-form"
-												id="pagingForm">
-												<div class="row qt-nopadding">
-													<div class="col s12 m4 l1">
-														<select class="qt-btn qt-btn-s qt-combo"
-															name="searchTitle">
-															<option value="board_nickname"
-																${searchTitle=="board_nickname"? "selected" : ""}>글쓴이</option>
-															<option value="board_title"
-																${searchTitle=="board_title"? "selected" : ""}>제목</option>
-															<option value="board_tag"
-																${searchTitle=="board_tag"? "selected" : ""}>말머리</option>
-														</select>
-													</div>
-													<div class="col s12 m4 l2 ">
-														<input placeholder="Music Search" name="searchText"
-															id="searchText" value="${searchText}" type="text"
-															class="validate qt-input-s">
-													</div>
-													<div class="col s12 m4 l1">
-														<input
-															class="qt-btn qt-btn-secondary qt-btn-s qt-fullwidth"
-															type="button" onclick="pagingForSubmit(1)" value="Search">
-														<input type="hidden" name="page" id="page">
-													</div>
+		<div class="qt-container qt-vertical-padding-l " id="container"
+			style="padding-top: 20px;">
+			<div class="row">
+				<div class="freeBoard">
+					<!-- ======================11 SECTION BOOKING AND CONTACTS ================================================ -->
+					<div>
+						<div class="board3">
+							<div class="qt-the-content">
+								<!-- 검색 -->
+								<div class="col s12 m3 l12">
+									<div class="">
+										<hr class="qt-spacer-s ">
+										<form method="get" action="commBoard" class="qt-inline-form"
+											id="pagingForm">
+											<div class="row qt-nopadding">
+												<div class="col s12 m4 l1">
+													<select class="qt-btn qt-btn-s qt-combo" name="searchTitle">
+														<option value="board_nickname"
+															${searchTitle=="board_nickname"? "selected" : ""}>글쓴이</option>
+														<option value="board_title"
+															${searchTitle=="board_title"? "selected" : ""}>제목</option>
+														<option value="board_tag"
+															${searchTitle=="board_tag"? "selected" : ""}>말머리</option>
+													</select>
 												</div>
-											</form>
+												<div class="col s12 m4 l2 ">
+													<input placeholder="Music Search" name="searchText"
+														id="searchText" value="${searchText}" type="text"
+														class="validate qt-input-s">
+												</div>
+												<div class="col s12 m4 l1">
+													<input
+														class="qt-btn qt-btn-secondary qt-btn-s qt-fullwidth"
+														type="button" onclick="pagingForSubmit(1)" value="Search">
+													<input type="hidden" name="page" id="page">
+												</div>
+											</div>
+										</form>
 
 
-										</div>
 									</div>
-									<!-- 검색 끝 -->
+								</div>
+								<!-- 검색 끝 -->
 
-									<table class="board">
-										<tbody>
+								<table class="board">
+									<tbody>
+										<tr>
+											<th>Num</th>
+											<th>Tag</th>
+											<th class="views">User</th>
+											<th>Title</th>
+											<th>Date</th>
+											<th>Hit</th>
+										</tr>
+										<c:if test="${empty bList}">
 											<tr>
-												<th>Num</th>
-												<th>Tag</th>
-												<th class="views">User</th>
-												<th>Title</th>
-												<th>Date</th>
-												<th>Hit</th>
+												<td>게시된 글이 없습니다</td>
 											</tr>
-											<c:if test="${empty bList}">
-												<tr>
-													<td>게시된 글이 없습니다</td>
+										</c:if>
+										<c:if test="${not empty bList}">
+											<c:forEach var="list" items="${bList}">
+												<tr class="odd">
+													<td class="td1">${list.boardNum}</td>
+													<td class="td2">${list.board_tag}</td>
+													<td class="td3">${list.board_nickname}</td>
+													<td class="td4"><a
+														href="boardRead?boardNum=${list.boardNum}">${list.board_title}</a></td>
+													<td class="td5">${list.board_inputdate}</td>
+													<td class="td6">${list.board_hits}</td>
 												</tr>
-											</c:if>
-											<c:if test="${not empty bList}">
-												<c:forEach var="list" items="${bList}">
-													<tr class="odd">
-														<td class="td1">${list.boardNum}</td>
-														<td class="td2">${list.board_tag}</td>
-														<td class="td3">${list.board_nickname}</td>
-														<td class="td4"><a
-															href="boardRead?boardNum=${list.boardNum}">${list.board_title}</a></td>
-														<td class="td5">${list.board_inputdate}</td>
-														<td class="td6">${list.board_hits}</td>
-													</tr>
-												</c:forEach>
-											</c:if>
-										</tbody>
-									</table>
-									<div class="qt-combo2">
-										<p>
-											<a href="boardWrite"><input type="button" value="write"
-												class="qt-btn qt-btn-secondary qt-btn-s " name="page"
-												id="page"> </a>
-										</p>
-									</div>
+											</c:forEach>
+										</c:if>
+									</tbody>
+								</table>
+								<div class="qt-combo2">
 
-									<!-- POST CONTENT END ========================= -->
+									<p>
+										<a href="boardWrite"><input type="button" value="write"
+											class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light"
+											name="page" id="page"> </a>
+									</p>
 								</div>
-								<hr class="qt-spacer-l">
+
+								<!-- POST CONTENT END ========================= -->
 							</div>
+							<hr class="qt-spacer-l">
 						</div>
-						<!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
 					</div>
+					<!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
 				</div>
 			</div>
 		</div>
-		<div class="qt-pagination qt-content-primary">
-			<!-- PAGINATION ========================= -->
-			<ul class="pagination qt-container">
-				<li class="special"><span
-					class="qt-pagination-label qt-content-primary-dark">PAGES</span></li>
+	</div>
+	<div class="qt-pagination qt-content-primary">
+		<!-- PAGINATION ========================= -->
+		<ul class="pagination qt-container">
+			<li class="special"><span
+				class="qt-pagination-label qt-content-primary-dark">PAGES</span></li>
 
-				<li class="special disabled"><a
-					href="javascript:pagingForSubmit(${navi.currentPage-navi.pagePerGroup})"
-					class="qt-btn qt-btn-l qt-btn-primary"><i
-						class="dripicons-arrow-thin-left"></i></a></li>
+			<li class="special disabled"><a
+				href="javascript:pagingForSubmit(${navi.currentPage-navi.pagePerGroup})"
+				class="qt-btn qt-btn-l qt-btn-primary"><i
+					class="dripicons-arrow-thin-left"></i></a></li>
 
-				<li class="special waves-effect"><a
-					href="javascript:pagingForSubmit(${navi.currentPage + 1})"
-					class="qt-btn qt-btn-l qt-btn-primary"><i
-						class="dripicons-arrow-thin-right"></i></a></li>
+			<li class="special waves-effect"><a
+				href="javascript:pagingForSubmit(${navi.currentPage + 1})"
+				class="qt-btn qt-btn-l qt-btn-primary"><i
+					class="dripicons-arrow-thin-right"></i></a></li>
 
-				<c:forEach begin="${navi.startPageGroup}" end="${navi.endPageGroup}"
-					var="counter">
-					<c:if test="${navi.currentPage==counter}">
-						<li class="item active hide-on-large-and-down">${counter}</li>
-					</c:if>
-					<c:if test="${navi.currentPage!=counter}">
-						<li class="item waves-effect hide-on-large-and-down"><a
-							href="javascript:pagingForSubmit(${counter})">${counter}</a></li>
-					</c:if>
-				</c:forEach>
-			</ul>
-			<!-- PAGINATION END ========================= -->
+			<c:forEach begin="${navi.startPageGroup}" end="${navi.endPageGroup}"
+				var="counter">
+				<c:if test="${navi.currentPage==counter}">
+					<li class="item active hide-on-large-and-down">${counter}</li>
+				</c:if>
+				<c:if test="${navi.currentPage!=counter}">
+					<li class="item waves-effect hide-on-large-and-down"><a
+						href="javascript:pagingForSubmit(${counter})">${counter}</a></li>
+				</c:if>
+			</c:forEach>
+		</ul>
+		<!-- PAGINATION END ========================= -->
 
-		</div>
+	</div>
 
-		<div class="qt-footer qt-footerwidgets">
-			<div class="qt-section qt-footer-widgets qt-content-primary-light">
-				<div class="qt-container"  style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
-					<h2 class="qt-footer-logo">
-						<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
-					</h2>
-					<div
-						class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>About site</span>
-								</h5>
-								<div class="qt-widget-about">
-									<p>
-										We are a young and dynamic compose station which wants to
-										bring happyness in your life. <br> <a href="sitemap">
-											Site Map <i class="dripicons-arrow-thin-right"></i>
-										</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Contacts</span>
-								</h5>
-								<div class="qt-widget-contacts">
-									<p>
-										<i class="qticon-home"></i><a href="#">www.jazart.com</a>
-									</p>
-									<p>
-										<i class="qticon-at-sign"></i><a href="question">jazart2017@gmail.com</a>
-									</p>
-									<p>
-										<i class="qticon-phone"></i><a href="#">02-123-1234</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Our Team</span>
-								</h5>
-								<div class="qt-widget-about">
-									<p>
-
-										We are a small group of designers and developers. We create
-										clean, minimal and apps. <br> <a href="about">About
-											us <i class="dripicons-arrow-thin-right"></i>
-										</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Main links</span>
-								</h5>
-								<ul class="qt-widget-menu qt-list-chevron">
-									<li><a href="compose">Compose</a></li>
-									<li><a href="commBoard">Board </a></li>
-									<li><a href="realtimeChart">Charts </a></li>
-									<li><a href="qna">Contacts</a></li>
-								</ul>
+	<div class="qt-footer qt-footerwidgets">
+		<div class="qt-section qt-footer-widgets qt-content-primary-light">
+			<div class="qt-container"
+				style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
+				<h2 class="qt-footer-logo">
+					<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
+				</h2>
+				<div
+					class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>About site</span>
+							</h5>
+							<div class="qt-widget-about">
+								<p>
+									We are a young and dynamic compose station which wants to bring
+									happyness in your life. <br> <a href="sitemap"> Site
+										Map <i class="dripicons-arrow-thin-right"></i>
+									</a>
+								</p>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="qt-header-bg"
-					data-bgimage="images/back.jpg">
-					<img src="images/back.jpg" alt="Featured image"
-						width="690" height="302">
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Contacts</span>
+							</h5>
+							<div class="qt-widget-contacts">
+								<p>
+									<i class="qticon-home"></i><a href="#">www.jazart.com</a>
+								</p>
+								<p>
+									<i class="qticon-at-sign"></i><a href="question">jazart2017@gmail.com</a>
+								</p>
+								<p>
+									<i class="qticon-phone"></i><a href="#">02-123-1234</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Our Team</span>
+							</h5>
+							<div class="qt-widget-about">
+								<p>
+
+									We are a small group of designers and developers. We create
+									clean, minimal and apps. <br> <a href="about">About us
+										<i class="dripicons-arrow-thin-right"></i>
+									</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Main links</span>
+							</h5>
+							<ul class="qt-widget-menu qt-list-chevron">
+								<li><a href="compose">Compose</a></li>
+								<li><a href="commBoard">Board </a></li>
+								<li><a href="realtimeChart">Charts </a></li>
+								<li><a href="qna">Contacts</a></li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
+			<div class="qt-header-bg" data-bgimage="images/back.jpg">
+				<img src="images/back.jpg" alt="Featured image" width="690"
+					height="302">
+			</div>
+		</div>
 		<!-- 	<div class="qt-footer-bottom qt-content-primary-dark">
 				<div class="qt-container">
 					<div class="row"> -->
-						<!-- <div class="col s12 m12 l8">
+		<!-- <div class="col s12 m12 l8">
 							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
 							| Radio Station HTML Template
 							<ul class="qt-menu-footer qt-small qt-list-chevron ">
@@ -485,8 +485,8 @@ table, th, td {
 								<li><a href="#">Sitemap</a></li>
 							</ul>
 						</div> -->
-					<!-- 	<div class="col s12 m12 l4"> -->
-							<!-- <ul class="qt-menu-social">
+		<!-- 	<div class="col s12 m12 l4"> -->
+		<!-- <ul class="qt-menu-social">
 								<li class="right"><a href="#"><i
 										class="qticon-beatport"></i></a></li>
 								<li class="right"><a href="#"><i
@@ -496,7 +496,7 @@ table, th, td {
 								<li class="right"><a href="#"><i
 										class="qticon-soundcloud"></i></a></li>
 							</ul> -->
-						</div>
+	</div>
 	<!-- 				</div>
 				</div>
 			</div>

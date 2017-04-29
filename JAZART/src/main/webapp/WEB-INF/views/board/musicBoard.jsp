@@ -51,6 +51,7 @@
 		var page = document.getElementById("page");
 		page.value = currentPage;
 		form.submit();
+
 	}
 	function recommend(num) {
 		var snum = num;
@@ -312,10 +313,11 @@
 
 				<!-- 원래차트 있던곳 -->
 				<div class="qt-pagination qt-content-primary">
-					<!-- <form method="get" action="dwChart" class="qt-inline-form" id="pagingForm"> -->
-					<input type="hidden" id="page" name="page"> <input
-						type="hidden" id="type" name="type" value="daily">
-					<!-- </form>  -->
+					<form method="get" action="musicBoard" class="qt-inline-form"
+						id="pagingForm">
+						<input type="hidden" id="page" name="page">
+
+					</form>
 					<!-- PAGINATION ========================= -->
 					<ul class="pagination qt-container">
 						<li class="special"><span
@@ -334,12 +336,11 @@
 						<c:forEach begin="${navi.startPageGroup}"
 							end="${navi.endPageGroup}" var="counter">
 							<c:if test="${navi.currentPage!=counter}">
-								<li class="item active hide-on-large-and-down"><a
+								<li class="item waves-effect hide-on-large-and-down"><a
 									href="javascript:pagingForSubmit(${counter})">${counter}</a></li>
 							</c:if>
 							<c:if test="${navi.currentPage==counter}">
-								<li class="item waves-effect hide-on-large-and-down"><a
-									href="#!">${counter}</a></li>
+								<li class="item active hide-on-large-and-down"><a href="#!">${counter}</a></li>
 							</c:if>
 						</c:forEach>
 					</ul>
@@ -358,7 +359,8 @@
 	<!-- .qt-main end -->
 	<div class="qt-footer qt-footerwidgets">
 		<div class="qt-section qt-footer-widgets qt-content-primary-light">
-			<div class="qt-container"  style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
+			<div class="qt-container"
+				style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
 				<h2 class="qt-footer-logo">
 					<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
 				</h2>
@@ -436,7 +438,7 @@
 		<!-- <div class="qt-footer-bottom qt-content-primary-dark">
 			<div class="qt-container">
 				<div class="row"> -->
-					<!-- <div class="col s12 m12 l8">
+		<!-- <div class="col s12 m12 l8">
 							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
 							| Radio Station HTML Template
 							<ul class="qt-menu-footer qt-small qt-list-chevron ">
@@ -445,8 +447,8 @@
 								<li><a href="#">Sitemap</a></li>
 							</ul>
 						</div> -->
-				<!-- 	<div class="col s12 m12 l4"> -->
-						<!-- <ul class="qt-menu-social">
+		<!-- 	<div class="col s12 m12 l4"> -->
+		<!-- <ul class="qt-menu-social">
 								<li class="right"><a href="#"><i
 										class="qticon-beatport"></i></a></li>
 								<li class="right"><a href="#"><i
@@ -456,7 +458,7 @@
 								<li class="right"><a href="#"><i
 										class="qticon-soundcloud"></i></a></li>
 							</ul> -->
-					</div>
+	</div>
 	<!-- 			</div>
 			</div>
 		</div>

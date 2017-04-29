@@ -36,9 +36,9 @@ public class ChartController {
 	@RequestMapping(value = "musicBoard", method = RequestMethod.GET)
 	public String musicBoard(Model model, @RequestParam(value = "page", defaultValue = "1") int page) {
 		int total = cr.allCount();
-		PageNavigator navi = new PageNavigator(countPerPage, pagePerGroup, page, total);
+		PageNavigator navi = new PageNavigator(9, pagePerGroup, page, total);
 		int start = navi.getStartRecord(); // 1,11,21
-		int end = start + countPerPage - 1; // 10,20,30
+		int end = start + 9 - 1; // 10,20,30
 		logger.info("뮤직보드");
 		logger.info("" + total);
 		ArrayList<SongInfo> cList = cr.allList(start, end);

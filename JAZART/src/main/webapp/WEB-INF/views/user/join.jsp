@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-<title>ONAIR2</title>
+<title>Jazart</title>
 <meta name="description" content="Radio station HTML template">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-
@@ -48,6 +48,41 @@ volume.css" />
 
 <!-- Custom typography settings and google fonts -->
 <link rel="stylesheet" href="resources/css/qt-typography.css">
+
+<style type="text/css">
+.file_input label {
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: middle;
+	overflow: hidden;
+	width: 100px;
+	height: 30px;
+	background: #ff8080;
+	color: #fff;
+	text-align: center;
+	line-height: 30px;
+	font-size: 12px;
+}
+
+.file_input label input {
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+.file_input input[type=text] {
+	vertical-align: middle;
+	display: inline-block;
+	width: 400px;
+	height: 28px;
+	line-height: 28px;
+	font-size: 11px;
+	margin: 0;
+	border: 1px solid #777;
+}
+</style>
 
 <!-- 내가 쓴 코드 -->
 <script src="resources/jquery-3.1.1.min.js"></script>
@@ -274,8 +309,7 @@ play"></i></a></li>
 												id="joinForm" enctype="multipart/form-data">
 												<input type="hidden" name="antispam" value="x123">
 												<!-- <h3 class="left-align qt-vertical-padding-m"> -->
-												<h3>write down
-													below</h3>
+												<h3>write down below</h3>
 												<br>
 												<div class="row">
 													<div class="input-field col s6">
@@ -293,15 +327,16 @@ play"></i></a></li>
 															id="user_nickname" type="text" class="validate" required>
 													</div>
 												</div>
+
 												<div class="row">
-
-
-													<div class="input-field col s6">
-														<label>Profile</label> <input type="file" name="upload">
+													<div class="file_input">
+														<label> File Attach <input type="file"
+															name="upload" class="upload">
+														</label> <input type="text" id="fileRoot" readonly="readonly"
+															style="width: 120px;" title="File Route">
 													</div>
-
-
 												</div>
+
 												<div class="row">
 													<div class="input-field col s12">
 														<label>Phone</label> <input name="user_phone"
@@ -348,7 +383,8 @@ light lnr lnr-rocket"
 		</div>
 		<div class="qt-footer qt-footerwidgets">
 			<div class="qt-section qt-footer-widgets qt-content-primary-light">
-				<div class="qt-container" style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
+				<div class="qt-container"
+					style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
 					<h2 class="qt-footer-logo">
 						<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
 					</h2>
@@ -423,10 +459,10 @@ light lnr lnr-rocket"
 						height="302">
 				</div>
 			</div>
-		<!-- 	<div class="qt-footer-bottom qt-content-primary-dark">
+			<!-- 	<div class="qt-footer-bottom qt-content-primary-dark">
 				<div class="qt-container">
 					<div class="row"> -->
-						<!-- <div class="col s12 m12 l8">
+			<!-- <div class="col s12 m12 l8">
 							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
 							| Radio Station HTML Template
 							<ul class="qt-menu-footer qt-small qt-list-chevron ">
@@ -435,8 +471,8 @@ light lnr lnr-rocket"
 								<li><a href="#">Sitemap</a></li>
 							</ul>
 						</div> -->
-				<!-- 		<div class="col s12 m12 l4"> -->
-							<!-- <ul class="qt-menu-social">
+			<!-- 		<div class="col s12 m12 l4"> -->
+			<!-- <ul class="qt-menu-social">
 								<li class="right"><a href="#"><i
 										class="qticon-beatport"></i></a></li>
 								<li class="right"><a href="#"><i
@@ -446,9 +482,9 @@ light lnr lnr-rocket"
 								<li class="right"><a href="#"><i
 										class="qticon-soundcloud"></i></a></li>
 							</ul> -->
-						</div>
-					</div>
-<!-- 				</div>
+		</div>
+	</div>
+	<!-- 				</div>
 			</div>
 		</div>
 	</div> -->

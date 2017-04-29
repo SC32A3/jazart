@@ -195,7 +195,8 @@
 			<!-- ======================= CONTENT SECTION ======================= -->
 			<div class="qt-container">
 				<div class="row qt-vertical-padding-l ">
-					<div class="col s12 m12 l12">
+					<div class="col s12 m12 l12 st"
+						style="padding-left: 40px; padding-right: 40px;">
 						<ul class="collapsible qt-chart-tracklist qt-spacer-m"
 							data-collapsible="accordion">
 							<!-- CHART TRACK ========================= -->
@@ -295,7 +296,7 @@
 
 
 							<!-- CHART TRACK ========================= -->
-							<li class="qt-part-chart qt-chart-track qt-negative qt-card-s"">
+							<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
 								<div
 									class="qt-chart-table collapsible-header qt-content-primary">
 									<div class="qt-position" style="width: 170px; height: 100px;">
@@ -396,7 +397,8 @@
 		<!-- .qt-main end -->
 		<div class="qt-footer qt-footerwidgets">
 			<div class="qt-section qt-footer-widgets qt-content-primary-light">
-				<div class="qt-container"  style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
+				<div class="qt-container"
+					style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
 					<h2 class="qt-footer-logo">
 						<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
 					</h2>
@@ -474,7 +476,7 @@
 			<!-- <div class="qt-footer-bottom qt-content-primary-dark">
 				<div class="qt-container">
 					<div class="row"> -->
-						<!-- <div class="col s12 m12 l8">
+			<!-- <div class="col s12 m12 l8">
 							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
 							| Radio Station HTML Template
 							<ul class="qt-menu-footer qt-small qt-list-chevron ">
@@ -483,8 +485,8 @@
 								<li><a href="#">Sitemap</a></li>
 							</ul>
 						</div> -->
-						<!-- <div class="col s12 m12 l4"> -->
-							<!-- <ul class="qt-menu-social">
+			<!-- <div class="col s12 m12 l4"> -->
+			<!-- <ul class="qt-menu-social">
 								<li class="right"><a href="#"><i
 										class="qticon-beatport"></i></a></li>
 								<li class="right"><a href="#"><i
@@ -494,8 +496,8 @@
 								<li class="right"><a href="#"><i
 										class="qticon-soundcloud"></i></a></li>
 							</ul> -->
-						</div>
-					</div>
+		</div>
+	</div>
 	<!-- 			</div>
 			</div>
 		</div>
