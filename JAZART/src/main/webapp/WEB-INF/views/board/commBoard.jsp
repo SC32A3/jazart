@@ -260,7 +260,6 @@ table, th, td {
 			<div class="qt-pageheader qt-negative">
 				<div class="qt-container">
 					<ul class="qt-tags">
-
 					</ul>
 					<h1 class="qt-caption qt-spacer-s">free community</h1>
 					<h4 class="qt-subtitle">자유게시판</h4>

@@ -258,7 +258,7 @@
 										<div class="qt-position">
 											<img src="download?type=song&data=${weekly.songnum}"
 												class="qt-chart-cover" alt="Chart track" width="170"
-												height="170"> <span>${status.count}</span>
+												height="170"> <span>${status.count+(navi.currentPage-1)*10}</span>
 										</div>
 										<div class="qt-titles">
 											<h3 class="qt-ellipsis qt-t">${ weekly.song_title }</h3>

@@ -371,7 +371,7 @@
 								<div class="qt-header-mid qt-vc">
 									<div class="qt-vi">
 
-										<h2 class="qt-title"> 
+										<h2 class="qt-title">
 											<a href="#read" class="qt-text-shadow"> contacts </a>
 										</h2>
 										<div
@@ -456,7 +456,8 @@
 							<div id="daymonday" class="qt-show-schedule-day">
 								<!-- SCHEDULE DAY ================================================== -->
 								<div class="qt-show-schedule-day row">
-									<c:forEach var="allList" varStatus="status" items="${all}">
+									<c:forEach var="allList" begin="0" end="2" varStatus="status"
+										items="${all}">
 										<div class="col s12 m4 l4">
 											<!-- SCHEDULE SHOW ========================= -->
 											<div
@@ -529,7 +530,8 @@
 					<ul class="collapsible qt-chart-tracklist qt-spacer-m"
 						data-collapsible="accordion">
 
-						<c:forEach var="weekly" varStatus="status" items="${wc}">
+						<c:forEach var="weekly" begin="0" end="2" varStatus="status"
+							items="${wc}">
 							<!-- CHART TRACK ========================= -->
 							<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
 								<div
@@ -559,7 +561,6 @@
 											href="songPopup?songnum=${weekly.songnum}"
 											class="qt-popupwindow" data-name="Music Player"
 											data-width="320" data-hqeight="500">노래듣기&nbsp;</a>
-
 									</p>
 								</div>
 							</li>
@@ -577,13 +578,13 @@
 				</div> -->
 			</div>
 			<!-- ======================= SPONSORS ======================= -->
-			<div class="qt-vertical-padding-m qt-sponsors qt-section">
+		<!-- 	<div class="qt-vertical-padding-m qt-sponsors qt-section">
 				<h3 class="qt-caption-med">
-					<span> Used language</span>
-				</h3>
-				<hr class="qt-spacer-m">
+					<span>Artist</span>
+				</h3> -->
+				<!-- <hr class="qt-spacer-m"> -->
 				<!-- SLIDESHOW SPONSORS ================================================== -->
-				<div
+				<!-- <div
 					class="qt-slickslider-container qt-slickslider-externalarrows qt-slickslider-fullscreen">
 					<div class="row">
 						<div
@@ -595,61 +596,53 @@
 							data-arrowsmobile="false" data-centermodemobile="true"
 							data-dotsmobile="false" data-slidestoshowmobile="1"
 							data-variablewidthmobile="true" data-infinitemobile="false">
-							<!-- SLIDESHOW ITEM -->
-							<div class="qt-item">
-								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="images/css.jpg" width="235" height="132"
-									alt="sponsor" class="qt-image-responsive">
-								</a>
-							</div>
-							<!-- SLIDESHOW ITEM -->
+							SLIDESHOW ITEM
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
 									<img src="images/html.jpg" width="235" height="132"
 									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
-							<!-- SLIDESHOW ITEM -->
+							SLIDESHOW ITEM
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
 									<img src="images/java.jpg" width="235" height="132"
 									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
-							<!-- SLIDESHOW ITEM -->
+							SLIDESHOW ITEM
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
 									<img src="images/javascript.jpg" width="235" height="132"
 									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
-							<!-- SLIDESHOW ITEM -->
+							SLIDESHOW ITEM
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
 									<img src="images/jquery.jpg" width="235" height="132"
 									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
-							<!-- SLIDESHOW ITEM -->
+							SLIDESHOW ITEM
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
 									<img src="images/ajax.jpg" width="235" height="132"
 									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
-							<!-- SLIDESHOW ITEM -->
+							SLIDESHOW ITEM
 							<div class="qt-item">
 								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
 									<img src="images/servlets.jpg" width="235" height="132"
 									alt="sponsor" class="qt-image-responsive">
 								</a>
 							</div>
-
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<!-- SLIDESHOW SPONSORS END ================================================== -->
-				<hr class="qt-spacer-s">
+				<!-- <hr class="qt-spacer-s"> -->
 			</div>
 		</div>
 		<!-- .qt-main end -->

@@ -247,8 +247,6 @@
 					<div class="col s12 m12 l8">
 						<ul class="collapsible qt-chart-tracklist"
 							data-collapsible="accordion">
-
-
 							<c:forEach var="daily" varStatus="status" items="${dc}">
 								<!-- CHART TRACK ========================= -->
 								<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
@@ -257,7 +255,7 @@
 										<div class="qt-position">
 											<img src="download?type=song&data=${daily.songnum}"
 												class="qt-chart-cover" alt="Chart track" width="170"
-												height="170"> <span>${status.count}</span>
+												height="170"> <span>${status.count+(navi.currentPage-1)*10}</span>
 										</div>
 										<div class="qt-titles">
 											<h3 class="qt-ellipsis qt-t">${ daily.song_title }</h3>
@@ -280,9 +278,6 @@
 												class="qt-popupwindow" data-name="Music Player"
 												data-width="320" data-hqeight="500">노래듣기&nbsp;</a>
 										</p>
-
-
-
 									</div>
 								</li>
 								<!-- CHART TRACK END ========================= -->
