@@ -555,19 +555,20 @@
 		</div>
 	</div>
 	<!-- .qt-main end -->
-	<div class="qt-footer qt-footerwidgets">
-		<div class="qt-section qt-footer-widgets qt-content-primary-light">
-			<div class="qt-container">
-				<h2 class="qt-footer-logo">
-					<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
-				</h2>
-				<div
-					class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
-					<div class="col s12 m3 l3">
-						<div class="qt-widget">
-							<h5 class="qt-caption-small">
-								<span>About site</span>
-							</h5>
+		<div class="qt-footer qt-footerwidgets">
+			<div class="qt-section qt-footer-widgets qt-content-primary-light">
+				<div class="qt-container"
+					style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
+					<h2 class="qt-footer-logo">
+						<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
+					</h2>
+					<div
+						class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
+						<div class="col s12 m3 l3">
+							<div class="qt-widget">
+								<h5 class="qt-caption-small">
+									<span>About site</span>
+								</h5>
 							<div class="qt-widget-about">
 								<p>
 									We are a young and dynamic compose station which wants to bring

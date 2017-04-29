@@ -243,7 +243,8 @@
       </div>
       	<div class="qt-footer qt-footerwidgets">
 			<div class="qt-section qt-footer-widgets qt-content-primary-light">
-				<div class="qt-container">
+				<div class="qt-container"
+					style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
 					<h2 class="qt-footer-logo">
 						<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
 					</h2>
@@ -313,41 +314,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="qt-header-bg"
-					data-bgimage="images/back.jpg">
-					<img src="images/back.jpg" alt="Featured image"
-						width="690" height="302">
-				</div>
-			</div>
-			<div class="qt-footer-bottom qt-content-primary-dark">
-				<div class="qt-container">
-					<div class="row">
-						<!-- <div class="col s12 m12 l8">
-							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
-							| Radio Station HTML Template
-							<ul class="qt-menu-footer qt-small qt-list-chevron ">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Privacy</a></li>
-								<li><a href="#">Sitemap</a></li>
-							</ul>
-						</div> -->
-						<div class="col s12 m12 l4">
-							<!-- <ul class="qt-menu-social">
-								<li class="right"><a href="#"><i
-										class="qticon-beatport"></i></a></li>
-								<li class="right"><a href="#"><i
-										class="qticon-facebook"></i></a></li>
-								<li class="right"><a href="#"><i class="qticon-twitter"></i></a></li>
-								<li class="right"><a href="#"><i class="qticon-youtube"></i></a></li>
-								<li class="right"><a href="#"><i
-										class="qticon-soundcloud"></i></a></li>
-							</ul> -->
-						</div>
-					</div>
+				<div class="qt-header-bg" data-bgimage="images/back.jpg">
+					<img src="images/back.jpg" alt="Featured image" width="690"
+						height="302">
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"
 		class="side-nav qt-content-primary qt-right-sidebar">
@@ -358,7 +332,7 @@
 		<div id="qtplayercontainer" data-playervolume="true"
 			data-accentcolor="#dd0e34" data-accentcolordark="#ff0442"
 			data-textcolor="#ffffff"
-			data-soundmanagerurl="./resources/components/soundmanager/swf/"
+			data-soundmanagerurl="./components/soundmanager/swf/"
 			class="qt-playercontainer qt-playervolume qt-clearfix qt-content-primary">
 			<div class="qt-playercontainer-content qt-vertical-padding-m">
 				<div class="qt-playercontainer-header">
@@ -387,28 +361,39 @@
 					<hr class="qt-inline-textdeco">
 				</div>
 			</div>
-			<div id="playerimage" class="qt-header-bg"
-				data-bgimage="resources/imagestemplate/full-1600-700.jpg">
-				<img src="resources/imagestemplate/full-1600-700.jpg" alt="Featured image"
-					width="690" height="302">
+			<div id="playerimage" class="qt-header-bg">
+				<img src="images/back1.jpg" alt="Featured image" width="690"
+					height="302">
 			</div>
 		</div>
-		
-		
 		<!-- this is for xml radio feed -->
-		
-		<!-- <div id="qtShoutcastFeedData" class="hidden" data-style=""
-			data-channel="1" data-host="173.192.105.231" data-port="3540"></div> -->
-		
+		<div id="qtShoutcastFeedData" class="hidden" data-style=""
+			data-channel="1" data-host="173.192.105.231" data-port="3540"></div>
 		<!-- PLAYER END ========================= -->
+		<!-- CHANNELS LIST ========================= -->
+		<div class="qt-part-channels-list">
+			<ul class="qt-content-aside qt-channelslist qt-negative">
+				<li class="qt-channel"><a href="#!" class="qt-ellipsis"> <img
+						src="images/radio-logo.png" alt="logo"
+						class="qt-radiologo dripicons-media-play" width="80" height="80">
+						<i class="dripicons-media-play"></i> Station 1
+				</a></li>
+				<li class="qt-channel"><a href="#!" class="qt-ellipsis"> <img
+						src="images/radio-logo.png" alt="logo" class="qt-radiologo"
+						width="80" height="80"> <i class="dripicons-media-play"></i>
+						altradio
+				</a></li>
+			</ul>
 		</div>
+		<!-- CHANNELS LIST END ========================= -->
+	</div>
 	<!-- PLAYER SIDEBAR END ========================= -->
 
 	<!-- QT BODY END ================================ -->
 
 	<!-- QT FOOTER SCRIPTS ================================ -->
 	<script src="resources/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-	<!-- <script src="resources/js/jquery.js"></script> -->
+	<script src="resources/js/jquery.js"></script>
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
 	<script src="resources/js/jquery-migrate.min.js"></script>
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
@@ -441,12 +426,13 @@
 		src="resources/components/soundmanager/script/berniecode-animator.js"></script>
 	<script
 		src="resources/components/soundmanager/script/soundmanager2-nodebug.js"></script>
-	<!-- <script src="resources/components/soundmanager/script/shoutcast.js"></script>
+	<script src="resources/components/soundmanager/script/shoutcast.js"></script>
 	<script
-		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script> -->
+		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script>
 
 	<!-- Popup -->
 	<script src="resources/components/popup/popup.js"></script>
+
 
 	<!-- MAIN JAVASCRIPT FILE ================================ -->
 	<script src="resources/js/qt-main.js"></script>

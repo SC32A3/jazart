@@ -421,89 +421,86 @@
 	</div>
 	<!-- .qt-main end -->
 	<div class="qt-footer qt-footerwidgets">
-		<div class="qt-section qt-footer-widgets qt-content-primary-light">
-			<div class="qt-container">
-				<h2 class="qt-footer-logo">
-					<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
-				</h2>
-				<div
-					class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
-					<div class="col s12 m3 l3">
-						<div class="qt-widget">
-							<h5 class="qt-caption-small">
-								<span>About site</span>
-							</h5>
-							<div class="qt-widget-about">
-								<p>
-									We are a young and dynamic compose station which wants to bring
-									happyness in your life. <br> <a href="sitemap"> Site
-										Map <i class="dripicons-arrow-thin-right"></i>
-									</a>
-								</p>
+			<div class="qt-section qt-footer-widgets qt-content-primary-light">
+				<div class="qt-container"
+					style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
+					<h2 class="qt-footer-logo">
+						<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
+					</h2>
+					<div
+						class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
+						<div class="col s12 m3 l3">
+							<div class="qt-widget">
+								<h5 class="qt-caption-small">
+									<span>About site</span>
+								</h5>
+								<div class="qt-widget-about">
+									<p>
+										We are a young and dynamic compose station which wants to
+										bring happyness in your life. <br> <a href="sitemap">
+											Site Map <i class="dripicons-arrow-thin-right"></i>
+										</a>
+									</p>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col s12 m3 l3">
-						<div class="qt-widget">
-							<h5 class="qt-caption-small">
-								<span>Contacts</span>
-							</h5>
-							<div class="qt-widget-contacts">
-								<p>
-									<i class="qticon-home"></i><a href="#">www.jazart.com</a>
-								</p>
-								<p>
-									<i class="qticon-at-sign"></i><a href="question">jazart2017@gmail.com</a>
-								</p>
-								<p>
-									<i class="qticon-phone"></i><a href="#">02-123-1234</a>
-								</p>
+						<div class="col s12 m3 l3">
+							<div class="qt-widget">
+								<h5 class="qt-caption-small">
+									<span>Contacts</span>
+								</h5>
+								<div class="qt-widget-contacts">
+									<p>
+										<i class="qticon-home"></i><a href="#">www.jazart.com</a>
+									</p>
+									<p>
+										<i class="qticon-at-sign"></i><a href="question">jazart2017@gmail.com</a>
+									</p>
+									<p>
+										<i class="qticon-phone"></i><a href="#">02-123-1234</a>
+									</p>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col s12 m3 l3">
-						<div class="qt-widget">
-							<h5 class="qt-caption-small">
-								<span>Our Team</span>
-							</h5>
-							<div class="qt-widget-about">
-								<p>
+						<div class="col s12 m3 l3">
+							<div class="qt-widget">
+								<h5 class="qt-caption-small">
+									<span>Our Team</span>
+								</h5>
+								<div class="qt-widget-about">
+									<p>
 
-									We are a small group of designers and developers. We create
-									clean, minimal and apps. <br> <a href="about">About us
-										<i class="dripicons-arrow-thin-right"></i>
-									</a>
-								</p>
+										We are a small group of designers and developers. We create
+										clean, minimal and apps. <br> <a href="about">About
+											us <i class="dripicons-arrow-thin-right"></i>
+										</a>
+									</p>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col s12 m3 l3">
-						<div class="qt-widget">
-							<h5 class="qt-caption-small">
-								<span>Main links</span>
-							</h5>
-							<ul class="qt-widget-menu qt-list-chevron">
-								<li><a href="compose">Compose</a></li>
-								<li><a href="commBoard">Board </a></li>
-								<li><a href="realtimeChart">Charts </a></li>
-								<li><a href="qna">Contacts</a></li>
-							</ul>
+						<div class="col s12 m3 l3">
+							<div class="qt-widget">
+								<h5 class="qt-caption-small">
+									<span>Main links</span>
+								</h5>
+								<ul class="qt-widget-menu qt-list-chevron">
+									<li><a href="compose">Compose</a></li>
+									<li><a href="commBoard">Board </a></li>
+									<li><a href="realtimeChart">Charts </a></li>
+									<li><a href="qna">Contacts</a></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="qt-header-bg" data-bgimage="images/back.jpg">
-				<img src="images/back.jpg" alt="Featured image" width="690"
-					height="302">
-			</div>
-		</div>
-		<div class="qt-footer-bottom qt-content-primary-dark">
-			<div class="qt-container">
-				<div class="row"></div>
+				<div class="qt-header-bg" data-bgimage="images/back.jpg">
+					<img src="images/back.jpg" alt="Featured image" width="690"
+						height="302">
+				</div>
 			</div>
 		</div>
 	</div>
-	</div>
+
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"
 		class="side-nav qt-content-primary qt-right-sidebar">
@@ -544,12 +541,13 @@
 				</div>
 			</div>
 			<div id="playerimage" class="qt-header-bg">
-				<img src="images/default.jpg" alt="Featured image" width="690"
+				<img src="images/back1.jpg" alt="Featured image" width="690"
 					height="302">
 			</div>
 		</div>
 		<!-- this is for xml radio feed -->
-		<div id="qtShoutcastFeedData" class="hidden"></div>
+		<div id="qtShoutcastFeedData" class="hidden" data-style=""
+			data-channel="1" data-host="173.192.105.231" data-port="3540"></div>
 		<!-- PLAYER END ========================= -->
 		<!-- CHANNELS LIST ========================= -->
 		<div class="qt-part-channels-list">
@@ -614,9 +612,9 @@
 	<!-- Popup -->
 	<script src="resources/components/popup/popup.js"></script>
 
+
 	<!-- MAIN JAVASCRIPT FILE ================================ -->
 	<script src="resources/js/qt-main.js"></script>
 
 </body>
 </html>
-

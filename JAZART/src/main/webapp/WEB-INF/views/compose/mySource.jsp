@@ -401,7 +401,8 @@
 		<!-- .qt-main end -->
 		<div class="qt-footer qt-footerwidgets">
 			<div class="qt-section qt-footer-widgets qt-content-primary-light">
-				<div class="qt-container">
+				<div class="qt-container"
+					style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
 					<h2 class="qt-footer-logo">
 						<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
 					</h2>
@@ -476,13 +477,9 @@
 						height="302">
 				</div>
 			</div>
-			<div class="qt-footer-bottom qt-content-primary-dark">
-				<div class="qt-container">
-					<div class="row"></div>
-				</div>
-			</div>
 		</div>
 	</div>
+
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"
 		class="side-nav qt-content-primary qt-right-sidebar">
@@ -523,12 +520,13 @@
 				</div>
 			</div>
 			<div id="playerimage" class="qt-header-bg">
-				<img src="images/default.jpg" alt="Featured image" width="690"
+				<img src="images/back1.jpg" alt="Featured image" width="690"
 					height="302">
 			</div>
 		</div>
 		<!-- this is for xml radio feed -->
-		<div id="qtShoutcastFeedData" class="hidden"></div>
+		<div id="qtShoutcastFeedData" class="hidden" data-style=""
+			data-channel="1" data-host="173.192.105.231" data-port="3540"></div>
 		<!-- PLAYER END ========================= -->
 		<!-- CHANNELS LIST ========================= -->
 		<div class="qt-part-channels-list">
@@ -592,6 +590,7 @@
 
 	<!-- Popup -->
 	<script src="resources/components/popup/popup.js"></script>
+
 
 	<!-- MAIN JAVASCRIPT FILE ================================ -->
 	<script src="resources/js/qt-main.js"></script>

@@ -509,9 +509,10 @@
 			</div>
 		</div>
 		<!-- .qt-main end -->
-		<div class="qt-footer qt-footerwidgets">
+			<div class="qt-footer qt-footerwidgets">
 			<div class="qt-section qt-footer-widgets qt-content-primary-light">
-				<div class="qt-container">
+				<div class="qt-container"
+					style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
 					<h2 class="qt-footer-logo">
 						<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
 					</h2>
@@ -586,35 +587,9 @@
 						height="302">
 				</div>
 			</div>
-			<!-- <div class="qt-footer-bottom qt-content-primary-dark">
-				<div class="qt-container">
-					<div class="row"> -->
-			<!-- <div class="col s12 m12 l8">
-							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
-							| Radio Station HTML Template
-							<ul class="qt-menu-footer qt-small qt-list-chevron ">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Privacy</a></li>
-								<li><a href="#">Sitemap</a></li>
-							</ul>
-						</div> -->
-			<div class="col s12 m12 l4">
-				<!-- <ul class="qt-menu-social">
-								<li class="right"><a href="#"><i
-										class="qticon-beatport"></i></a></li>
-								<li class="right"><a href="#"><i
-										class="qticon-facebook"></i></a></li>
-								<li class="right"><a href="#"><i class="qticon-twitter"></i></a></li>
-								<li class="right"><a href="#"><i class="qticon-youtube"></i></a></li>
-								<li class="right"><a href="#"><i
-										class="qticon-soundcloud"></i></a></li>
-							</ul> -->
-				<!-- 	</div>
-					</div>
-				</div> -->
-			</div>
 		</div>
 	</div>
+
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"
 		class="side-nav qt-content-primary qt-right-sidebar">
@@ -654,10 +629,9 @@
 					<hr class="qt-inline-textdeco">
 				</div>
 			</div>
-			<div id="playerimage" class="qt-header-bg"
-				data-bgimage="imagestemplate/full-1600-700.jpg">
-				<img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
-					width="690" height="302">
+			<div id="playerimage" class="qt-header-bg">
+				<img src="images/back1.jpg" alt="Featured image" width="690"
+					height="302">
 			</div>
 		</div>
 		<!-- this is for xml radio feed -->
@@ -667,27 +641,15 @@
 		<!-- CHANNELS LIST ========================= -->
 		<div class="qt-part-channels-list">
 			<ul class="qt-content-aside qt-channelslist qt-negative">
-				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
-					data-title="06AM Ibiza" data-subtitle="Underground Radio"
-					data-background="imagestemplate/photo-squared-500-500.jpg"
-					data-logo="imagestemplate/radio-logo.png"
-					data-playtrack="http://173.192.105.231:3540/stream.mp3"
-					data-host="173.192.105.231" data-port="3540" data-stats_path=""
-					data-played_path="" data-channel=""> <img
-						src="imagestemplate/radio-logo.png" alt="logo"
+				<li class="qt-channel"><a href="#!" class="qt-ellipsis"> <img
+						src="images/radio-logo.png" alt="logo"
 						class="qt-radiologo dripicons-media-play" width="80" height="80">
 						<i class="dripicons-media-play"></i> Station 1
 				</a></li>
-				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
-					data-title="altradio" data-subtitle="The subtitle of radio 2"
-					data-background="imagestemplate/large-1170-512.jpg"
-					data-logo="imagestemplate/radio-logo.png"
-					data-playtrack="http://82.77.137.30:8557/;listen.mp3"
-					data-host="82.77.137.30" data-port="8557" data-stats_path=""
-					data-played_path="" data-channel=""> <img
-						src="imagestemplate/radio-logo.png" alt="logo"
-						class="qt-radiologo" width="80" height="80"> <i
-						class="dripicons-media-play"></i> altradio
+				<li class="qt-channel"><a href="#!" class="qt-ellipsis"> <img
+						src="images/radio-logo.png" alt="logo" class="qt-radiologo"
+						width="80" height="80"> <i class="dripicons-media-play"></i>
+						altradio
 				</a></li>
 			</ul>
 		</div>
