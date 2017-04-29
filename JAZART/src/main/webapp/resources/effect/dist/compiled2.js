@@ -7498,7 +7498,9 @@
         this.model.toggle()
     };
     pb.footswitch.Switch.prototype.templates_base = function() {
-        return '<div class="switch" id="' + this.getId() + '"><div class="button">ON</div>' + this.templates_name() + "</div>"
+    	//alert(this.getId().substr(1,1));
+    	
+        return '<div class="switch" id="' + this.getId() + '"><div class="button"><span class="spanBtn'+this.getId().substr(1,1)+'" onclick="spanClick(\'spanBtn'+this.getId().substr(1,1)+'\')">ON</span></div>' + this.templates_name() + "</div>"
     };
     pb.footswitch.Switch.prototype.templates_name = function() {
         return this.model.name ? '<div class="name">' + this.model.name + "</div>" : ""
@@ -7753,7 +7755,7 @@
         var a = goog.bind(this.model.setDelayTimer, this.model),
             b = goog.bind(this.model.setFeedbackGain, this.model);
         this.delayTimerPot = new pb.pot.Log(a, "delay time", 5);
-        this.feedbackGainPot = new pb.pot.Linear(b, "feedback gain", 0.95);
+        this.feedbackGainPot = new pb.pot.Linear(b, "feedback", 0.95);
         this.pots.push(this.delayTimerPot, this.feedbackGainPot)
     };
     pb.stomp.Delay.prototype.setDelayTimer = function(a) {

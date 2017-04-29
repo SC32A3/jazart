@@ -259,7 +259,25 @@
 				}
 			});
 		});
+		/* $(".spanBtn").on('click', function() {
+			if ($('.spanBtn').html() == 'ON') {
+				alert('on');
+				$('.spanBtn').text('OFF');	
+			} else if ($('.spanBtn').html() == 'OFF') {
+				alert('off');
+				$('.spanBtn').text('ON');	
+			}
+		}); */
 	});
+	
+	function spanClick(id) {
+		var clickBtn = $('.'+id);
+		if (clickBtn.html() == 'ON') {
+			clickBtn.text('OFF');
+		} else if (clickBtn.html() == 'OFF'){
+			clickBtn.text('ON');
+		}
+	}
 </script>
 <script src="resources/js/effect_file.js" type="text/javascript"></script>
 </head>

@@ -11,7 +11,7 @@
 .box > .name {
     clear: both;
     text-align: center;
-    font-size: 5vh;
+    font-size: 3vh;
     width: 100%;
     position: absolute;
     -webkit-transform: translateZ(1px);
