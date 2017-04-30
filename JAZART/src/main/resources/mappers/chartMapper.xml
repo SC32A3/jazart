@@ -11,14 +11,16 @@
 
 	<select id="chartAllCount" resultType="Integer">
 		select count(*) from
-		(select
-		rownum rnum, songinfo.songnum from songinfo) where rnum between
+		(select rownum rnum, songinfo.songnum from songinfo) where rnum
+		between
 		1 and
 		100
 	</select>
 	<select id="allList" parameterType="map" resultType="SongInfo">
-		select * from(select rownum rnum,b.* from
-		(select * from songinfo order by song_inputdate desc) b)
+		select *
+		from(select rownum rnum,b.* from
+		(select * from songinfo order by
+		song_inputdate desc) b)
 		where rnum between #{start} and #{end}
 	</select>
 	<select id="dailyChart" resultType="SongInfo" parameterType="map">

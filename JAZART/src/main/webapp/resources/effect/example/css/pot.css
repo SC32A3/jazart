@@ -51,22 +51,23 @@
 }
 
 .delay .knob {
-	background-image: url("../img/pot2.png");
+	background-image: url("../img/pot1.png");
 }
 
 .reverb .knob {
-	background-image: url("../img/pot3.png");
+	background-image: url("../img/pot1.png");
 }
 
 .volume .knob {
-	background-image: url("../img/pot4.png");
+	background-image: url("../img/pot1.png");
 }
 
 .cabinet .knob {
-	background-image: url("../img/pot5.png");
+	background-image: url("../img/pot1.png");
 }
 
 .pot .name {
+	font-family: 'Khand', sans-serif;
 	font-size: 2vh;
     padding-left: 40px;
     text-align: left;

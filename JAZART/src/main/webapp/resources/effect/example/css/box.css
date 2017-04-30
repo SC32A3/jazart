@@ -9,6 +9,7 @@
 }
 
 .box > .name {
+	font-family: 'Khand', sans-serif;
     clear: both;
     text-align: center;
     font-size: 3vh;
@@ -19,23 +20,23 @@
 }
 
 .delay {
-    background-color: hsl(34, 21%, 14%);
+    background-color: hsl(0, 100%, 90%);
 }
 
 .reverb {
-    background-color: hsl(194, 61%, 54%);
+    background-color: hsl(0, 100%, 90%);
 }
 
 .overdrive {
-    background-color: hsl(90, 67%, 40%);
+    background-color: hsl(0, 100%, 90%);
 }
 
 .volume {
-    background-color: hsl(50, 60%, 47%);
+    background-color: hsl(0, 100%, 90%);
 }
 
 .cabinet {
-    background-color: hsl(326, 64%, 37%);
+    background-color: hsl(0, 100%, 90%);
 }
 
 .box {

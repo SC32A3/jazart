@@ -58,17 +58,16 @@
 	function pagingForSubmit(currentPage, totalPageCount) {
 		var form = document.getElementById("pagingForm");
 		var page = document.getElementById("page");
-		alert(totalPageCount);
-		if(currentPage==0){
+		if (currentPage == 0) {
 			alert('첫번째 페이지');
 			return;
 		}
-		if(currentPage-1==totalPageCount){
+		if (currentPage - 1 == totalPageCount) {
 			alert('마지막 페이지');
 			return;
 		}
 		page.value = currentPage;
-		
+
 		form.submit();
 	}
 
@@ -511,7 +510,8 @@
 		<!-- .qt-main end -->
 		<div class="qt-footer qt-footerwidgets">
 			<div class="qt-section qt-footer-widgets qt-content-primary-light">
-				<div class="qt-container">
+				<div class="qt-container"
+					style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
 					<h2 class="qt-footer-logo">
 						<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
 					</h2>

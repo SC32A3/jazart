@@ -244,9 +244,9 @@
 
 													<div class="input-field col s12 ">
 														<p class="comment-form-comment">
-															<textarea style="height: 15em;" id="board_content"
-																placeholder="Content *" name="board_content" cols="45"
-																aria-required="true"></textarea>
+															<textarea style="height: 15em; resize: none;"
+																id="board_content" placeholder="Content *"
+																name="board_content" cols="45" aria-required="true"></textarea>
 														</p>
 													</div>
 												</div>

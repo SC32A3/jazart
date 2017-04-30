@@ -46,12 +46,19 @@
 <!-- 내꺼 -->
 <script src="resources/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
-	function pagingForSubmit(currentPage) {
+	function pagingForSubmit(currentPage, totalPageCount) {
 		var form = document.getElementById("pagingForm");
 		var page = document.getElementById("page");
+		if (currentPage == 0) {
+			alert('첫번째 페이지');
+			return;
+		}
+		if (currentPage - 1 == totalPageCount) {
+			alert('마지막 페이지');
+			return;
+		}
 		page.value = currentPage;
 		form.submit();
-
 	}
 	function recommend(num) {
 		var snum = num;
@@ -316,23 +323,20 @@
 					<form method="get" action="musicBoard" class="qt-inline-form"
 						id="pagingForm">
 						<input type="hidden" id="page" name="page">
-
 					</form>
 					<!-- PAGINATION ========================= -->
 					<ul class="pagination qt-container">
 						<li class="special"><span
 							class="qt-pagination-label qt-content-primary-dark">PAGES</span></li>
-
-						<li class="special disabled"><a
-							href="javascript:pagingForSubmit(${navi.currentPage-navi.pagePerGroup})"
+						<li class="special waves-effect"><a
+							href="javascript:pagingForSubmit(${navi.currentPage-1},${navi.totalPageCount})"
 							class="qt-btn qt-btn-l qt-btn-primary"><i
 								class="dripicons-arrow-thin-left"></i></a></li>
 
 						<li class="special waves-effect"><a
-							href="javascript:pagingForSubmit(${navi.currentPage + 1})"
+							href="javascript:pagingForSubmit(${navi.currentPage + 1},${navi.totalPageCount})"
 							class="qt-btn qt-btn-l qt-btn-primary"><i
 								class="dripicons-arrow-thin-right"></i></a></li>
-
 						<c:forEach begin="${navi.startPageGroup}"
 							end="${navi.endPageGroup}" var="counter">
 							<c:if test="${navi.currentPage!=counter}">

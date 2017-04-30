@@ -235,6 +235,10 @@
     top: 250px;
     left: 400px;
 }
+
+.switch span {
+	font-family: 'Khand', sans-serif;
+}
 </style>
 <script type="text/javascript">
 	var files = "";

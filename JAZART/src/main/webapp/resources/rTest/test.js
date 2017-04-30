@@ -156,7 +156,6 @@ $(function() {
 
 		WIDTH = canvas.width
 		HEIGHT = canvas.height;
-
 		draw()
 
 		function draw() {
@@ -175,9 +174,9 @@ $(function() {
 
 			var sliceWidth = WIDTH * 1.0 / bufferLength;
 			var x = 0;
-
-			for (var i = 0; i < bufferLength; i++) {
-
+			
+			for (var i = 0; i < bufferLength; i++) { //여기가 버퍼랭스에 맞게 x,y값 잡아주는 것
+				
 				var v = dataArray[i] / 128.0;
 				var y = v * HEIGHT / 2;
 
@@ -186,8 +185,9 @@ $(function() {
 				} else {
 					canvasCtx.lineTo(x, y);
 				}
-
+				
 				x += sliceWidth;
+				console.log('dataArray[i]'+dataArray[i]/128.0);
 			}
 			var hei = canvas.height / 2;
 			canvasCtx.lineTo(canvas.width, hei);
