@@ -207,19 +207,17 @@ public class ComposeController {
 		int result = 0;
 		logger.info("controller in");
 		ArrayList<SongInfo> playlist = null;
-		String loginNickname = (String) session.getAttribute("loginNickname");
 		String userId = (String) session.getAttribute("loginId");
+		if (userId == null) {
+			return 3;
+		}
 		playlist = ur.playlist(userId);
 		for (SongInfo songinfo : playlist) {
 			if (songinfo.getSongnum() == songnum) {
 				return 2;
 			}
 		}
-		if (loginNickname == null) {
-			return 3;
-		}
-		User user = ur.selectUser(loginNickname);
-		result = ur.addSongList(songnum, user.getUser_id());
+		result = ur.addSongList(songnum, userId);
 		return result;
 	}
 

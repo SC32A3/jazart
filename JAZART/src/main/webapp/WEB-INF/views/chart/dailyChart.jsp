@@ -72,9 +72,9 @@
 		form.submit();
 	}
 
-
 	function addSongList(songnum) {
 		var snum = songnum;
+
 		$.ajax({
 			method : "get",
 			url : "addSongList",
@@ -271,22 +271,25 @@
 											<h3 class="qt-ellipsis qt-t">${ daily.song_title }</h3>
 											<p>${ daily.song_nickname }</p>
 										</div>
-										<div class="qt-action">
-											<a href="javascript:addSongList(${daily.songnum})"
-												class="qt-btn qt-btn-ghost qt-btn-l"><i
+										<div class="qt-action" style="float: right;">
+											<a href="javascript:addSongList(${daily.songnum})"><i
 												class="dripicons-cart"></i></a>
+										</div>
+										<!-- play -->
+										<div class="qt-action" style="float: right;">
+											<a href="
+												songPopup?songnum=${ daily.songnum}"
+												class="qt-popupwindow" data-name="Music Player"
+												data-width="320" data-hqeight="500"><i
+												class="icon dripicons-media-play"></i></a>
 										</div>
 									</div>
 									<div class="collapsible-body qt-paper">
 										<p>${ daily.song_desc }
-											<a style="float: right;"
-												href="artistPage?song_nickname=${daily.song_nickname}">가수보기&nbsp;</a><a
-												style="float: right;"
-												href="songPage?songnum=${daily.songnum}">노래보기&nbsp;</a><a
-												style="float: right;"
-												href="songPopup?songnum=${ daily.songnum}"
-												class="qt-popupwindow" data-name="Music Player"
-												data-width="320" data-hqeight="500">노래듣기&nbsp;</a>
+											<a style="float: right;" class="icon dripicons-user"
+												href="artistPage?song_nickname=${daily.song_nickname}"></a>
+											<a style="float: right;" class="icon dripicons-search"
+												href="songPage?songnum=${daily.songnum}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 										</p>
 									</div>
 								</li>
@@ -375,7 +378,7 @@
 					<input type="hidden" id="page" name="page">
 				</form>
 				<!-- PAGINATION ========================= -->
-				
+
 				<ul class="pagination qt-container">
 					<li class="special"><span
 						class="qt-pagination-label qt-content-primary-dark">PAGES</span></li>
