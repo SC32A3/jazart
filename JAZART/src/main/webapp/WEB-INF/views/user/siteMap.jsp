@@ -53,51 +53,71 @@
 		form.submit();
 	}
 </script>
-<style >
-.coffee1{
-padding-top:10px;
-padding-left:400px;
-padding-right:400px;
-background-image:url('images/artist.jpg')
+<style>
+.coffee1 {
+	padding-top: 10px;
+	padding-left: 400px;
+	padding-right: 400px;
+	background-image: url('images/artist.jpg')
+}
 
+.coffee2 {
+	padding-top: 10px;
+	padding-left: 400px;
+	padding-right: 400px;
+	background-image: url('images/back1.jpg')
 }
-.coffee2{
-padding-top:10px;
-padding-left:400px;
-padding-right:400px;
-background-image:url('images/back1.jpg')
-}
-.coffee3{
-padding-top:10px;
-padding-left:400px;
-padding-right:400px;
-background-image:url('images/back2.jpg')
-}
-.coffee4{
-padding-top:10px;
-padding-left:400px;
-padding-right:400px;
-background-image:url('images/back3.jpg')
-}
-.coffee5{
-padding-top:10px;
-padding-left:400px;
-padding-right:400px;
-background-image:url('images/compose1.jpg')
-}
-.hot{
-padding-top:10px;
-border: thick dahed black;
-}
-.cool{
-padding-left:150px;
-padding-top:10px;
-paddin-bottom:10px;
 
+.coffee3 {
+	padding-top: 10px;
+	padding-left: 400px;
+	padding-right: 400px;
+	background-image: url('images/back2.jpg')
 }
-.dog { display: block; width: 300px; height: 200%;  font-size:1.5em;  color: green; padding:10px; background-color:white; }
-.cat { display: block; width: 300px; height: 200%;  font-size:2em;  color: black; padding:10px; }
 
+.coffee4 {
+	padding-top: 10px;
+	padding-left: 400px;
+	padding-right: 400px;
+	background-image: url('images/back3.jpg')
+}
+
+.coffee5 {
+	padding-top: 10px;
+	padding-left: 400px;
+	padding-right: 400px;
+	background-image: url('images/compose1.jpg')
+}
+
+.hot {
+	padding-top: 10px;
+	border: thick dahed black;
+}
+
+.cool {
+	padding-left: 150px;
+	padding-top: 10px;
+	paddin-bottom: 10px;
+}
+
+.dog {
+	display: block;
+	width: 300px;
+	height: 200%;
+	font-size: 1.5em;
+	color: green;
+	padding: 10px;
+	background-color: white;
+}
+
+.cat {
+	display: block;
+	width: 300px;
+	height: 200%;
+	font-size: 2em;
+	color: black;
+	padding: 10px;
+}
 </style>
 </head>
 <body>
@@ -149,17 +169,16 @@ paddin-bottom:10px;
 						<li><a href="qna">QnA</a></li>
 						<li><a href="question">Question</a></li>
 					</ul></li>
-
 				<!-- 서치바 -->
-	<!-- 			<li class="right"><a href="#!" data-expandable="#qtsearchbar"
+				<!-- 			<li class="right"><a href="#!" data-expandable="#qtsearchbar"
 					class="qt-btn qt-btn-l qt-scrolltop"> <i
 						class="icon dripicons-search"></i></a></li> -->
-	<c:if test="${not empty loginNickname}">
-				<li class="right"><a href="songPopup?songnum=0"
-					class="qt-popupwindow" data-name="Music Player" data-width="320"
-					data-height="500"> <i class="icon dripicons-duplicate"></i>Playlist
-				</a></li>
-			</c:if>
+				<c:if test="${not empty loginNickname}">
+					<li class="right"><a href="songPopup?songnum=0"
+						class="qt-popupwindow" data-name="Music Player" data-width="320"
+						data-height="500"> <i class="icon dripicons-duplicate"></i>Playlist
+					</a></li>
+				</c:if>
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
 			<ul class="qt-desktopmenu hide-on-xl-only ">
@@ -243,10 +262,9 @@ paddin-bottom:10px;
 					<h1 class="qt-caption qt-spacer-s">site map</h1>
 					<h4 class="qt-subtitle">사이트맵</h4>
 				</div>
-				<div class="qt-header-bg"
-					data-bgimage="images/map.jpg">
-					<img src="images/map.jpg"
-						alt="Featured image" width="690" height="302">
+				<div class="qt-header-bg" data-bgimage="images/map.jpg">
+					<img src="images/map.jpg" alt="Featured image" width="690"
+						height="302">
 				</div>
 			</div>
 			<!-- HEADER CAPTION END ========================= -->
@@ -257,11 +275,15 @@ paddin-bottom:10px;
 					<h5 class="qt-caption-small hot">
 						<span class="cat">Main links</span>
 					</h5>
-					<ul class="qt-widget-menu qt-list-chevron cool" >
-						<li class="dog"><a href="./">Home </a></li><br>
-						<li class="dog"><a href="about">About us </a></li><br>
-						<li class="dog"><a href="login">Login </a></li><br>
-						<li class="dog"><a href="join">Join us</a></li><br>
+					<ul class="qt-widget-menu qt-list-chevron cool">
+						<li class="dog"><a href="./">Home </a></li>
+						<br>
+						<li class="dog"><a href="about">About us </a></li>
+						<br>
+						<li class="dog"><a href="login">Login </a></li>
+						<br>
+						<li class="dog"><a href="join">Join us</a></li>
+						<br>
 					</ul>
 				</div>
 			</div>
@@ -271,8 +293,10 @@ paddin-bottom:10px;
 						<span class="cat">Compose links</span>
 					</h5>
 					<ul class="qt-widget-menu qt-list-chevron cool">
-						<li class="dog"><a href="compose">Compose</a></li><br>
-						<li class="dog"><a href="artistPage">Artist page </a></li><br>
+						<li class="dog"><a href="compose">Compose</a></li>
+						<br>
+						<li class="dog"><a href="artistPage">Artist page </a></li>
+						<br>
 					</ul>
 				</div>
 			</div>
@@ -282,8 +306,10 @@ paddin-bottom:10px;
 						<span class="cat">Board links</span>
 					</h5>
 					<ul class="qt-widget-menu qt-list-chevron cool">
-						<li class="dog"><a href="musicBoard">Music Community</a></li><br>
-						<li class="dog"><a href="commBoard">Free Community </a></li><br>
+						<li class="dog"><a href="musicBoard">Music Community</a></li>
+						<br>
+						<li class="dog"><a href="commBoard">Free Community </a></li>
+						<br>
 					</ul>
 				</div>
 			</div>
@@ -293,9 +319,12 @@ paddin-bottom:10px;
 						<span class="cat">Charts links</span>
 					</h5>
 					<ul class="qt-widget-menu qt-list-chevron cool">
-						<li class="dog"><a href="realtimeChart">Realtime Chart</a></li><br>
-						<li class="dog"><a href="dailyChart">Daily Chart </a></li><br>
-						<li class="dog"><a href="weeklyChart">Weekly Chart </a></li><br>
+						<li class="dog"><a href="realtimeChart">Realtime Chart</a></li>
+						<br>
+						<li class="dog"><a href="dailyChart">Daily Chart </a></li>
+						<br>
+						<li class="dog"><a href="weeklyChart">Weekly Chart </a></li>
+						<br>
 					</ul>
 				</div>
 			</div>
@@ -305,8 +334,10 @@ paddin-bottom:10px;
 						<span class="cat">Contacts links</span>
 					</h5>
 					<ul class="qt-widget-menu qt-list-chevron cool">
-						<li class="dog"><a href="qna">QnA</a></li><br>
-						<li class="dog"><a href="question">Question </a></li><br>
+						<li class="dog"><a href="qna">QnA</a></li>
+						<br>
+						<li class="dog"><a href="question">Question </a></li>
+						<br>
 					</ul>
 				</div>
 			</div>
@@ -320,93 +351,93 @@ paddin-bottom:10px;
 		<!-- TAB CONTENTS END ======================================== -->
 	</div>
 	<!-- SCHEDULE END ================================================== -->
-	</div>
+
 	<hr class="qt-spacer-l">
 
-	</div>
-	<!-- .qt-main end -->
-				<div class="qt-footer qt-footerwidgets">
-			<div class="qt-section qt-footer-widgets qt-content-primary-light">
-				<div class="qt-container" style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
-					<h2 class="qt-footer-logo">
-						<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
-					</h2>
-					<div
-						class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>About site</span>
-								</h5>
-								<div class="qt-widget-about">
-									<p>
-										We are a young and dynamic compose station which wants to
-										bring happyness in your life. <br> <a href="sitemap">
-											Site Map <i class="dripicons-arrow-thin-right"></i>
-										</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Contacts</span>
-								</h5>
-								<div class="qt-widget-contacts">
-									<p>
-										<i class="qticon-home"></i><a href="#">www.jazart.com</a>
-									</p>
-									<p>
-										<i class="qticon-at-sign"></i><a href="question">jazart2017@gmail.com</a>
-									</p>
-									<p>
-										<i class="qticon-phone"></i><a href="#">02-123-1234</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Our Team</span>
-								</h5>
-								<div class="qt-widget-about">
-									<p>
 
-										We are a small group of designers and developers. We create
-										clean, minimal and apps. <br> <a href="about">About
-											us <i class="dripicons-arrow-thin-right"></i>
-										</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Main links</span>
-								</h5>
-								<ul class="qt-widget-menu qt-list-chevron">
-									<li><a href="compose">Compose</a></li>
-									<li><a href="commBoard">Board </a></li>
-									<li><a href="realtimeChart">Charts </a></li>
-									<li><a href="qna">Contacts</a></li>
-								</ul>
+	<!-- .qt-main end -->
+	<div class="qt-footer qt-footerwidgets">
+		<div class="qt-section qt-footer-widgets qt-content-primary-light">
+			<div class="qt-container"
+				style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
+				<h2 class="qt-footer-logo">
+					<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
+				</h2>
+				<div
+					class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>About site</span>
+							</h5>
+							<div class="qt-widget-about">
+								<p>
+									We are a young and dynamic compose station which wants to bring
+									happyness in your life. <br> <a href="sitemap"> Site
+										Map <i class="dripicons-arrow-thin-right"></i>
+									</a>
+								</p>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="qt-header-bg"
-					data-bgimage="images/back.jpg">
-					<img src="images/back.jpg" alt="Featured image"
-						width="690" height="302">
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Contacts</span>
+							</h5>
+							<div class="qt-widget-contacts">
+								<p>
+									<i class="qticon-home"></i><a href="#">www.jazart.com</a>
+								</p>
+								<p>
+									<i class="qticon-at-sign"></i><a href="question">jazart2017@gmail.com</a>
+								</p>
+								<p>
+									<i class="qticon-phone"></i><a href="#">02-123-1234</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Our Team</span>
+							</h5>
+							<div class="qt-widget-about">
+								<p>
+
+									We are a small group of designers and developers. We create
+									clean, minimal and apps. <br> <a href="about">About us
+										<i class="dripicons-arrow-thin-right"></i>
+									</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Main links</span>
+							</h5>
+							<ul class="qt-widget-menu qt-list-chevron">
+								<li><a href="compose">Compose</a></li>
+								<li><a href="commBoard">Board </a></li>
+								<li><a href="realtimeChart">Charts </a></li>
+								<li><a href="qna">Contacts</a></li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
+			<div class="qt-header-bg" data-bgimage="images/back.jpg">
+				<img src="images/back.jpg" alt="Featured image" width="690"
+					height="302">
+			</div>
+		</div>
 		<!-- 	<div class="qt-footer-bottom qt-content-primary-dark">
 				<div class="qt-container">
 					<div class="row"> -->
-						<!-- <div class="col s12 m12 l8">
+		<!-- <div class="col s12 m12 l8">
 							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
 							| Radio Station HTML Template
 							<ul class="qt-menu-footer qt-small qt-list-chevron ">
@@ -415,8 +446,8 @@ paddin-bottom:10px;
 								<li><a href="#">Sitemap</a></li>
 							</ul>
 						</div> -->
-					<!-- 	<div class="col s12 m12 l4"> -->
-							<!-- <ul class="qt-menu-social">
+		<!-- 	<div class="col s12 m12 l4"> -->
+		<!-- <ul class="qt-menu-social">
 								<li class="right"><a href="#"><i
 										class="qticon-beatport"></i></a></li>
 								<li class="right"><a href="#"><i
@@ -426,7 +457,7 @@ paddin-bottom:10px;
 								<li class="right"><a href="#"><i
 										class="qticon-soundcloud"></i></a></li>
 							</ul> -->
-						</div>
+	</div>
 	<!-- 				</div>
 				</div>
 			</div>

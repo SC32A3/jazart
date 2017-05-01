@@ -232,7 +232,7 @@
 		<!-- ======================= UPCOMING SHOWS  SECTION ======================= -->
 		<div class="qt-container qt-spacer-m">
 			<h5 class="qt-caption-small">
-				<span>Upcoming shows</span>
+				<span>All Music List</span>
 			</h5>
 			<hr class="qt-spacer-s">
 			<!-- SLIDESHOW UPCOMING SHOWS ================================================== -->
@@ -281,15 +281,16 @@
 												</p>
 												<div class="qt-more">
 													<p class="qt-ellipsis-2">${allList.song_desc}</p>
-													<a href="javascript:recommend(${allList.songnum})">좋아요</a>
-													<a style="float: right;"
-														href="artistPage?song_nickname=${allList.song_nickname}">가수보기&nbsp;</a><a
-														style="float: right;"
-														href="songPage?songnum=${allList.songnum}">노래보기&nbsp;</a><a
+													<%-- <a href="javascript:recommend(${allList.songnum})">좋아요</a> --%>
+													<a style="float: right;" class="icon dripicons-user"
+														href="artistPage?song_nickname=${allList.song_nickname}">&nbsp;</a><a
+														style="float: right;" class="icon dripicons-search"
+														href="songPage?songnum=${allList.songnum}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+													<%-- <a
 														style="float: right;"
 														href="songPopup?songnum=${ allList.songnum}"
 														class="qt-popupwindow" data-name="Music Player"
-														data-width="320" data-hqeight="500">노래듣기&nbsp;</a>
+														data-width="320" data-hqeight="500">노래듣기&nbsp;</a> --%>
 												</div>
 											</div>
 										</div>
