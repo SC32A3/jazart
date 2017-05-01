@@ -376,9 +376,9 @@
 									<td>${song.song_desc}</td>
 								</tr>
 							</table>
-							<div class="qt-the-content">
-								<div id="replyArea"></div>
-							</div>
+							<p></p>
+							<div id="replyArea"></div>
+
 
 							<div id="respond" class="qt-comment-respond qt-card">
 								<h4 id="reply-title" class="comment-reply-title">Leave a

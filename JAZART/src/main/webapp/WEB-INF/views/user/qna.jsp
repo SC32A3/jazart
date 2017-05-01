@@ -42,6 +42,18 @@
 
 <!-- Custom typography settings and google fonts -->
 <link rel="stylesheet" href="resources/css/qt-typography.css">
+
+
+<style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.qt-container{
+	font-family: 'Noto Sans KR';
+}
+
+
+
+</style>
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->

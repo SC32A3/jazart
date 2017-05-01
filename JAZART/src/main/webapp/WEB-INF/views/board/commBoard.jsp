@@ -311,7 +311,7 @@ table, th, td {
 												</div>
 												<div class="col s12 m4 l1">
 													<input
-														class="qt-btn qt-btn-secondary qt-btn-s qt-fullwidth"
+														class="qt-btn qt-btn-secondary qt-btn-s qt-fullwidth" style="background-color: #ee6e73 !important;"
 														type="button" onclick="pagingForSubmit(1)" value="Search">
 													<input type="hidden" name="page" id="page">
 												</div>

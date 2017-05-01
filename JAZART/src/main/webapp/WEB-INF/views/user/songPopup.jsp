@@ -46,7 +46,6 @@
 	function input(title, nickname) {
 		var myTitle = $('#myTitle');
 		var myNickname = $('#myNickname');
-
 		myTitle.html(title);
 		myNickname.html(nickname);
 	}
@@ -122,9 +121,7 @@
 					alt="Featured image" width="690" height="302">
 			</div>
 		</div>
-
 		<!-- this is for xml radio feed -->
-
 		<div id="qtShoutcastFeedData" class="hidden" data-style=""
 			data-channel="1" data-host="173.192.105.231" data-port="3540"></div>
 		<!-- <div id="qtShoutcastFeedData" class="hidden" data-style=""
@@ -138,7 +135,6 @@
 					data-title="06AM Ibiza 라디오국" data-subtitle="Underground Radio 라디오국 설명"
 					data-background="resources/imagestemplate/photo-squared-500-500.jpg"
 					data-logo="resources/imagestemplate/radio-logo.png"
-					
 					data-host="173.192.105.231" data-port="3540"
 					data-playtrack="http://173.192.105.231:3540/stream.mp3"
 					//img src="resources/imagestemplate/radio-logo.png" alt="logo"

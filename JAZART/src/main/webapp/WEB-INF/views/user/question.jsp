@@ -10,7 +10,6 @@
 <meta name="description" content="Radio station HTML template">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
 <!-- icons -->
 <link href='resources/fonts/dripicons/webfont.css' rel='stylesheet'
 	type='text/css'>
@@ -50,8 +49,19 @@
 			alert('문의가 접수되었습니다. 감사합니다');
 			$('#questionForm').submit();
 		})
-	})
+	});
 </script>
+<style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.testFont {
+	font-family: 'Noto Sans KR';
+}
+
+.validate {
+	font-family: 'Noto Sans KR';
+}
+</style>
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->
@@ -236,8 +246,9 @@
 													<label>내용</label>
 													<div class="input-field col s12">
 														<p class="comment-form-comment">
-															<textarea id="contents" placeholder="ex)폰트가맘에 안들어요"
-																name="contents" aria-required="true"
+															<textarea id="contents" class="testFont"
+																placeholder="ex)폰트가맘에 안들어요" name="contents"
+																aria-required="true"
 																style="height: 200px; resize: none;" required></textarea>
 														</p>
 													</div>
@@ -267,7 +278,8 @@
 	<!-- .qt-main end -->
 	<div class="qt-footer qt-footerwidgets">
 		<div class="qt-section qt-footer-widgets qt-content-primary-light">
-			<div class="qt-container" style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
+			<div class="qt-container"
+				style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
 				<h2 class="qt-footer-logo">
 					<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
 				</h2>
@@ -366,10 +378,10 @@
 										class="qticon-soundcloud"></i></a></li>
 							</ul>
 					</div> -->
-			<!-- 	</div> -->
-			</div>
+		<!-- 	</div> -->
+	</div>
 	<!-- 	</div> -->
-<!-- 	</div> -->
+	<!-- 	</div> -->
 	<!-- </div> -->
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"

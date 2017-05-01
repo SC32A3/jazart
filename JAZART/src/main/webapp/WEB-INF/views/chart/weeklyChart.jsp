@@ -257,8 +257,6 @@
 					<div class="col s12 m12 l8">
 						<ul class="collapsible qt-chart-tracklist"
 							data-collapsible="accordion">
-
-
 							<c:forEach var="weekly" varStatus="status" items="${wc}">
 								<!-- CHART TRACK ========================= -->
 								<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
@@ -273,22 +271,17 @@
 											<h3 class="qt-ellipsis qt-t">${ weekly.song_title }</h3>
 											<p>${ weekly.song_nickname }</p>
 										</div>
-										<div class="qt-action">
-											<a href="javascript:addSongList(${weekly.songnum})"
-												class="qt-btn qt-btn-ghost qt-btn-l"><i
+										<div class="qt-action" style="float: right;">
+											<a href="javascript:addSongList(${weekly.songnum})"><i
 												class="dripicons-cart"></i></a>
 										</div>
 									</div>
 									<div class="collapsible-body qt-paper">
 										<p>${ weekly.song_desc }
-											<a style="float: right;"
-												href="artistPage?song_nickname=${weekly.song_nickname}">가수보기&nbsp;</a><a
-												style="float: right;"
-												href="songPage?songnum=${weekly.songnum}">노래보기&nbsp;</a> <a
-												style="float: right;"
-												href="songPopup?songnum=${weekly.songnum}"
-												class="qt-popupwindow" data-name="Music Player"
-												data-width="320" data-hqeight="500">노래듣기&nbsp;</a>
+											<a style="float: right;" class="icon dripicons-user"
+												href="artistPage?song_nickname=${weekly.song_nickname}"></a>
+											<a style="float: right;" class="icon dripicons-search"
+												href="songPage?songnum=${weekly.songnum}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 										</p>
 									</div>
 								</li>
@@ -331,36 +324,28 @@
 									</h5>
 									<ul class="qt-widget-upcoming">
 										<li class="qt-card-s paper">
-											<h5>
-												<a href="#showlink">step1</a>
-											</h5>
-											<p>음악게시판을 기반으로 한 모든 곡이 주간차트의 후보가 됩니다.</p> <img
-											src="images/back1.jpg" alt="Show cover" width="200"
-											height="110" class="right">
+											<h5
+												style="background-color: rgba(228, 153, 105, 0.5); padding-left: 5px;">step1</h5>
+
+											<p>음악게시판을 기반으로 한 모든 곡이 주간차트의 후보가 됩니다.</p>
 										</li>
 										<li class="qt-card-s paper">
-											<h5>
-												<a href="#showlink">step2</a>
-											</h5>
-											<p>주간차트 투표는 회원이라면 누구나 참여가능합니다. (회원당 1곡에 1회 참여가능)</p> <img
-											src="images/back2.jpg" alt="Show cover" width="200"
-											height="110" class="right">
+											<h5
+												style="background-color: rgba(228, 153, 105, 0.5); padding-left: 5px;">step2</h5>
+
+											<p>주간차트 투표는 회원이라면 누구나 참여가능합니다. (회원당 1곡에 1회 참여가능)</p>
 										</li>
 										<li class="qt-card-s paper">
-											<h5>
-												<a href="#showlink">step3</a>
-											</h5>
-											<p>일주일 단위로 좋아요를 합산하여 결과를 집계합니다.</p> <img
-											src="images/back3.jpg" alt="Show cover" width="200"
-											height="110" class="right">
+											<h5
+												style="background-color: rgba(228, 153, 105, 0.5); padding-left: 5px;">step3</h5>
+
+											<p>일주일 단위로 좋아요를 합산하여 결과를 집계합니다.</p>
 										</li>
 										<li class="qt-card-s paper">
-											<h5>
-												<a href="#showlink">step4</a>
-											</h5>
-											<p>여러분이 만들어 가는 주간차트! 매주, 주간차트 결과를 확인하세요.</p> <img
-											src="images/back4.jpg" alt="Show cover" width="200"
-											height="110" class="right">
+											<h5
+												style="background-color: rgba(228, 153, 105, 0.5); padding-left: 5px;">step4</h5>
+
+											<p>여러분이 만들어 가는 주간차트! 매주, 주간차트 결과를 확인하세요.</p>
 										</li>
 									</ul>
 								</div>
@@ -451,7 +436,6 @@
 										<ul class="qt-tags">
 											<li><a href="dailyChart">chart</a></li>
 										</ul>
-
 									</div>
 									<div class="qt-header-mid qt-vc">
 										<div class="qt-vi">

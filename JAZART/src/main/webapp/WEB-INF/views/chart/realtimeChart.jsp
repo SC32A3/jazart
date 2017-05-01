@@ -73,7 +73,6 @@
 		form.submit();
 	}
 
-
 	function addSongList(songnum) {
 		var snum = songnum;
 		$.ajax({
@@ -256,14 +255,9 @@
 						<div class="qt-pushpin"></div>
 						<hr class="qt-spacer-m">
 					</div>
-					<c:if test="${not empty type}">
-						<h4>최신순으로 모든곡이 표시됩니다</h4>
-						<br>
-					</c:if>
 					<div class="col s12 m12 l8">
 						<ul class="collapsible qt-chart-tracklist"
 							data-collapsible="accordion">
-
 							<c:forEach var="realtime" varStatus="status" items="${rc}">
 								<!-- CHART TRACK ========================= -->
 								<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
@@ -278,26 +272,19 @@
 											<h3 class="qt-ellipsis qt-t">${ realtime.song_title }</h3>
 											<p>${ realtime.song_nickname }</p>
 										</div>
-										<div class="qt-action">
-											<a href="javascript:addSongList(${realtime.songnum})"
-												class="qt-btn qt-btn-ghost qt-btn-l"><i
+										<div class="qt-action" style="float: right;">
+											<a href="javascript:addSongList(${realtime.songnum})"><i
 												class="dripicons-cart"></i></a>
 										</div>
 									</div>
 									<div class="collapsible-body qt-paper">
 										<p>${ realtime.song_desc }
-											<a style="float: right;"
-												href="artistPage?song_nickname=${realtime.song_nickname}">가수보기&nbsp;</a><a
-												style="float: right;"
-												href="songPage?songnum=${realtime.songnum}">노래보기&nbsp;</a><a
-												style="float: right;"
-												href="songPopup?songnum=${ realtime.songnum}"
-												class="qt-popupwindow" data-name="Music Player"
-												data-width="320" data-hqeight="500">노래듣기&nbsp;</a>
+											<a style="float: right;" class="icon dripicons-user"
+												href="artistPage?song_nickname=${realtime.song_nickname}"></a>
+											<a style="float: right;" class="icon dripicons-search"
+												href="songPage?songnum=${realtime.songnum}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 										</p>
 									</div>
-
-
 								</li>
 								<!-- CHART TRACK END ========================= -->
 							</c:forEach>
@@ -337,36 +324,24 @@
 									</h5>
 									<ul class="qt-widget-upcoming">
 										<li class="qt-card-s paper">
-											<h5>
-												<a href="#showlink">step1</a>
-											</h5>
-											<p>음악게시판을 기반으로 한 모든 곡이 실시간차트의 후보가 됩니다.</p> <img
-											src="images/back1.jpg" alt="Show cover" width="200"
-											height="110" class="right">
+											<h5
+												style="background-color: rgba(228, 153, 105, 0.5); padding-left: 5px;">step1</h5>
+
+											<p>음악게시판을 기반으로 한 모든 곡이 실시간차트의 후보가 됩니다.</p>
 										</li>
 										<li class="qt-card-s paper">
-											<h5>
-												<a href="#showlink">step2</a>
-											</h5>
-											<p>실시간차트 투표는 회원이라면 누구나 참여가능합니다. (회원당 1곡에 1회 참여가능)</p> <img
-											src="images/back2.jpg" alt="Show cover" width="200"
-											height="110" class="right">
+											<h5
+												style="background-color: rgba(228, 153, 105, 0.5); padding-left: 5px;">step2</h5>
+
+											<p>실시간차트 투표는 회원이라면 누구나 참여가능합니다. (회원당 1곡에 1회 참여가능)</p>
 										</li>
 										<li class="qt-card-s paper">
-											<h5>
-												<a href="#showlink">step3</a>
-											</h5>
-											<p>실시간으로 좋아요를 합산하여 결과를 집계합니다.</p> <img src="images/back3.jpg"
-											alt="Show cover" width="200" height="110" class="right">
+											<h5
+												style="background-color: rgba(228, 153, 105, 0.5); padding-left: 5px;">step3</h5>
+
+											<p>실시간으로 좋아요를 합산하여 결과를 집계합니다.</p>
 										</li>
-										<li class="qt-card-s paper">
-											<h5>
-												<a href="#showlink">step4</a>
-											</h5>
-											<p>여러분이 만들어 가는 실시간차트! 실시간으로, 실시간차트 결과를 확인하세요.</p> <img
-											src="images/back4.jpg" alt="Show cover" width="200"
-											height="110" class="right">
-										</li>
+
 									</ul>
 								</div>
 							</div>
@@ -385,7 +360,7 @@
 					<input type="hidden" id="page" name="page">
 				</form>
 				<!-- PAGINATION ========================= -->
-				
+
 				<ul class="pagination qt-container">
 					<li class="special"><span
 						class="qt-pagination-label qt-content-primary-dark">PAGES</span></li>
