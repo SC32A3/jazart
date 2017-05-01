@@ -98,6 +98,22 @@
 		});
 	}
 </script>
+<style type="text/css">
+.test {
+	display: block;
+	overflow: hidden;
+	height: 170px;
+	width: 170px;
+}
+
+.test img {
+	display: block;
+	min-height: 100%;
+	min-width: 100%;
+}
+</style>
+
+
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->
@@ -263,9 +279,11 @@
 									<div
 										class="qt-chart-table collapsible-header qt-content-primary">
 										<div class="qt-position">
-											<img src="download?type=song&data=${weekly.songnum}"
-												class="qt-chart-cover" alt="Chart track" width="170"
-												height="170"> <span>${status.count+(navi.currentPage-1)*10}</span>
+											<div class="test">
+												<img src="download?type=song&data=${weekly.songnum}"
+													class="qt-chart-cover" alt="Chart track" width="170"
+													height="170"> <span>${status.count+(navi.currentPage-1)*10}</span>
+											</div>
 										</div>
 										<div class="qt-titles">
 											<h3 class="qt-ellipsis qt-t">${ weekly.song_title }</h3>

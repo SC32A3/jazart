@@ -98,6 +98,20 @@
 		});
 	}
 </script>
+<style type="text/css">
+.test {
+	display: block;
+	overflow: hidden;
+	height: 170px;
+	width: 170px;
+}
+
+.test img {
+	display: block;
+	min-height: 100%;
+	min-width: 100%;
+}
+</style>
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->
@@ -263,9 +277,10 @@
 									<div
 										class="qt-chart-table collapsible-header qt-content-primary">
 										<div class="qt-position">
-											<img src="download?type=song&data=${daily.songnum}"
-												class="qt-chart-cover" alt="Chart track" width="170"
-												height="170"> <span>${status.count+(navi.currentPage-1)*10}</span>
+											<div class="test">
+												<img src="download?type=song&data=${daily.songnum}"
+													class="qt-chart-cover" alt="Chart track"> <span>${status.count+(navi.currentPage-1)*10}</span>
+											</div>
 										</div>
 										<div class="qt-titles">
 											<h3 class="qt-ellipsis qt-t">${ daily.song_title }</h3>
@@ -275,21 +290,14 @@
 											<a href="javascript:addSongList(${daily.songnum})"><i
 												class="dripicons-cart"></i></a>
 										</div>
-										<!-- play -->
-									<%-- 	<div class="qt-action" style="float: right;">
-											<a href="
-												songPopup?songnum=${ daily.songnum}"
-												class="qt-popupwindow" data-name="Music Player"
-												data-width="320" data-hqeight="500"><i
-												class="icon dripicons-media-play"></i></a>
-										</div> --%>
+
 									</div>
 									<div class="collapsible-body qt-paper">
 										<p>${ daily.song_desc }
 											<a style="float: right;" class="icon dripicons-user"
 												href="artistPage?song_nickname=${daily.song_nickname}"></a>
 											<a style="float: right;" class="icon dripicons-search"
-												href="songPage?songnum=${daily.songnum}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+												href="songPage?songnum=${daily.songnum}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 										</p>
 									</div>
 								</li>
@@ -304,7 +312,7 @@
 
 							<div class="col s12 m3 l12">
 								<div class="qt-widget">
-									<h5 class="qt-caption-small" >
+									<h5 class="qt-caption-small">
 										<span>일간차트</span>
 									</h5>
 									<div class="qt-widget-onair qt-card aligncenter">
@@ -318,8 +326,8 @@
 										<p class="qt-small">
 											여러분의 투표로 선정되는 <br> 하루의 특별한 곡!<br> 일간차트는 이렇게 선정됩니다.
 										</p>
-										<input type="button" readonly="readonly"
-											class="qt-btn qt-btn-s qt-btn-secondary" value="daily chart">
+										<a href="dailyChart" class="qt-btn qt-btn-s qt-btn-secondary">daily
+											chart</a>
 									</div>
 								</div>
 							</div>
@@ -330,26 +338,36 @@
 									</h5>
 									<ul class="qt-widget-upcoming">
 										<li class="qt-card-s paper">
-											<h5 style="background-color: rgba(228, 153, 105, 0.5); padding-left: 5px;">step1</h5>
-											<p>음악게시판을 기반으로 한 모든 곡이 일간차트의 후보가 됩니다.</p>
+											<h5>
+												<a href="#showlink">step1</a>
+											</h5>
+											<p>음악게시판을 기반으로 한 모든 곡이 일간차트의 후보가 됩니다.</p> <img
+											src="images/back1.jpg" alt="Show cover" width="200"
+											height="110" class="right">
 										</li>
 										<li class="qt-card-s paper">
-											<h5 style="background-color: rgba(228, 153, 105, 0.5); padding-left: 5px;">
+											<h5>
 												<a href="#showlink">step2</a>
 											</h5>
-											<p>일간차트 투표는 회원이라면 누구나 참여가능합니다. (회원당 1곡에 1회 참여가능)</p>
+											<p>일간차트 투표는 회원이라면 누구나 참여가능합니다. (회원당 1곡에 1회 참여가능)</p> <img
+											src="images/back2.jpg" alt="Show cover" width="200"
+											height="110" class="right">
 										</li>
 										<li class="qt-card-s paper">
-											<h5 style="background-color: rgba(228, 153, 105, 0.5); padding-left: 5px;">
+											<h5>
 												<a href="#showlink">step3</a>
 											</h5>
-											<p>하루 단위로 좋아요를 합산하여 결과를 집계합니다.</p>
+											<p>하루 단위로 좋아요를 합산하여 결과를 집계합니다.</p> <img
+											src="images/back3.jpg" alt="Show cover" width="200"
+											height="110" class="right">
 										</li>
 										<li class="qt-card-s paper">
-											<h5 style="background-color: rgba(228, 153, 105, 0.5); padding-left: 5px;">
+											<h5>
 												<a href="#showlink">step4</a>
 											</h5>
-											<p>여러분이 만들어 가는 일간차트! 매일, 일간차트 결과를 확인하세요.</p>
+											<p>여러분이 만들어 가는 일간차트! 매일, 일간차트 결과를 확인하세요.</p> <img
+											src="images/back4.jpg" alt="Show cover" width="200"
+											height="110" class="right">
 										</li>
 									</ul>
 								</div>
