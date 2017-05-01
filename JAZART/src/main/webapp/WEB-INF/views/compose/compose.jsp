@@ -55,11 +55,13 @@
 	text-align: center;
 	padding: 10px;
 	text-align: center;
+	margin-bottom: 30px;
 }
 
 .clipText {
 	display: table-caption;
 	padding: 0px 10px 0px 30px;
+	border-bottom: 1px dotted lightpink;
 }
 
 .clip audio {
@@ -68,11 +70,12 @@
 
 .clipSpan {
 	background: #ff8080;
-	padding: 0.5rem 0.75rem;
+	padding: 0.525rem 0.75rem;
 	text-align: center;
 	color: white;
 	border: none;
 	height: 35px;
+	bottom: 0.5px;
 }
 
 .clipSpan:hover {
@@ -121,18 +124,86 @@
 	margin: 0;
 	border: 1px solid #777;
 }
+
+.title {
+	text-align: center;
+}
+
+.album {
+    background-color: beige;
+}
+
+.albumart {
+    margin: 0 auto;
+}
+
+.sound-clips {
+	margin: 0 auto;
+	width: 50%;
+}
+
+audio {
+    width: 50%;
+    margin-top: 4px;
+    display: block;
+    float: left;
+}
+
+img.clipImg {
+    width: 5%;
+    display: inline;
+    margin-right: 3px;
+}
 </style>
 <script type="text/javascript">
 	var files = "";
 	$(function() {
-		$('.file_input input[type=file]').change(function() {
+		
+		
+		$('#saveBtn').on('click', function() {
+			var song_title = $('#song_title').val();
+			var song_genre = $('#song_genre').val();
+			var song_desc = $('#song_desc').val();
+			var songinfo = {'song_title' : song_title, 'song_genre' : song_genre, 'song_desc' : song_desc };
+
+			$.ajax({
+				url: 'saveSonginfo',
+				type: 'post',
+				data: songinfo,
+				success : uploadPic()
+			});
+		})
+		
+		$('#fileTag1').change(function() {
+			var fileName = $(this).val();
+			var fileCount = $(this).get(0).files.length;
+			var file = document.getElementById('fileTag1');
+			var fileList = file.files ;
+
+			if ($(this).get(0).files.length == 1) {
+				 // 읽기
+			    var reader = new FileReader();
+			    //로드 한 후
+			    reader.onload = function  () {
+			    	document.getElementById('albumart').src = reader.result ;
+			    };
+			    reader.readAsDataURL(fileList [0]);
+				
+				var output = fileName.split('\\').pop();
+				$('#fileRoot1').val(output);
+			} else {
+				$('#fileRoot1').val('파일 ' + fileCount + '개');
+			}
+		});
+		$('#fileTag2').change(function() {
 			var fileName = $(this).val();
 			var fileCount = $(this).get(0).files.length;
 
 			if ($(this).get(0).files.length == 1) {
-				$('.file_input input[type=text]').val(fileName);
+				var output = fileName.split('\\').pop();
+				$('#fileRoot2').val(output);
 			} else {
-				$('.file_input input[type=text]').val('파일 ' + fileCount + '개');
+				$('#fileRoot2').val('파일 ' + fileCount + '개');
 			}
 		});
 		$(".setting").click(function(){
@@ -146,9 +217,28 @@
 			});
 		});
 	});
+	
+	function uploadPic() {
+		alert('uploadPic');
+		var songPic = $('#songPic');
+		var PicData = new FormData(songPic);
+		
+		$.ajax({
+			url: "saveSongPic",
+			type: 'post',
+			 processData: false,
+             contentType: false,
+             data: PicData,
+			success: function(result){
+				alert(result);
+			}
+		});
+			// 여기까지는 ajax와 같다. 하지만 아래의 submit명령을 추가하지 않으면 백날 실행해봤자 액션이 실행되지 않는다.
+	}
 </script>
 </head>
 <body>
+	<input type="hidden" id="recordFlag" value="record"> <!-- 레코딩쪽 css용 hidden-->
 	<!-- QT HEADER END ================================ -->
 
 	<div class="qt-parentcontainer">
@@ -356,14 +446,14 @@
 										<div id="songinfo" class="row">
 											<table>
 												<tr>
-													<th rowspan="2" style="width: 250px; height: 250px;"><img
-														class="albumart" src="" /></th>
-													<th>곡 명</th>
-													<td><input id="title" /></td>
+													<th class="album" rowspan="2" style="width: 250px; height: 250px;"><img
+														id="albumart" class="albumart" src="images/default.png" /></th>
+													<th class="title">곡 명</th>
+													<td><input type="text" id="song_title"></td>
 												</tr>
 												<tr>
-													<th>장 르</th>
-													<td><select name="board_tag"
+													<th class="title">장 르</th>
+													<td><select id="song_genre"
 														class="qt-btn qt-btn-s write_combo">
 															<option value="ballad">Ballad</option>
 															<option value="hiphop">HipHop</option>
@@ -377,19 +467,21 @@
 												</tr>
 												<tr>
 													<th>
-														<div class="file_input">
-															<label> File Attach <input type="file"
-																name="albumart" class="albumart">
-															</label> <input type="text" id="fileRoot" readonly="readonly"
+														<form action="songPic" id="songPic" method="post" enctype="multipart/form-data">
+														<div class="file_input" id="input2">
+															<label> File Attach <input type="file" id="fileTag1"
+																name="upload1" class="albumart">
+															</label> <input type="text" id="fileRoot1" readonly="readonly"
 																style="width: 120px;" title="File Route">
 														</div>
+														</form>
 													</th>
-													<th>곡 설 명</th>
-													<td><input id="contents" /></td>
+													<th class="title">곡 설 명</th>
+													<td><input type="text" id="song_desc"></td>
 												</tr>
 												<tr>
-													<th colspan="3" style="text-align: right;"><input
-														type="button" value="저장"></th>
+													<th colspan="3" style="text-align: right;">
+														<input type="button" id="saveBtn" value="저장"></th>
 												</tr>
 											</table>
 										</div>
@@ -399,8 +491,8 @@
 													<section class="sound-clips"></section>
 													<div class="file_input">
 														<label> File Attach <input type="file"
-															multiple="multiple" name="source" id="source">
-														</label> <input type="text" id="fileRoot" readonly="readonly"
+															multiple="multiple" name="upload2" id="fileTag2">
+														</label> <input type="text" id="fileRoot2" readonly="readonly"
 															title="File Route">
 													</div>
 													<input type="submit" value="NEXTPAGE" style="width: 160px;"

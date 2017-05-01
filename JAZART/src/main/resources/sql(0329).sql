@@ -323,7 +323,7 @@ create sequence like_seq;
 ----------------------------------------------------------------------------------------------------------------------
 insert into userinfo values('apple2', '1111', 'defalut.jpg', 'apple', '010-2020-1020', 'apple2@naver.com' '안녕하세요, 사과입니다. 충주에서 왔습니다');
 
-insert into songinfo values(songinfo_seq.nextval, 'apple', 'cat2.jpg', '사과송', '충주사과 홍보곡', '', sysdate, 0, 50, '4/4', 'hiphop');
+insert into songinfo values(songinfo_seq.nextval, 'apple', 'cat2.jpg', '사과송', '충주사과 홍보곡', 'x', sysdate, 0, 50, '4/4', 'hiphop', 'd');
 insert into songinfo values(songinfo_seq.nextval, 'apple', 'seo.jpg', '사과좋아', '국민가수 사과맨의 컴백곡', 'x', sysdate, 0, 60, '3/4', 'ballad');
 insert into songinfo values(songinfo_seq.nextval, 'apple', 'seo.jpg', '사과만세', '그가 돌아왔다 사과맨', 'x', sysdate, 0, 70, '3/4', 'jazz');
 insert into songinfo values(songinfo_seq.nextval, 'test', 'seo.jpg', 'testrock', 'rockrockrockrock', 'Angry Angst Long.mp3', sysdate, 0, 'rock');
@@ -412,3 +412,5 @@ b) where rnum between #{start} and #{end}
   
   select info.songnum, info.song_title, info.song_picture, info.song_nickname, info.song_file from playlist list, songinfo info
   		where list.songnum = info.songnum and list.user_id = #{userId}
+  		
+ alter table songinfo add (complete varchar(3) constraint songinfo_complete_ck check(complete='Y' or complete='N')) 		

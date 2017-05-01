@@ -12,6 +12,7 @@ public class SongInfo {
 	private int bpm;
 	private String beat;
 	private String song_genre;
+	private String complete;
 
 	public SongInfo() {
 	}
@@ -104,11 +105,19 @@ public class SongInfo {
 		this.song_genre = song_genre;
 	}
 
+	public String getComplete() {
+		return complete;
+	}
+
+	public void setComplete(String complete) {
+		this.complete = complete;
+	}
+
 	@Override
 	public String toString() {
-		return "Songinfo [songnum=" + songnum + ", song_nickname=" + song_nickname + ", song_picture=" + song_picture
+		return "SongInfo [songnum=" + songnum + ", song_nickname=" + song_nickname + ", song_picture=" + song_picture
 				+ ", song_title=" + song_title + ", song_desc=" + song_desc + ", song_file=" + song_file
 				+ ", song_inputdate=" + song_inputdate + ", song_like=" + song_like + ", bpm=" + bpm + ", beat=" + beat
-				+ ", song_genre=" + song_genre + "]";
+				+ ", song_genre=" + song_genre + ", complete=" + complete + "]";
 	}
 }

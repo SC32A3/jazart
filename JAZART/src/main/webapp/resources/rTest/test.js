@@ -65,6 +65,8 @@ $(function() {
 				console
 						.log("data available after MediaRecorder.stop() called.");
 
+				var hiddenTag = document.getElementById('recordFlag');
+				
 				var clipName = prompt('Enter a name for your sound clip?',
 						'My music source');
 				console.log(clipName);
@@ -76,8 +78,9 @@ $(function() {
 				//var saveButton = document.createElement('button');
 				var deleteButton = document.createElement('button');
 				var clipSpan = document.createElement('span');
+				var clipImg = document.createElement('img');
 				
-
+				audio.classList.add('recAudio');
 				clipContainer.classList.add('clip');
 				clipTextSpan.classList.add('clipText');
 				clipSpan.classList.add('clipSpan');
@@ -98,9 +101,14 @@ $(function() {
 				
 				clipLabel.textContent = 'Save';
 				
-				clipSpan.appendChild(clipLabel);
+				if (hiddenTag.value == 'record') {
+					alert('히든태그: '+hiddenTag.value);
+					clipImg.classList.add('clipImg');
+					clipImg.src = 'images/recordingIcon.png';
+					clipTextSpan.appendChild(clipImg);
+				}
 				clipTextSpan.appendChild(clipText);
-
+				clipSpan.appendChild(clipLabel);
 				clipContainer.appendChild(clipTextSpan);
 				clipContainer.appendChild(audio);
 				clipContainer.appendChild(clipSpan);

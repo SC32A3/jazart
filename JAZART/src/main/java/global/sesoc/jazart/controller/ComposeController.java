@@ -493,4 +493,18 @@ public class ComposeController {
 		}
 	}
 	
+	@RequestMapping(value = "saveSonginfo", method = RequestMethod.POST)
+	public @ResponseBody void saveSonginfo(SongInfo songinfo) {
+		songinfo.setSong_nickname((String)session.getAttribute("loginNickname"));
+		logger.info("들어오라고 쫌");
+		logger.info("songinfo: "+songinfo);
+		
+		sr.insertSongInfo(songinfo);		
+	}
+	
+	@RequestMapping(value = "saveSongPic", method = RequestMethod.POST)
+	public @ResponseBody String saveSongPic(MultipartHttpServletRequest upload1) {
+		return "success";
+	}
+	
 }

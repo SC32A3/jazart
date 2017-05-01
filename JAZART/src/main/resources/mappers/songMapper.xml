@@ -38,4 +38,7 @@
    <insert id="addSonglike">
       insert into songlike values(like_seq.nextval, #{1}, sysdate, #{0})
    </insert>
+   <insert id="insertSongInfo" parameterType="SongInfo">
+   	insert into songinfo values(songinfo_seq.nextval, #{song_nickname}, 'default.png', #{song_title}, #{song_desc}, 'x', sysdate, 0, 0, '4', #{song_genre}, 'N')
+   </insert>
 </mapper>

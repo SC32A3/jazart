@@ -29,4 +29,6 @@ public interface SongMapper {
 
    int addSonglike(int songnum, String loginNickname) throws Exception;
 
+   int insertSongInfo(SongInfo songinfo) throws Exception;
+
 }

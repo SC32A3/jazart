@@ -236,7 +236,7 @@ function AudioSynthView() {
 
 	// Creates our audio player
 	var fnPlayNote = function(note, octave) {
-		src = __audioSynth.generate(selectSound.value, note, octave, 2);
+		src = __audioSynth.generate(selectSound.value, note, octave, 6);
 		container = new Audio(src);
 		container.addEventListener('ended', function() { container = null; });
 		container.addEventListener('loadeddata', function(e) { e.target.play(); });

@@ -109,7 +109,7 @@ public class UserController {
 			String savedfile = FileService.saveFile(upload, uploadPath, type);
 			user.setUser_picture(savedfile);
 		} else {
-			user.setUser_picture("default.jpg");
+			user.setUser_picture("default.png");
 		}
 		ur.regist(user);
 		return "redirect:/";

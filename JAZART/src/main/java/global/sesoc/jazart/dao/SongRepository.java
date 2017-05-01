@@ -114,4 +114,14 @@ public class SongRepository {
 		}
 		return result;
 	}
+
+	public void insertSongInfo(SongInfo songinfo) {
+		SongMapper mapper = sqlSession.getMapper(SongMapper.class);
+		int result = 0;
+		try {
+			result = mapper.insertSongInfo(songinfo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
