@@ -89,7 +89,7 @@ var Synth, AudioSynth, AudioSynthInstrument;
 		var t = (new Date).valueOf();
 		this._temp = {};
 		octave |= 0;
-		octave = Math.min(8, Math.max(1, octave));
+		octave = Math.min(8, Math.max(0, octave));
 		var time = !duration?2:parseFloat(duration);
 		if(typeof(this._notes[note])=='undefined') { throw new Error(note + ' is not a valid note.'); }
 		if(typeof(this._fileCache[sound][octave-1][note][time])!='undefined') {
@@ -132,7 +132,10 @@ var Synth, AudioSynth, AudioSynthInstrument;
 
 			var out = [
 				'RIFF',
-				pack(1, 4 + (8 + 24/* chunk 1 length */) + (8 + 8/* chunk 2 length */)), // Length
+				pack(1, 4 + (8 + 24/* chunk 1 length */) + (8 + 8/*
+																	 * chunk 2
+																	 * length
+																	 */)), // Length
 				'WAVE',
 				// chunk 1
 				'fmt ', // Sub-chunk identifier
@@ -145,7 +148,8 @@ var Synth, AudioSynth, AudioSynthInstrument;
 				pack(0, bitsPerSample),
 				// chunk 2
 				'data', // Sub-chunk identifier
-				pack(1, data.length * channels * bitsPerSample / 8), // Chunk length
+				pack(1, data.length * channels * bitsPerSample / 8), // Chunk
+																		// length
 				data
 			];
 			var blob = new Blob(out, {type: 'audio/wav'});

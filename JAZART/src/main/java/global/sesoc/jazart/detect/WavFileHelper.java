@@ -35,7 +35,8 @@ public class WavFileHelper implements Runnable {
 		stereo = 1; /* Capture mono */
 
 		try {
-			ais = AudioSystem.getAudioInputStream(new File("C:/Users/user/Downloads/voice.wav"));
+			System.out.println("WFH\'s filepath" + mainProgram.filepath);
+			ais = AudioSystem.getAudioInputStream(new File(mainProgram.filepath));
 		} catch (UnsupportedAudioFileException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -46,17 +47,11 @@ public class WavFileHelper implements Runnable {
 	}
 
 	public void run() {
-		// aFormat = new AudioFormat(mainProgram.samplingRate, bitDepth, stereo,
-		// true, false);
 		aFormat = ais.getFormat();
 		info = new DataLine.Info(TargetDataLine.class, aFormat);
 		System.out.println(info);
 		try {
-			/*
-			 * line = (TargetDataLine) AudioSystem.getLine(info);
-			 * line.open(aFormat, line.getBufferSize()); line.start(); // Start
-			 * capturing
-			 */ int bufferSize = mainProgram.fftWindow * bitSelection * stereo;
+			int bufferSize = mainProgram.fftWindow * bitSelection * stereo;
 			byte buffer[] = new byte[bufferSize];
 
 			int read;
@@ -65,48 +60,28 @@ public class WavFileHelper implements Runnable {
 					if (bitSelection == 2) {
 						short[] data = byteArrayToShortArray(buffer);
 
-						Analysis analysis = new Analysis(data, mainProgram); // FFT
-																				// +
-																				// klapuri
-																				// analysis
+						Analysis analysis = new Analysis(data, mainProgram); 
 						mainProgram.result.add(analysis.klapuri.f0s.get(0));
-						System.out.println(analysis.klapuri.f0s.get(0));
+						//System.out.println(analysis.klapuri.f0s.get(0));
 					}
 				}
 			}
 
-			/*
-			 * while (mainProgram.continueCapturing) { int count =
-			 * line.read(buffer, 0, buffer.length); Blocking call to read //
-			 * System.out.println("Got data "+count); if (count > 0) { if
-			 * (bitSelection == 1) { //
-			 * mainProgram.rawFigure.drawImage(buffer,mainProgram.imWidth,
-			 * mainProgram.imHeight);
-			 * 
-			 * Add pitch detection here for 8 bit, not implemented...
-			 * 
-			 * } if (bitSelection == 2) { short[] data =
-			 * byteArrayToShortArray(buffer);
-			 * 
-			 * Analysis analysis = new Analysis(data, mainProgram); // FFT // +
-			 * // klapuri // analysis
-			 * mainProgram.result.add(analysis.klapuri.f0s.get(0));
-			 * System.out.println(analysis.klapuri.f0s.get(0)); } } }
-			 * line.stop(); line.flush(); line.close();
-			 */
-
 			try {
-				FileOutputStream fos = new FileOutputStream(new File("C:/Users/user/Downloads/result.txt"));
+				FileOutputStream fos = new FileOutputStream(new File("/userSource/makeMelody.dat"));
 				ObjectOutputStream oos = new ObjectOutputStream(fos);
 				oos.writeObject(mainProgram.result);
 				oos.flush();
 				oos.close();
 				fos.close();
+				
+				new FrequencyAnalysis();
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} catch (Exception err) {
-			System.err.println("Error: " + err.getMessage());
+			err.printStackTrace();
 		}
 	}
 

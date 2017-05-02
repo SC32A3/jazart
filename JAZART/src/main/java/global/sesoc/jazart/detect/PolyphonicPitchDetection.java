@@ -84,7 +84,10 @@ public class PolyphonicPitchDetection {
 
 	public PolyphonicPitchDetection(String filepath) { /* Constructor */
 		result = new ArrayList<>();
-
+		this.filepath = filepath;
+		
+		System.out.println("@filepath: "+filepath);
+		
 		/* Create constant arrays for Klapuri */
 		cb = new double[32];
 		/*

@@ -4,18 +4,19 @@ function AudioSynthView() {
 	if(isMobile) { var evtListener = ['touchstart', 'touchend']; } else { var evtListener = ['mousedown', 'mouseup']; }
 
 	var __audioSynth = new AudioSynth();
-	__audioSynth.setVolume(0.5);
+	__audioSynth.setVolume(0.9);
 	var __octave = 4;
 	
 	// Change octave
 	var fnChangeOctave = function(x) {
 
 		x |= 0;
-	
+		//alert('x: '+x); //기본옥타브 4
 		__octave += x;
 	
 		__octave = Math.min(5, Math.max(3, __octave));
-	
+		//alert('octave: '+__octave);
+		
 		var octaveName = document.getElementsByName('OCTAVE_LABEL');
 		var i = octaveName.length;
 		while(i--) {
@@ -197,33 +198,41 @@ function AudioSynthView() {
 		var iKeys = 0;
 		var iWhite = 0;
 		var notes = __audioSynth._notes;
-
-		for(var i=-1;i<=1;i++) {
-			for(var n in notes) {
-				if(n[2]!='b') {
-					var thisKey = document.createElement('div');
-					if(n.length>1) {
-						thisKey.className = 'black key';
-						thisKey.style.width = '30px';
-						thisKey.style.height = '120px';
-						thisKey.style.left = (40 * (iWhite - 1)) + 25 + 'px';
-					} else {
-						thisKey.className = 'white key';
-						thisKey.style.width = '40px';
-						thisKey.style.height = '200px';
-						thisKey.style.left = 40 * iWhite + 'px';
-						iWhite++;
+		
+		for (var int = 0; int < 3; int++) { // 맨위 for문 추가
+			var test = document.createElement('div');
+			for(var i=-1;i<=1;i++) { //키보드 바꾸는 코드가 아님
+				for(var n in notes) {
+					if(n[2]!='b') {
+						console.log('n[2]: '+n[2]);
+						var thisKey = document.createElement('div');
+						if(n.length>1) {
+							thisKey.className = 'black key';
+							thisKey.style.width = '30px';
+							thisKey.style.height = '120px';
+							thisKey.style.left = (40 * (iWhite - 1)) + 25 + 'px';
+						} else {
+							thisKey.className = 'white key';
+							thisKey.style.width = '40px';
+							thisKey.style.height = '200px';
+							thisKey.style.left = 40 * iWhite + 'px';
+							iWhite++;
+						}
+						var label = document.createElement('div');
+						label.className = 'label';
+						label.innerHTML = '<b>' + String.fromCharCode(reverseLookupText[n + ',' + i]) + '</b>' + '<br /><br />' + n.substr(0,1) +
+						'<span name="OCTAVE_LABEL" value="' + i + '">' + (int+2) + '</span>' + (n.substr(1,1)?n.substr(1,1):'');
+						//'<span name="OCTAVE_LABEL" value="' + i + '">' + (__octave + parseInt(i)) + '</span>' + (n.substr(1,1)?n.substr(1,1):'');
+						//기본일 때 "C" + 3(=> i=-1), (__octave + parseInt(i)) => 3
+						thisKey.appendChild(label);
+						thisKey.setAttribute('ID', 'KEY_' + n + ',' + i);
+						thisKey.addEventListener(evtListener[0], (function(_temp) { return function() { fnPlayKeyboard({keyCode:_temp}); } })(reverseLookup[n + ',' + i]));
+						visualKeyboard[n + ',' + i] = thisKey;
+						test.appendChild(thisKey);
+						visualKeyboard.appendChild(test);
+						//visualKeyboard.appendChild(thisKey);
+						iKeys++;
 					}
-					var label = document.createElement('div');
-					label.className = 'label';
-					label.innerHTML = '<b>' + String.fromCharCode(reverseLookupText[n + ',' + i]) + '</b>' + '<br /><br />' + n.substr(0,1) +
-						'<span name="OCTAVE_LABEL" value="' + i + '">' + (__octave + parseInt(i)) + '</span>' + (n.substr(1,1)?n.substr(1,1):'');
-					thisKey.appendChild(label);
-					thisKey.setAttribute('ID', 'KEY_' + n + ',' + i);
-					thisKey.addEventListener(evtListener[0], (function(_temp) { return function() { fnPlayKeyboard({keyCode:_temp}); } })(reverseLookup[n + ',' + i]));
-					visualKeyboard[n + ',' + i] = thisKey;
-					visualKeyboard.appendChild(thisKey);
-					iKeys++;
 				}
 			}
 		}
@@ -236,23 +245,25 @@ function AudioSynthView() {
 
 	// Creates our audio player
 	var fnPlayNote = function(note, octave) {
+		console.log('note&octave: '+note+',  '+octave);
+		console.log('fnPlayNote들어옴');
 		src = __audioSynth.generate(selectSound.value, note, octave, 6);
+		//console.log('selectSound.value: '+selectSound.value); //0
 		container = new Audio(src);
 		container.addEventListener('ended', function() { container = null; });
 		container.addEventListener('loadeddata', function(e) { e.target.play(); });
 		container.autoplay = false;
-		container.setAttribute('type', 'audio/wav');
-		/*document.body.appendChild(container);*/
 		container.load();
+		console.log('fnPlayNote나감');
 		return container;
-	
 	};
 
 	// Detect keypresses, play notes.
-
 	var fnPlayKeyboard = function(e) {
-	
+		console.log('여기도 들어온다는 거네');
 		var i = keysPressed.length;
+		console.log('keysPressed.length '+keysPressed.length);
+		console.log('e.keyCode '+e.keyCode);
 		while(i--) {
 			if(keysPressed[i]==e.keyCode) {
 				return false;	
@@ -271,47 +282,47 @@ function AudioSynthView() {
 			case 39:
 				fnChangeOctave(1);
 				break;
-		
-			// space
-			case 16:
-				break;
-				fnPlaySong([
-					['E,0', 8],
-					['D,0', 8],
-					['C,0', 2],
-					['C,0', 8],
-					['D,0', 8],
-					['C,0', 8],
-					['E,0', 8],
-					['D,0', 1],
-					['C,0', 8],
-					['D,0', 8],
-					['E,0', 2],
-					['A,0', 8],
-					['G,0', 8],
-					['E,0', 8],
-					['C,0', 8],
-					['D,0', 1],
-					['A,0', 8],
-					['B,0', 8],
-					['C,1', 2],
-					['B,0', 8],
-					['C,1', 8],
-					['D,1', 8],
-					['C,1', 8],
-					['A,0', 1],
-					['G,0', 8],
-					['A,0', 8],
-					['B,0', 2],
-					['C,1', 8],
-					['B,0', 8],
-					['A,0', 8],
-					['G,0', 8],
-					['A,0', 1]
-				]);
-				break;
-		
-		}
+				
+				   // space
+	         case 16:
+	            break;
+	            fnPlaySong([
+	               ['E,0', 8],
+	               ['D,0', 8],
+	               ['C,0', 2],
+	               ['C,0', 8],
+	               ['D,0', 8],
+	               ['C,0', 8],
+	               ['E,0', 8],
+	            ]);
+	            break;	
+/*	            ['D,0', 1],
+	            ['C,0', 8],
+	            ['D,0', 8],
+	            ['E,0', 2],
+	            ['A,0', 8],
+	            ['G,0', 8],
+	            ['E,0', 8],
+	            ['C,0', 8],
+	            ['D,0', 1],
+	            ['A,0', 8],
+	            ['B,0', 8],
+	            ['C,1', 2],
+	            ['B,0', 8],
+	            ['C,1', 8],
+	            ['D,1', 8],
+	            ['C,1', 8],
+	            ['A,0', 1],
+	            ['G,0', 8],
+	            ['A,0', 8],
+	            ['B,0', 2],
+	            ['C,1', 8],
+	            ['B,0', 8],
+	            ['A,0', 8],
+	            ['G,0', 8],
+	            ['A,0', 1]
+*/	
+    }
 	
 		if(keyboard[e.keyCode]) {
 			if(visualKeyboard[keyboard[e.keyCode]]) {
@@ -322,6 +333,7 @@ function AudioSynthView() {
 			var arrPlayNote = keyboard[e.keyCode].split(',');
 			var note = arrPlayNote[0];
 			var octaveModifier = arrPlayNote[1]|0;
+			//alert(note + "," + (__octave+octaveModifier));
 			fnPlayNote(note, __octave + octaveModifier);
 		} else {
 			return false;	
@@ -348,22 +360,26 @@ function AudioSynthView() {
 	}
 
 	var fnPlaySong = function(arr) {
-	
-		if(arr.length>0) {
-		
-			var noteLen = 1000*(1/parseInt(arr[0][1]));
-			if(!(arr[0][0] instanceof Array)) {
+		//alert('렛츠플레이');
+		if(arr.length>0) { //E08 D08 C02
+			console.log('//////시작///////'); 
+			var noteLen = 1000*(1/parseInt(arr[0][1])); //2
+			if(!(arr[0][0] instanceof Array)) { //'C,1'
 				arr[0][0] = [arr[0][0]];	
 			}
+			console.log('arr[0][0] '+arr[0][0]); 
+			console.log('arr[0][1] '+arr[0][1]); 
 			var i = arr[0][0].length;
+				console.log('i '+i); //1
 			var keys = [];
 			while(i--) {
+				console.log('arr[0][0][i] '+arr[0][0][i]); // E,0  D,0  C,0
 				keys.unshift(reverseLookup[arr[0][0][i]]);
 				fnPlayKeyboard({keyCode:keys[0]});
 			}
+			console.log('//////끝///////');
 			arr.shift();
 			setTimeout(function(array, val){ return function() { var i = val.length; while(i--) { fnRemoveKeyBinding({keyCode:val[i]}); } fnPlaySong(array); } }(arr, keys), noteLen);
-		
 		}
 	
 	};
@@ -378,5 +394,17 @@ function AudioSynthView() {
 	Object.defineProperty(this, 'draw', {
 		value: fnCreateKeyboard
 	});
-
+	
+	Object.defineProperty(this, 'play', {
+		value: fnPlaySong
+	}); 
+	
+	Object.defineProperty(this, 'play2', {
+		value: fnPlayNote
+	}); 
+	
+	//fnChangeOctave
+	Object.defineProperty(this, 'octave', {
+		value: fnChangeOctave
+	});
 }

@@ -1,5 +1,6 @@
 package global.sesoc.jazart.controller;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -8,6 +9,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -33,6 +35,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import global.sesoc.jazart.dao.SongRepository;
 import global.sesoc.jazart.dao.UserRepository;
+import global.sesoc.jazart.detect.PolyphonicPitchDetection;
 import global.sesoc.jazart.utility.FileService2;
 import global.sesoc.jazart.vo.SongInfo;
 import global.sesoc.jazart.vo.SongReply;
@@ -66,13 +69,13 @@ public class ComposeController {
 	@RequestMapping(value = "mySrc", method = RequestMethod.POST)
 	public String mySrc(MultipartHttpServletRequest request, MultipartFile[] upload, Model model) {
 
-		//songnum받아와야함
+		// songnum받아와야함
 		ArrayList<String> list = new ArrayList<>();
 		File recordingData = new File(uploadPath3);
 		if (!recordingData.exists()) {
 			recordingData.mkdir();
 		}
-		
+
 		for (int i = 0; i < upload.length; i++) {
 			MultipartFile multipartFile = upload[i];
 			if (!multipartFile.isEmpty()) {
@@ -137,12 +140,12 @@ public class ComposeController {
 		String fullpath = "";
 		ServletOutputStream fileout = null;
 		FileInputStream filein = null;
-		
+
 		File profileData = new File(uploadPath);
 		if (!profileData.exists()) {
 			profileData.mkdir();
 		}
-		
+
 		// 한개의 글을 가져옴
 		if (type.equals("song")) {
 			int songnum = Integer.parseInt(data);
@@ -150,7 +153,7 @@ public class ComposeController {
 			originalfile = song.getSong_picture();
 			savedfile = song.getSong_savedpic();
 		} else if (type.equals("user")) {
-			User user = ur.selectUser(data); //user_id;
+			User user = ur.selectUser(data); // user_id;
 			originalfile = user.getUser_picture();
 			savedfile = user.getUser_savedpic();
 			fullpath = uploadPath + "/" + savedfile;
@@ -159,9 +162,10 @@ public class ComposeController {
 			SongInfo song = sr.selectSong(songnum);
 			originalfile = song.getSong_file();
 			savedfile = song.getSong_savedfile();
-			/*StringTokenizer token = new StringTokenizer(data, "?");
-			String data2 = token.nextToken();
-			originalfile = data2*/;
+			/*
+			 * StringTokenizer token = new StringTokenizer(data, "?"); String
+			 * data2 = token.nextToken(); originalfile = data2
+			 */;
 		}
 
 		// 사용자 측에서 다운로드 받도록 하기 위해서
@@ -286,68 +290,51 @@ public class ComposeController {
 		return result;
 	}
 
-	/*@RequestMapping(value = "mixing", method = RequestMethod.POST)
-	public String saveRecord(MultipartHttpServletRequest request, MultipartFile[] upload, Model model) {
-		ArrayList<String> list = new ArrayList<>();
-		String type = "r_";
-
-		FileWriter fw;
-		try {
-			fw = new FileWriter(new File(request.getServletContext().getRealPath("/src/data/samples.txt")));
-			BufferedWriter bw = new BufferedWriter(fw);
-			PrintWriter pw = new PrintWriter(bw);
-
-			pw.println(
-					"{\"projectInfo\":{\"tempo\":\"128\",\"tracks\":\"4\",\"effects\":[[],[],[],[]]},\"samples\": [");
-			for (int i = 0; i < upload.length; i++) {
-				MultipartFile multipartFile = upload[i];
-				if (!multipartFile.isEmpty()) {
-					String savedfile = FileService2.saveFile(multipartFile, uploadPath3);
-
-					list.add(savedfile);
-					logger.info("getSize : " + multipartFile.getSize());
-					logger.info("getTime : " + multipartFile.getSize() * 8 / 52 / 1000);
-					pw.print("{\"id\":\"" + (i + 1) + "\",\"url\":\"src/data/samples/" + savedfile
-							+ "\",\"track\":\"1\",\"startTime\":[],\"duration\":"
-							+ multipartFile.getSize() * 8 / 52 / 1000 + "}");
-
-					
-					 * (multipartFile.getBytes().length * ( 3.8399999141693115 /
-					 * 338732) * 8)+"\"}"); logger.info("계산된 길이 : " +
-					 * multipartFile.getBytes().length * ( 3.8399999141693115 /
-					 * 338732) * 8);
-					 
-
-					File d = new File(uploadPath3 + "/" + savedfile);
-					logger.info("1: " + uploadPath3 + "/" + savedfile);
-					File e = new File(request.getServletContext().getRealPath
-
-					("src/data/samples/") + savedfile);
-					logger.info("2 " + request.getServletContext().getRealPath
-
-					("src/data/samples/") + savedfile);
-					FileInputStream fis = new FileInputStream(d);
-					FileOutputStream fos = new FileOutputStream(e);
-					FileCopyUtils.copy(fis, fos);
-					fis.close();
-					fos.close();
-				}
-
-				if (i != upload.length - 1) {
-					pw.println(",");
-				} else {
-					pw.println("]}");
-					pw.flush();
-				}
-			}
-			pw.close();
-			bw.close();
-			model.addAttribute("srclist", list);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return "compose/mixing";
-	}*/
+	/*
+	 * @RequestMapping(value = "mixing", method = RequestMethod.POST) public
+	 * String saveRecord(MultipartHttpServletRequest request, MultipartFile[]
+	 * upload, Model model) { ArrayList<String> list = new ArrayList<>(); String
+	 * type = "r_";
+	 * 
+	 * FileWriter fw; try { fw = new FileWriter(new
+	 * File(request.getServletContext().getRealPath("/src/data/samples.txt")));
+	 * BufferedWriter bw = new BufferedWriter(fw); PrintWriter pw = new
+	 * PrintWriter(bw);
+	 * 
+	 * pw.println(
+	 * "{\"projectInfo\":{\"tempo\":\"128\",\"tracks\":\"4\",\"effects\":[[],[],[],[]]},\"samples\": ["
+	 * ); for (int i = 0; i < upload.length; i++) { MultipartFile multipartFile
+	 * = upload[i]; if (!multipartFile.isEmpty()) { String savedfile =
+	 * FileService2.saveFile(multipartFile, uploadPath3);
+	 * 
+	 * list.add(savedfile); logger.info("getSize : " + multipartFile.getSize());
+	 * logger.info("getTime : " + multipartFile.getSize() * 8 / 52 / 1000);
+	 * pw.print("{\"id\":\"" + (i + 1) + "\",\"url\":\"src/data/samples/" +
+	 * savedfile + "\",\"track\":\"1\",\"startTime\":[],\"duration\":" +
+	 * multipartFile.getSize() * 8 / 52 / 1000 + "}");
+	 * 
+	 * 
+	 * (multipartFile.getBytes().length * ( 3.8399999141693115 / 338732) *
+	 * 8)+"\"}"); logger.info("계산된 길이 : " + multipartFile.getBytes().length * (
+	 * 3.8399999141693115 / 338732) * 8);
+	 * 
+	 * 
+	 * File d = new File(uploadPath3 + "/" + savedfile); logger.info("1: " +
+	 * uploadPath3 + "/" + savedfile); File e = new
+	 * File(request.getServletContext().getRealPath
+	 * 
+	 * ("src/data/samples/") + savedfile); logger.info("2 " +
+	 * request.getServletContext().getRealPath
+	 * 
+	 * ("src/data/samples/") + savedfile); FileInputStream fis = new
+	 * FileInputStream(d); FileOutputStream fos = new FileOutputStream(e);
+	 * FileCopyUtils.copy(fis, fos); fis.close(); fos.close(); }
+	 * 
+	 * if (i != upload.length - 1) { pw.println(","); } else { pw.println("]}");
+	 * pw.flush(); } } pw.close(); bw.close(); model.addAttribute("srclist",
+	 * list); } catch (IOException e) { e.printStackTrace(); } return
+	 * "compose/mixing"; }
+	 */
 
 	@RequestMapping(value = "savePage", method = RequestMethod.GET)
 	public String savePage() {
@@ -493,7 +480,7 @@ public class ComposeController {
 		if (!sourceData.exists()) {
 			sourceData.mkdir();
 		}
-		
+
 		for (int i = 0; i < upload.length; i++) {
 			MultipartFile multipartFile = upload[i];
 			if (!multipartFile.isEmpty()) {
@@ -514,14 +501,17 @@ public class ComposeController {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@RequestMapping(value = "saveSonginfo", method = RequestMethod.POST)
 	public @ResponseBody int saveSonginfo(SongInfo songinfo) {
 		int songnum = 0;
 		int count = 0;
-		String loginNickname = (String)session.getAttribute("loginNickname");
-		logger.info("songinfo: "+songinfo);
-		count = sr.selectSongByName(loginNickname, songinfo.getSong_title()); //닉네임과 제목이 일치하면 막는다
+		String loginNickname = (String) session.getAttribute("loginNickname");
+		logger.info("songinfo: " + songinfo);
+		count = sr.selectSongByName(loginNickname, songinfo.getSong_title()); // 닉네임과
+																				// 제목이
+																				// 일치하면
+																				// 막는다
 		if (count != 1) {
 			songinfo.setSong_nickname(loginNickname);
 			sr.insertSongInfo(songinfo);
@@ -529,12 +519,12 @@ public class ComposeController {
 		}
 		return songnum;
 	}
-	
+
 	@RequestMapping(value = "saveSongPic", method = RequestMethod.POST)
 	public @ResponseBody String saveSongPic(MultipartHttpServletRequest request, MultipartFile upload1) {
 		ArrayList<String> list = new ArrayList<>();
 		String type = "r_";
-		
+
 		MultipartFile multipartFile = upload1;
 		if (!multipartFile.isEmpty()) {
 			String savedfile = FileService2.saveFile(multipartFile, uploadPath3);
@@ -542,21 +532,49 @@ public class ComposeController {
 		}
 		return "success";
 	}
-	
-/*	@RequestMapping(value = "mySrc", method = RequestMethod.POST)
-	public String mySrc(MultipartHttpServletRequest request, MultipartFile[] upload, Model model) {
-		ArrayList<String> list = new ArrayList<>();
-		String type = "r_";
 
-		for (int i = 0; i < upload.length; i++) {
-			MultipartFile multipartFile = upload[i];
-			if (!multipartFile.isEmpty()) {
-				String savedfile = FileService.saveFile(multipartFile, uploadPath3, type);
-				list.add(savedfile);
-			}
+	@RequestMapping(value = "myfileinput", method = RequestMethod.POST)
+	public @ResponseBody ArrayList<Object> myfileinput(MultipartHttpServletRequest request, MultipartFile upload1) {
+		File recordingData = new File(uploadPath3);
+		String savedfile = "";
+		if (!recordingData.exists()) {
+			recordingData.mkdir();
 		}
-		model.addAttribute("srclist", list);
-		return "compose/mySource";
-	}*/
-	
+		System.out.println("upload1: " + upload1.getOriginalFilename() + ", " + upload1.getSize());
+		if (!upload1.isEmpty()) {
+			savedfile = FileService2.saveFile(upload1, uploadPath3);
+		}
+
+		String fullpath = uploadPath3 + "/" + savedfile;
+		File file = new File(fullpath);
+		System.out.println("fullpath:  " + fullpath);
+		System.out.println("getname:  " + file.getName() + ", " + file.getAbsolutePath());
+		// String objectpath = file.getAbsolutePath();
+
+		new PolyphonicPitchDetection(fullpath);
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		File f = new File(uploadPath3 + "/melodyLine.dat");
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(f)));
+			ArrayList<Object> d = (ArrayList<Object>) ois.readObject();
+			for (int i = 0; i < d.size(); i++) {
+				Object[] mel = (Object[]) d.get(i);
+			}
+			d.clear();
+			d.add(new Object[]{"D",4});
+			d.add(new Object[]{"E",5});
+			d.add(new Object[]{"B",2});
+			return d;
+		} catch (Exception e) {
+			//e.printStackTrace();
+		}
+		return null;
+	}
 }

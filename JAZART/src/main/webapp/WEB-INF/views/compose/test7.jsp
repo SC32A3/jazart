@@ -15,16 +15,115 @@
 <script src="resources/js/keyboard/audiosynth.view.js"></script>
 <script type="text/javascript">
 	$(function() {
+		var a = new AudioSynthView();
+		a.draw();
+		
+
+		a.play([
+               ['E,0', 8],
+               ['D,0', 8],
+               ['C,0', 2]]);
+		//a.play([['B,1', 2],['A,1', 2]]);
+		//0: 1옥타브, 주로 0~1로 이루어진다, -1도된다(C3,D3)
+		//작동됨
+		//a.fnPlaySong([['C,0', 4], ['D,0', 8]]);
+		/* fnPlaySong([
+			['E,0', 8],
+			['D,0', 8],
+			['C,0', 2],
+			['C,0', 8],
+			['D,0', 8],
+			['C,0', 8],
+			['E,0', 8],
+			['D,0', 1]]); */
 		$("#gogo").on('click', function(){
+			var fileInput2 = document.getElementById('fileinput');
+			var MultiData = new FormData(fileInput2);
+			
+			
+			
 			$.ajax({
-				url: 'gogo',
-				type: 'get',
-				success: function(resp){
-					alert(JSON.stringify(resp));
+				url: "myfileinput",
+				type: 'post',
+				processData: false,
+	            contentType: false,
+	            data: MultiData,
+				success: function(result){
+					var rArray = [];
+					var mel = [];
+					for (var i = 0; i < result.length; i++) { //['E,0', 8]
+						mel = [result[i][0] , (parseInt(result[i][1])-4)];
+						rArray.push([mel, parseInt(2)]);
+						mel = [];
+					}
+					//alert(rArray);
+					//a.play(rArray);
+					
+					if (rArray[0][0][1] == -2) {
+						a.octave(-1);
+					} else if(rArray[0][0][1] == 2) {
+						a.octave(1);
+					}
+					//rArray ==> [ [['C,4'], 1],   [[], 1] ];
+					//rArray[0][0].split(',')[1];
+					//alert('rArray는? '+rArray[0][0].split(',')[0]);
+					//alert('rArray는? '+rArray[0][0].split(',')[1]);
+					/* console.log('test: '+rArray[0][1]*1000);
+					console.log('test: '+rArray[1][1]*1000); */
+					
+					//for문부분
+					for (var i = 0; i < rArray.length-1; i++) {
+						//console.log('rArray[i]: '+rArray[i]); //c,2,2
+						//console.log('rArray전체: '+rArray); //c,2,2   d,0,2
+						if(rArray[i][0][1] != -2 && rArray[i][0][1] != 2 && rArray[i+1][0][1] == -2){ 			//-1~1에서 -2로 갈 때
+							console.log('/////////////'+rArray[i][0][1]+', '+rArray[i+1][0][1]+'//////////////');
+							a.play2(rArray[i][0][0], rArray[i][0][1]+4);
+								//setTimeout(a.play2(rArray[i][0][0], rArray[i][0][1]+4), rArray[i][1]*1000);
+							a.octave(-1);
+						} else if (rArray[i][0][1] != -2 && rArray[i][0][1] != 2 && rArray[i+1][0][1] == 2){ 	//-1~1에서 2로 갈 때
+							console.log('/////////////'+rArray[i][0][1]+', '+rArray[i+1][0][1]+'//////////////');
+							a.play2(rArray[i][0][0], rArray[i][0][1]+4);
+							a.octave(1);
+						} else if (rArray[i][0][1] == -2 && rArray[i+1][0][1] == 2) { 				//-2에서 2로 갈 때
+							console.log('/////////////'+rArray[i][0][1]+', '+rArray[i+1][0][1]+'//////////////');
+							a.play2(rArray[i][0][0], rArray[i][0][1]+4);
+							a.octave(1);
+							a.octave(1);
+						} else if (rArray[i][0][1] == -2 && rArray[i+1][0][1] != 2 && rArray[i+1][0][1] != -2){ //-2에서 -1~1로 갈 때
+							console.log('/////////////'+rArray[i][0][1]+', '+rArray[i+1][0][1]+'//////////////');
+							a.play2(rArray[i][0][0], rArray[i][0][1]+4);
+							a.octave(1);
+						} else if (rArray[i][0][1] == 2 && rArray[i+1][0][1] != 2 && rArray[i+1][0][1] != -2){  //2에서 -1~1로 갈 때
+							console.log('/////////////'+rArray[i][0][1]+', '+rArray[i+1][0][1]+'//////////////');
+							a.play2(rArray[i][0][0], rArray[i][0][1]+4);
+							a.octave(-1);
+						} else if (rArray[i][0][1] == 2 && rArray[i+1][0][1] == -2){				//2에서 -2로 갈 때
+							console.log('/////////////'+rArray[i][0][1]+', '+rArray[i+1][0][1]+'//////////////');
+							a.play2(rArray[i][0][0], rArray[i][0][1]+4);
+							a.octave(-1);
+							a.octave(-1);
+						} else if (rArray[i][0][1] != -2 && rArray[i][0][1] != 2 && rArray[i+1][0][1] != -2 && rArray[i+1][0][1] != 2){
+							console.log('/////////////'+rArray[i][0][1]+', '+rArray[i+1][0][1]+'//////////////');
+							a.play2(rArray[i][0][0], rArray[i][0][1]+4);
+						} else {
+							alert('어디에도 안속함');
+						}
+							/* if (rArray[i][0][1] == -1) { //3
+								a.play2(rArray[i][0][0], 4-1);
+							} else if (rArray[i][0][1] == 0){
+								a.play2(rArray[i][0][0], 40);
+							} else if (rArray[i][0][1] == 1){
+								a.play2(rArray[i][0][0], 41);
+							} */
+					}
+						
 				}
-			})
+			});
 		});
-		$('#myfileinput').change(
+			
+			
+		//현재 안쓰는 코드
+		/* $('#myfileinput').change(
 				function() {
 					alert('웰컴');
 					// fileInput is an HTMLInputElement: <input type="file" id="myfileinput" multiple>
@@ -62,8 +161,28 @@
 							}
 						}
 					}
-				})
+				}) */
 	})
+ 	
+	function calcDuration(rArray){
+		var defaultDuration = 2;
+		var rArray = [
+			['C,4'],
+			['C,4'],
+			['C,4'],
+			['C,0'],
+			['D,0'],
+			['C,0'],
+			['D,0'],
+			['D,0']];
+		if (condition) {
+			
+		}
+	}
+	
+	
+	
+	//안쓰는 코드2
 	function decodeUtf8(arrayBuffer) {
 		var result = "";
 		var i = 0;
@@ -120,22 +239,31 @@
 		</p>
 		<section class="sound-clips"></section>
 	</div>
+	
+	
 	<div class="keyboard-options">
-		<b>Sound</b> <select ID="sound">
+		<b>Sound</b>
+		<select ID="sound">
 			<option value="0" selected>Keyboard</option>
 			<option value="1">Organ</option>
 			<option value="2">Acoustic Guitar</option>
 			<option value="3">EDM, bro!</option>
-		</select> <b>Range [C<span ID="OCTAVE_LOWER">3</span>-B<span
-			ID="OCTAVE_UPPER">5</span>]
-		</b> <input type="button" ID="-_OCTAVE" value="-" /> <input type="button"
-			ID="+_OCTAVE" value="+" />
+		</select> 
+			<b>Range [C<span ID="OCTAVE_LOWER">3</span>-B<span ID="OCTAVE_UPPER">5</span>]</b>
+			<input type="button" ID="-_OCTAVE" value="-" />
+			<input type="button" ID="+_OCTAVE" value="+" />
+		
 		<div ID="keyboard" class="keyboard-holder"></div>
-		<input type="file" id="myfileinput" multiple>
+		
 	</div>
+	<div>
+		<form action="myfileinput" id="fileinput" enctype="multipart/form-data">
+			<input type="file" id="upload1" name="upload1">
+		</form>
+	</div>
+	
 	<script type="text/javascript">
-		var a = new AudioSynthView();
-		a.draw();
+		
 	</script>
 	<script>
 		(function(i, s, o, g, r, a, m) {
