@@ -8,6 +8,7 @@ public class User {
 	private String user_email;
 	private String user_desc;
 	private String user_picture;
+	private String user_savedpic;
 	
 	public User() {}
 
@@ -67,10 +68,18 @@ public class User {
 		this.user_picture = user_picture;
 	}
 
+	public String getUser_savedpic() {
+		return user_savedpic;
+	}
+
+	public void setUser_savedpic(String user_savedpic) {
+		this.user_savedpic = user_savedpic;
+	}
+
 	@Override
 	public String toString() {
 		return "User [user_id=" + user_id + ", user_pw=" + user_pw + ", user_nickname=" + user_nickname
 				+ ", user_phone=" + user_phone + ", user_email=" + user_email + ", user_desc=" + user_desc
-				+ ", user_picture=" + user_picture + "]";
+				+ ", user_picture=" + user_picture + ", user_savedpic=" + user_savedpic + "]";
 	}
 }

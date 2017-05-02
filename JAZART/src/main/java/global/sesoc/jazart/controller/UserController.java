@@ -1,5 +1,6 @@
 package global.sesoc.jazart.controller;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
@@ -9,7 +10,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import global.sesoc.jazart.dao.ChartRepository;
 import global.sesoc.jazart.dao.UserRepository;
-import global.sesoc.jazart.utility.FileService;
+import global.sesoc.jazart.utility.FileService2;
 import global.sesoc.jazart.utility.PageNavigator;
 import global.sesoc.jazart.utility.SendMailTest;
 import global.sesoc.jazart.vo.SongInfo;
@@ -102,14 +102,20 @@ public class UserController {
 	@RequestMapping(value = "join", method = RequestMethod.POST)
 	public String join(User user, MultipartFile upload) {
 		String userName = user.getUser_nickname();
-		String type = "u_";
 
+		File profileData = new File(uploadPath);
+		if (!profileData.exists()) {
+			profileData.mkdir();
+		}
+		
 		// 첨부된 파일을 처리
 		if (!upload.isEmpty()) {
-			String savedfile = FileService.saveFile(upload, uploadPath, type);
-			user.setUser_picture(savedfile);
+			String savedfile = FileService2.saveFile(upload, uploadPath);
+			user.setUser_picture(upload.getOriginalFilename());
+			user.setUser_savedpic(savedfile);
 		} else {
 			user.setUser_picture("default.png");
+			user.setUser_savedpic("default.png");
 		}
 		ur.regist(user);
 		return "redirect:/";

@@ -7,7 +7,7 @@
 <mapper namespace="global.sesoc.jazart.dao.UserMapper">
 	<insert id="insert" parameterType="User">
 		insert into userinfo
-		values(#{user_id}, #{user_pw}, #{user_picture},
+		values(#{user_id}, #{user_pw}, #{user_picture}, #{user_savedpic}, 
 		#{user_nickname},
 		#{user_phone}, #{user_email}, #{user_desc})
 	</insert>

@@ -36,15 +36,11 @@ scalable=no">
 <link rel="stylesheet" type="text/css"
 	href="resources/components/soundmanager/templates/qtradio-player/css/flashblock.css" />
 <link rel="stylesheet" type="text/css"
-	href="resources/components/soundmanager/templates/qtradio-player/css/qt-360player-
-
-volume.css" />
+	href="resources/components/soundmanager/templates/qtradio-player/css/qt-360player-volume.css" />
 
 <!-- Main css file -->
 <link rel="stylesheet" href="resources/css/qt-main.css">
-<!-- INCLUDES THE CHOSEN FRAMEWORK VIA #IMPORT AND SASS 
-
--->
+<!-- INCLUDES THE CHOSEN FRAMEWORK VIA #IMPORT AND SASS -->
 
 <!-- Custom typography settings and google fonts -->
 <link rel="stylesheet" href="resources/css/qt-typography.css">
@@ -83,11 +79,34 @@ volume.css" />
 	border: 1px solid #777;
 }
 </style>
-
 <!-- 내가 쓴 코드 -->
 <script src="resources/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
 	var userData;
+	$(function() {
+		$('#fileTag1').change(function() {
+			var fileName = $(this).val();
+			var fileCount = $(this).get(0).files.length;
+			var file = document.getElementById('fileTag1');
+			var fileList = file.files ;
+
+			if ($(this).get(0).files.length == 1) {
+				 // 읽기
+			    var reader = new FileReader();
+			    //로드 한 후
+			    reader.onload = function  () {
+			    	document.getElementById('albumart').src = reader.result ;
+			    };
+			    reader.readAsDataURL(fileList [0]);
+				
+				var output = fileName.split('\\').pop();
+				$('#fileRoot1').val(output);
+			} else {
+				$('#fileRoot1').val('파일 ' + fileCount + '개');
+			}
+		});
+	})
+
 	function check() {
 		var id = $("#user_id").val();
 		var pw = $("#user_pw").val();
@@ -138,6 +157,23 @@ volume.css" />
 		var formdata = $("#joinForm");
 		formdata.submit();
 	}
+	
+	function uploadPic() {
+		var songPic = $('#songPic');
+		var PicData = new FormData(songPic);
+			
+		$.ajax({
+			url: "saveSongPic",
+			type: 'post',
+			processData: false,
+            contentType: false,
+            data: PicData,
+			success: function(result){
+				alert('사진업로드 성공! '+result);
+			}
+		});
+	}
+	
 </script>
 </head>
 <body>
@@ -312,8 +348,15 @@ play"></i></a></li>
 												<h3>write down below</h3>
 												<br>
 												<div class="row">
+													<table border="1">
+														<tr><td rowspan="4">1</td><td>1</td></tr>
+														<tr><td>1</td></tr>
+														<tr><td>1</td></tr>
+														<tr><td>1</td></tr>
+														<tr><td colspan="2">1</td></tr>
+													</table>
 													<div class="input-field col s6">
-														<label>ID</label> <input name="user_id" id="user_id"
+														<label>ID</label><input name="user_id" id="user_id"
 															type="text" class="validate" required>
 													</div>
 													<div class="input-field col s6">
@@ -330,8 +373,8 @@ play"></i></a></li>
 
 												<div class="row">
 													<div class="file_input">
-														<label> File Attach <input type="file"
-															name="upload" class="upload">
+														<label> File Attach <input type="file" id="songPic"
+															name="upload" class="upload" onchange="uploadPic()">
 														</label> <input type="text" id="fileRoot" readonly="readonly"
 															style="width: 120px;" title="File Route">
 													</div>
@@ -353,8 +396,7 @@ play"></i></a></li>
 													<div class="input-field col s12">
 														<label>Comment</label>
 														<p class="comment-form-comment">
-															<textarea id="user_desc" placeholder="comment"
-																name="user_desc" aria-required="true"
+															<textarea id="user_desc" name="user_desc" aria-required="true"
 																style="height: 130px; resize: none;" required></textarea>
 														</p>
 													</div>

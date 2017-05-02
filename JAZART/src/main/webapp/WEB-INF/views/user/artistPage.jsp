@@ -204,7 +204,7 @@
 						</div>
 						<div class="col s12 m12 l8">
 							<div class="qt-the-content">
-								<img src="download?type=user&data=${user.user_picture}" alt="Header image" width="300" height="400" class="qt-img-responsive">
+								<img src="download?type=user&data=${user.user_id}" alt="Header image" width="300" height="400" class="qt-img-responsive">
 								<!-- POST CONTENT ========================= -->
 								<p></p>
 								<table>

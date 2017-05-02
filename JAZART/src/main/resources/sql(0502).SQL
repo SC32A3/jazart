@@ -4,21 +4,16 @@ create user jazart identified by jazart32 default tablespace jazart;
 grant create session, create table, create sequence, resource to jazart;
 commit;
 
-
-
 /* Drop Tables */
 
-DROP TABLE boardreply CASCADE CONSTRAINTS;
 DROP TABLE boardreply_like CASCADE CONSTRAINTS;
+DROP TABLE boardreply CASCADE CONSTRAINTS;
 DROP TABLE board CASCADE CONSTRAINTS;
 DROP TABLE InstEdit CASCADE CONSTRAINTS;
-DROP TABLE Instrument_detail CASCADE CONSTRAINTS;
-DROP TABLE Instrument CASCADE CONSTRAINTS;
 DROP TABLE playlist CASCADE CONSTRAINTS;
-DROP TABLE SongEdit CASCADE CONSTRAINTS;
 DROP TABLE songlike CASCADE CONSTRAINTS;
-DROP TABLE songreply CASCADE CONSTRAINTS;
 DROP TABLE songreply_like CASCADE CONSTRAINTS;
+DROP TABLE songreply CASCADE CONSTRAINTS;
 DROP TABLE userlist CASCADE CONSTRAINTS;
 DROP TABLE songinfo CASCADE CONSTRAINTS;
 DROP TABLE userinfo CASCADE CONSTRAINTS;
@@ -38,7 +33,7 @@ CREATE TABLE board
 	board_title varchar2(100) NOT NULL,
 	board_content nvarchar2(2000) NOT NULL,
 	board_inputdate date DEFAULT SYSDATE,
-	-- 조회수	
+	-- 조회수
 	board_hits number DEFAULT 0,
 	PRIMARY KEY (boardnum)
 );
@@ -58,6 +53,7 @@ CREATE TABLE boardreply
 	PRIMARY KEY (replynum)
 );
 
+
 CREATE TABLE boardreply_like
 (
 	blike_seq number NOT NULL,
@@ -66,37 +62,19 @@ CREATE TABLE boardreply_like
 	PRIMARY KEY (blike_seq)
 );
 
+
 CREATE TABLE InstEdit
 (
 	instedit_seq number NOT NULL,
 	-- 길이수정예정
-	Instrument varchar2(30) NOT NULL,
+	file_name varchar2(30) NOT NULL,
 	-- 길이수정예정
-	Inst_Key varchar2(30) NOT NULL,
-	Inst_Seq number NOT NULL,
+	track varchar2(30) NOT NULL,
+	note_seq number NOT NULL,
 	-- 곡일련번호
 	songnum number NOT NULL,
 	listnum number NOT NULL,
-	PRIMARY KEY (inst_seq)
-);
-
-
-CREATE TABLE Instrument
-(
-	-- 길이수정예정
-	Instrument varchar2(30) NOT NULL,
-	-- 길이수정예정
-	Inst_Type varchar2(30) NOT NULL,
-	Inst_Genre varchar2(20) NOT NULL,
-	PRIMARY KEY (Instrument)
-);
-
-
-CREATE TABLE Instrument_detail
-(
-	-- 길이수정예정
-	Instrument varchar2(30) NOT NULL,
-	Inst_Key varchar2(20)
+	PRIMARY KEY (instedit_seq)
 );
 
 
@@ -110,41 +88,28 @@ CREATE TABLE playlist
 );
 
 
-CREATE TABLE SongEdit
-(
-	songedit_seq number NOT NULL,
-	-- 길이수정예정
-	Melody_Key varchar2(30) NOT NULL,
-	Song_Seq number NOT NULL,
-	-- 곡일련번호
-	songnum number NOT NULL,
-	listnum number NOT NULL,
-	PRIMARY KEY (songedit_seq)
-);
-
-
 CREATE TABLE songinfo
 (
 	-- 곡일련번호
 	songnum number NOT NULL,
-	-- 아티스트명
 	song_nickname varchar2(30),
 	-- 곡프로필사진
 	song_picture varchar2(30) DEFAULT 'default.png',
+	song_savedpic varchar2(60) DEFAULT 'default.png',
 	-- 곡제목
 	song_title varchar2(100) NOT NULL,
 	-- 곡설명
 	song_desc varchar2(2000),
 	-- 수록MP3파일
 	song_file varchar2(20) NOT NULL,
+	song_savedfile varchar2(60),
 	-- 곡등록날짜
 	song_inputdate date DEFAULT SYSDATE,
 	-- 곡추천수
 	song_like number DEFAULT 0,
 	-- 곡의 장르
 	song_genre varchar2(20),
-	song_complete varchar2(6),
-  CONSTRAINT complete_ck CHECK (song_complete='y' or song_complete='n'),
+	song_complete varchar2(6) CHECK (song_complete='y' or song_complete='n'),
 	PRIMARY KEY (songnum)
 );
 
@@ -176,6 +141,7 @@ CREATE TABLE songreply
 	PRIMARY KEY (replynum)
 );
 
+
 CREATE TABLE songreply_like
 (
 	slike_seq number NOT NULL,
@@ -183,6 +149,7 @@ CREATE TABLE songreply_like
 	slike_nickname varchar2(30),
 	PRIMARY KEY (slike_seq)
 );
+
 
 CREATE TABLE userinfo
 (
@@ -192,6 +159,7 @@ CREATE TABLE userinfo
 	user_pw varchar2(30) NOT NULL,
 	-- 프로필사진
 	user_picture varchar2(30) NOT NULL,
+	user_savedpic varchar2(60),
 	-- 아티스트명
 	user_nickname varchar2(30) NOT NULL UNIQUE,
 	-- 전화번호
@@ -201,15 +169,6 @@ CREATE TABLE userinfo
 	-- 자기소개
 	user_desc varchar2(2000),
 	PRIMARY KEY (user_id)
-);
-CREATE TABLE Loop
-(
-	--루프장르
-	Loop_Genre varchar2(20) NOT NULL,
-	--루프의넘버 
-	Loop_num number(3) NOT NULL,
-	--루프의 종류(Beat,Bass,Pad)
-	Loop_Type varchar2(20) NOT NULL
 );
 
 
@@ -221,12 +180,15 @@ CREATE TABLE userlist
 	-- 곡일련번호
 	songnum number NOT NULL,
 	-- 길이수정예정
-	Inst_file varchar2(30),
+	file_type varchar2(30),
 	-- 길이수정예정
-	Melody_file varchar2(30),
+	file_original varchar2(30),
+	file_saved varchar2(60),
 	PRIMARY KEY (listnum),
 	UNIQUE (user_id, songnum)
 );
+
+
 
 /* Create Foreign Keys */
 
@@ -235,14 +197,10 @@ ALTER TABLE boardreply
 	REFERENCES board (boardnum)
 ;
 
+
 ALTER TABLE boardreply_like
 	ADD FOREIGN KEY (replynum)
 	REFERENCES boardreply (replynum)
-;
-
-ALTER TABLE Instrument_detail
-	ADD FOREIGN KEY (Instrument)
-	REFERENCES Instrument (Instrument)
 ;
 
 
@@ -253,12 +211,6 @@ ALTER TABLE InstEdit
 
 
 ALTER TABLE playlist
-	ADD FOREIGN KEY (songnum)
-	REFERENCES songinfo (songnum)
-;
-
-
-ALTER TABLE SongEdit
 	ADD FOREIGN KEY (songnum)
 	REFERENCES songinfo (songnum)
 ;
@@ -282,6 +234,12 @@ ALTER TABLE userlist
 ;
 
 
+ALTER TABLE songreply_like
+	ADD FOREIGN KEY (replynum)
+	REFERENCES songreply (replynum)
+;
+
+
 ALTER TABLE playlist
 	ADD FOREIGN KEY (user_id)
 	REFERENCES userinfo (user_id)
@@ -298,59 +256,6 @@ ALTER TABLE InstEdit
 	ADD FOREIGN KEY (listnum)
 	REFERENCES userlist (listnum)
 ;
-
-
-ALTER TABLE SongEdit
-	ADD FOREIGN KEY (listnum)
-	REFERENCES userlist (listnum)
-;
-
-ALTER TABLE songreply_like
-	ADD FOREIGN KEY (replynum)
-	REFERENCES songreply (replynum)
-;
-
-create sequence songinfo_seq;
-create sequence songreply_seq;
-create sequence boardreply_seq;
-create sequence board_seq;
-create sequence list_seq;
-create sequence instedit_seq;
-create sequence songedit_seq;
-create sequence slike_seq;
-create sequence blike_seq;
-create sequence like_seq;
-
-
-----------------------------------------------------------------------------------------------------------------------
-insert into userinfo values('apple2', '1111', 'defalut.jpg', 'apple', '010-2020-1020', 'apple2@naver.com' '안녕하세요, 사과입니다. 충주에서 왔습니다');
-
-insert into songinfo values(songinfo_seq.nextval, 'apple', 'cat2.jpg', '사과송', '충주사과 홍보곡', 'x', sysdate, 0, 50, '4/4', 'hiphop', 'd');
-insert into songinfo values(songinfo_seq.nextval, 'apple', 'seo.jpg', '사과좋아', '국민가수 사과맨의 컴백곡', 'x', sysdate, 0, 60, '3/4', 'ballad');
-insert into songinfo values(songinfo_seq.nextval, 'apple', 'seo.jpg', '사과만세', '그가 돌아왔다 사과맨', 'x', sysdate, 0, 70, '3/4', 'jazz');
-insert into songinfo values(songinfo_seq.nextval, 'test', 'seo.jpg', 'testrock', 'rockrockrockrock', 'Angry Angst Long.mp3', sysdate, 0, 'rock');
-
-insert into board values(board_seq.nextval, 'x', 'banzzogari', '피처링 구해요', '피쳐링해주실분을 찾고 있습니다', sysdate, 1);
-insert into board values(board_seq.nextval, 'x', 'banzzogari', '안녕하세요', '피쳐링해주실분을 찾고 있습니다', sysdate, 1);
-
-insert into songreply values(songreply_seq.nextval, 'banana', '안녕', sysdate, 0, 21);
-insert into songreply values(songreply_seq.nextval, 'banana', '나는', sysdate, 0, 21);
-insert into songreply values(songreply_seq.nextval, 'banana', '바나나야', sysdate, 0, 21);
-select * from songreply;
-delete songreply where replynum = #{replynum}
-update songreply set reply_like = reply_like+1 where replynum = #{replynum};
-
-insert into boardreply values(boardreply_seq.nextval, 'banana', '안녕', sysdate, 0, 41);
-insert into boardreply values(boardreply_seq.nextval, 'banana', '나는', sysdate, 0, 41);
-insert into boardreply values(boardreply_seq.nextval, 'banana', '바나나야', sysdate, 0, 41);
-select * from boardreply where boardnum = 41;
--------------------------------------------------------------------------------------------------------------------------------
-select * from userinfo;
-select * from board;
-
-select count(user_id) from userinfo where user_id = 'x';
-select count(user_nickname) from userinfo where user_nickname = 'x';
-select count(user_email) from userinfo where user_email = 'bj@nae.com';
 
 update songinfo set song_like = song_like+1 where songnum = #{songnum}
 
@@ -415,4 +320,5 @@ b) where rnum between #{start} and #{end}
   select info.songnum, info.song_title, info.song_picture, info.song_nickname, info.song_file from playlist list, songinfo info
   		where list.songnum = info.songnum and list.user_id = #{userId}
   		
- alter table songinfo add (complete varchar(3) constraint songinfo_complete_ck check(complete='Y' or complete='N')) 		
+ alter table songinfo add (complete varchar(3) constraint songinfo_complete_ck check(complete='Y' or complete='N')) 	
+

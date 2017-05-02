@@ -218,27 +218,32 @@ img.clipImg {
 		});
 	});
 	
-	function uploadPic() {
-		alert('uploadPic');
-		var songPic = $('#songPic');
-		var PicData = new FormData(songPic);
-		
-		$.ajax({
-			url: "saveSongPic",
-			type: 'post',
-			 processData: false,
-             contentType: false,
-             data: PicData,
-			success: function(result){
-				alert(result);
-			}
-		});
-			// 여기까지는 ajax와 같다. 하지만 아래의 submit명령을 추가하지 않으면 백날 실행해봤자 액션이 실행되지 않는다.
+	function uploadPic(resp) {
+		if (resp == 0) {
+			alert('동일한 작곡명이 있습니다');
+		} else {
+			alert('성공! '+resp);
+			$('#songnum').val(resp);
+			var songPic = $('#songPic');
+			var PicData = new FormData(songPic);
+			
+			$.ajax({
+				url: "saveSongPic",
+				type: 'post',
+				processData: false,
+	            contentType: false,
+	            data: PicData,
+				success: function(result){
+					alert('사진업로드 성공! '+result);
+				}
+			});
+		}
 	}
 </script>
 </head>
 <body>
 	<input type="hidden" id="recordFlag" value="record"> <!-- 레코딩쪽 css용 hidden-->
+	<input type="hidden" id="songnum" value=""> <!-- 레코딩쪽 css용 hidden-->
 	<!-- QT HEADER END ================================ -->
 
 	<div class="qt-parentcontainer">

@@ -95,7 +95,7 @@
 					<div class="qt-musicplayer">
 						<div class="ui360 ui360-vis qt-ui360">
 							<a id="playerlink"
-								href="download?type=music&data=${playlist[0].song_file}"></a>
+								href="download?type=music&data=${playlist[0].songnum}"></a>
 							<!-- <a id="playerlink"
 								href="http://freshly-ground.com/data/audio/sm2/Adrian%20Glynn%20-%20Blue%20Belle%20Lament.mp3"> -->
 						</div>

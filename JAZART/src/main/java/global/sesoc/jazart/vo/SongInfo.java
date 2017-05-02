@@ -4,15 +4,17 @@ public class SongInfo {
 	private int songnum;
 	private String song_nickname;
 	private String song_picture;
+	private String song_savedpic;
 	private String song_title;
+	
 	private String song_desc;
 	private String song_file;
+	private String song_savedfile;
 	private String song_inputdate;
 	private int song_like;
-	private int bpm;
-	private String beat;
+
 	private String song_genre;
-	private String complete;
+	private String song_complete;
 
 	public SongInfo() {
 	}
@@ -41,6 +43,14 @@ public class SongInfo {
 		this.song_picture = song_picture;
 	}
 
+	public String getSong_savedpic() {
+		return song_savedpic;
+	}
+
+	public void setSong_savedpic(String song_savedpic) {
+		this.song_savedpic = song_savedpic;
+	}
+
 	public String getSong_title() {
 		return song_title;
 	}
@@ -65,6 +75,14 @@ public class SongInfo {
 		this.song_file = song_file;
 	}
 
+	public String getSong_savedfile() {
+		return song_savedfile;
+	}
+
+	public void setSong_savedfile(String song_savedfile) {
+		this.song_savedfile = song_savedfile;
+	}
+
 	public String getSong_inputdate() {
 		return song_inputdate;
 	}
@@ -81,22 +99,6 @@ public class SongInfo {
 		this.song_like = song_like;
 	}
 
-	public int getBpm() {
-		return bpm;
-	}
-
-	public void setBpm(int bpm) {
-		this.bpm = bpm;
-	}
-
-	public String getBeat() {
-		return beat;
-	}
-
-	public void setBeat(String beat) {
-		this.beat = beat;
-	}
-
 	public String getSong_genre() {
 		return song_genre;
 	}
@@ -105,19 +107,21 @@ public class SongInfo {
 		this.song_genre = song_genre;
 	}
 
-	public String getComplete() {
-		return complete;
+	public String getSong_complete() {
+		return song_complete;
 	}
 
-	public void setComplete(String complete) {
-		this.complete = complete;
+	public void setSong_complete(String song_complete) {
+		this.song_complete = song_complete;
 	}
 
 	@Override
 	public String toString() {
 		return "SongInfo [songnum=" + songnum + ", song_nickname=" + song_nickname + ", song_picture=" + song_picture
-				+ ", song_title=" + song_title + ", song_desc=" + song_desc + ", song_file=" + song_file
-				+ ", song_inputdate=" + song_inputdate + ", song_like=" + song_like + ", bpm=" + bpm + ", beat=" + beat
-				+ ", song_genre=" + song_genre + ", complete=" + complete + "]";
+				+ ", song_savedpic=" + song_savedpic + ", song_title=" + song_title + ", song_desc=" + song_desc
+				+ ", song_file=" + song_file + ", song_savedfile=" + song_savedfile + ", song_inputdate="
+				+ song_inputdate + ", song_like=" + song_like + ", song_genre=" + song_genre + ", song_complete="
+				+ song_complete + "]";
 	}
+	
 }

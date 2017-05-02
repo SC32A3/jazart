@@ -31,4 +31,8 @@ public interface SongMapper {
 
    int insertSongInfo(SongInfo songinfo) throws Exception;
 
+   int selectSongByName(String loginNickname, String song_title) throws Exception;
+
+   int getSongnum(String song_title) throws Exception;
+
 }
