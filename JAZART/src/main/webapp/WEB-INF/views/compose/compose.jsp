@@ -451,8 +451,9 @@ img.clipImg {
 										<div id="songinfo" class="row">
 											<table>
 												<tr>
-													<th class="album" rowspan="2" style="width: 250px; height: 250px;"><img
-														id="albumart" class="albumart" src="images/default.png" /></th>
+													<th class="album" rowspan="2" style="width: 250px; height: 250px;">
+																								
+														<img id="albumart" class="albumart" src="images/default.png" /></th>
 													<th class="title">곡 명</th>
 													<td><input type="text" id="song_title"></td>
 												</tr>
