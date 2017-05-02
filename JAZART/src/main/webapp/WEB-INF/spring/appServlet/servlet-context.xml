@@ -19,7 +19,7 @@
 	<resources mapping="/src/**" location="/src/" />
 	<resources mapping="/assets/**" location="/assets/" />
 	<resources mapping="/bin/**" location="/bin/" />
-	
+
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
@@ -40,6 +40,8 @@
 		<interceptor>
 			<mapping path="/boardRead" />
 			<mapping path="/recommend" />
+			<mapping path="/boardWrite" />
+			<mapping path="/question" />
 			<!-- 위에 맵핑된 경로들을 컨트롤러에 요청할때 빈을 요청한후 실행시킨다 -->
 			<beans:ref bean="LoginInterceptor" />
 		</interceptor>
