@@ -130,17 +130,18 @@ public class SongRepository {
 		int result = 0;
 		try {
 			result = mapper.selectSongByName(loginNickname, song_title);
+			logger.info("곡유무 Count=> "+result);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
 
-	public int getSongnum(String song_title) {
+	public int getSongnum(String loginNickname, String song_title) {
 		SongMapper mapper = sqlSession.getMapper(SongMapper.class);
 		int songnum = 0;
 		try {
-			songnum = mapper.getSongnum(song_title);
+			songnum = mapper.getSongnum(loginNickname, song_title);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

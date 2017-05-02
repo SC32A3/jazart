@@ -33,6 +33,6 @@ public interface SongMapper {
 
    int selectSongByName(String loginNickname, String song_title) throws Exception;
 
-   int getSongnum(String song_title) throws Exception;
+   int getSongnum(String loginNickname, String song_title) throws Exception;
 
 }

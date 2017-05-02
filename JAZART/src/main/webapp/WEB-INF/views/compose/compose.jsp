@@ -170,7 +170,7 @@ img.clipImg {
 				url: 'saveSonginfo',
 				type: 'post',
 				data: songinfo,
-				success : uploadPic()
+				success : uploadPic
 			});
 		})
 		
@@ -473,7 +473,7 @@ img.clipImg {
 												</tr>
 												<tr>
 													<th>
-														<form action="songPic" id="songPic" method="post" enctype="multipart/form-data">
+														<form id="songPic" method="post" enctype="multipart/form-data">
 														<div class="file_input" id="input2">
 															<label> File Attach <input type="file" id="fileTag1"
 																name="upload1" class="albumart">

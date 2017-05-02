@@ -39,13 +39,14 @@
       insert into songlike values(like_seq.nextval, #{1}, sysdate, #{0})
    </insert>
    <insert id="insertSongInfo" parameterType="SongInfo">
-   	insert into songinfo values(songinfo_seq.nextval, #{song_nickname}, 'default.png', #{song_title}, #{song_desc}, 'x', sysdate, 0, #{song_genre}, 'n')
+   	insert into songinfo values(songinfo_seq.nextval, #{song_nickname}, 'default.png', 'default.png', 
+   	 #{song_title}, #{song_desc}, 'x', 'x', sysdate, 0, #{song_genre}, 'n')
    </insert>
    <select id="selectSongByName" resultType="int">
 	  select count(*) from songinfo where song_nickname = #{0} and song_title = #{1}  
    </select>
-   <select id="getSongnum" resultType="int" parameterType="String">
-	  select songnum from songinfo where song_title = #{song_title}  
+   <select id="getSongnum" resultType="int">
+	  select songnum from songinfo where song_nickname = #{0} and song_title = #{1}  
    </select>
    
 </mapper>
