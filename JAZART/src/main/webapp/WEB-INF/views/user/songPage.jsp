@@ -43,17 +43,88 @@
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 
 <style type="text/css">
-.albumart {
+.replyArea {
+	width: auto;
 	margin: 0 auto;
 }
 
-.albumart img {
-	width: 80%;
-	height: 80%;
-	display: inline;
+input[type=button] {
+	background-color: ghostwhite;
+	margin: 0 2px;
+	padding: 5px;
+	line-height: 1.0rem;
+	font-size: 14px;
 }
 
-.joinBox {
+.tdName {
+	width: 100px;
+	text-align: center;
+}
+
+.tdText {
+	width: 400px;
+	text-align: left;
+	word-break: break-all;
+}
+
+.tdDate {
+	width: 100px;
+}
+
+.tdLike {
+	width: 70px;
+}
+
+.tdBtn {
+	width: 150px;
+}
+
+.qt-btn.qt-btn-l, input[type="button"].qt-btn-l {
+	line-height: 2rem;
+	font-size: 1.414rem;
+	padding: 0 0.7rem;
+	min-width: 4rem;
+}
+
+.bContent {
+	font-size: 20px;
+	font-weight: bold;
+	font-family: 'Khand', sans-serif;
+	clear: both;
+	margin-bottom: 10px;
+}
+
+p.bContent b {
+	position: relative;
+	display: block;
+}
+
+p.bContent b:after {
+	position: absolute;
+	content: "";
+	width: 60px;
+	height: 1px;
+	background: #ffd736;
+	left: 0;
+	bottom: -1px;
+}
+
+.contentBrg {
+	background-color: antiquewhite;
+	padding: 10px;
+}
+
+.qt-spacer-m {
+	margin-top: 1rem;
+}
+
+.btns {
+	display: inline-block;
+	text-align: center;
+}
+
+
+table,th{
 	text-align: center;
 }
 </style>
@@ -110,31 +181,36 @@
 		var replyArea = $("#replyArea").val();
 		$('#replyArea').empty(); //기존 화면상 데이터 삭제
 
-		var msg = '<table>';
-		msg = '<tr><th>ID</th><th>Text</th><th>Date</th><th>Like</th><th></th></tr>';
-		$
-				.each(
-						resp,
-						function(index, item) {
-							msg += "<tr>";
-							msg += "<td class='tdNum'>" + item.reply_nickname
-									+ "</td>";
-							msg += "<td class='tdName' id='"+item.replynum+"_name'><span id='"+item.replynum+"_span1'>"
-									+ item.reply_text + "</span></td>";
-							msg += "<td class='tdText' id='"+item.replynum+"_text'>"
-									+ item.reply_inputdate + "</td>";
-							msg += "<td>" + item.reply_like + "</td>";
-							if (item.reply_nickname == loginNickname) {
-								msg += "<td class='tdBtn'><span id='"+item.replynum+"_span2'><input type='button' value='삭제' class='del' data-num='"+item.replynum+"'>";
-								msg += "<input type='button' value='수정' class='upd' data-num='"+item.replynum+"'>";
-								msg += "<input type='button' value='추천' class='rec' data-num='"+item.replynum+"'></span></td>";
-							} else {
-								msg += "<td><input type='button' value='추천' class='rec' data-num='"+item.replynum+"'></td>";
-							}
-							msg += "</tr>";
-							//data-num : js, jquery에서 쓰는 사용자 정의 속성, 고유의 번호를 갖기 위해 존재
-							//class : 등록버튼과 다르게 공통된 삭제버튼들에게 이벤트를 부여하기 위해 존재, css 입힐 때도 사용
-						})
+		var msg = '<table style= "background-color: #fce4ec;">';
+		if (resp == "") {
+			msg += '<tr><td>저장된 댓글이 없습니다</td></tr>'
+		} else {
+			msg += '<tr><th>ID</th><th style="width: 400px;">Text</th><th>Date</th><th>Like</th><th></th></tr>';
+			$
+					.each(
+							resp,
+							function(index, item) {
+								msg += "<tr>";
+								msg += "<td class='tdName'>"
+										+ item.reply_nickname + "</td>";
+								msg += "<td class='tdText' id='"+item.replynum+"_name'><span id='"+item.replynum+"_span1'>"
+										+ item.reply_text + "</span></td>";
+								msg += "<td class='tdDate' id='"+item.replynum+"_text'>"
+										+ item.reply_inputdate + "</td>";
+								msg += "<td class='tdLike'>" + item.reply_like
+										+ "</td>";
+								if (item.reply_nickname == loginNickname) {
+									msg += "<td class='tdBtn'><span id='"+item.replynum+"_span2'><input type='button' value='삭제' class='del' data-num='"+item.replynum+"'>";
+									msg += "<input type='button' value='수정' class='upd' data-num='"+item.replynum+"'>";
+									msg += "<input type='button' value='추천' class='rec' data-num='"+item.replynum+"'></span></td>";
+								} else {
+									msg += "<td><input type='button' value='추천' class='rec' data-num='"+item.replynum+"'></td>";
+								}
+								msg += "</tr>";
+								//data-num : js, jquery에서 쓰는 사용자 정의 속성, 고유의 번호를 갖기 위해 존재
+								//class : 등록버튼과 다르게 공통된 삭제버튼들에게 이벤트를 부여하기 위해 존재, css 입힐 때도 사용
+							})
+		}
 		msg += '</table>'
 		$('#replyArea').html(msg);
 
@@ -142,7 +218,6 @@
 		$("input:button.rec").on("click", replyRec);
 		$("input:button.upd").on("click", replyUpd);
 	}
-
 	function replyUpd() {
 		var num = $(this).attr("data-num"); //this : 호출한 버튼 'input'객체
 		$("#" + num + "_span1")
@@ -391,7 +466,7 @@ play"></i></a></li>
 														name="artist" id="artist" type="text" class="validate"
 														required value="${song.song_nickname}" readonly="readonly"></td>
 												</tr>
-										
+
 												<tr>
 													<td class="input-field col s12"><label>날짜</label> <input
 														name="user_nickname" id="user_nickname" type="text"
@@ -401,12 +476,13 @@ play"></i></a></li>
 												<tr>
 													<td class="input-field col s12"><label>추천수</label> <input
 														name="user_email" id="user_email" type="email"
-														class="validate" required value="${song.song_like}" readonly="readonly"></td>
+														class="validate" required value="${song.song_like}"
+														readonly="readonly"></td>
 												</tr>
 												<tr>
 													<td colspan="2"><label>곡소개</label>
 														<p class="comment-form-comment">
-															<textarea aria-required="true"
+															<textarea aria-required="true" 
 																style="height: 130px; resize: none;" required
 																readonly="readonly">${song.song_desc}
 																		</textarea>
@@ -417,18 +493,18 @@ play"></i></a></li>
 												<h4 id="reply-title" class="comment-reply-title">Leave
 													a Reply</h4>
 												<p class="comment-form-comment">
-													<textarea id="comment" placeholder="Comment *"
-														name="comment" cols="45" aria-required="true"
-														required="required"></textarea>
-												</p>
-												<p class="form-submit">
-													<input name="leaveReply" type="button" id="leaveReply"
-														class="qt-btn qt-btn-primary" value="Post Comment">
+													<input style="width: 520px;" name="comment" id="comment"
+														type="text" class="validate qt-input-s"> <input
+														name="leaveReply" type="button" id="leaveReply"
+														class="form-submit qt-btn qt-btn-primary"
+														value="Post Comment">
 												</p>
 											</div>
-											<div id="replyArea"></div>
-										</div>
+											<div class="qt-the-content">
+												<div id="replyArea" class="replyArea"></div>
 
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>

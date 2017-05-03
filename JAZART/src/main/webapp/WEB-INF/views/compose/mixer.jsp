@@ -4,7 +4,7 @@
 	<title>Jazart</title>
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, user-scalable=no"/>
-	<link rel="stylesheet" href="bin/gs-daw.min.css"/>
+	<link rel="stylesheet" href="bin/gs-daw.min2.css"/>
 	<script>function lg( a ) { return console.log.apply( console, arguments ), a; }</script>
 </head>
 <body>
@@ -20,7 +20,7 @@
 		result.push(toArray[i]);
 	}				
 </script>
-<script src="bin/gs-daw2.js"></script>
+<script src="bin/gs-daw3.js"></script>
 <!-- -->
 
 <!-- Development - ->

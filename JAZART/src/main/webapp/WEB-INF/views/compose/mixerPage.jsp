@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -10,31 +10,31 @@
 <title>Jazart</title>
 <meta name="description" content="Radio station HTML template">
 <meta name="viewport"
-   content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <!-- icons -->
 <link href='resources/fonts/dripicons/webfont.css' rel='stylesheet'
-   type='text/css'>
+	type='text/css'>
 <link href='resources/fonts/qticons/qticons.css' rel='stylesheet'
-   type='text/css'>
+	type='text/css'>
 
 <!-- slick slider -->
 <link href='resources/components/slick/slick.css' rel='stylesheet'
-   type='text/css'>
+	type='text/css'>
 
 <!-- swipebox -->
 <link href='resources/components/swipebox/src/css/swipebox.min.css'
-   rel='stylesheet' type='text/css'>
+	rel='stylesheet' type='text/css'>
 
 <!-- countdown component -->
 <link rel="stylesheet" type="text/css"
-   href="resources/components/countdown/css/jquery.classycountdown.css" />
+	href="resources/components/countdown/css/jquery.classycountdown.css" />
 
 <!-- QT 360 PLAYER component -->
 <link rel="stylesheet" type="text/css"
-   href="resources/components/soundmanager/templates/qtradio-player/css/flashblock.css" />
+	href="resources/components/soundmanager/templates/qtradio-player/css/flashblock.css" />
 <link rel="stylesheet" type="text/css"
-   href="resources/components/soundmanager/templates/qtradio-player/css/qt-360player-volume.css" />
+	href="resources/components/soundmanager/templates/qtradio-player/css/qt-360player-volume.css" />
 
 <!-- Main css file -->
 <link rel="stylesheet" href="resources/css/qt-main.css">
@@ -51,12 +51,76 @@
 
 <script src="resources/jquery-3.1.1.min.js"></script>
 <script type="text/javascript"></script>
-<link rel="manifest" href="manifest.json"/>
-<link rel="shortcut icon" href="assets/favicon.png"/>
-<script>function lg( a ) { return console.log.apply( console, arguments ), a; }</script>
+<link rel="manifest" href="manifest.json" />
+<link rel="shortcut icon" href="assets/favicon.png" />
+<script>
+	function lg(a) {
+		return console.log.apply(console, arguments), a;
+	}
+</script>
+<style type="text/css">
+div#input2 {
+	text-align: center;
+}
+
+.file_input label {
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: middle;
+	overflow: hidden;
+	width: 100px;
+	height: 30px;
+	background: #ff8080;
+	color: #fff;
+	text-align: center;
+	line-height: 30px;
+	font-size: 12px;
+}
+
+.file_input label input {
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+.file_input input[type=text] {
+	vertical-align: middle;
+	display: inline-block;
+	width: 400px;
+	height: 28px;
+	line-height: 28px;
+	font-size: 11px;
+	margin: 0;
+	border: 1px solid #777;
+}
+
+audio {
+	width: 50%;
+	margin-top: 4px;
+	display: block;
+	float: left;
+}
+</style>
+<script type="text/javascript">
+	var files = "";
+	$(function() {
+		$('.file_input input[type=file]').change(function() {
+			var fileName = $(this).val();
+			var fileCount = $(this).get(0).files.length;
+
+			if ($(this).get(0).files.length == 1) {
+				$('.file_input input[type=text]').val(fileName);
+			} else {
+				$('.file_input input[type=text]').val('파일 ' + fileCount + '개');
+			}
+		});
+	});
+</script>
 <style type="text/css">
 .mixer {
-    overflow: scroll;
+	overflow: scroll;
 }
 
 .qt-container {
@@ -66,8 +130,8 @@
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->
-	
-		<div class="qt-parentcontainer">
+
+	<div class="qt-parentcontainer">
 		<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
 			<ul>
@@ -86,7 +150,7 @@
 				</c:if>
 			</ul>
 		</div>
-			<!-- QT MENUBAR  ================================ -->
+		<!-- QT MENUBAR  ================================ -->
 		<nav class="qt-menubar nav-wrapper qt-content-primary ">
 			<!-- desktop menu  HIDDEN IN MOBILE AND TABLETS -->
 			<ul class="qt-desktopmenu hide-on-xl-and-down">
@@ -113,8 +177,8 @@
 						<li><a href="qna">QnA</a></li>
 						<li><a href="question">Question</a></li>
 					</ul></li>
-		
-				
+
+
 				<!-- 플레이리스트 -->
 				<c:if test="${not empty loginNickname}">
 					<li class="right"><a href="songPopup" class="qt-popupwindow"
@@ -122,7 +186,7 @@
 							class="icon dripicons-duplicate"></i>Playlist
 					</a></li>
 				</c:if>
-				
+
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
 			<ul class="qt-desktopmenu hide-on-xl-only ">
@@ -132,12 +196,12 @@
 				<li><a href="#!" class="brand-logo qt-logo-text">jazart</a></li>
 			</ul>
 		</nav>
-<!-- mobile menu -->
+		<!-- mobile menu -->
 		<div id="qt-mobile-menu" class="side-nav qt-content-primary">
 			<ul class=" qt-side-nav">
 				<li><a href="/">jazart<span>♬</span></a></li>
 				<li class="menu-item-has-children"><a href="compose">Compose</a>
-						<ul>
+					<ul>
 						<li><a href="mixing">(test)Mixing Page</a></li>
 						<li><a href="artistPage">(test)Artist Page</a></li>
 					</ul></li>
@@ -160,88 +224,112 @@
 			</ul>
 		</div>
 		<!-- mobile toolbar -->
-      <ul
-         class="qt-mobile-toolbar qt-content-primary-dark qt-content-aside hide-on-large-only">
-         <li><a href="#!" data-expandable="#qtsearchbar"
-            class="qt-scrolltop"><i class="icon dripicons-search"></i></a></li>
-         <li><a href="page-popup.html" class="qt-popupwindow"
-            data-name="Music Player" data-width="320" data-height="500"><i
-               class="icon dripicons-duplicate"></i></a></li>
-         <li><a href="#!" class="button-playlistswitch"
-            data-activates="channelslist"><i
-               class="icon dripicons-media-play"></i></a></li>
-      </ul>
-      <!-- SEARCH FORM ========================= -->
+		<ul
+			class="qt-mobile-toolbar qt-content-primary-dark qt-content-aside hide-on-large-only">
+			<li><a href="#!" data-expandable="#qtsearchbar"
+				class="qt-scrolltop"><i class="icon dripicons-search"></i></a></li>
+			<li><a href="page-popup.html" class="qt-popupwindow"
+				data-name="Music Player" data-width="320" data-height="500"><i
+					class="icon dripicons-duplicate"></i></a></li>
+			<li><a href="#!" class="button-playlistswitch"
+				data-activates="channelslist"><i
+					class="icon dripicons-media-play"></i></a></li>
+		</ul>
+		<!-- SEARCH FORM ========================= -->
 
-      <div id="qtsearchbar"
-         class="qt-searchbar qt-content-primary qt-expandable">
-         <div class="qt-expandable-inner">
-            <form method="post" action="#search" class="qt-inline-form">
-               <div class="row qt-nopadding">
-                  <div class="col s12 m8 l9">
-                     <input placeholder="Search" value="" id="searchtex" type="text"
-                        class="validate qt-input-l">
-                  </div>
-                  <div class="col s12 m3 l2">
-                     <input type="button" value="Search"
-                        class="qt-btn qt-btn-primary qt-btn-l qt-fullwidth">
-                  </div>
-                  <div class="col s12 m1 l1">
-                     <a href="#!"
-                        class="qt-btn qt-btn-l qt-btn-secondary qt-fullwidth aligncenter"
-                        data-expandable="#qtsearchbar"><i class="dripicons-cross"></i></a>
-                  </div>
-               </div>
-            </form>
-         </div>
-      </div>
-      <!-- SEARCH FORM END ========================= -->
-      <div id="maincontent" class="qt-main">
-         <!-- ======================= HEADER SECTION ======================= -->
-         <!-- HEADER MEMBERS ========================= -->
-				<div class="qt-pageheader qt-negative">
-					<div class="qt-container">
-						
-						<h1 class="qt-caption qt-spacer-s">
-							Mixing
-						</h1>
+		<div id="qtsearchbar"
+			class="qt-searchbar qt-content-primary qt-expandable">
+			<div class="qt-expandable-inner">
+				<form method="post" action="#search" class="qt-inline-form">
+					<div class="row qt-nopadding">
+						<div class="col s12 m8 l9">
+							<input placeholder="Search" value="" id="searchtex" type="text"
+								class="validate qt-input-l">
+						</div>
+						<div class="col s12 m3 l2">
+							<input type="button" value="Search"
+								class="qt-btn qt-btn-primary qt-btn-l qt-fullwidth">
+						</div>
+						<div class="col s12 m1 l1">
+							<a href="#!"
+								class="qt-btn qt-btn-l qt-btn-secondary qt-fullwidth aligncenter"
+								data-expandable="#qtsearchbar"><i class="dripicons-cross"></i></a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- SEARCH FORM END ========================= -->
+		<div id="maincontent" class="qt-main">
+			<!-- ======================= HEADER SECTION ======================= -->
+			<!-- HEADER MEMBERS ========================= -->
+			<div class="qt-pageheader qt-negative">
+				<div class="qt-container">
+
+					<h1 class="qt-caption qt-spacer-s">Mixing</h1>
 					<h4 class="qt-subtitle">작곡/편곡</h4>
-					</div>
-					<div class="qt-header-bg" data-bgimage="images/back1.jpg">
-						<img src="images/back1.jpg" alt="Featured image" width="690" height="302">
-					</div>
 				</div>
-				<!-- HEADER MEMBERS END ========================= -->
-         <div class="qt-container qt-vertical-padding-l">
-			<div class="row">
-				<!-- ====================== SECTION BOOKING AND CONTACTS ================================================ -->
-				<div id="booking" class="section qt-section-booking qt-card">
-					<div class="qt-valign-wrapper">
-						<div class="qt-valign flow-text">
-							<div class="qt-booking-form" data-100p-top="opacity:0;"
-								data-80p-top="opacity:0;" data-30p-top="opacity:1;">
-								<ul class="tabs">
-									<li class="tab col s4">
-										<h5>
-											<a href="#mixer" class="active">Mixer</a>
-										</h5>
-									</li>
-								</ul>
-								<div id="mixer" class="row" style="overflow-y:auto">
-									<div class="row">
-										<iframe frameborder="0" src="mixer"
-										height="640px" class="mixer"></iframe>
+				<div class="qt-header-bg" data-bgimage="images/back1.jpg">
+					<img src="images/back1.jpg" alt="Featured image" width="690"
+						height="302">
+				</div>
+			</div>
+			<!-- HEADER MEMBERS END ========================= -->
+			<div class="qt-container qt-vertical-padding-l">
+				<div class="row">
+					<!-- ====================== SECTION BOOKING AND CONTACTS ================================================ -->
+					<div id="booking" class="section qt-section-booking qt-card">
+						<div class="qt-valign-wrapper">
+							<div class="qt-valign flow-text">
+								<div class="qt-booking-form" data-100p-top="opacity:0;"
+									data-80p-top="opacity:0;" data-30p-top="opacity:1;">
+									<ul class="tabs">
+										<li class="tab col s4">
+											<h5>
+												<a href="#mixer" class="active">Mixer</a>
+											</h5>
+										</li>
+										<li class="tab col s4">
+											<h5>
+												<a href="#next">Next</a>
+											</h5>
+										</li>
+									</ul>
+									<div id="mixer" class="row" style="overflow-y: auto">
+										<div class="row">
+											<iframe frameborder="0" src="mixer" height="640px"
+												class="mixer"></iframe>
+										</div>
+									</div>
+									<div id="next" class="row" style="overflow-y: auto">
+										<div class="row" style="text-align: center;">
+											<div>
+												<form action="done" method="get"
+													enctype="multipart/form-data">
+													<div class="file_input">
+														<h4>완성한 곡을 첨부해주세요.</h4>
+														<br>
+														<label> File Attach <input type="file"
+															multiple="multiple" name="upload2" id="fileTag2">
+														</label> <input type="text" id="fileRoot2" readonly="readonly"
+															title="File Route">
+													</div>
+													<input type="submit" value="NEXTPAGE" style="width: 160px;"
+														class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m"
+														onclick="sendFiles()">
+												</form>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+					<!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
 				</div>
-				<!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
 			</div>
-         </div>
-      </div>
-      	<div class="qt-footer qt-footerwidgets">
+		</div>
+		<div class="qt-footer qt-footerwidgets">
 			<div class="qt-section qt-footer-widgets qt-content-primary-light">
 				<div class="qt-container"
 					style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">

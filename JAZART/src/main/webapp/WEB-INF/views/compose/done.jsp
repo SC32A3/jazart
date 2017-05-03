@@ -42,253 +42,236 @@
 
 <!-- Custom typography settings and google fonts -->
 <link rel="stylesheet" href="resources/css/qt-typography.css">
+
+<!-- Recording API -->
+<script src="resources/jquery-3.1.1.min.js"></script>
+<script src="resources/rTest/test.js"></script>
+<link rel="stylesheet" href="resources/rTest/app.css">
 <style type="text/css">
-.write_combo {
-	margin: auto;
-}
-
-.comment_w {
-	height: 500px;
-}
-
-.h_content {
-	margin: 0 30px;
-}
-
-.replyArea {
-	background-color: #dddddd;
-	width: auto;
-	margin: 0 auto;
-}
-
-input[type=button] {
-	background-color: ghostwhite;
-	margin: 0 2px;
-	padding: 5px;
-	line-height: 1.0rem;
-	font-size: 14px;
-}
-
-table, th, td {
-	border-bottom: 1px solid black;
+.clip {
+	vertical-align: middle;
+	display: table;
+	width: 100%;
 	text-align: center;
-}
-
-.tdName {
-	width: 100px;
-}
-
-.tdText {
-	width: 400px;
-	text-align: left;
-	word-break:break-all;
-}
-
-.tdDate {
-	width: 100px;
-}
-
-.tdLike {
-	width: 70px;
-}
-
-.tdBtn {
-	width: 150px;
-}
-
-.line {
-	width: 20px;
-	height: 20px;
-	display: inline-block;
-	vertical-align: sub;
-}
-
-.qt-btn.qt-btn-l, input[type="button"].qt-btn-l {
-	line-height: 2rem;
-	font-size: 1.414rem;
-	padding: 0 0.7rem;
-	min-width: 4rem;
-}
-
-.bContent {
-	font-size: 20px;
-	font-weight: bold;
-	font-family: 'Khand', sans-serif;
-	clear: both;
-	margin-bottom: 10px;
-}
-
-p.bContent b {
-	position: relative;
-	display: block;
-}
-
-p.bContent b:after {
-	position: absolute;
-	content: "";
-	width: 60px;
-	height: 1px;
-	background: #ffd736;
-	left: 0;
-	bottom: -1px;
-}
-
-.contentBrg {
-	background-color: antiquewhite;
 	padding: 10px;
-}
-
-.qt-spacer-m {
-	margin-top: 1rem;
-}
-
-.btns {
-	display: inline-block;
 	text-align: center;
+	margin-bottom: 30px;
+}
+
+.clipText {
+	display: table-caption;
+	padding: 0px 10px 0px 30px;
+	border-bottom: 1px dotted lightpink;
+}
+
+.clip audio {
+	padding: 0px 20px 0px 20px;
+}
+
+.clipSpan {
+	background: #ff8080;
+	padding: 0.525rem 0.75rem;
+	text-align: center;
+	color: white;
+	border: none;
+	height: 35px;
+	bottom: 0.5px;
+}
+
+.clipSpan:hover {
+	background: #804040;
+}
+
+.clipA {
+	color: white;
+	height: 35px;
+	line-height: 0px;
+}
+
+.clipA:hover {
+	color: white;
+}
+
+div#input2 {
+	text-align: center;
+}
+
+.file_input label {
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: middle;
+	overflow: hidden;
+	width: 100px;
+	height: 30px;
+	background: #ff8080;
+	color: #fff;
+	text-align: center;
+	line-height: 30px;
+	font-size: 12px;
+}
+
+.file_input label input {
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+.file_input input[type=text] {
+	vertical-align: middle;
+	display: inline-block;
+	width: 400px;
+	height: 28px;
+	line-height: 28px;
+	font-size: 11px;
+	margin: 0;
+	border: 1px solid #777;
+}
+
+.title {
+	text-align: center;
+}
+
+.album {
+	background-color: beige;
+}
+
+.albumart {
+	margin: 0 auto;
+	max-width: 210px;
+	max-height: 195px;
+}
+
+.sound-clips {
+	margin: 0 auto;
+	width: 50%;
+}
+
+audio {
+	width: 50%;
+	margin-top: 4px;
+	display: block;
+	float: left;
+}
+
+img.clipImg {
+	width: 5%;
+	display: inline;
+	margin-right: 3px;
+}
+
+#songinfo {
+	padding: 50px 150px 50px 150px;
 }
 </style>
 <script type="text/javascript">
-	function deleteCheck(boardNum) {
-		var answer = confirm("글을 삭제하시겠습니까?");
-		if (answer) {
-			location.href = "boardDelete?boardNum=" + boardNum;
-		}
-	}
-	function updateCheck(boardNum) {
-			location.href = "boardUpdate?boardNum=" + boardNum;
-	}
-	
-</script>
-<script src="resources/jquery-3.1.1.min.js"></script>
-<script type="text/javascript">
-			var boardnum = '';
-			var loginNickname = '${loginNickname}';
-			$(function() {
-				$("#leaveReply").on("click", leaveReply);
-				init();
-			})
-			
-			function init() {
-				boardnum = $("#boardnum").val();
-				$.ajax({
-					method : "get",
-					url : "boardReplyList",
-					data : {boardNum : boardnum},
-					dataType : "json",
-					success : output
-				})
-			};
-		
-			function leaveReply() {
-				boardnum = $("#boardnum").val();
-				var comment = $("#comment").val();
-				
-				if (comment.length > 300) {
-					alert("댓글은 300자 미만으로 작성해주세요");
-					return;
-				}
-				
-				$.ajax({
-					method : "get",
-					url : "boardLeaveReply",
-					data : {reply_text : comment, boardNum : boardnum},
-					success : function(resp) {
-						if (resp == 1) {
-							init();
-							$("#comment").val('');
-						}
-					}
-				});				
-			}
-			
-			function output(resp) {
-				var replyArea = $("#replyArea").val(); 
-				$('#replyArea').empty(); //기존 화면상 데이터 삭제
-				
-				var msg = '<table style= "background-color: #fce4ec;">';
-				if (resp == "") {
-					msg += '<tr><td>저장된 댓글이 없습니다</td></tr>'
-				} else {
-					msg += '<tr><th>ID</th><th style="width: 400px;">Text</th><th>Date</th><th>Like</th><th></th></tr>';
-					$.each(resp, function(index, item) {
-						msg += "<tr>"; 
-						msg += "<td class='tdName'>"+item.reply_nickname+"</td>";
-						msg += "<td class='tdText' id='"+item.replynum+"_name'><span id='"+item.replynum+"_span1'>"+item.reply_text+"</span></td>";
-						msg += "<td class='tdDate' id='"+item.replynum+"_text'>"+item.reply_inputdate+"</td>";
-						msg += "<td class='tdLike'>"+item.reply_like+"</td>";
-						if (item.reply_nickname == loginNickname) {
-							msg += "<td class='tdBtn'><span id='"+item.replynum+"_span2'><input type='button' value='삭제' class='del' data-num='"+item.replynum+"'>";
-							msg += "<input type='button' value='수정' class='upd' data-num='"+item.replynum+"'>";
-							msg += "<input type='button' value='추천' class='rec' data-num='"+item.replynum+"'></span></td>";
-						} else {
-							msg += "<td><input type='button' value='추천' class='rec' data-num='"+item.replynum+"'></td>";
-						}
-						msg += "</tr>";
-						//data-num : js, jquery에서 쓰는 사용자 정의 속성, 고유의 번호를 갖기 위해 존재
-						//class : 등록버튼과 다르게 공통된 삭제버튼들에게 이벤트를 부여하기 위해 존재, css 입힐 때도 사용
-					})
-				}
-				msg += '</table>'
-				$('#replyArea').html(msg);
-				
-				$("input:button.del").on("click", replyDel);
-				$("input:button.rec").on("click", replyRec);
-				$("input:button.upd").on("click", replyUpd);
-			}
-			function replyUpd() {
-				var num = $(this).attr("data-num"); //this : 호출한 버튼 'input'객체
-				$("#"+num+"_span1").html("<input type='text' id='"+num+"_Newtext'>");
-				$("#"+num+"_span2").html("<input type='button' id='"+num+"_ok' value='확인'><input type='button' id='"+num+"_cancel' value='취소'>");
-				
-				$("#"+num+"_ok").on("click", function() {
-					$.ajax({
-						method : "get",
-						url : "boardUpdateReply",
-						data : {"replynum": num, "reply_text" : $("#"+num+"_Newtext").val()},
-						success : function(resp) {
-							if (resp == 1) {
-								init();
-							}
-						}
-					});
-				})		
-				$("#"+num+"_cancel").on("click", function() {
-					init();
-				})
+	var files = "";
+	$(function() {
+
+		$('#saveBtn').on('click', function() {
+			var song_title = $('#song_title').val();
+			var song_genre = $('#song_genre').val();
+			var song_desc = $('#song_desc').val();
+			var songinfo = {
+				'song_title' : song_title,
+				'song_genre' : song_genre,
+				'song_desc' : song_desc
 			};
 
-			function replyDel() {
-				var num = $(this).attr("data-num"); //this : 호출한 버튼 'input'객체
-				$.ajax({
-					method : "get",
-					url : "boardDeleteReply",
-					data : {"replynum": num},
-					success : function() {
-						init();	
-					}
-				});
-			};
-			
-			function replyRec() {
-				var num = $(this).attr("data-num"); //this : 호출한 버튼 'input'객체
-				//var num = $(this).parent().parent().attr("data-num"); //tr에 data-num을 붙였을 시
-				
-				$.ajax({
-					method : "get",
-					url : "boardRecommendReply",
-					data : {"replynum": num},
-					success : function(resp) {
-						if (resp == 1) {
-							init();	
-						} else {
-							alert('추천은 한번만 가능합니다');							
-						}
-					}
-				});
-			};
-		</script>
+			var songPic = document.getElementById('songPic'); //$('#songPic');
+			var PicData = new FormData(songPic);
+
+			$.ajax({
+				url : 'saveSonginfo',
+				type : 'post',
+				data : songinfo,
+				success : uploadPic
+			});
+		})
+
+		$('#fileTag1').change(function() {
+			var fileName = $(this).val();
+			var fileCount = $(this).get(0).files.length;
+			var file = document.getElementById('fileTag1');
+			var fileList = file.files;
+
+			if ($(this).get(0).files.length == 1) {
+				// 읽기
+				var reader = new FileReader();
+				//로드 한 후
+				reader.onload = function() {
+					document.getElementById('albumart').src = reader.result;
+				};
+				reader.readAsDataURL(fileList[0]);
+
+				var output = fileName.split('\\').pop();
+				$('#fileRoot1').val(output);
+			} else {
+				$('#fileRoot1').val('파일 ' + fileCount + '개');
+			}
+		});
+		$('#fileTag2').change(function() {
+			var fileName = $(this).val();
+			var fileCount = $(this).get(0).files.length;
+
+			if ($(this).get(0).files.length == 1) {
+				var output = fileName.split('\\').pop();
+				$('#fileRoot2').val(output);
+			} else {
+				$('#fileRoot2').val('파일 ' + fileCount + '개');
+			}
+		});
+		$(".setting").click(function() {
+			$.ajax({
+				url : "setting",
+				type : "get",
+				success : function(resp) {
+				},
+				error : function(resp) {
+				}
+			});
+		});
+	});
+
+	function uploadPic(resp) {
+		if (resp == 0) {
+			alert('동일한 작곡명이 있습니다');
+		} else {
+			document.getElementById('songnum').value = resp;
+			document.getElementById('songnum2').value = resp;
+			alert('songnum: ' + document.getElementById('songnum').value);
+
+			var songPic = document.getElementById('songPic'); //$('#songPic');
+			var PicData = new FormData(songPic);
+
+			$.ajax({
+				url : "saveSongPic",
+				type : 'post',
+				processData : false,
+				contentType : false,
+				data : PicData,
+				success : function(result) {
+					alert('사진업로드 성공! ' + result);
+				}
+			});
+		}
+	}
+	function check() {
+		var song_title = document.getElementById('song_title');
+		if (song_title.value == '') {
+			alert('곡정보를 입력해주세요');
+			return false;
+		}
+		return true;
+	}
+</script>
 </head>
 <body>
+	<input type="hidden" id="recordFlag" value="record">
+	<!-- 레코딩쪽 css용 hidden-->
+	<!-- QT HEADER END ================================ -->
+
 	<div class="qt-parentcontainer">
 		<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
@@ -335,12 +318,15 @@ p.bContent b:after {
 						<li><a href="qna">QnA</a></li>
 						<li><a href="question">Question</a></li>
 					</ul></li>
+
+				<%-- <!-- 플레이리스트 -->
 				<c:if test="${not empty loginNickname}">
-					<li class="right"><a href="songPopup?songnum=0"
-						class="qt-popupwindow" data-name="Music Player" data-width="320"
-						data-height="500"> <i class="icon dripicons-duplicate"></i>Playlist
+					<li class="right"><a href="songPopup" class="qt-popupwindow"
+						data-name="Music Player" data-width="320" data-height="500"> <i
+							class="icon dripicons-duplicate"></i>Playlist
 					</a></li>
-				</c:if>
+				</c:if> --%>
+
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
 			<ul class="qt-desktopmenu hide-on-xl-only ">
@@ -390,6 +376,7 @@ p.bContent b:after {
 					class="icon dripicons-media-play"></i></a></li>
 		</ul>
 		<!-- SEARCH FORM ========================= -->
+
 		<div id="qtsearchbar"
 			class="qt-searchbar qt-content-primary qt-expandable">
 			<div class="qt-expandable-inner">
@@ -418,98 +405,70 @@ p.bContent b:after {
 			<!-- HEADER CAPTION ========================= -->
 			<div class="qt-pageheader qt-negative">
 				<div class="qt-container">
-					<ul class="qt-tags">
 
-					</ul>
-					<h1 class="qt-caption qt-spacer-s">free community</h1>
-					<h4 class="qt-subtitle">자유게시판</h4>
+					<h1 class="qt-caption qt-spacer-s">Done</h1>
+					<h4 class="qt-subtitle">음악 등록</h4>
 				</div>
-				<div class="qt-header-bg" data-bgimage="images/back2.jpg">
-					<img src="images/back2.jpg" alt="Featured image" width="690"
+				<div class="qt-header-bg" data-bgimage="images/back1.jpg">
+					<img src="images/back1.jpg" alt="Featured image" width="690"
 						height="302">
 				</div>
 			</div>
 			<!-- HEADER CAPTION END ========================= -->
-			<div class="qt-container qt-vertical-padding-l">
+			<!-- ======================= CONTENT SECTION ======================= -->
+			<div class="qt-container qt-vertical-padding-m">
 				<div class="row">
-					<div class="col s12 m8 push-m2">
+					<div class="col l12">
 						<!-- ====================== SECTION BOOKING AND CONTACTS ================================================ -->
 						<div id="booking" class="section qt-section-booking qt-card">
-							<div class="qt-valign-wrapper h_content">
+							<div class="qt-valign-wrapper">
 								<div class="qt-valign flow-text">
 									<div class="qt-booking-form" data-100p-top="opacity:0;"
 										data-80p-top="opacity:0;" data-30p-top="opacity:1;">
 										<ul class="tabs">
 											<li class="tab col s4">
 												<h5>
-													<a href="#form" class="active">${board.board_tag}</a>
+													<a href="#songinfo" class="active">Song Info</a>
 												</h5>
 											</li>
 										</ul>
-										<div id="form" class="row">
-											<div class="row">
-												<div class="row">
-													<div class="input-field col s12 titleBrg">
-														<input type="hidden" id="boardnum"
-															value="${board.boardNum}">
-														<h4>${board.board_title}</h4>
-														${board.board_nickname}<img class="line" alt="line"
-															src="images/line1.png"> ${board.board_inputdate}<img
-															class="line" alt="line" src="images/line1.png">
-														조회수:${board.board_hits}
-													</div>
-													<div class="input-field col s12">
-														<%-- <tr>
-																<td>Content</td>
-																<td style="width: 400px; height: 300px;"><pre>${board.board_content}</pre></td>
-															</tr> --%>
-														<!-- <p class="bContent"> <b> CONTENT </b></p> -->
-														<textarea id="contents" readonly="readonly"
-															name="contents" aria-required="true"
-															style="height: 250px; resize: none; padding: 10px;  background-color: #fce4ec; border: 0px; border-radius: 10px;"
-															required>${board.board_content}</textarea>
-													</div>
-													<div class="input-field col s12 btns">
-														<button
-															class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light"
-															onclick="location.href='commBoard'">
-															<span class="lnr lnr-rocket"></span> List
-														</button>
-														<button
-															class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light"
-															onclick="javascript:updateCheck(${board.boardNum })"
-															<c:if test="${loginNickname!=board.board_nickname}">disabled="disabled" style ="opacity:0.5;"</c:if>>
-															<span class="lnr lnr-rocket"></span> update
-														</button>
-														<button
-															class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m waves-effect waves-light"
-															onclick="javascript:deleteCheck(${board.boardNum })"
-															<c:if test="${loginNickname!=board.board_nickname}">disabled="disabled" style ="opacity:0.5;"</c:if>>
-															<span class="lnr lnr-rocket"></span> delete
-														</button>
-
-													</div>
-												</div>
-												<!-- /form -->
-												<br>
-												<div id="respond">
-													<h4 id="reply-title" class="comment-reply-title">Leave
-														a Reply</h4>
-													<p class="comment-form-comment">
-														<input style="width: 580px;" name="comment" id="comment"
-															type="text" class="validate qt-input-s"> <input
-															name="leaveReply" type="button" id="leaveReply"
-															class="form-submit qt-btn qt-btn-primary"
-															value="Post Comment">
-													</p>
-												</div>
-												<br>
-												<div class="qt-the-content">
-													<div id="replyArea" class="replyArea"></div>
-												</div>
-												<br>
-
-											</div>
+										<div id="songinfo" class="row">
+											<table>
+												<tr>
+						 							<th class="album" rowspan="2"
+														style="width: 300px; height: 300px;"><img
+														id="albumart" class="albumart" src="images/default.png" /></th>
+													<th class="title">곡 명</th>
+													<td><input type="text" id="song_title" required></td>
+												</tr>
+												<tr>
+													<th class="title">장 르</th>
+													<td><input type="text" id="song_genre" readonly>
+													</td>
+												</tr>
+												<tr>
+													<th>
+														<form id="songPic" method="post"
+															enctype="multipart/form-data">
+															<div class="file_input" id="input2">
+																<input type="hidden" id="songnum" name="songnum"
+																	value="#"> <label> File Attach <input
+																	type="file" id="fileTag1" name="upload1"
+																	class="albumart">
+																</label> <input type="text" id="fileRoot1" readonly="readonly"
+																	style="width: 120px;" title="File Route">
+															</div>
+														</form>
+													</th>
+													<th class="title">곡 설 명</th>
+													<td><input type="text" id="song_desc" required></td>
+												</tr>
+												<tr>
+													<th colspan="3" style="text-align: right;"><input
+														type="button" id="saveBtn" value="저장"> <input type="button" value="Music registration" /> <input type="button" value="Music Upload" />  <input type="button"
+															value="Put it in the playlist" /></th>
+												</tr>
+											</table>
 										</div>
 									</div>
 								</div>
@@ -521,9 +480,11 @@ p.bContent b:after {
 			</div>
 		</div>
 	</div>
+	<!-- .qt-main end -->
 	<div class="qt-footer qt-footerwidgets">
 		<div class="qt-section qt-footer-widgets qt-content-primary-light">
-			<div class="qt-container">
+			<div class="qt-container"
+				style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
 				<h2 class="qt-footer-logo">
 					<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
 				</h2>
@@ -598,35 +559,9 @@ p.bContent b:after {
 					height="302">
 			</div>
 		</div>
-		<!-- 	<div class="qt-footer-bottom qt-content-primary-dark">
-				<div class="qt-container">
-					<div class="row"> -->
-		<!-- <div class="col s12 m12 l8">
-							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
-							| Radio Station HTML Template
-							<ul class="qt-menu-footer qt-small qt-list-chevron ">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Privacy</a></li>
-								<li><a href="#">Sitemap</a></li>
-							</ul>
-						</div> -->
-		<!-- 	<div class="col s12 m12 l4"> -->
-		<!-- <ul class="qt-menu-social">
-								<li class="right"><a href="#"><i
-										class="qticon-beatport"></i></a></li>
-								<li class="right"><a href="#"><i
-										class="qticon-facebook"></i></a></li>
-								<li class="right"><a href="#"><i class="qticon-twitter"></i></a></li>
-								<li class="right"><a href="#"><i class="qticon-youtube"></i></a></li>
-								<li class="right"><a href="#"><i
-										class="qticon-soundcloud"></i></a></li>
-							</ul> -->
 	</div>
-	<!-- 				</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
+	</div>
+
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"
 		class="side-nav qt-content-primary qt-right-sidebar">
@@ -666,10 +601,9 @@ p.bContent b:after {
 					<hr class="qt-inline-textdeco">
 				</div>
 			</div>
-			<div id="playerimage" class="qt-header-bg"
-				data-bgimage="imagestemplate/full-1600-700.jpg">
-				<img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
-					width="690" height="302">
+			<div id="playerimage" class="qt-header-bg">
+				<img src="images/back1.jpg" alt="Featured image" width="690"
+					height="302">
 			</div>
 		</div>
 		<!-- this is for xml radio feed -->
@@ -679,27 +613,15 @@ p.bContent b:after {
 		<!-- CHANNELS LIST ========================= -->
 		<div class="qt-part-channels-list">
 			<ul class="qt-content-aside qt-channelslist qt-negative">
-				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
-					data-title="06AM Ibiza" data-subtitle="Underground Radio"
-					data-background="imagestemplate/photo-squared-500-500.jpg"
-					data-logo="imagestemplate/radio-logo.png"
-					data-playtrack="http://173.192.105.231:3540/stream.mp3"
-					data-host="173.192.105.231" data-port="3540" data-stats_path=""
-					data-played_path="" data-channel=""> <img
-						src="imagestemplate/radio-logo.png" alt="logo"
+				<li class="qt-channel"><a href="#!" class="qt-ellipsis"> <img
+						src="images/radio-logo.png" alt="logo"
 						class="qt-radiologo dripicons-media-play" width="80" height="80">
 						<i class="dripicons-media-play"></i> Station 1
 				</a></li>
-				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
-					data-title="altradio" data-subtitle="The subtitle of radio 2"
-					data-background="imagestemplate/large-1170-512.jpg"
-					data-logo="imagestemplate/radio-logo.png"
-					data-playtrack="http://82.77.137.30:8557/;listen.mp3"
-					data-host="82.77.137.30" data-port="8557" data-stats_path=""
-					data-played_path="" data-channel=""> <img
-						src="imagestemplate/radio-logo.png" alt="logo"
-						class="qt-radiologo" width="80" height="80"> <i
-						class="dripicons-media-play"></i> altradio
+				<li class="qt-channel"><a href="#!" class="qt-ellipsis"> <img
+						src="images/radio-logo.png" alt="logo" class="qt-radiologo"
+						width="80" height="80"> <i class="dripicons-media-play"></i>
+						altradio
 				</a></li>
 			</ul>
 		</div>
@@ -711,7 +633,7 @@ p.bContent b:after {
 
 	<!-- QT FOOTER SCRIPTS ================================ -->
 	<script src="resources/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-	<script src="resources/js/jquery.js"></script>
+	<!-- <script src="resources/js/jquery.js"></script> -->
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
 	<script src="resources/js/jquery-migrate.min.js"></script>
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
@@ -744,9 +666,9 @@ p.bContent b:after {
 		src="resources/components/soundmanager/script/berniecode-animator.js"></script>
 	<script
 		src="resources/components/soundmanager/script/soundmanager2-nodebug.js"></script>
-	<script src="resources/components/soundmanager/script/shoutcast.js"></script>
+	<!-- <script src="resources/components/soundmanager/script/shoutcast.js"></script>
 	<script
-		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script>
+		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script> -->
 
 	<!-- Popup -->
 	<script src="resources/components/popup/popup.js"></script>
@@ -754,5 +676,6 @@ p.bContent b:after {
 
 	<!-- MAIN JAVASCRIPT FILE ================================ -->
 	<script src="resources/js/qt-main.js"></script>
+
 </body>
 </html>

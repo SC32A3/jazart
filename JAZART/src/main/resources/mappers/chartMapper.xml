@@ -11,7 +11,8 @@
 
 	<select id="chartAllCount" resultType="Integer">
 		select count(*) from
-		(select rownum rnum, songinfo.songnum from songinfo) where rnum
+		(select rownum rnum,songnum from songinfo
+		) where rnum
 		between
 		1 and
 		100
@@ -34,20 +35,24 @@
 		select * from ( select rownum rnum, b.* from( select
 		si.songnum,count(si.song_like),
 		si.song_nickname, si.song_picture,
-		si.song_title, si.song_desc,
+		si.song_title, si.song_desc,si.song_inputdate,
 		sum(case
-		when sl.like_time between
+		when
+		sl.like_time between
 		sysdate-1 and sysdate then 10
-		when sl.like_time between sysdate-7 and
+		when sl.like_time
+		between sysdate-7 and
 		sysdate then 3
-		when sl.like_time between sysdate-14 and sysdate then 1
+		when sl.like_time between
+		sysdate-14 and sysdate then 1
 		else 0 end)
 		as test
-		from songinfo si,songlike sl
+		from songinfo
+		si,songlike sl
 		where
 		si.songnum =
-		sl.songnum group by
-		si.songnum,si.song_nickname,si.song_like,
+		sl.songnum(+) group by
+		si.songnum,si.song_nickname,si.song_like,si.song_inputdate,
 		si.song_picture,
 		si.song_title, si.song_desc order by test desc ) b )
 		where
@@ -67,18 +72,22 @@
 			by count desc) b) where rnum between #{start} and #{end} -->
 		select * from ( select rownum rnum, b.* from( select
 		si.songnum,count(si.song_like),
-		si.song_nickname, si.song_picture,
+		si.song_nickname,
+		si.song_picture,si.song_inputdate,
 		si.song_title, si.song_desc, sum(case
 		when sl.like_time between
 		(sysdate-5/24) and sysdate then 10 when
 		sl.like_time
 		between sysdate-1
-		and sysdate then 3 when sl.like_time between sysdate-7
+		and sysdate then 3 when sl.like_time
+		between sysdate-7
 		and sysdate then
-		1 else 0 end) as test from songinfo si,songlike sl where
+		1 else 0 end) as test from songinfo
+		si,songlike sl where
 		si.songnum =
-		sl.songnum
-		group by si.songnum,si.song_nickname,si.song_like,
+		sl.songnum(+)
+		group by
+		si.songnum,si.song_nickname,si.song_like,si.song_inputdate,
 		si.song_picture,
 		si.song_title, si.song_desc order by test desc ) b )
 		where
@@ -90,20 +99,24 @@
 		from dual
 	</select>
 	<select id="weeklyChart" resultType="SongInfo" parameterType="map">
-		select * from ( select rownum rnum, b.* from( select
+		select * from ( select rownum rnum, b.* from(select
 		si.songnum,count(si.song_like),
-		si.song_nickname, si.song_picture,
+		si.song_nickname,
+		si.song_picture,si.song_inputdate,
 		si.song_title, si.song_desc, sum(case
 		when sl.like_time between
-		sysdate-7 and sysdate then 10 when sl.like_time
+		sysdate-7 and sysdate then 10 when
+		sl.like_time
 		between sysdate-14 and
-		sysdate then 3 when sl.like_time between
+		sysdate then 3 when sl.like_time
+		between
 		sysdate-30
 		and sysdate then 1
-		else 0 end) as test from songinfo si,songlike sl where
+		else 0 end) as test from songinfo
+		si,songlike sl where
 		si.songnum =
-		sl.songnum group by
-		si.songnum,si.song_nickname,si.song_like,
+		sl.songnum(+) group by
+		si.songnum,si.song_nickname,si.song_like,si.song_inputdate,
 		si.song_picture, si.song_title, si.song_desc order by test desc ) b )
 		where
 		rnum between #{start} and #{end}

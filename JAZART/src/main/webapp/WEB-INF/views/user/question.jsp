@@ -236,20 +236,20 @@
 												<h3>Question</h3>
 												<br>
 												<div class="row">
-													<label>제목</label>
 													<div class="input-field col s12">
-														<input name="title" id="title" type="text"
-															class="validate" required>
+														<label>제목</label> <input name="title" id="title"
+															type="text" class="validate" required>
 													</div>
 												</div>
 												<div class="row">
-													<label>내용</label>
+
 													<div class="input-field col s12">
 														<p class="comment-form-comment">
 															<textarea id="contents" class="testFont"
 																placeholder="ex)폰트가맘에 안들어요" name="contents"
 																aria-required="true"
-																style="height: 200px; resize: none;" required></textarea>
+																style="height: 200px; resize: none; background-color: #fce4ec; padding: 10px; border: 0px; border-radius: 10px;"
+																required></textarea>
 														</p>
 													</div>
 												</div>

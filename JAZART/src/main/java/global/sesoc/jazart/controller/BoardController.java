@@ -67,7 +67,6 @@ public class BoardController {
 		if (loginNickname == null) {
 			return "redirect:/login";
 		}
-
 		board.setBoard_nickname(loginNickname);
 		br.write(board);
 		return "redirect:/commBoard";
