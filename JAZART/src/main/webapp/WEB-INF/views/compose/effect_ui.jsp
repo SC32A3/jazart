@@ -527,7 +527,7 @@ img.clipImg {
 													<h5>음원 소스 파일</h5>
 													<ul id="src-file-list">
 														<c:forEach var="" items="${recordList}">
-														
+															<li><a></a></li>
 														</c:forEach>
 													</ul>
 												</div>
