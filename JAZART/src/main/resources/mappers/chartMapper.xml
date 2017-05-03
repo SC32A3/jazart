@@ -99,10 +99,10 @@
 		from dual
 	</select>
 	<select id="weeklyChart" resultType="SongInfo" parameterType="map">
-		select * from ( select rownum rnum, b.* from( select
+		select * from ( select rownum rnum, b.* from(select
 		si.songnum,count(si.song_like),
 		si.song_nickname,
-		si.song_picture,si.song_inputdate
+		si.song_picture,si.song_inputdate,
 		si.song_title, si.song_desc, sum(case
 		when sl.like_time between
 		sysdate-7 and sysdate then 10 when

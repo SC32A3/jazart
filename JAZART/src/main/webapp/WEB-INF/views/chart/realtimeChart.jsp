@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Jazart</title>
+<title>Jazart♬</title>
 <meta name="description" content="Radio station HTML template">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -50,6 +50,26 @@
 		setTimeout(scrollMove, 1000);
 		/* 	$(document).off(".disableScroll"); */
 	});
+	function recommend(num) {
+		var snum = num;
+		$.ajax({
+			method : "post",
+			url : "songRecommend",
+			data : {
+				"songnum" : snum
+			},
+			success : function(resp) {
+				if (resp == 1) {
+					alert('추천되었습니다');
+				} else {
+					alert('추천은 한번만 가능합니다');
+				}
+			},
+			error : function(resp) {
+				alert(resp);
+			}
+		});
+	}
 
 	function scrollMove() {
 		var offset = $("#test").offset();
@@ -295,8 +315,10 @@
 									</div>
 									<div class="collapsible-body qt-paper">
 										<p>${ realtime.song_desc }
-											<a style="float: right;" class="icon dripicons-user"
-												href="artistPage?song_nickname=${realtime.song_nickname}"></a>
+											<a style="float: right;" class="icon dripicons-heart"
+												href="javascript:recommend(${realtime.songnum})"></a> <a
+												style="float: right;" class="icon dripicons-user"
+												href="artistPage?song_nickname=${realtime.song_nickname}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 											<a style="float: right;" class="icon dripicons-search"
 												href="songPage?songnum=${realtime.songnum}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 										</p>

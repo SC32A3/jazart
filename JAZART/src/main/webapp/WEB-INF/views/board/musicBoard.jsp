@@ -281,12 +281,14 @@
 														<span class="qt-day qt-capfont">${allList.song_nickname}</span>
 													</p>
 													<div class="qt-more">
-														<p class="qt-ellipsis-2">${allList.song_desc}</p>
-														<%-- <a href="javascript:recommend(${allList.songnum})">좋아요</a> --%>
-														<a style="float: right;" class="icon dripicons-user"
-															href="artistPage?song_nickname=${allList.song_nickname}">&nbsp;</a><a
-															style="float: right;" class="icon dripicons-search"
-															href="songPage?songnum=${allList.songnum}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+														<p class="qt-ellipsis-2">${allList.song_desc}
+															<a style="float: right;" class="icon dripicons-heart"
+																href="javascript:recommend(${allList.songnum})"></a> <a
+																style="float: right;" class="icon dripicons-user"
+																href="artistPage?song_nickname=${allList.song_nickname}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a><a
+																style="float: right;" class="icon dripicons-search"
+																href="songPage?songnum=${allList.songnum}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+														</p>
 														<%-- <a
 														style="float: right;"
 														href="songPopup?songnum=${ allList.songnum}"

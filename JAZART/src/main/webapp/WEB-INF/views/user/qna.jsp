@@ -47,12 +47,9 @@
 <style type="text/css">
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
-.qt-container{
+.qt-container {
 	font-family: 'Noto Sans KR';
 }
-
-
-
 </style>
 </head>
 <body>
@@ -206,9 +203,9 @@
 			<!-- HEADER CAPTION END ========================= -->
 			<!-- ======================= CONTENT SECTION ======================= -->
 			<div class="qt-container">
-				<div class="row qt-vertical-padding-l ">
+				<div class="row qt-vertical-padding-l" style="padding-top: 20px;">
 					<div class="col s12 m12 l12 st"
-						style="padding-left: 40px; padding-right: 40px;">
+						style="padding-left: 60px; padding-right: 60px;">
 						<ul class="collapsible qt-chart-tracklist qt-spacer-m"
 							data-collapsible="accordion">
 							<!-- CHART TRACK ========================= -->
