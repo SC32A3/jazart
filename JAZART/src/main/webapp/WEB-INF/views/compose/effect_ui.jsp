@@ -127,11 +127,13 @@
 	text-align: center;
 	padding: 10px;
 	text-align: center;
+	margin-bottom: 30px;
 }
 
 .clipText {
 	display: table-caption;
 	padding: 0px 10px 0px 30px;
+	border-bottom: 1px dotted lightpink;
 }
 
 .clip audio {
@@ -145,6 +147,7 @@
 	color: white;
 	border: none;
 	height: 35px;
+	bottom: 0.5px;
 }
 
 .clipSpan:hover {
@@ -238,6 +241,24 @@
 
 .switch span {
 	font-family: 'Khand', sans-serif;
+}
+
+.sound-clips {
+	margin: 0 auto;
+	width: 50%;
+}
+
+audio {
+    width: 50%;
+    margin-top: 4px;
+    display: block;
+    float: left;
+}
+
+img.clipImg {
+    width: 5%;
+    display: inline;
+    margin-right: 3px;
 }
 </style>
 <script type="text/javascript">
@@ -536,6 +557,7 @@
 											<div class="row">
 												<form action="mixerPage" method="post"
 													enctype="multipart/form-data">
+													<input type="hidden" name="songnum" value="${songnum}">
 													<section class="sound-clips"></section>
 													<div class="file_input">
 														<label> File Attach <input type="file"
@@ -608,7 +630,6 @@
 							</h5>
 							<div class="qt-widget-about">
 								<p>
-
 									We are a small group of designers and developers. We create
 									clean, minimal and apps. <br> <a href="about">About us
 										<i class="dripicons-arrow-thin-right"></i>

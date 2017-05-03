@@ -45,10 +45,6 @@
 <script src="resources/rTest/test.js"></script>
 <link rel="stylesheet" href="resources/rTest/app.css">
 <style type="text/css">
-#keyboard, #drum {
-	padding: 30px 30px 0px 30px;
-}
-
 .clip {
 	vertical-align: middle;
 	display: table;
@@ -56,11 +52,13 @@
 	text-align: center;
 	padding: 10px;
 	text-align: center;
+	margin-bottom: 30px;
 }
 
 .clipText {
 	display: table-caption;
 	padding: 0px 10px 0px 30px;
+	border-bottom: 1px dotted lightpink;
 }
 
 .clip audio {
@@ -69,11 +67,12 @@
 
 .clipSpan {
 	background: #ff8080;
-	padding: 0.5rem 0.75rem;
+	padding: 0.525rem 0.75rem;
 	text-align: center;
 	color: white;
 	border: none;
 	height: 35px;
+	bottom: 0.5px;
 }
 
 .clipSpan:hover {
@@ -88,6 +87,10 @@
 
 .clipA:hover {
 	color: white;
+}
+
+div#input2 {
+    text-align: center;
 }
 
 .file_input label {
@@ -122,6 +125,38 @@
 	margin: 0;
 	border: 1px solid #777;
 }
+
+.title {
+	text-align: center;
+}
+
+.album {
+    background-color: beige;
+}
+
+.albumart {
+    margin: 0 auto;
+    max-width : 210px;
+    max-height : 195px;
+}
+
+.sound-clips {
+	margin: 0 auto;
+	width: 50%;
+}
+
+audio {
+    width: 50%;
+    margin-top: 4px;
+    display: block;
+    float: left;
+}
+
+img.clipImg {
+    width: 5%;
+    display: inline;
+    margin-right: 3px;
+}
 </style>
 <script type="text/javascript">
 	var files = "";
@@ -150,8 +185,8 @@
 </script>
 </head>
 <body>
+	<input type="hidden" id="recordFlag" value="keyboard"> <!-- 레코딩쪽 css용 hidden-->
 	<!-- QT HEADER END ================================ -->
-
 	<div class="qt-parentcontainer">
 		<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
@@ -346,12 +381,12 @@
 										<ul class="tabs">
 											<li class="tab col s4">
 												<h5>
-													<a href="#keyboard" class="active">Keyboard</a>
+													<a href="#keyboard" class="active" onclick="javascript:document.getElementById('recordFlag').value='keyboard'">Keyboard</a>
 												</h5>
 											</li>
 											<li class="tab col s4">
 												<h5>
-													<a href="#drum">Drum Pad</a>
+													<a href="#drum" onclick="javascript:document.getElementById('recordFlag').value='drum'">Drum Pad</a>
 												</h5>
 											</li>
 											<li class="tab col s4">
@@ -374,13 +409,15 @@
 										</div>
 										<div id="worklist" class="row qt-contacts">
 											<div class="row">
-												<form action="effect_ui" method="post"
+												<form action="mySrc" method="post"
 													enctype="multipart/form-data">
 													<section class="sound-clips"></section>
 													<div class="file_input">
+														<input type="hidden" name="songnum" value="${songnum}">
+														<input type="hidden" name="type" value="sources">
 														<label> File Attach <input type="file"
-															multiple="multiple" name="source" id="source">
-														</label> <input type="text" id="fileRoot" readonly="readonly"
+															multiple="multiple" name="upload2" id="fileTag2">
+														</label> <input type="text" id="fileRoot2" readonly="readonly"
 															title="File Route">
 													</div>
 													<input type="submit" value="NEXTPAGE" style="width: 160px;"

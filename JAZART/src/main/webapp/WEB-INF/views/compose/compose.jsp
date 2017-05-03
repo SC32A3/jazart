@@ -92,6 +92,10 @@
 	color: white;
 }
 
+div#input2 {
+    text-align: center;
+}
+
 .file_input label {
 	position: relative;
 	cursor: pointer;
@@ -135,6 +139,8 @@
 
 .albumart {
     margin: 0 auto;
+    max-width : 210px;
+    max-height : 195px;
 }
 
 .sound-clips {
@@ -165,7 +171,11 @@ img.clipImg {
 			var song_genre = $('#song_genre').val();
 			var song_desc = $('#song_desc').val();
 			var songinfo = {'song_title' : song_title, 'song_genre' : song_genre, 'song_desc' : song_desc };
-
+			
+			var songPic = document.getElementById('songPic'); //$('#songPic');
+			var PicData = new FormData(songPic);
+			
+			
 			$.ajax({
 				url: 'saveSonginfo',
 				type: 'post',
@@ -222,9 +232,11 @@ img.clipImg {
 		if (resp == 0) {
 			alert('동일한 작곡명이 있습니다');
 		} else {
-			alert('성공! '+resp);
-			$('#songnum').val(resp);
-			var songPic = $('#songPic');
+			document.getElementById('songnum').value = resp;
+			document.getElementById('songnum2').value = resp;
+			alert('songnum: '+document.getElementById('songnum').value);
+			
+			var songPic = document.getElementById('songPic'); //$('#songPic');
 			var PicData = new FormData(songPic);
 			
 			$.ajax({
@@ -239,11 +251,18 @@ img.clipImg {
 			});
 		}
 	}
+	function check() {
+		var song_title = document.getElementById('song_title');
+		if (song_title.value == '') {
+			alert('곡정보를 입력해주세요');
+			return false;
+		}
+		return true;
+	}
 </script>
 </head>
 <body>
 	<input type="hidden" id="recordFlag" value="record"> <!-- 레코딩쪽 css용 hidden-->
-	<input type="hidden" id="songnum" value=""> <!-- 레코딩쪽 css용 hidden-->
 	<!-- QT HEADER END ================================ -->
 
 	<div class="qt-parentcontainer">
@@ -293,14 +312,13 @@ img.clipImg {
 						<li><a href="question">Question</a></li>
 					</ul></li>
 
-
-				<!-- 플레이리스트 -->
+				<%-- <!-- 플레이리스트 -->
 				<c:if test="${not empty loginNickname}">
 					<li class="right"><a href="songPopup" class="qt-popupwindow"
 						data-name="Music Player" data-width="320" data-height="500"> <i
 							class="icon dripicons-duplicate"></i>Playlist
 					</a></li>
-				</c:if>
+				</c:if> --%>
 
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
@@ -455,7 +473,7 @@ img.clipImg {
 																								
 														<img id="albumart" class="albumart" src="images/default.png" /></th>
 													<th class="title">곡 명</th>
-													<td><input type="text" id="song_title"></td>
+													<td><input type="text" id="song_title" required></td>
 												</tr>
 												<tr>
 													<th class="title">장 르</th>
@@ -475,6 +493,7 @@ img.clipImg {
 													<th>
 														<form id="songPic" method="post" enctype="multipart/form-data">
 														<div class="file_input" id="input2">
+															<input type="hidden" id="songnum" name="songnum" value="#">
 															<label> File Attach <input type="file" id="fileTag1"
 																name="upload1" class="albumart">
 															</label> <input type="text" id="fileRoot1" readonly="readonly"
@@ -483,7 +502,7 @@ img.clipImg {
 														</form>
 													</th>
 													<th class="title">곡 설 명</th>
-													<td><input type="text" id="song_desc"></td>
+													<td><input type="text" id="song_desc" required></td>
 												</tr>
 												<tr>
 													<th colspan="3" style="text-align: right;">
@@ -493,17 +512,18 @@ img.clipImg {
 										</div>
 										<div id="worklist" class="row qt-contacts">
 											<div class="row">
-												<form action="mySrc" method="post" enctype="multipart/form-data">
+												<form action="mySrc" method="post" enctype="multipart/form-data" onsubmit="return check()">
 													<section class="sound-clips"></section>
 													<div class="file_input">
+														<input type="hidden" id="songnum2" name="songnum" value="0">
+														<input type="hidden" name="type" value="record">
 														<label> File Attach <input type="file"
 															multiple="multiple" name="upload2" id="fileTag2">
 														</label> <input type="text" id="fileRoot2" readonly="readonly"
 															title="File Route">
 													</div>
 													<input type="submit" value="NEXTPAGE" style="width: 160px;"
-														class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m"
-														onclick="sendFiles()">
+														class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m">
 												</form>
 											</div>
 										</div>
@@ -670,7 +690,7 @@ img.clipImg {
 
 	<!-- QT FOOTER SCRIPTS ================================ -->
 	<script src="resources/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-	<script src="resources/js/jquery.js"></script>
+	<!-- <script src="resources/js/jquery.js"></script> -->
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
 	<script src="resources/js/jquery-migrate.min.js"></script>
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
@@ -703,9 +723,9 @@ img.clipImg {
 		src="resources/components/soundmanager/script/berniecode-animator.js"></script>
 	<script
 		src="resources/components/soundmanager/script/soundmanager2-nodebug.js"></script>
-	<script src="resources/components/soundmanager/script/shoutcast.js"></script>
+	<!-- <script src="resources/components/soundmanager/script/shoutcast.js"></script>
 	<script
-		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script>
+		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script> -->
 
 	<!-- Popup -->
 	<script src="resources/components/popup/popup.js"></script>

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import global.sesoc.jazart.vo.SongInfo;
 import global.sesoc.jazart.vo.SongReply;
+import global.sesoc.jazart.vo.Userlist;
 
 public interface SongMapper {
 
@@ -34,5 +35,9 @@ public interface SongMapper {
    int selectSongByName(String loginNickname, String song_title) throws Exception;
 
    int getSongnum(String loginNickname, String song_title) throws Exception;
+
+   int updateSongInfo(int songnum, String originalFileName, String savedfile) throws Exception;
+
+   int insertSongdata(Userlist userlist) throws Exception;
 
 }

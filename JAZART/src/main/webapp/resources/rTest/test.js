@@ -102,11 +102,18 @@ $(function() {
 				clipLabel.textContent = 'Save';
 				
 				if (hiddenTag.value == 'record') {
-					alert('히든태그: '+hiddenTag.value);
 					clipImg.classList.add('clipImg');
 					clipImg.src = 'images/recordingIcon.png';
 					clipTextSpan.appendChild(clipImg);
-				}
+				} else if (hiddenTag.value == 'keyboard') {
+					clipImg.classList.add('clipImg');
+					clipImg.src = 'images/keyboard.png';
+					clipTextSpan.appendChild(clipImg);
+				} else if (hiddenTag.value == '') {
+					clipImg.classList.add('clipImg');
+					clipImg.src = 'images/drum.png';
+					clipTextSpan.appendChild(clipImg);
+				}				
 				clipTextSpan.appendChild(clipText);
 				clipSpan.appendChild(clipLabel);
 				clipContainer.appendChild(clipTextSpan);

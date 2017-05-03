@@ -5,7 +5,6 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,7 +13,7 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.StringTokenizer;
+import java.util.Iterator;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -40,6 +39,7 @@ import global.sesoc.jazart.utility.FileService2;
 import global.sesoc.jazart.vo.SongInfo;
 import global.sesoc.jazart.vo.SongReply;
 import global.sesoc.jazart.vo.User;
+import global.sesoc.jazart.vo.Userlist;
 
 /**
  * Handles requests for the application home page.
@@ -67,24 +67,36 @@ public class ComposeController {
 	}
 
 	@RequestMapping(value = "mySrc", method = RequestMethod.POST)
-	public String mySrc(MultipartHttpServletRequest request, MultipartFile[] upload, Model model) {
-
-		// songnum받아와야함
-		ArrayList<String> list = new ArrayList<>();
+	public String mySrc(MultipartFile[] upload2, Model model, int songnum, String type) {
+		logger.info("mySrc songnum: "+songnum);
+		model.addAttribute("songnum", songnum);
 		File recordingData = new File(uploadPath3);
 		if (!recordingData.exists()) {
 			recordingData.mkdir();
 		}
-
-		for (int i = 0; i < upload.length; i++) {
-			MultipartFile multipartFile = upload[i];
+		for (int i = 0; i < upload2.length; i++) {
+			MultipartFile multipartFile = upload2[i];
 			if (!multipartFile.isEmpty()) {
+				String originalFile = multipartFile.getOriginalFilename();
 				String savedfile = FileService2.saveFile(multipartFile, uploadPath3);
-				list.add(savedfile);
+				if (type.equals("record")) {
+					Userlist userlist = new Userlist(0, songnum, "record", originalFile, savedfile);
+					int result = sr.insertSongdata(userlist);
+				} 
+				if (type.equals("sources")){
+					Userlist userlist = new Userlist(0, songnum, "source", originalFile, savedfile);
+					int result = sr.insertSongdata(userlist);
+				}	
+				logger.info("saved record => "+savedfile);
 			}
 		}
-		model.addAttribute("srclist", list);
-		return "compose/mySource";
+		
+		if (type.equals("record")) {
+			return "compose/mySource";
+		} else if (type.equals("sources")) {
+			return "compose/effect_ui";
+		} 
+		return null;
 	}
 
 	@RequestMapping(value = "compose", method = RequestMethod.GET)
@@ -146,12 +158,12 @@ public class ComposeController {
 			profileData.mkdir();
 		}
 
-		// 한개의 글을 가져옴
 		if (type.equals("song")) {
 			int songnum = Integer.parseInt(data);
 			SongInfo song = sr.selectSong(songnum);
 			originalfile = song.getSong_picture();
 			savedfile = song.getSong_savedpic();
+			fullpath = uploadPath3 + "/" + savedfile;
 		} else if (type.equals("user")) {
 			User user = ur.selectUser(data); // user_id;
 			originalfile = user.getUser_picture();
@@ -162,19 +174,14 @@ public class ComposeController {
 			SongInfo song = sr.selectSong(songnum);
 			originalfile = song.getSong_file();
 			savedfile = song.getSong_savedfile();
+			fullpath = uploadPath3 + "/" + savedfile;
 			/*
 			 * StringTokenizer token = new StringTokenizer(data, "?"); String
 			 * data2 = token.nextToken(); originalfile = data2
 			 */;
-		}
-
-		// 사용자 측에서 다운로드 받도록 하기 위해서
-		// response 객체의 헤더를 조작함, 웹페이지 개발자모드(F12)의 Head에서 확인할수 있다
-		// text/html에서 파일 다운로드 가능한 형태로 변경
-
-		if (type.equals("rec")) {
+		} else if (type.equals("rec")) {
 			savedfile = data;
-			fullpath = uploadPath2 + "/" + savedfile;
+			fullpath = uploadPath3 + "/" + savedfile;
 		}
 
 		try {
@@ -357,9 +364,10 @@ public class ComposeController {
 	}
 
 	@RequestMapping(value = "mixerPage", method = RequestMethod.POST)
-	public String test2(Model model, HttpServletRequest request) {
-		// File dd = new
-		// File(request.getServletContext().getRealPath("src/sample/"));
+	public String test2(Model model, HttpServletRequest request, int songnum) {
+		
+		model.addAttribute("songnum", songnum);
+		
 		File webFolder = new File(request.getServletContext().getRealPath("src/sample/"));
 
 		int flag = 0;
@@ -472,26 +480,6 @@ public class ComposeController {
 		return "compose/test7";
 	}
 
-	@RequestMapping(value = "effect_ui", method = RequestMethod.POST)
-	public String effect_ui(MultipartHttpServletRequest request, MultipartFile[] upload, Model model) {
-		ArrayList<String> list = new ArrayList<>();
-
-		File sourceData = new File(uploadPath3);
-		if (!sourceData.exists()) {
-			sourceData.mkdir();
-		}
-
-		for (int i = 0; i < upload.length; i++) {
-			MultipartFile multipartFile = upload[i];
-			if (!multipartFile.isEmpty()) {
-				String savedfile = FileService2.saveFile(multipartFile, uploadPath3);
-				list.add(savedfile);
-			}
-		}
-		model.addAttribute("srclist", list);
-		return "compose/effect_ui";
-	}
-
 	@RequestMapping(value = "setting", method = RequestMethod.GET)
 	public @ResponseBody void setting() {
 		try {
@@ -518,17 +506,20 @@ public class ComposeController {
 	}
 	
 	@RequestMapping(value = "saveSongPic", method = RequestMethod.POST)
-	public @ResponseBody String saveSongPic(MultipartFile upload1) {
-		/*Iterator<String> itr =  request.getFileNames();
-	    MultipartFile mpf = request.getFile(itr.next());
-	    String originFileName = mpf.getOriginalFilename();6*/
+	public @ResponseBody String saveSongPic(MultipartHttpServletRequest request, int songnum) {
+		// 파일이 여러개일경우 위와같이 사용 할 수 있다
+		//Iterator<String> itr =  req.getFileNames();
+		//MultipartFile files = req.getFile(itr.next());
 		
-		ArrayList<String> list = new ArrayList<>();
-		String type = "r_";
+		//단일 파일일 경우 html의 name에 설정된 이름으로 파일을 가져올 수 있다.
+		//MultipartFile file = req.getFile("testFile");
 		
-		if (!upload1.isEmpty()) {
-			String savedfile = FileService2.saveFile(upload1, uploadPath3);
-			list.add(savedfile);
+		MultipartFile mpf = request.getFile("upload1");
+		logger.info("미완성 songnum: "+songnum);
+		if (!mpf.isEmpty()) {
+			String originalFileName = mpf.getOriginalFilename();
+			String savedfile = FileService2.saveFile(mpf, uploadPath3);
+			sr.updateSongInfo(songnum, originalFileName, savedfile);
 		}
 		return "success";
 	}
@@ -568,10 +559,6 @@ public class ComposeController {
 				Object[] mel = (Object[]) d.get(i);
 				System.out.print(mel[0]+"/"+mel[1]+", ");
 			}
-			/*d.clear();*/
-			/*d.add(new Object[]{"D",2});
-			d.add(new Object[]{"E",6});
-			d.add(new Object[]{"B",4});*/
 			return d;
 		} catch (Exception e) {
 			//e.printStackTrace();

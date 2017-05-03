@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import global.sesoc.jazart.vo.SongInfo;
 import global.sesoc.jazart.vo.SongReply;
+import global.sesoc.jazart.vo.Userlist;
 
 @Repository
 public class SongRepository {
@@ -146,5 +147,28 @@ public class SongRepository {
 			e.printStackTrace();
 		}
 		return songnum;
+	}
+
+	public void updateSongInfo(int songnum, String originalFileName, String savedfile) {
+		SongMapper mapper = sqlSession.getMapper(SongMapper.class);
+		int result = 0;
+		try {
+			result = mapper.updateSongInfo(songnum, originalFileName, savedfile);
+			logger.info("곡수정 result: "+result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public int insertSongdata(Userlist userlist) {
+		SongMapper mapper = sqlSession.getMapper(SongMapper.class);
+		int result = 0;
+		try {
+			result = mapper.insertSongdata(userlist);
+			logger.info("곡데이터 input result: "+result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 }

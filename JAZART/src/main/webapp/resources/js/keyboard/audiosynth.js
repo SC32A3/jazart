@@ -90,7 +90,7 @@ var Synth, AudioSynth, AudioSynthInstrument;
 		this._temp = {};
 		octave |= 0;
 		octave = Math.min(8, Math.max(0, octave));
-		var time = !duration?2:parseFloat(duration);
+		var time = !duration?1:parseFloat(duration);
 		if(typeof(this._notes[note])=='undefined') { throw new Error(note + ' is not a valid note.'); }
 		if(typeof(this._fileCache[sound][octave-1][note][time])!='undefined') {
 			if(this._debug) { console.log((new Date).valueOf() - t, 'ms to retrieve (cached)'); }

@@ -1,8 +1,3 @@
---먼저 system/1234로 접속해서 해야할 일 
-create tablespace jazart datafile 'c:\jazart.dbf' size 100m;
-create user jazart identified by jazart32 default tablespace jazart;
-grant create session, create table, create sequence, resource to jazart;
-commit;
 
 /* Drop Tables */
 
@@ -18,7 +13,16 @@ DROP TABLE userlist CASCADE CONSTRAINTS;
 DROP TABLE songinfo CASCADE CONSTRAINTS;
 DROP TABLE userinfo CASCADE CONSTRAINTS;
 
-
+create sequence songinfo_seq;
+create sequence songreply_seq;
+create sequence boardreply_seq;
+create sequence board_seq;
+create sequence list_seq;
+create sequence instedit_seq;
+create sequence songedit_seq;
+create sequence slike_seq;
+create sequence blike_seq;
+create sequence like_seq;
 
 
 /* Create Tables */
@@ -73,7 +77,6 @@ CREATE TABLE InstEdit
 	note_seq number NOT NULL,
 	-- 곡일련번호
 	songnum number NOT NULL,
-	listnum number NOT NULL,
 	PRIMARY KEY (instedit_seq)
 );
 
@@ -101,8 +104,8 @@ CREATE TABLE songinfo
 	-- 곡설명
 	song_desc varchar2(2000),
 	-- 수록MP3파일
-	song_file varchar2(20) NOT NULL,
-	song_savedfile varchar2(60),
+	song_file varchar2(20) DEFAULT 'x',
+	song_savedfile varchar2(60) DEFAULT 'x',
 	-- 곡등록날짜
 	song_inputdate date DEFAULT SYSDATE,
 	-- 곡추천수
@@ -158,8 +161,8 @@ CREATE TABLE userinfo
 	-- 비밀번호
 	user_pw varchar2(30) NOT NULL,
 	-- 프로필사진
-	user_picture varchar2(30) NOT NULL,
-	user_savedpic varchar2(60),
+	user_picture varchar2(30) DEFAULT 'default.png',
+	user_savedpic varchar2(60) DEFAULT 'default.png',
 	-- 아티스트명
 	user_nickname varchar2(30) NOT NULL UNIQUE,
 	-- 전화번호
@@ -175,17 +178,14 @@ CREATE TABLE userinfo
 CREATE TABLE userlist
 (
 	listnum number NOT NULL,
-	-- 유저아이디
-	user_id varchar2(30) NOT NULL,
 	-- 곡일련번호
 	songnum number NOT NULL,
 	-- 길이수정예정
 	file_type varchar2(30),
 	-- 길이수정예정
-	file_original varchar2(30),
+	file_original varchar2(30), 
 	file_saved varchar2(60),
 	PRIMARY KEY (listnum),
-	UNIQUE (user_id, songnum)
 );
 
 
@@ -245,21 +245,7 @@ ALTER TABLE playlist
 	REFERENCES userinfo (user_id)
 ;
 
-
-ALTER TABLE userlist
-	ADD FOREIGN KEY (user_id)
-	REFERENCES userinfo (user_id)
-;
-
-
-ALTER TABLE InstEdit
-	ADD FOREIGN KEY (listnum)
-	REFERENCES userlist (listnum)
-;
-
-update songinfo set song_like = song_like+1 where songnum = #{songnum}
-
--------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
 --일간차트카운트
 select count(slike.like_time) cnt
 		from songinfo info, songlike slike
@@ -319,6 +305,4 @@ b) where rnum between #{start} and #{end}
   
   select info.songnum, info.song_title, info.song_picture, info.song_nickname, info.song_file from playlist list, songinfo info
   		where list.songnum = info.songnum and list.user_id = #{userId}
-  		
- alter table songinfo add (complete varchar(3) constraint songinfo_complete_ck check(complete='Y' or complete='N')) 	
 
