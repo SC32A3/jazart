@@ -44,21 +44,54 @@
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 
 <!-- Recording API -->
-<!-- <script src="resources/js/audiodisplay.js"></script>
-<script src="resources/js/recorderjs/recorder.js"></script>
-<script src="resources/js/recorderjs/recorderWorker.js"></script>
-<script src="resources/js/rec_main.js"></script> -->
-
 <script src="resources/jquery-3.1.1.min.js"></script>
-<script type="text/javascript"></script>
-<link rel="manifest" href="manifest.json" />
-<link rel="shortcut icon" href="assets/favicon.png" />
-<script>
-	function lg(a) {
-		return console.log.apply(console, arguments), a;
-	}
-</script>
+<script src="resources/rTest/test.js"></script>
+<link rel="stylesheet" href="resources/rTest/app.css">
 <style type="text/css">
+.clip {
+	vertical-align: middle;
+	display: table;
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.clipText {
+	display: table-caption;
+	padding: 0px 10px 0px 30px;
+	border-bottom: 1px dotted lightpink;
+}
+
+.clip audio {
+	padding: 0px 20px 0px 20px;
+}
+
+.clipSpan {
+	background: #ff8080;
+	padding: 0.525rem 0.75rem;
+	text-align: center;
+	color: white;
+	border: none;
+	height: 35px;
+	bottom: 0.5px;
+}
+
+.clipSpan:hover {
+	background: #804040;
+}
+
+.clipA {
+	color: white;
+	height: 35px;
+	line-height: 0px;
+}
+
+.clipA:hover {
+	color: white;
+}
+
 div#input2 {
 	text-align: center;
 }
@@ -96,39 +129,147 @@ div#input2 {
 	border: 1px solid #777;
 }
 
+.title {
+	text-align: center;
+}
+
+.album {
+	background-color: beige;
+}
+
+.albumart {
+	margin: 0 auto;
+	max-width: 210px;
+	max-height: 195px;
+}
+
+.sound-clips {
+	margin: 0 auto;
+	width: 50%;
+}
+
 audio {
 	width: 50%;
 	margin-top: 4px;
 	display: block;
 	float: left;
 }
+
+img.clipImg {
+	width: 5%;
+	display: inline;
+	margin-right: 3px;
+}
+
+#songinfo {
+	padding: 50px 150px 50px 150px;
+}
 </style>
 <script type="text/javascript">
 	var files = "";
 	$(function() {
-		$('.file_input input[type=file]').change(function() {
+
+		$('#saveBtn').on('click', function() {
+			var song_title = $('#song_title').val();
+			var song_genre = $('#song_genre').val();
+			var song_desc = $('#song_desc').val();
+			var songinfo = {
+				'song_title' : song_title,
+				'song_genre' : song_genre,
+				'song_desc' : song_desc
+			};
+
+			var songPic = document.getElementById('songPic'); //$('#songPic');
+			var PicData = new FormData(songPic);
+
+			$.ajax({
+				url : 'saveSonginfo',
+				type : 'post',
+				data : songinfo,
+				success : uploadPic
+			});
+		})
+
+		$('#fileTag1').change(function() {
+			var fileName = $(this).val();
+			var fileCount = $(this).get(0).files.length;
+			var file = document.getElementById('fileTag1');
+			var fileList = file.files;
+
+			if ($(this).get(0).files.length == 1) {
+				// 읽기
+				var reader = new FileReader();
+				//로드 한 후
+				reader.onload = function() {
+					document.getElementById('albumart').src = reader.result;
+				};
+				reader.readAsDataURL(fileList[0]);
+
+				var output = fileName.split('\\').pop();
+				$('#fileRoot1').val(output);
+			} else {
+				$('#fileRoot1').val('파일 ' + fileCount + '개');
+			}
+		});
+		$('#fileTag2').change(function() {
 			var fileName = $(this).val();
 			var fileCount = $(this).get(0).files.length;
 
 			if ($(this).get(0).files.length == 1) {
-				$('.file_input input[type=text]').val(fileName);
+				var output = fileName.split('\\').pop();
+				$('#fileRoot2').val(output);
 			} else {
-				$('.file_input input[type=text]').val('파일 ' + fileCount + '개');
+				$('#fileRoot2').val('파일 ' + fileCount + '개');
 			}
 		});
+		$(".setting").click(function() {
+			$.ajax({
+				url : "setting",
+				type : "get",
+				success : function(resp) {
+				},
+				error : function(resp) {
+				}
+			});
+		});
 	});
-</script>
-<style type="text/css">
-.mixer {
-	overflow: scroll;
-}
 
-.qt-container {
-	max-width: 95%;
-}
-</style>
+	function uploadPic(resp) {
+		if (resp == 0) {
+			alert('동일한 작곡명이 있습니다');
+		} else {
+			document.getElementById('songnum').value = resp;
+			document.getElementById('songnum2').value = resp;
+			alert('songnum: ' + document.getElementById('songnum').value);
+
+			var songPic = document.getElementById('songPic'); //$('#songPic');
+			var PicData = new FormData(songPic);
+
+			$.ajax({
+				url : "saveSongPic",
+				type : 'post',
+				processData : false,
+				contentType : false,
+				data : PicData,
+				success : function(result) {
+					alert('사진업로드 성공! ' + result);
+				}
+			});
+		}
+	}
+	function check() {
+		var song_title = document.getElementById('song_title');
+		if (song_title.value == '') {
+			alert('곡정보를 입력해주세요');
+			return false;
+		}
+		return true;
+	}
+</script>
 </head>
 <body>
+	<input type="hidden" id="recordFlag" value="record">
+	<!-- 레코딩쪽 css용 hidden-->
 	<!-- QT HEADER END ================================ -->
 
 	<div class="qt-parentcontainer">
@@ -178,14 +319,13 @@ audio {
 						<li><a href="question">Question</a></li>
 					</ul></li>
 
-
-				<!-- 플레이리스트 -->
+				<%-- <!-- 플레이리스트 -->
 				<c:if test="${not empty loginNickname}">
 					<li class="right"><a href="songPopup" class="qt-popupwindow"
 						data-name="Music Player" data-width="320" data-height="500"> <i
 							class="icon dripicons-duplicate"></i>Playlist
 					</a></li>
-				</c:if>
+				</c:if> --%>
 
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
@@ -262,63 +402,73 @@ audio {
 		<!-- SEARCH FORM END ========================= -->
 		<div id="maincontent" class="qt-main">
 			<!-- ======================= HEADER SECTION ======================= -->
-			<!-- HEADER MEMBERS ========================= -->
+			<!-- HEADER CAPTION ========================= -->
 			<div class="qt-pageheader qt-negative">
 				<div class="qt-container">
 
-					<h1 class="qt-caption qt-spacer-s">Mixing</h1>
-					<h4 class="qt-subtitle">작곡/편곡</h4>
+					<h1 class="qt-caption qt-spacer-s">Done</h1>
+					<h4 class="qt-subtitle">음악 등록</h4>
 				</div>
 				<div class="qt-header-bg" data-bgimage="images/back1.jpg">
 					<img src="images/back1.jpg" alt="Featured image" width="690"
 						height="302">
 				</div>
 			</div>
-			<!-- HEADER MEMBERS END ========================= -->
-			<div class="qt-container qt-vertical-padding-l">
+			<!-- HEADER CAPTION END ========================= -->
+			<!-- ======================= CONTENT SECTION ======================= -->
+			<div class="qt-container qt-vertical-padding-m">
 				<div class="row">
-					<!-- ====================== SECTION BOOKING AND CONTACTS ================================================ -->
-					<div id="booking" class="section qt-section-booking qt-card">
-						<div class="qt-valign-wrapper">
-							<div class="qt-valign flow-text">
-								<div class="qt-booking-form" data-100p-top="opacity:0;"
-									data-80p-top="opacity:0;" data-30p-top="opacity:1;">
-									<ul class="tabs">
-										<li class="tab col s4">
-											<h5>
-												<a href="#mixer" class="active">Mixer</a>
-											</h5>
-										</li>
-										<li class="tab col s4">
-											<h5>
-												<a href="#next">Next</a>
-											</h5>
-										</li>
-									</ul>
-									<div id="mixer" class="row" style="overflow-y: auto">
-										<div class="row">
-											<iframe frameborder="0" src="mixer" height="640px"
-												class="mixer"></iframe>
-										</div>
-									</div>
-									<div id="next" class="row" style="overflow-y: auto">
-										<div class="row" style="text-align: center;">
-											<div>
-												<form action="done" method="get"
-													enctype="multipart/form-data">
-													<div class="file_input">
-														<h4>완성한 곡을 첨부해주세요.</h4>
-														<br>
-														<label> File Attach <input type="file"
-															multiple="multiple" name="upload2" id="fileTag2">
-														</label> <input type="text" id="fileRoot2" readonly="readonly"
-															title="File Route">
-													</div>
-													<input type="submit" value="NEXTPAGE" style="width: 160px;"
-														class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m"
-														onclick="sendFiles()">
-												</form>
-											</div>
+					<div class="col l12">
+						<!-- ====================== SECTION BOOKING AND CONTACTS ================================================ -->
+						<div id="booking" class="section qt-section-booking qt-card">
+							<div class="qt-valign-wrapper">
+								<div class="qt-valign flow-text">
+									<div class="qt-booking-form" data-100p-top="opacity:0;"
+										data-80p-top="opacity:0;" data-30p-top="opacity:1;">
+										<ul class="tabs">
+											<li class="tab col s4">
+												<h5>
+													<a href="#songinfo" class="active">Song Info</a>
+												</h5>
+											</li>
+										</ul>
+										<div id="songinfo" class="row">
+											<table>
+												<tr>
+						 							<th class="album" rowspan="2"
+														style="width: 300px; height: 300px;"><img
+														id="albumart" class="albumart" src="images/default.png" /></th>
+													<th class="title">곡 명</th>
+													<td><input type="text" id="song_title" required></td>
+												</tr>
+												<tr>
+													<th class="title">장 르</th>
+													<td><input type="text" id="song_genre" readonly>
+													</td>
+												</tr>
+												<tr>
+													<th>
+														<form id="songPic" method="post"
+															enctype="multipart/form-data">
+															<div class="file_input" id="input2">
+																<input type="hidden" id="songnum" name="songnum"
+																	value="#"> <label> File Attach <input
+																	type="file" id="fileTag1" name="upload1"
+																	class="albumart">
+																</label> <input type="text" id="fileRoot1" readonly="readonly"
+																	style="width: 120px;" title="File Route">
+															</div>
+														</form>
+													</th>
+													<th class="title">곡 설 명</th>
+													<td><input type="text" id="song_desc" required></td>
+												</tr>
+												<tr>
+													<th colspan="3" style="text-align: right;"><input
+														type="button" id="saveBtn" value="저장"> <input type="button" value="Music registration" /> <input type="button" value="Music Upload" />  <input type="button"
+															value="Put it in the playlist" /></th>
+												</tr>
+											</table>
 										</div>
 									</div>
 								</div>
@@ -329,85 +479,87 @@ audio {
 				</div>
 			</div>
 		</div>
-		<div class="qt-footer qt-footerwidgets">
-			<div class="qt-section qt-footer-widgets qt-content-primary-light">
-				<div class="qt-container"
-					style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
-					<h2 class="qt-footer-logo">
-						<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
-					</h2>
-					<div
-						class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>About site</span>
-								</h5>
-								<div class="qt-widget-about">
-									<p>
-										We are a young and dynamic compose station which wants to
-										bring happyness in your life. <br> <a href="sitemap">
-											Site Map <i class="dripicons-arrow-thin-right"></i>
-										</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Contacts</span>
-								</h5>
-								<div class="qt-widget-contacts">
-									<p>
-										<i class="qticon-home"></i><a href="#">www.jazart.com</a>
-									</p>
-									<p>
-										<i class="qticon-at-sign"></i><a href="question">jazart2017@gmail.com</a>
-									</p>
-									<p>
-										<i class="qticon-phone"></i><a href="#">02-123-1234</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Our Team</span>
-								</h5>
-								<div class="qt-widget-about">
-									<p>
-
-										We are a small group of designers and developers. We create
-										clean, minimal and apps. <br> <a href="about">About
-											us <i class="dripicons-arrow-thin-right"></i>
-										</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>Main links</span>
-								</h5>
-								<ul class="qt-widget-menu qt-list-chevron">
-									<li><a href="compose">Compose</a></li>
-									<li><a href="commBoard">Board </a></li>
-									<li><a href="realtimeChart">Charts </a></li>
-									<li><a href="qna">Contacts</a></li>
-								</ul>
+	</div>
+	<!-- .qt-main end -->
+	<div class="qt-footer qt-footerwidgets">
+		<div class="qt-section qt-footer-widgets qt-content-primary-light">
+			<div class="qt-container"
+				style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
+				<h2 class="qt-footer-logo">
+					<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
+				</h2>
+				<div
+					class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>About site</span>
+							</h5>
+							<div class="qt-widget-about">
+								<p>
+									We are a young and dynamic compose station which wants to bring
+									happyness in your life. <br> <a href="sitemap"> Site
+										Map <i class="dripicons-arrow-thin-right"></i>
+									</a>
+								</p>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="qt-header-bg" data-bgimage="images/back.jpg">
-					<img src="images/back.jpg" alt="Featured image" width="690"
-						height="302">
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Contacts</span>
+							</h5>
+							<div class="qt-widget-contacts">
+								<p>
+									<i class="qticon-home"></i><a href="#">www.jazart.com</a>
+								</p>
+								<p>
+									<i class="qticon-at-sign"></i><a href="question">jazart2017@gmail.com</a>
+								</p>
+								<p>
+									<i class="qticon-phone"></i><a href="#">02-123-1234</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Our Team</span>
+							</h5>
+							<div class="qt-widget-about">
+								<p>
+
+									We are a small group of designers and developers. We create
+									clean, minimal and apps. <br> <a href="about">About us
+										<i class="dripicons-arrow-thin-right"></i>
+									</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>Main links</span>
+							</h5>
+							<ul class="qt-widget-menu qt-list-chevron">
+								<li><a href="compose">Compose</a></li>
+								<li><a href="commBoard">Board </a></li>
+								<li><a href="realtimeChart">Charts </a></li>
+								<li><a href="qna">Contacts</a></li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
+			<div class="qt-header-bg" data-bgimage="images/back.jpg">
+				<img src="images/back.jpg" alt="Featured image" width="690"
+					height="302">
+			</div>
 		</div>
+	</div>
 	</div>
 
 	<!-- PLAYER SIDEBAR ========================= -->
@@ -481,7 +633,7 @@ audio {
 
 	<!-- QT FOOTER SCRIPTS ================================ -->
 	<script src="resources/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-	<script src="resources/js/jquery.js"></script>
+	<!-- <script src="resources/js/jquery.js"></script> -->
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
 	<script src="resources/js/jquery-migrate.min.js"></script>
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
@@ -514,9 +666,9 @@ audio {
 		src="resources/components/soundmanager/script/berniecode-animator.js"></script>
 	<script
 		src="resources/components/soundmanager/script/soundmanager2-nodebug.js"></script>
-	<script src="resources/components/soundmanager/script/shoutcast.js"></script>
+	<!-- <script src="resources/components/soundmanager/script/shoutcast.js"></script>
 	<script
-		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script>
+		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script> -->
 
 	<!-- Popup -->
 	<script src="resources/components/popup/popup.js"></script>

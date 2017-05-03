@@ -109,6 +109,16 @@ public class ComposeController {
 		return "compose/mixing";
 	}
 
+	@RequestMapping(value = "done", method = RequestMethod.GET)
+	public String done() {
+		return "compose/done";
+	}
+
+	@RequestMapping(value = "mixerPage", method = RequestMethod.GET)
+	public String mixerPage() {
+		return "compose/mixerPage";
+	}
+
 	@RequestMapping(value = "songPage", method = RequestMethod.GET)
 	public String songpage(int songnum, Model model) {
 		logger.info("songPage replynum=> " + songnum);
@@ -368,6 +378,7 @@ public class ComposeController {
 		
 		model.addAttribute("songnum", songnum);
 		
+	//	File webFolder = new File(request.getServletContext().getRealPath("src/sample/"));
 		File webFolder = new File(request.getServletContext().getRealPath("src/sample/"));
 
 		int flag = 0;
@@ -399,13 +410,15 @@ public class ComposeController {
 	public @ResponseBody void ajaxTest1(String data, HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("data: " + data);
 		String originalfile = data;
-		String otherpath = request.getServletContext().getRealPath("src/sample/");
+		//String otherpath = request.getServletContext().getRealPath("src/sample/");
+		String otherpath = "C:\\Test";
 		String fullpath = "";
 		ServletOutputStream fileout = null;
 		FileInputStream filein = null;
 		// 한개의 글을 가져옴
 
-		fullpath = otherpath + originalfile;
+		//fullpath = otherpath + originalfile;
+		fullpath = otherpath;
 		System.out.println("풀패스: " + fullpath);
 		try {
 			response.setHeader("Content-Disposition",
