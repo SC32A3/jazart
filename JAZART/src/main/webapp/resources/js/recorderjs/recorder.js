@@ -107,7 +107,7 @@ DEALINGS IN THE SOFTWARE.
   };
 
   Recorder.setupDownload = function(blob, downfile){
-	
+	  recIndex++;
 	  var url = (window.URL || window.webkitURL).createObjectURL(blob); alert(url);
 	  //내코드
 	  var controls = document.getElementById('controls');
@@ -128,8 +128,8 @@ DEALINGS IN THE SOFTWARE.
       deleteButton.textContent = 'Delete';
       deleteButton.className = 'delete';
 
-      if(clipName === null) {
-        clipLabel.textContent = 'My unnamed clip';
+      if(downfile === null) {
+        clipLabel.textContent = 'My unnamed clip '+recIndex;
       } else {
         clipLabel.textContent = downfile;
       }
@@ -140,10 +140,16 @@ DEALINGS IN THE SOFTWARE.
       controls.appendChild(clipContainer); //아티클->div
 	  //내 코드끝
 	  
-    /*var link = document.getElementById("save");
-    link.href = url;
-    link.download = downfile || 'output.wav';*/
-    //c://userProfile/**.jpg //fileservice.java
+	  var link = document.getElementById("save");
+	  link.href = url;
+	  link.download = downfile || 'output.wav';
+	  //c://userProfile/**.jpg //fileservice.java
+	  
+	// 삭제하기
+      deleteButton.onclick = function(e) {
+		evtTgt = e.target;
+		evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode); //section에서 article을 날림
+	  }
   }
 
   window.Recorder = Recorder;

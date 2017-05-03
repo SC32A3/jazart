@@ -170,7 +170,6 @@
 		<p>
 			<button class="record">Rec.</button>
 			<button class="stop">Stop</button>
-			<button class="toPiano">toPiano</button>
 		</p>
 		<section class="sound-clips"></section>
 	</div>

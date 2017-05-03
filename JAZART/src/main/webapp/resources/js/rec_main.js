@@ -82,6 +82,55 @@ function toggleRecording( e ) {
     }
 }
 
+function test(){
+	alert('test에 들어옴');
+}
+
+function toggle2(blob, clipName, count){
+	alert('가자가자');
+	var soundClips = document.querySelector('.sound-clips');
+	var clipContainer = document.createElement('article');
+	var clipText = document.createTextNode(clipName);
+	var clipTextSpan = document.createElement('span');
+	var clipLabel = document.createElement('a');
+	var audio = document.createElement('audio');
+	var clipSpan = document.createElement('span');
+	var deleteButton = document.createElement('button');
+
+	clipContainer.classList.add('clip');
+	clipTextSpan.classList.add('clipText');
+	clipSpan.classList.add('clipSpan');
+	deleteButton.classList.add('clipSpan');
+	clipLabel.classList.add('clipA');
+	
+	audio.controls = true;
+	audio.setAttribute('controls', '');
+	deleteButton.textContent = 'Delete';
+	deleteButton.className = 'delete';
+	
+	clipLabel.textContent = 'Save';
+	
+	clipSpan.appendChild(clipLabel);
+	clipTextSpan.appendChild(clipText);
+	clipContainer.appendChild(clipTextSpan);
+	clipContainer.appendChild(audio);
+	clipContainer.appendChild(clipSpan);
+	clipContainer.appendChild(deleteButton);
+	soundClips.appendChild(clipContainer);
+	
+	clipLabel.classList.add('aTag'+count);
+	audio.classList.add('audio'+count);
+	//
+	
+	// 삭제하기
+	deleteButton.onclick = function(e) {
+		evtTgt = e.target;
+		evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode); //section에서 article을 날림
+	}
+	
+	Recorder.setupDownload(blob, clipName, count);
+}
+
 function convertToMono( input ) {
     var splitter = audioContext.createChannelSplitter(2);
     var merger = audioContext.createChannelMerger(2);

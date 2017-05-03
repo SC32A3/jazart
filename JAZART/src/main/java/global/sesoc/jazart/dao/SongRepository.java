@@ -171,4 +171,17 @@ public class SongRepository {
 		}
 		return result;
 	}
+
+	public ArrayList<String> selectSongdata(int songnum, String file_type) {
+		SongMapper mapper = sqlSession.getMapper(SongMapper.class);
+		ArrayList<String> list = new ArrayList<>();
+		try {
+			list = mapper.selectSongdata(songnum, file_type);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	
 }

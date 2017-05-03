@@ -54,4 +54,7 @@
    <insert id="insertSongdata" parameterType="Userlist">
       insert into userlist values(list_seq.nextval, #{songnum}, #{file_type}, #{file_original}, #{file_saved})
    </insert>   
+   <select id="selectSongdata" resultType="String">
+   	  select file_original from userlist where songnum = #{0} and file_type =#{1}
+   </select>
 </mapper>

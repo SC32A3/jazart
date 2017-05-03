@@ -516,12 +516,20 @@ img.clipImg {
 											<div class="src1">
 												<div class="files">
 													<h5>녹음 파일</h5>
-													<ul id="rec-file-list"></ul>
+													<ul id="rec-file-list">
+														<c:forEach var="" items="${recordList}">
+															<li><a></a></li>
+														</c:forEach>
+													</ul>
 												</div>
 												<br>
 												<div class="files">
 													<h5>음원 소스 파일</h5>
-													<ul id="src-file-list"></ul>
+													<ul id="src-file-list">
+														<c:forEach var="" items="${recordList}">
+														
+														</c:forEach>
+													</ul>
 												</div>
 											</div>
 											<div class="src2">

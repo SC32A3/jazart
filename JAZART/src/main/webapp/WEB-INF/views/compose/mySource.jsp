@@ -409,20 +409,18 @@ img.clipImg {
 										</div>
 										<div id="worklist" class="row qt-contacts">
 											<div class="row">
-												<form action="mySrc" method="post"
+												<form action="effect_ui" method="post"
 													enctype="multipart/form-data">
 													<section class="sound-clips"></section>
 													<div class="file_input">
 														<input type="hidden" name="songnum" value="${songnum}">
-														<input type="hidden" name="type" value="sources">
 														<label> File Attach <input type="file"
 															multiple="multiple" name="upload2" id="fileTag2">
 														</label> <input type="text" id="fileRoot2" readonly="readonly"
 															title="File Route">
 													</div>
 													<input type="submit" value="NEXTPAGE" style="width: 160px;"
-														class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m"
-														onclick="sendFiles()">
+														class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m">
 												</form>
 											</div>
 										</div>

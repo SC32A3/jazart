@@ -40,4 +40,6 @@ public interface SongMapper {
 
    int insertSongdata(Userlist userlist) throws Exception;
 
+   ArrayList<String> selectSongdata(int songnum, String file_type) throws Exception;
+
 }

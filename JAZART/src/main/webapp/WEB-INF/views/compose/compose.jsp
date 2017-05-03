@@ -516,7 +516,6 @@ img.clipImg {
 													<section class="sound-clips"></section>
 													<div class="file_input">
 														<input type="hidden" id="songnum2" name="songnum" value="0">
-														<input type="hidden" name="type" value="record">
 														<label> File Attach <input type="file"
 															multiple="multiple" name="upload2" id="fileTag2">
 														</label> <input type="text" id="fileRoot2" readonly="readonly"
