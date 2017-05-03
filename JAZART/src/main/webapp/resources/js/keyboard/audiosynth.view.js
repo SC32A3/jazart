@@ -26,6 +26,8 @@ function AudioSynthView() {
 	
 		document.getElementById('OCTAVE_LOWER').innerHTML = __octave-1;
 		document.getElementById('OCTAVE_UPPER').innerHTML = __octave+1;
+		
+		console.log('현재 옥타브: '+__octave);
 	
 	};
 
@@ -199,43 +201,38 @@ function AudioSynthView() {
 		var iWhite = 0;
 		var notes = __audioSynth._notes;
 		
-		for (var int = 0; int < 3; int++) { // 맨위 for문 추가
-			var test = document.createElement('div');
-			for(var i=-1;i<=1;i++) { //키보드 바꾸는 코드가 아님
-				for(var n in notes) {
-					if(n[2]!='b') {
-						console.log('n[2]: '+n[2]);
-						var thisKey = document.createElement('div');
-						if(n.length>1) {
-							thisKey.className = 'black key';
-							thisKey.style.width = '30px';
-							thisKey.style.height = '120px';
-							thisKey.style.left = (40 * (iWhite - 1)) + 25 + 'px';
-						} else {
-							thisKey.className = 'white key';
-							thisKey.style.width = '40px';
-							thisKey.style.height = '200px';
-							thisKey.style.left = 40 * iWhite + 'px';
-							iWhite++;
-						}
-						var label = document.createElement('div');
-						label.className = 'label';
-						label.innerHTML = '<b>' + String.fromCharCode(reverseLookupText[n + ',' + i]) + '</b>' + '<br /><br />' + n.substr(0,1) +
-						'<span name="OCTAVE_LABEL" value="' + i + '">' + (int+2) + '</span>' + (n.substr(1,1)?n.substr(1,1):'');
-						//'<span name="OCTAVE_LABEL" value="' + i + '">' + (__octave + parseInt(i)) + '</span>' + (n.substr(1,1)?n.substr(1,1):'');
-						//기본일 때 "C" + 3(=> i=-1), (__octave + parseInt(i)) => 3
-						thisKey.appendChild(label);
-						thisKey.setAttribute('ID', 'KEY_' + n + ',' + i);
-						thisKey.addEventListener(evtListener[0], (function(_temp) { return function() { fnPlayKeyboard({keyCode:_temp}); } })(reverseLookup[n + ',' + i]));
-						visualKeyboard[n + ',' + i] = thisKey;
-						test.appendChild(thisKey);
-						visualKeyboard.appendChild(test);
-						//visualKeyboard.appendChild(thisKey);
-						iKeys++;
+		for(var i=-1;i<=1;i++) { //키보드 바꾸는 코드가 아님
+			for(var n in notes) {
+				if(n[2]!='b') {
+					var thisKey = document.createElement('div');
+					if(n.length>1) {
+						thisKey.className = 'black key';
+						thisKey.style.width = '30px';
+						thisKey.style.height = '120px';
+						thisKey.style.left = (40 * (iWhite - 1)) + 25 + 'px';
+					} else {
+						thisKey.className = 'white key';
+						thisKey.style.width = '40px';
+						thisKey.style.height = '200px';
+						thisKey.style.left = 40 * iWhite + 'px';
+						iWhite++;
 					}
+					var label = document.createElement('div');
+					label.className = 'label';
+					label.innerHTML = '<b>' + String.fromCharCode(reverseLookupText[n + ',' + i]) + '</b>' + '<br /><br />' + n.substr(0,1) +
+					'<span name="OCTAVE_LABEL" value="' + i + '">' + (__octave + parseInt(i)) + '</span>' + (n.substr(1,1)?n.substr(1,1):'');
+					//'<span name="OCTAVE_LABEL" value="' + i + '">' + (__octave + parseInt(i)) + '</span>' + (n.substr(1,1)?n.substr(1,1):'');
+					//기본일 때 "C" + 3(=> i=-1), (__octave + parseInt(i)) => 3
+					thisKey.appendChild(label);
+					thisKey.setAttribute('ID', 'KEY_' + n + ',' + i);
+					thisKey.addEventListener(evtListener[0], (function(_temp) { return function() { fnPlayKeyboard({keyCode:_temp}); } })(reverseLookup[n + ',' + i]));
+					visualKeyboard[n + ',' + i] = thisKey;
+					visualKeyboard.appendChild(thisKey);
+					iKeys++;
 				}
 			}
 		}
+		
 
 		visualKeyboard.style.width = iWhite * 40 + 'px';
 
@@ -246,24 +243,21 @@ function AudioSynthView() {
 	// Creates our audio player
 	var fnPlayNote = function(note, octave) {
 		console.log('note&octave: '+note+',  '+octave);
-		console.log('fnPlayNote들어옴');
 		src = __audioSynth.generate(selectSound.value, note, octave, 6);
-		//console.log('selectSound.value: '+selectSound.value); //0
 		container = new Audio(src);
 		container.addEventListener('ended', function() { container = null; });
 		container.addEventListener('loadeddata', function(e) { e.target.play(); });
 		container.autoplay = false;
 		container.load();
-		console.log('fnPlayNote나감');
 		return container;
 	};
 
 	// Detect keypresses, play notes.
-	var fnPlayKeyboard = function(e) {
-		console.log('여기도 들어온다는 거네');
+	var fnPlayKeyboard = function(e, oldpie) {
+		//console.log('여기도 들어온다는 거네');
 		var i = keysPressed.length;
-		console.log('keysPressed.length '+keysPressed.length);
-		console.log('e.keyCode '+e.keyCode);
+		//console.log('keysPressed.length '+keysPressed.length);
+		//console.log('e.keyCode '+e.keyCode);
 		while(i--) {
 			if(keysPressed[i]==e.keyCode) {
 				return false;	
@@ -331,10 +325,19 @@ function AudioSynthView() {
 				visualKeyboard[keyboard[e.keyCode]].style.boxShadow = 'none';
 			}
 			var arrPlayNote = keyboard[e.keyCode].split(',');
+			console.log('keyboard[e.keyCode]: '+keyboard[e.keyCode]);
+			console.log('arrPlayNote: '+arrPlayNote); //D,1(D,5) B,0(B,4)
 			var note = arrPlayNote[0];
 			var octaveModifier = arrPlayNote[1]|0;
-			//alert(note + "," + (__octave+octaveModifier));
-			fnPlayNote(note, __octave + octaveModifier);
+			var result = 0;
+			if (oldpie == 2) {
+				result = __octave + 2;
+			} else if (oldpie == -2){
+				result = __octave - 2;
+			} else {
+				result = __octave + octaveModifier;
+			}
+			fnPlayNote(note, result);
 		} else {
 			return false;	
 		}
@@ -362,28 +365,59 @@ function AudioSynthView() {
 	var fnPlaySong = function(arr) {
 		//alert('렛츠플레이');
 		if(arr.length>0) { //E08 D08 C02
-			console.log('//////시작///////'); 
+			console.log('////////////////////');
 			var noteLen = 1000*(1/parseInt(arr[0][1])); //2
+			var pie = arr[0][0].split(',')[1];
+			var oldpie = arr[0][0].split(',')[1];
+			var pie2 = arr[0][0].split(',')[0];
+			var oldpie2 = arr[0][0].split(',')[0];
+			var newPie = [];
+			
+			console.log('pies: '+pie+', '+pie2);
+			console.log('noteLen: '+noteLen);
+			
 			if(!(arr[0][0] instanceof Array)) { //'C,1'
 				arr[0][0] = [arr[0][0]];	
 			}
-			console.log('arr[0][0] '+arr[0][0]); 
-			console.log('arr[0][1] '+arr[0][1]); 
+			
 			var i = arr[0][0].length;
-				console.log('i '+i); //1
+			console.log('i length: '+i);
 			var keys = [];
 			while(i--) {
-				console.log('arr[0][0][i] '+arr[0][0][i]); // E,0  D,0  C,0
-				keys.unshift(reverseLookup[arr[0][0][i]]);
-				fnPlayKeyboard({keyCode:keys[0]});
-			}
-			console.log('//////끝///////');
-			arr.shift();
-			setTimeout(function(array, val){ return function() { var i = val.length; while(i--) { fnRemoveKeyBinding({keyCode:val[i]}); } fnPlaySong(array); } }(arr, keys), noteLen);
-		}
-	
-	};
+				if (pie == 2 || pie == -2) {
+					if (pie == -2) {
+						pie = -1;
+						newPie = [pie2 , pie];
+						console.log('newPie: '+newPie);
+					}
 
+					if (pie == 2) {
+						pie = 1;
+						newPie = [pie2 , pie];
+						console.log('newPie: '+newPie);
+					}
+					keys.unshift(reverseLookup[newPie]); //키보드 매핑값 86,88
+				} else {
+					keys.unshift(reverseLookup[arr[0][0][i]]); //키보드 매핑값 86,88
+					console.log('arr[0][0][i]: '+arr[0][0][i]);
+				}
+				console.log('keys: '+keys);
+				fnPlayKeyboard({keyCode:keys[0]}, oldpie);
+			}
+			arr.shift();
+			setTimeout(function(array, val){
+				return function() {
+					var i = val.length;
+					while(i--) {
+						fnRemoveKeyBinding({keyCode:val[i]});
+					}
+					fnPlaySong(array); 
+				}
+			}(arr, keys), noteLen);
+			
+		}
+	};
+	
 	// Set up global event listeners
 
 	window.addEventListener('keydown', fnPlayKeyboard);
@@ -401,7 +435,7 @@ function AudioSynthView() {
 	
 	Object.defineProperty(this, 'play2', {
 		value: fnPlayNote
-	}); 
+	});
 	
 	//fnChangeOctave
 	Object.defineProperty(this, 'octave', {

@@ -506,28 +506,28 @@ public class ComposeController {
 	public @ResponseBody int saveSonginfo(SongInfo songinfo) {
 		int songnum = 0;
 		int count = 0;
-		String loginNickname = (String) session.getAttribute("loginNickname");
-		logger.info("songinfo: " + songinfo);
-		count = sr.selectSongByName(loginNickname, songinfo.getSong_title()); // 닉네임과
-																				// 제목이
-																				// 일치하면
-																				// 막는다
+		String loginNickname = (String)session.getAttribute("loginNickname");
+		count = sr.selectSongByName(loginNickname, songinfo.getSong_title()); //닉네임과 제목이 일치하면 막는다
 		if (count != 1) {
 			songinfo.setSong_nickname(loginNickname);
+			logger.info("입력할 곡정보 songinfo: "+songinfo);
 			sr.insertSongInfo(songinfo);
-			songnum = sr.getSongnum(songinfo.getSong_title());
+			songnum = sr.getSongnum(loginNickname, songinfo.getSong_title());
 		}
 		return songnum;
 	}
-
+	
 	@RequestMapping(value = "saveSongPic", method = RequestMethod.POST)
-	public @ResponseBody String saveSongPic(MultipartHttpServletRequest request, MultipartFile upload1) {
+	public @ResponseBody String saveSongPic(MultipartFile upload1) {
+		/*Iterator<String> itr =  request.getFileNames();
+	    MultipartFile mpf = request.getFile(itr.next());
+	    String originFileName = mpf.getOriginalFilename();6*/
+		
 		ArrayList<String> list = new ArrayList<>();
 		String type = "r_";
-
-		MultipartFile multipartFile = upload1;
-		if (!multipartFile.isEmpty()) {
-			String savedfile = FileService2.saveFile(multipartFile, uploadPath3);
+		
+		if (!upload1.isEmpty()) {
+			String savedfile = FileService2.saveFile(upload1, uploadPath3);
 			list.add(savedfile);
 		}
 		return "success";
@@ -556,7 +556,6 @@ public class ComposeController {
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
@@ -564,13 +563,15 @@ public class ComposeController {
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(f)));
 			ArrayList<Object> d = (ArrayList<Object>) ois.readObject();
+			//ArrayList<Object> d = new ArrayList<>();
 			for (int i = 0; i < d.size(); i++) {
 				Object[] mel = (Object[]) d.get(i);
+				System.out.print(mel[0]+"/"+mel[1]+", ");
 			}
-			d.clear();
-			d.add(new Object[]{"D",4});
-			d.add(new Object[]{"E",5});
-			d.add(new Object[]{"B",2});
+			/*d.clear();*/
+			/*d.add(new Object[]{"D",2});
+			d.add(new Object[]{"E",6});
+			d.add(new Object[]{"B",4});*/
 			return d;
 		} catch (Exception e) {
 			//e.printStackTrace();
