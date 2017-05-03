@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -85,10 +86,12 @@ public class ComposeController {
 	}
 	
 	@RequestMapping(value = "effect_ui", method = RequestMethod.POST)
-	public String effect_ui(MultipartFile[] upload2, Model model, int songnum) {
+	public String effect_ui(MultipartFile[] upload2, Model model, int songnum, HttpServletRequest request, HttpServletResponse response) {
 		logger.info("effect songnum: "+songnum);
 		model.addAttribute("songnum", songnum);
 		File recordingData = new File(uploadPath3);
+		FileOutputStream fileout = null;
+		FileInputStream filein = null;
 		
 		if (!recordingData.exists()) {
 			recordingData.mkdir();
@@ -106,6 +109,49 @@ public class ComposeController {
 		}
 		ArrayList<String> recordList = sr.selectSongdata(songnum, "record");
 		ArrayList<String> sourceList = sr.selectSongdata(songnum, "source");
+		ArrayList<String> recordList2 = sr.selectSongdata2(songnum, "record");
+		ArrayList<String> sourceList2 = sr.selectSongdata2(songnum, "source");
+		
+		for (String string : recordList2) {
+			try {
+				filein = new FileInputStream(uploadPath3+"/"+string);
+				fileout = new FileOutputStream(request.getServletContext().getRealPath("resources/effect/example/audio/samples/"+string));
+				//fileout = new File(request.getServletContext().getRealPath("resources/effect/example/audio/samples"));
+				// Spring에서 제공하는 유틸리티
+				FileCopyUtils.copy(filein, fileout);
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (filein != null)
+						filein.close();
+					if (fileout != null)
+						fileout.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		for (String string : sourceList2) {
+			try {
+				filein = new FileInputStream(uploadPath3+"/"+string);
+				fileout = new FileOutputStream(request.getServletContext().getRealPath("resources/effect/example/audio/samples/"+string));
+				// Spring에서 제공하는 유틸리티
+				FileCopyUtils.copy(filein, fileout);
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (filein != null)
+						filein.close();
+					if (fileout != null)
+						fileout.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
 		model.addAttribute("recordList", recordList);
 		model.addAttribute("sourceList", sourceList);
 		
@@ -387,9 +433,22 @@ public class ComposeController {
 	}
 
 	@RequestMapping(value = "mixerPage", method = RequestMethod.POST)
-	public String test2(Model model, HttpServletRequest request, int songnum) {
+	public String test2(MultipartFile[] upload, Model model, HttpServletRequest request, int songnum) {
 		model.addAttribute("songnum", songnum);
-		//sr.selectUserlist(songnum);
+		
+		
+		for (int i = 0; i < upload.length; i++) {
+			MultipartFile multipartFile = upload[i];
+			if (!multipartFile.isEmpty()) {
+				String originalFile = multipartFile.getOriginalFilename();
+				String savedfile = FileService2.saveFile(multipartFile, uploadPath3);
+				Userlist userlist = new Userlist(0, songnum, "source", originalFile, savedfile);
+				int result = sr.insertSongdata(userlist);
+				logger.info("saved record => "+savedfile);
+			}
+		}
+		
+		ArrayList<String[]> sources = sr.selectSongdata3(songnum);
 		
 		
 		/*File webFolder = new File(request.getServletContext().getRealPath("src/sample/"));

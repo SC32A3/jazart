@@ -183,5 +183,27 @@ public class SongRepository {
 		return list;
 	}
 
+	public ArrayList<String> selectSongdata2(int songnum, String file_type) {
+		SongMapper mapper = sqlSession.getMapper(SongMapper.class);
+		ArrayList<String> list = new ArrayList<>();
+		try {
+			list = mapper.selectSongdata2(songnum, file_type);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	public ArrayList<String[]> selectSongdata3(int songnum) {
+		SongMapper mapper = sqlSession.getMapper(SongMapper.class);
+		ArrayList<String[]> list = new ArrayList<>();
+		try {
+			//list = mapper.selectSongdata3(songnum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
 	
 }

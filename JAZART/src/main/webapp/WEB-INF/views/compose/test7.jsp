@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <!-- Recording API -->
 <script src="resources/jquery-3.1.1.min.js"></script>
-<script src="resources/rTest/test2.js"></script>
+<script src="resources/rTest/test.js"></script>
 <link rel="stylesheet" href="resources/rTest/app.css">
 
 <link rel="stylesheet" href="assets/css/style.css" />

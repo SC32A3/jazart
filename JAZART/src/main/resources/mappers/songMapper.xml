@@ -57,4 +57,7 @@
    <select id="selectSongdata" resultType="String">
    	  select file_original from userlist where songnum = #{0} and file_type =#{1}
    </select>
+   <select id="selectSongdata2" resultType="String">
+   	  select file_saved from userlist where songnum = #{0} and file_type =#{1}
+   </select>
 </mapper>

@@ -42,4 +42,7 @@ public interface SongMapper {
 
    ArrayList<String> selectSongdata(int songnum, String file_type) throws Exception;
 
+   ArrayList<String> selectSongdata2(int songnum, String file_type) throws Exception;
+
+
 }

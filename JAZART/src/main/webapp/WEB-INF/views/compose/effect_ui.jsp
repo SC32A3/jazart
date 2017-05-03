@@ -51,9 +51,12 @@
 <!-- Effect API -->
 <!-- <link rel="stylesheet" href="resources/effect/example/css/reset.css" />
 <link rel="stylesheet" href="resources/effect/example/css/common.css" /> 배경, 주요문구 -->
-<link rel="stylesheet" href="resources/effect/example/css/box.css" /> <!-- 박스디자인 --> 
-<link rel="stylesheet" href="resources/effect/example/css/switch.css" /> <!-- 효과전원버튼이펙트 -->
-<link rel="stylesheet" href="resources/effect/example/css/pot.css" /> <!-- 조절knob --> 
+<link rel="stylesheet" href="resources/effect/example/css/box.css" />
+<!-- 박스디자인 -->
+<link rel="stylesheet" href="resources/effect/example/css/switch.css" />
+<!-- 효과전원버튼이펙트 -->
+<link rel="stylesheet" href="resources/effect/example/css/pot.css" />
+<!-- 조절knob -->
 <link href='http://fonts.googleapis.com/css?family=Damion'
 	rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Yellowtail'
@@ -62,7 +65,8 @@
 	rel='stylesheet' type='text/css'>
 <script src="resources/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="resources/effect/dist/compiled2.js"></script>
-<script type="text/javascript" src="resources/effect/src/Bootstrapper.js"></script>
+<script type="text/javascript"
+	src="resources/effect/src/Bootstrapper.js"></script>
 
 
 <style type="text/css">
@@ -93,7 +97,7 @@
 
 #mysource {
 	padding: 30px 50px 30px 50px;
-	overflow : hidden;
+	overflow: hidden;
 }
 
 .files {
@@ -198,9 +202,9 @@
 }
 
 .src1 {
-    float: left;
-    width: 250px;
-    display: inline-block;
+	float: left;
+	width: 250px;
+	display: inline-block;
 }
 
 .src2 {
@@ -209,34 +213,58 @@
 	height: 430px;
 }
 
-.effect{
-	position: relative;
-	margin: 0;
-    height: 410px;
-    overflow-y: auto;
-    list-style: none;
-    background: #F7F7F7;
-    border: 1px solid #D9D9D9;
-    border-radius: 3px;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+.alist{
+	font-size: 15px;
 }
 
-.effectText{
+.effect {
+	position: relative;
+	margin: 0;
+	height: 410px;
+	overflow-y: auto;
+	list-style: none;
+	background: #F7F7F7;
+	border: 1px solid #D9D9D9;
+	border-radius: 3px;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.effectText {
 	margin-bottom: 5px;
 }
 
-.effectDetail{
+.effectDetail {
 	float: left;
 	width: 25%;
 	height: 100%;
 	border: 1px solid black;
 }
 
-#wall{
-	float: left;
+#wall {
+	/* float: left;
     position: absolute;
     top: 250px;
-    left: 400px;
+    left: 400px; */
+	border-radius: 9px;
+	background-color: hsl(0, 100%, 90%);
+	float: left;
+	position: absolute;
+	top: 53%;
+	left: 69%;
+	width: 28%;
+	height: 170px;
+}
+
+div#controlButton {
+	font-family: 'Khand', sans-serif;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	font-size: 4vh;
+	text-align: center;
+}
+
+.sample {
+	text-align: center;
 }
 
 .switch span {
@@ -249,16 +277,16 @@
 }
 
 audio {
-    width: 50%;
-    margin-top: 4px;
-    display: block;
-    float: left;
+	width: 50%;
+	margin-top: 4px;
+	display: block;
+	float: left;
 }
 
 img.clipImg {
-    width: 5%;
-    display: inline;
-    margin-right: 3px;
+	width: 5%;
+	display: inline;
+	margin-right: 3px;
 }
 </style>
 <script type="text/javascript">
@@ -294,12 +322,12 @@ img.clipImg {
 			}
 		}); */
 	});
-	
+
 	function spanClick(id) {
-		var clickBtn = $('.'+id);
+		var clickBtn = $('.' + id);
 		if (clickBtn.html() == 'ON') {
 			clickBtn.text('OFF');
-		} else if (clickBtn.html() == 'OFF'){
+		} else if (clickBtn.html() == 'OFF') {
 			clickBtn.text('ON');
 		}
 	}
@@ -511,14 +539,14 @@ img.clipImg {
 												</h5>
 											</li>
 										</ul>
-										
+
 										<div id="mysource" class="row clearfix">
 											<div class="src1">
 												<div class="files">
 													<h5>녹음 파일</h5>
 													<ul id="rec-file-list">
-														<c:forEach var="" items="${recordList}">
-															<li><a></a></li>
+														<c:forEach var="record" items="${recordList}">
+															<li><a class="alist">${record}</a></li>
 														</c:forEach>
 													</ul>
 												</div>
@@ -526,8 +554,8 @@ img.clipImg {
 												<div class="files">
 													<h5>음원 소스 파일</h5>
 													<ul id="src-file-list">
-														<c:forEach var="" items="${recordList}">
-															<li><a></a></li>
+														<c:forEach var="source" items="${sourceList}">
+															<li><a class="alist">${source}</a></li>
 														</c:forEach>
 													</ul>
 												</div>
@@ -536,31 +564,34 @@ img.clipImg {
 												<div class="effectBox">
 													<h5 class="effectText">음향 효과</h5>
 													<div class="effect">
-														<div id="floor">
-														
-														</div>
+														<div id="floor"></div>
 														<div id="wall">
-														<div id="controlPanel">
-															<div id="controlButton">플레이버튼</div>
-															<div class="linein">live</div>
-													        <div id="samples">
-																<div class="sample">Sample 1</div>
-																<!-- <div class="sample">Sample 2</div>
+															<div id="controlPanel">
+																<div id="controlButton">Play</div>
+																<div class="linein" style="display: none;">live</div>
+																<div id="samples">
+																	<c:forEach var="record" items="${recordList}">
+																		<div class="sample">${record}</div>
+																	</c:forEach>
+																	<c:forEach var="record" items="${sourceList}">
+																		<div class="sample">${source}</div>
+																	</c:forEach>
+																	<!-- <div class="sample">Sample 2</div>
 																<div class="sample">Sample 3</div>
 																<div class="sample">Sample 4</div>
 																<div class="sample">Sample 5</div> -->
+																</div>
 															</div>
 														</div>
-														</div>														
-													<!-- <div class="effectDetail"></div>
+														<!-- <div class="effectDetail"></div>
 													<div class="effectDetail"></div>
 													<div class="effectDetail"></div>
 													<div class="effectDetail"></div> -->
 													</div>
-												</div>											
+												</div>
 											</div>
 										</div>
-										
+
 										<div id="worklist" class="row qt-contacts">
 											<div class="row">
 												<form action="mixerPage" method="post"
@@ -569,7 +600,7 @@ img.clipImg {
 													<section class="sound-clips"></section>
 													<div class="file_input">
 														<label> File Attach <input type="file"
-															multiple="multiple" name="source" id="source">
+															multiple="multiple" name="upload" id="source">
 														</label> <input type="text" id="fileRoot" readonly="readonly"
 															title="File Route">
 													</div>
@@ -589,20 +620,20 @@ img.clipImg {
 		</div>
 	</div>
 	<!-- .qt-main end -->
-		<div class="qt-footer qt-footerwidgets">
-			<div class="qt-section qt-footer-widgets qt-content-primary-light">
-				<div class="qt-container"
-					style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
-					<h2 class="qt-footer-logo">
-						<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
-					</h2>
-					<div
-						class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
-						<div class="col s12 m3 l3">
-							<div class="qt-widget">
-								<h5 class="qt-caption-small">
-									<span>About site</span>
-								</h5>
+	<div class="qt-footer qt-footerwidgets">
+		<div class="qt-section qt-footer-widgets qt-content-primary-light">
+			<div class="qt-container"
+				style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
+				<h2 class="qt-footer-logo">
+					<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
+				</h2>
+				<div
+					class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
+					<div class="col s12 m3 l3">
+						<div class="qt-widget">
+							<h5 class="qt-caption-small">
+								<span>About site</span>
+							</h5>
 							<div class="qt-widget-about">
 								<p>
 									We are a young and dynamic compose station which wants to bring
@@ -795,7 +826,7 @@ img.clipImg {
 		var settings = [];
 
 		var cBDraw = function() { //클릭이벤트
-			cb.innerHTML = state ? '&#9724;' : '&#9654;';
+			cb.innerHTML = state ? 'Stop' : 'Play'; //'&#9724;' : '&#9654;';
 			samples.forEach(function(sample) {
 				sample.className = 'sample';
 			});
@@ -811,8 +842,8 @@ img.clipImg {
 				playLineIn();
 				return;
 			}
-			settings[sampleNo - 1] && settings[sampleNo - 1]();
-			stage.play('resources/effect/example/audio/samples/sample' + sampleNo + '.mp3');
+			settings[sampleNo - 1] && settings[sampleNo - 1](); //$('.sample').eq(0).text()
+			stage.play('resources/effect/example/audio/samples/' + 'test2.wav');
 		}
 
 		var cBHandler = function() {
@@ -908,14 +939,14 @@ img.clipImg {
 			overdrive.setTone(.3);
 			reverb.setLevel(.7);
 		});
-		
+
 		function help(tag) {
-			var knob = document.getElementById('Knob'+tag); //놉
-			var range = document.getElementById('Range'+tag).value;
+			var knob = document.getElementById('Knob' + tag); //놉
+			var range = document.getElementById('Range' + tag).value;
 			var attribute = "rotateZ(" + range + "deg)";
 			alert(attribute);
-            
-            knob.style.transform = attribute; 
+
+			knob.style.transform = attribute;
 		}
 	</script>
 
