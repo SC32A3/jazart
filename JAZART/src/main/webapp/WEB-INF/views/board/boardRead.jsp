@@ -75,23 +75,25 @@ table, th, td {
 }
 
 .tdName {
-	width: 100px
+	width: 100px;
 }
 
 .tdText {
-	width: 250px
+	width: 400px;
+	text-align: left;
+	word-break:break-all;
 }
 
 .tdDate {
-	width: 100px
+	width: 100px;
 }
 
 .tdLike {
-	width: 70px
+	width: 70px;
 }
 
 .tdBtn {
-	width: 150px
+	width: 150px;
 }
 
 .line {
@@ -152,7 +154,6 @@ p.bContent b:after {
 			location.href = "boardDelete?boardNum=" + boardNum;
 		}
 	}
-
 	function updateCheck(boardNum) {
 			location.href = "boardUpdate?boardNum=" + boardNum;
 	}
@@ -162,7 +163,6 @@ p.bContent b:after {
 <script type="text/javascript">
 			var boardnum = '';
 			var loginNickname = '${loginNickname}';
-			
 			$(function() {
 				$("#leaveReply").on("click", leaveReply);
 				init();
@@ -209,7 +209,7 @@ p.bContent b:after {
 				if (resp == "") {
 					msg += '<tr><td>저장된 댓글이 없습니다</td></tr>'
 				} else {
-					msg += '<tr><th>ID</th><th>Text</th><th>Date</th><th>Like</th><th></th></tr>';
+					msg += '<tr><th>ID</th><th style="width: 400px;">Text</th><th>Date</th><th>Like</th><th></th></tr>';
 					$.each(resp, function(index, item) {
 						msg += "<tr>"; 
 						msg += "<td class='tdName'>"+item.reply_nickname+"</td>";
@@ -235,7 +235,6 @@ p.bContent b:after {
 				$("input:button.rec").on("click", replyRec);
 				$("input:button.upd").on("click", replyUpd);
 			}
-			
 			function replyUpd() {
 				var num = $(this).attr("data-num"); //this : 호출한 버튼 'input'객체
 				$("#"+num+"_span1").html("<input type='text' id='"+num+"_Newtext'>");
@@ -252,13 +251,12 @@ p.bContent b:after {
 							}
 						}
 					});
-				})
-				
+				})		
 				$("#"+num+"_cancel").on("click", function() {
 					init();
 				})
 			};
-			
+
 			function replyDel() {
 				var num = $(this).attr("data-num"); //this : 호출한 버튼 'input'객체
 				$.ajax({
@@ -289,7 +287,6 @@ p.bContent b:after {
 				});
 			};
 		</script>
-
 </head>
 <body>
 	<div class="qt-parentcontainer">
@@ -338,8 +335,6 @@ p.bContent b:after {
 						<li><a href="qna">QnA</a></li>
 						<li><a href="question">Question</a></li>
 					</ul></li>
-
-
 				<c:if test="${not empty loginNickname}">
 					<li class="right"><a href="songPopup?songnum=0"
 						class="qt-popupwindow" data-name="Music Player" data-width="320"
@@ -395,7 +390,6 @@ p.bContent b:after {
 					class="icon dripicons-media-play"></i></a></li>
 		</ul>
 		<!-- SEARCH FORM ========================= -->
-
 		<div id="qtsearchbar"
 			class="qt-searchbar qt-content-primary qt-expandable">
 			<div class="qt-expandable-inner">
@@ -472,7 +466,7 @@ p.bContent b:after {
 														<!-- <p class="bContent"> <b> CONTENT </b></p> -->
 														<textarea id="contents" readonly="readonly"
 															name="contents" aria-required="true"
-															style="height: 250px; resize: none; background-color: #fce4ec; border: 0px; border-radius: 10px;"
+															style="height: 250px; resize: none; padding: 10px;  background-color: #fce4ec; border: 0px; border-radius: 10px;"
 															required>${board.board_content}</textarea>
 													</div>
 													<div class="input-field col s12 btns">
@@ -501,16 +495,14 @@ p.bContent b:after {
 												<div id="respond">
 													<h4 id="reply-title" class="comment-reply-title">Leave
 														a Reply</h4>
-
 													<p class="comment-form-comment">
-														<input style="width: 500px;" name="comment" id="comment"
+														<input style="width: 580px;" name="comment" id="comment"
 															type="text" class="validate qt-input-s"> <input
 															name="leaveReply" type="button" id="leaveReply"
 															class="form-submit qt-btn qt-btn-primary"
 															value="Post Comment">
 													</p>
 												</div>
-
 												<br>
 												<div class="qt-the-content">
 													<div id="replyArea" class="replyArea"></div>

@@ -51,6 +51,7 @@ public class ChartController {
 	@RequestMapping(value = "realtimeChart", method = RequestMethod.GET)
 	public String realtimect(Model model, @RequestParam(value = "page", defaultValue = "1") int page) {
 		int total = cr.chartAllCount();
+		System.out.println("토탈수 ==============="+total);
 		PageNavigator navi;
 		if (total == 0) {
 			total = cr.allCount();

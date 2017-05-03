@@ -221,7 +221,7 @@
 												enctype="multipart/form-data">
 												<!-- email_sender.php -->
 												<input type="hidden" name="antispam" value="x123">
-												<h3 class="left-align qt-vertical-padding-m">Please
+												<h3>Please
 													write down below.</h3>
 												<div class="row">
 													<div class="input-field col s6 l2">
@@ -244,8 +244,9 @@
 
 													<div class="input-field col s12 ">
 														<p class="comment-form-comment">
-															<textarea style="height: 15em; resize: none;"
-																id="board_content" placeholder="Content *"
+															<textarea
+																style="height: 15em; resize: none; padding: 15px; background-color: #fce4ec; border: 0px; border-radius: 10px;"
+																required id="board_content" placeholder="Content *"
 																name="board_content" cols="45" aria-required="true"></textarea>
 														</p>
 													</div>
