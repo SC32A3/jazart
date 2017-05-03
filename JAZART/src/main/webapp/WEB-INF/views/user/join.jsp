@@ -47,9 +47,10 @@ scalable=no">
 
 <style type="text/css">
 .albumart {
-	margin : 0 auto;
+	margin: 0 auto;
 }
-.albumart img{
+
+.albumart img {
 	width: 80%;
 	height: 80%;
 	display: inline;
@@ -88,11 +89,11 @@ scalable=no">
 	border: 1px solid #777;
 }
 
-.fileTd{
+.fileTd {
 	text-align: center;
 }
 
-.joinBox{
+.joinBox {
 	text-align: center;
 }
 </style>
@@ -351,8 +352,10 @@ play"></i></a></li>
 													<table>
 														<tr>
 															<td rowspan="4" style="width: 250px; height: 250px;">
-																<div class="album"><img id="albumart" class="albumart"
-																src="images/default.png" /></div>
+																<div class="album">
+																	<img id="albumart" class="albumart"
+																		src="images/default.png" />
+																</div>
 															</td>
 															<td class="input-field col s12"><label>ID</label> <input
 																name="user_id" id="user_id" type="text" class="validate"
@@ -385,7 +388,7 @@ play"></i></a></li>
 																class="validate"></td>
 														</tr>
 														<tr>
-															<td colspan="2" ><label>Comment</label>
+															<td colspan="2"><label>Comment</label>
 																<p class="comment-form-comment">
 																	<textarea id="user_desc" name="user_desc"
 																		aria-required="true"
@@ -561,8 +564,8 @@ play"></i></a></li>
 			</div>
 			<div id="playerimage" class="qt-header-bg"
 				data-bgimage="resources/imagestemplate/full-1600-700.jpg">
-				<img src="resources/imagestemplate/full-1600-700.jpg" alt="Featured image"
-					width="690" height="302">
+				<img src="resources/imagestemplate/full-1600-700.jpg"
+					alt="Featured image" width="690" height="302">
 			</div>
 		</div>
 		<!-- this is for xml radio feed -->

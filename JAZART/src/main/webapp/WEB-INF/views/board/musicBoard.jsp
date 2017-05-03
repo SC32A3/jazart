@@ -246,59 +246,63 @@
 						<div id="daymonday" class="qt-show-schedule-day">
 							<!-- SCHEDULE DAY ================================================== -->
 							<div class="qt-show-schedule-day row">
-								<c:forEach var="allList" varStatus="status" items="${all}">
-									<div class="col s12 m4 l4">
-										<!-- SCHEDULE SHOW ========================= -->
-										<div
-											class="qt-part-archive-item qt-part-show-schedule-day-item">
-											<div class="qt-item-header">
-												<div class="qt-header-mid qt-vc">
-													<div class="qt-vi">
-														<h4 class="qt-item-title qt-title">
-															<a href="#read" class="qt-ellipsis  qt-t">${allList.song_nickname}</a>
-														</h4>
-														<p class="qt-item-det">
-															<span class="qt-time">${allList.song_title}</span>
-															<!-- <span class="qt-am">am</span> -->
-															<span class="qt-day qt-capfont">${allList.song_genre}</span>
-														</p>
+								<c:if test="${not empty all}">
+									<c:forEach var="allList" varStatus="status" items="${all}">
+										<div class="col s12 m4 l4">
+											<!-- SCHEDULE SHOW ========================= -->
+											<div
+												class="qt-part-archive-item qt-part-show-schedule-day-item">
+												<div class="qt-item-header">
+													<div class="qt-header-mid qt-vc">
+														<div class="qt-vi">
+															<h4 class="qt-item-title qt-title">
+																<a href="#read" class="qt-ellipsis  qt-t">${allList.song_nickname}</a>
+															</h4>
+															<p class="qt-item-det">
+																<span class="qt-time">${allList.song_title}</span>
+																<!-- <span class="qt-am">am</span> -->
+																<span class="qt-day qt-capfont">${allList.song_genre}</span>
+															</p>
+														</div>
+													</div>
+													<a href="#" class="qt-info bottom right"><i
+														class="dripicons-information"></i></a>
+													<div class="qt-header-bg"
+														data-bgimage="download?type=song&data=${allList.songnum}">
+														<img src="download?type=song&data=${allList.songnum}"
+															alt="Featured image" width="690" height="302">
 													</div>
 												</div>
-												<a href="#" class="qt-info bottom right"><i
-													class="dripicons-information"></i></a>
-												<div class="qt-header-bg"
-													data-bgimage="download?type=song&data=${allList.songnum}">
-													<img src="download?type=song&data=${allList.songnum}"
-														alt="Featured image" width="690" height="302">
-												</div>
-											</div>
-											<div class="qt-overinfo qt-paper"
-												style="background-image: ${allList.song_file}">
-												<p class="qt-item-det qt-accent">
-													<span class="qt-time">${allList.song_title}</span>
-													<!-- <span class="qt-am">am</span> -->
-													<span class="qt-day qt-capfont">${allList.song_nickname}</span>
-												</p>
-												<div class="qt-more">
-													<p class="qt-ellipsis-2">${allList.song_desc}</p>
-													<%-- <a href="javascript:recommend(${allList.songnum})">좋아요</a> --%>
-													<a style="float: right;" class="icon dripicons-user"
-														href="artistPage?song_nickname=${allList.song_nickname}">&nbsp;</a><a
-														style="float: right;" class="icon dripicons-search"
-														href="songPage?songnum=${allList.songnum}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-													<%-- <a
+												<div class="qt-overinfo qt-paper"
+													style="background-image: ${allList.song_file}">
+													<p class="qt-item-det qt-accent">
+														<span class="qt-time">${allList.song_title}</span>
+														<!-- <span class="qt-am">am</span> -->
+														<span class="qt-day qt-capfont">${allList.song_nickname}</span>
+													</p>
+													<div class="qt-more">
+														<p class="qt-ellipsis-2">${allList.song_desc}</p>
+														<%-- <a href="javascript:recommend(${allList.songnum})">좋아요</a> --%>
+														<a style="float: right;" class="icon dripicons-user"
+															href="artistPage?song_nickname=${allList.song_nickname}">&nbsp;</a><a
+															style="float: right;" class="icon dripicons-search"
+															href="songPage?songnum=${allList.songnum}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+														<%-- <a
 														style="float: right;"
 														href="songPopup?songnum=${ allList.songnum}"
 														class="qt-popupwindow" data-name="Music Player"
 														data-width="320" data-hqeight="500">노래듣기&nbsp;</a> --%>
+													</div>
 												</div>
 											</div>
+											<!-- SCHEDULE SHOW END ========================= -->
 										</div>
-										<!-- SCHEDULE SHOW END ========================= -->
-									</div>
-									<!-- SCHEDULE DAY END ================================================== -->
-								</c:forEach>
-
+										<!-- SCHEDULE DAY END ================================================== -->
+									</c:forEach>
+								</c:if>
+								<c:if test="${empty all}">
+									<h3>&nbsp; empty music list</h3>
+								</c:if>
 							</div>
 						</div>
 						<!-- TAB CONTENTS end======================================== -->

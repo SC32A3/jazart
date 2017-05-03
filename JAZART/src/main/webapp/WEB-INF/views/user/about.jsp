@@ -220,8 +220,8 @@ volume.css" />
 					<div class="row">
 						<div class="col-md-6 text-center">
 							<img class="img-responsive"
-								style="border-radius: 50%; width: 250px; height: 250px;"
-								src="images/sun.jpg" />
+								style="border-radius: 50%; width: 240px; height: 270px;"
+								src="images/shk.jpeg" />
 							<h3 class="text-danger">H.K.Sun</h3>
 							<br />
 							<p class="text-justify"
@@ -231,8 +231,8 @@ volume.css" />
 						</div>
 						<div class="col-md-6 text-center">
 							<img class="img-responsive"
-								style="border-radius: 50%; width: 250px; height: 250px;"
-								src="images/woo.jpg" />
+								style="border-radius: 50%; width: 240px; height: 270px;"
+								src="images/jhw.jpeg" />
 							<h3 class="text-danger">H.W.Jung</h3>
 							<br />
 							<p class="text-justify"
@@ -244,8 +244,8 @@ volume.css" />
 					<div class="row">
 						<div class="col-md-6 text-center">
 							<img class="img-responsive"
-								style="border-radius: 50%; width: 250px; height: 250px;"
-								src="images/moon.jpg" />
+								style="border-radius: 50%; width: 240px; height: 270px;"
+								src="images/jkm.jpeg" />
 							<h3 class="text-danger">K.M.Jung</h3>
 							<br />
 							<p class="text-justify"
@@ -255,8 +255,8 @@ volume.css" />
 						</div>
 						<div class="col-md-6 text-center">
 							<img class="img-responsive"
-								style="border-radius: 50%; width: 250px; height: 250px;"
-								src="images/hong.jpg" />
+								style="border-radius: 50%; width: 240px; height: 270px;"
+								src="images/hsh.jpeg" />
 							<h3 class="text-danger">S.H.Hong</h3>
 							<br />
 							<p class="text-justify"
