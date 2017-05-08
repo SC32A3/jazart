@@ -89,11 +89,7 @@ volume.css" />
 			<ul class="qt-desktopmenu hide-on-xl-and-down">
 				<li class="qt-logo-link"><a href="./"
 					class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
-				<li><a href="compose">Compose</a>
-					<ul>
-						<li><a href="mixing">(test)Mixing Page</a></li>
-						<li><a href="artistPage">(test)Artist Page</a></li>
-					</ul></li>
+				<li><a href="start">Compose</a></li>
 				<li><a href="musicBoard">Board</a>
 					<ul>
 						<li><a href="musicBoard">Music Community</a></li>
@@ -220,8 +216,8 @@ volume.css" />
 					<div class="row">
 						<div class="col-md-6 text-center">
 							<img class="img-responsive"
-								style="border-radius: 50%; width: 240px; height: 270px;"
-								src="images/shk.jpeg" />
+								style="border-radius: 50%; width: 240px; height: 240px;"
+								src="images/mem1.jpg" /> <br>
 							<h3 class="text-danger">H.K.Sun</h3>
 							<br />
 							<p class="text-justify"
@@ -231,8 +227,8 @@ volume.css" />
 						</div>
 						<div class="col-md-6 text-center">
 							<img class="img-responsive"
-								style="border-radius: 50%; width: 240px; height: 270px;"
-								src="images/jhw.jpeg" />
+								style="border-radius: 50%; width: 240px; height: 240px;"
+								src="images/mem2.jpg" /><br>
 							<h3 class="text-danger">H.W.Jung</h3>
 							<br />
 							<p class="text-justify"
@@ -241,11 +237,11 @@ volume.css" />
 								possibilities helpful in setting my goal in my life.</p>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row"><br><br>  
 						<div class="col-md-6 text-center">
 							<img class="img-responsive"
-								style="border-radius: 50%; width: 240px; height: 270px;"
-								src="images/jkm.jpeg" />
+								style="border-radius: 50%; width: 240px; height: 240px;"
+								src="images/mem3.jpg" /><br>
 							<h3 class="text-danger">K.M.Jung</h3>
 							<br />
 							<p class="text-justify"
@@ -255,8 +251,8 @@ volume.css" />
 						</div>
 						<div class="col-md-6 text-center">
 							<img class="img-responsive"
-								style="border-radius: 50%; width: 240px; height: 270px;"
-								src="images/hsh.jpeg" />
+								style="border-radius: 50%; width: 240px; height: 240px;"
+								src="images/mem4.jpg" /><br>
 							<h3 class="text-danger">S.H.Hong</h3>
 							<br />
 							<p class="text-justify"

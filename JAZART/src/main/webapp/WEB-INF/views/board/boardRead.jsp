@@ -56,7 +56,6 @@
 }
 
 .replyArea {
-	background-color: #dddddd;
 	width: auto;
 	margin: 0 auto;
 }
@@ -205,7 +204,7 @@ p.bContent b:after {
 				var replyArea = $("#replyArea").val(); 
 				$('#replyArea').empty(); //기존 화면상 데이터 삭제
 				
-				var msg = '<table style= "background-color: #fce4ec;">';
+				var msg = '<table>';
 				if (resp == "") {
 					msg += '<tr><td>저장된 댓글이 없습니다</td></tr>'
 				} else {
@@ -314,11 +313,7 @@ p.bContent b:after {
 			<ul class="qt-desktopmenu hide-on-xl-and-down">
 				<li class="qt-logo-link"><a href="./"
 					class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
-				<li><a href="compose">Compose</a>
-					<ul>
-						<li><a href="mixing">(test)Mixing Page</a></li>
-						<li><a href="artistPage">(test)Artist Page</a></li>
-					</ul></li>
+				<li><a href="start">Compose</a></li>
 				<li><a href="musicBoard">Board</a>
 					<ul>
 						<li><a href="musicBoard">Music Community</a></li>
@@ -496,7 +491,7 @@ p.bContent b:after {
 													<h4 id="reply-title" class="comment-reply-title">Leave
 														a Reply</h4>
 													<p class="comment-form-comment">
-														<input style="width: 580px;" name="comment" id="comment"
+														<input style="width: 80%;" name="comment" id="comment"
 															type="text" class="validate qt-input-s"> <input
 															name="leaveReply" type="button" id="leaveReply"
 															class="form-submit qt-btn qt-btn-primary"
