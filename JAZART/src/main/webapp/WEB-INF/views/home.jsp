@@ -120,11 +120,7 @@
 			<ul class="qt-desktopmenu hide-on-xl-and-down">
 				<li class="qt-logo-link"><a href="./"
 					class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
-				<li><a href="compose">Compose</a>
-					<ul>
-						<li><a href="mixing">(test)Mixing Page</a></li>
-						<li><a href="artistPage">(test)Artist Page</a></li>
-					</ul></li>
+				<li><a href="start">Compose</a></li>
 				<li><a href="musicBoard">Board</a>
 					<ul>
 						<li><a href="musicBoard">Music Community</a></li>
@@ -259,12 +255,12 @@
 											class="qt-the-content qt-spacer-s small hide-on-med-and-down ">
 											<p class="qt-spacer-s qt-text-shadow">
 												Let's start our composing journey. More easy, more quickly
-												makes your music!!<br> 1. Click (test)mixing page. <br>2.
+												makes your music!!<br> 1. Click "Compse". <br>2. 
 												Select genres and atmosphere. <br>3. Simply drag the
 												recommended music file.
 											</p>
 											<p>
-												<a href="compose" class="qt-btn qt-btn-l qt-btn-primary "><i
+												<a href="start" class="qt-btn qt-btn-l qt-btn-primary "><i
 													class="dripicons-align-justify"></i></a>
 											</p>
 										</div>

@@ -127,6 +127,14 @@ p.bContent b:after {
 table,th{
 	text-align: center;
 }
+
+.row{
+	padding: 0px 70px 0px 70px;
+}
+
+#respond{
+	padding: 0px 10px 0px 0px;
+}
 </style>
 <!-- 내가 쓴 코드 -->
 <script src="resources/jquery-3.1.1.min.js"></script>
@@ -181,7 +189,7 @@ table,th{
 		var replyArea = $("#replyArea").val();
 		$('#replyArea').empty(); //기존 화면상 데이터 삭제
 
-		var msg = '<table style= "background-color: #fce4ec;">';
+		var msg = '<table>';
 		if (resp == "") {
 			msg += '<tr><td>저장된 댓글이 없습니다</td></tr>'
 		} else {
@@ -311,11 +319,7 @@ table,th{
 		<ul class="qt-desktopmenu hide-on-xl-and-down">
 			<li class="qt-logo-link"><a href="./"
 				class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
-			<li><a href="compose">Compose</a>
-				<ul>
-					<li><a href="mixing">(test)Mixing Page</a></li>
-					<li><a href="artistPage">(test)Artist Page</a></li>
-				</ul></li>
+<li><a href="start">Compose</a></li>
 			<li><a href="musicBoard">Board</a>
 				<ul>
 					<li><a href="musicBoard">Music Community</a></li>
@@ -450,10 +454,9 @@ play"></i></a></li>
 									<div class="row">
 										<input type="hidden" name="antispam" value="x123">
 										<!-- <h3 class="left-align qt-vertical-padding-m"> -->
-										<h3>${song.song_title}</h3>
+										<div class="row"><h3>${song.song_title}</h3>
 										<input type="hidden" id="songnum" name="songnum"
 											value="${song.songnum}"> <br>
-										<div class="row">
 											<table>
 												<tr>
 													<td rowspan="4" style="width: 250px; height: 250px;">
@@ -493,7 +496,7 @@ play"></i></a></li>
 												<h4 id="reply-title" class="comment-reply-title">Leave
 													a Reply</h4>
 												<p class="comment-form-comment">
-													<input style="width: 520px;" name="comment" id="comment"
+													<input style="width: 80%;" name="comment" id="comment"
 														type="text" class="validate qt-input-s"> <input
 														name="leaveReply" type="button" id="leaveReply"
 														class="form-submit qt-btn qt-btn-primary"

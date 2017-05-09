@@ -47,83 +47,7 @@
 <script src="resources/jquery-3.1.1.min.js"></script>
 <script src="resources/rTest/test.js"></script>
 <link rel="stylesheet" href="resources/rTest/app.css">
-
-<!-- Effect API -->
-<!-- <link rel="stylesheet" href="resources/effect/example/css/reset.css" />
-<link rel="stylesheet" href="resources/effect/example/css/common.css" /> 배경, 주요문구 -->
-<link rel="stylesheet" href="resources/effect/example/css/box.css" />
-<!-- 박스디자인 -->
-<link rel="stylesheet" href="resources/effect/example/css/switch.css" />
-<!-- 효과전원버튼이펙트 -->
-<link rel="stylesheet" href="resources/effect/example/css/pot.css" />
-<!-- 조절knob -->
-<link href='http://fonts.googleapis.com/css?family=Damion'
-	rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Yellowtail'
-	rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Radley:400,400italic'
-	rel='stylesheet' type='text/css'>
-<script src="resources/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="resources/effect/dist/compiled2.js"></script>
-<script type="text/javascript"
-	src="resources/effect/src/Bootstrapper.js"></script>
-
-
 <style type="text/css">
-#rec-file-list li, #src-file-list li {
-	padding: 5px 0px 5px 5px;
-	margin-bottom: 5px;
-	border-bottom: 1px solid #efefef;
-	font-size: 12px;
-}
-
-#rec-file-list li:last-child, #src-file-list li:last-child {
-	border-bottom: 0px;
-}
-
-#rec-file-list li:before, #src-file-list li:before {
-	content: ">";
-	display: inline-block;
-	vertical-align: middle;
-	padding: 0px 5px 6px 0px;
-}
-
-#messages {
-	display: inline-block;
-	font-weight: bold;
-	color: #69c773;
-	margin-left: 1rem;
-}
-
-#mysource {
-	padding: 30px 50px 30px 50px;
-	overflow: hidden;
-}
-
-.files {
-	width: 230px;
-}
-
-.files ul {
-	margin: 0;
-	padding: 0.5rem 1rem;
-	height: 180px;
-	overflow-y: auto;
-	list-style: none;
-	background: #F7F7F7;
-	border: 1px solid #D9D9D9;
-	border-radius: 3px;
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
-}
-
-.files li {
-	padding: 0.5rem 0;
-}
-
-.files h5 {
-	margin-bottom: 5px;
-}
-
 .clip {
 	vertical-align: middle;
 	display: table;
@@ -146,7 +70,7 @@
 
 .clipSpan {
 	background: #ff8080;
-	padding: 0.5rem 0.75rem;
+	padding: 0.525rem 0.75rem;
 	text-align: center;
 	color: white;
 	border: none;
@@ -166,6 +90,10 @@
 
 .clipA:hover {
 	color: white;
+}
+
+div#input2 {
+    text-align: center;
 }
 
 .file_input label {
@@ -201,74 +129,18 @@
 	border: 1px solid #777;
 }
 
-.src1 {
-	float: left;
-	width: 250px;
-	display: inline-block;
-}
-
-.src2 {
-	float: left;
-	width: 600px;
-	height: 430px;
-}
-
-.alist {
-	font-size: 15px;
-}
-
-.effect {
-	position: relative;
-	margin: 0;
-	height: 410px;
-	overflow-y: auto;
-	list-style: none;
-	background: #F7F7F7;
-	border: 1px solid #D9D9D9;
-	border-radius: 3px;
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
-}
-
-.effectText {
-	margin-bottom: 5px;
-}
-
-.effectDetail {
-	float: left;
-	width: 25%;
-	height: 100%;
-	border: 1px solid black;
-}
-
-#wall {
-	/* float: left;
-    position: absolute;
-    top: 250px;
-    left: 400px; */
-	border-radius: 9px;
-	background-color: hsl(0, 100%, 90%);
-	float: left;
-	position: absolute;
-	top: 53%;
-	left: 69%;
-	width: 28%;
-	height: 170px;
-}
-
-div#controlButton {
-	font-family: 'Khand', sans-serif;
-	margin-top: 10px;
-	margin-bottom: 5px;
-	font-size: 4vh;
+.title {
 	text-align: center;
 }
 
-.sample {
-	text-align: center;
+.album {
+    background-color: beige;
 }
 
-.switch span {
-	font-family: 'Khand', sans-serif;
+.albumart {
+    margin: 0 auto;
+    max-width : 210px;
+    max-height : 195px;
 }
 
 .sound-clips {
@@ -277,64 +149,120 @@ div#controlButton {
 }
 
 audio {
-	width: 50%;
-	margin-top: 4px;
-	display: block;
-	float: left;
+    width: 50%;
+    margin-top: 4px;
+    display: block;
+    float: left;
 }
 
 img.clipImg {
-	width: 5%;
-	display: inline;
-	margin-right: 3px;
+    width: 5%;
+    display: inline;
+    margin-right: 3px;
 }
 </style>
 <script type="text/javascript">
 	var files = "";
 	$(function() {
-		$('.file_input input[type=file]').change(function() {
+		
+		
+		$('#saveBtn').on('click', function() {
+			var song_title = $('#song_title').val();
+			var song_genre = $('#song_genre').val();
+			var song_desc = $('#song_desc').val();
+			var songinfo = {'song_title' : song_title, 'song_genre' : song_genre, 'song_desc' : song_desc };
+			
+			var songPic = document.getElementById('songPic'); //$('#songPic');
+			var PicData = new FormData(songPic);
+			
+			
+			$.ajax({
+				url: 'saveSonginfo',
+				type: 'post',
+				data: songinfo,
+				success : uploadPic
+			});
+		})
+		
+		$('#fileTag1').change(function() {
+			var fileName = $(this).val();
+			var fileCount = $(this).get(0).files.length;
+			var file = document.getElementById('fileTag1');
+			var fileList = file.files ;
+
+			if ($(this).get(0).files.length == 1) {
+				 // 읽기
+			    var reader = new FileReader();
+			    //로드 한 후
+			    reader.onload = function  () {
+			    	document.getElementById('albumart').src = reader.result ;
+			    };
+			    reader.readAsDataURL(fileList [0]);
+				
+				var output = fileName.split('\\').pop();
+				$('#fileRoot1').val(output);
+			} else {
+				$('#fileRoot1').val('파일 ' + fileCount + '개');
+			}
+		});
+		$('#fileTag2').change(function() {
 			var fileName = $(this).val();
 			var fileCount = $(this).get(0).files.length;
 
 			if ($(this).get(0).files.length == 1) {
-				$('.file_input input[type=text]').val(fileName);
+				var output = fileName.split('\\').pop();
+				$('#fileRoot2').val(output);
 			} else {
-				$('.file_input input[type=text]').val('파일 ' + fileCount + '개');
+				$('#fileRoot2').val('파일 ' + fileCount + '개');
 			}
 		});
-		$(".setting").click(function() {
+		$(".setting").click(function(){
 			$.ajax({
-				url : "setting",
-				type : "get",
+				url:"setting",
+				type:"get",
 				success : function(resp) {
 				},
 				error : function(resp) {
 				}
 			});
 		});
-		/* $(".spanBtn").on('click', function() {
-			if ($('.spanBtn').html() == 'ON') {
-				alert('on');
-				$('.spanBtn').text('OFF');	
-			} else if ($('.spanBtn').html() == 'OFF') {
-				alert('off');
-				$('.spanBtn').text('ON');	
-			}
-		}); */
 	});
-
-	function spanClick(id) {
-		var clickBtn = $('.' + id);
-		if (clickBtn.html() == 'ON') {
-			clickBtn.text('OFF');
-		} else if (clickBtn.html() == 'OFF') {
-			clickBtn.text('ON');
+	
+	function uploadPic(resp) {
+		if (resp == 0) {
+			alert('동일한 작곡명이 있습니다');
+		} else {
+			document.getElementById('songnum').value = resp;
+			document.getElementById('songnum2').value = resp;
+			alert('songnum: '+document.getElementById('songnum').value);
+			
+			var songPic = document.getElementById('songPic'); //$('#songPic');
+			var PicData = new FormData(songPic);
+			
+			$.ajax({
+				url: "saveSongPic",
+				type: 'post',
+				processData: false,
+	            contentType: false,
+	            data: PicData,
+				success: function(result){
+					alert('사진업로드 성공! '+result);
+				}
+			});
 		}
 	}
+	function check() {
+		var song_title = document.getElementById('song_title');
+		if (song_title.value == '') {
+			alert('곡정보를 입력해주세요');
+			return false;
+		}
+		return true;
+	}
 </script>
-<script src="resources/js/effect_file.js" type="text/javascript"></script>
 </head>
 <body>
+	<input type="hidden" id="recordFlag" value="record"> <!-- 레코딩쪽 css용 hidden-->
 	<!-- QT HEADER END ================================ -->
 
 	<div class="qt-parentcontainer">
@@ -362,7 +290,7 @@ img.clipImg {
 			<ul class="qt-desktopmenu hide-on-xl-and-down">
 				<li class="qt-logo-link"><a href="./"
 					class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
-				<li><a href="start">Compose</a></li>
+			<li><a href="start">Compose</a></li>
 				<li><a href="musicBoard">Board</a>
 					<ul>
 						<li><a href="musicBoard">Music Community</a></li>
@@ -380,14 +308,13 @@ img.clipImg {
 						<li><a href="question">Question</a></li>
 					</ul></li>
 
-
-				<!-- 플레이리스트 -->
+				<%-- <!-- 플레이리스트 -->
 				<c:if test="${not empty loginNickname}">
 					<li class="right"><a href="songPopup" class="qt-popupwindow"
 						data-name="Music Player" data-width="320" data-height="500"> <i
 							class="icon dripicons-duplicate"></i>Playlist
 					</a></li>
-				</c:if>
+				</c:if> --%>
 
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
@@ -468,8 +395,8 @@ img.clipImg {
 			<div class="qt-pageheader qt-negative">
 				<div class="qt-container">
 
-					<h1 class="qt-caption qt-spacer-s">Effect</h1>
-					<h4 class="qt-subtitle">음향 효과</h4>
+					<h1 class="qt-caption qt-spacer-s">Recording</h1>
+					<h4 class="qt-subtitle">음성 녹음</h4>
 				</div>
 				<div class="qt-header-bg" data-bgimage="images/back1.jpg">
 					<img src="images/back1.jpg" alt="Featured image" width="690"
@@ -506,9 +433,10 @@ img.clipImg {
 											<span>Setting</span>
 										</h4>
 										<p class="qt-small">
-											[제어판]-[소리]<br> -[녹음 탭]-[스테레오믹스]<br> 마우스 오른쪽 클릭<br>
-											'기본 장치로 설정'
-										</p>
+											<button class="setting">Setting</button><br><br>
+										[녹음]-[마이크]<br>
+										마우스 오른쪽 클릭<br>
+										'기본 장치로 설정'</p>
 									</div>
 								</div>
 							</div>
@@ -525,7 +453,7 @@ img.clipImg {
 										<ul class="tabs">
 											<li class="tab col s4">
 												<h5>
-													<a href="#mysource" class="active">My Source</a>
+													<a href="#songinfo" class="active">Song Info</a>
 												</h5>
 											</li>
 											<li class="tab col s4">
@@ -534,69 +462,59 @@ img.clipImg {
 												</h5>
 											</li>
 										</ul>
-
-										<div id="mysource" class="row clearfix">
-											<div class="src1">
-												<div class="files">
-													<h5>녹음 파일</h5>
-													<ul id="rec-file-list">
-														<c:forEach var="record" items="${recordList}">
-															<li><a class="alist">${record}</a></li>
-														</c:forEach>
-													</ul>
-												</div>
-												<br>
-												<div class="files">
-													<h5>음원 소스 파일</h5>
-													<ul id="src-file-list">
-														<c:forEach var="source" items="${sourceList}">
-															<li><a class="alist">${source}</a></li>
-														</c:forEach>
-													</ul>
-												</div>
-											</div>
-											<div class="src2">
-												<div class="effectBox">
-													<h5 class="effectText">음향 효과</h5>
-													<div class="effect">
-														<div id="floor"></div>
-														<div id="wall">
-															<div id="controlPanel">
-																<div id="controlButton">Play</div>
-																<div class="linein" style="display: none;">live</div>
-																<div id="samples">
-																	<c:forEach var="record" items="${recordList}">
-																		<div class="sample">${record}</div>
-																	</c:forEach>
-																	<c:forEach var="record" items="${sourceList}">
-																		<div class="sample">${source}</div>
-																	</c:forEach>
-																	<!-- <div class="sample">Sample 2</div>
-																<div class="sample">Sample 3</div>
-																<div class="sample">Sample 4</div>
-																<div class="sample">Sample 5</div> -->
-																</div>
-															</div>
+										<div id="songinfo" class="row">
+											<table>
+												<tr>
+													<th class="album" rowspan="2" style="width: 250px; height: 250px;">
+																								
+														<img id="albumart" class="albumart" src="images/default.png" /></th>
+													<th class="title">곡 명</th>
+													<td><input type="text" id="song_title" required></td>
+												</tr>
+												<tr>
+													<th class="title">장 르</th>
+													<td><select id="song_genre"
+														class="qt-btn qt-btn-s write_combo">
+															<option value="ballad">Ballad</option>
+															<option value="hiphop">HipHop</option>
+															<option value="rnb">RnB</option>
+															<option value="rock">Rock</option>
+															<option value="disco">Disco</option>
+															<option value="electronic">Electoronic</option>
+															<option value="blues">Blues</option>
+															<option value="world">World</option>
+													</select></td>
+												</tr>
+												<tr>
+													<th>
+														<form id="songPic" method="post" enctype="multipart/form-data">
+														<div class="file_input" id="input2">
+															<input type="hidden" id="songnum" name="songnum" value="#">
+															<label> File Attach <input type="file" id="fileTag1"
+																name="upload1" class="albumart">
+															</label> <input type="text" id="fileRoot1" readonly="readonly"
+																style="width: 120px;" title="File Route">
 														</div>
-														<!-- <div class="effectDetail"></div>
-													<div class="effectDetail"></div>
-													<div class="effectDetail"></div>
-													<div class="effectDetail"></div> -->
-													</div>
-												</div>
-											</div>
+														</form>
+													</th>
+													<th class="title">곡 설 명</th>
+													<td><input type="text" id="song_desc" required></td>
+												</tr>
+												<tr>
+													<th colspan="3" style="text-align: right;">
+														<input type="button" id="saveBtn" value="저장"></th>
+												</tr>
+											</table>
 										</div>
-
 										<div id="worklist" class="row qt-contacts">
 											<div class="row">
-												<form action="mixerPage" method="post"
-													enctype="multipart/form-data">
-													<input type="hidden" name="songnum" value="${songnum}">
+												<form action="mySrc" method="post" enctype="multipart/form-data" onsubmit="return check()">
 													<section class="sound-clips"></section>
 													<div class="file_input">
+														<input type="hidden" id="songnum2" name="songnum" value="0">
 														<label> File Attach <input type="file"
-															multiple="multiple" name="upload" id="source">
-														</label> <input type="text" id="fileRoot" readonly="readonly"
+															multiple="multiple" name="upload2" id="fileTag2">
+														</label> <input type="text" id="fileRoot2" readonly="readonly"
 															title="File Route">
 													</div>
 													<input type="submit" value="NEXTPAGE" style="width: 160px;"
@@ -616,88 +534,86 @@ img.clipImg {
 	</div>
 	<!-- .qt-main end -->
 	<div class="qt-footer qt-footerwidgets">
-		<div class="qt-section qt-footer-widgets qt-content-primary-light">
-			<div class="qt-container"
-				style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
-				<h2 class="qt-footer-logo">
-					<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
-				</h2>
-				<div
-					class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
-					<div class="col s12 m3 l3">
-						<div class="qt-widget">
-							<h5 class="qt-caption-small">
-								<span>About site</span>
-							</h5>
-							<div class="qt-widget-about">
-								<p>
-									We are a young and dynamic compose station which wants to bring
-									happyness in your life. <br> <a href="sitemap"> Site
-										Map <i class="dripicons-arrow-thin-right"></i>
-									</a>
-								</p>
+			<div class="qt-section qt-footer-widgets qt-content-primary-light">
+				<div class="qt-container"
+					style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
+					<h2 class="qt-footer-logo">
+						<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
+					</h2>
+					<div
+						class="qt-widgets qt-widgets-footer qt-negative qt-spacer-m row">
+						<div class="col s12 m3 l3">
+							<div class="qt-widget">
+								<h5 class="qt-caption-small">
+									<span>About site</span>
+								</h5>
+								<div class="qt-widget-about">
+									<p>
+										We are a young and dynamic compose station which wants to
+										bring happyness in your life. <br> <a href="sitemap">
+											Site Map <i class="dripicons-arrow-thin-right"></i>
+										</a>
+									</p>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col s12 m3 l3">
-						<div class="qt-widget">
-							<h5 class="qt-caption-small">
-								<span>Contacts</span>
-							</h5>
-							<div class="qt-widget-contacts">
-								<p>
-									<i class="qticon-home"></i><a href="#">www.jazart.com</a>
-								</p>
-								<p>
-									<i class="qticon-at-sign"></i><a href="question">jazart2017@gmail.com</a>
-								</p>
-								<p>
-									<i class="qticon-phone"></i><a href="#">02-123-1234</a>
-								</p>
+						<div class="col s12 m3 l3">
+							<div class="qt-widget">
+								<h5 class="qt-caption-small">
+									<span>Contacts</span>
+								</h5>
+								<div class="qt-widget-contacts">
+									<p>
+										<i class="qticon-home"></i><a href="#">www.jazart.com</a>
+									</p>
+									<p>
+										<i class="qticon-at-sign"></i><a href="question">jazart2017@gmail.com</a>
+									</p>
+									<p>
+										<i class="qticon-phone"></i><a href="#">02-123-1234</a>
+									</p>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col s12 m3 l3">
-						<div class="qt-widget">
-							<h5 class="qt-caption-small">
-								<span>Our Team</span>
-							</h5>
-							<div class="qt-widget-about">
-								<p>
-									We are a small group of designers and developers. We create
-									clean, minimal and apps. <br> <a href="about">About us
-										<i class="dripicons-arrow-thin-right"></i>
-									</a>
-								</p>
+						<div class="col s12 m3 l3">
+							<div class="qt-widget">
+								<h5 class="qt-caption-small">
+									<span>Our Team</span>
+								</h5>
+								<div class="qt-widget-about">
+									<p>
+
+										We are a small group of designers and developers. We create
+										clean, minimal and apps. <br> <a href="about">About
+											us <i class="dripicons-arrow-thin-right"></i>
+										</a>
+									</p>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col s12 m3 l3">
-						<div class="qt-widget">
-							<h5 class="qt-caption-small">
-								<span>Main links</span>
-							</h5>
-							<ul class="qt-widget-menu qt-list-chevron">
-								<li><a href="compose">Compose</a></li>
-								<li><a href="commBoard">Board </a></li>
-								<li><a href="realtimeChart">Charts </a></li>
-								<li><a href="qna">Contacts</a></li>
-							</ul>
+						<div class="col s12 m3 l3">
+							<div class="qt-widget">
+								<h5 class="qt-caption-small">
+									<span>Main links</span>
+								</h5>
+								<ul class="qt-widget-menu qt-list-chevron">
+									<li><a href="compose">Compose</a></li>
+									<li><a href="commBoard">Board </a></li>
+									<li><a href="realtimeChart">Charts </a></li>
+									<li><a href="qna">Contacts</a></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="qt-header-bg" data-bgimage="images/back.jpg">
-				<img src="images/back.jpg" alt="Featured image" width="690"
-					height="302">
-			</div>
-		</div>
-		<div class="qt-footer-bottom qt-content-primary-dark">
-			<div class="qt-container">
-				<div class="row"></div>
+				<div class="qt-header-bg" data-bgimage="images/back.jpg">
+					<img src="images/back.jpg" alt="Featured image" width="690"
+						height="302">
+				</div>
 			</div>
 		</div>
 	</div>
+
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"
 		class="side-nav qt-content-primary qt-right-sidebar">
@@ -738,12 +654,13 @@ img.clipImg {
 				</div>
 			</div>
 			<div id="playerimage" class="qt-header-bg">
-				<img src="images/default.jpg" alt="Featured image" width="690"
+				<img src="images/back1.jpg" alt="Featured image" width="690"
 					height="302">
 			</div>
 		</div>
 		<!-- this is for xml radio feed -->
-		<div id="qtShoutcastFeedData" class="hidden"></div>
+		<div id="qtShoutcastFeedData" class="hidden" data-style=""
+			data-channel="1" data-host="173.192.105.231" data-port="3540"></div>
 		<!-- PLAYER END ========================= -->
 		<!-- CHANNELS LIST ========================= -->
 		<div class="qt-part-channels-list">
@@ -766,189 +683,9 @@ img.clipImg {
 
 	<!-- QT BODY END ================================ -->
 
-	<!-- effect Scripts -->
-	<script type="text/javascript">
-		var stage = new pb.Stage();
-		var ctx = stage.getContext();
-
-		var board = new pb.Board(ctx);
-		stage.setBoard(board);
-
-		var overdrive = new pb.stomp.Overdrive(ctx);
-		var reverb = new pb.stomp.Reverb(ctx);
-		var volume = new pb.stomp.Volume(ctx);
-		var cabinet = new pb.stomp.Cabinet(ctx);
-		var delay = new pb.stomp.Delay(ctx);
-
-		board.addPedals([ overdrive, delay, reverb, volume, cabinet ]);
-
-		overdrive.setDrive(.1);
-		overdrive.setTone(.4);
-		overdrive.setLevel(.6);
-		volume.setLevel(1);
-		reverb.setLevel(.3);
-		delay.setDelayTimer(.2);
-		delay.setFeedbackGain(.7);
-
-		stage.render(document.getElementById('floor'));
-
-		/*
-		    Sample controls
-		 */
-		var state = false;
-
-		var cb = document.getElementById('controlButton');
-		var samples = document.getElementsByClassName('sample');
-		var sampleNo = 1;
-		samples = Array.prototype.slice.call(samples);
-		var lb = document.getElementsByClassName('linein')[0];
-
-		var playLineIn = function() {
-			stage.stop();
-			stage.input = new pb.io.StreamInput(stage.getContext());
-			stage.input.addEventListener('loaded', function() {
-				stage.route();
-			});
-		}
-
-		lb.addEventListener('click', function() {
-			state = true;
-			sampleNo = 6;
-			cBDraw();
-			settings[sampleNo - 1]();
-			playLineIn();
-		}, false);
-		var settings = [];
-
-		var cBDraw = function() { //클릭이벤트
-			cb.innerHTML = state ? 'Stop' : 'Play'; //'&#9724;' : '&#9654;';
-			samples.forEach(function(sample) {
-				sample.className = 'sample';
-			});
-			samples[sampleNo - 1]
-					&& (samples[sampleNo - 1].className = 'sample on');
-
-			sampleNo == 6 ? lb.className = 'linein on'
-					: lb.className = 'linein';
-		};
-
-		var play = function() {
-			if (sampleNo == 6) {
-				playLineIn();
-				return;
-			}
-			settings[sampleNo - 1] && settings[sampleNo - 1](); //$('.sample').eq(0).text()
-			stage.play('resources/effect/example/audio/samples/' + 'test2.wav');
-		}
-
-		var cBHandler = function() {
-			state = !state;
-			cBDraw();
-			stage.stop();
-			if (state)
-				play();
-		};
-
-		cb.addEventListener('click', cBHandler, false);
-
-		samples.forEach(function(sample) {
-			sample.addEventListener('click', function() {
-				sampleNo = Array.prototype.slice.call(
-						sample.parentNode.children).indexOf(sample) + 1;
-				state = true;
-				cBDraw();
-				play();
-			});
-		});
-
-		settings.push(function() {
-			!overdrive.bypassSwitch.getState()
-					&& overdrive.bypassSwitch.toggle();
-			overdrive.setLevel(1);
-			overdrive.setDrive(.1);
-			overdrive.setTone(1);
-			reverb.setLevel(1);
-			!delay.bypassSwitch.getState() && delay.bypassSwitch.toggle();
-			delay.setDelayTimer(0.6);
-			delay.setFeedbackGain(.5);
-			delay.setLevel(0.7);
-		});
-
-		settings.push(function() {
-			!overdrive.bypassSwitch.getState()
-					&& overdrive.bypassSwitch.toggle();
-			overdrive.setLevel(.6);
-			overdrive.setDrive(.25);
-			overdrive.setTone(.5);
-			reverb.setLevel(.3);
-			delay.bypassSwitch.getState() && delay.bypassSwitch.toggle();
-			delay.setDelayTimer(0);
-			delay.setFeedbackGain(0);
-			delay.setLevel(0);
-		});
-
-		settings.push(function() {
-			!overdrive.bypassSwitch.getState()
-					&& overdrive.bypassSwitch.toggle();
-			overdrive.setLevel(.6);
-			overdrive.setDrive(.4);
-			overdrive.setTone(.5);
-			reverb.setLevel(0.6);
-			delay.bypassSwitch.getState() && delay.bypassSwitch.toggle();
-			delay.setDelayTimer(0);
-			delay.setFeedbackGain(0);
-			delay.setLevel(0);
-		});
-
-		settings.push(function() {
-			overdrive.bypassSwitch.getState()
-					&& overdrive.bypassSwitch.toggle();
-			overdrive.setLevel(1);
-			overdrive.setDrive(0);
-			overdrive.setTone(.1);
-			reverb.setLevel(1);
-			!delay.bypassSwitch.getState() && delay.bypassSwitch.toggle();
-			delay.setDelayTimer(0.8);
-			delay.setFeedbackGain(0.6);
-			delay.setLevel(0.55);
-		});
-
-		settings.push(function() {
-			!overdrive.bypassSwitch.getState()
-					&& overdrive.bypassSwitch.toggle();
-			overdrive.setLevel(1);
-			overdrive.setDrive(0.4);
-			overdrive.setTone(.3);
-			reverb.setLevel(.7);
-			!delay.bypassSwitch.getState() && delay.bypassSwitch.toggle();
-			delay.setDelayTimer(0.77);
-			delay.setFeedbackGain(0.4);
-			delay.setLevel(1);
-		});
-
-		settings.push(function() {
-			overdrive.bypassSwitch.getState()
-					&& overdrive.bypassSwitch.toggle();
-			overdrive.setLevel(1);
-			overdrive.setDrive(.1);
-			overdrive.setTone(.3);
-			reverb.setLevel(.7);
-		});
-
-		function help(tag) {
-			var knob = document.getElementById('Knob' + tag); //놉
-			var range = document.getElementById('Range' + tag).value;
-			var attribute = "rotateZ(" + range + "deg)";
-			alert(attribute);
-
-			knob.style.transform = attribute;
-		}
-	</script>
-
-
 	<!-- QT FOOTER SCRIPTS ================================ -->
 	<script src="resources/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-	<script src="resources/js/jquery.js"></script>
+	<!-- <script src="resources/js/jquery.js"></script> -->
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
 	<script src="resources/js/jquery-migrate.min.js"></script>
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
@@ -981,16 +718,16 @@ img.clipImg {
 		src="resources/components/soundmanager/script/berniecode-animator.js"></script>
 	<script
 		src="resources/components/soundmanager/script/soundmanager2-nodebug.js"></script>
-	<script src="resources/components/soundmanager/script/shoutcast.js"></script>
+	<!-- <script src="resources/components/soundmanager/script/shoutcast.js"></script>
 	<script
-		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script>
+		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script> -->
 
 	<!-- Popup -->
 	<script src="resources/components/popup/popup.js"></script>
+
 
 	<!-- MAIN JAVASCRIPT FILE ================================ -->
 	<script src="resources/js/qt-main.js"></script>
 
 </body>
 </html>
-

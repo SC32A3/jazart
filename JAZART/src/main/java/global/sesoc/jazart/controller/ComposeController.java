@@ -62,6 +62,11 @@ public class ComposeController {
 	final String uploadPath3 = "/userSource"; // 서버 레코딩 경로
 	final String uploadPath4 = "/userComplete"; // 서버 레코딩 경로
 
+	@RequestMapping(value = "start", method = RequestMethod.GET)
+	public String start() {
+		return "compose/start";
+	}
+	
 	@RequestMapping(value = "mySrc", method = RequestMethod.POST)
 	public String mySrc(MultipartFile[] upload2, Model model, int songnum) {
 		logger.info("mySrc songnum: "+songnum);
@@ -169,12 +174,14 @@ public class ComposeController {
 	}
 
 	@RequestMapping(value = "done", method = RequestMethod.GET)
-	public String done() {
+	public String done(Model model, int songnum, HttpServletRequest request, HttpServletResponse response) {
+/////여기부터 다시 합니다!		
 		return "compose/done";
 	}
 
 	@RequestMapping(value = "mixerPage", method = RequestMethod.GET)
-	public String mixerPage() {
+	public String mixerPage(Model model, int songnum, HttpServletRequest request, HttpServletResponse response) {
+		model.addAttribute("songnum", songnum);
 		return "compose/mixerPage";
 	}
 
@@ -411,11 +418,6 @@ public class ComposeController {
 	 * list); } catch (IOException e) { e.printStackTrace(); } return
 	 * "compose/mixing"; }
 	 */
-
-	@RequestMapping(value = "savePage", method = RequestMethod.GET)
-	public String savePage() {
-		return "compose/savePage";
-	}
 
 	@RequestMapping(value = "saveSong", method = RequestMethod.POST)
 	public String saveSong() {

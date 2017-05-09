@@ -148,11 +148,7 @@
 			<ul class="qt-desktopmenu hide-on-xl-and-down">
 				<li class="qt-logo-link"><a href="./"
 					class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
-				<li><a href="compose">Compose</a>
-					<ul>
-						<li><a href="mixing">(test)Mixing Page</a></li>
-						<li><a href="artistPage">(test)Artist Page</a></li>
-					</ul></li>
+				<li><a href="start">Compose</a></li>
 				<li><a href="musicBoard">Board</a>
 					<ul>
 						<li><a href="musicBoard">Music Community</a></li>

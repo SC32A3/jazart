@@ -156,11 +156,7 @@ audio {
 			<ul class="qt-desktopmenu hide-on-xl-and-down">
 				<li class="qt-logo-link"><a href="./"
 					class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
-				<li><a href="compose">Compose</a>
-					<ul>
-						<li><a href="mixing">(test)Mixing Page</a></li>
-						<li><a href="artistPage">(test)Artist Page</a></li>
-					</ul></li>
+				<li><a href="start">Compose</a></li>
 				<li><a href="musicBoard">Board</a>
 					<ul>
 						<li><a href="musicBoard">Music Community</a></li>
@@ -306,6 +302,7 @@ audio {
 											<div>
 												<form action="done" method="get"
 													enctype="multipart/form-data">
+													<input type="hidden" name="songnum" value="${songnum}">
 													<div class="file_input">
 														<h4>완성한 곡을 첨부해주세요.</h4>
 														<br>
@@ -315,8 +312,7 @@ audio {
 															title="File Route">
 													</div>
 													<input type="submit" value="NEXTPAGE" style="width: 160px;"
-														class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m"
-														onclick="sendFiles()">
+														class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m">
 												</form>
 											</div>
 										</div>

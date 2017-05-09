@@ -4,8 +4,9 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
 <title>Jazart</title>
 <meta name="description" content="Radio station HTML template">
 <meta name="viewport"
@@ -35,7 +36,6 @@
 <link rel="stylesheet" type="text/css"
 	href="resources/components/soundmanager/templates/qtradio-player/css/qt-360player-volume.css" />
 
-
 <!-- Main css file -->
 <link rel="stylesheet" href="resources/css/qt-main.css">
 <!-- INCLUDES THE CHOSEN FRAMEWORK VIA #IMPORT AND SASS -->
@@ -43,12 +43,30 @@
 <!-- Custom typography settings and google fonts -->
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 
+<!-- Recording API -->
+<script src="resources/jquery-3.1.1.min.js"></script>
+<style type="text/css">
+.level {
+	display: inline-block;
+	padding: 75px;
+	margin: 30px;
+	width: 40%;
+	text-align: center;
+	height: 200px;
+	background-color: #ff8080;
+	border-radius: 10px;
+}
+
+.level h2 {
+	color: white;
+}
+</style>
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->
 
 	<div class="qt-parentcontainer">
-	<!-- QT MENUBAR TOP ================================ -->
+		<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
 			<ul>
 				<li><a href="about"><i class="dripicons-chevron-right"></i>About
@@ -72,11 +90,7 @@
 			<ul class="qt-desktopmenu hide-on-xl-and-down">
 				<li class="qt-logo-link"><a href="./"
 					class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
-				<li><a href="compose">Compose</a>
-					<ul>
-						<li><a href="mixing">(test)Mixing Page</a></li>
-						<li><a href="artistPage">(test)Artist Page</a></li>
-					</ul></li>
+				<li><a href="start">Compose</a></li>
 				<li><a href="musicBoard">Board</a>
 					<ul>
 						<li><a href="musicBoard">Music Community</a></li>
@@ -88,22 +102,20 @@
 						<li><a href="dailyChart">Daily Chart</a></li>
 						<li><a href="weeklyChart">Weekly Chart</a></li>
 					</ul></li>
-					<li><a href="qna">Contacts</a>
+				<li><a href="qna">Contacts</a>
 					<ul>
 						<li><a href="qna">QnA</a></li>
 						<li><a href="question">Question</a></li>
 					</ul></li>
-			<!-- 	<li class="right"><a href="#!" data-expandable="#qtsearchbar"
-					class="qt-btn qt-btn-l qt-scrolltop"><i
-						class="icon dripicons-search"></i></a></li> -->
-				
-				<!-- 플레이리스트 -->
+
+				<%-- <!-- 플레이리스트 -->
 				<c:if test="${not empty loginNickname}">
-				<li class="right"><a href="songPopup?songnum=0"
-					class="qt-popupwindow" data-name="Music Player" data-width="320"
-					data-height="500"> <i class="icon dripicons-duplicate"></i>Playlist
-				</a></li>
-			</c:if>
+					<li class="right"><a href="songPopup" class="qt-popupwindow"
+						data-name="Music Player" data-width="320" data-height="500"> <i
+							class="icon dripicons-duplicate"></i>Playlist
+					</a></li>
+				</c:if> --%>
+
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
 			<ul class="qt-desktopmenu hide-on-xl-only ">
@@ -113,12 +125,12 @@
 				<li><a href="#!" class="brand-logo qt-logo-text">jazart</a></li>
 			</ul>
 		</nav>
-	<!-- mobile menu -->
+		<!-- mobile menu -->
 		<div id="qt-mobile-menu" class="side-nav qt-content-primary">
 			<ul class=" qt-side-nav">
 				<li><a href="/">jazart<span>♬</span></a></li>
 				<li class="menu-item-has-children"><a href="compose">Compose</a>
-						<ul>
+					<ul>
 						<li><a href="mixing">(test)Mixing Page</a></li>
 						<li><a href="artistPage">(test)Artist Page</a></li>
 					</ul></li>
@@ -153,6 +165,7 @@
 					class="icon dripicons-media-play"></i></a></li>
 		</ul>
 		<!-- SEARCH FORM ========================= -->
+
 		<div id="qtsearchbar"
 			class="qt-searchbar qt-content-primary qt-expandable">
 			<div class="qt-expandable-inner">
@@ -175,71 +188,65 @@
 				</form>
 			</div>
 		</div>
-			<!-- SEARCH FORM END ========================= -->
-			<div id="maincontent" class="qt-main">
-				<!-- ======================= HEADER SECTION ======================= -->
-				<!-- HEADER MEMBERS ========================= -->
-				<div class="qt-pageheader qt-negative">
-					<div class="qt-container">
-						
-						<h1 class="qt-caption qt-spacer-s">
-							Save
-						</h1>
-					<h4 class="qt-subtitle">곡저장</h4>
-					</div>
-					<div class="qt-header-bg" data-bgimage="images/vic.jpg">
-						<img src="images/vic.jpg" alt="Featured image" width="690" height="302">
-					</div>
+		<!-- SEARCH FORM END ========================= -->
+		<div id="maincontent" class="qt-main">
+			<!-- ======================= HEADER SECTION ======================= -->
+			<!-- HEADER CAPTION ========================= -->
+			<div class="qt-pageheader qt-negative">
+				<div class="qt-container">
+
+					<h1 class="qt-caption qt-spacer-s">WELCOME</h1>
+					<h4 class="qt-subtitle">작곡의 시작</h4>
 				</div>
-			<!-- HEADER CONTACTS END ========================= -->
-			<div class="qt-container qt-vertical-padding-l">
-				<div class="row">
-					<div class="col s12 m8 push-m2">
-						<!-- ====================== SECTION BOOKING AND CONTACTS ================================================ -->
-						<div id="booking" class="section qt-section-booking qt-card">
-							<div class="qt-valign-wrapper">
-								<div class="qt-valign flow-text">
-									<div class="qt-booking-form" data-100p-top="opacity:0;"
-										data-80p-top="opacity:0;" data-30p-top="opacity:1;">
-										<ul class="tabs">
-											<li class="tab col s4">
-												<h5>
-													<a href="#form" class="active">Save</a>
-												</h5>
-											</li>
+				<div class="qt-header-bg" data-bgimage="images/back1.jpg">
+					<img src="images/back1.jpg" alt="Featured image" width="690"
+						height="302">
+				</div>
+			</div>
+			<!-- HEADER CAPTION END ========================= -->
 
-										</ul>
-										<div id="form" class="row">
-											<form class="col s12" method="post" action="saveSong">
-												<input type="hidden" name="antispam" value="x123">
-												<h3 class="left-align qt-vertical-padding-m">Save Song</h3>
-												<div class="row">
-													<div class="input-field col s6">
-														<audio controls>
-															<source src="#" type="audio/mpeg">
-														</audio>
-													</div>
-												</div>												
-												<div class="row">
-													<div class="input-field col s6">
-														<input name="#" id="#" type="submit" value="곡 저장" class="validate">
-													</div>
-												</div>
-											</form>
-										</div>
+			<script type="text/javascript">
+				function goInt() {
+					var type = $(this).attr('id');
+					console.log
+				}
 
-									</div>
-								</div>
-							</div>
+				function goPro() {
+
+					var type = $(this).attr('id');
+
+					$.ajax({
+						url : "compose",
+						type : "post",
+						data : type,
+						success : function(resp) {
+							alert("success");
+						},
+						error : function(resp) {
+							alert("fail");
+						}
+					});
+				};
+			</script>
+
+			<!-- ======================= CONTENT SECTION ======================= -->
+			<div class="qt-container qt-vertical-padding-m">
+				<div class="row" style="text-align: center;">
+					<a href="compose"><div class="level">
+							<h2>Professinal</h2>
+						</div></a> <a href="compose">
+						<div class="level">
+							<h2>introduction</h2>
 						</div>
-						<!-- ====================== SECTION BOOKING AND CONTACTS END ================================================ -->
-					</div>
+					</a>
 				</div>
 			</div>
 		</div>
-			<div class="qt-footer qt-footerwidgets">
+		<!-- .qt-main end -->
+		<div class="qt-footer qt-footerwidgets">
 			<div class="qt-section qt-footer-widgets qt-content-primary-light">
-				<div class="qt-container">
+				<div class="qt-container"
+					style="background-color: rgba(0, 0, 0, 0.5); padding-left: 5px;">
 					<h2 class="qt-footer-logo">
 						<a href="./" class="brand-logo qt-logo-text">jazart<span>♬</span></a>
 					</h2>
@@ -309,41 +316,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="qt-header-bg"
-					data-bgimage="images/back.jpg">
-					<img src="images/back.jpg" alt="Featured image"
-						width="690" height="302">
-				</div>
-			</div>
-			<div class="qt-footer-bottom qt-content-primary-dark">
-				<div class="qt-container">
-					<div class="row">
-						<!-- <div class="col s12 m12 l8">
-							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
-							| Radio Station HTML Template
-							<ul class="qt-menu-footer qt-small qt-list-chevron ">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Privacy</a></li>
-								<li><a href="#">Sitemap</a></li>
-							</ul>
-						</div> -->
-						<div class="col s12 m12 l4">
-							<!-- <ul class="qt-menu-social">
-								<li class="right"><a href="#"><i
-										class="qticon-beatport"></i></a></li>
-								<li class="right"><a href="#"><i
-										class="qticon-facebook"></i></a></li>
-								<li class="right"><a href="#"><i class="qticon-twitter"></i></a></li>
-								<li class="right"><a href="#"><i class="qticon-youtube"></i></a></li>
-								<li class="right"><a href="#"><i
-										class="qticon-soundcloud"></i></a></li>
-							</ul> -->
-						</div>
-					</div>
+				<div class="qt-header-bg" data-bgimage="images/back.jpg">
+					<img src="images/back.jpg" alt="Featured image" width="690"
+						height="302">
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"
 		class="side-nav qt-content-primary qt-right-sidebar">
@@ -383,10 +363,9 @@
 					<hr class="qt-inline-textdeco">
 				</div>
 			</div>
-			<div id="playerimage" class="qt-header-bg"
-				data-bgimage="imagestemplate/full-1600-700.jpg">
-				<img src="imagestemplate/full-1600-700.jpg" alt="Featured image"
-					width="690" height="302">
+			<div id="playerimage" class="qt-header-bg">
+				<img src="images/back1.jpg" alt="Featured image" width="690"
+					height="302">
 			</div>
 		</div>
 		<!-- this is for xml radio feed -->
@@ -396,27 +375,15 @@
 		<!-- CHANNELS LIST ========================= -->
 		<div class="qt-part-channels-list">
 			<ul class="qt-content-aside qt-channelslist qt-negative">
-				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
-					data-title="06AM Ibiza" data-subtitle="Underground Radio"
-					data-background="imagestemplate/photo-squared-500-500.jpg"
-					data-logo="imagestemplate/radio-logo.png"
-					data-playtrack="http://173.192.105.231:3540/stream.mp3"
-					data-host="173.192.105.231" data-port="3540" data-stats_path=""
-					data-played_path="" data-channel=""> <img
-						src="imagestemplate/radio-logo.png" alt="logo"
+				<li class="qt-channel"><a href="#!" class="qt-ellipsis"> <img
+						src="images/radio-logo.png" alt="logo"
 						class="qt-radiologo dripicons-media-play" width="80" height="80">
 						<i class="dripicons-media-play"></i> Station 1
 				</a></li>
-				<li class="qt-channel"><a href="#!" class="qt-ellipsis"
-					data-title="altradio" data-subtitle="The subtitle of radio 2"
-					data-background="imagestemplate/large-1170-512.jpg"
-					data-logo="imagestemplate/radio-logo.png"
-					data-playtrack="http://82.77.137.30:8557/;listen.mp3"
-					data-host="82.77.137.30" data-port="8557" data-stats_path=""
-					data-played_path="" data-channel=""> <img
-						src="imagestemplate/radio-logo.png" alt="logo"
-						class="qt-radiologo" width="80" height="80"> <i
-						class="dripicons-media-play"></i> altradio
+				<li class="qt-channel"><a href="#!" class="qt-ellipsis"> <img
+						src="images/radio-logo.png" alt="logo" class="qt-radiologo"
+						width="80" height="80"> <i class="dripicons-media-play"></i>
+						altradio
 				</a></li>
 			</ul>
 		</div>
@@ -428,7 +395,7 @@
 
 	<!-- QT FOOTER SCRIPTS ================================ -->
 	<script src="resources/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-	<script src="resources/js/jquery.js"></script>
+	<!-- <script src="resources/js/jquery.js"></script> -->
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
 	<script src="resources/js/jquery-migrate.min.js"></script>
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
@@ -461,9 +428,9 @@
 		src="resources/components/soundmanager/script/berniecode-animator.js"></script>
 	<script
 		src="resources/components/soundmanager/script/soundmanager2-nodebug.js"></script>
-	<script src="resources/components/soundmanager/script/shoutcast.js"></script>
+	<!-- <script src="resources/components/soundmanager/script/shoutcast.js"></script>
 	<script
-		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script>
+		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script> -->
 
 	<!-- Popup -->
 	<script src="resources/components/popup/popup.js"></script>
@@ -474,4 +441,3 @@
 
 </body>
 </html>
-
