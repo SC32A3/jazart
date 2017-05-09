@@ -83,11 +83,9 @@ function toggleRecording( e ) {
 }
 
 function test(){
-	alert('test에 들어옴');
 }
 
 function toggle2(blob, clipName, count){
-	alert('가자가자');
 	var soundClips = document.querySelector('.sound-clips');
 	var clipContainer = document.createElement('article');
 	var clipText = document.createTextNode(clipName);

@@ -202,7 +202,6 @@ $(function() {
 				}
 				
 				x += sliceWidth;
-				console.log('dataArray[i]'+dataArray[i]/128.0);
 			}
 			var hei = canvas.height / 2;
 			canvasCtx.lineTo(canvas.width, hei);

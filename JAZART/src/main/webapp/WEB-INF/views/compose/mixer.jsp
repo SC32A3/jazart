@@ -13,6 +13,7 @@
 
 <!-- Production -->
 <script type="text/javascript">
+	var songnum = '${songnum}';
 	var result = new Array();
 	var sList = '${sList}';
 	var toArray = sList.split('!');

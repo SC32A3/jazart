@@ -60,4 +60,10 @@
    <select id="selectSongdata2" resultType="String">
    	  select file_saved from userlist where songnum = #{0} and file_type =#{1}
    </select>
+   <select id="selectSongdata3" resultType="String" parameterType="int">
+   	select file_original from userlist where songnum = #{songnum}
+   </select>
+   <select id="selectSongdata4" resultType="String">
+   		select file_saved from userlist where file_original = #{0} and songnum = #{1}
+   </select>
 </mapper>
