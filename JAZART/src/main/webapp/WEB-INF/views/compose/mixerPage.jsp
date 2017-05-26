@@ -293,14 +293,14 @@ audio {
 									</ul>
 									<div id="mixer" class="row" style="overflow-y: auto">
 										<div class="row">
-											<iframe frameborder="0" src="mixer" height="640px"
+											<iframe frameborder="0" src="mixer?songnum=${songnum}" height="640px"
 												class="mixer"></iframe>
 										</div>
 									</div>
 									<div id="next" class="row" style="overflow-y: auto">
 										<div class="row" style="text-align: center;">
 											<div>
-												<form action="done" method="get"
+												<form action="done" method="post"
 													enctype="multipart/form-data">
 													<input type="hidden" name="songnum" value="${songnum}">
 													<div class="file_input">

@@ -5,7 +5,6 @@
 
 
 	<!-- 시큐리티 -->
-	<!-- 
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>my-secure-app</web-resource-name>
@@ -15,7 +14,7 @@
 		<user-data-constraint>	
 			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
 		</user-data-constraint>
-	</security-constraint>-->
+	</security-constraint>
 
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -53,6 +52,9 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
+
+
+
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -67,7 +69,6 @@
 	</filter-mapping>
 
 	<!-- 시큐리티 -->
-	<!-- 
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -88,5 +89,5 @@
 	<filter-mapping>
 		<filter-name>Logging Filter</filter-name>
 		<url-pattern>/savePage</url-pattern>
-	</filter-mapping>-->
+	</filter-mapping>
 </web-app>

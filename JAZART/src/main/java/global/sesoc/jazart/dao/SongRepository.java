@@ -149,17 +149,6 @@ public class SongRepository {
 		return songnum;
 	}
 	
-	public void updateSongInfo0(int songnum, String title, String desc) {
-		SongMapper mapper = sqlSession.getMapper(SongMapper.class);
-		int result = 0;
-		try {
-			result = mapper.updateSongInfo(songnum, title, desc);
-			logger.info("곡수정 result: "+result);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
 	public void updateSongInfo(int songnum, String originalFileName, String savedfile) {
 		SongMapper mapper = sqlSession.getMapper(SongMapper.class);
 		int result = 0;
@@ -221,6 +210,29 @@ public class SongRepository {
 		String result = "";
 		try {
 			result = mapper.selectSongdata4(originalfile, songnum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public void complete(SongInfo songinfo) {
+		SongMapper mapper = sqlSession.getMapper(SongMapper.class);
+		int result = 0;
+		try {
+			result = mapper.complete(songinfo);
+			logger.info("완료정보 count>> "+result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public int updateSongInfo2(int songnum, String originalFile, String savedfile) {
+		SongMapper mapper = sqlSession.getMapper(SongMapper.class);
+		int result = 0;
+		try {
+			result = mapper.updateSongInfo2(songnum, originalFile, savedfile);
+			logger.info("곡파일수정 result: "+result);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

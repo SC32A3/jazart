@@ -101,7 +101,6 @@
 			<ul>
 				<li><a href="about"><i class="dripicons-chevron-right"></i>About
 						US</a></li>
-
 				<c:if test="${empty loginNickname}">
 					<li><a href="login"><i class="dripicons-chevron-right"></i>Login</a></li>
 					<li><a href="join"><i class="dripicons-chevron-right"></i>Join
@@ -255,7 +254,7 @@
 											class="qt-the-content qt-spacer-s small hide-on-med-and-down ">
 											<p class="qt-spacer-s qt-text-shadow">
 												Let's start our composing journey. More easy, more quickly
-												makes your music!!<br> 1. Click "Compse". <br>2. 
+												makes your music!!<br> 1. Click "Compse". <br>2.
 												Select genres and atmosphere. <br>3. Simply drag the
 												recommended music file.
 											</p>
@@ -434,7 +433,62 @@
 					<div class="col s12 m6 l3"></div>
 				</div>
 			</div>
+			<hr class="qt-spacer-m">
+			<!-- ======================= CHART SECTION ======================= -->
+			<div class="qt-vertical-padding-l qt-content-primary-dark qt-section">
+				<div class="qt-container qt-negative">
+					<h3 class="qt-caption-med">
+						<span>weekly Chart</span>
+					</h3>
+					<ul class="collapsible qt-chart-tracklist qt-spacer-m"
+						data-collapsible="accordion">
 
+						<c:forEach var="weekly" begin="0" end="2" varStatus="status"
+							items="${wc}">
+							<!-- CHART TRACK ========================= -->
+							<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
+								<div
+									class="qt-chart-table collapsible-header qt-content-primary">
+									<div class="qt-position">
+										<img src="download?type=song&data=${weekly.songnum}"
+											class="qt-chart-cover" alt="Chart track" width="170"
+											height="170"> <span>${status.count}</span>
+									</div>
+									<div class="qt-titles">
+										<h3 class="qt-ellipsis qt-t">${ weekly.song_title }</h3>
+										<p>${ weekly.song_nickname }</p>
+									</div>
+									<div class="qt-action" style="float: right;">
+										<a href="javascript:addSongList(${weekly.songnum})"><i
+											class="dripicons-cart"></i></a>
+									</div>
+								</div>
+								<div class="collapsible-body qt-paper">
+									<p>${ weekly.song_desc }
+										<a style="float: right;" class="icon dripicons-heart"
+											href="javascript:recommend(${weekly.songnum})"></a> <a
+											style="float: right;" class="icon dripicons-user"
+											href="artistPage?song_nickname=${weekly.song_nickname}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+										<a style="float: right;" class="icon dripicons-search"
+											href="songPage?songnum=${weekly.songnum}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+									</p>
+								</div>
+							</li>
+							<!-- CHART TRACK END ========================= -->
+						</c:forEach>
+					</ul>
+					<p class="aligncenter qt-spacer-m">
+						<a href="weeklyChart"
+							class="qt-btn qt-btn qt-btn-l qt-btn-primary">View full chart</a>
+					</p>
+				</div>
+				<!-- 	<div class="qt-header-bg">
+					<img src="images/back1.jpg" alt="Featured image"
+						width="690" height="302">
+				</div> -->
+			</div>
+			
+			
 			<!-- ======================= UPCOMING SHOWS  SECTION ======================= -->
 			<div class="qt-container qt-spacer-m">
 				<h5 class="qt-caption-small">
@@ -513,61 +567,8 @@
 				</div>
 				<!-- SLIDESHOW UPCOMING SHOWS END ================================================== -->
 			</div>
-
-			<hr class="qt-spacer-m">
-			<!-- ======================= CHART SECTION ======================= -->
-			<div class="qt-vertical-padding-l qt-content-primary-dark qt-section">
-				<div class="qt-container qt-negative">
-					<h3 class="qt-caption-med">
-						<span>weekly Chart</span>
-					</h3>
-					<ul class="collapsible qt-chart-tracklist qt-spacer-m"
-						data-collapsible="accordion">
-
-						<c:forEach var="weekly" begin="0" end="2" varStatus="status"
-							items="${wc}">
-							<!-- CHART TRACK ========================= -->
-							<li class="qt-part-chart qt-chart-track qt-negative qt-card-s">
-								<div
-									class="qt-chart-table collapsible-header qt-content-primary">
-									<div class="qt-position">
-										<img src="download?type=song&data=${weekly.songnum}"
-											class="qt-chart-cover" alt="Chart track" width="170"
-											height="170"> <span>${status.count}</span>
-									</div>
-									<div class="qt-titles">
-										<h3 class="qt-ellipsis qt-t">${ weekly.song_title }</h3>
-										<p>${ weekly.song_nickname }</p>
-									</div>
-									<div class="qt-action" style="float: right;">
-										<a href="javascript:addSongList(${weekly.songnum})"><i
-											class="dripicons-cart"></i></a>
-									</div>
-								</div>
-								<div class="collapsible-body qt-paper">
-									<p>${ weekly.song_desc }
-										<a style="float: right;" class="icon dripicons-heart"
-											href="javascript:recommend(${weekly.songnum})"></a> <a
-											style="float: right;" class="icon dripicons-user"
-											href="artistPage?song_nickname=${weekly.song_nickname}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-										<a style="float: right;" class="icon dripicons-search"
-											href="songPage?songnum=${weekly.songnum}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-									</p>
-								</div>
-							</li>
-							<!-- CHART TRACK END ========================= -->
-						</c:forEach>
-					</ul>
-					<p class="aligncenter qt-spacer-m">
-						<a href="weeklyChart"
-							class="qt-btn qt-btn qt-btn-l qt-btn-primary">View full chart</a>
-					</p>
-				</div>
-				<!-- 	<div class="qt-header-bg">
-					<img src="images/back1.jpg" alt="Featured image"
-						width="690" height="302">
-				</div> -->
-			</div>
+			
+			
 			<!-- ======================= SPONSORS ======================= -->
 			<!-- 	<div class="qt-vertical-padding-m qt-sponsors qt-section">
 				<h3 class="qt-caption-med">

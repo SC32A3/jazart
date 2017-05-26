@@ -234,7 +234,6 @@ img.clipImg {
 		} else {
 			document.getElementById('songnum').value = resp;
 			document.getElementById('songnum2').value = resp;
-			alert('songnum: '+document.getElementById('songnum').value);
 			
 			var songPic = document.getElementById('songPic'); //$('#songPic');
 			var PicData = new FormData(songPic);

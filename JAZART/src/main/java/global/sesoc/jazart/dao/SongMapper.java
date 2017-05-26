@@ -36,8 +36,6 @@ public interface SongMapper {
 
    int getSongnum(String loginNickname, String song_title) throws Exception;
 
-   int updateSongInfo(int songnum, String originalFileName, String savedfile) throws Exception;
-
    int insertSongdata(Userlist userlist) throws Exception;
 
    ArrayList<String> selectSongdata(int songnum, String file_type) throws Exception;
@@ -47,5 +45,11 @@ public interface SongMapper {
    ArrayList<String> selectSongdata3(int songnum) throws Exception;
 
    String selectSongdata4(String originalfile, int songnum) throws Exception;
+
+   int complete(SongInfo songinfo) throws Exception;
+
+   int updateSongInfo(int songnum, String originalFileName, String savedfile) throws Exception;
+
+   int updateSongInfo2(int songnum, String originalFile, String savedfile) throws Exception;
 
 }

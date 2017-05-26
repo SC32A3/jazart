@@ -582,7 +582,7 @@ img.clipImg {
 
 	<!-- QT FOOTER SCRIPTS ================================ -->
 	<script src="resources/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-	<script src="resources/js/jquery.js"></script>
+	<!-- <script src="resources/js/jquery.js"></script> -->
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
 	<script src="resources/js/jquery-migrate.min.js"></script>
 	<!--  JQUERY VERSION MUST MATCH WORDPRESS ACTUAL VERSION (NOW 1.12) -->
@@ -613,9 +613,9 @@ img.clipImg {
 	<!--[if IE]><script src="components/soundmanager/script/excanvas.js"></script><![endif]-->
 	<script
 		src="resources/components/soundmanager/script/berniecode-animator.js"></script>
-	<script
-		src="resources/components/soundmanager/script/soundmanager2-nodebug.js"></script>
-	<script src="resources/components/soundmanager/script/shoutcast.js"></script>
+	<!-- <script
+		src="resources/components/soundmanager/script/soundmanager2-nodebug.js"></script> -->
+	<!-- <script src="resources/components/soundmanager/script/shoutcast.js"></script> -->
 	<script
 		src="resources/components/soundmanager/templates/qtradio-player/script/qt-360player-volumecontroller.js"></script>
 

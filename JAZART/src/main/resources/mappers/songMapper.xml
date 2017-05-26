@@ -48,9 +48,6 @@
    <select id="getSongnum" resultType="int">
 	  select songnum from songinfo where song_nickname = #{0} and song_title = #{1}  
    </select>
-   <update id="updateSongInfo">
-   	  update songinfo set song_picture = #{1}, song_savedpic = #{2} where songnum = #{0}
-   </update>
    <insert id="insertSongdata" parameterType="Userlist">
       insert into userlist values(list_seq.nextval, #{songnum}, #{file_type}, #{file_original}, #{file_saved})
    </insert>   
@@ -66,4 +63,13 @@
    <select id="selectSongdata4" resultType="String">
    		select file_saved from userlist where file_original = #{0} and songnum = #{1}
    </select>
+   <update id="complete" parameterType="SongInfo">
+   		update songinfo set song_title = #{song_title}, song_desc = #{song_desc}, song_complete = 'y' where songnum = #{songnum}
+   </update>
+   <update id="updateSongInfo">
+   	  update songinfo set song_picture = #{1}, song_savedpic = #{2} where songnum = #{0}
+   </update>
+    <update id="updateSongInfo2">
+   	  update songinfo set song_file = #{1}, song_savedfile = #{2} where songnum = #{0}
+   </update>
 </mapper>

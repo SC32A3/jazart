@@ -166,97 +166,6 @@ img.clipImg {
 }
 </style>
 <script type="text/javascript">
-	var files = "";
-	$(function() {
-
-		$('#saveBtn').on('click', function() {
-			var song_title = $('#song_title').val();
-			var song_genre = $('#song_genre').val();
-			var song_desc = $('#song_desc').val();
-			var songinfo = {
-				'song_title' : song_title,
-				'song_genre' : song_genre,
-				'song_desc' : song_desc
-			};
-
-			var songPic = document.getElementById('songPic'); //$('#songPic');
-			var PicData = new FormData(songPic);
-
-			$.ajax({
-				url : 'saveSonginfo',
-				type : 'post',
-				data : songinfo,
-				success : uploadPic
-			});
-		})
-
-		$('#fileTag1').change(function() {
-			var fileName = $(this).val();
-			var fileCount = $(this).get(0).files.length;
-			var file = document.getElementById('fileTag1');
-			var fileList = file.files;
-
-			if ($(this).get(0).files.length == 1) {
-				// 읽기
-				var reader = new FileReader();
-				//로드 한 후
-				reader.onload = function() {
-					document.getElementById('albumart').src = reader.result;
-				};
-				reader.readAsDataURL(fileList[0]);
-
-				var output = fileName.split('\\').pop();
-				$('#fileRoot1').val(output);
-			} else {
-				$('#fileRoot1').val('파일 ' + fileCount + '개');
-			}
-		});
-		$('#fileTag2').change(function() {
-			var fileName = $(this).val();
-			var fileCount = $(this).get(0).files.length;
-
-			if ($(this).get(0).files.length == 1) {
-				var output = fileName.split('\\').pop();
-				$('#fileRoot2').val(output);
-			} else {
-				$('#fileRoot2').val('파일 ' + fileCount + '개');
-			}
-		});
-		$(".setting").click(function() {
-			$.ajax({
-				url : "setting",
-				type : "get",
-				success : function(resp) {
-				},
-				error : function(resp) {
-				}
-			});
-		});
-	});
-
-	function uploadPic(resp) {
-		if (resp == 0) {
-			alert('동일한 작곡명이 있습니다');
-		} else {
-			document.getElementById('songnum').value = resp;
-			document.getElementById('songnum2').value = resp;
-			alert('songnum: ' + document.getElementById('songnum').value);
-
-			var songPic = document.getElementById('songPic'); //$('#songPic');
-			var PicData = new FormData(songPic);
-
-			$.ajax({
-				url : "saveSongPic",
-				type : 'post',
-				processData : false,
-				contentType : false,
-				data : PicData,
-				success : function(result) {
-					alert('사진업로드 성공! ' + result);
-				}
-			});
-		}
-	}
 	function check() {
 		var song_title = document.getElementById('song_title');
 		if (song_title.value == '') {
@@ -429,42 +338,44 @@ img.clipImg {
 											</li>
 										</ul>
 										<div id="songinfo" class="row">
+										<form action="complete" method="post">
+										<!-- <script type="text/javascript">alert('${song.songnum}');</script> -->
 											<table>
 												<tr>
 						 							<th class="album" rowspan="2"
-														style="width: 300px; height: 300px;"><img
-														id="albumart" class="albumart" src="images/default.png" /></th>
+														style="width: 300px; height: 300px;">
+														<img id="albumart" class="albumart" src="download?type=song&data=${song.songnum}" /></th>
 													<th class="title">곡 명</th>
-													<td><input type="text" id="song_title" required></td>
+													<td><input type="text" id="song_title" name="song_title" value="${song.song_title}"></td>
 												</tr>
 												<tr>
 													<th class="title">장 르</th>
-													<td><input type="text" id="song_genre" readonly>
-													</td>
+													<td><input type="text" id="song_genre" name="song_genre" value="${song.song_genre}" readonly></td>
 												</tr>
 												<tr>
 													<th>
-														<form id="songPic" method="post"
-															enctype="multipart/form-data">
-															<div class="file_input" id="input2">
-																<input type="hidden" id="songnum" name="songnum"
-																	value="#"> <label> File Attach <input
-																	type="file" id="fileTag1" name="upload1"
-																	class="albumart">
+															<%-- <div class="file_input" id="input2">
+																<input type="hidden" id="songnum" name="songnum" value="${song.songnum}">
+																<label> File Attach
+																	<input type="file" id="fileTag1" name="upload1"	class="albumart">
 																</label> <input type="text" id="fileRoot1" readonly="readonly"
 																	style="width: 120px;" title="File Route">
-															</div>
-														</form>
+															</div> --%>
 													</th>
 													<th class="title">곡 설 명</th>
-													<td><input type="text" id="song_desc" required></td>
+													<td><input type="text" id="song_desc" name="song_desc" value="${song.song_desc}"></td>
 												</tr>
 												<tr>
-													<th colspan="3" style="text-align: right;"><input
-														type="button" id="saveBtn" value="저장"> <input type="button" value="Music registration" /> <input type="button" value="Music Upload" />  <input type="button"
-															value="Put it in the playlist" /></th>
+													<th colspan="3" style="text-align: right;">
+													<input type="hidden" name="songnum" value="${song.songnum}">
+													<input type="submit" id="saveBtn" value="저장">
+														<!-- <input type="button" value="Music registration" />
+														<input type="button" value="Music Upload" />
+														 <input type="button" value="Put it in the playlist" /> -->
+														 </th>
 												</tr>
 											</table>
+												</form>
 										</div>
 									</div>
 								</div>

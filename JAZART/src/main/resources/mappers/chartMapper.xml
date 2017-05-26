@@ -20,8 +20,9 @@
 	<select id="allList" parameterType="map" resultType="SongInfo">
 		select *
 		from(select rownum rnum,b.* from
-		(select * from songinfo order by
-		song_inputdate desc) b)
+		(select * from songinfo 
+		where song_complete = 'y'
+		order by song_inputdate desc) b)
 		where rnum between #{start} and #{end}
 	</select>
 	<select id="dailyChart" resultType="SongInfo" parameterType="map">

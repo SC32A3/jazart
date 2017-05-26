@@ -589,6 +589,7 @@ img.clipImg {
 
 										<div id="worklist" class="row qt-contacts">
 											<div class="row">
+												<script type="text/javascript">alert('${songnum}')</script>
 												<form action="mixerPage" method="post"
 													enctype="multipart/form-data">
 													<input type="hidden" name="songnum" value="${songnum}">
