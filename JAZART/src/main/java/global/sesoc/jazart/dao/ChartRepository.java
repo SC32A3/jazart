@@ -48,46 +48,6 @@ public class ChartRepository {
 		}
 		return cList;
 	}
-/*
-	public int dailyCount() {
-		ChartMapper mapper = sqlSession.getMapper(ChartMapper.class);
-		int result = 0;
-		try {
-			result = mapper.dailyCount();
-			logger.info("일간 글개수=> " + result);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return result;
-	}
-
-	public int weeklyCount() {
-		ChartMapper mapper = sqlSession.getMapper(ChartMapper.class);
-		int result = 0;
-		Map<String, String> search = new HashMap<>();
-		try {
-			String day = mapper.getDay();
-			logger.info("위클리차트/요일2=> " + day);
-			search.put("day", day);
-			result = mapper.weeklyCount(search);
-			logger.info("주간 글개수=> " + result);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return result;
-	}
-
-	public int realtimeCount() {
-		ChartMapper mapper = sqlSession.getMapper(ChartMapper.class);
-		int result = 0;
-		try {
-			result = mapper.realtimeCount();
-			logger.info("실시간 글개수=> " + result);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return result;
-	}*/
 
 	public ArrayList<SongInfo> allList(int start, int end) {
 		ChartMapper mapper = sqlSession.getMapper(ChartMapper.class);

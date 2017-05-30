@@ -54,50 +54,12 @@ public class SendMailTest {
         	   messageBodyPart.setText(contents);
         	   multipart.addBodyPart(messageBodyPart);
         	   
-        	  /* // Part two is attachment
-        	   messageBodyPart = new MimeBodyPart();
-        	   File file = new File(file_path);//"C:/test.txt"
-        	   FileDataSource fds = new FileDataSource(file);
-        	   messageBodyPart.setDataHandler(new DataHandler(fds));
-        	   messageBodyPart.setFileName(fds.getName());
-        	   multipart.addBodyPart(messageBodyPart);*/
-        	   
-        	   // Put parts in message
-        	   //msg.setContent(multipart, "text/plain;charset=KSC5601");
         	   msg.setContent(multipart, "text/plain;charset=UTF-8");
         	   
         	   // Send the message
         	   javax.mail.Transport.send(msg);
         	   System.out.println("Gmail SMTP서버를 이용한 메일보내기 성공");
 
-            /*//편지보낸시간
-            msg.setSentDate(new Date());
-             
-            InternetAddress from = new InternetAddress() ;
-             
-             
-            from = new InternetAddress("hyunwoo<sc32squirrel@gmail.com>");
-             
-            // 이메일 발신자
-            msg.setFrom(from);
-             
-             
-            // 이메일 수신자
-            InternetAddress to = new InternetAddress("hbgjhw@naver.com");
-            msg.setRecipient(Message.RecipientType.TO, to);
-             
-            // 이메일 제목
-            msg.setSubject("메일 전송 테스트", "UTF-8");
-             
-            // 이메일 내용
-            msg.setText("내용", "UTF-8");
-             
-            // 이메일 헤더
-            msg.setHeader("content-Type", "text/html");
-             
-            //메일보내기
-            javax.mail.Transport.send(msg);
-             */
         }catch (AddressException addr_e) {
             addr_e.printStackTrace();
         }catch (MessagingException msg_e) {

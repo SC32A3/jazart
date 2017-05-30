@@ -124,7 +124,6 @@ public class ComposeController {
 				filein = new FileInputStream(uploadPath3 + "/" + string);
 				fileout = new FileOutputStream(
 						request.getServletContext().getRealPath("resources/effect/example/audio/samples/" + string));
-				// File(request.getServletContext().getRealPath("resources/effect/example/audio/samples"));
 				// Spring에서 제공하는 유틸리티
 				FileCopyUtils.copy(filein, fileout);
 			} catch (IOException e) {
@@ -261,10 +260,6 @@ public class ComposeController {
 			originalfile = song.getSong_file();
 			savedfile = song.getSong_savedfile();
 			fullpath = uploadPath3 + "/" + savedfile;
-			/*
-			 * StringTokenizer token = new StringTokenizer(data, "?"); String
-			 * data2 = token.nextToken(); originalfile = data2
-			 */;
 		} else if (type.equals("rec")) {
 			savedfile = data;
 			fullpath = uploadPath3 + "/" + savedfile;
@@ -383,51 +378,7 @@ public class ComposeController {
 		return result;
 	}
 
-	/*
-	 * @RequestMapping(value = "mixing", method = RequestMethod.POST) public
-	 * String saveRecord(MultipartHttpServletRequest request, MultipartFile[]
-	 * upload, Model model) { ArrayList<String> list = new ArrayList<>(); String
-	 * type = "r_";
-	 * 
-	 * FileWriter fw; try { fw = new FileWriter(new
-	 * File(request.getServletContext().getRealPath("/src/data/samples.txt")));
-	 * BufferedWriter bw = new BufferedWriter(fw); PrintWriter pw = new
-	 * PrintWriter(bw);
-	 * 
-	 * pw.println(
-	 * "{\"projectInfo\":{\"tempo\":\"128\",\"tracks\":\"4\",\"effects\":[[],[],[],[]]},\"samples\": ["
-	 * ); for (int i = 0; i < upload.length; i++) { MultipartFile multipartFile
-	 * = upload[i]; if (!multipartFile.isEmpty()) { String savedfile =
-	 * FileService2.saveFile(multipartFile, uploadPath3);
-	 * 
-	 * list.add(savedfile); logger.info("getSize : " + multipartFile.getSize());
-	 * logger.info("getTime : " + multipartFile.getSize() * 8 / 52 / 1000);
-	 * pw.print("{\"id\":\"" + (i + 1) + "\",\"url\":\"src/data/samples/" +
-	 * savedfile + "\",\"track\":\"1\",\"startTime\":[],\"duration\":" +
-	 * multipartFile.getSize() * 8 / 52 / 1000 + "}");
-	 * 
-	 * 
-	 * (multipartFile.getBytes().length * ( 3.8399999141693115 / 338732) *
-	 * 8)+"\"}"); logger.info("계산된 길이 : " + multipartFile.getBytes().length * (
-	 * 3.8399999141693115 / 338732) * 8);
-	 * 
-	 * 
-	 * File d = new File(uploadPath3 + "/" + savedfile); logger.info("1: " +
-	 * uploadPath3 + "/" + savedfile); File e = new
-	 * File(request.getServletContext().getRealPath
-	 * 
-	 * ("src/data/samples/") + savedfile); logger.info("2 " +
-	 * request.getServletContext().getRealPath
-	 * 
-	 * ("src/data/samples/") + savedfile); FileInputStream fis = new
-	 * FileInputStream(d); FileOutputStream fos = new FileOutputStream(e);
-	 * FileCopyUtils.copy(fis, fos); fis.close(); fos.close(); }
-	 * 
-	 * if (i != upload.length - 1) { pw.println(","); } else { pw.println("]}");
-	 * pw.flush(); } } pw.close(); bw.close(); model.addAttribute("srclist",
-	 * list); } catch (IOException e) { e.printStackTrace(); } return
-	 * "compose/mixing"; }
-	 */
+
 
 	@RequestMapping(value = "saveSong", method = RequestMethod.POST)
 	public String saveSong() {
@@ -459,19 +410,7 @@ public class ComposeController {
 				logger.info("saved record => " + savedfile);
 			}
 		}
-		/*
-		 * File webFolder = new
-		 * File(request.getServletContext().getRealPath("src/sample/"));
-		 * 
-		 * int flag = 0; FileWriter fw; BufferedWriter bw = null; PrintWriter pw
-		 * = null; try { for (File file : webFolder.listFiles()) { if
-		 * (!file.isDirectory()) { flag++; if (flag == 1) { fw = new
-		 * FileWriter(request.getServletContext().getRealPath(
-		 * "src/mywork/myWork.txt")); bw = new BufferedWriter(fw); pw = new
-		 * PrintWriter(bw); } pw.println("!" + file.getName() + "!"); } }
-		 * pw.flush(); pw.close(); bw.close(); } catch (Exception e) {
-		 * e.printStackTrace(); }
-		 */
+	
 		return "compose/mixerPage";
 	}
 
@@ -530,19 +469,6 @@ public class ComposeController {
 
 		model.addAttribute("sList", newOne);
 
-		/*
-		 * try {
-		 * ////////////////////////////////////////////////////////////////
-		 * FileReader fr = new
-		 * FileReader(request.getServletContext().getRealPath(
-		 * "src/mywork/myWork.txt")); BufferedReader br = new
-		 * BufferedReader(fr); String s; ArrayList<String> sList = new
-		 * ArrayList<>(); while ((s = br.readLine()) != null) { sList.add(s); }
-		 * System.out.println("sList: " + sList); model.addAttribute("sList",
-		 * sList); br.close(); fr.close();
-		 * //////////////////////////////////////////////////////////////// }
-		 * catch (IOException e) { e.printStackTrace(); }
-		 */
 		return "compose/mixer";
 	}
 
@@ -649,7 +575,6 @@ public class ComposeController {
 		File file = new File(fullpath);
 		System.out.println("fullpath:  " + fullpath);
 		System.out.println("getname:  " + file.getName() + ", " + file.getAbsolutePath());
-		// String objectpath = file.getAbsolutePath();
 
 		new PolyphonicPitchDetection(fullpath);
 
@@ -663,14 +588,13 @@ public class ComposeController {
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(f)));
 			ArrayList<Object> d = (ArrayList<Object>) ois.readObject();
-			// ArrayList<Object> d = new ArrayList<>();
 			for (int i = 0; i < d.size(); i++) {
 				Object[] mel = (Object[]) d.get(i);
 				System.out.print(mel[0] + "/" + mel[1] + ", ");
 			}
 			return d;
 		} catch (Exception e) {
-			// e.printStackTrace();
+			
 		}
 		return null;
 	}

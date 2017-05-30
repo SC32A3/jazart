@@ -46,7 +46,6 @@ public class FrequencyAnalysis {
 				thisFreq = thisFreq * Math.pow(2, 4 - octave);
 				int index = binarySearch(freq, thisFreq);
 				Object[] melody = { scale[index], octave };
-			//	System.out.println("f:" + thisFreq + " / i:" + index + " / mel:" + scale[index] + " / oct:" + octave);
 				melodyLine.add(melody);
 			}
 		} catch (Exception e) {
@@ -73,7 +72,6 @@ public class FrequencyAnalysis {
 
 		for (int i = 0; i < freq.length - 1; i++) {
 			if (freq[i] <= find && find <= freq[i + 1]) {
-		//		System.out.println(freq[i] + " ~ " + freq[i + 1] + " >> " + find);
 				double gijun = freq[i] + ((freq[i + 1] - freq[i]) / 2);
 				if (find > gijun) {
 					index = i + 1;

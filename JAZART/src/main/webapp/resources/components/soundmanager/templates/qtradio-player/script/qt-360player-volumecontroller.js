@@ -848,7 +848,7 @@ function ThreeSixtyPlayer() {
 		var nSec = Math.floor(nMSec/1000),
 				min = Math.floor(nSec/60),
 				sec = nSec-(min*60);
-		// if (min === 0 && sec === 0) return null; // return 0:00 as null
+	
 		return (bAsString?(min+':'+(sec<10?'0'+sec:sec)):{'min':min,'sec':sec});
 
 	};
@@ -976,11 +976,7 @@ function ThreeSixtyPlayer() {
 		}
 
 		/* use for testing the data */
-		/*
-		 for (i=0; i<256; i++) {
-			 oSound.eqData[i] = 1-(i/256);
-		 }
-		*/
+
 
 		var oCanvas = oSound._360data.oCanvas.getContext('2d'),
 				offX = 0,
@@ -1755,19 +1751,14 @@ soundManager.onready(threeSixtyPlayer.init);
 				stream : qtradiofeedChannel,
 				stats : function(){
 					if(this.onAir()){
-						// console.log("NOW ADDING SONG FEED: "+qrFeedStyle);
-						// $.cookie('feedHost', qtradiofeedHost, { expires: 1, path: '/' }); // cookie removed
-						// $.cookie('feedPort', qtradiofeedPort, { expires: 1, path: '/' });// cookie removed
-						
-						// console.log("SONG TITLE: "+this.get('songtitle'));
+		
 
 						var result = this.get('songtitle');
 						var feedsplit = result.split(" - "),
 							author = feedsplit[0],
 							title = feedsplit[1];
 
-						// console.log("author: "+author);
-						// console.log("title: "+title);
+			
 						
 
 						qtFeedPlayerTrack.html(title);
@@ -1790,21 +1781,15 @@ soundManager.onready(threeSixtyPlayer.init);
 				stream : qtradiofeedChannel,
 				stats : function(){
 					if(this.onAir()){
-						// console.log("NOW ADDING SONG FEED: "+qrFeedStyle);
-						// $.cookie('feedHost', qtradiofeedHost, { expires: 1, path: '/' }); // cookie removed
-						// $.cookie('feedPort', qtradiofeedPort, { expires: 1, path: '/' });// cookie removed
-						
-						// console.log("SONG TITLE: "+this.get('songtitle'));
+				
+		
 
 						var result = this.get('songtitle');
 						var feedsplit = result.split(" - "),
 							author = feedsplit[0],
 							title = feedsplit[1];
 
-						// console.log("author: "+author);
-						// console.log("title: "+title);
-
-
+				
 						qtFeedPlayerTrack.html(title);
 						qtFeedPlayerAuthor.html(author);
 					
@@ -1868,21 +1853,6 @@ soundManager.onready(threeSixtyPlayer.init);
 
 
 			// cookie removed
-			/*
-			if($.cookie('feedHost') != '' && $.cookie('feedHost') !== null){
-				qtradiofeedHost = $.cookie('feedHost');
-				qtradiofeedPort = $.cookie('feedPort');
-				console.log("restoring feed Host and Port from cookies");
-			}*/
-
-		/*	if(qtradiofeedHost === '' || qtradiofeedPort === '') {
-				console.log(">>>>>> HEY STOP HERE IS NOT VALID");
-				$.SHOUTcast().stopStats({});
-				qtFeedPlayerTrack.html("No stats");
-				qtFeedPlayerAuthor.html("There are no stats for this channel");
-				console.log("Host ["+host+"] or port empty. Aborting feed ]]]]]]]]]]]]]]]]]]]]]]]]]]]]");
-				return;
-			}*/
 
 
 			console.log("Host is: "+qtradiofeedHost);
@@ -1920,19 +1890,12 @@ soundManager.onready(threeSixtyPlayer.init);
 					stream : theChannel,
 					stats : function(){
 						if(this.onAir()){
-							// console.log("NOW ADDING SONG FEED: "+qrFeedStyle);
-							// $.cookie('feedHost', qtradiofeedHost, { expires: 1, path: '/' }); // cookie removed
-							// $.cookie('feedPort', qtradiofeedPort, { expires: 1, path: '/' });// cookie removed
-							
-							// console.log("SONG TITLE: "+this.get('songtitle'));
+					
 
 							var result = this.get('songtitle');
 							var feedsplit = result.split(" - "),
 								author = feedsplit[0],
 								title = feedsplit[1];
-
-							// console.log("author: "+author);
-							// console.log("title: "+title);
 
 
 							qtFeedPlayerTrack.html(title);
@@ -1966,20 +1929,14 @@ soundManager.onready(threeSixtyPlayer.init);
 			stream : theChannel,
 			stats : function(){
 				if(this.onAir()){
-					// console.log("NOW ADDING SONG FEED: "+qrFeedStyle);
-					// $.cookie('feedHost', qtradiofeedHost, { expires: 1, path: '/' }); // cookie removed
-					// $.cookie('feedPort', qtradiofeedPort, { expires: 1, path: '/' });// cookie removed
-					
-					// console.log("SONG TITLE: "+this.get('songtitle'));
+	
 
 					var result = this.get('songtitle');
 					var feedsplit = result.split(" - "),
 						author = feedsplit[0],
 						title = feedsplit[1];
 
-					// console.log("author: "+author);
-					// console.log("title: "+title);
-
+	
 
 					qtFeedPlayerTrack.html(title);
 					qtFeedPlayerAuthor.html(author);

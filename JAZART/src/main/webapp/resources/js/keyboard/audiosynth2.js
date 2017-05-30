@@ -75,8 +75,7 @@ var Synth, AudioSynth, AudioSynthInstrument;
 		this._resizeCache();
 	});
 	setPub('generate', function(sound, note, octave, duration) {
-		// alert('sound,note,octave,duration'+sound+', '+note+', '+octave+',
-		// '+duration);
+
 		var thisSound = this._sounds[sound];
 		if(!thisSound) {
 			for(var i=0;i<this._sounds.length;i++) {
@@ -87,7 +86,7 @@ var Synth, AudioSynth, AudioSynthInstrument;
 				}
 			}
 		}
-		// alert('sound: '+sound);
+
 		
 		if(!thisSound) { throw new Error('Invalid sound or sound ID: ' + sound); }
 		var t = (new Date).valueOf();
@@ -95,11 +94,11 @@ var Synth, AudioSynth, AudioSynthInstrument;
 		octave |= 0;
 		octave = Math.min(8, Math.max(1, octave));
 		
-		// alert('octave: '+octave);
+
 		
 		var time = !duration?2:parseFloat(duration);
 		
-		// alert('time: '+time);
+
 		
 		if(typeof(this._notes[note])=='undefined') { throw new Error(note + ' is not a valid note.'); }
 		if(typeof(this._fileCache[sound][octave-1][note][time])!='undefined') {
@@ -124,23 +123,14 @@ var Synth, AudioSynth, AudioSynthInstrument;
 			var val = 0;
 			var curVol = 0;
 			
-			// console.log('datas[array]'+frequency); //값에따라다르다 *2배씩
-			// console.log('datas[array]'+attack); //0.002
-			// console.log('datas[array]'+dampen); //5.504344985118764
-			// console.log('datas[array]'+waveFunc); //function
-			// console.log('datas[array]'+waveBind); //object object
+
 
 			var data = new Uint8Array(new ArrayBuffer(Math.ceil(sampleRate * time * 2)));  // ceil
 																							// 버퍼
 			var attackLen = (sampleRate * attack) | 0; 
 			var decayLen = (sampleRate * time) | 0;
 			
-			// alert('bCeil: '+sampleRate*time*2);
-			// alert('aCeil: '+Math.ceil(sampleRate*time*2)); //176400
-			// alert('data: '+data);
-			// alert('attackLen: '+attackLen);
-			// alert('decayLen: '+decayLen);
-			
+	
 			for (var i = 0 | 0; i !== attackLen; i++) {
 				val = volume * (i/(sampleRate*attack)) * waveFunc.call(waveBind, i, sampleRate, frequency, volume);
 				data[i << 1] = val;
@@ -181,8 +171,7 @@ var Synth, AudioSynth, AudioSynthInstrument;
 			];
 			
 			console.log(data);
-			// alert(out);
-			// alert('pack테스트:'+pack(1,16)); //pack테스트:16,0,0,0
+
 			var blob = new Blob(out, {type: 'audio/wav'});
 			var dataURI = URL.createObjectURL(blob);
 			this._fileCache[sound][octave-1][note][time] = dataURI;
@@ -422,113 +411,113 @@ function AudioSynthView() {
 	// Key bindings, notes to keyCodes.
 	var keyboard = {
 		
-			/* 2 */
+		
 			50: 'C#,-1',
 			
-			/* 3 */
+			
 			51: 'D#,-1',
 			
-			/* 5 */
+		
 			53: 'F#,-1',
 			
-			/* 6 */
+			
 			54: 'G#,-1',
 			
-			/* 7 */
+		
 			55: 'A#,-1',
 			
-			/* 9 */
+		
 			57: 'C#,0',
 			
-			/* 0 */
+		
 			48: 'D#,0',
 			
-			/* + */
+		
 			187: 'F#,0',
 			61: 'F#,0',
 			
-			/* Q */
+		
 			81: 'C,-1',
 			
-			/* W */
+			
 			87: 'D,-1',
 			
-			/* E */
+			
 			69: 'E,-1',
 			
-			/* R */
+			
 			82: 'F,-1',
 			
-			/* T */
+			
 			84: 'G,-1',
 			
-			/* Y */
+			
 			89: 'A,-1',
 			
-			/* U */
+		
 			85: 'B,-1',
 			
-			/* I */
+		
 			73: 'C,0',
 			
-			/* O */
+		
 			79: 'D,0',
 			
-			/* P */
+		
 			80: 'E,0',
 			
-			/* [ */
+		
 			219: 'F,0',
 			
-			/* ] */
+		
 			221: 'G,0',
 		
-			/* A */
+		
 			65: 'G#,0',
 		
-			/* S */
+		
 			83: 'A#,0',
 			
-			/* F */
+			
 			70: 'C#,1',
 		
-			/* G */
+			
 			71: 'D#,1',
 		
-			/* J */
+		
 			74: 'F#,1',
 		
-			/* K */
+		
 			75: 'G#,1',
 		
-			/* L */
+		
 			76: 'A#,1',
 		
-			/* Z */
+			
 			90: 'A,0',
 		
-			/* X */
+			
 			88: 'B,0',
 		
-			/* C */
+		
 			67: 'C,1',
 		
-			/* V */
+		
 			86: 'D,1',
 		
-			/* B */
+		
 			66: 'E,1',
 		
-			/* N */
+		
 			78: 'F,1',
 		
-			/* M */
+		
 			77: 'G,1',
 			
-			/* , */
+		
 			188: 'A,1',
 			
-			/* . */
+			
 			190: 'B,1'
 		
 		};
@@ -636,7 +625,7 @@ function AudioSynthView() {
 		container.addEventListener('loadeddata', function(e) { e.target.play(); });
 		container.autoplay = false;
 		container.setAttribute('type', 'audio/wav');
-		/* document.body.appendChild(container); */
+
 		container.load();
 		return container;
 	
@@ -652,7 +641,7 @@ function AudioSynthView() {
 		container.addEventListener('loadeddata', function(e) { e.target.play(); });
 		container.autoplay = false;
 		container.setAttribute('type', 'audio/wav');
-		/* document.body.appendChild(container); */
+		
 		container.load();
 		return container;
 	
@@ -677,14 +666,10 @@ function AudioSynthView() {
 				fnChangeOctave(-1);
 				break;
 		
-			/*// right
-			case 39:
-				fnChangeOctave(1);
-				break;
-		*/
+	
 			// space
 			case 39:
-				alert("짠!");
+			
 				fnPlaySong([
 					['E,0', 8],
 					['D,0', 8],
@@ -849,7 +834,7 @@ $(function() {
 				console.log("recorder stopped");
 				record.style.background = ""; // 배경초기화
 				record.style.color = ""; // 배경글씨색
-				// mediaRecorder.requestData();
+			
 
 				stop.disabled = true;
 				record.disabled = false;
@@ -860,8 +845,7 @@ $(function() {
 				blob = new Blob(chunks, {
 					'type' : 'audio/ogg; codecs=opus'
 				}); 
-				// alert('청크: '+JSON.stringify(chunks)); //object blob 또는 [{}]
-				// alert('청크담은blob: '+JSON.stringify(blob)); //object blob {}
+		
 				chunks = []; // 청크초기화
 				
 				var audioURL = window.URL.createObjectURL(blob);
@@ -895,7 +879,7 @@ $(function() {
 		var bufferLength = analyser.frequencyBinCount;
 		var dataArray = new Uint8Array(bufferLength);
 		
-		// alert('테스트1: '+bufferLength); 1024 buffefLength==> new ArrayBuffer();
+
 		
 		
 		// 오디오컨텍스트->애널라이저->fftSize설정(퓨리에)->버퍼길이생성->맞는어레이생성
@@ -941,7 +925,7 @@ $(function() {
 
 				x += sliceWidth;
 				if (dataArray[i] == 10) {
-					// alert('dataArray[i]v: '+v);
+					
 				}
 			}
 			var hei = canvas.height / 2;

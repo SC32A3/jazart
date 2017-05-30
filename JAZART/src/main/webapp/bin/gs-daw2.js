@@ -1345,15 +1345,7 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
                     hash: {},
                     data: s
                 }) : a)) + "</span>\r\n\t</div>\r\n</a>\r\n";
-                /*  <a class=\"item buffer\" draggable=\"true\">\r\n\t
-                		<svg class=\"gsuiWaveform\" preserveAspectRatio=\"none\">\r\n\t\t
-                			<polygon/>\r\n\t
-                		</svg>\r\n\t
-                		<div class=\"info text-overflow\">\r\n\t\t
-                			<i class=\"icon fw\"></i>\r\n\t\t
-                			<span class=\"name\"></span>\r\n\t
-                		</div>\r\n
-                	</a>\r\n" */                
+                         
                 return test;
             },
             usePartial: !0,
@@ -1596,7 +1588,7 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
     }, gs.compositionStop = function() {
         gs.composition.stop(), waFwk.do.stop(), gs.currentTime(0), gs.isPaused = gs.isPlaying = !1
     }, gs.file.create = function(t) { //gs.file.create
-    	//alert('size&name: '+t.name+','+t.size);
+    
         waFwk.do.addSource({
             data: t.length ? null : t,
             metadata: {
@@ -2020,7 +2012,6 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
             this.elRoot.onmousedown = this.mousedown.bind(this),
             this.elRoot.onclick = this.click.bind(this),
             this.elRoot.ondragstart = this.dragstart.bind(this),
-            //alert('elRoot: '+this.elRoot); //빈값이옴
             this.elRoot.oncontextmenu = function() {
                 return !1
             }
@@ -2528,10 +2519,9 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
 				
 				xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 				xhr.overrideMimeType("text/plain; charset=x-user-defined");
-				//xhr.overrideMimeType('audio/wav'); // ~테스트소스~ application/xml
-				//xhr.responseType = "blob";
+			
 				xhr.onreadystatechange = function () { //이게 콜백함수구나
-					//alert('readyState&status: '+xhr.readyState+', '+xhr.status);
+			
 					if (xhr.readyState == xhr.DONE) {
 						var wavString = xhr.response;
 						var len = wavString.length;

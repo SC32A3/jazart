@@ -154,16 +154,7 @@ function MainController() {
   }
 
   this.destructor = function() {
-/*
-    for (var i=self.fireworks.length; i--;) {
-      self.fireworks[i] = null;
-    }
-    self.fireworks = null;
-    if (soundManager) {
-      soundManager.destructor();
-      soundManager = null;
-    }
-*/
+
   }
 
   if (this.isSafari || this.isOpera) this.getWindowCoords = this.getWindowCoordsAlt;
@@ -346,17 +337,7 @@ document.getElementById('config-code').style.display = 'block'; // weird Fx fix
   }
 */
   this.options = [];
-/*
-  this.cb[1].checked = false;
-  this.options = [document.getElementById('opt-random0'),document.getElementById('opt-random1')];
-  this.options[0].checked = false;
-  this.options[1].checked = true;
-  if (navigator.userAgent.match(/msie/i)) {
-    this.fbIE = document.getElementById('fireButton');
-    this.fbIE.onmouseover = function() {this.className='hover';}
-    this.fbIE.onmouseout = function() {this.className='';}
-  }
-*/
+
 
   setTimeout(function(){
     // default values for controls
@@ -637,26 +618,7 @@ cpHandler = function() {
 	}
 
 
-/*
 
-
-threeSixtyPlayer.config.waveformDataColor = '#'+dec2hexArray([self.controls[5].value,self.controls[6].value,self.controls[7].value]).join('');
-
-threeSixtyPlayer.config.eqDataColor = '#'+dec2hexArray([self.controls[8].value,self.controls[9].value,self.controls[10].value]).join('');
-
-threeSixtyPlayer.config.loadRingColor = '#'+dec2hexArray([self.controls[11].value,self.controls[12].value,self.controls[13].value]).join('');
-
-threeSixtyPlayer.config.playRingColor = '#'+dec2hexArray([self.controls[14].value,self.controls[15].value,self.controls[16].value]).join('');
-
-threeSixtyPlayer.config.waveformDataLineRatio = (self.controls[1].value/100)*2;
-
-threeSixtyPlayer.config.waveformDataDownsample = (self.controls[2].value);
-
-threeSixtyPlayer.config.eqDataLineRatio = (self.controls[3].value/100)*3;
-
-threeSixtyPlayer.config.eqDataDownsample = (self.controls[4].value);
-
-*/
 
 function _id(sID) {
   return document.getElementById(sID);

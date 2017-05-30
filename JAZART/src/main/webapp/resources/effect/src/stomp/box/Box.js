@@ -121,24 +121,7 @@ pb.stomp.Box.prototype.templates_base = function() {
            '<div class="name">' + this.name + '</div>' +
            '<div class="leds"></div>' +
            '<div class="switches"></div>' +
-        //           '<div class="obg"></div>' +
-        //           '<div class="bg"></div>' +
-        //           '<div class="bgs">' +
-        //               '<div class="bg"></div>' +
-        //               '<div class="bg"></div>' +
-        //               '<div class="bg"></div>' +
-        //               '<div class="bg"></div>' +
-        //               '<div class="bg"></div>' +
-        //               '<div class="bg"></div>' +
-        //               '<div class="bg"></div>' +
-        //               '<div class="bg"></div>' +
-        //               '<div class="bg"></div>' +
-        //               '<div class="bg"></div>' +
-        //               '<div class="bg"></div>' +
-        //               '<div class="bg"></div>' +
-        //               '<div class="bg"></div>' +
-        //               '<div class="bg"></div>' +
-        //           '</div>'+
+     
         '</div>';
 };
 

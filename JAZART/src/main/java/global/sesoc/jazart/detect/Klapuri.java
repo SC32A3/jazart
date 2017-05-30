@@ -32,7 +32,6 @@ public class Klapuri{
 	double beta = 320.0; //Hz
 	double dee = 0.89;
 	public Klapuri(double[] data, double max,PolyphonicPitchDetection mainProgram){
-		//whitened = (double[]) data.clone();
 		this.mainProgram = mainProgram;
 		/*Whiten the data*/
 		whitened = whiten(data,mainProgram);
@@ -74,13 +73,11 @@ public class Klapuri{
 
 			/*Replace this with using f0cands indices at some point!*/
 			//Frequency cancellation
-			//System.out.println("To cancellation "+mainProgram.f0index[index].size()+" "+mainProgram.f0indHarm[index].size());
 			int[] tempCancelled = new int[resultsk.length];
 			for (int j = 0; j<mainProgram.f0index[index].size();++j){
 					/*Suppress the surrounding bins as well*/
 					for (int i = -1;i <= 1;++i){
 						if (tempCancelled[mainProgram.f0index[index].get(j)+i] == 0 && mainProgram.f0index[index].get(j)+i < resultsk.length){
-						   	//System.out.println(mainProgram.f0index[index].get(j)+" "+mainProgram.freq[mainProgram.f0index[index].get(j)]);
 							resultsk[mainProgram.f0index[index].get(j)+i]= resultsk[mainProgram.f0index[index].get(j)+i]
 							+(mainProgram.samplingRate*mainProgram.freq[mainProgram.f0index[index].get(j)+i]+alpha)
 							/
@@ -102,7 +99,6 @@ public class Klapuri{
 					}
 
 			}
-			//System.out.println("Cancellation done");
 			//requency cancellation done
 			//Polyphony estimation
 			if (S.size() < detectedF0s){
@@ -119,7 +115,6 @@ public class Klapuri{
 			//Polyphony estimated
 		}
 		//The last F0 is extra...
-		//System.out.println("Remove extra");
 		if (F0s.size() > 1){
 			F0s.remove(F0s.size()-1);
 		}

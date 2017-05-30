@@ -62,7 +62,6 @@ public class WavFileHelper implements Runnable {
 
 						Analysis analysis = new Analysis(data, mainProgram); 
 						mainProgram.result.add(analysis.klapuri.f0s.get(0));
-						//System.out.println(analysis.klapuri.f0s.get(0));
 					}
 				}
 			}

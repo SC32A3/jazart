@@ -224,14 +224,6 @@ img.clipImg {
 						<li><a href="question">Question</a></li>
 					</ul></li>
 
-				<%-- <!-- 플레이리스트 -->
-				<c:if test="${not empty loginNickname}">
-					<li class="right"><a href="songPopup" class="qt-popupwindow"
-						data-name="Music Player" data-width="320" data-height="500"> <i
-							class="icon dripicons-duplicate"></i>Playlist
-					</a></li>
-				</c:if> --%>
-
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
 			<ul class="qt-desktopmenu hide-on-xl-only ">
@@ -354,13 +346,7 @@ img.clipImg {
 												</tr>
 												<tr>
 													<th>
-															<%-- <div class="file_input" id="input2">
-																<input type="hidden" id="songnum" name="songnum" value="${song.songnum}">
-																<label> File Attach
-																	<input type="file" id="fileTag1" name="upload1"	class="albumart">
-																</label> <input type="text" id="fileRoot1" readonly="readonly"
-																	style="width: 120px;" title="File Route">
-															</div> --%>
+														
 													</th>
 													<th class="title">곡 설 명</th>
 													<td><input type="text" id="song_desc" name="song_desc" value="${song.song_desc}"></td>
@@ -369,9 +355,7 @@ img.clipImg {
 													<th colspan="3" style="text-align: right;">
 													<input type="hidden" name="songnum" value="${song.songnum}">
 													<input type="submit" id="saveBtn" value="저장">
-														<!-- <input type="button" value="Music registration" />
-														<input type="button" value="Music Upload" />
-														 <input type="button" value="Put it in the playlist" /> -->
+													
 														 </th>
 												</tr>
 											</table>

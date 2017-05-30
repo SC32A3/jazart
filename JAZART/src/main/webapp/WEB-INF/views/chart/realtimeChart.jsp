@@ -48,7 +48,6 @@
 <script>
 	$(function() {
 		setTimeout(scrollMove, 1000);
-		/* 	$(document).off(".disableScroll"); */
 	});
 	function recommend(num) {
 		var snum = num;
@@ -603,33 +602,7 @@
 						height="302">
 				</div>
 			</div>
-			<!-- <div class="qt-footer-bottom qt-content-primary-dark">
-				<div class="qt-container">
-					<div class="row"> -->
-			<!-- <div class="col s12 m12 l8">
-							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
-							| Radio Station HTML Template
-							<ul class="qt-menu-footer qt-small qt-list-chevron ">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Privacy</a></li>
-								<li><a href="#">Sitemap</a></li>
-							</ul>
-						</div> -->
-			<div class="col s12 m12 l4">
-				<!-- <ul class="qt-menu-social">
-								<li class="right"><a href="#"><i
-										class="qticon-beatport"></i></a></li>
-								<li class="right"><a href="#"><i
-										class="qticon-facebook"></i></a></li>
-								<li class="right"><a href="#"><i class="qticon-twitter"></i></a></li>
-								<li class="right"><a href="#"><i class="qticon-youtube"></i></a></li>
-								<li class="right"><a href="#"><i
-										class="qticon-soundcloud"></i></a></li>
-							</ul> -->
-				<!-- 	</div>
-					</div>
-				</div> -->
-			</div>
+	
 		</div>
 	</div>
 	<!-- PLAYER SIDEBAR ========================= -->

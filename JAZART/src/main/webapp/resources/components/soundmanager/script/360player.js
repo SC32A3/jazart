@@ -1224,12 +1224,7 @@ ThreeSixtyPlayer.prototype.VUMeter = function(oParent) {
         canvas.clearRect(0,11,16,1);
         me.vuMeterData[i][j] = me.vuDataCanvas.toDataURL('image/png');
         // for debugging VU images
-        /*
-        var o = document.createElement('img');
-        o.style.marginRight = '5px'; 
-        o.src = vuMeterData[i][j];
-        document.documentElement.appendChild(o);
-        */
+   
       }
     }
 

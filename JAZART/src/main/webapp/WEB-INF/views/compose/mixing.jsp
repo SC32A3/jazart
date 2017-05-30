@@ -282,19 +282,13 @@
 												<p class="left-knob-label">Reverb Type</p>
 
 												<p class="right-knob-label">Wet/Dry</p> <span class="knobs">
-													<!--<form>
-                                <select id="reverbList">
-                                    <option>reverb1</option>
-                                    <option>reverb2</option>  
-                                </select>
-                            </form> --> <input id="reverbIrSelectKnob"
+													 <input id="reverbIrSelectKnob"
 													data-fgColor="#222222" data-linecap=round
 													data-angleOffset=-125 data-angleArc=250 data-width="50"
 													data-min="0" data-max="1" class="dial" value="0"> <input
 													id="reverbWetDryKnob" data-fgColor="#bd362f"
 													data-linecap=round data-angleOffset=-125 data-angleArc=250
 													data-width="50" class="dial">
-
 
 											</span>
 												<button class="effectClose">&times;</button>
@@ -494,26 +488,9 @@
 		<div class="qt-footer-bottom qt-content-primary-dark">
 			<div class="qt-container">
 				<div class="row">
-					<!-- <div class="col s12 m12 l8">
-							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
-							| Radio Station HTML Template
-							<ul class="qt-menu-footer qt-small qt-list-chevron ">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Privacy</a></li>
-								<li><a href="#">Sitemap</a></li>
-							</ul>
-						</div> -->
+					
 					<div class="col s12 m12 l4">
-						<!-- <ul class="qt-menu-social">
-								<li class="right"><a href="#"><i
-										class="qticon-beatport"></i></a></li>
-								<li class="right"><a href="#"><i
-										class="qticon-facebook"></i></a></li>
-								<li class="right"><a href="#"><i class="qticon-twitter"></i></a></li>
-								<li class="right"><a href="#"><i class="qticon-youtube"></i></a></li>
-								<li class="right"><a href="#"><i
-										class="qticon-soundcloud"></i></a></li>
-							</ul> -->
+					
 					</div>
 				</div>
 			</div>

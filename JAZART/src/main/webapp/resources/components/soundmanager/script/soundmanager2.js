@@ -3959,13 +3959,7 @@ function SoundManager(smURL, smID) {
     }),
 
     // TODO: Reserved for potential use
-    /*
-    emptied: html5_event(function() {
 
-      sm2._wD(this._s.id + ': emptied');
-
-    }),
-    */
 
     ended: html5_event(function() {
 

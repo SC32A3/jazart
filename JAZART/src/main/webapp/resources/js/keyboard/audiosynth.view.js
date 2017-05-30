@@ -11,11 +11,11 @@ function AudioSynthView() {
 	var fnChangeOctave = function(x) {
 
 		x |= 0;
-		//alert('x: '+x); //기본옥타브 4
+		
 		__octave += x;
 	
 		__octave = Math.min(5, Math.max(3, __octave));
-		//alert('octave: '+__octave);
+	
 		
 		var octaveName = document.getElementsByName('OCTAVE_LABEL');
 		var i = octaveName.length;
@@ -221,7 +221,7 @@ function AudioSynthView() {
 					label.className = 'label';
 					label.innerHTML = '<b>' + String.fromCharCode(reverseLookupText[n + ',' + i]) + '</b>' + '<br /><br />' + n.substr(0,1) +
 					'<span name="OCTAVE_LABEL" value="' + i + '">' + (__octave + parseInt(i)) + '</span>' + (n.substr(1,1)?n.substr(1,1):'');
-					//'<span name="OCTAVE_LABEL" value="' + i + '">' + (__octave + parseInt(i)) + '</span>' + (n.substr(1,1)?n.substr(1,1):'');
+			
 					//기본일 때 "C" + 3(=> i=-1), (__octave + parseInt(i)) => 3
 					thisKey.appendChild(label);
 					thisKey.setAttribute('ID', 'KEY_' + n + ',' + i);
@@ -254,10 +254,9 @@ function AudioSynthView() {
 
 	// Detect keypresses, play notes.
 	var fnPlayKeyboard = function(e, oldpie) {
-		//console.log('여기도 들어온다는 거네');
+		
 		var i = keysPressed.length;
-		//console.log('keysPressed.length '+keysPressed.length);
-		//console.log('e.keyCode '+e.keyCode);
+	
 		while(i--) {
 			if(keysPressed[i]==e.keyCode) {
 				return false;	
@@ -290,32 +289,7 @@ function AudioSynthView() {
 	               ['E,0', 8],
 	            ]);
 	            break;	
-/*	            ['D,0', 1],
-	            ['C,0', 8],
-	            ['D,0', 8],
-	            ['E,0', 2],
-	            ['A,0', 8],
-	            ['G,0', 8],
-	            ['E,0', 8],
-	            ['C,0', 8],
-	            ['D,0', 1],
-	            ['A,0', 8],
-	            ['B,0', 8],
-	            ['C,1', 2],
-	            ['B,0', 8],
-	            ['C,1', 8],
-	            ['D,1', 8],
-	            ['C,1', 8],
-	            ['A,0', 1],
-	            ['G,0', 8],
-	            ['A,0', 8],
-	            ['B,0', 2],
-	            ['C,1', 8],
-	            ['B,0', 8],
-	            ['A,0', 8],
-	            ['G,0', 8],
-	            ['A,0', 1]
-*/	
+
     }
 	
 		if(keyboard[e.keyCode]) {
@@ -363,7 +337,7 @@ function AudioSynthView() {
 	}
 
 	var fnPlaySong = function(arr) {
-		//alert('렛츠플레이');
+		
 		if(arr.length>0) { //E08 D08 C02
 			console.log('////////////////////');
 			var noteLen = 1000*(1/parseInt(arr[0][1])); //2

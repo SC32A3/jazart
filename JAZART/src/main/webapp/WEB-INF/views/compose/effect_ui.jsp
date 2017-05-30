@@ -312,15 +312,7 @@ img.clipImg {
 				}
 			});
 		});
-		/* $(".spanBtn").on('click', function() {
-			if ($('.spanBtn').html() == 'ON') {
-				alert('on');
-				$('.spanBtn').text('OFF');	
-			} else if ($('.spanBtn').html() == 'OFF') {
-				alert('off');
-				$('.spanBtn').text('ON');	
-			}
-		}); */
+	
 	});
 
 	function spanClick(id) {
@@ -571,17 +563,11 @@ img.clipImg {
 																	<c:forEach var="record" items="${sourceList}">
 																		<div class="sample">${source}</div>
 																	</c:forEach>
-																	<!-- <div class="sample">Sample 2</div>
-																<div class="sample">Sample 3</div>
-																<div class="sample">Sample 4</div>
-																<div class="sample">Sample 5</div> -->
+																
 																</div>
 															</div>
 														</div>
-														<!-- <div class="effectDetail"></div>
-													<div class="effectDetail"></div>
-													<div class="effectDetail"></div>
-													<div class="effectDetail"></div> -->
+													
 													</div>
 												</div>
 											</div>

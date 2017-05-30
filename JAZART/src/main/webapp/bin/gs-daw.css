@@ -456,16 +456,7 @@
 	src:local(LCDBOLD),url(../assets/LCDBOLD.woff) format("woff"),url(../assets/LCDBOLD.ttf) format("truetype")
 }
 
-/* html,body
-{
-	height:100%
-} */
 
-/* body
-{
-	overflow:hidden;
-	margin:0
-} */
 
 a
 {

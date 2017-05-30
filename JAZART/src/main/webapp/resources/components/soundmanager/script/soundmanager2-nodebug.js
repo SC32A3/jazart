@@ -1901,23 +1901,10 @@ function SoundManager(smURL, smID) {
     } else {
       mime = 'audio/' + fileExt;
       
-      // Igor... checking issue in the library
-      // console.log("Checking sm2: " + typeof(sm2));
-      // console.log("Checking sm2.html5: "+ typeof(sm2.html5));
-      // console.log("Checking sm2.html5.canPlayType: "+ typeof(sm2.html5.canPlayType));
-      /*
-      
-      Igor: the error is here! sm2.html5.canPlayType is not defined
 
-
-
-       */
       
       result = 'probably';
-      /*
-      result = sm2.html5.canPlayType({type:mime});
-      sm2.html5[fileExt] = result;
-      result = (result && sm2.html5[mime] && !preferFlashCheck(mime));*/
+
     }
     return result;
   };

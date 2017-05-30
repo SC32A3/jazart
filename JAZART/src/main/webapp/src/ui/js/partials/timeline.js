@@ -33,8 +33,7 @@ ui.timeline = {
 		var now = Date.now();
 
 		if ( now - ui.timeline.firstClick < 250 ) {
-			// gs.loop.stop();
-			// gs.loop.timeA( ui.grid.getBeat( e.pageX ) );
+		
 			ui.timelineLoop.clickTime( "b" );
 		}
 		ui.timeline.firstClick = now;

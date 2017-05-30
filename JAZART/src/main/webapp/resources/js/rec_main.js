@@ -44,16 +44,9 @@ function gotBuffers( buffers ) {
 
     // the ONLY time gotBuffers is called is right after a new recording is completed - 
     // so here's where we should set up the download.
-  /*  var tSpan = $("#testSpan");
-	var inputSpan = '<audio id="newAudio" src="" controls></audio>';
-	tSpan.html(inputSpan);*/
+
     
-	/*audioRecorder.exportWAV( function ( blob ) {
-    	  var url = (window.URL || window.webkitURL).createObjectURL(blob);
-    	  alert(url);
-    	  var aLink = $("#newAudio");
-    	  aLink.attr("src", url);
-	})*/
+
     audioRecorder.exportWAV( doneEncoding );
 }
 
@@ -73,12 +66,11 @@ function toggleRecording( e ) {
         if (!audioRecorder)
             return;
         
-        /*new Audio('resources/metro.mp3').play();
-    	setTimeout(function(){*/
+    
             e.classList.add("recording");
             audioRecorder.clear();
             audioRecorder.record();
-    	//}, 5000);
+    	
     }
 }
 

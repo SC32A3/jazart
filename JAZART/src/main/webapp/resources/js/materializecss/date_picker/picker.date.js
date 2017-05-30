@@ -492,10 +492,7 @@ DatePicker.prototype.validate = function( type, dateObject, options ) {
         // Keep looping until we reach an enabled date.
         while ( /*safety &&*/ calendar.disabled( dateObject ) ) {
 
-            /*safety -= 1
-            if ( !safety ) {
-                throw 'Fell into an infinite loop while validating ' + dateObject.obj + '.'
-            }*/
+      
 
 
             // If we’ve looped into the next/prev month with a large interval, return to the original date and flatten the interval.
