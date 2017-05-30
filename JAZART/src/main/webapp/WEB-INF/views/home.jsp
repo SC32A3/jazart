@@ -397,11 +397,6 @@
 			<!-- SLIDESHOW FULLSCREEN END ================================================== -->
 
 
-
-
-
-
-
 			<!-- ======================= HERO VIDEO POST SECTION ======================= -->
 			<div class="qt-container qt-spacer-m qt-section">
 				<h3 class="qt-caption-med">
@@ -411,18 +406,11 @@
 				<!-- POST VIDEO ITEM ========================= -->
 
 
-
-
-
-
 				<div class="embed-responsive embed-responsive-16by9">
 					<iframe width="800" height="450"
 						src="https://www.youtube.com/embed/J_eeOf-_UdA" frameborder="0"
 						allowfullscreen></iframe>
 				</div>
-
-
-
 
 
 				<!-- POST VIDEO ITEM END ========================= -->
@@ -482,10 +470,7 @@
 							class="qt-btn qt-btn qt-btn-l qt-btn-primary">View full chart</a>
 					</p>
 				</div>
-				<!-- 	<div class="qt-header-bg">
-					<img src="images/back1.jpg" alt="Featured image"
-						width="690" height="302">
-				</div> -->
+			
 			</div>
 			
 			
@@ -568,73 +553,8 @@
 				<!-- SLIDESHOW UPCOMING SHOWS END ================================================== -->
 			</div>
 			
-			
-			<!-- ======================= SPONSORS ======================= -->
-			<!-- 	<div class="qt-vertical-padding-m qt-sponsors qt-section">
-				<h3 class="qt-caption-med">
-					<span>Artist</span>
-				</h3> -->
-			<!-- <hr class="qt-spacer-m"> -->
-			<!-- SLIDESHOW SPONSORS ================================================== -->
-			<!-- <div
-					class="qt-slickslider-container qt-slickslider-externalarrows qt-slickslider-fullscreen">
-					<div class="row">
-						<div
-							class="qt-slickslider qt-slickslider-multiple qt-text-shadow "
-							data-slidestoshow="6" data-slidestoshowipad="3"
-							data-variablewidth="false" data-arrows="true" data-dots="false"
-							data-infinite="true" data-centermode="false"
-							data-pauseonhover="true" data-autoplay="true"
-							data-arrowsmobile="false" data-centermodemobile="true"
-							data-dotsmobile="false" data-slidestoshowmobile="1"
-							data-variablewidthmobile="true" data-infinitemobile="false">
-							SLIDESHOW ITEM
-							<div class="qt-item">
-								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="images/html.jpg" width="235" height="132"
-									alt="sponsor" class="qt-image-responsive">
-								</a>
-							</div>
-							SLIDESHOW ITEM
-							<div class="qt-item">
-								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="images/java.jpg" width="235" height="132"
-									alt="sponsor" class="qt-image-responsive">
-								</a>
-							</div>
-							SLIDESHOW ITEM
-							<div class="qt-item">
-								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="images/javascript.jpg" width="235" height="132"
-									alt="sponsor" class="qt-image-responsive">
-								</a>
-							</div>
-							SLIDESHOW ITEM
-							<div class="qt-item">
-								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="images/jquery.jpg" width="235" height="132"
-									alt="sponsor" class="qt-image-responsive">
-								</a>
-							</div>
-							SLIDESHOW ITEM
-							<div class="qt-item">
-								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="images/ajax.jpg" width="235" height="132"
-									alt="sponsor" class="qt-image-responsive">
-								</a>
-							</div>
-							SLIDESHOW ITEM
-							<div class="qt-item">
-								<a href="#" target="_blank" rel="nofollow" class="qt-sponsor">
-									<img src="images/servlets.jpg" width="235" height="132"
-									alt="sponsor" class="qt-image-responsive">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div> -->
 			<!-- SLIDESHOW SPONSORS END ================================================== -->
-			<!-- <hr class="qt-spacer-s"> -->
+		
 		</div>
 	</div>
 	<!-- .qt-main end -->

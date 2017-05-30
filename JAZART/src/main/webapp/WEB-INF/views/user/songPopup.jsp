@@ -131,14 +131,7 @@
 		<div class="qt-part-channels-list">
 			<ul
 				class="qt-content-aside qt-channelslist qt-negative qt-content-primary">
-				<!-- 요넘이 값을 씌워주는거란 말이지 
-					data-title="06AM Ibiza 라디오국" data-subtitle="Underground Radio 라디오국 설명"
-					data-background="resources/imagestemplate/photo-squared-500-500.jpg"
-					data-logo="resources/imagestemplate/radio-logo.png"
-					data-host="173.192.105.231" data-port="3540"
-					data-playtrack="http://173.192.105.231:3540/stream.mp3"
-					//img src="resources/imagestemplate/radio-logo.png" alt="logo"
-				-->
+		
 				<c:forEach var="item" varStatus="status" items="${playlist}">
 					<li class="qt-channel"><a href="#!" class="qt-ellipsis"
 						data-title="" data-subtitle=""
@@ -160,17 +153,7 @@
 		<!-- CHANNELS LIST END ========================= -->
 	</div>
 
-	<!-- <li class="qt-channel"><a href="#!" class="qt-ellipsis"
-					data-title="altradio" data-subtitle="The subtitle of radio 2"
-					data-background="resources/imagestemplate/large-1170-512.jpg"
-					data-logo="resources/imagestemplate/radio-logo.png"
-					data-playtrack="http://82.77.137.30:8557/;listen.mp3"
-					data-host="82.77.137.30" data-port="8557" data-stats_path=""
-					data-played_path="" data-channel=""> <img
-						src="resources/imagestemplate/radio-logo.png" alt="logo"
-						class="qt-radiologo" width="80" height="80"> <i
-						class="dripicons-media-play"></i> altradio
-				</a></li> -->
+
 
 
 	<!-- QT BODY END ================================ -->

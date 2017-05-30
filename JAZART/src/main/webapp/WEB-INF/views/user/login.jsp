@@ -95,10 +95,7 @@
 						<li><a href="qna">QnA</a></li>
 						<li><a href="question">Question</a></li>
 					</ul></li>
-			<!-- 	<li class="right"><a href="#!" data-expandable="#qtsearchbar"
-					class="qt-btn qt-btn-l qt-scrolltop"><i
-						class="icon dripicons-search"></i></a></li> -->
-				
+			
 				<!-- 플레이리스트 -->
 				<c:if test="${not empty loginNickname}">
 				<li class="right"><a href="songPopup?songnum=0"
@@ -329,35 +326,10 @@
 						width="690" height="302">
 				</div>
 			</div>
-		<!-- 	<div class="qt-footer-bottom qt-content-primary-dark">
-				<div class="qt-container">
-					<div class="row"> -->
-						<!-- <div class="col s12 m12 l8">
-							Copyright 2016 <a href="http://qantumthemes.com">Qantumthemes.com</a>
-							| Radio Station HTML Template
-							<ul class="qt-menu-footer qt-small qt-list-chevron ">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Privacy</a></li>
-								<li><a href="#">Sitemap</a></li>
-							</ul>
-						</div> -->
-					<!-- 	<div class="col s12 m12 l4"> -->
-							<!-- <ul class="qt-menu-social">
-								<li class="right"><a href="#"><i
-										class="qticon-beatport"></i></a></li>
-								<li class="right"><a href="#"><i
-										class="qticon-facebook"></i></a></li>
-								<li class="right"><a href="#"><i class="qticon-twitter"></i></a></li>
-								<li class="right"><a href="#"><i class="qticon-youtube"></i></a></li>
-								<li class="right"><a href="#"><i
-										class="qticon-soundcloud"></i></a></li>
-							</ul> -->
+	
 						</div>
 					</div>
-	<!-- 				</div>
-			</div>
-		</div>
-	</div> -->
+	
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"
 		class="side-nav qt-content-primary qt-right-sidebar">

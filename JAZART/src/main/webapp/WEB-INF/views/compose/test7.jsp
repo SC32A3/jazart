@@ -23,15 +23,7 @@
 		//0: 1옥타브, 주로 0~1로 이루어진다, -1도된다(C3,D3)
 		//작동됨
 		//a.fnPlaySong([['C,0', 4], ['D,0', 8]]);
-		/* fnPlaySong([
-			['E,0', 8],
-			['D,0', 8],
-			['C,0', 2],
-			['C,0', 8],
-			['D,0', 8],
-			['C,0', 8],
-			['E,0', 8],
-			['D,0', 1]]); */
+	
 		$("#gogo").on('click', function(){
 			var fileInput2 = document.getElementById('fileinput');
 			var MultiData = new FormData(fileInput2);
@@ -57,46 +49,7 @@
 		});
 			
 			
-		//현재 안쓰는 코드
-		/* $('#myfileinput').change(
-				function() {
-					alert('웰컴');
-					// fileInput is an HTMLInputElement: <input type="file" id="myfileinput" multiple>
-					var fileInput = document.getElementById("myfileinput");
 
-					// files is a FileList object (similar to NodeList)
-					var files = fileInput.files;
-
-					// object for allowed media types
-					var accept = {
-						binary : [ "image/png", "image/jpeg", "audio/wav" ],
-						text : [ "text/plain", "text/css", "application/xml",
-								"text/html" ]
-					};
-
-					var file;
-					var reader = new FileReader();
-
-					for (var i = 0; i < files.length; i++) {
-						file = files[i];
-						alert(accept.binary.indexOf(file.type));
-						// if file type could be detected
-						if (file !== null) {
-							if (accept.binary.indexOf(file.type) > -1) {
-								// file is a binary, which we accept
-								reader.onload = function() {
-									alert(decodeUtf8(reader.result));
-								}
-								reader.readAsArrayBuffer(file);
-							} else if (accept.text.indexOf(file.type) > -1) {
-								// file is of type text, which we accept
-								reader.readAsText(file);
-								// modify data with string methods
-								console.log('들어옴' + reader.result);
-							}
-						}
-					}
-				}) */
 	})
  	
 	function calcDuration(rArray){

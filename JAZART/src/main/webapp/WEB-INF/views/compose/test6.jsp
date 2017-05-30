@@ -73,11 +73,6 @@
 		</div>
 		
 		
-	<!-- <div>
-		<form action="test66" method="post" id="fileinput" enctype="multipart/form-data">
-			<input type="file" id="upload" name="upload">
-			<input type="submit" value="제출">
-		</form>
-	</div> -->
+
 </body>
 </html>
