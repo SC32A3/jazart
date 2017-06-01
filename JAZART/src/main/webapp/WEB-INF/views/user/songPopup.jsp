@@ -131,13 +131,12 @@
 		<div class="qt-part-channels-list">
 			<ul
 				class="qt-content-aside qt-channelslist qt-negative qt-content-primary">
-		
 				<c:forEach var="item" varStatus="status" items="${playlist}">
-					<li class="qt-channel"><a href="#!" class="qt-ellipsis"
+					<li class="qt-channel"><a href="download?type=music&data=${item.songnum}" class="qt-ellipsis"
 						data-title="" data-subtitle=""
 						data-background="download?type=song&data=${item.songnum}"
 						data-logo="download?type=song&data=${item.songnum}"
-						data-playtrack="download?type=music&data=${item.song_file}"
+						data-playtrack="download?type=music&data=${item.songnum}"
 						data-stats_path="" data-played_path="" data-channel=""
 						onclick="javascript:input('${item.song_title}','${item.song_nickname}')">
 							<img src="download?type=song&data=${item.songnum}" alt="logo"

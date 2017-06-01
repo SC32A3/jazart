@@ -180,7 +180,7 @@ public class ComposeController {
 	@RequestMapping(value = "done", method = RequestMethod.POST)
 	public String done(MultipartFile[] upload, Model model, HttpServletRequest request, int songnum) {
 		SongInfo song = sr.selectSong(songnum);
-		
+
 		for (int i = 0; i < upload.length; i++) {
 			MultipartFile multipartFile = upload[i];
 			if (!multipartFile.isEmpty()) {
@@ -189,7 +189,7 @@ public class ComposeController {
 				int result = sr.updateSongInfo2(songnum, originalFile, savedfile);
 			}
 		}
-		
+
 		model.addAttribute("song", song);
 		return "compose/done";
 	}
@@ -255,11 +255,17 @@ public class ComposeController {
 			savedfile = user.getUser_savedpic();
 			fullpath = uploadPath + "/" + savedfile;
 		} else if (type.equals("music")) {
-			int songnum = Integer.parseInt(data);
+			int songnum = 0;
+			try {
+				songnum = Integer.parseInt(data);
+			} catch (Exception e) {
+				songnum = Integer.parseInt(data.split("\\?")[0]);
+			}
 			SongInfo song = sr.selectSong(songnum);
 			originalfile = song.getSong_file();
 			savedfile = song.getSong_savedfile();
 			fullpath = uploadPath3 + "/" + savedfile;
+			System.out.println(fullpath);
 		} else if (type.equals("rec")) {
 			savedfile = data;
 			fullpath = uploadPath3 + "/" + savedfile;
@@ -362,6 +368,7 @@ public class ComposeController {
 		if (songnum == 0) {
 			String userId = (String) session.getAttribute("loginId");
 			playlist = ur.playlist(userId);
+			System.out.println(playlist.get(0).getSongnum());
 			model.addAttribute("playlist", playlist);
 			return "user/songPopup";
 		} else {
@@ -377,8 +384,6 @@ public class ComposeController {
 		int result = ur.deleteSongList(user_id, songnum);
 		return result;
 	}
-
-
 
 	@RequestMapping(value = "saveSong", method = RequestMethod.POST)
 	public String saveSong() {
@@ -410,15 +415,16 @@ public class ComposeController {
 				logger.info("saved record => " + savedfile);
 			}
 		}
-	
+
 		return "compose/mixerPage";
 	}
 
 	@RequestMapping(value = "mixerWorks", method = RequestMethod.POST)
 	public @ResponseBody void ajaxTest1(String data, HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("data: " + data);
-		String originalfile = sr.selectSongdata4(data, (int) session.getAttribute("songnum")); 
-		//String otherpath = request.getServletContext().getRealPath("src/sample/");
+		String originalfile = sr.selectSongdata4(data, (int) session.getAttribute("songnum"));
+		// String otherpath =
+		// request.getServletContext().getRealPath("src/sample/");
 		File fileDirectory = new File(uploadPath3);
 		String otherpath = fileDirectory.getAbsolutePath();
 		String fullpath = "";
@@ -594,7 +600,7 @@ public class ComposeController {
 			}
 			return d;
 		} catch (Exception e) {
-			
+
 		}
 		return null;
 	}
@@ -604,13 +610,13 @@ public class ComposeController {
 		session.setAttribute("level", 1);
 		return "compose/melody";
 	}
-	
+
 	@RequestMapping(value = "complete", method = RequestMethod.POST)
 	public String complete(SongInfo songinfo) {
 		session.removeAttribute("level");
 		session.removeAttribute("songnum");
-		logger.info("songinfo>> "+songinfo);
-		
+		logger.info("songinfo>> " + songinfo);
+
 		sr.complete(songinfo);
 		logger.info("작곡 success");
 		return "home";
