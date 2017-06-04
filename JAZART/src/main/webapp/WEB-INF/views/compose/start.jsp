@@ -107,15 +107,6 @@
 						<li><a href="qna">QnA</a></li>
 						<li><a href="question">Question</a></li>
 					</ul></li>
-
-				<%-- <!-- 플레이리스트 -->
-				<c:if test="${not empty loginNickname}">
-					<li class="right"><a href="songPopup" class="qt-popupwindow"
-						data-name="Music Player" data-width="320" data-height="500"> <i
-							class="icon dripicons-duplicate"></i>Playlist
-					</a></li>
-				</c:if> --%>
-
 			</ul>
 			<!-- mobile menu icon and logo VISIBLE ONLY TABLET AND MOBILE-->
 			<ul class="qt-desktopmenu hide-on-xl-only ">
@@ -128,12 +119,9 @@
 		<!-- mobile menu -->
 		<div id="qt-mobile-menu" class="side-nav qt-content-primary">
 			<ul class=" qt-side-nav">
-				<li><a href="/">jazart<span>♬</span></a></li>
-				<li class="menu-item-has-children"><a href="compose">Compose</a>
-					<ul>
-						<li><a href="mixing">(test)Mixing Page</a></li>
-						<li><a href="artistPage">(test)Artist Page</a></li>
-					</ul></li>
+				<li class="qt-logo-link"><a href="./"
+					class="brand-logo qt-logo-text">jazart<span>♬</span></a></li>
+				<li><a href="start">Compose</a></li>
 				<li><a href="musicBoard">Board</a>
 					<ul>
 						<li><a href="musicBoard">Music Community</a></li>
@@ -232,11 +220,13 @@
 			<!-- ======================= CONTENT SECTION ======================= -->
 			<div class="qt-container qt-vertical-padding-m">
 				<div class="row" style="text-align: center;">
-					<a href="compose"><div class="level">
-							<h2>Professinal</h2>
-						</div></a> <a href="compose">
+					<a href="compose?lev=0">
 						<div class="level">
-							<h2>introduction</h2>
+							<h2>Professional</h2>
+						</div>
+					</a><a href="compose?lev=1">
+						<div class="level">
+							<h2>Introduction</h2>
 						</div>
 					</a>
 				</div>
@@ -292,7 +282,6 @@
 								</h5>
 								<div class="qt-widget-about">
 									<p>
-
 										We are a small group of designers and developers. We create
 										clean, minimal and apps. <br> <a href="about">About
 											us <i class="dripicons-arrow-thin-right"></i>

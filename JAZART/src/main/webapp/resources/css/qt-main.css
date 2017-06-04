@@ -1,4 +1,3 @@
-/*================================================================
 
 Index of contents:
 
@@ -2658,15 +2657,15 @@ nav .button-collapse i { font-size: 1.4em; }
 .qt-widget { margin-bottom: 2.8rem; }
 
 .qt-widget-onair { padding-bottom: 20px; }
-
-.qt-widget-onair img { width: 100%; height: auto; margin-bottom: -20px; }
+/* 
+.qt-widget-onair img { width: 100%; height: auto; margin-bottom: -20px; } */
 
 .qt-widget-onair .qt-caption-med { margin-bottom: 10px; }
 
 .qt-widget-onair p.qt-small { padding: 20px; }
 
 .qt-widget-upcoming li { position: relative; margin-bottom: 8px; }
-
+ 
 .qt-widget-upcoming li h5 { /* float: left; */ padding: 13px 100px 0 13px; }
 
 .qt-widget-upcoming li p { float: left; padding: 0 100px 2px 13px; font-size: 13px; opacity: .65; }
