@@ -38,6 +38,7 @@
 	</beans:bean>
 	<interceptors>
 		<interceptor>
+			<mapping path="/start" />
 			<mapping path="/boardRead" />
 			<mapping path="/recommend" />
 			<mapping path="/boardWrite" />

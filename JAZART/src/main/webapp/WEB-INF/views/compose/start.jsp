@@ -233,10 +233,10 @@
 			<div class="qt-container qt-vertical-padding-m">
 				<div class="row" style="text-align: center;">
 					<a href="compose"><div class="level">
-							<h2>Professinal</h2>
+							<h2>Professional</h2>
 						</div></a> <a href="compose">
 						<div class="level">
-							<h2>introduction</h2>
+							<h2>Introduction</h2>
 						</div>
 					</a>
 				</div>

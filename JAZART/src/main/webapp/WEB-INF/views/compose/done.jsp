@@ -336,7 +336,7 @@ img.clipImg {
 											<input type="hidden" name="song_savedfile" value="${song.song_savedfile}"> --%>
 											<table>
 												<tr>
-						 							<th class="album" rowspan="2"
+						 							<th class="album" rowspan="3"
 														style="width: 300px; height: 300px;">
 														<img id="albumart" class="albumart" src="download?type=song&data=${song.songnum}" /></th>
 													<th class="title">곡 명</th>
@@ -347,18 +347,15 @@ img.clipImg {
 													<td><input type="text" id="song_genre" name="song_genre" value="${song.song_genre}" readonly></td>
 												</tr>
 												<tr>
-													<th>
-														
-													</th>
 													<th class="title">곡 설 명</th>
 													<td><input type="text" id="song_desc" name="song_desc" value="${song.song_desc}"></td>
 												</tr>
 												<tr>
-													<th colspan="3" style="text-align: right;">
+													<th colspan="3" style="text-align: center;">
 													<input type="hidden" name="songnum" value="${song.songnum}">
-													<input type="submit" id="saveBtn" value="저장">
-													
-														 </th>
+													<input type="submit" id="saveBtn" value="Upload" style="width: 160px;"
+														class="qt-btn qt-btn-l qt-btn-primary qt-spacer-m">
+													</th>
 												</tr>
 											</table>
 												</form>

@@ -104,7 +104,8 @@ audio {
 	$(function() {
 		$('.file_input input[type=file]').change(function() {
 			var fileName = $(this).val();
-			$('.file_input input[type=text]').val(fileName);
+			var output = fileName.split('\\').pop();
+			$('#fileRoot2').val(output);
 		});
 	});
 </script>

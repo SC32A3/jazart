@@ -499,7 +499,7 @@ public class ComposeController {
 		return "compose/test6";
 	}
 
-	@RequestMapping(value = "test66", method = RequestMethod.POST)
+	/*@RequestMapping(value = "test66", method = RequestMethod.POST)
 	public String saveSongPic(MultipartFile upload) {
 		// 파일이 여러개일경우 위와같이 사용 할 수 있다
 		// Iterator<String> itr = req.getFileNames();
@@ -512,7 +512,7 @@ public class ComposeController {
 			String savedfile = FileService2.saveFile(upload, uploadPath3);
 		}
 		return "compose/test6";
-	}
+	}*/
 
 	@RequestMapping(value = "test7", method = RequestMethod.GET)
 	public String test7() {
