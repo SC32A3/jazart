@@ -332,6 +332,8 @@ img.clipImg {
 										<div id="songinfo" class="row">
 										<form action="complete" method="post">
 										<!-- <script type="text/javascript">alert('${song.songnum}');</script> -->
+											<%-- <input type="hidden" name="song_file" value="${song.song_file}">
+											<input type="hidden" name="song_savedfile" value="${song.song_savedfile}"> --%>
 											<table>
 												<tr>
 						 							<th class="album" rowspan="2"
