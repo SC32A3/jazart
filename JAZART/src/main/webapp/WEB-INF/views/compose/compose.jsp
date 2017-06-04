@@ -165,6 +165,13 @@ img.clipImg {
 	var files = "";
 	$(function() {
 		
+		$('#setting').on('click', function() {
+			$.ajax({
+				url : 'setting',
+				type : 'get'
+			});
+		})
+		
 		
 		$('#saveBtn').on('click', function() {
 			var song_title = $('#song_title').val();
@@ -428,6 +435,7 @@ img.clipImg {
 										-[녹음 탭]-[마이크]<br>
 										마우스 오른쪽 클릭<br>
 										'기본 장치로 설정'</p>
+										<button id="setting">Setting</button>
 									</div>
 								</div>
 							</div>

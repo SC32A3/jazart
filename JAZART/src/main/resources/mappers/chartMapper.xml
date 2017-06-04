@@ -6,12 +6,12 @@
 
 <mapper namespace="global.sesoc.jazart.dao.ChartMapper">
 	<select id="allCount" resultType="Integer">
-		select count(*) from songinfo
+		select count(*) from songinfo where song_complete = 'y'
 	</select>
 
 	<select id="chartAllCount" resultType="Integer">
 		select count(*) from
-		(select rownum rnum,songnum from songinfo
+		(select rownum rnum,songnum from songinfo where song_complete = 'y'
 		) where rnum
 		between
 		1 and
@@ -50,7 +50,7 @@
 		as test
 		from songinfo
 		si,songlike sl
-		where
+		where si.song_complete = 'y' and
 		si.songnum =
 		sl.songnum(+) group by
 		si.songnum,si.song_nickname,si.song_like,si.song_inputdate,
@@ -73,8 +73,8 @@
 		and sysdate then 3 when sl.like_time
 		between sysdate-7
 		and sysdate then
-		1 else 0 end) as test from songinfo
-		si,songlike sl where
+		1 else 0 end) as test from songinfo 
+		si,songlike sl where si.song_complete = 'y' and
 		si.songnum =
 		sl.songnum(+)
 		group by
@@ -104,7 +104,7 @@
 		sysdate-30
 		and sysdate then 1
 		else 0 end) as test from songinfo
-		si,songlike sl where
+		si,songlike sl where si.song_complete = 'y' and
 		si.songnum =
 		sl.songnum(+) group by
 		si.songnum,si.song_nickname,si.song_like,si.song_inputdate,

@@ -166,12 +166,13 @@ img.clipImg {
 			var fileCount = $(this).get(0).files.length;
 
 			if ($(this).get(0).files.length == 1) {
-				$('.file_input input[type=text]').val(fileName);
+				var output = fileName.split('\\').pop();
+				$('#fileRoot2').val(output);
 			} else {
-				$('.file_input input[type=text]').val('파일 ' + fileCount + '개');
+				$('#fileRoot2').val('파일 ' + fileCount + '개');
 			}
 		});
-		$(".setting").click(function() {
+		$("#setting").click(function() {
 			$.ajax({
 				url : "setting",
 				type : "get",
@@ -358,9 +359,11 @@ img.clipImg {
 										</h4>
 										<p class="qt-small">
 											[제어판]-[소리]<br>
-										-[녹음 탭]-[스테레오믹스]<br>
+										-[녹음 탭]-<br>
+										[스테레오믹스]<br>
 										마우스 오른쪽 클릭<br>
 										'기본 장치로 설정'</p>
+										<button id="setting">Setting</button>
 									</div>
 								</div>
 							</div>

@@ -178,18 +178,19 @@ public class ComposeController {
 	}
 
 	@RequestMapping(value = "done", method = RequestMethod.POST)
-	public String done(MultipartFile[] upload, Model model, HttpServletRequest request, int songnum) {
-		SongInfo song = sr.selectSong(songnum);
+	public String done(MultipartFile upload, Model model, HttpServletRequest request, int songnum) {
 
-		for (int i = 0; i < upload.length; i++) {
-			MultipartFile multipartFile = upload[i];
-			if (!multipartFile.isEmpty()) {
-				String originalFile = multipartFile.getOriginalFilename();
-				String savedfile = FileService2.saveFile(multipartFile, uploadPath4);
+		//for (int i = 0; i < upload.length; i++) {
+			//MultipartFile multipartFile = upload[i];
+			if (!upload.isEmpty()) {
+				String originalFile = upload.getOriginalFilename();
+				String savedfile = FileService2.saveFile(upload, uploadPath4);
 				int result = sr.updateSongInfo2(songnum, originalFile, savedfile);
 			}
-		}
-
+		//}
+		
+		SongInfo song = sr.selectSong(songnum);
+		logger.info("doneSonginfo >> "+song);
 		model.addAttribute("song", song);
 		return "compose/done";
 	}
@@ -498,7 +499,7 @@ public class ComposeController {
 		return "compose/test6";
 	}
 
-	@RequestMapping(value = "test66", method = RequestMethod.POST)
+	/*@RequestMapping(value = "test66", method = RequestMethod.POST)
 	public String saveSongPic(MultipartFile upload) {
 		// 파일이 여러개일경우 위와같이 사용 할 수 있다
 		// Iterator<String> itr = req.getFileNames();
@@ -511,7 +512,7 @@ public class ComposeController {
 			String savedfile = FileService2.saveFile(upload, uploadPath3);
 		}
 		return "compose/test6";
-	}
+	}*/
 
 	@RequestMapping(value = "test7", method = RequestMethod.GET)
 	public String test7() {
@@ -523,7 +524,6 @@ public class ComposeController {
 		try {
 			Runtime.getRuntime().exec("control mmsys.cpl sounds");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

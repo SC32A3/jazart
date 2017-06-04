@@ -104,13 +104,8 @@ audio {
 	$(function() {
 		$('.file_input input[type=file]').change(function() {
 			var fileName = $(this).val();
-			var fileCount = $(this).get(0).files.length;
-
-			if ($(this).get(0).files.length == 1) {
-				$('.file_input input[type=text]').val(fileName);
-			} else {
-				$('.file_input input[type=text]').val('파일 ' + fileCount + '개');
-			}
+			var output = fileName.split('\\').pop();
+			$('#fileRoot2').val(output);
 		});
 	});
 </script>
@@ -302,8 +297,7 @@ audio {
 													<div class="file_input">
 														<h4>완성한 곡을 첨부해주세요.</h4>
 														<br>
-														<label> File Attach <input type="file"
-															multiple="multiple" name="upload2" id="fileTag2">
+														<label> File Attach <input type="file" name="upload" id="fileTag2">
 														</label> <input type="text" id="fileRoot2" readonly="readonly"
 															title="File Route">
 													</div>

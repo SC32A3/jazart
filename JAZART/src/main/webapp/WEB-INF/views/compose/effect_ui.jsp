@@ -297,12 +297,13 @@ img.clipImg {
 			var fileCount = $(this).get(0).files.length;
 
 			if ($(this).get(0).files.length == 1) {
-				$('.file_input input[type=text]').val(fileName);
+				var output = fileName.split('\\').pop();
+				$('#fileRoot2').val(output);
 			} else {
-				$('.file_input input[type=text]').val('파일 ' + fileCount + '개');
+				$('#fileRoot2').val('파일 ' + fileCount + '개');
 			}
 		});
-		$(".setting").click(function() {
+		$("#setting").click(function() {
 			$.ajax({
 				url : "setting",
 				type : "get",
@@ -312,7 +313,6 @@ img.clipImg {
 				}
 			});
 		});
-	
 	});
 
 	function spanClick(id) {
@@ -498,9 +498,10 @@ img.clipImg {
 											<span>Setting</span>
 										</h4>
 										<p class="qt-small">
-											[제어판]-[소리]<br> -[녹음 탭]-[스테레오믹스]<br> 마우스 오른쪽 클릭<br>
+											[제어판]-[소리]<br> -[녹음 탭]-<br>[스테레오믹스]<br> 마우스 오른쪽 클릭<br>
 											'기본 장치로 설정'
 										</p>
+										<button id="setting">Setting</button>
 									</div>
 								</div>
 							</div>
@@ -583,7 +584,7 @@ img.clipImg {
 													<div class="file_input">
 														<label> File Attach <input type="file"
 															multiple="multiple" name="upload" id="source">
-														</label> <input type="text" id="fileRoot" readonly="readonly"
+														</label> <input type="text" id="fileRoot2" readonly="readonly"
 															title="File Route">
 													</div>
 													<input type="submit" value="NEXTPAGE" style="width: 160px;"
