@@ -232,9 +232,9 @@
 			<!-- ======================= CONTENT SECTION ======================= -->
 			<div class="qt-container qt-vertical-padding-m">
 				<div class="row" style="text-align: center;">
-					<a href="compose"><div class="level">
+					<a href="compose?lev=0"><div class="level">
 							<h2>Professional</h2>
-						</div></a> <a href="compose">
+						</div></a> <a href="compose?lev=1">
 						<div class="level">
 							<h2>Introduction</h2>
 						</div>
