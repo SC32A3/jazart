@@ -2542,6 +2542,40 @@ window.AudioContext || (document.body.innerHTML = "<div id='nowebaudio'>Sorry, <
 				}
 				xhr.send("data="+result[i]);
 			}
+        	
+        	for (var i = 0; i < result2.length; i++) {
+        		var sname = result2[i];
+				var blob = null;
+				var xhr = new XMLHttpRequest();
+				xhr.open("POST", "mixerWorks2", false);
+				
+				xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+				xhr.overrideMimeType("text/plain; charset=x-user-defined");
+	
+				xhr.onreadystatechange = function () { //이게 콜백함수구나
+				
+					if (xhr.readyState == xhr.DONE) {
+						var wavString = xhr.response;
+						var len = wavString.length;
+						var buf = new ArrayBuffer(len);
+						var view = new Uint8Array(buf);
+						for (var i = 0; i < len; i++) {
+						  view[i] = wavString.charCodeAt(i) & 0xff;
+						}
+						blob = new Blob([view], {type: "audio/x-wav"});
+						var parts = [blob];
+						//Construct a file
+						var file = new File(parts, sname, { 
+							lastModified: new Date(0), // optional - default = now
+							type: "audio/wav" // optional - default = ''
+								// "overide/mimetype"
+						});
+						
+						gs.file.create(file); // 알수없음
+					}
+				}
+				xhr.send("data="+result2[i]);
+			}
 		}
     }(),
     function() {

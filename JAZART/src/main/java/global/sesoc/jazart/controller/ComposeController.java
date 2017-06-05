@@ -62,6 +62,8 @@ public class ComposeController {
 	final String uploadPath2 = System.getProperty("user.home") + "/downloads"; // 브라우저
 	final String uploadPath3 = "/userSource"; // 서버 레코딩 경로
 	final String uploadPath4 = "/userComplete"; // 서버 레코딩 경로
+	final String beatFolder1 = "/MusicSource/ballad1"; //추천비트 경로1 고급(lev0)
+	final String beatFolder2 = "/MusicSource/hiphop1"; //추천비트 경로2 초급(lev1)
 
 	@RequestMapping(value = "start", method = RequestMethod.GET)
 	public String start() {
@@ -465,11 +467,65 @@ public class ComposeController {
 		System.out.println("ajaxTest COunt>");
 	}
 
+	@RequestMapping(value = "mixerWorks2", method = RequestMethod.POST)
+	public @ResponseBody void ajaxTest2(String data, HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("data: " + data);
+		String path = "";
+		
+		int lev = (int) session.getAttribute("lev");
+		System.out.println("lev: " + lev);
+		if (lev == 0) {
+			path = beatFolder1;
+		} else if (lev == 1){
+			path = beatFolder2;
+		}
+		
+		File filePath = new File(path);
+		
+		String otherpath = filePath.getAbsolutePath();
+		String fullpath = "";
+		ServletOutputStream fileout = null;
+		FileInputStream filein = null;
+		// 한개의 글을 가져옴
+
+		fullpath = otherpath + "/" + data;
+		System.out.println("풀패스: " + fullpath);
+		try {
+			response.setHeader("Content-Disposition",
+					"attachment;filename=" + URLEncoder.encode(data, "UTF-8"));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		try {
+			filein = new FileInputStream(fullpath);
+			fileout = response.getOutputStream();
+			fileout.flush();
+			FileCopyUtils.copy(filein, fileout);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (filein != null)
+					filein.close();
+				if (fileout != null)
+					fileout.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("ajaxTest2 COunt>");
+	}
+	
+	
+	
+	
+	
 	@RequestMapping(value = "mixer", method = RequestMethod.GET)
 	public String mixer(HttpServletRequest request, Model model, int songnum) {
 		logger.info("믹서: " + songnum);
 		ArrayList<String> sources = sr.selectSongdata3(songnum);
 		ArrayList<String> newOne = new ArrayList<>();
+		ArrayList<String> beatList= new ArrayList<>();
 		String newString = "";
 		session.setAttribute("songnum", songnum);
 
@@ -480,6 +536,32 @@ public class ComposeController {
 
 		model.addAttribute("sList", newOne);
 
+		
+		int lev = (int) session.getAttribute("lev");
+		
+		if (lev == 0) { //전문가
+			File beat1 = new File(beatFolder1);
+			
+			File[] bList = beat1.listFiles();
+			for (File file : bList) {
+				if (!file.isDirectory()) {
+					beatList.add("!"+file.getName()+"!");
+				}
+			}
+			
+		} else if (lev == 1){ //초급자
+			File beat2 = new File(beatFolder2);
+			
+			File[] bList = beat2.listFiles();
+			for (File file : bList) {
+				if (!file.isDirectory()) {
+					beatList.add("!"+file.getName()+"!");
+				}
+			}
+		}
+		
+		model.addAttribute("bList", beatList);
+		
 		return "compose/mixer";
 	}
 

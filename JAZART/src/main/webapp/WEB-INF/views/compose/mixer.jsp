@@ -19,7 +19,14 @@
 	var toArray = sList.split('!');
 	for (var i = 1; i < toArray.length; i=i+2) {
 		result.push(toArray[i]);
-	}				
+	}
+	
+	var result2 = new Array();
+	var bList = '${bList}';
+	var toArray2 = bList.split('!');
+	for (var i = 1; i < toArray2.length; i=i+2) {
+		result2.push(toArray2[i]);
+	}
 </script>
 <script src="bin/gs-daw3.js"></script>
 <!-- -->
