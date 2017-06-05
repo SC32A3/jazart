@@ -44,8 +44,15 @@
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 
 <!-- Recording API -->
-<script src="resources/jquery-3.1.1.min.js"></script>
+<!-- <script src="resources/jquery-3.1.1.min.js"></script>
 <script src="resources/rTest/test.js"></script>
+<link rel="stylesheet" href="resources/rTest/app.css"> -->
+
+<!-- Recording API -->
+<script src="resources/jquery-3.1.1.min.js"></script>
+<script src="resources/js/audiodisplay.js"></script>
+<script src="resources/js/recorderjs/recorder.js"></script>
+<script src="resources/js/rec_main.js"></script>
 <link rel="stylesheet" href="resources/rTest/app.css">
 
 <!-- Effect API -->
@@ -70,6 +77,16 @@
 
 
 <style type="text/css">
+.btn {
+	width: 30px;
+	height: 30px;
+}
+
+#viz {
+    height: 100%;
+    width: 100%;
+}
+
 #rec-file-list li, #src-file-list li {
 	padding: 5px 0px 5px 5px;
 	margin-bottom: 5px;
@@ -481,11 +498,15 @@ img.clipImg {
 										<h4 class="qt-caption-med">
 											<span>Record</span>
 										</h4>
-										<canvas class="visualizer"></canvas>
-										<p class="qt-small">
-											<button class="record">Rec.</button>
-											<button class="stop">Stop</button>
-										</p>
+										<div id="viz">
+									      <canvas id="analyser" width="1024" height="500"></canvas>
+									      <canvas id="wavedisplay" width="1024" height="500"></canvas>
+     									</div>
+										<div id="controls">
+											<img id="record" class="btn record" src="images/record.png"
+												onclick="toggleRecording(this);"> <a id="save"
+												href="#"><img class="btn stop" src="images/save.png"></a>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -576,7 +597,6 @@ img.clipImg {
 
 										<div id="worklist" class="row qt-contacts">
 											<div class="row">
-												<script type="text/javascript">alert('${songnum}')</script>
 												<form action="mixerPage" method="post"
 													enctype="multipart/form-data">
 													<input type="hidden" name="songnum" value="${songnum}">
@@ -927,7 +947,6 @@ img.clipImg {
 			var knob = document.getElementById('Knob' + tag); //놉
 			var range = document.getElementById('Range' + tag).value;
 			var attribute = "rotateZ(" + range + "deg)";
-			alert(attribute);
 
 			knob.style.transform = attribute;
 		}

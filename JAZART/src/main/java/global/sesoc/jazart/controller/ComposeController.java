@@ -168,9 +168,13 @@ public class ComposeController {
 	}
 
 	@RequestMapping(value = "compose", method = RequestMethod.GET)
-	public String compose() {
-		return "compose/compose";
-	}
+	   public String compose(int lev) {
+	      session.setAttribute("lev", lev);
+	      System.out.println(lev);
+	      return "compose/compose";
+	   }
+	
+	
 
 	@RequestMapping(value = "mixing", method = RequestMethod.GET)
 	public String mixing() {
@@ -499,26 +503,11 @@ public class ComposeController {
 		return "compose/test6";
 	}
 
-	/*@RequestMapping(value = "test66", method = RequestMethod.POST)
-	public String saveSongPic(MultipartFile upload) {
-		// 파일이 여러개일경우 위와같이 사용 할 수 있다
-		// Iterator<String> itr = req.getFileNames();
-		// MultipartFile files = req.getFile(itr.next());
-
-		// 단일 파일일 경우 html의 name에 설정된 이름으로 파일을 가져올 수 있다.
-		// MultipartFile file = req.getFile("testFile");
-		if (!upload.isEmpty()) {
-			String originalFileName = upload.getOriginalFilename();
-			String savedfile = FileService2.saveFile(upload, uploadPath3);
-		}
-		return "compose/test6";
-	}*/
-
 	@RequestMapping(value = "test7", method = RequestMethod.GET)
 	public String test7() {
 		return "compose/test7";
 	}
-
+	
 	@RequestMapping(value = "setting", method = RequestMethod.GET)
 	public @ResponseBody void setting() {
 		try {
@@ -621,4 +610,28 @@ public class ComposeController {
 		logger.info("작곡 success");
 		return "home";
 	}
+	
+   @RequestMapping(value = "conversion", method = RequestMethod.POST)
+   public String conversion(MultipartFile[] upload2, Model model, int songnum) {
+	   logger.info("conversion songnum: " + songnum);
+		model.addAttribute("songnum", songnum);
+		File recordingData = new File(uploadPath3);
+
+		if (!recordingData.exists()) {
+			recordingData.mkdir();
+		}
+
+		for (int i = 0; i < upload2.length; i++) {
+			MultipartFile multipartFile = upload2[i];
+			if (!multipartFile.isEmpty()) {
+				String originalFile = multipartFile.getOriginalFilename();
+				String savedfile = FileService2.saveFile(multipartFile, uploadPath3);
+				Userlist userlist = new Userlist(0, songnum, "record", originalFile, savedfile);
+				int result = sr.insertSongdata(userlist);
+				logger.info("saved record => " + savedfile);
+			}
+		} 
+	   
+      return "compose/conversion";
+   }
 }

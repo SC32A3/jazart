@@ -43,6 +43,10 @@
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 
 <style type="text/css">
+.s_picture{
+	background-color: beige;
+}
+
 .replyArea {
 	width: auto;
 	margin: 0 auto;
@@ -63,20 +67,20 @@ input[type=button] {
 
 .tdText {
 	width: 400px;
-	text-align: left;
-	word-break: break-all;
+	text-align: center;
+	word-break: break-all; 
 }
 
 .tdDate {
-	width: 100px;
+	width: 100px; 
 }
 
 .tdLike {
-	width: 70px;
+	width: 70px; text-align: center;
 }
 
 .tdBtn {
-	width: 150px;
+	width: 150px; text-align: center;
 }
 
 .qt-btn.qt-btn-l, input[type="button"].qt-btn-l {
@@ -134,6 +138,14 @@ table,th{
 
 #respond{
 	padding: 0px 10px 0px 0px;
+}
+
+.input-field label.active {
+    font-size: 1rem;
+}
+
+.labalText{
+	font-size: 1rem;
 }
 </style>
 <!-- 내가 쓴 코드 -->
@@ -193,7 +205,7 @@ table,th{
 		if (resp == "") {
 			msg += '<tr><td>저장된 댓글이 없습니다</td></tr>'
 		} else {
-			msg += '<tr><th>ID</th><th style="width: 400px;">Text</th><th>Date</th><th>Like</th><th></th></tr>';
+			msg += '<tr><th>ID</th><th style="width: 400px;">Text</th><th>Date</th><th>Like</th><th>Button</th></tr>';
 			$
 					.each(
 							resp,
@@ -457,31 +469,31 @@ play"></i></a></li>
 											value="${song.songnum}"> <br>
 											<table>
 												<tr>
-													<td rowspan="4" style="width: 250px; height: 250px;">
+													<td rowspan="3" class="s_picture" style="width: 250px; height: 250px;">
 														<div class="album">
 															<img id="albumart" class="albumart"
 																src="download?type=song&data=${song.songnum}" />
 														</div>
 													</td>
-													<td class="input-field col s12"><label>가수</label> <input
+													<td class="input-field col s12"><label class="labalText">가수</label> <input
 														name="artist" id="artist" type="text" class="validate"
 														required value="${song.song_nickname}" readonly="readonly"></td>
 												</tr>
 
 												<tr>
-													<td class="input-field col s12"><label>날짜</label> <input
+													<td class="input-field col s12"><label class="labalText">날짜</label> <input
 														name="user_nickname" id="user_nickname" type="text"
 														class="validate" required value="${song.song_inputdate}"
 														readonly="readonly"></td>
 												</tr>
 												<tr>
-													<td class="input-field col s12"><label>추천수</label> <input
+													<td class="input-field col s12"><label class="labalText">추천수</label> <input
 														name="user_email" id="user_email" type="email"
 														class="validate" required value="${song.song_like}"
 														readonly="readonly"></td>
 												</tr>
 												<tr>
-													<td colspan="2"><label>곡소개</label>
+													<td colspan="2"><label class="labalText">곡소개</label>
 														<p class="comment-form-comment">
 															<textarea aria-required="true" 
 																style="height: 130px; resize: none;" required

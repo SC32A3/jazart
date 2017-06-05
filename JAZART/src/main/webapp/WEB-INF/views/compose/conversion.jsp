@@ -44,16 +44,16 @@
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 
 <!-- Recording API -->
-<script src="resources/jquery-3.1.1.min.js "></script>
+<script src="resources/jquery-3.1.1.min.js"></script>
+<script src="resources/js/audiodisplay.js"></script>
+<script src="resources/js/recorderjs/recorder.js"></script>
+<script src="resources/js/rec_main.js"></script>
+<link rel="stylesheet" href="resources/rTest/app.css">
 
 <link rel="stylesheet" href="assets/css/style.css" />
 <script src="resources/js/keyboard/audiosynth.js"></script>
 <script src="resources/js/keyboard/audiosynth.view.js"></script>
 
-<script src="resources/js/audiodisplay.js "></script>
-<script src="resources/js/recorderjs/recorder.js "></script>
-<script src="resources/js/rec_main.js "></script>
-<link rel="stylesheet" href="resources/rTest/app.css ">
 <style type="text/css">
 .btn {
 	width: 30px;
@@ -509,9 +509,9 @@ img.clipImg {
 											<span>Record</span>
 										</h4>
 										<div id="viz">
-											<canvas id="analyser" width="1024" height="500"></canvas>
-											<canvas id="wavedisplay" width="1024" height="500"></canvas>
-										</div>
+									      <canvas id="analyser" width="1024" height="500"></canvas>
+									      <canvas id="wavedisplay" width="1024" height="500"></canvas>
+     									</div>
 										<div id="controls">
 											<img id="record" class="btn record" src="images/record.png"
 												onclick="toggleRecording(this);"> <a id="save"
@@ -621,8 +621,8 @@ img.clipImg {
 													onsubmit="return check()" action="effect_ui">
 													<section class="sound-clips"></section>
 													<div class="file_input">
-														<input type="hidden" id="songnum2" name="songnum"
-															value="0"> <label> File Attach <input
+															<input type="hidden" name="songnum" value="${songnum}">
+															<label> File Attach <input
 															type="file" multiple="multiple" name="upload2"
 															id="fileTag2">
 														</label> <input type="text" id="fileRoot2" readonly="readonly"

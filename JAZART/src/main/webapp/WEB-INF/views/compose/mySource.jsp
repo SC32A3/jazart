@@ -41,10 +41,26 @@
 <!-- Custom typography settings and google fonts -->
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 
+<!-- <script src="resources/rTest/test.js"></script>
+<link rel="stylesheet" href="resources/rTest/app.css"> -->
+
+<!-- Recording API -->
 <script src="resources/jquery-3.1.1.min.js"></script>
-<script src="resources/rTest/test.js"></script>
+<script src="resources/js/audiodisplay.js"></script>
+<script src="resources/js/recorderjs/recorder.js"></script>
+<script src="resources/js/rec_main.js"></script>
 <link rel="stylesheet" href="resources/rTest/app.css">
 <style type="text/css">
+.btn {
+	width: 30px;
+	height: 30px;
+}
+
+#viz {
+    height: 100%;
+    width: 100%;
+}
+
 .clip {
 	vertical-align: middle;
 	display: table;
@@ -341,11 +357,23 @@ img.clipImg {
 										<h4 class="qt-caption-med">
 											<span>Record</span>
 										</h4>
+										<div id="viz">
+									      <canvas id="analyser" width="1024" height="500"></canvas>
+									      <canvas id="wavedisplay" width="1024" height="500"></canvas>
+     									</div>
+										<div id="controls">
+											<img id="record" class="btn record" src="images/record.png"
+												onclick="toggleRecording(this);"> <a id="save"
+												href="#"><img class="btn stop" src="images/save.png"></a>
+										</div>										
+										<%-- <h4 class="qt-caption-med">
+											<span>Record</span>
+										</h4>
 										<canvas class="visualizer"></canvas>
 										<p class="qt-small">
 											<button class="record">Rec.</button>
 											<button class="stop">Stop</button>
-										</p>
+										</p> --%>
 									</div>
 								</div>
 							</div>
