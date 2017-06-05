@@ -18,6 +18,9 @@ DEALINGS IN THE SOFTWARE.
 */
 
 (function(window){
+  var count = 0;
+  var soundClips = document.querySelector('.sound-clips'); // 사운드태그생기는 빈div
+  
   var recIndex = 0;
   var WORKER_PATH = 'resources/js/recorderjs/recorderWorker.js';
 
@@ -106,9 +109,79 @@ DEALINGS IN THE SOFTWARE.
     this.node.connect(this.context.destination);   // if the script node is not connected to an output the "onaudioprocess" event is not triggered in chrome.
   };
 
-  Recorder.setupDownload = function(blob, downfile){
-	  recIndex++;
-	  var url = (window.URL || window.webkitURL).createObjectURL(blob); alert(url);
+  Recorder.setupDownload = function(blob, clipName){
+	    count++;
+	    var soundClips = document.querySelector('.sound-clips'); // 사운드태그생기는 빈div
+	    var hiddenTag = document.getElementById('recordFlag');
+
+		console.log(clipName);
+		var clipContainer = document.createElement('article');
+		var clipText = document.createTextNode(clipName);
+		var clipTextSpan = document.createElement('span');
+		var clipLabel = document.createElement('a');
+		var audio = document.createElement('audio');
+		//var saveButton = document.createElement('button');
+		var deleteButton = document.createElement('button');
+		var clipSpan = document.createElement('span');
+		var clipImg = document.createElement('img');
+		
+		audio.classList.add('recAudio');
+		clipContainer.classList.add('clip');
+		clipTextSpan.classList.add('clipText');
+		clipSpan.classList.add('clipSpan');
+		deleteButton.classList.add('clipSpan');
+		clipLabel.classList.add('clipA');
+
+		audio.setAttribute('controls', '');
+		deleteButton.textContent = 'Delete';
+		deleteButton.className = 'delete';
+
+		if (clipName === null || clipName == "My music source") {
+			clipText.textContent = 'My music source ' + count + '.wav';
+			clipName = 'My music source ' + count;
+		} else {
+			clipText.textContent = clipName + '.wav';
+			count--;
+		}
+		
+		clipLabel.textContent = 'Save';
+		
+		if (hiddenTag.value == 'record') {
+			clipImg.classList.add('clipImg');
+			clipImg.src = 'images/recordingIcon.png';
+			clipTextSpan.appendChild(clipImg);
+		} else if (hiddenTag.value == 'keyboard') {
+			clipImg.classList.add('clipImg');
+			clipImg.src = 'images/keyboard.png';
+			clipTextSpan.appendChild(clipImg);
+		} else if (hiddenTag.value == '') {
+			clipImg.classList.add('clipImg');
+			clipImg.src = 'images/drum.png';
+			clipTextSpan.appendChild(clipImg);
+		}				
+		clipTextSpan.appendChild(clipText);
+		clipSpan.appendChild(clipLabel);
+		clipContainer.appendChild(clipTextSpan);
+		clipContainer.appendChild(audio);
+		clipContainer.appendChild(clipSpan);
+		clipContainer.appendChild(deleteButton);
+		
+		soundClips.appendChild(clipContainer);
+
+		audio.controls = true;
+		var audioURL = window.URL.createObjectURL(blob);
+		audio.src = audioURL;
+		
+		clipLabel.classList.add('test'+count);
+		clipLabel.href = audioURL;
+		clipLabel.download = clipName + '.wav' || 'output.wav';
+		console.log("recorder stopped");
+	  
+	  
+	  
+	  
+	  /*recIndex++;
+	  var url = (window.URL || window.webkitURL).createObjectURL(blob);
 	  //내코드
 	  var controls = document.getElementById('controls');
 	  var clipContainer = document.createElement('article');//아티클
@@ -144,7 +217,7 @@ DEALINGS IN THE SOFTWARE.
 	  link.href = url;
 	  link.download = downfile || 'output.wav';
 	  //c://userProfile/**.jpg //fileservice.java
-	  
+*/	  
 	// 삭제하기
       deleteButton.onclick = function(e) {
 		evtTgt = e.target;

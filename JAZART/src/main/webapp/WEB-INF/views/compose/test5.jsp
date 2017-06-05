@@ -475,9 +475,9 @@ img.clipImg {
 											<span>Record</span>
 										</h4>
 										<div id="viz">
-											<canvas id="analyser" width="1024" height="500"></canvas>
-											<br>
-										</div>
+									      <canvas id="analyser" width="1024" height="500"></canvas>
+									      <canvas id="wavedisplay" width="1024" height="500"></canvas>
+     									</div>
 										<div id="controls">
 											<img id="record" class="btn record" src="images/record.png"
 												onclick="toggleRecording(this);"> <a id="save"

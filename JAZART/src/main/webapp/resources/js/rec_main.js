@@ -32,11 +32,13 @@ var recIndex = 0;
 */
 
 function saveAudio() {
+	//안들어옴
     audioRecorder.exportWAV( doneEncoding );
     // could get mono instead by saying
     // audioRecorder.exportMonoWAV( doneEncoding );
 }
 
+//들어옴
 function gotBuffers( buffers ) {
 	var canvas = document.getElementById( "wavedisplay" );
     //alert(buffers); //012013021103213323이런값으로 옴
@@ -45,11 +47,10 @@ function gotBuffers( buffers ) {
     // the ONLY time gotBuffers is called is right after a new recording is completed - 
     // so here's where we should set up the download.
 
-    
-
     audioRecorder.exportWAV( doneEncoding );
 }
 
+//들어옴
 function doneEncoding( blob ) {
 	var clipName = prompt('Enter a name for your sound clip?','My unnamed clip');
     Recorder.setupDownload( blob , clipName); 
@@ -63,21 +64,15 @@ function toggleRecording( e ) {
         audioRecorder.getBuffers( gotBuffers );
     } else { 
     	// start recording
-        if (!audioRecorder)
-            return;
-        
-    
-            e.classList.add("recording");
-            audioRecorder.clear();
-            audioRecorder.record();
-    	
+        if (!audioRecorder)   return;
+        e.classList.add("recording");
+        audioRecorder.clear();
+        audioRecorder.record();
     }
 }
 
-function test(){
-}
-
 function toggle2(blob, clipName, count){
+	alert('여기로 들어온다2'); //안들어옴
 	var soundClips = document.querySelector('.sound-clips');
 	var clipContainer = document.createElement('article');
 	var clipText = document.createTextNode(clipName);
