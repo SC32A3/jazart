@@ -90,6 +90,12 @@
 		});
 	}
 </script>
+<style type="text/css">
+.qt-chart-tracklist .qt-chart-track .qt-chart-table .qt-position img {
+    width: 170px;
+    height: 170px;
+}
+</style>
 </head>
 
 <body>

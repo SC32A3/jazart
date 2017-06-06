@@ -47,6 +47,12 @@
 	margin: 0 auto;
 }
 
+#albumart { margin : 0 auto; }
+
+.s_picture{
+	background-color: beige;
+}
+
 .albumart img {
 	width: 80%;
 	height: 80%;
@@ -252,7 +258,7 @@ play"></i></a></li>
 										<div class="row">
 											<table>
 												<tr>
-													<td rowspan="4" style="width: 250px; height: 250px;">
+													<td rowspan="3" class="s_picture" style="width: 250px; height: 250px;">
 														<div class="album">
 															<img id="albumart" class="albumart"
 																src="download?type=user&data=${user.user_id}" />

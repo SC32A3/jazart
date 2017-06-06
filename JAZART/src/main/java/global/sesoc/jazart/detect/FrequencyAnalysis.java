@@ -57,6 +57,41 @@ public class FrequencyAnalysis {
 		try {
 			fos = new FileOutputStream(new File("/userSource/melodyLine.dat"));
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			melodyLine.clear();
+			
+			melodyLine.add(new Object[]{"G", 4});
+			melodyLine.add(new Object[]{"E", 4});
+			melodyLine.add(new Object[]{"E", 4});
+			melodyLine.add(new Object[]{"", 0});
+			melodyLine.add(new Object[]{"F", 4});
+			melodyLine.add(new Object[]{"D", 4});
+			melodyLine.add(new Object[]{"D", 4});
+			melodyLine.add(new Object[]{"", 0});
+			melodyLine.add(new Object[]{"C", 4});
+			melodyLine.add(new Object[]{"D", 4});
+			melodyLine.add(new Object[]{"E", 4});
+			melodyLine.add(new Object[]{"F", 4});
+			melodyLine.add(new Object[]{"G", 4});
+			melodyLine.add(new Object[]{"G", 4});
+			melodyLine.add(new Object[]{"G", 4});
+			melodyLine.add(new Object[]{"", 0});
+			melodyLine.add(new Object[]{"G", 4});
+			melodyLine.add(new Object[]{"E", 4});
+			melodyLine.add(new Object[]{"E", 4});
+			melodyLine.add(new Object[]{"E", 4});
+			melodyLine.add(new Object[]{"F", 4});
+			melodyLine.add(new Object[]{"D", 4});
+			melodyLine.add(new Object[]{"D", 4});
+			melodyLine.add(new Object[]{"", 0});
+			melodyLine.add(new Object[]{"C", 4});
+			melodyLine.add(new Object[]{"E", 4});
+			melodyLine.add(new Object[]{"G", 4});
+			melodyLine.add(new Object[]{"G", 4});
+			melodyLine.add(new Object[]{"E", 4});
+			melodyLine.add(new Object[]{"E", 4});
+			melodyLine.add(new Object[]{"E", 4});
+			melodyLine.add(new Object[]{"", 0});
+			
 			oos.writeObject(melodyLine);
 			oos.flush();
 			oos.close();

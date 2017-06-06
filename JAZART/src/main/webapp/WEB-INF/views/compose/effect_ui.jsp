@@ -266,8 +266,8 @@
 	background-color: hsl(0, 100%, 90%);
 	float: left;
 	position: absolute;
-	top: 53%;
-	left: 69%;
+	top: 48%;
+	left: 63%;
 	width: 28%;
 	height: 170px;
 }
@@ -345,7 +345,7 @@ img.clipImg {
 </head>
 <body>
 	<!-- QT HEADER END ================================ -->
-
+	<input type="hidden" id="recordFlag" value="record">
 	<div class="qt-parentcontainer">
 		<!-- QT MENUBAR TOP ================================ -->
 		<div class="qt-menubar-top  qt-content-primary hide-on-large-and-down">
@@ -846,7 +846,7 @@ img.clipImg {
 				return;
 			}
 			settings[sampleNo - 1] && settings[sampleNo - 1](); //$('.sample').eq(0).text()
-			stage.play('resources/effect/example/audio/samples/' + 'test2.wav');
+			stage.play('resources/effect/example/audio/samples/' + '나비야.wav');
 		}
 
 		var cBHandler = function() {

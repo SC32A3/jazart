@@ -574,15 +574,16 @@ img.clipImg {
 											</div>
 											<div>
 											<form action="myfileinput" id="fileinput" enctype="multipart/form-data">
-											<div class="file_input">
+											<div class="file_input" style="text-align: center">
 														 <label> File Load <input
 															type="file" name="upload1"
 															id="upload1">
 														</label> <input type="text" id="upload2" name="upload2" readonly="readonly"
 															title="File Route">
 													</div>
+													<br>
 											</div>
-											<input type="button" value="conversion" id="gogo" />
+											<div style="text-align: right; padding-right:50px; "><input type="button" value="conversion" id="gogo" /></div>
 											</form>
 											<script>
 												(function(i, s, o, g, r, a, m) {

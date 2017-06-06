@@ -190,7 +190,7 @@ public class ComposeController {
 			//MultipartFile multipartFile = upload[i];
 			if (!upload.isEmpty()) {
 				String originalFile = upload.getOriginalFilename();
-				String savedfile = FileService2.saveFile(upload, uploadPath4);
+				String savedfile = FileService2.saveFile(upload, uploadPath3);
 				int result = sr.updateSongInfo2(songnum, originalFile, savedfile);
 			}
 		//}

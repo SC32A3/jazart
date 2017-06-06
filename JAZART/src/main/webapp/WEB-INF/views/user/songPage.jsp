@@ -43,8 +43,14 @@
 <link rel="stylesheet" href="resources/css/qt-typography.css">
 
 <style type="text/css">
+#albumart { margin : 0 auto; }
+
 .s_picture{
 	background-color: beige;
+}
+
+.albumart {
+	margin: 0 auto;
 }
 
 .replyArea {

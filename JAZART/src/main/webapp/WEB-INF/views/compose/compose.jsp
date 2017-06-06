@@ -223,6 +223,18 @@ img.clipImg {
 <script type="text/javascript">
 	var files = "";
 	$(function() {
+		
+		$("#setting").click(function() {
+			$.ajax({
+				url : "setting",
+				type : "get",
+				success : function(resp) {
+				},
+				error : function(resp) {
+				}
+			});
+		});
+		
 		var lev = '${lev}';
 		if (lev == 0) {
 			document.lev.action = "mySrc";
@@ -498,6 +510,7 @@ img.clipImg {
 											[제어판]-[소리]<br> -[녹음 탭]-[마이크]<br> 마우스 오른쪽 클릭<br>
 											'기본 장치로 설정'
 										</p>
+										<button id="setting">Setting</button>
 									</div>
 								</div>
 							</div>
