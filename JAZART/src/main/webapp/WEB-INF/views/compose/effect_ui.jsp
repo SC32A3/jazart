@@ -846,7 +846,7 @@ img.clipImg {
 				return;
 			}
 			settings[sampleNo - 1] && settings[sampleNo - 1](); //$('.sample').eq(0).text()
-			stage.play('resources/effect/example/audio/samples/' + '나비야.wav');
+			stage.play('resources/effect/example/audio/samples/' + 'aircraft.wav');
 		}
 
 		var cBHandler = function() {

@@ -63,7 +63,7 @@ public class ComposeController {
 	final String uploadPath3 = "/userSource"; // 서버 레코딩 경로
 	final String uploadPath4 = "/userComplete"; // 서버 레코딩 경로
 	final String beatFolder1 = "/MusicSource/ballad1"; //추천비트 경로1 고급(lev0)
-	final String beatFolder2 = "/MusicSource/hiphop1"; //추천비트 경로2 초급(lev1)
+	final String beatFolder2 = "/MusicSource/disco1"; //추천비트 경로2 초급(lev1)
 
 	@RequestMapping(value = "start", method = RequestMethod.GET)
 	public String start() {

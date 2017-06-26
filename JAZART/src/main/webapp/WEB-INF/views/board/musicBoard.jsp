@@ -82,6 +82,31 @@
 			}
 		});
 	}
+	function addSongList(songnum) {
+		var snum = songnum;
+
+		$.ajax({
+			method : "get",
+			url : "addSongList",
+			data : {
+				"songnum" : snum
+			},
+			success : function(resp) {
+				if (resp == 1) {
+					alert('추가되었습니다');
+				} else if (resp == 2) {
+					alert('이미추가된곡입니다');
+				} else if (resp == 3) {
+					alert('로그인후 이용해주세요');
+				} else if (resp == 0) {
+					alert('실패');
+				}
+			},
+			error : function(resp) {
+				alert(resp);
+			}
+		});
+	}
 </script>
 </head>
 <body>
@@ -278,12 +303,14 @@
 													</p>
 													<div class="qt-more">
 														<p class="qt-ellipsis-2">${allList.song_desc}
-															<a style="float: right;" class="icon dripicons-heart"
-																href="javascript:recommend(${allList.songnum})"></a> <a
-																style="float: right;" class="icon dripicons-user"
-																href="artistPage?song_nickname=${allList.song_nickname}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a><a
-																style="float: right;" class="icon dripicons-search"
-																href="songPage?songnum=${allList.songnum}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+															<a style="float: right;" href="javascript:addSongList(${allList.songnum})" class="dripicons-cart"></a>
+															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+															<a style="float: right;"class="icon dripicons-heart" href="javascript:recommend(${allList.songnum})">
+															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+															<a style="float: right;" class="icon dripicons-user" href="artistPage?song_nickname=${allList.song_nickname}">
+															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+															<a style="float: right;" class="icon dripicons-search" href="songPage?songnum=${allList.songnum}">
+															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 														</p>
 														<%-- <a
 														style="float: right;"
@@ -442,9 +469,9 @@
 					height="302">
 			</div>
 		</div>
-	
+
 	</div>
-	
+
 	<!-- PLAYER SIDEBAR ========================= -->
 	<div id="channelslist"
 		class="side-nav qt-content-primary qt-right-sidebar">
@@ -575,4 +602,3 @@
 
 </body>
 </html>
-
